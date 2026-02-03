@@ -1,0 +1,43 @@
+.gallery-page-wrap {
+  background-color: @section-bg;
+  .gallery-menu {
+    border-bottom: 5px solid @brand-color;
+  }
+  .single-album-wraper {
+    margin-bottom: 150px;
+    .album-heading {
+      position: relative;
+      margin-bottom: 90px;
+      h2 {
+        .font-size(48);
+        .font-weight(100);
+        display: inline-block;
+        position: relative;
+        margin-bottom: 30px;
+        &:after {
+          background-color: @ash-black;
+          content: '';
+          left: 0;
+          height: 2px;
+          position: absolute;
+          width: calc(100% - 25px);
+          bottom: 0;
+        }
+        a {
+          color: @title-color;
+        }
+      }
+      a.btn-brand {
+        text-transform: capitalize;
+        .font-weight(400);
+        position: absolute;
+        right: 0;
+        top: 15px;
+        &:hover,&:focus{
+          background-color: @brand-color-light;
+          color: @white;
+        }
+      }
+    }
+  }
+}

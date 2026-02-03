@@ -1,0 +1,220 @@
+<?php 
+	session_start();
+	require "../php/conexion.php";
+	if (isset($_SESSION['admin_unicab'])) {
+?>
+<!DOCTYPE HTML>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+<title>Administrador - Web Unicab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<link rel="shortcut icon" type="image/x-icon" href="../../images/fave-icon.png"/>
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+<!-- Custom CSS -->
+<link href="../css/style.css" rel='stylesheet' type='text/css' />
+
+<!-- font-awesome icons CSS -->
+<link href="../css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons CSS -->
+
+ <!-- side nav css file -->
+ <link href='../css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
+ <!-- side nav css file -->
+ 
+ <!-- js-->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/modernizr.custom.js"></script>
+
+<!--webfonts-->
+<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+<!--//webfonts--> 
+
+<!-- Metis Menu -->
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/custom.js"></script>
+<link href="../css/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!-- menu -->
+		<?php 
+			require "include/header.php";
+		?>
+		<!-- menu -->
+		
+		<!-- header -->
+		<?php 
+			require "include/menu.php";
+		?>
+		<!-- header -->
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="forms">
+					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+						<div class="form-title">
+							<h4>Administrador Chat</h4>	
+						</div>
+					</div>
+				</div>
+				<div class="forms">
+					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+						<div class="form-body">
+							<div class="embed-responsive embed-responsive-16by9">
+							  <iframe class="embed-responsive-item" src="https://dashboard.tawk.to/#/dashboard" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<?php 
+			require "include/footer.php";
+		?>
+        <!--//footer-->
+	</div>
+	<!-- side nav js -->
+	<script src='../js/SidebarNav.min.js' type='text/javascript'></script>
+	<script>
+      $('.sidebar-menu').SidebarNav()
+    </script>
+	<!-- //side nav js -->
+	
+	<!-- Classie --><!-- for toggle left push menu script -->
+		<script src="../js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				body = document.body;
+				
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+			
+			function disableOther( button ) {
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+			}
+		</script>
+	<!-- //Classie --><!-- //for toggle left push menu script -->
+	
+	<!--scrolling js-->
+	<script src="../js/jquery.nicescroll.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!--//scrolling js-->
+
+	<!-- Bootstrap Core JavaScript -->
+   <script src="../js/bootstrap.js"> </script>
+   <script type="text/javascript" src="../js/MaxLength.min.js"></script>
+
+   <script type="text/javascript">
+   		function Validar(){
+			var nombre=document.getElementById('NombreU').value;
+			var apellido=document.getElementById('ApellidoU').value;
+			var correo=document.getElementById('CorreoU').value;
+
+			emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+			
+			if (nombre=="") {
+ 				$('#alert').html('<center><strong>Advertencia</strong> El nombre del usuario es Obligatorio</center>').slideDown(500);
+ 				return false;
+			}else{
+		   		$('#alert').html('').slideUp(300);			
+			}
+
+			if (apellido=="") {
+				$('#alert').html('<center><strong>Advertencia</strong> El apellido del usuario es Obligatorio</center>').slideDown(500);
+				return false;
+			}else{
+		   		$('#alert').html('').slideUp(300);			
+			}
+
+			if (emailRegex.test(correo)) {
+		 		$('#alert').html('').slideUp(300);	
+     		}else {
+       			$('#alert').html('<center><strong>Advertencia</strong> El correo no tiene el formato correcto</center>').slideDown(500);
+		 		$('#usuario').focus();
+   			return false;
+     		}
+
+     		if (correo=="") {
+				$('#alert').html('<center><strong>Advertencia</strong> El Correo Electr贸nico es Obligatorio</center>').slideDown(500);
+				return false;
+			}else{
+		   		$('#alert').html('').slideUp(300);			
+			}
+		}
+   </script>
+
+	<script type="text/javascript">
+	    $(function () {
+	        $("#NombreU").MaxLength(
+	        {
+	            MaxLength: 50,
+	            DisplayCharacterCount: false	
+	        });
+
+	        $("#ApellidoU").MaxLength(
+	        {
+	            MaxLength: 50,
+	            DisplayCharacterCount: false	
+	        });
+
+	        $("#CorreoU").MaxLength(
+	        {
+	            MaxLength: 100,
+	            DisplayCharacterCount: false	
+	        });
+
+	        $("#PassU").MaxLength(
+	        {
+	            MaxLength: 60,
+	            DisplayCharacterCount: false	
+	        });
+	    });
+	</script>
+
+	<!-- mostrar o ocultar -->
+	<script type="text/javascript">
+	        $(document).ready(function(){
+	        	
+	        	$(document).ready(function(){
+					$("#mostrarPerfil").on( "click", function() {
+						$('#perfil_nueva').show();
+					 });
+					$("#ocultarPerfil").on( "click", function() {
+						$('#perfil_nueva').hide();
+					});
+				});
+
+				$(document).ready(function(){
+					$("#mostrarPass").on( "click", function() {
+						$('#pass_nueva').show();
+					 });
+					$("#ocultarPass").on( "click", function() {
+						$('#pass_nueva').hide();
+					});
+				});
+			});
+	</script>
+<!-- mostrar o ocultar -->
+</body>
+</html>
+<?php 
+}else{
+	echo "<script>alert('Debe iniciar sesión');</script>";
+	echo "<script>location.href='../../login_registro.php'</script>";
+}
+?>

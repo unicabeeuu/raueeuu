@@ -1,0 +1,159 @@
+/*Creado por GHF*/
+
+#bodyadm {
+	width: 100%;
+	height: 100%;
+	/*background-image: url(../img/fondoh_1.png);*/
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+#cont {
+	display: flex;
+	justify-content: space-around;
+}
+.fld1 {
+	background-color:white;
+	opacity: 0.7;
+}
+label {
+	color: blue;
+}
+fieldset {
+	border: 2px double green;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;	
+	border-radius: 8px;
+}
+legend {
+	 text-align: center;
+	 font-weight: bold;
+	 font-size: 18pt;
+	 color: #B4045F;
+	 text-shadow: 0px 0px 10px #BA55D3;
+}
+#resumen {
+	list-style-image: url(../img/bd30.png); 
+	background: lightgreen;
+	padding: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
+#resumen li {
+	background: #cce5ff;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+.mprincipal {
+	list-style-image: url(../img/m26.png);
+	font-weight: bold !important;
+	font-size: 20px !important;
+}
+.msecund {
+	list-style-image: url(../img/bd30.png); 
+	background: lightgreen;
+	padding: 20px;
+	font-weight: bold;
+	font-size: 18px;
+}
+.msecund li {
+	background: #cce5ff;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+.tr tbody tr:nth-child(odd) {
+	background: #A9F5BC;
+}
+.tr tbody tr:nth-child(even) {
+	background: #A9BCF5;
+}
+.msg {
+	color: red;
+}
+.btn1, .btn2 {
+	color: blue;
+	background: white;
+	border: 2px solid #0099CC;
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	font-size: 14px;
+}
+.btn1:hover {
+	background-color: #008CBA;
+	color: white;
+}
+.btn2:hover {
+	background-color: #228B22;
+	color: white;
+	border: 2px solid green;
+}
+#txtquery {
+	width: 90%;
+	height: 500px;
+}
+#identif, #buscar {
+    border: none;
+    border-bottom: 2px solid green;
+}
+#tblparam {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#tblest {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+#tblest .tdlargo {
+    width: 350px;
+}
+#tblest .tdcorto {
+    width: 50px;
+}
+#tblest .tdnormal {
+    width: 130px;
+}
+#tblest .tdmedia {
+    width: 100px;
+}
+#tblest .tdmediol {
+    width: 200px;
+}
+#tblest .tdelargo {
+    width: 400px;
+}
+
+.GridViewScrollHeader TH, .GridViewScrollHeader TD {
+    padding: 5px;
+    font-weight: normal;
+    background-color: #CCCCCC;
+    color: #000000;
+}
+
+.GridViewScrollItem TD {
+    padding: 5px;
+    color: #444444;
+}
+
+.GridViewScrollItemFreeze TD {
+    padding: 5px;
+    background-color: #CCCCCC;
+    color: #444444;
+}
+
+.GridViewScrollFooterFreeze TD {
+    padding: 5px;
+    color: #444444;
+}
+
+.GridviewScrollItemHover TD
+{
+    background-color: #CCCCCC;
+    color: blue;
+    cursor: pointer;
+}
+.GridviewScrollItemSelected TD
+{
+    background: #A9F5BC;
+    color: blue;
+}

@@ -1,0 +1,38 @@
+/* --== About Area Start ==-- */
+#about-area{
+    .about-area-wrapper{
+        position: relative;
+        z-index: 1;
+        .about-content-wrap{
+            background-color: @section-bg;
+            border: 10px solid @light-blue;
+            padding: 36px 10px 40px 260px;
+            .about-thumb{
+                display: none;
+            }
+            a.btn-brand{
+            margin-top: 25px;
+                &:hover{
+                    background-color: @ash-black;
+                    color: @white;
+                }
+            }
+            .section-title{
+                margin-bottom: 30px;
+            }
+        }
+        &:before{
+            background-image: url(../img/about-bg.jpg);
+            background-size: cover;
+            content: "";
+            position: absolute;
+            width: 39%;
+            height: 85%;
+            top: 50%;
+            transform: translateY(-50%);
+            left:0;
+            z-index:2
+            ;
+        }
+    }
+}

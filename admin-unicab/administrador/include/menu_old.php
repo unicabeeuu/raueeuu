@@ -1,0 +1,370 @@
+<?php 
+  //$sqlAdministrador="SELECT * FROM `administrador` WHERE `Email`='".$_SESSION['admin_unicab']."'";
+    $sqlAdministrador="SELECT * FROM `tbl_empleados` WHERE `email`='".$_SESSION['admin_unicab']."'";
+    $exeAdministrador=mysqli_query($conexion,$sqlAdministrador);
+
+    while ($rowAdmin=mysqli_fetch_array($exeAdministrador)) {
+      $id_administrador=$rowAdmin['id'];
+      $nombre=$rowAdmin['nombres'];
+      $apellido=$rowAdmin['apellidos'];
+      $email=$rowAdmin['email'];
+      $perfil=$rowAdmin['perfil'];
+    }
+?>
+<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+    <!--left-fixed -navigation-->
+    <aside class="sidebar-left">
+      <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <h1><a class="navbar-brand" href="index.php"><img src="../../assets/img/footer-logo.png" width="50%"></a></h1>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="sidebar-menu">
+              <li class="header">MENU DE NAVEGACION </li>
+              <?php  
+                    if($id_administrador == 18) {
+              ?>
+              <li class="treeview">
+                <a href="#">
+                <i class="fa fa-database"></i>
+                <span>Cambiar sistema</span>
+                <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="../../../registro/adminunicab/index.php"><i class="fa fa-angle-right"></i> AR</a></li>
+                  <li><a href="../../../registro/docenteunicab/index.php"><i class="fa fa-angle-right"></i> TU</a></li>
+                  <li><a href="../../../tickets/login.php"><i class="fa fa-angle-right"></i> Tickets</a></li>
+                </ul>
+              </li>
+              <?php  
+                    }
+                    else {
+              ?>
+              <li class="treeview">
+                <a href="index.php">
+                <i class="fa fa-home"></i> <span>Inicio</span>
+                </a>
+              </li>
+              <?php 
+                    }
+                if ($perfil == "AW" || $perfil == "SU" || $perfil == "TU_AR_AW") {
+                  ?>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span>Usuarios</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="crear-usuario.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-usuarios.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-picture-o"></i>
+                    <span>Banner</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="crear-banner.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="lista-baner.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                      <li><a href="crear-banner_us.php"><i class="fa fa-angle-right"></i> Crear us</a></li>
+                      <li><a href="lista-baner_us.php"><i class="fa fa-angle-right"></i> Listado us</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Equipo trabajo</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-mediador.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-mediadores.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-volume-control-phone"></i>
+                    <span>Directorio</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-directorio.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="lista-directorio.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-calendar"></i>
+                    <span>Calendario</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-calendario.php"><i class="fa fa-angle-right"></i> Cargar</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-weixin"></i>
+                    <span>Chat Social</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="chat-social.php"><i class="fa fa-angle-right"></i> Configurar</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-bullhorn"></i>
+                    <span>Eventos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-evento.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-eventos.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span>Noticias</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-noticia.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-noticias.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-folder-open"></i>
+                    <span>Blog</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="crear-blog.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-blog.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-commenting"></i>
+                    <span>Entrevistas</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <!--<li><a href="crear-entrevista.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-entrevistas.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                      <li>**************</a></li>-->
+                      <li><a href="informacion_preent.php"><i class="fa fa-database"></i> Data inicial</a></li>
+                      <li><a href="entrevista_putdat0.php"><i class="fa fa-calendar"></i> Agendar</a></li>
+                      <?php
+                        if($id_administrador == 2 || $id_administrador == 4 || $id_administrador == 5 || $id_administrador == 18) {
+                      ?>
+                        <li><a href="gestionar_entrevista.php"><i class="fa fa-check-square"></i> Gestionar</a></li>
+                      <?php
+                        }
+                      ?>
+                    </ul>
+                  </li>
+                  <?php
+                }else if ($perfil == "AR_AW") {
+                  ?>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-commenting"></i>
+                    <span>Entrevistas</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <!--<li><a href="crear-entrevista.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-entrevistas.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                      <li>**************</a></li>-->
+                      <li><a href="informacion_preent.php"><i class="fa fa-database"></i> Data inicial</a></li>
+                      <li><a href="entrevista_putdat0.php"><i class="fa fa-calendar"></i> Agendar</a></li>
+                      <?php
+                        if($id_administrador == 2 || $id_administrador == 4 || $id_administrador == 5 || $id_administrador == 18) {
+                      ?>
+                        <li><a href="gestionar_entrevista.php"><i class="fa fa-check-square"></i> Gestionar</a></li>
+                      <?php
+                        }
+                      ?>
+                    </ul>
+                  </li>
+                  <li class="treeview">
+                    <a href="adm2_1.php">
+                    <i class="fa fa-users"></i>
+                    <span>Base de datos</span>
+                    </a>
+                  </li>
+                  <li class="treeview">
+                    <a href='desem_estud_per_getdat.php'>
+                    <i class='fa fa-bar-chart '></i> <span>Desempeño estudiantes</span>
+                    </a>
+                  </li>
+                  <li class="treeview">
+                    <a href='observaciones_est_putdat.php'>
+                    <i class='fa fa-pencil-square-o'></i> <span>Observaciones estudiantes</span>
+                    </a>
+                  </li>
+                  <?php
+                }else if ($perfil == "PS") {
+                  ?>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-commenting"></i>
+                    <span>Entrevistas</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <!--<li><a href="crear-entrevista.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      
+                      <li>**************</a></li>-->
+                      <li><a href="informacion_preent.php"><i class="fa fa-database"></i> Data inicial</a></li>
+                      <li><a href="entrevista_putdat0.php"><i class="fa fa-calendar"></i> Agendar</a></li>
+                      <?php
+                        if($id_administrador == 2 || $id_administrador == 4 || $id_administrador == 5 || $id_administrador == 18) {
+                      ?>
+                        <li><a href="gestionar_entrevista.php"><i class="fa fa-check-square"></i> Gestionar</a></li>
+                        <li><a href="entrevistas_getdat.php"><i class="fa fa-calendar-check-o"></i> Ver agenda</a></li>
+                      <?php
+                        }
+                      ?>
+                      <li><a href="listado-entrevistas.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+                  <li class="treeview">
+                    <a href="adm2_1.php">
+                    <i class="fa fa-users"></i>
+                    <span>Base de datos</span>
+                    </a>
+                  </li>
+                  <li class="treeview">
+                    <a href='desem_estud_per_getdat.php'>
+                    <i class='fa fa-bar-chart'></i> <span>Desempeño estudiantes</span>
+                    </a>
+                  </li>
+                  <li class="treeview">
+                    <a href='observaciones_est_putdat.php'>
+                    <i class='fa fa-pencil-square-o'></i> <span>Observaciones estudiantes</span>
+                    </a>
+                  </li>
+                  <?php
+                    if($id_administrador == 31 || $id_administrador == 18) {
+                  ?>
+                  <li class="treeview">
+                    <a href='programar_val_putdat.php'>
+                    <i class='fa fa-calendar-check-o'></i> <span>Programar validaciones</span>
+                    </a>
+                  </li>
+                  <?php
+                    }
+                  ?>
+                  <?php
+                }else if ($perfil == "FI") {
+                  ?>
+                  <li class="treeview">
+                    <a href="adm2_1.php">
+                    <i class="fa fa-users"></i>
+                    <span>Base de datos</span>
+                    </a>
+                  </li>
+                  <li class='treeview'>
+					  <a href='ordenes_getdat.php'>
+					  <i class='fa fa-usd'></i> <span>Ordenes de pago</span>
+					  </a>
+				    </li>
+                  <?php
+                }else if ($perfil == "PU" || $perfil == "ST_PU") {
+                  ?>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-picture-o"></i>
+                    <span>Banner</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="crear-banner.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="lista-baner.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-calendar"></i>
+                    <span>Calendario</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-calendario.php"><i class="fa fa-angle-right"></i> Cargar</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-weixin"></i>
+                    <span>Chat Social</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="chat-social.php"><i class="fa fa-angle-right"></i> Configurar</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-bullhorn"></i>
+                    <span>Eventos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-evento.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-eventos.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span>Noticias</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="registro-noticia.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-noticias.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+                  <li class="treeview">
+                    <a href="#">
+                    <i class="fa fa-folder-open"></i>
+                    <span>Blog</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="crear-blog.php"><i class="fa fa-angle-right"></i> Crear</a></li>
+                      <li><a href="listado-blog.php"><i class="fa fa-angle-right"></i> Listado</a></li>
+                    </ul>
+                  </li>
+                  <?php
+                }
+
+              ?>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </nav>
+    </aside>
+  </div>

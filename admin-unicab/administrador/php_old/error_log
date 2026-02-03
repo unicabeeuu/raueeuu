@@ -1,0 +1,8 @@
+[20-Dec-2019 16:10:29 UTC] PHP Notice:  Undefined variable: destino in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/crearNoticia.php on line 26
+[20-Dec-2019 16:10:29 UTC] PHP Warning:  copy(): Filename cannot be empty in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/crearNoticia.php on line 26
+[20-Dec-2019 16:13:32 UTC] PHP Notice:  Undefined variable: destino in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/crearNoticia.php on line 26
+[20-Dec-2019 16:13:32 UTC] PHP Warning:  copy(): Filename cannot be empty in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/crearNoticia.php on line 26
+[20-Dec-2019 16:18:21 UTC] PHP Warning:  copy(assets/img/imgnoticias/5d49f80886738.jpg): failed to open stream: No such file or directory in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/actualizarNoticia.php on line 29
+[21-Feb-2020 22:58:20 America/Bogota] PHP Warning:  copy(../../../assets/img/img-eventos/Captura de Pantalla 2020-02-21 a la(s) 10.57.31 p. m..png): failed to open stream: No such file or directory in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/crearEvento.php on line 41
+[22-Feb-2020 08:19:57 America/Bogota] PHP Warning:  copy(../../../assets/img/img-eventos/163-1br.png): failed to open stream: No such file or directory in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/crearEvento.php on line 41
+[02-Mar-2020 23:44:53 UTC] PHP Warning:  copy(assets/img/imgblog/candidatos_personero_2020_1.png): failed to open stream: No such file or directory in /home/ztfz3yq8doy6/public_html/admin-unicab/administrador/php/actualizarBlog.php on line 29

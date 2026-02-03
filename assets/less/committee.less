@@ -1,0 +1,64 @@
+/* Committee Page Start */
+.committee-content-wrap {
+  .committee-member-list {
+    margin-top: -80px;
+  }
+}
+
+.single-committee-member {
+  margin-top: 80px;
+  text-align: center;
+  color: @white;
+  .transition(0.4s);
+  .commitee-thumb{
+    background-color: @black;
+  }
+  img {
+    .transition(0.4s);
+  }
+  h3 {
+    background-color: @brand-color;
+    .font-size(26);
+    .font-weight(700);
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 35px 5px;
+    margin: -90px 25px 0;
+    z-index: 1;
+    position: relative;
+    .transition(0.4s);
+    .committee-deg {
+      display: block;
+      .font-size(22);
+      line-height: 1;
+      .font-weight(400);
+      text-transform: capitalize;
+      margin-top: 10px;
+    }
+    &:hover{
+      background-color: @ash-black;
+    }
+  }
+  &:hover {
+    transform: translateY(-5px);
+    img {
+      .box-shadow(0px 8px 14px 0px rgba(0, 0, 0, 0.15));
+      .opacity(0.7);
+    }
+  }
+}
+
+.col-lg-3 {
+  .single-committee-member {
+    h3 {
+      .font-size(@font-size-base);
+      line-height: 1;
+      padding: 25px 5px;
+      margin-top: -60px;
+      .committee-deg {
+        .font-size(14);
+        line-height: 1;
+      }
+    }
+  }
+}

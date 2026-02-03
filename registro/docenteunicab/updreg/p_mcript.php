@@ -1,0 +1,14 @@
+<?php 
+	include "mcript.php";
+	header("Cache-Control: no-cache, must-revalidate");
+	header("Expires: Sat, 1 Jul 2000 05:00:00 GMT");	//https://unicab.org/registro/docenteunicab/updreg/p_mcript.php?d=1057606165&de=NA
+ 
+	// Como usar las funciones para encriptar y desencriptar. 
+	$dato = "1014259647"; 	
+	//Encripta información:
+	//$dato_encriptado = $gen_enc($dato);	$dato_encriptado = 'UXFOzGfHKtZ0AiHOEHGKYgieVUnlyshLSPxaFyR/VMejnSRN186QAWOYaWyrEKgIABnLcSr9wluLX6M2paqOLXA3t5tAyJ/lF/GCcjaJW+mZe2WYdHoSSDXQ7sZoUnuUHvd/ViiPd2hWu7rqhZz9fwB8IpcifYs64wjYglKnfaTsS2vWqbiY4r48YYqur79yCNBL1VZX84wJWkU67X41Lw==';
+	$dato_desencriptado = $dev_enc($dato_encriptado);	
+	echo 'Dato encriptado: '. $dato_encriptado . '<br>'; 	//echo 'Dato encriptado entrada: '. $dato_encriptado_entrada . '<br>'; 
+	echo 'Dato desencriptado: '. $dato_desencriptado . '<br>'; 	 		echo '#############################DATO A ENCRIPTAR#############################<br>'; 	$datoAEncriptar = $_REQUEST['d'];	$dato_encriptado = $gen_enc($datoAEncriptar);	echo 'Dato a encriptar: '.$datoAEncriptar.' Dato encriptado: '. $dato_encriptado . '<br>';		echo '#############################DATO A DESENCRIPTAR#############################<br>'; 	$datoADesencriptar = $_REQUEST['de'];	echo 'Dato a desencriptar: '. $datoADesencriptar . '<br>';	if ($datoADesencriptar != "NA") {		$dato_desencriptado = $dev_enc($datoADesencriptar);		echo 'Dato desencriptado: '. $dato_desencriptado . '<br>';	}	
+	//echo "IV generado: " . $getIV(); 
+?><html>	<head>		<script type="text/javascript" src="js/jquery.min.js"></script>				<script>			function desencriptar() {				var de = $("#de").val();				console.log(de);				$.ajax({            		type:"POST",            		url:"p_mcript_desencripta.php",            		data:"de=" + de,            		success:function(r) {						console.log(r);            		    $("#pDesencriptar").html(r);            		}            	});			}						function encriptar() {				var d = $("#d").val();				$.ajax({            		type:"POST",            		url:"p_mcript_encripta.php",            		data:"d=" + d,            		success:function(r) {            		    $("#pEncriptar").html(r);            		}            	});			}		</script>	</head>	<body>		<br>		<fieldset style="background: lightgreen;">			<legend>Ingrese dato a encriptar</legend>			<p></p>			<p><textarea id="d" rows="5" cols="150"></textarea></p>			<p>				<button onclick="encriptar();">Encriptar</button>			</p>			<p id="pEncriptar"></p>		</fieldset><br>				<fieldset style="background: lightyellow;">			<legend>Ingrese dato a desencriptar</legend>			<p></p>			<p><textarea id="de" rows="5" cols="150"></textarea></p>			<p>				<button onclick="desencriptar();">Desencriptar</button>			</p>			<p id="pDesencriptar"></p>		</fieldset><br>			</body></html>

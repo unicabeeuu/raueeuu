@@ -1,0 +1,144 @@
+#page-content-wrap {
+  .about-page-content-wrap {
+    padding-top: 170px;
+    background-color: @section-bg;
+    .single-about-text {
+      background-color: @white;
+      padding: 50px;
+      position: relative;
+      .font-size(@font-size-base);
+      margin-top: 150px;
+      .year {
+        .font-size(100);
+        line-height: 1;
+        color: @white;
+        text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: -75px;
+        right: 25px;
+      }
+      h2 {
+        .font-size(36);
+        line-height: 1;
+        .font-weight(700);
+        margin-bottom: 20px;
+      }
+      .img-left{
+        margin-top: -100px;
+        margin-left: -97px;
+      }
+      .img-right{
+        margin-top: -100px;
+        margin-right: -118px;
+      }
+      &:first-child {
+        img {
+          filter: grayscale(100%);
+        }
+      }
+      &:nth-child(2n){
+        .year{
+          right: auto;
+          left: 0px;
+        }
+      }
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+  }
+  .our-honorable-commitee{
+    .honorable-committee-list{
+      .single-committee-member{
+        margin-top:50px;
+      }
+    }
+  }
+  .about-page-area-title{
+    margin-bottom: 50px;
+    h2{
+      .font-size(36);
+      line-height: 1;
+    }
+  }
+
+  .people-to-say{
+    background-color: @section-bg;
+    .about-page-area-title{
+      margin-bottom: 50px;
+    }
+    .single-testimonial-wrap{
+      background-color: @white;
+      position: relative;
+      padding: 0 20px 65px;
+      margin: 97px 0 40px;
+      .transition(0.4s);
+      text-align: center;
+      .people-thumb{
+        position: absolute;
+        left:50%;
+        top: 0;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        margin-top: -65px;
+        img{
+          width:130px;
+          height:130px;
+          .border-radius(50%);
+          .transition(0.4s);
+          border: 4px solid transparent;
+        }
+      }
+      h4{
+        .font-size(24);
+        line-height: 1;
+        .font-weight(700);
+        background-color: @brand-color;
+        color: @white;
+        padding: 20px 10px;
+        margin-bottom: 0;
+        position: absolute;
+        right: 0;
+        bottom: -40px;
+        width: calc(100% - 30px);
+        .people-deg{
+          .font-size(15);
+          line-height:1;
+          .font-weight(400);
+          color: @white;
+          .opacity(0.8);
+          letter-spacing: 0.7px;
+          display: block;
+          margin-top: 10px;
+        }
+      }
+      .quote-icon{
+        display: inline-block;
+        margin: 90px 0 15px;
+        &:after{
+          background-image: url(../img/about-page/quote.png);
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          content: '';
+          width:68px;
+          display: block;
+          height:52px;
+          text-align: center;
+        }
+      }
+      &:hover{
+        .box-shadow(0px 8px 14px 0px rgba(0, 0, 0, 0.15));
+        transform: translateY(-5px);
+        .people-thumb{
+          img{
+            border-color: @brand-color;
+          }
+        }
+      }
+    }
+  }
+}

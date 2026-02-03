@@ -1,0 +1,168 @@
+<?php
+    session_start();
+	//https://unicab.org/registro/docenteunicab/updreg/control_conf_cal_f.php?per=1
+	require("1cc3s4db.php");
+	header("Cache-Control: no-cache, must-revalidate");
+	//header("Expires: Sat, 1 Jul 2000 05:00:00 GMT");
+	//header("Refresh: 30; URL='pen_gra_upddat.php'");
+	set_time_limit(300);
+	
+//if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
+	$per = $_REQUEST['per'];
+	
+	if($per == 1) {
+	    $in = "('TP1','TP1I','TP1F')";
+	    //$idnumber1 = "TP1I";
+	    //$idnumber2 = "TP1F";
+	}
+	else if($per == 2) {
+	    $in = "('TP2','TP2I','TP2F')";
+	    //$idnumber1 = "TP2I";
+	    //$idnumber2 = "TP2F";
+	}
+	else if($per == 3) {
+	    $in = "('TP3','TP3I','TP3F')";
+	    //$idnumber1 = "TP3I";
+	    //$idnumber2 = "TP3F";
+	}
+	else if($per == 4) {
+	    $in = "('TP4','TP4I','TP4F')";
+	    //$idnumber1 = "TP4I";
+	    //$idnumber2 = "TP4F";
+	}
+	//echo $in;
+	
+	$datos = new stdClass();
+	$configurados = array();
+	$keys = ['Grado','id_gra','idnumber','BIO','FIS','SOC','NUM','ESP','ING','TEC'];
+	$i = 0;
+	
+	$bio = 0;
+	$fis = 0;
+	$soc = 0;
+	$num = 0;
+	$esp = 0;
+	$ing = 0;
+	$tec = 0;
+	
+	$cadena = "<table class='table' border='1px'><thead><tr><td>Grado</td><td>Id_gra</td><td>Idnumber</td>
+	    <td>BIO</td><td>FIS</td><td>SOC</td><td>NUM</td><td>ESP</td><td>ING</td><td>TEC</td></tr></thead><tbody>";
+	
+	$query1 = "SELECT id_grado_ra, grado_ra FROM equivalence_idgra WHERE id_grado_ra != 0 ORDER BY id_grado_ra";
+	//echo $query1;
+	$resultado=$mysqli1->query($query1);
+	while($row = $resultado->fetch_assoc()){
+		$query2 = "SELECT g.name, g.id_grado_ra, m.shortname, m.id_materia_ra, c.id_act, c.calculation1, c.idnumber 
+            FROM tbl_config_act_ok c, equivalence_idgra g, equivalence_idmat m 
+            WHERE c.id_grado = g.id_category AND c.id_pensamiento = m.id_course AND c.calculation1 != '=' 
+            AND c.idnumber IN $in AND g.id_grado_ra = ".$row['id_grado_ra']."
+            ORDER BY c.idnumber, g.id_grado_ra, m.id_materia_ra";
+        //echo $query2;
+        
+        $resultado2=$mysqli1->query($query2);
+	    while($row2 = $resultado2->fetch_assoc()){
+	        $grado = $row2['name'];
+	        $idgra = $row2['id_grado_ra'];
+	        
+	        $idnumber_t = $row2['idnumber'];
+            if($row2['id_materia_ra'] == 1 || $row2['id_materia_ra'] == 10) {
+	            if($row2['idnumber'] == 'TP1F') {
+	                $fis = $row2['id_act'];
+	            }
+	            else {
+	                $bio = $row2['id_act'];
+	            }
+	        }
+	        if($row2['id_materia_ra'] == 4 || $row2['id_materia_ra'] == 12) {
+	            $soc = $row2['id_act'];
+	        }
+	        if($row2['id_materia_ra'] == 5) {
+	            $num = $row2['id_act'];
+	        }
+	        if($row2['id_materia_ra'] == 6 || $row2['id_materia_ra'] == 15) {
+	            $esp = $row2['id_act'];
+	        }
+	        if($row2['id_materia_ra'] == 7) {
+	            $ing = $row2['id_act'];
+	        }
+	        if($row2['id_materia_ra'] == 9) {
+	            $tec = $row2['id_act'];
+	        }
+	        
+	    }
+	    $valores = [$grado,$idgra,$in,$bio,$fis,$soc,$num,$esp,$ing,$tec];
+  		$config = array_combine($keys,$valores);
+  		$configurados[$i] = $config;
+  		$i++;
+  		//$cadena = $cadena."<tr><td>".$grado."</td><td>".$idgra."</td><td>".$idnumber_b."</td><td>".$bio."</td><td>".$soc."</td><td>".$num."</td><td>".$esp."</td><td>".$ing."</td><td>".$tec."</td></tr>";
+  		$cadena = $cadena."<tr><td>".$grado."</td><td>".$idgra."</td><td>".$in."</td>";
+  		if($bio == 0) {
+  		    $cadena = $cadena."<td class='falta'>".$bio."</td>";
+  		}
+  		else {
+  		    $cadena = $cadena."<td>".$bio."</td>";
+  		}
+  		if($fis == 0) {
+  		    if($idgra == 11 || $idgra == 12 || $idgra == 17 || $idgra == 18) {
+  		        $cadena = $cadena."<td class='falta'>".$fis."</td>";
+  		    }
+  		    else {
+  		        $cadena = $cadena."<td>".$fis."</td>";
+  		    }
+  		}
+  		else {
+  		    $cadena = $cadena."<td>".$fis."</td>";
+  		}
+  		if($soc == 0) {
+  		    $cadena = $cadena."<td class='falta'>".$soc."</td>";
+  		}
+  		else {
+  		    $cadena = $cadena."<td>".$soc."</td>";
+  		}
+  		if($num == 0) {
+  		    $cadena = $cadena."<td class='falta'>".$num."</td>";
+  		}
+  		else {
+  		    $cadena = $cadena."<td>".$num."</td>";
+  		}
+  		if($esp == 0) {
+  		    $cadena = $cadena."<td class='falta'>".$esp."</td>";
+  		}
+  		else {
+  		    $cadena = $cadena."<td>".$esp."</td>";
+  		}
+  		if($ing == 0) {
+  		    $cadena = $cadena."<td class='falta'>".$ing."</td>";
+  		}
+  		else {
+  		    $cadena = $cadena."<td>".$ing."</td>";
+  		}
+  		if($tec == 0) {
+  		    if($idgra == 13 || $idgra == 14) {
+  		        $cadena = $cadena."<td>".$tec."</td>";
+  		    }
+  		    else {
+  		        $cadena = $cadena."<td class='falta'>".$tec."</td>";
+  		    }
+  		}
+  		else {
+  		    $cadena = $cadena."<td>".$tec."</td>";
+  		}
+  		
+  		$bio = 0;
+  		$fis = 0;
+    	$soc = 0;
+    	$num = 0;
+    	$esp = 0;
+    	$ing = 0;
+    	$tec = 0;
+	}
+	
+	$datos->configurados = $configurados;
+	
+	//echo json_encode($datos, JSON_UNESCAPED_UNICODE);
+	
+	$cadena = $cadena."</tbody></table>";
+	echo $cadena;
+	
+?>
