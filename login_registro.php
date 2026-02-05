@@ -41,7 +41,7 @@
 				<img src="assets/img/footer_log_blanco2025.png" width="30%">
 			</h2>
 			<div class="widget-shadow">
-				<div class="login-body">
+				<div class="login-body"> 
 					<form action="admin-unicab/php/login_registro1.php" method="POST" onsubmit="javascript:return Validar(this);" >
 						<input type="email" class="user" id="email" name="email" placeholder="Usuario &#9658; email" autofocus="" oninput="validar_email()" required>
 						<input type="password" class="lock" id="pass" name="pass"  placeholder="Password" required>

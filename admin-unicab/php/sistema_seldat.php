@@ -1,5 +1,5 @@
-<?php  
-    if($_SESSION['perfil'] == "SU") {
+<?php
+    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == "SU") { // Añade isset para verificar si 'perfil' está definido
         /* establecer el limitador de caché a 'private' */
         session_cache_limiter('private');
         $cache_limiter = session_cache_limiter();
@@ -123,7 +123,7 @@
 	<div id="page-wrapper" style="padding: 2em 2em 2.5em;">
 		<div class="main-page login-page ">
 			<h2 class="title1">
-				<img src="../../assets/img/footer_logo_blanco2025.png" width="30%">
+				<img src="../../assets/img/footer_log_blanco2025.png" width="30%">
 			</h2>
 			<div class="widget-shadow">
 				<div class="login-body">
@@ -177,8 +177,8 @@
     <!--//footer-->
 </div>
 	<!--scrolling js-->
-	<script src="admin-unicab/js/jquery.nicescroll.js"></script>
-	<script src="admin-unicab/js/scripts.js"></script>
+	<script src="../js/jquery.nicescroll.js"></script>
+	<script src="../js/scripts.js"></script>
 	<!--//scrolling js-->
 	
 </body>
