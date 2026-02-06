@@ -6,7 +6,7 @@
   FROM grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
   ON grados.id = carga_profesor.id_grado where profesores.id=".$id." ORDER BY grados.id ASC";*/
   $sql_menu="SELECT distinct e.id, e.apellidos, e.nombres, g.id as id_grado, g.grado 
-      FROM grados g, tbl_empleados e, carga_profesor cp 
+      FROM tbl_grados g, tbl_empleados e, tbl_carga_profesor cp 
       WHERE cp.id_empleado = e.id AND g.id = cp.id_grado AND cp.id_empleado = ".$id." 
       ORDER BY g.id";
       

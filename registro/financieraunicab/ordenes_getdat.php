@@ -17,7 +17,7 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		$director=$fila['dependencia'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
@@ -96,7 +96,7 @@ if (isset($_SESSION['uniprofe'])) {
         <script>
             
             $(function() {
-                //Se valida el id del empleador para mostrar la opci¨®n de generar certificados
+                //Se valida el id del empleador para mostrar la opciï¿½ï¿½n de generar certificados
                 var idemp = $("#idemp").val();
                 if(idemp == 18) {
                     
