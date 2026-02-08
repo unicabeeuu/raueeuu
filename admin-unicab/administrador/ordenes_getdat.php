@@ -22,7 +22,7 @@ if (isset($_SESSION['admin_unicab'])) {
 		
     }
 	
-	$query = "SELECT * FROM equivalence_idgra";
+	$query = "SELECT * FROM tbl_equivalence_idgra";
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);
 ?>

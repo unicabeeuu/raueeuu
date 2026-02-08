@@ -13,7 +13,7 @@ if (isset($_SESSION['admin_unicab'])) {
 		$Nombres=$rowAdmin['Nombre'];
 	}*/
 	
-	$query = "SELECT * FROM equivalence_idgra WHERE id_grado_ra NOT IN (150, 160, 170, 180, 130, 140, 0)";
+	$query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra NOT IN (150, 160, 170, 180, 130, 140, 0)";
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);
 ?>

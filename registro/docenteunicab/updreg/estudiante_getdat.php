@@ -68,7 +68,7 @@
 	   e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, m.grupo, td.tipo_documento 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, tbl_tipos_documento td, 
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -82,7 +82,7 @@
 	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, m.grupo, td.tipo_documento 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, tbl_tipos_documento td,  
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td,  
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 

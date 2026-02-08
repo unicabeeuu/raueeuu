@@ -21,7 +21,7 @@
 		ORDER BY a.grado, nombre";
 	}
 	else {
-	    $query0 = "SELECT * FROM equivalence_idgra WHERE id_category = ".$gra;
+	    $query0 = "SELECT * FROM tbl_equivalence_idgra WHERE id_category = ".$gra;
     	$resultado0=$mysqli1->query($query0);
     	while($row0 = $resultado0->fetch_assoc()){
     	    $gra1 = $row0['name'];

@@ -21,10 +21,10 @@ if (isset($_SESSION['unisuper'])) {
     }
     
     if($id == 18 || $id == 3 || $id == 43) {
-        $query = "SELECT * FROM equivalence_idgra WHERE id_category > 0 AND id_category < 32";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_category > 0 AND id_category < 32";
     }
     else {
-        $query = "SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id";
+        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id";
     }
     
     $resultado=$mysqli1->query($query);

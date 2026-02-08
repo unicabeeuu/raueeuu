@@ -52,7 +52,7 @@
 	
 	$id_est_per = "(";
 	
-	$query0 = "SELECT * FROM equivalence_idgra WHERE id_category = ".$gra;
+	$query0 = "SELECT * FROM tbl_equivalence_idgra WHERE id_category = ".$gra;
 	$resultado0=$mysqli1->query($query0);
 	while($row0 = $resultado0->fetch_assoc()){
 	    $gra1 = $row0['name'];
@@ -118,7 +118,7 @@
 	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -130,7 +130,7 @@
 	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -146,7 +146,7 @@
 	    /*$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -163,7 +163,7 @@
 	    /*$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 

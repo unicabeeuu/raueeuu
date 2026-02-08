@@ -24,7 +24,7 @@ if (isset($_SESSION['uniprofe'])) {
     //echo $id;
     
 	$query1 = "SELECT q.* 
-		FROM carga_profesor cp, querys_ra q, profesores p, equivalence_idgra eg, equivalence_idmat em 
+		FROM carga_profesor cp, querys_ra q, profesores p, tbl_equivalence_idgra eg, equivalence_idmat em 
 		WHERE cp.id_grado = eg.id_grado_ra AND eg.id_category = q.condicion2 AND cp.id_materia = em.id_materia_ra AND em.id_course = q.condicion4 
 		AND cp.id_profesor = p.id 
 		AND q.id > 25 AND p.email_institucional = '".$_SESSION['uniprofe']."' 
@@ -234,7 +234,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesi¨®n');</script>";
+	echo "<script>alert('Debes iniciar sesiï¿½ï¿½n');</script>";
 	echo "<script>location.href='../../../login_registro.php'</script>";
 }
 ?>

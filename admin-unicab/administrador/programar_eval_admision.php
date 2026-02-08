@@ -34,7 +34,7 @@
 	$hora = date("H",$fecha);
 	$minutos = date("i",$fecha);
 	
-	$query = "SELECT * FROM equivalence_idgra";
+	$query = "SELECT * FROM tbl_equivalence_idgra";
     $res_query = mysqli_query($conexion, $query);
     
     $querym = "SELECT * FROM tbl_medios_llegada";

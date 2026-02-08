@@ -23,7 +23,7 @@ if (isset($_SESSION['uniprofe'])) {
 		
     }
     
-    $query = "SELECT * FROM equivalence_idgra";
+    $query = "SELECT * FROM tbl_equivalence_idgra";
     
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);

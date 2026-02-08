@@ -233,16 +233,16 @@
     						
 						    if($id == 18) {
 						        $query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra, ee.id_registro 
-								FROM ".$tbl_nmt." a, equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
+								FROM ".$tbl_nmt." a, tbl_equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course AND a.id_est = ee.id_moodle";
 						    }
 						    else {
 						        $query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra, ee.id_registro 
-								FROM ".$tbl_nmt." a, equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
+								FROM ".$tbl_nmt." a, tbl_equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course AND a.id_est = ee.id_moodle AND a.id_tutor = ".$id;
 						    }
 							/*$query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra, ee.id_registro 
-								FROM ".$tbl_nmt." a, equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
+								FROM ".$tbl_nmt." a, tbl_equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course AND a.id_est = ee.id_moodle";*/
 							//echo $query1;
 							
@@ -426,14 +426,14 @@
 							    $query_en1 = "INSERT INTO ".$tbl_nt_nr." 
     							SELECT mt.id_est, mt.lastname, mt.firstname, g.name, m.shortname, mt.periodo_ra, m.id_materia_ra, g.id_grado_ra, 
     							0 nota_actual, mt.calificacion 
-    							FROM ".$tbl_nmt." mt, equivalence_idgra g, equivalence_idmat m 
+    							FROM ".$tbl_nmt." mt, tbl_equivalence_idgra g, equivalence_idmat m 
     							WHERE mt.id_grado = g.id_category AND mt.id = m.id_course AND mt.id_est NOT IN (SELECT id_moodle FROM equivalence_idest)";
 							}
 							else {
 							    $query_en1 = "INSERT INTO ".$tbl_nt_nr." 
     							SELECT mt.id_est, mt.lastname, mt.firstname, g.name, m.shortname, mt.periodo_ra, m.id_materia_ra, g.id_grado_ra, 
     							0 nota_actual, mt.calificacion, mt.id_tutor 
-    							FROM ".$tbl_nmt." mt, equivalence_idgra g, equivalence_idmat m 
+    							FROM ".$tbl_nmt." mt, tbl_equivalence_idgra g, equivalence_idmat m 
     							WHERE mt.id_grado = g.id_category AND mt.id = m.id_course AND mt.id_est NOT IN (SELECT id_moodle FROM equivalence_idest) 
     							AND mt.id_tutor = ".$id;
 							}

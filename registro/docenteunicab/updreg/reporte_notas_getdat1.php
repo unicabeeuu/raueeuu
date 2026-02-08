@@ -133,7 +133,7 @@
     if(!$id || $id == "0") {
         $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a, tbl_tipos_documento td  
@@ -143,7 +143,7 @@
     else {
         $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a, tbl_tipos_documento td  
