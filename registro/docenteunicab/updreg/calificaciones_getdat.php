@@ -12,7 +12,7 @@ when '1PT' then '1' when '2PT' then '2' when '3PT' then '3' when '4PT' then '4'
 when '1TT' then '1' when '2TT' then '2' when '3TT' then '3' when '4TT' then '4' else gi.itemname end as Periodo_RA, 
 cast(ifnull(gg.finalgrade, 0) as signed) as Calificación 
 FROM mood_user u, mood_role_assignments ra, mood_context ct, mood_role r, mood_course c, mood_course_categories cc, 
-mood_equivalence_idgra eg, mood_equivalence_idmat em, mood_grade_items gi, mood_grade_grades gg  
+mood_tbl_equivalence_idgra eg, mood_equivalence_idmat em, mood_grade_items gi, mood_grade_grades gg  
 WHERE u.id = ra.userid AND ra.contextid = ct.id AND ra.roleid = r.id AND ct.instanceid = c.id AND c.category = cc.id 
 AND cc.id = eg.id_category AND c.id = em.id_course AND gi.courseid = c.id AND gi.id = gg.itemid AND gg.userid = u.id 
 AND ct.contextlevel = 50 AND ra.roleid = 5 AND cc.id IN (15, 16, 17) AND c.id IN (95, 97, 99) AND gi.itemtype = 'category' 

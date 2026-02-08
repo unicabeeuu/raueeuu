@@ -81,7 +81,7 @@
 	//echo $idest_m;
 	
 	//Se busca el id grado de moodle
-	$queryr2 = "SELECT id_category FROM equivalence_idgra WHERE id_grado_ra = '$idgra'";
+	$queryr2 = "SELECT id_category FROM tbl_equivalence_idgra WHERE id_grado_ra = '$idgra'";
 	//echo $queryr2;
 	$resultado_r2=$mysqli1->query($queryr2);
 	while($row2 = $resultado_r2->fetch_assoc()){
@@ -138,7 +138,7 @@
             	when 'Once 11°FIS1' then '55999' when 'Once 11°FIS2' then '55999' when 'Once 11°FIS3' then '55999' when 'Once 11°FIS4' then '55999' 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
             FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, equivalence_idgra eg, equivalence_idest ee 
+            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['uniprofe']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -160,7 +160,7 @@
             	when 'Once 11°FIS1' then '55999' when 'Once 11°FIS2' then '55999' when 'Once 11°FIS3' then '55999' when 'Once 11°FIS4' then '55999' 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
             FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, equivalence_idgra eg, equivalence_idest ee 
+            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['unisuper']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -182,7 +182,7 @@
             	when 'Once 11°FIS1' then '55999' when 'Once 11°FIS2' then '55999' when 'Once 11°FIS3' then '55999' when 'Once 11°FIS4' then '55999' 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
             FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, equivalence_idgra eg, equivalence_idest ee 
+            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['admin_unicab']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -215,7 +215,7 @@
             	when 'Once 11°FIS1' then '55999' when 'Once 11°FIS2' then '55999' when 'Once 11°FIS3' then '55999' when 'Once 11°FIS4' then '55999' 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
             FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, equivalence_idgra eg, equivalence_idest ee 
+            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['uniprofe']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
@@ -238,7 +238,7 @@
             	when 'Once 11°FIS1' then '55999' when 'Once 11°FIS2' then '55999' when 'Once 11°FIS3' then '55999' when 'Once 11°FIS4' then '55999' 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
             FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, equivalence_idgra eg, equivalence_idest ee 
+            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['unisuper']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
@@ -261,7 +261,7 @@
             	when 'Once 11°FIS1' then '55999' when 'Once 11°FIS2' then '55999' when 'Once 11°FIS3' then '55999' when 'Once 11°FIS4' then '55999' 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
             FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, equivalence_idgra eg, equivalence_idest ee 
+            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['admin_unicab']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
@@ -422,4 +422,3 @@
 }*/
 
 ?>
-

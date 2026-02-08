@@ -39,7 +39,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	//echo $nombre_completo;
 	
 	//Se consulta el nombre del grado
-	$sql_grado = "SELECT * FROM equivalence_idgra WHERE id_grado_ra = $idgra";
+	$sql_grado = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = $idgra";
 	//echo $sql_grado;
 	$exe_grado = mysqli_query($conexion,$sql_grado);
 	while ($row_grado = mysqli_fetch_array($exe_grado)) {
