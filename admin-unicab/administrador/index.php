@@ -39,7 +39,7 @@
     //numero blog
 
     //numero entrevistas
-    $sql_entrevista="SELECT COUNT(*) as 'total_entrevistas' FROM `entrevistas`";
+    $sql_entrevista="SELECT COUNT(*) as 'total_entrevistas' FROM `tbl_entrevistas`";
     $exe_entrevista=mysqli_query($conexion,$sql_entrevista);
     while ($rowEntrevista = mysqli_fetch_array($exe_entrevista)) {
         $total_entrevistas=$rowEntrevista['total_entrevistas'];

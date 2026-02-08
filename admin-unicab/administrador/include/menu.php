@@ -38,8 +38,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="../../../registro/adminunicab/index.php"><i class="fa fa-angle-right"></i> AR</a></li>
-                  <li><a href="../../../registro/docenteunicab/index.php"><i class="fa fa-angle-right"></i> TU</a></li>
+                  <li><a href="../../registro/adminunicab/index.php"><i class="fa fa-angle-right"></i> AR</a></li>
+                  <li><a href="../../registro/docenteunicab/index.php"><i class="fa fa-angle-right"></i> TU</a></li>
                   <li><a href="../../../tickets/login.php"><i class="fa fa-angle-right"></i> Tickets</a></li>
                 </ul>
               </li>

@@ -1,6 +1,6 @@
 <!-- header-starts -->
 <?php 
-    session_start();
+    # session_start(); Session is already started in index.php, no need to start it again here
     include "../../registro/docenteunicab/updreg/conteo_est_getdat.php";
     
 	//$sqlAdministrador="SELECT * FROM `administrador` WHERE `Email`='".$_SESSION['admin_unicab']."'";
