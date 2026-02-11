@@ -16,7 +16,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 	}

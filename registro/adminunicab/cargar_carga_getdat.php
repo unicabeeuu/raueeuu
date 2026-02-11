@@ -9,7 +9,7 @@
 	$cadena = "";
 	
 	$query1 = "SELECT g.grado, g.id id_gra, m.pensamiento, m.id id_pen, CONCAT(e.nombres, ' ', e.apellidos) tutor, e.id 
-        FROM grados g, materias m, tbl_empleados e, carga_profesor cp 
+        FROM tbl_grados g, tbl_materias m, tbl_empleados e, tbl_carga_profesor cp 
         WHERE cp.id_grado = g.id AND cp.id_materia = m.id AND cp.id_empleado = e.id 
         ORDER BY g.id, m.id";
 	//echo $cadena; 
