@@ -91,7 +91,7 @@ if (isset($_SESSION['unisuper'])) {
 								    <div id="collapse'.$fila['id'].'" class="panel-collapse collapse in">
 								      <div class="panel-body">';
 								      			$query="consulta".$fila['id'];
-					      						$query="SELECT carga_profesor.id as id_carga, profesores.id as id_profesores, profesores.apellidos, profesores.nombres, grados.id as id_grado, grados.grado, materias.Id as id_materia, materias.materia, materias.pensamiento FROM materias INNER JOIN (grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia WHERE grados.id=".$fila['id']."";
+					      						$query="SELECT carga_profesor.id as id_carga, profesores.id as id_profesores, profesores.apellidos, profesores.nombres, tbl_grados.id as id_grado, tbl_grados.grado, materias.Id as id_materia, materias.materia, materias.pensamiento FROM materias INNER JOIN (tbl_grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) ON tbl_grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia WHERE tbl_grados.id=".$fila['id']."";
 					      						$exe="exec".$fila['id'];
 					      						$exe=mysqli_query($conexion,$query);	
 					      						echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">

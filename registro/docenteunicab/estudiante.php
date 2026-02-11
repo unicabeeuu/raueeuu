@@ -115,9 +115,9 @@ if (isset($_SESSION['uniprofe'])) {
 
 								}else{
 									$grado=$_POST['grado'];
-									$sql_estudiante="SELECT DISTINCT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.grado, matricula.estado 
-									FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) 
-									ON grados.id = matricula.id_grado WHERE grados.id=".$grado." and matricula.estado='activo' ORDER BY apellidos ASC";
+									$sql_estudiante="SELECT DISTINCT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, tbl_grados.grado, matricula.estado 
+									FROM tbl_grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) 
+									ON tbl_grados.id = matricula.id_grado WHERE tbl_grados.id=".$grado." and matricula.estado='activo' ORDER BY apellidos ASC";
 									$exe_estudiante=mysqli_query($conexion,$sql_estudiante);
 									$buscar=mysqli_num_rows($exe_estudiante);
 									if ($buscar>0) {

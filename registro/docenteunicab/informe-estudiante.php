@@ -23,8 +23,8 @@ include "../adminunicab/php/conexion.php";
 	$nota_cuatro=0;*/
 	$id_estudiante=$_GET['id_estudiante'];
 	
-	$buscar_grado="SELECT DISTINCT matricula.id_grado, grados.grado 
-	    FROM matricula INNER JOIN grados ON matricula.id_grado=grados.id 
+	$buscar_grado="SELECT DISTINCT matricula.id_grado, tbl_grados.grado 
+	    FROM matricula INNER JOIN tbl_grados ON matricula.id_grado=tbl_grados.id
 	    INNER JOIN estudiantes on matricula.id_estudiante=estudiantes.id 
 	    where estudiantes.id=".$id_estudiante." and matricula.estado='activo'";
 	$exe_buscar=mysqli_query($conexion,$buscar_grado);
@@ -33,10 +33,10 @@ include "../adminunicab/php/conexion.php";
 		$nombre_grado=strtoupper($buscar['grado']);
 	}
 	
-	/*$sqlNotas="SELECT DISTINCT grados.grado, materias.materia, materias.pensamiento, profesores.apellidos, profesores.nombres, estudiantes.id, matricula.estado 
+	/*$sqlNotas="SELECT DISTINCTtbl_grados.grado, materias.materia, materias.pensamiento, profesores.apellidos, profesores.nombres, estudiantes.id, matricula.estado 
 	    FROM materias INNER JOIN ((grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) 
-	    ON grados.id = matricula.id_grado) INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
-	    ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia 
+	    ONtbl_grados.id = matricula.id_grado) INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
+	    ONtbl_grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia 
 	    WHERE estudiantes.id='".$id_estudiante."' and matricula.estado='activo' 
 	    ORDER BY materias.pensamiento asc";
 	$consultaNotas=mysqli_query($conexion,$sqlNotas);*/
@@ -175,12 +175,12 @@ include "../adminunicab/php/conexion.php";
         								}
         								else{
         									/*$sql_no="SELECT DISTINCT estudiantes.id as id_estudiante, materias.materia, materias.pensamiento, materias.id, 
-        									grados.id as id_grado, grados.grado, notas.nota, periodos.id as id_periodo 
+        									grados.id as id_grado,tbl_grados.grado, notas.nota, periodos.id as id_periodo 
         									FROM ((((notas INNER JOIN estudiantes on notas.id_estudiante=estudiantes.id) 
         									INNER JOIN materias on notas.id_materia=materias.Id) 
-        									INNER JOIN grados on notas.id_grado=grados.id) 
+        									INNER JOIN tbl_grados on notas.id_grado=tbl_grados.id) 
         									INNER JOIN periodos on notas.id_periodo=periodos.id) 
-        									WHERE estudiantes.id=".$id_estudiante." and grados.id=".$id_grado." ORDER BY materias.materia ASC, periodos.id ASC";*/
+        									WHERE estudiantes.id=".$id_estudiante." and tbl_grados.id=".$id_grado." ORDER BY materias.materia ASC, periodos.id ASC";*/
         									
         									//$tabla = "tbl_notas_prueba";
                     						$tabla = "notas";
@@ -196,7 +196,7 @@ include "../adminunicab/php/conexion.php";
                 									p1.nota P1
                 									FROM 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1 
                 									ORDER BY 2";
@@ -206,11 +206,11 @@ include "../adminunicab/php/conexion.php";
                 									p1.nota P1, p2.nota P2 
                 									FROM 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1 LEFT JOIN 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2 
                 									ON p1.id_estudiante = p2.id_estudiante  
@@ -223,15 +223,15 @@ include "../adminunicab/php/conexion.php";
                 									p1.nota P1, p2.nota P2, p3.nota P3 
                 									FROM 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1, 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2, 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 3) p3 
                 									WHERE p1.id_estudiante = p2.id_estudiante AND p1.id_estudiante = p3.id_estudiante  
@@ -244,19 +244,19 @@ include "../adminunicab/php/conexion.php";
             									p1.nota P1, p2.nota P2, p3.nota P3, p4.nota P4 
             									FROM 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1, 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2, 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 3) p3, 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 4) p4 
             									WHERE p1.id_estudiante = p2.id_estudiante AND p1.id_estudiante = p3.id_estudiante AND p1.id_estudiante = p4.id_estudiante 

@@ -13,7 +13,7 @@ include "../adminunicab/php/conexion.php";
 		$n_documento = $fila['n_documento'];
 		$password = $fila['password'];
 	}
-	$sql="SELECT distinct profesores.id, profesores.apellidos, profesores.nombres, grados.id, grados.grado FROM grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) ON grados.id = carga_profesor.id_grado where profesores.id=".$id." ORDER BY grados.id ASC";
+	$sql="SELECT distinct profesores.id, profesores.apellidos, profesores.nombres, tbl_grados.id, tbl_grados.grado FROM tbl_grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) ON tbl_grados.id = carga_profesor.id_grado where profesores.id=".$id." ORDER BY tbl_grados.id ASC";
 	$consulta=mysqli_query($conexion,$sql);
 ?>
 <!DOCTYPE HTML>
