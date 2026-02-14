@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -66,19 +66,19 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 }
 </style>
 <?php require 'php/conexion.php';
-    $sql="SELECT * FROM grados";
+    $sql="SELECT * FROM tbl_grados";
 	$gradoActual="No se encontraron estudiantes matriculados";
 
 	if (!isset($_POST["id_grado"])) {
     	$peticion='SELECT estudiantes.apellidos,estudiantes.id,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado 
-    	FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado 
-    	where matricula.estado="activo" ORDER BY grados.grado';
+    	FROM tbl_grados grados INNER JOIN (tbl_estudiantes estudiantes INNER JOIN tbl_matriculas ON estudiantes.id = tbl_matriculas.id_estudiante) ON grados.id= tbl_matriculas.id_grado 
+    	where tbl_matriculas.estado="activo" ORDER BY grados.grado';
     	$gradoActual="Completo";
 	}
  	if (isset($_POST["id_grado"])) {
     	$peticion="SELECT estudiantes.id, estudiantes.apellidos,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado 
-    	FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado 
-    	where grados.id=".$_POST['id_grado']."  and matricula.estado='activo' ORDER BY grados.grado";
+    	FROM tbl_grados grados INNER JOIN (tbl_estudiantes estudiantes INNER JOIN tbl_matriculas ON estudiantes.id = tbl_matriculas.id_estudiante) ON grados.id= tbl_matriculas.id_grado 
+    	where grados.id=".$_POST['id_grado']."  and tbl_matriculas.estado='activo' ORDER BY grados.grado";
  	}
  	
 	$res=mysqli_query($conexion,$peticion);

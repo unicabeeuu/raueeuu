@@ -11,8 +11,8 @@
 		header("Location: pen_gra_upddat.php?p=1");
 	}
 	
-	//$query1 = "SELECT * FROM querys_ra WHERE campos2 != ''";
-	$query1 = "SELECT * FROM querys_ra WHERE id > 25 ORDER BY grados, pensamiento";
+	//$query1 = "SELECT * FROM tbl_querys_ra WHERE campos2 != ''";
+	$query1 = "SELECT * FROM tbl_querys_ra WHERE id > 25 ORDER BY grados, pensamiento";
 	$resultado=$mysqli1->query($query1);
 	$sel_upd = $mysqli1->affected_rows;
 	if($sel_upd > 0) {
@@ -95,12 +95,12 @@
 											<?php
 											    if($sel_upd > 0) {													
 													//$ini = ($_GET['p']-1)*$rxp;
-													//$query1_1 = "SELECT * FROM querys_ra WHERE id > 25 ORDER BY grados, pensamiento LIMIT ".$ini.",".$rxp;
+												//$query1_1 = "SELECT * FROM tbl_querys_ra WHERE id > 25 ORDER BY grados, pensamiento LIMIT ".$ini.",".$rxp;
 													$query1_1 = "SELECT a.*, 
 													CASE a.grados WHEN '1' THEN 1 WHEN '2' THEN 2 WHEN '3' THEN 3 WHEN '4' THEN 4 WHEN '5' THEN 5 WHEN '6' THEN 6 WHEN '7' THEN 7 
 													WHEN '8' THEN 8 WHEN '9' THEN 9 WHEN '10' THEN 10 WHEN '11' THEN 11 WHEN 'Ciclo I' THEN 12 WHEN 'Ciclo II' THEN 13 
 													WHEN 'Ciclo III' THEN 14 WHEN 'Ciclo IV' THEN 15 WHEN 'Ciclo V' THEN 16 WHEN 'Ciclo VI' THEN 17 END id_grado
-                                                    FROM querys_ra a WHERE a.id > 25  
+                                                    FROM tbl_querys_ra a WHERE a.id > 25  
                                                     ORDER BY 21, a.pensamiento LIMIT ".$ini.",".$rxp;
 													$resultado=$mysqli1->query($query1_1);
 												}
