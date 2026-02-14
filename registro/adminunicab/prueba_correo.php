@@ -32,7 +32,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	$keys = ['response','acudiente','celular'];
 	$i = 0;
 	
-	$sql_num = "SELECT * FROM estudiantes WHERE n_documento = '999999'";
+	$sql_num = "SELECT * FROM tbl_estudiantes WHERE n_documento = '999999'";
     
     $res_num = mysqli_query($conexion,$sql_num);
     

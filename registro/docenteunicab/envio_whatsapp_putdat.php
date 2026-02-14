@@ -25,14 +25,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     $res_what=mysqli_query($conexion,$sql_what);
     
     //Se consultan la cantidad de estudiantes antiguos sin matricular
-    $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM 
+$sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM 
     (SELECT e.nombres, e.apellidos, e.n_documento, g.id, g.grado ultimo_grado, m.estado 
-    FROM (SELECT * FROM estudiantes WHERE id < 1855 AND id NOT IN (1040,1155)) e, matricula m, grados g 
+    FROM (SELECT * FROM tbl_estudiantes WHERE id < 1855 AND id NOT IN (1040,1155)) e, tbl_matriculas m, tbl_grados g 
     WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
     AND m.fecha_ingreso > '2020-11-30' AND m.fecha_ingreso < '2021-12-01' AND m.estado IN ('aprobado', 'reprobado') 
     AND e.id NOT IN (
     SELECT e.id 
-    FROM estudiantes e, matricula m 
+    FROM tbl_estudiantes e, tbl_matriculas m 
     WHERE e.id = m.id_estudiante 
     AND e.id < 1855 AND m.fecha_ingreso >= '2021-12-01') ) a 
     GROUP BY a.id, a.ultimo_grado

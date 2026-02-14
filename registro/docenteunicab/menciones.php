@@ -18,7 +18,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	}
     
 	//$peticion="SELECT * from estudiantes WHERE estado != 'Retirado'";
-	$peticion="SELECT e.*, m.* FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'activo'";
+	$peticion="SELECT e.*, m.* FROM tbl_estudiantes e, tbl_matriculas m WHERE e.id = m.id_estudiante AND m.estado = 'activo'";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>
 <!DOCTYPE HTML>

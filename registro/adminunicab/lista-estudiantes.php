@@ -19,8 +19,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
 	//$peticion="SELECT * from estudiantes WHERE estado != 'Retirado'";
 	$peticion="SELECT e.*, m.estado estado_m 
-	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante 
-	AND m.idMatricula IN (SELECT idMatricula FROM (SELECT MAX(idMatricula) idMatricula, id_estudiante FROM matricula GROUP BY id_estudiante) a)";
+	FROM tbl_estudiantes e, tbl_matriculas m WHERE e.id = m.id_estudiante 
+	AND m.n_matricula IN (SELECT n_matricula FROM (SELECT MAX(n_matricula) n_matricula, id_estudiante FROM tbl_matriculas GROUP BY id_estudiante) a)";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>
 <!DOCTYPE HTML>
@@ -130,7 +130,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							        		else{
 							        			echo "<td><span style='color:orange'>".$fila['estado_m']."</span></td>";
 							        		}
-							        		echo "<td>".$fila['estado']."</td>
+							        		echo "<td>".$fila['estado_m']."</td>
 							        		<td><center>
 							        		<a href='editar-estudiantes.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Estudiante'><i class='fa fa-pencil'></i> Editar</a></center></td></tr>";
 							        	}

@@ -19,9 +19,9 @@ if (isset($_SESSION['unisuper'])) {
     
 	$id_estudiante=$_GET['id'];
 	//buscar ultima matricula
-	$sql_matricula="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.id as 'id_grado', grados.grado, matricula.EstadoGrado 
-	FROM estudiantes INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante 
-	INNER JOIN grados ON matricula.id_grado=grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";
+$sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id as 'id_grado', tbl_grados.grado, tbl_matriculas.EstadoGrado 
+	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante 
+	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";
 	$exe_matricula=mysqli_query($conexion,$sql_matricula);
 	$total_matricula=mysqli_num_rows($exe_matricula);
 	//buscar ultima matricula

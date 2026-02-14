@@ -20,9 +20,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	//$peticion="SELECT * from estudiantes where estado='inactivo'";
 	/*$peticion="SELECT e.*, m.* 
 	FROM estudiantes e LEFT JOIN matricula m ON e.id = m.id_estudiante WHERE m.estado='solicitud'";*/
-	$peticion="SELECT a.*, g.grado 
+$peticion="SELECT a.*, g.grado 
     	FROM (SELECT e.id, e.apellidos, e.nombres, e.n_documento, e.genero, e.email_institucional, e.telefono_acudiente_1, e.periodo_ing, m.* 
-    	FROM estudiantes e LEFT JOIN matricula m ON e.id = m.id_estudiante WHERE m.estado IN ('pre_solicitud', 'solicitud', 'nuevo_pre_solicitud', 'antiguo_pre_solicitud', 'nuevo_solicitud', 'antiguo_solicitud')) a, grados g 
+    	FROM tbl_estudiantes e LEFT JOIN tbl_matriculas m ON e.id = m.id_estudiante WHERE m.estado IN ('pre_solicitud', 'solicitud', 'nuevo_pre_solicitud', 'antiguo_pre_solicitud', 'nuevo_solicitud', 'antiguo_solicitud')) a, tbl_grados g 
     	WHERE a.id_grado = g.id";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>

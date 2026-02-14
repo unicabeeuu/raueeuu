@@ -2,7 +2,7 @@
 	session_start();
 	Include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql = "SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql = "SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res = mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -19,28 +19,15 @@
 	$nota_dos=0;
 	$nota_tres=0;
 	$nota_cuatro=0;
-	$buscar_grado="SELECT DISTINCT matricula.id_grado, grados.grado FROM matricula
-    INNER JOIN grados ON matricula.id_grado=grados.id 
-    INNER JOIN estudiantes on matricula.id_estudiante=estudiantes.id where estudiantes.id=".$id." and matricula.estado='activo'";
-	$exe_buscar = mysqli_query($conexion,$buscar_grado);
-	while ($buscar = mysqli_fetch_array($exe_buscar)) {
-		$id_grado = $buscar['id_grado'];
-		$nombre_grado = strtoupper($buscar['grado']);
-	}
-	/*$sqlNotas="SELECT DISTINCT grados.grado, materias.materia, materias.pensamiento, profesores.apellidos, profesores.nombres, estudiantes.id, matricula.estado 
-	FROM materias INNER JOIN ((grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) 
-	ON grados.id = matricula.id_grado) INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
-	ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia 
-	WHERE estudiantes.id='".$id."' and matricula.estado='activo' 
-	ORDER BY materias.pensamiento asc";
-	$consultaNotas=mysqli_query($conexion,$sqlNotas);*/
-	
+$buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tbl_matriculas
+    INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id 
+    INNER JOIN tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_estudiantes.id where tbl_estudiantes.id=".$id." and tbl_matriculas.estado='activo'";
 	$sql_val_inicial = "SELECT sv.n_documento, CONCAT(est.nombres, ' ', est.apellidos) estudiante, 
 	CASE sv.id_empleado WHEN 0 THEN (CASE sv.id_solicita WHEN 1 THEN 'ACUDIENTE' ELSE CONCAT(e.nombres, ' ', e.apellidos) END) 
 	ELSE CONCAT(e1.nombres, ' ', e1.apellidos) END nombre_solicita, 
 	CONCAT(e.nombres, ' ', e.apellidos) solicita, CONCAT(e1.nombres, ' ', e1.apellidos) empleado, 
 	sv.id, sv.motivo, sv.personalidad, sv.observaciones, sv.fecha 
-	FROM tbl_seg_psi_val sv, tbl_empleados e, tbl_empleados e1, estudiantes est 
+	FROM tbl_seg_psi_val sv, tbl_empleados e, tbl_empleados e1, tbl_estudiantes est 
 	WHERE sv.id_solicita = e.id AND sv.id_empleado = e1.id AND sv.n_documento = est.n_documento 
 	AND sv.n_documento = '$n_documento'";
 	//echo $sql_val_inicial;

@@ -27,7 +27,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 	
 	$query1 = "SELECT a.*, o.observacion, ifnull(o.id, -1) id_obs 
 	    FROM 
-	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM estudiantes e 
+	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM tbl_estudiantes e 
 	    WHERE e.nombres like '%$nom%' OR e.apellidos like '%$nom%' OR e.n_documento like '%$nom%') a 
 	    LEFT JOIN tbl_estudiantes_observ_tut o 
 	    ON a.n_documento = o.n_documento";

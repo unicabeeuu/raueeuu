@@ -46,7 +46,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	$exe_observaciontes_tutores = mysqli_query($conexion, $sql_observaciones_tutores);
 	
 	//Se busca el nombre
-	$sql_nombre = "SELECT CONCAT(nombres, ' ', apellidos) nombre FROM estudiantes WHERE n_documento = '$n_documento'";
+	$sql_nombre = "SELECT CONCAT(nombres, ' ', apellidos) nombre FROM tbl_estudiantes WHERE n_documento = '$n_documento'";
 	$exe_nombre = mysqli_query($conexion, $sql_nombre);
 	while ($row_nombre = mysqli_fetch_array($exe_nombre)) {
 		$nombre_estudiante = $row_nombre['nombre'];

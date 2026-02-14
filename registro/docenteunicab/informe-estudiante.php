@@ -24,9 +24,9 @@ include "../adminunicab/php/conexion.php";
 	$id_estudiante=$_GET['id_estudiante'];
 	
 	$buscar_grado="SELECT DISTINCT matricula.id_grado, tbl_grados.grado 
-	    FROM matricula INNER JOIN tbl_grados ON matricula.id_grado=tbl_grados.id
-	    INNER JOIN estudiantes on matricula.id_estudiante=estudiantes.id 
-	    where estudiantes.id=".$id_estudiante." and matricula.estado='activo'";
+FROM tbl_matriculas INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id
+	    INNER JOIN tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_estudiantes.id 
+	    where tbl_estudiantes.id=".$id_estudiante." and tbl_matriculas.estado='activo'";
 	$exe_buscar=mysqli_query($conexion,$buscar_grado);
 	while ($buscar=mysqli_fetch_array($exe_buscar)) {
 		$id_grado=$buscar['id_grado'];
@@ -41,7 +41,7 @@ include "../adminunicab/php/conexion.php";
 	    ORDER BY materias.pensamiento asc";
 	$consultaNotas=mysqli_query($conexion,$sqlNotas);*/
 
-	$sql_buscarEstudiante="SELECT * FROM `estudiantes` WHERE `id`=".$id_estudiante."";
+	$sql_buscarEstudiante="SELECT * FROM `tbl_estudiantes` WHERE `id`=".$id_estudiante."";
 	$exe_buscarEstuidante=mysqli_query($conexion,$sql_buscarEstudiante);
 
 	while ($rowEstudiante = mysqli_fetch_array($exe_buscarEstuidante)) {

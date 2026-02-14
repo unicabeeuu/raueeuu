@@ -18,8 +18,8 @@ if (isset($_SESSION['unisuper'])) {
     
 	/*$peticion = "SELECT *,estudiantes.nombres 
 	FROM matricula INNER JOIN estudiantes ON estudiantes.id=matricula.id_estudiante INNER JOIN grados ON grados.id=matricula.id_grado WHERE idMatricula =".$_GET['id']." LIMIT 1";*/
-	$peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_institucional   
-	FROM matricula m INNER JOIN estudiantes e ON e.id = m.id_estudiante INNER JOIN tbl_grados g ON g.id = m.id_grado WHERE m.idMatricula = ".$_GET['id']." LIMIT 1";
+$peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_institucional   
+	FROM tbl_matriculas m INNER JOIN tbl_estudiantes e ON e.id = m.id_estudiante INNER JOIN tbl_grados g ON g.id = m.id_grado WHERE m.idMatricula = ".$_GET['id']." LIMIT 1";
 	$resultado2 = mysqli_query($conexion, $peticion);
 						
 	while ($fila = mysqli_fetch_array($resultado2)){

@@ -22,8 +22,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante 
 	AND m.idMatricula IN (SELECT idMatricula FROM (SELECT MAX(idMatricula) idMatricula, id_estudiante FROM matricula GROUP BY id_estudiante) a)";*/
 	
-	$peticion="SELECT e.*, m.estado estado_m, m.n_matricula 
-	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante 
+$peticion="SELECT e.*, m.estado estado_m, m.n_matricula 
+	FROM tbl_estudiantes e, tbl_matriculas m WHERE e.id = m.id_estudiante 
 	AND m.estado = 'pre_solicitud' AND m.n_matricula like '%2022%'";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>

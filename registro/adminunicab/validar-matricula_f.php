@@ -22,10 +22,10 @@ if (isset($_SESSION['unisuper'])) {
 	/*$sql_matricula="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.id as 'id_grado', grados.grado, matricula.EstadoGrado 
 	FROM estudiantes INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante 
 	INNER JOIN grados ON matricula.id_grado=grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";*/
-	$sql_matricula="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, estudiantes.n_documento, estudiantes.email_institucional, 
-	grados.id id_grado, grados.grado, matricula.EstadoGrado, matricula.n_matricula, matricula.fecha_ingreso  
-	FROM estudiantes INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante 
-	INNER JOIN grados ON matricula.id_grado=grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";
+$sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_estudiantes.n_documento, tbl_estudiantes.email_institucional, 
+	tbl_grados.id id_grado, tbl_grados.grado, tbl_matriculas.EstadoGrado, tbl_matriculas.n_matricula, tbl_matriculas.fecha_ingreso  
+	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante 
+	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";
 	$exe_matricula=mysqli_query($conexion,$sql_matricula);
 	$total_matricula=mysqli_num_rows($exe_matricula);
 	

@@ -2,7 +2,7 @@
 	session_start();
 	include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql = "SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql = "SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res = mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -20,9 +20,9 @@
 	$nota_tres=0;
 	$nota_cuatro=0;
 	
-	$buscar_grado="SELECT DISTINCT matricula.id_grado, grados.grado FROM matricula
-    INNER JOIN grados ON matricula.id_grado=grados.id 
-    INNER JOIN estudiantes on matricula.id_estudiante=estudiantes.id where estudiantes.id=".$id." and matricula.estado IN ('activo', 'aprobado')";
+$buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tbl_matriculas
+    INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id 
+    INNER JOIN tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_estudiantes.id where tbl_estudiantes.id=".$id." and tbl_matriculas.estado IN ('activo', 'aprobado')";
 	$exe_buscar = mysqli_query($conexion,$buscar_grado);
 	while ($buscar = mysqli_fetch_array($exe_buscar)) {
 		$id_grado = $buscar['id_grado'];

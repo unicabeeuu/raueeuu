@@ -58,8 +58,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM (SELECT est.*, ep.observacion, 
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
-		FROM estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
-		matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
+		tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -75,8 +75,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM (SELECT est.*, ep.observacion, 
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
-		FROM estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
-		matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
+		tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a, carga_profesor cp 
@@ -90,8 +90,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         FROM (SELECT est.*, ep.observacion, 
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
-		FROM estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
-        matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
+        tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
         FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_direccion_grado dg 
@@ -105,8 +105,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         FROM (SELECT est.*, ep.observacion, 
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
-		FROM estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
-        matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
+        tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
         FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_dir_b db 
@@ -120,8 +120,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         FROM (SELECT est.*, ep.observacion, 
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
-		FROM estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
-        matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
+        tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
         FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_dir_c dc 
@@ -135,8 +135,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         FROM (SELECT est.*, ep.observacion, 
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
-		FROM estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
-        matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
+        tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
         FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_dir_d dd 
@@ -148,8 +148,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, e.observacion, e.genero 
-		FROM (SELECT est.*, ep.observacion FROM estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
-		matricula m, tbl_equivalence_idgra eg, 
+		FROM (SELECT est.*, ep.observacion FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
+		tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a, carga_profesor cp 

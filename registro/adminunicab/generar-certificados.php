@@ -18,9 +18,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
         
 $id_estudiante=$_GET['id'];
-$buscar_grado="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.id as id_grado, grados.grado 
-FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id = matricula.id_grado 
-WHERE estudiantes.id=".$id_estudiante."";
+$buscar_grado="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id as id_grado, tbl_grados.grado 
+FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id = tbl_matriculas.id_grado 
+WHERE tbl_estudiantes.id=".$id_estudiante."";
 $exe_buscar=mysqli_query($conexion,$buscar_grado);
 ?>
 <!DOCTYPE HTML>

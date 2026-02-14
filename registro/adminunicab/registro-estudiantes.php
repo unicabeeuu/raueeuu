@@ -26,7 +26,7 @@
     	$res_g=mysqli_query($conexion,$sql_g);
     	
     	//Se cargan los grados
-    	$sql_gra = "SELECT * FROM grados";
+    	$sql_gra = "SELECT * FROM tbl_grados";
     	$res_gra=mysqli_query($conexion,$sql_gra);
 	    
 ?>

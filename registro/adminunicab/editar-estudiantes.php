@@ -10,14 +10,14 @@
     		$apellidos_emp  = $fila0['apellidos'];
     		$nombres_emp = $fila0['nombres'];
     		$email_institucional_emp = $fila0['email'];
-    		$director=$fila0['d_pensamiento'];
+    		# $director=$fila0['d_pensamiento'];
     		$n_documento_emp = $fila0['n_documento'];
     		$password_emp = $fila0['pc'];
     		$perfil = $fila0['perfil'];
     	}
 	    
 		$sql_estudiante="SELECT e.*, td.id idtd, td.tipo_documento tipo_documento1, m.estado estado_m 
-		FROM `estudiantes` e, tbl_tipos_documento td, matricula m 
+		FROM `tbl_estudiantes` e, tbl_tipos_documento td, tbl_matriculas m 
 		WHERE e.tipo_documento = td.id AND e.id = m.id_estudiante AND e.id = ".$_GET['id']."";
 		$exe_estudiante=mysqli_query($conexion,$sql_estudiante);
 

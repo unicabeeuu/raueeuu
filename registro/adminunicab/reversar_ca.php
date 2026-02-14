@@ -55,26 +55,26 @@ if (isset($_SESSION['unisuper'])) {
 }
 </style>
 <?php require 'php/conexion.php';
-$sql="SELECT * FROM grados";
-	$gradoActual="No se encontraron estudiantes matriculados";
-	$peticion='SELECT estudiantes.apellidos,estudiantes.id,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado 
-	    FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado 
-	    WHERE grados.id='.$idgra.' AND matricula.estado="activo" AND estudiantes.id = '.$idest;
-    //echo $gradoActual;
-    //echo "ig_grado: ".$_POST["id_grado"];
-	/*if (!isset($_POST["id_grado"])) {
-	$peticion='SELECT estudiantes.apellidos,estudiantes.id,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado where grados.id='.$idgra.' and matricula.estado="activo" ORDER BY grados.grado';
-	$gradoActual="Completo";
+$sql="SELECT * FROM tbl_gradoss";
+	$tbl_gradosActual="No se encontraron tbl_estudiantes tbl_matriculasdos";
+	$peticion='SELECT tbl_estudiantes.apellidos,tbl_estudiantes.id,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_gradoss.tbl_grados 
+	    FROM tbl_gradoss INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_gradoss.id= tbl_matriculas.id_tbl_grados 
+	    WHERE tbl_gradoss.id='.$idgra.' AND tbl_matriculas.estado="activo" AND tbl_estudiantes.id = '.$idest;
+    //echo $tbl_gradosActual;
+    //echo "ig_tbl_grados: ".$_POST["id_tbl_grados"];
+	/*if (!isset($_POST["id_tbl_grados"])) {
+	$peticion='SELECT tbl_estudiantes.apellidos,tbl_estudiantes.id,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_gradoss.tbl_grados FROM tbl_gradoss INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_gradoss.id= tbl_matriculas.id_tbl_grados where tbl_gradoss.id='.$idgra.' and tbl_matriculas.estado="activo" ORDER BY tbl_gradoss.tbl_grados';
+	$tbl_gradosActual="Completo";
 	//echo $peticion;
-	//echo $gradoActual;
+	//echo $tbl_gradosActual;
 	}
- 	if (isset($_POST["id_grado"])) {
-	$peticion="SELECT estudiantes.id, estudiantes.apellidos,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado where grados.id=".$_POST['id_grado']."  and matricula.estado='activo' ORDER BY grados.grado";
+ 	if (isset($_POST["id_tbl_grados"])) {
+	$peticion="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_gradoss.tbl_grados FROM tbl_gradoss INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_gradoss.id= tbl_matriculas.id_tbl_grados where tbl_gradoss.id=".$_POST['id_tbl_grados']."  and tbl_matriculas.estado='activo' ORDER BY tbl_gradoss.tbl_grados";
 	//echo $peticion;
 	$res=mysqli_query($conexion,$peticion);
 	
 	while ($fila=mysqli_fetch_array($res)) {
-		$gradoActual=$fila["grado"];
+		$tbl_gradosActual=$fila["tbl_grados"];
 		}
 	}*/	
 
@@ -114,7 +114,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 					        	<?php 
 					        	while ($fila = mysqli_fetch_array($resultado1)){
 									$id_estudiante=$fila['id'];
-					        		echo"<tr><td>".$fila['grado']."</td><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['n_documento']."</td><td><a class='btn btn-danger' href='reversar_hn.php?id=".$fila['id']."' title='Cierre académico' >CIERRE ACADÉMICO</a></td></tr>";
+					        		echo"<tr><td>".$fila['tbl_grados']."</td><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['n_documento']."</td><td><a class='btn btn-danger' href='reversar_hn.php?id=".$fila['id']."' title='Cierre académico' >CIERRE ACADÉMICO</a></td></tr>";
 					        	}
 					        	?>
 					        </tbody>
