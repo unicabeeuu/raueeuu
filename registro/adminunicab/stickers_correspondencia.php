@@ -20,7 +20,7 @@ if (isset($_SESSION['unisuper'])) {
 		$perfil = $fila['perfil'];
     }
     
-    $query = "SELECT DISTINCT dv.grado id_grado, g.grado FROM tbl_stickers_virtuales dv, grados g WHERE dv.grado = g.id";
+    $query = "SELECT DISTINCT dv.grado id_grado, g.grado FROM tbl_stickers_virtuales dv, tbl_grados g WHERE dv.grado = g.id";
     
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);

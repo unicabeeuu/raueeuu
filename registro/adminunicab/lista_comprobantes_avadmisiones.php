@@ -38,7 +38,7 @@ if (isset($_SESSION['unisuper'])) {
     WHERE m.id_grado = g.id AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != '1155' 
     GROUP BY g.id, g.grado, m.grupo ORDER BY g.id";*/
     $query = "SELECT COUNT(1) ct, g.id, g.grado, m.grupo 
-    FROM matricula m, grados g 
+    FROM tbl_matriculas m, tbl_grados g 
     WHERE m.id_grado = g.id AND m.estado = 'activo' AND m.n_matricula like '%2025%' AND m.id_estudiante NOT IN (1155) 
     GROUP BY g.id, g.grado, m.grupo ORDER BY g.id";
     //echo $query;
@@ -49,7 +49,7 @@ if (isset($_SESSION['unisuper'])) {
     FROM matricula m, grados g 
     WHERE m.id_grado = g.id AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != 1155 GROUP BY m.id_grado";*/
     $query1 = "SELECT COUNT(1) ct, g.grado 
-    FROM matricula m, grados g 
+    FROM tbl_matriculas m, tbl_grados g 
     WHERE m.id_grado = g.id AND m.n_matricula like '%2025%' AND m.id_estudiante NOT IN (1155, 1040) AND m.estado IN ('pre_solicitud', 'solicitud') GROUP BY m.id_grado";
     //echo $query1;
     $resultado2 = $mysqli1->query($query1);
@@ -59,7 +59,7 @@ if (isset($_SESSION['unisuper'])) {
     FROM matricula m, estudiantes e 
     WHERE m.id_estudiante = e.id AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != 1155 AND m.estado = 'activo' GROUP BY e.ciudad";*/
     $query2 = "SELECT COUNT(1) ct, e.ciudad 
-    FROM matricula m, estudiantes e 
+    FROM tbl_matriculas m, tbl_estudiantes e 
     WHERE m.id_estudiante = e.id AND m.n_matricula like '%2025%' AND m.id_estudiante != 1155 AND m.estado = 'activo' GROUP BY e.ciudad";
     //echo $query2;
     $resultado3 = $mysqli1->query($query2);
@@ -74,10 +74,10 @@ if (isset($_SESSION['unisuper'])) {
 	    $a++;
 	}
 	
-	$peticion = "SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, estudiantes e 
+	$peticion = "SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, tbl_estudiantes e 
 	WHERE cp.documento = e.n_documento AND cp.tipo = 'deuda' 
 	UNION ALL 
-	SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, estudiantes e 
+	SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, tbl_estudiantes e 
 	WHERE cp.documento = e.n_documento AND cp.tipo = 'matrícula' AND cp.a = $a";
 	//$resultado = mysqli_query($conexion, $peticion);
 	
@@ -86,7 +86,7 @@ if (isset($_SESSION['unisuper'])) {
     WHERE dm.documento = e.n_documento AND dm.documento = av.documento_estudiante AND av.id_grado = g.id 
     AND dm.a >= $a";*/
 	$peticion1 = "SELECT DISTINCT dm.documento, dm.a, e.apellidos, e.nombres, av.id_grado, g.grado, c.ct, c.suma, av.control_documentos_invalidos 
-	FROM tbl_documentos_matriculas dm, estudiantes e, tbl_asistente_virtual av, grados g, 
+	FROM tbl_documentos_matriculas dm, tbl_estudiantes e, tbl_asistente_virtual av, tbl_grados g, 
 	(SELECT COUNT(1) ct, SUM(validado) suma, documento FROM tbl_documentos_matriculas WHERE a >= $a GROUP BY documento) c 
 	WHERE dm.documento = e.n_documento AND dm.documento = av.documento_estudiante AND dm.documento = c.documento 
 	AND av.id_grado = g.id AND dm.a >= $a";
