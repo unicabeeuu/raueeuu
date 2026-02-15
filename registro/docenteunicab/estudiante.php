@@ -115,7 +115,7 @@ if (isset($_SESSION['uniprofe'])) {
 
 								}else{
 									$grado=$_POST['grado'];
-$sql_estudiante="SELECT DISTINCT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.grado, tbl_matriculas.estado 
+									$sql_estudiante="SELECT DISTINCT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.grado, tbl_matriculas.estado 
 									FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) 
 									ON tbl_grados.id = tbl_matriculas.id_grado WHERE tbl_grados.id=".$grado." and tbl_matriculas.estado='activo' ORDER BY apellidos ASC";
 									$exe_estudiante=mysqli_query($conexion,$sql_estudiante);

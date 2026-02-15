@@ -16,7 +16,7 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -38,7 +38,7 @@ if (isset($_SESSION['unisuper'])) {
     WHERE m.id_grado = g.id AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != '1155' 
     GROUP BY g.id, g.grado, m.grupo ORDER BY g.id";*/
     $query = "SELECT COUNT(1) ct, g.id, g.grado, m.grupo 
-    FROM matricula m, grados g 
+    FROM tbl_matriculas m, tbl_grados g 
     WHERE m.id_grado = g.id AND m.estado = 'activo' AND m.n_matricula like '%2025%' AND m.id_estudiante NOT IN (1155) 
     GROUP BY g.id, g.grado, m.grupo ORDER BY g.id";
     //echo $query;
@@ -49,7 +49,7 @@ if (isset($_SESSION['unisuper'])) {
     FROM matricula m, grados g 
     WHERE m.id_grado = g.id AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != 1155 GROUP BY m.id_grado";*/
     $query1 = "SELECT COUNT(1) ct, g.grado 
-    FROM matricula m, grados g 
+    FROM tbl_matriculas m, tbl_grados g 
     WHERE m.id_grado = g.id AND m.n_matricula like '%2025%' AND m.id_estudiante NOT IN (1155, 1040) AND m.estado IN ('pre_solicitud', 'solicitud') GROUP BY m.id_grado";
     //echo $query1;
     $resultado2 = $mysqli1->query($query1);
@@ -59,7 +59,7 @@ if (isset($_SESSION['unisuper'])) {
     FROM matricula m, estudiantes e 
     WHERE m.id_estudiante = e.id AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != 1155 AND m.estado = 'activo' GROUP BY e.ciudad";*/
     $query2 = "SELECT COUNT(1) ct, e.ciudad 
-    FROM matricula m, estudiantes e 
+    FROM tbl_matriculas m, tbl_estudiantes e 
     WHERE m.id_estudiante = e.id AND m.n_matricula like '%2025%' AND m.id_estudiante != 1155 AND m.estado = 'activo' GROUP BY e.ciudad";
     //echo $query2;
     $resultado3 = $mysqli1->query($query2);

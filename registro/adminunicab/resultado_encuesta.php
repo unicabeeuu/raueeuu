@@ -23,14 +23,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
 	$peticion = "SELECT er.*, ep.pregunta, ep.tipo, g.grado, CONCAT(e.nombres, ' ', e.apellidos) nombre,
 	CASE er.resultado WHEN 'A' THEN ep.a WHEN 'B' THEN ep.b WHEN 'C' THEN ep.c WHEN 'D' THEN ep.d WHEN 'E' THEN ep.e ELSE er.resultado END resultado1
-	FROM tbl_encuestas_resultados er, tbl_encuestas_preguntas ep, grados g, estudiantes e  
+	FROM tbl_encuestas_resultados er, tbl_encuestas_preguntas ep, tbl_grados g, tbl_estudiantes e  
 	WHERE er.id_pregunta = ep.id AND er.id_encuesta = ep.id_encuesta AND er.id_grado = g.id AND er.n_documento = e.n_documento
 	AND er.id_encuesta = 1 
 	ORDER BY er.id_grado, er.n_documento, er.id_pregunta";
 	//$resultado = mysqli_query($conexion, $peticion);
 	$resultado = $mysqli1->query($peticion);
 	
-	$query = "SELECT * FROM grados WHERE id > 1 AND id < 19";
+	$query = "SELECT * FROM tbl_grados WHERE id > 1 AND id < 19";
 	//$grados = mysqli_query($conexion, $query);
 	$grados = $mysqli1->query($query);
 	

@@ -16,7 +16,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -31,7 +31,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         (SELECT e.nombres nombres_r, e.apellidos apellidos_r, e.id id_r, e.id_moodle, em.nombres nombres_m, em.apellidos apellidos_m, em.id id_m 
         FROM 
         (SELECT e.*, ee.id_registro, ee.id_moodle 
-        FROM estudiantes e, equivalence_idest ee, matricula m WHERE e.id = ee.id_registro AND e.id = m.id_estudiante AND m.estado = 'activo' 
+        FROM tbl_estudiantes e, tbl_equivalence_idest ee, tbl_matriculas m WHERE e.id = ee.id_registro AND e.id = m.id_estudiante AND m.estado = 'activo' 
         AND m.n_matricula like '%2022%') e LEFT JOIN tbl_estudiantes_mood em 
         ON e.id_moodle = em.id) a 
         WHERE a.id_m is null";
@@ -41,7 +41,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	    
 	    $sql1 = "SELECT em.* 
             FROM tbl_estudiantes_mood em 
-            WHERE id NOT IN (SELECT ee.id_moodle FROM equivalence_idest ee, estudiantes e, matricula m  
+            WHERE id NOT IN (SELECT ee.id_moodle FROM tbl_equivalence_idest ee, tbl_estudiantes e, tbl_matriculas m  
             WHERE ee.id_registro = e.id AND e.id = m.id_estudiante AND m.estado = 'activo' AND m.n_matricula like '%2022%') ";
 	}
 	$resultado=$mysqli1->query($sql1);

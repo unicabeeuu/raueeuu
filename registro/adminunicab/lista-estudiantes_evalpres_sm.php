@@ -26,10 +26,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     ORDER BY g.id, e.nombres";*/
 	$peticion="SELECT DISTINCT e.*, r.id_grado, g.grado, r.estado, 
 	d.DSA, d.DA, d.DM, d.DB 
-    FROM estudiantes_eval_admision e, tbl_respuestas_bck2023 r, grados g, tbl_desemp_pres_2023 d 
+    FROM tbl_estudiantes_eval_admision e, tbl_respuestas r, tbl_grados g, tbl_desemp_pres d 
     WHERE e.n_documento = r.identificacion AND r.id_grado = g.id AND e.n_documento = d.identificacion AND r.id_grado = d.id_grado 
     AND r.a = 2023 AND r.identificacion NOT IN (SELECT DISTINCT identificacion FROM `tbl_respuestas` WHERE estado = 'ABIERTA') 
-    ORDER BY g.id, e.nombre";
+    ORDER BY r.id_grado, e.nombre";
     //echo $peticion;
 	$resultado = mysqli_query($conexion, $peticion);
 ?>

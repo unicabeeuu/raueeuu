@@ -18,7 +18,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	}
     
 	$peticion="SELECT pm.*, v.id_grado id_grado_val, g.grado, v.año 
-	FROM tbl_pre_matricula pm, tbl_validaciones v, grados g 
+	FROM tbl_pre_matriculas pm, tbl_validaciones v, grados g 
 	WHERE pm.documento_est = v.documento_est AND v.id_grado = g.id";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>

@@ -20,7 +20,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	/*$peticion="SELECT * 
 	FROM matricula INNER JOIN estudiantes 
 	ON estudiantes.id=matricula.id_estudiante INNER JOIN grados ON grados.id=matricula.id_grado WHERE matricula.estado='activo'";*/
-	$peticion="SELECT m.idMatricula, m.n_matricula, m.fecha_ingreso, m.estado, e.nombres, e.apellidos, g.grado  
+	$peticion="SELECT m.id, m.n_matricula, m.fecha_ingreso, m.estado, e.nombres, e.apellidos, g.grado  
 	FROM tbl_matriculas m INNER JOIN tbl_estudiantes e 
 	ON e.id = m.id_estudiante INNER JOIN tbl_grados g ON g.id = m.id_grado WHERE m.estado IN ('activo', 'inactivo', 'retirado')";
 	$resultado = mysqli_query($conexion, $peticion);
