@@ -36,7 +36,7 @@ if (isset($_SESSION['uniprofe'])) {
     $query2 = "SELECT * FROM tbl_tipo_preguntas WHERE id > 1";
     $resultado2=$mysqli1->query($query2);
     
-    $query1 = "SELECT * FROM materias WHERE id IN (1,4,5,6,7,9,11)";
+    $query1 = "SELECT * FROM tbl_materias WHERE id IN (1,4,5,6,7,9,11)";
     $resultado3=$mysqli1->query($query1);
 ?>
 

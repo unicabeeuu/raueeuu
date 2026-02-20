@@ -8,7 +8,7 @@
 	
 	if (isset($_SESSION['admin_unicab']) || isset($_SESSION['uniprofe'])) {
 
-		$sql = "SELECT * FROM tbl_entrevistas_carti ORDER BY fecha, hora";
+		$sql = "SELECT * FROM tbl_entrevistas ORDER BY fecha, hora";
 		$exe = mysqli_query($conexion, $sql);
 ?>
 

@@ -78,7 +78,7 @@
 					        </thead>
 					        <tbody>
 					        	<?php 
-					        		$sql_administrador="SELECT * FROM `administrador` ORDER BY`Perfil` ASC";
+					        		$sql_administrador="SELECT * FROM `administrador` ORDER BY `Perfil` ASC";
 					        		$exe_administrador=mysqli_query($conexion,$sql_administrador);
 					        		while ($rowAdministrador=mysqli_fetch_array($exe_administrador)) {
 					        			echo "
@@ -165,7 +165,7 @@
 </html>
 <?php 
 }else{
-	echo "<script>alert('Debe iniciar sesi¨®n');</script>";
+	echo "<script>alert('Debe iniciar sesiï¿½ï¿½n');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>
