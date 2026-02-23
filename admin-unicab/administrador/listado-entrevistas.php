@@ -82,7 +82,7 @@
 					        	<?php 
 					        		//$sql_evento="SELECT * FROM `entrevistas` order by 'id'";
 					        		$sql_evento="SELECT pm.*, e.nombres, e.apellidos 
-                                        FROM tbl_pre_matricula pm, tbl_empleados e 
+                                        FROM tbl_pre_matriculas pm, tbl_empleados e 
                                         WHERE pm.id_empleado = e.id AND pm.entrevista = 'SI' AND pm.id != -1 AND YEAR(pm.fecha) > 2022 ";
 					        		$exe_evento=mysqli_query($conexion,$sql_evento);
 					        		while ($rowEvento=mysqli_fetch_array($exe_evento)) {

@@ -1632,7 +1632,7 @@ if (isset($_SESSION['uniprofe'])) {
                 
               </div>
               <div class="modal-footer">
-                <label id="lblupdmsg"></label><img id="imgep" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
+                <label id="lblupdmsg"></label><img id="imgep" src="../../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
                 <input type="hidden" id="idpregunta" style="width: 20px;" readonly/>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-warning" id="btneditar" data-dismiss="modal" style="display: none;" onclick="modificar()">Modificar</button>

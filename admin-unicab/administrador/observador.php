@@ -3,8 +3,9 @@
 	require "../php/conexion.php";
 	//errores de datos 1058354538
     //Para agendar entrevista 1029145024
-	
+
 	$psicologo = $_REQUEST['psicologo'];
+	# echo "<script>alert('REQUEST: " . json_encode($_REQUEST) . "');</script>";
 	
 	if (isset($_SESSION['admin_unicab']) || isset($_SESSION['uniprofe'])) {
 
