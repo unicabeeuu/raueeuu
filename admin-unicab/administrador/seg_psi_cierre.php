@@ -23,13 +23,13 @@
 		//$exe_emp = mysqli_query($conexion,$sql_emp);
 		
 		$sql_agenda = "SELECT e.nombre_est, e.documento_est, e.fecha, e.hora, pm.nombre_a, pm.celular_a, pm.email_a, 'entrevista' fuente 
-        FROM tbl_entrevistas e LEFT JOIN tbl_pre_matricula pm ON e.documento_est = pm.documento_est WHERE e.id_psicologo = $psicologo 
+        FROM tbl_entrevistas e LEFT JOIN tbl_pre_matriculas pm ON e.documento_est = pm.documento_est WHERE e.id_psicologo = $psicologo 
         UNION ALL 
         SELECT CONCAT(e.nombres, ' ', e.apellidos) nombre_est, s.documento_est, s.fecha, s.hora, e.acudiente_1, e.telefono_acudiente_1, e.email_acudiente_1, 'seguimiento' fuente
-        FROM tbl_seguimientos s, estudiantes e WHERE s.documento_est = e.n_documento AND s.id_psicologo = $psicologo 
+        FROM tbl_seguimientos s, tbl_estudiantes e WHERE s.documento_est = e.n_documento AND s.id_psicologo = $psicologo 
         UNION ALL 
         SELECT CONCAT(e.nombres, ' ', e.apellidos) nombre_est, e.n_documento, s.fecha, s.hora, e.acudiente_1, e.telefono_acudiente_1, e.email_acudiente_1, 'seguimiento' fuente
-        FROM tbl_seg_psi s, tbl_seg_psi_val v, estudiantes e WHERE s.id_valoracion = v.id AND v.n_documento = e.n_documento AND s.id_psicologo = $psicologo";
+        FROM tbl_seg_psi s, tbl_seg_psi_val v, tbl_estudiantes e WHERE s.id_valoracion = v.id AND v.n_documento = e.n_documento AND s.id_psicologo = $psicologo";
 		$exe_agenda = mysqli_query($conexion, $sql_agenda);
 		
 		//Se hace la consulta para los eventos agendados

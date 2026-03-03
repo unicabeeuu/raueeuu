@@ -366,7 +366,7 @@
     								    <label for="apellidoe">Hora:</label>
     									<input type="text" class="form-control" id="hora_ent" name="hora_ent" required readonly>
 									</div>
-									<div class="form-group col-lg-12 text-left"> 
+									<div class="form-group col-lg-12 text-left">
     								    <label for="apellidoe">Identificación:</label>
     									<input type="text" class="form-control" id="identif" name="identif" required readonly>
 									</div>
@@ -392,7 +392,7 @@
 			</div>
 		</div>
 		<!--footer-->
-		<?php 
+		<?php
 			require "include/footer.php";
 		?>
         <!--//footer-->
