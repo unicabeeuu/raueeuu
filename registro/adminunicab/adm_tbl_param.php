@@ -113,7 +113,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     <script>
         $(function() {
             cargar_datos();
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             
             $("#seloper").change(function() {
                 //$("#search").val("");
@@ -130,7 +130,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 
                 $("#btnadd").hide();
                 
-                var oper = $("#seloper").val();
+                let oper = $("#seloper").val();
                 
         		if(oper == "NA") {
         			if(tabla == "tbl_empleados") {
@@ -280,8 +280,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         
         function cargar_datos() {
             //alert ("hola");
-            var tabla = $("#txttabla").val();
-            var estado = $("#txtestado").val();
+            let tabla = $("#txttabla").val();
+            let estado = $("#txtestado").val();
             $("#search").val("");
             
             $.ajax({
@@ -293,7 +293,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         		    $("#search").show();
         		    $("#divtabla").html(r);
         			//$("#tbodyact").html(r);
-        			var oper = $("#seloper").val();
+        			let oper = $("#seloper").val();
         			if(oper == "MODIFICAR") {
         			    //$("td:nth-child(3)").show();
         			    if(tabla == "tbl_empleados") {
@@ -384,8 +384,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updcargo() {
-            var datos = "id=" + $("#txtidupd").val() + "&cargo=" + $("#txtcargoupd").val();
-            var cargo = $("#txtcargoupd").val();
+            let datos = "id=" + $("#txtidupd").val() + "&cargo=" + $("#txtcargoupd").val();
+            let cargo = $("#txtcargoupd").val();
             cargo = cargo.replace(" ","_");
         	//alert(datos);
         	
@@ -408,8 +408,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putcargo() {
-            var datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
-            var cargo = $("#txtcargoput").val();
+            let datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
+            let cargo = $("#txtcargoput").val();
             cargo = cargo.replace(" ","_");
         	//alert(datos);
         	
@@ -432,8 +432,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function upddepen() {
-            var datos = "id=" + $("#txtid_d_upd").val() + "&depen=" + $("#txtdepenupd").val();
-            var depen = $("#txtdepenupd").val();
+            let datos = "id=" + $("#txtid_d_upd").val() + "&depen=" + $("#txtdepenupd").val();
+            let depen = $("#txtdepenupd").val();
             depen = depen.replace(" ","_");
         	//alert(datos);
         	
@@ -451,8 +451,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putdepen() {
-            var datos = "id=" + $("#txtid_d_put").val() + "&cargo=" + $("#txtdepenput").val();
-            var depen = $("#txtdepenput").val();
+            let datos = "id=" + $("#txtid_d_put").val() + "&cargo=" + $("#txtdepenput").val();
+            let depen = $("#txtdepenput").val();
             depen = depen.replace(" ","_");
         	//alert(datos);
         	
@@ -472,8 +472,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updprof() {
-            var datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
-            var prof = $("#txtprofupd").val();
+            let datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
+            let prof = $("#txtprofupd").val();
             prof = prof.replace(" ","_");
         	//alert(datos);
         	
@@ -491,8 +491,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putprof() {
-            var datos = "id=" + $("#txtid_p_put").val() + "&prof=" + $("#txtprofput").val();
-            var prof = $("#txtprofput").val();
+            let datos = "id=" + $("#txtid_p_put").val() + "&prof=" + $("#txtprofput").val();
+            let prof = $("#txtprofput").val();
             prof = prof.replace(" ","_");
         	//alert(datos);
         	
@@ -513,8 +513,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         
         function updtd() {
             //alert ("TD");
-            var datos = "id=" + $("#txtid_td_upd").val() + "&td=" + $("#txttdupd").val();
-            var td = $("#txttdupd").val();
+            let datos = "id=" + $("#txtid_td_upd").val() + "&td=" + $("#txttdupd").val();
+            let td = $("#txttdupd").val();
             td = td.replace(" ","_");
         	//alert(datos);
         	
@@ -532,8 +532,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function puttd() {
-            var datos = "id=" + $("#txtid_td_put").val() + "&td=" + $("#txttdput").val();
-            var td = $("#txttdput").val();
+            let datos = "id=" + $("#txtid_td_put").val() + "&td=" + $("#txttdput").val();
+            let td = $("#txttdput").val();
             td = td.replace(" ","_");
         	//alert(datos);
         	
@@ -553,25 +553,25 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updemp() {
-            var datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
-            var nom = $("#txtnomupd").val();
+            let datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
+            let nom = $("#txtnomupd").val();
             nom = nom.replace(" ","_");
-            var ape = $("#txtapeupd").val();
+            let ape = $("#txtapeupd").val();
             ape = ape.replace(" ","_");
-            var depen = $("#seldepenupd").val();
+            let depen = $("#seldepenupd").val();
             depen = depen.replace(" ","_");
-            var cargo = $("#selcargoupd").val();
+            let cargo = $("#selcargoupd").val();
             cargo = cargo.replace(" ","_");
-            var prof = $("#selprofupd").val();
+            let prof = $("#selprofupd").val();
             prof = prof.replace(" ","_");
-            var nomc = $("#txtnomcupd").val();
+            let nomc = $("#txtnomcupd").val();
             nomc = nomc.replace(" ","_");
-            var rh = $("#txtrhupd").val();
+            let rh = $("#txtrhupd").val();
             rh = rh.replace(" ","_");
             rh = rh.replace("+","zzz");
         	//alert(rh);
         	
-        	var dataf = "id=" + $("#txtid_emp_upd").val() + "&nom=" + nom + "&ape=" + ape + "&email=" + $("#txtemailupd").val() + "&pc=" + $("#txtpassupd").val() 
+        	let dataf = "id=" + $("#txtid_emp_upd").val() + "&nom=" + nom + "&ape=" + ape + "&email=" + $("#txtemailupd").val() + "&pc=" + $("#txtpassupd").val() 
         		+ "&pc1=" + $("#txtpcupd").val() + "&depen=" + $("#seldepenupd").val() + "&skype=" + $("#txtskypeupd").val() + "&cel=" + $("#txtcelupd").val() 
         		+ "&cargo=" + $("#selcargoupd").val() + "&prof=" + $("#selprofupd").val() + "&nomc=" + nomc + "&rh=" + rh;
         	//alert(dataf);
@@ -593,21 +593,21 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putemp() {
-            var datos = "id=" + $("#txtid_emp_put").val();
-            var nom = $("#txtnomput").val();
+            let datos = "id=" + $("#txtid_emp_put").val();
+            let nom = $("#txtnomput").val();
             nom = nom.replace(" ","_");
-            var ape = $("#txtapeput").val();
+            let ape = $("#txtapeput").val();
             ape = ape.replace(" ","_");
-            var depen = $("#seldepenput").val();
+            let depen = $("#seldepenput").val();
             depen = depen.replace(" ","_");
-            var cargo = $("#selcargoput").val();
+            let cargo = $("#selcargoput").val();
             cargo = cargo.replace(" ","_");
-            var prof = $("#selprofput").val();
+            let prof = $("#selprofput").val();
             prof = prof.replace(" ","_");
-            var nomc = $("#txtnomcput").val();
+            let nomc = $("#txtnomcput").val();
             nomc = nomc.replace(" ","_");
             ndoc = $("#txtndocput").val();
-            var rh = $("#txtrhput").val();
+            let rh = $("#txtrhput").val();
             rh = rh.replace(" ","_");
             rh = rh.replace("+","zzz");
         	//alert(rh);
@@ -645,14 +645,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_email(input) {
-            var input_email = document.getElementById(input);
-            var input_email_val = document.getElementById(input).value;
-            var control = input + "v";
+            let input_email = document.getElementById(input);
+            let input_email_val = document.getElementById(input).value;
+            let control = input + "v";
             //alert (input_email_val);
-            var patron = /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/;
-            //var esCoincidente = patron.test(document.getElementById("email2").value);
-            //var esCoincidente = patron.test($("#email").val());
-            var esCoincidente = patron.test(input_email_val);
+            let patron = /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/;
+            //let esCoincidente = patron.test(document.getElementById("email2").value);
+            //let esCoincidente = patron.test($("#email").val());
+            let esCoincidente = patron.test(input_email_val);
             if(esCoincidente) {
                 input_email.setCustomValidity("");
                 $(".alert-danger").html("");
@@ -665,7 +665,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
@@ -694,17 +694,17 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 document.getElementById(control).value = 1;
             }
 
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_numero(input, campo) {
-            var input_numero = document.getElementById(input);
-            var input_numero_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[0-9]{1,15}$/;
-            var esCoincidente = patron.test(input_numero_val);
+            let input_numero = document.getElementById(input);
+            let input_numero_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /^[0-9]{1,15}$/;
+            let esCoincidente = patron.test(input_numero_val);
             
             if(esCoincidente) {
                 input_numero.setCustomValidity("");
@@ -718,7 +718,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
@@ -747,17 +747,17 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 document.getElementById(control).value = 1;
             }
 
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_celular(input, campo) {
-            var input_texto = document.getElementById(input);
-            var input_texto_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[0-9]{3}\s[0-9]{3}\s[0-9]{4}$/;
-            var esCoincidente = patron.test(input_texto_val);
+            let input_texto = document.getElementById(input);
+            let input_texto_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /^[0-9]{3}\s[0-9]{3}\s[0-9]{4}$/;
+            let esCoincidente = patron.test(input_texto_val);
             
             if(esCoincidente) {
                 input_texto.setCustomValidity("");
@@ -771,14 +771,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_campos_upd(tabla) {
             if(tabla == "tbl_empleados") {
-                var suma = parseInt($("#txtnomupdv").val()) + parseInt($("#txtapeupdv").val()) + parseInt($("#txtemailupdv").val()) + parseInt($("#seldepenupdv").val()) +
+                let suma = parseInt($("#txtnomupdv").val()) + parseInt($("#txtapeupdv").val()) + parseInt($("#txtemailupdv").val()) + parseInt($("#seldepenupdv").val()) +
                     parseInt($("#txtskypeupdv").val()) + parseInt($("#txtcelupdv").val()) + parseInt($("#selcargoupdv").val()) +
                     parseInt($("#selprofupdv").val()) + parseInt($("#txtnomcupdv").val());
                 //alert (suma);
@@ -793,7 +793,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         
         function validar_campos_put(tabla) {
             if(tabla == "tbl_empleados") {
-                var suma = parseInt($("#txtnomputv").val()) + parseInt($("#txtapeputv").val()) + parseInt($("#txtemailputv").val()) + parseInt($("#seldepenputv").val()) +
+                let suma = parseInt($("#txtnomputv").val()) + parseInt($("#txtapeputv").val()) + parseInt($("#txtemailputv").val()) + parseInt($("#seldepenputv").val()) +
                     parseInt($("#txtskypeputv").val()) + parseInt($("#txtcelputv").val()) + parseInt($("#selcargoputv").val()) +
                     parseInt($("#selprofputv").val()) + parseInt($("#txtnomcputv").val()) + parseInt($("#txtndocputv").val());
                 if(suma > 0) {
@@ -1216,7 +1216,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
