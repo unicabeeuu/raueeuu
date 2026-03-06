@@ -41,7 +41,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
-<head><meta http-equiv="Content-Type" content="text/html; charset=big5">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Unicab Registro Académico</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -671,24 +671,29 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_texto(input, campo) {
-            var input_texto = document.getElementById(input);
-            var input_texto_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[\w]{1,100}$/;
-            var esCoincidente = patron.test(input_texto_val);
-            
-            if(esCoincidente) {
+            let input_texto = document.getElementById(input);
+            let input_texto_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let esCoincidente = patron.test(input_texto_val);
+
+            let val = String(input_texto_val).match(patron);
+            if(val == null) {
                 input_texto.setCustomValidity("");
                 $(".alert-danger").html("");
                 $(".alert-danger").hide();
                 document.getElementById(control).value = 0;
             }
             else {
+                let texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + campo + ": ";
+                texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+
                 input_texto.setCustomValidity("El campo no tiene el formato correcto");
-                $(".alert-danger").html("El campo " + campo + " no tiene el formato correcto").css("color","red");
+                $(".alert-danger").html(texto).css("color","red");
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
+
             var tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
@@ -719,24 +724,29 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_texto1(input, campo) {
-            var input_texto = document.getElementById(input);
-            var input_texto_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[_-\w. +]{1,100}$/;
-            var esCoincidente = patron.test(input_texto_val);
-            
-            if(esCoincidente) {
+            let input_texto = document.getElementById(input);
+            let input_texto_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /[_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let esCoincidente = patron.test(input_texto_val);
+
+            let val = String(input_texto_val).match(patron);
+            if(val == null) {
                 input_texto.setCustomValidity("");
                 $(".alert-danger").html("");
                 $(".alert-danger").hide();
                 document.getElementById(control).value = 0;
             }
             else {
+                let texto = "Ha ingresado alguno de los siguientes caracteres no válidos para " + campo + ": ";
+                texto += " _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+
                 input_texto.setCustomValidity("El campo no tiene el formato correcto");
-                $(".alert-danger").html("El campo " + campo + " no tiene el formato correcto").css("color","red");
+                $(".alert-danger").html(texto).css("color","red");
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
+
             var tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);

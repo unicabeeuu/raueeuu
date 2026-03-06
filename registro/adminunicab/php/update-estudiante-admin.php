@@ -39,7 +39,7 @@ include "conexion.php";
 	$mensaje=$_POST['mensaje'];
 	$rh=$_POST['rh'];
 
-	$sql="UPDATE `estudiantes` SET `apellidos`='".$apellidos."',`nombres`='".$nombres."',`genero`='".$genero."', `tipo_documento`='".$tipo_documento."', 
+	$sql="UPDATE `tbl_estudiantes` SET `apellidos`='".$apellidos."',`nombres`='".$nombres."',`genero`='".$genero."', `tipo_documento`='".$tipo_documento."', 
 	`n_documento`='".$n_documento."',`fecha_nacimiento`='".$fecha_nacimiento."', `expedicion`='".$expedicion."', `ciudad`='".$ciudad."',`direccion_estudiante`='".$direccion_est."', 
 	`email_institucional`='".$email_institucional."',`actividad_extra`='".$actividad_extra."',`email_acudiente_1`='".$email_acudiente_1."', 
 	`email_acudiente_2`='".$email_acudiente_2."',`acudiente_1`='".$acudiente_1."',`acudiente_2`='".$acudiente_2."',`telefono_acudiente_1`='".$telefono_acudiente_1."', 
