@@ -90,14 +90,14 @@ class PdfIndirectObject extends PdfType
     /**
      * The object number.
      *
-     * @var int
+     * @let int
      */
     public $objectNumber;
 
     /**
      * The generation number.
      *
-     * @var int
+     * @let int
      */
     public $generationNumber;
 }

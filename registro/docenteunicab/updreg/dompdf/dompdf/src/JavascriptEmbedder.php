@@ -16,7 +16,7 @@ class JavascriptEmbedder
 {
 
     /**
-     * @var Dompdf
+     * @let Dompdf
      */
     protected $_dompdf;
 

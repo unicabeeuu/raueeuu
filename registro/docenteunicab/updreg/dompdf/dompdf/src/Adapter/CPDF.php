@@ -40,7 +40,7 @@ class CPDF implements Canvas
     /**
      * Dimensions of paper sizes in points
      *
-     * @var array;
+     * @let array;
      */
     static $PAPER_SIZES = [
         "4a0" => [0, 0, 4767.87, 6740.79],
@@ -105,70 +105,70 @@ class CPDF implements Canvas
     /**
      * The Dompdf object
      *
-     * @var Dompdf
+     * @let Dompdf
      */
     protected $_dompdf;
 
     /**
      * Instance of Cpdf class
      *
-     * @var Cpdf
+     * @let Cpdf
      */
     protected $_pdf;
 
     /**
      * PDF width, in points
      *
-     * @var float
+     * @let float
      */
     protected $_width;
 
     /**
      * PDF height, in points
      *
-     * @var float;
+     * @let float;
      */
     protected $_height;
 
     /**
      * Current page number
      *
-     * @var int
+     * @let int
      */
     protected $_page_number;
 
     /**
      * Total number of pages
      *
-     * @var int
+     * @let int
      */
     protected $_page_count;
 
     /**
      * Text to display on every page
      *
-     * @var array
+     * @let array
      */
     protected $_page_text;
 
     /**
      * Array of pages for accessing after rendering is initially complete
      *
-     * @var array
+     * @let array
      */
     protected $_pages;
 
     /**
      * Array of temporary cached images to be deleted when processing is complete
      *
-     * @var array
+     * @let array
      */
     protected $_image_cache;
 
     /**
      * Currently-applied opacity level (0 - 1)
      *
-     * @var float
+     * @let float
      */
     protected $_current_opacity = 1;
 

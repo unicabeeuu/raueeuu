@@ -9,7 +9,7 @@ class DecToOther
 {
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 

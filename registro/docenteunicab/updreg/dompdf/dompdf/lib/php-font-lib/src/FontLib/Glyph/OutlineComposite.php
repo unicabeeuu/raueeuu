@@ -27,7 +27,7 @@ class OutlineComposite extends Outline {
   const OVERLAP_COMPOUND         = 0x0400;
 
   /**
-   * @var OutlineComponent[]
+   * @let OutlineComponent[]
    */
   public $components = array();
 
@@ -220,10 +220,10 @@ class OutlineComposite extends Outline {
   public function getSVGContours() {
     $contours = array();
 
-    /** @var \FontLib\Table\Type\glyf $glyph_data */
+    /** @let \FontLib\Table\Type\glyf $glyph_data */
     $glyph_data = $this->getFont()->getTableObject("glyf");
 
-    /** @var Outline[] $glyphs */
+    /** @let Outline[] $glyphs */
     $glyphs = $glyph_data->data;
 
     foreach ($this->components as $component) {

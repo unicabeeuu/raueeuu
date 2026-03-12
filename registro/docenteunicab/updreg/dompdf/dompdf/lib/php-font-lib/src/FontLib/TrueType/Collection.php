@@ -22,7 +22,7 @@ class Collection extends BinaryStream implements Iterator, Countable {
   /**
    * Current iterator position.
    *
-   * @var integer
+   * @let integer
    */
   private $position = 0;
 

@@ -15,7 +15,7 @@ namespace FontLib;
  */
 class BinaryStream {
   /**
-   * @var resource The file pointer
+   * @let resource The file pointer
    */
   protected $f;
 

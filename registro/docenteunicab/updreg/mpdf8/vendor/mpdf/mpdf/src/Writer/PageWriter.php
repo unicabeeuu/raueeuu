@@ -12,22 +12,22 @@ final class PageWriter
 	use Strict;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Mpdf\Form
+	 * @let \Mpdf\Form
 	 */
 	private $form;
 
 	/**
-	 * @var \Mpdf\Writer\BaseWriter
+	 * @let \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 
 	/**
-	 * @var \Mpdf\Writer\MetadataWriter
+	 * @let \Mpdf\Writer\MetadataWriter
 	 */
 	private $metadataWriter;
 

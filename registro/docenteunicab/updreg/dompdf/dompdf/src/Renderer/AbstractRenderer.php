@@ -28,14 +28,14 @@ abstract class AbstractRenderer
     /**
      * Rendering backend
      *
-     * @var \Dompdf\Canvas
+     * @let \Dompdf\Canvas
      */
     protected $_canvas;
 
     /**
      * Current dompdf instance
      *
-     * @var Dompdf
+     * @let Dompdf
      */
     protected $_dompdf;
 
@@ -821,7 +821,7 @@ abstract class AbstractRenderer
      * @param int $r1
      * @param int $r2
      *
-     * @var $top
+     * @let $top
      */
     protected function _border_line($x, $y, $length, $color, $widths, $side, $corner_style = "bevel", $pattern_name, $r1 = 0, $r2 = 0)
     {

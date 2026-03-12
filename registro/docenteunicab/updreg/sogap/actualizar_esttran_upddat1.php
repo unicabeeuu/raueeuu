@@ -88,7 +88,7 @@
 		    });
 		    
 		    function ver_esttran(ref_payco, scp, convenio, tipo) {
-                //var vurl = "https://secure.payco.co/restpagos/transaction/response.json?ref_payco=" + ref_payco + "&public_key=" + scp;
+                //let vurl = "https://secure.payco.co/restpagos/transaction/response.json?ref_payco=" + ref_payco + "&public_key=" + scp;
                 //alert(vurl);
                 
             	$.ajax({
@@ -99,8 +99,8 @@
             		success:function(r) {
             		    //console.log(r);
             			//console.log(r.data.x_transaction_state);
-            			var estado = r.data.x_transaction_state;
-            			var respuesta = r.data.x_respuesta;
+            			let estado = r.data.x_transaction_state;
+            			let respuesta = r.data.x_respuesta;
             			//alert (estado);
             			upd_esttran(ref_payco, estado, convenio, tipo);
             		},
@@ -112,7 +112,7 @@
             }
             
             function upd_esttran(ref_payco, estado, convenio, tipo) {
-                var vconvenio = convenio.replace(" ","_");
+                let vconvenio = convenio.replace(" ","_");
                 //alert (vconvenio);
                 
                 $.ajax({
@@ -121,12 +121,12 @@
             		data:"ref_payco=" + ref_payco + "&tipo=" + tipo + "&estado=" + estado + "&nomconv=" + vconvenio,
             		success:function(r) {
             		    //console.log(r);
-            		    var res = JSON.parse(r);
-            		    var restext = res.estados;
+            		    let res = JSON.parse(r);
+            		    let restext = res.estados;
             		    console.log(restext);
-            		    //var estado = r.estado;
+            		    //let estado = r.estado;
             		    //alert (estado);
-            		    var v_upd = parseInt($("#rupd").val());
+            		    let v_upd = parseInt($("#rupd").val());
             		    $("#rupd").val(v_upd + 1);
             		},
             		error:function(xhr) {

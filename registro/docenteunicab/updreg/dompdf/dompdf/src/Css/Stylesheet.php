@@ -38,21 +38,21 @@ class Stylesheet
     /**
      * User agent stylesheet origin
      *
-     * @var int
+     * @let int
      */
     const ORIG_UA = 1;
 
     /**
      * User normal stylesheet origin
      *
-     * @var int
+     * @let int
      */
     const ORIG_USER = 2;
 
     /**
      * Author normal stylesheet origin
      *
-     * @var int
+     * @let int
      */
     const ORIG_AUTHOR = 3;
 
@@ -82,14 +82,14 @@ class Stylesheet
     /**
      * Current dompdf instance
      *
-     * @var Dompdf
+     * @let Dompdf
      */
     private $_dompdf;
 
     /**
      * Array of currently defined styles
      *
-     * @var Style[]
+     * @let Style[]
      */
     private $_styles;
 
@@ -97,7 +97,7 @@ class Stylesheet
      * Base protocol of the document being parsed
      * Used to handle relative urls.
      *
-     * @var string
+     * @let string
      */
     private $_protocol;
 
@@ -105,7 +105,7 @@ class Stylesheet
      * Base hostname of the document being parsed
      * Used to handle relative urls.
      *
-     * @var string
+     * @let string
      */
     private $_base_host;
 
@@ -113,28 +113,28 @@ class Stylesheet
      * Base path of the document being parsed
      * Used to handle relative urls.
      *
-     * @var string
+     * @let string
      */
     private $_base_path;
 
     /**
      * The styles defined by @page rules
      *
-     * @var array<Style>
+     * @let array<Style>
      */
     private $_page_styles;
 
     /**
      * List of loaded files, used to prevent recursion
      *
-     * @var array
+     * @let array
      */
     private $_loaded_files;
 
     /**
      * Current stylesheet origin
      *
-     * @var int
+     * @let int
      */
     private $_current_origin = self::ORIG_UA;
 
@@ -156,7 +156,7 @@ class Stylesheet
     static $VALID_MEDIA_TYPES = ["all", "aural", "bitmap", "braille", "dompdf", "embossed", "handheld", "paged", "print", "projection", "screen", "speech", "static", "tty", "tv", "visual"];
 
     /**
-     * @var FontMetrics
+     * @let FontMetrics
      */
     private $fontMetrics;
 
@@ -955,7 +955,7 @@ class Stylesheet
 
         // Add generated content
         foreach ($this->_styles as $selector => $selector_styles) {
-            /** @var Style $style */
+            /** @let Style $style */
             foreach ($selector_styles as $style) {
                 if (strpos($selector, ":before") === false && strpos($selector, ":after") === false) {
                     continue;
@@ -971,7 +971,7 @@ class Stylesheet
                     continue;
                 }
 
-                /** @var \DOMElement $node */
+                /** @let \DOMElement $node */
                 foreach ($nodes as $node) {
                     // Only DOMElements get styles
                     if ($node->nodeType != XML_ELEMENT_NODE) {
@@ -1001,7 +1001,7 @@ class Stylesheet
 
         // Apply all styles in stylesheet
         foreach ($this->_styles as $selector => $selector_styles) {
-            /** @var Style $style */
+            /** @let Style $style */
             foreach ($selector_styles as $style) {
                 $query = $this->_css_selector_to_xpath($selector);
 
@@ -1091,7 +1091,7 @@ class Stylesheet
             // Grab the applicable styles
             if (isset($styles[$id])) {
 
-                /** @var array[][] $applied_styles */
+                /** @let array[][] $applied_styles */
                 $applied_styles = $styles[$id];
 
                 // Sort by specificity
@@ -1102,7 +1102,7 @@ class Stylesheet
                     print "<pre>\n$debug_nodename [\n";
                     foreach ($applied_styles as $spec => $arr) {
                         printf("  specificity 0x%08x\n", $spec);
-                        /** @var Style $s */
+                        /** @let Style $s */
                         foreach ($arr as $s) {
                             print "  [\n";
                             $s->debug_print();
@@ -1115,7 +1115,7 @@ class Stylesheet
                 $acceptedmedia = self::$ACCEPTED_GENERIC_MEDIA_TYPES;
                 $acceptedmedia[] = $this->_dompdf->getOptions()->getDefaultMediaType();
                 foreach ($applied_styles as $arr) {
-                    /** @var Style $s */
+                    /** @let Style $s */
                     foreach ($arr as $s) {
                         $media_queries = $s->get_media_queries();
                         foreach ($media_queries as $media_query) {
@@ -1718,7 +1718,7 @@ class Stylesheet
     {
         $str = "";
         foreach ($this->_styles as $selector => $selector_styles) {
-            /** @var Style $style */
+            /** @let Style $style */
             foreach ($selector_styles as $style) {
                 $str .= "$selector => " . $style->__toString() . "\n";
             }

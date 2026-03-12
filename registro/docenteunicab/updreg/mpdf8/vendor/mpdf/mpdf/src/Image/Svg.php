@@ -31,137 +31,137 @@ class Svg
 	/**
 	 * ATM marked as public in spite of xml handling callbacks
 	 *
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	public $mpdf;
 
 	/**
-	 * @var \Mpdf\Otl
+	 * @let \Mpdf\Otl
 	 */
 	public $otl;
 
 	/**
-	 * @var \Mpdf\CssManager
+	 * @let \Mpdf\CssManager
 	 */
 	public $cssManager;
 
 	/**
-	 * @var \Mpdf\SizeConverter
+	 * @let \Mpdf\SizeConverter
 	 */
 	public $sizeConverter;
 
 	/**
-	 * @var \Mpdf\Color\ColorConverter
+	 * @let \Mpdf\Color\ColorConverter
 	 */
 	public $colorConverter;
 
 	/**
-	 * @var \Mpdf\Language\LanguageToFontInterface
+	 * @let \Mpdf\Language\LanguageToFontInterface
 	 */
 	public $languageToFont;
 
 	/**
-	 * @var \Mpdf\Language\ScriptToLanguageInterface
+	 * @let \Mpdf\Language\ScriptToLanguageInterface
 	 */
 	public $scriptToLanguage;
 
 	/**
-	 * @var \Mpdf\Image\ImageProcessor
+	 * @let \Mpdf\Image\ImageProcessor
 	 */
 	private $imageProcessor;
 
 	/**
 	 * Holds content of SVG fonts defined in image
 	 *
-	 * @var array
+	 * @let array
 	 */
-	var $svg_font;
+	let $svg_font;
 
 	/**
 	 * contient les infos sur les gradient fill du svg classé par id du svg
 	 *
-	 * @var array
+	 * @let array
 	 */
-	var $svg_gradient;
+	let $svg_gradient;
 
 	/**
 	 * contient les ids des objet shading
 	 *
-	 * @var array
+	 * @let array
 	 */
-	var $svg_shadinglist;
+	let $svg_shadinglist;
 
 	/**
 	 * contenant les infos du svg voulue par l'utilisateur
 	 *
-	 * @var array
+	 * @let array
 	 */
-	var $svg_info;
+	let $svg_info;
 
 	/**
 	 * holds all attributes of root <svg> tag
 	 *
-	 * @var array
+	 * @let array
 	 */
-	var $svg_attribs;
+	let $svg_attribs;
 
 	/**
 	 * contenant les style de groupes du svg
 	 *
-	 * @var array
+	 * @let array
 	 */
-	var $svg_style;
+	let $svg_style;
 
 	/**
 	 * contenant le tracage du svg en lui même.
 	 *
-	 * @var string
+	 * @let string
 	 */
-	var $svg_string;
+	let $svg_string;
 
 	/**
 	 * holds string info to write txt to image
 	 *
-	 * @var string
+	 * @let string
 	 */
-	var $txt_data;
+	let $txt_data;
 
 	/**
-	 * @var array
+	 * @let array
 	 */
-	var $txt_style;
+	let $txt_style;
 
-	var $xbase;
+	let $xbase;
 
-	var $ybase;
+	let $ybase;
 
-	var $svg_error;
+	let $svg_error;
 
-	var $subPathInit;
+	let $subPathInit;
 
-	var $spxstart;
+	let $spxstart;
 
-	var $spystart;
+	let $spystart;
 
-	var $kp; // convert pixels to PDF units
+	let $kp; // convert pixels to PDF units
 
-	var $pathBBox;
+	let $pathBBox;
 
-	var $textlength; // mPDF 5.7.4
+	let $textlength; // mPDF 5.7.4
 
-	var $texttotallength; // mPDF 5.7.4
+	let $texttotallength; // mPDF 5.7.4
 
-	var $textoutput; // mPDF 5.7.4
+	let $textoutput; // mPDF 5.7.4
 
-	var $textanchor; // mPDF 5.7.4
+	let $textanchor; // mPDF 5.7.4
 
-	var $textXorigin; // mPDF 5.7.4
+	let $textXorigin; // mPDF 5.7.4
 
-	var $textYorigin; // mPDF 5.7.4
+	let $textYorigin; // mPDF 5.7.4
 
-	var $textjuststarted; // mPDF 5.7.4
+	let $textjuststarted; // mPDF 5.7.4
 
-	var $intext;  // mPDF 5.7.4
+	let $intext;  // mPDF 5.7.4
 
 	private $dashesUsed;
 
@@ -2850,7 +2850,7 @@ class Svg
 
 		// Find the style node
 		$styles = [];
-		/** @var $styleNode \DOMNode */
+		/** @let $styleNode \DOMNode */
 		foreach ($svgNode->item(0)->getElementsByTagName('style') as $styleNode) {
 
 			preg_match_all('/(\.[^{]+)\s*\{\s*([^}]+)\s*}/m', $styleNode->nodeValue, $matches, PREG_SET_ORDER);

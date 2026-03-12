@@ -25,35 +25,35 @@ class Page extends AbstractFrameDecorator
     /**
      * y value of bottom page margin
      *
-     * @var float
+     * @let float
      */
     protected $_bottom_page_margin;
 
     /**
      * Flag indicating page is full.
      *
-     * @var bool
+     * @let bool
      */
     protected $_page_full;
 
     /**
      * Number of tables currently being reflowed
      *
-     * @var int
+     * @let int
      */
     protected $_in_table;
 
     /**
      * The pdf renderer
      *
-     * @var Renderer
+     * @let Renderer
      */
     protected $_renderer;
 
     /**
      * This page's floating frames
      *
-     * @var array
+     * @let array
      */
     protected $_floating_frames = [];
 

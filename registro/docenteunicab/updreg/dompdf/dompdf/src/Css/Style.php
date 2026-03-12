@@ -35,21 +35,21 @@ class Style
     /**
      * Default font size, in points.
      *
-     * @var float
+     * @let float
      */
     static $default_font_size = 12;
 
     /**
      * Default line height, as a fraction of the font size.
      *
-     * @var float
+     * @let float
      */
     static $default_line_height = 1.2;
 
     /**
      * Default "absolute" font sizes relative to the default font-size
      * http://www.w3.org/TR/css3-fonts/#font-size-the-font-size-property
-     * @var array<float>
+     * @let array<float>
      */
     static $font_size_keywords = [
         "xx-small" => 0.6, // 3/5
@@ -64,7 +64,7 @@ class Style
     /**
      * List of valid vertical-align keywords.  Should also really be a constant.
      *
-     * @var array
+     * @let array
      */
     static $vertical_align_keywords = ["baseline", "bottom", "middle", "sub",
         "super", "text-bottom", "text-top", "top"];
@@ -72,35 +72,35 @@ class Style
     /**
      * List of all inline types.  Should really be a constant.
      *
-     * @var array
+     * @let array
      */
     static $INLINE_TYPES = ["inline"];
 
     /**
      * List of all block types.  Should really be a constant.
      *
-     * @var array
+     * @let array
      */
     static $BLOCK_TYPES = ["block", "inline-block", "table-cell", "list-item"];
 
     /**
      * List of all positionned types.  Should really be a constant.
      *
-     * @var array
+     * @let array
      */
     static $POSITIONNED_TYPES = ["relative", "absolute", "fixed"];
 
     /**
      * List of all table types.  Should really be a constant.
      *
-     * @var array;
+     * @let array;
      */
     static $TABLE_TYPES = ["table", "inline-table"];
 
     /**
      * List of valid border styles.  Should also really be a constant.
      *
-     * @var array
+     * @let array
      */
     static $BORDER_STYLES = ["none", "hidden", "dotted", "dashed", "solid",
         "double", "groove", "ridge", "inset", "outset"];
@@ -108,7 +108,7 @@ class Style
     /**
      * List of CSS shorthand properties
      *
-     * @var array
+     * @let array
      */
     protected static $_props_shorthand = ["background", "border",
         "border_bottom", "border_color", "border_left", "border_radius",
@@ -120,7 +120,7 @@ class Style
      *
      * @link http://www.w3.org/TR/CSS21/propidx.html
      *
-     * @var array
+     * @let array
      */
     protected static $_defaults = null;
 
@@ -129,14 +129,14 @@ class Style
      *
      * @link http://www.w3.org/TR/CSS21/propidx.html
      *
-     * @var array
+     * @let array
      */
     protected static $_inherited = null;
 
     /**
      * Caches method_exists result
      *
-     * @var array<bool>
+     * @let array<bool>
      */
     protected static $_methods_cache = [];
 
@@ -144,31 +144,31 @@ class Style
      * The stylesheet this style belongs to
      *
      * @see Stylesheet
-     * @var Stylesheet
+     * @let Stylesheet
      */
     protected $_stylesheet; // stylesheet this style is attached to
 
     /**
      * Media queries attached to the style
      *
-     * @var int
+     * @let int
      */
     protected $_media_queries;
 
     /**
      * Main array of all CSS properties & values
      *
-     * @var array
+     * @let array
      */
     protected $_props = [];
 
-    /* var instead of protected would allow access outside of class */
+    /* let instead of protected would allow access outside of class */
     protected $_important_props = [];
 
     /**
      * The computed values of the CSS property
      *
-     * @var array
+     * @let array
      */
     protected $_props_computed = [];
 
@@ -194,7 +194,7 @@ class Style
     /**
      * The used values of the CSS property
      *
-     * @var array
+     * @let array
      */
     protected $_prop_cache = [];
 
@@ -202,19 +202,19 @@ class Style
      * Font size of parent element in document tree.  Used for relative font
      * size resolution.
      *
-     * @var float
+     * @let float
      */
     protected $_parent_font_size;
 
     /**
-     * @var Frame
+     * @let Frame
      */
     protected $_frame;
 
     /**
      * The origin of the style
      *
-     * @var int
+     * @let int
      */
     protected $_origin = Stylesheet::ORIG_AUTHOR;
 
@@ -230,12 +230,12 @@ class Style
     private $_computed_border_radius = null;
 
     /**
-     * @var bool
+     * @let bool
      */
     public $_has_border_radius = false;
 
     /**
-     * @var FontMetrics
+     * @let FontMetrics
      */
     private $fontMetrics;
 
@@ -782,7 +782,7 @@ class Style
     }
 
     /* direct access to _important_props array from outside would work only when declared as
-     * 'var $_important_props;' instead of 'protected $_important_props;'
+     * 'let $_important_props;' instead of 'protected $_important_props;'
      * Don't call _set/__get on missing attribute. Therefore need a special access.
      * Assume that __set will be also called when this is called, so do not check validity again.
      * Only created, if !important exists -> always set true.
@@ -1703,7 +1703,7 @@ class Style
      !important attribute
      For basic functionality of the !important attribute with overloading
      of several styles of an element, changes in inherit(), merge() and _parse_properties()
-     are sufficient [helpers var $_important_props, __construct(), important_set(), important_get()]
+     are sufficient [helpers let $_important_props, __construct(), important_set(), important_get()]
 
      Only for combined attributes extra treatment needed. See below.
 

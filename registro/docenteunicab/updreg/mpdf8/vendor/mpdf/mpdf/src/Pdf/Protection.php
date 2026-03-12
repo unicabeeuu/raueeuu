@@ -8,57 +8,57 @@ class Protection
 {
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $lastRc4Key;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $lastRc4KeyC;
 
 	/**
-	 * @var bool
+	 * @let bool
 	 */
 	private $useRC128Encryption;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $encryptionKey;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $padding;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $uniqid;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $oValue;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $uValue;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $pValue;
 
 	/**
-	 * @var int[] Array of permission => byte representation
+	 * @let int[] Array of permission => byte representation
 	 */
 	private $options;
 
 	/**
-	 * @var \Mpdf\Pdf\Protection\UniqidGenerator
+	 * @let \Mpdf\Pdf\Protection\UniqidGenerator
 	 */
 	private $uniqidGenerator;
 

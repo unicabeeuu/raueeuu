@@ -107,10 +107,10 @@
             }
 		</style>
 		<script>
-		    var gridViewScroll = null;
+		    let gridViewScroll = null;
         
             $(function() {
-                var options = new GridViewScrollOptions();
+                let options = new GridViewScrollOptions();
                 options.elementID = "tblest";
                 options.width = 1200;
                 options.height = 600;
@@ -125,8 +125,8 @@
                 
                 /*$("#tblest tbody tr").click(function(){ 
                     $(this).addClass('GridviewScrollItemSelected').siblings().removeClass('GridviewScrollItemSelected');  
-                    var value=$(this).find('td:nth-child(5)').text();
-                    var value1=$(this).find('td:nth-child(6)').text();
+                    let value=$(this).find('td:nth-child(5)').text();
+                    let value1=$(this).find('td:nth-child(6)').text();
                     $("#txtidest").val(value);
                     $("#txtidgra").val(value1);
                     
@@ -137,7 +137,7 @@
                 
                 $("#tblest tbody tr").hover(function(){ 
                     $(this).addClass('GridviewScrollItemHover').siblings().removeClass('GridviewScrollItemHover');  
-                    var value=$(this).find('td:first').html();
+                    let value=$(this).find('td:first').html();
                 });
             });
             

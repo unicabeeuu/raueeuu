@@ -15,13 +15,13 @@ class SurfaceCpdf implements SurfaceInterface
 {
     const DEBUG = false;
 
-    /** @var \CPdf\CPdf */
+    /** @let \CPdf\CPdf */
     private $canvas;
 
     private $width;
     private $height;
 
-    /** @var Style */
+    /** @let Style */
     private $style;
 
     public function __construct(Document $doc, $canvas = null)

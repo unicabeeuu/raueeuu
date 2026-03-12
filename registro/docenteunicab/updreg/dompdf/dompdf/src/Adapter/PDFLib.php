@@ -37,21 +37,21 @@ class PDFLib implements Canvas
     /**
      * Dimensions of paper sizes in points
      *
-     * @var array;
+     * @let array;
      */
     public static $PAPER_SIZES = []; // Set to Dompdf\Adapter\CPDF::$PAPER_SIZES below.
 
     /**
      * Whether to create PDFs in memory or on disk
      *
-     * @var bool
+     * @let bool
      */
     static $IN_MEMORY = true;
 
     /**
      * Saves the major version of PDFLib for compatibility requests
      *
-     * @var null|int
+     * @let null|int
      */
     protected static $MAJOR_VERSION = null;
 
@@ -59,7 +59,7 @@ class PDFLib implements Canvas
     /**
      * Transforms the list of native fonts into PDFLib compatible names (casesensitive)
      *
-     * @var array
+     * @let array
      */
     public static $nativeFontsTpPDFLib = [
         "courier"               => "Courier",
@@ -81,119 +81,119 @@ class PDFLib implements Canvas
     ];
 
     /**
-     * @var \Dompdf\Dompdf
+     * @let \Dompdf\Dompdf
      */
     protected $_dompdf;
 
     /**
      * Instance of PDFLib class
      *
-     * @var \PDFLib
+     * @let \PDFLib
      */
     protected $_pdf;
 
     /**
      * Name of temporary file used for PDFs created on disk
      *
-     * @var string
+     * @let string
      */
     protected $_file;
 
     /**
      * PDF width, in points
      *
-     * @var float
+     * @let float
      */
     protected $_width;
 
     /**
      * PDF height, in points
      *
-     * @var float
+     * @let float
      */
     protected $_height;
 
     /**
      * Last fill color used
      *
-     * @var array
+     * @let array
      */
     protected $_last_fill_color;
 
     /**
      * Last stroke color used
      *
-     * @var array
+     * @let array
      */
     protected $_last_stroke_color;
 
     /**
      * The current opacity level
      *
-     * @var array
+     * @let array
      */
     protected $_current_opacity;
 
     /**
      * Cache of image handles
      *
-     * @var array
+     * @let array
      */
     protected $_imgs;
 
     /**
      * Cache of font handles
      *
-     * @var array
+     * @let array
      */
     protected $_fonts;
 
     /**
      * Cache of fontFile checks
      *
-     * @var array
+     * @let array
      */
     protected $_fontsFiles;
 
     /**
      * List of objects (templates) to add to multiple pages
      *
-     * @var array
+     * @let array
      */
     protected $_objs;
 
     /**
      * List of gstate objects created for this PDF (for reuse)
      *
-     * @var array
+     * @let array
      */
     protected $_gstates = [];
 
     /**
      * Current page number
      *
-     * @var int
+     * @let int
      */
     protected $_page_number;
 
     /**
      * Total number of pages
      *
-     * @var int
+     * @let int
      */
     protected $_page_count;
 
     /**
      * Text to display on every page
      *
-     * @var array
+     * @let array
      */
     protected $_page_text;
 
     /**
      * Array of pages for accesing after rendering is initially complete
      *
-     * @var array
+     * @let array
      */
     protected $_pages;
 

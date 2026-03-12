@@ -22,28 +22,28 @@ class CPdf
 {
 
     /**
-     * @var integer The current number of pdf objects in the document
+     * @let integer The current number of pdf objects in the document
      */
     public $numObj = 0;
 
     /**
-     * @var array This array contains all of the pdf objects, ready for final assembly
+     * @let array This array contains all of the pdf objects, ready for final assembly
      */
     public $objects = array();
 
     /**
-     * @var integer The objectId (number within the objects array) of the document catalog
+     * @let integer The objectId (number within the objects array) of the document catalog
      */
     public $catalogId;
 
     /**
-     * @var array Array carrying information about the fonts that the system currently knows about
+     * @let array Array carrying information about the fonts that the system currently knows about
      * Used to ensure that a font is not loaded twice, among other things
      */
     public $fonts = array();
 
     /**
-     * @var string The default font metrics file to use if no other font has been loaded.
+     * @let string The default font metrics file to use if no other font has been loaded.
      * The path to the directory containing the font metrics should be included
      */
     public $defaultFont = './fonts/Helvetica.afm';
@@ -54,63 +54,63 @@ class CPdf
     public $currentFont = '';
 
     /**
-     * @var string The current base font
+     * @let string The current base font
      */
     public $currentBaseFont = '';
 
     /**
-     * @var integer The number of the current font within the font array
+     * @let integer The number of the current font within the font array
      */
     public $currentFontNum = 0;
 
     /**
-     * @var integer
+     * @let integer
      */
     public $currentNode;
 
     /**
-     * @var integer Object number of the current page
+     * @let integer Object number of the current page
      */
     public $currentPage;
 
     /**
-     * @var integer Object number of the currently active contents block
+     * @let integer Object number of the currently active contents block
      */
     public $currentContents;
 
     /**
-     * @var integer Number of fonts within the system
+     * @let integer Number of fonts within the system
      */
     public $numFonts = 0;
 
     /**
-     * @var integer Number of graphic state resources used
+     * @let integer Number of graphic state resources used
      */
     private $numStates = 0;
 
     /**
-     * @var array Current color for fill operations, defaults to inactive value,
+     * @let array Current color for fill operations, defaults to inactive value,
      * all three components should be between 0 and 1 inclusive when active
      */
     public $currentColor = null;
 
     /**
-     * @var string Fill rule (nonzero or evenodd)
+     * @let string Fill rule (nonzero or evenodd)
      */
     public $fillRule = "nonzero";
 
     /**
-     * @var array Current color for stroke operations (lines etc.)
+     * @let array Current color for stroke operations (lines etc.)
      */
     public $currentStrokeColor = null;
 
     /**
-     * @var string Current style that lines are drawn in
+     * @let string Current style that lines are drawn in
      */
     public $currentLineStyle = '';
 
     /**
-     * @var array Current line transparency (partial graphics state)
+     * @let array Current line transparency (partial graphics state)
      */
     public $currentLineTransparency = array("mode" => "Normal", "opacity" => 1.0);
 
@@ -120,28 +120,28 @@ class CPdf
     public $currentFillTransparency = array("mode" => "Normal", "opacity" => 1.0);
 
     /**
-     * @var array An array which is used to save the state of the document, mainly the colors and styles
+     * @let array An array which is used to save the state of the document, mainly the colors and styles
      * it is used to temporarily change to another state, the change back to what it was before
      */
     public $stateStack = array();
 
     /**
-     * @var integer Number of elements within the state stack
+     * @let integer Number of elements within the state stack
      */
     public $nStateStack = 0;
 
     /**
-     * @var integer Number of page objects within the document
+     * @let integer Number of page objects within the document
      */
     public $numPages = 0;
 
     /**
-     * @var array Object Id storage stack
+     * @let array Object Id storage stack
      */
     public $stack = array();
 
     /**
-     * @var integer Number of elements within the object Id storage stack
+     * @let integer Number of elements within the object Id storage stack
      */
     public $nStack = 0;
 
@@ -157,53 +157,53 @@ class CPdf
     public $addLooseObjects = array();
 
     /**
-     * @var integer The objectId of the information object for the document
+     * @let integer The objectId of the information object for the document
      * this contains authorship, title etc.
      */
     public $infoObject = 0;
 
     /**
-     * @var integer Number of images being tracked within the document
+     * @let integer Number of images being tracked within the document
      */
     public $numImages = 0;
 
     /**
-     * @var array An array containing options about the document
+     * @let array An array containing options about the document
      * it defaults to turning on the compression of the objects
      */
     public $options = array('compression' => true);
 
     /**
-     * @var integer The objectId of the first page of the document
+     * @let integer The objectId of the first page of the document
      */
     public $firstPageId;
 
     /**
-     * @var float Used to track the last used value of the inter-word spacing, this is so that it is known
+     * @let float Used to track the last used value of the inter-word spacing, this is so that it is known
      * when the spacing is changed.
      */
     public $wordSpaceAdjust = 0;
 
     /**
-     * @var float Used to track the last used value of the inter-letter spacing, this is so that it is known
+     * @let float Used to track the last used value of the inter-letter spacing, this is so that it is known
      * when the spacing is changed.
      */
     public $charSpaceAdjust = 0;
 
     /**
-     * @var integer The object Id of the procset object
+     * @let integer The object Id of the procset object
      */
     public $procsetObjectId;
 
     /**
-     * @var array Store the information about the relationship between font families
+     * @let array Store the information about the relationship between font families
      * this used so that the code knows which font is the bold version of another font, etc.
      * the value of this array is initialised in the constuctor function.
      */
     public $fontFamilies = array();
 
     /**
-     * @var string Folder for php serialized formats of font metrics files.
+     * @let string Folder for php serialized formats of font metrics files.
      * If empty string, use same folder as original metrics files.
      * This can be passed in from class creator.
      * If this folder does not exist or is not writable, Cpdf will be **much** slower.
@@ -212,13 +212,13 @@ class CPdf
     public $fontcache = '';
 
     /**
-     * @var integer The version of the font metrics cache file.
+     * @let integer The version of the font metrics cache file.
      * This value must be manually incremented whenever the internal font data structure is modified.
      */
     public $fontcacheVersion = 6;
 
     /**
-     * @var string Temporary folder.
+     * @let string Temporary folder.
      * If empty string, will attempty system tmp folder.
      * This can be passed in from class creator.
      * Only used for conversion of gd images to jpeg images.
@@ -226,101 +226,101 @@ class CPdf
     public $tmp = '';
 
     /**
-     * @var string Track if the current font is bolded or italicised
+     * @let string Track if the current font is bolded or italicised
      */
     public $currentTextState = '';
 
     /**
-     * @var string Messages are stored here during processing, these can be selected afterwards to give some useful debug information
+     * @let string Messages are stored here during processing, these can be selected afterwards to give some useful debug information
      */
     public $messages = '';
 
     /**
-     * @var string The ancryption array for the document encryption is stored here
+     * @let string The ancryption array for the document encryption is stored here
      */
     public $arc4 = '';
 
     /**
-     * @var integer The object Id of the encryption information
+     * @let integer The object Id of the encryption information
      */
     public $arc4_objnum = 0;
 
     /**
-     * @var string The file identifier, used to uniquely identify a pdf document
+     * @let string The file identifier, used to uniquely identify a pdf document
      */
     public $fileIdentifier = '';
 
     /**
-     * @var boolean A flag to say if a document is to be encrypted or not
+     * @let boolean A flag to say if a document is to be encrypted or not
      */
     public $encrypted = false;
 
     /**
-     * @var string The encryption key for the encryption of all the document content (structure is not encrypted)
+     * @let string The encryption key for the encryption of all the document content (structure is not encrypted)
      */
     public $encryptionKey = '';
 
     /**
-     * @var array Array which forms a stack to keep track of nested callback functions
+     * @let array Array which forms a stack to keep track of nested callback functions
      */
     public $callback = array();
 
     /**
-     * @var integer The number of callback functions in the callback array
+     * @let integer The number of callback functions in the callback array
      */
     public $nCallback = 0;
 
     /**
-     * @var array Store label->id pairs for named destinations, these will be used to replace internal links
+     * @let array Store label->id pairs for named destinations, these will be used to replace internal links
      * done this way so that destinations can be defined after the location that links to them
      */
     public $destinations = array();
 
     /**
-     * @var array Store the stack for the transaction commands, each item in here is a record of the values of all the
+     * @let array Store the stack for the transaction commands, each item in here is a record of the values of all the
      * publiciables within the class, so that the user can rollback at will (from each 'start' command)
      * note that this includes the objects array, so these can be large.
      */
     public $checkpoint = '';
 
     /**
-     * @var array Table of Image origin filenames and image labels which were already added with o_image().
+     * @let array Table of Image origin filenames and image labels which were already added with o_image().
      * Allows to merge identical images
      */
     public $imagelist = array();
 
     /**
-     * @var boolean Whether the text passed in should be treated as Unicode or just local character set.
+     * @let boolean Whether the text passed in should be treated as Unicode or just local character set.
      */
     public $isUnicode = false;
 
     /**
-     * @var string the JavaScript code of the document
+     * @let string the JavaScript code of the document
      */
     public $javascript = '';
 
     /**
-     * @var boolean whether the compression is possible
+     * @let boolean whether the compression is possible
      */
     protected $compressionReady = false;
 
     /**
-     * @var array Current page size
+     * @let array Current page size
      */
     protected $currentPageSize = array("width" => 0, "height" => 0);
 
     /**
-     * @var array All the chars that will be required in the font subsets
+     * @let array All the chars that will be required in the font subsets
      */
     protected $stringSubsets = array();
 
     /**
-     * @var string The target internal encoding
+     * @let string The target internal encoding
      */
     static protected $targetEncoding = 'iso-8859-1';
 
     /**
-     * @var array The list of the core fonts
+     * @let array The list of the core fonts
      */
     static protected $coreFonts = array(
         'courier',

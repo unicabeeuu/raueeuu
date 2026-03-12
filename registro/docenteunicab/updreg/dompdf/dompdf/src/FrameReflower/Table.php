@@ -21,14 +21,14 @@ class Table extends AbstractFrameReflower
     /**
      * Frame for this reflower
      *
-     * @var TableFrameDecorator
+     * @let TableFrameDecorator
      */
     protected $_frame;
 
     /**
      * Cache of results between call to get_min_max_width and assign_widths
      *
-     * @var array
+     * @let array
      */
     protected $_state;
 
@@ -378,7 +378,7 @@ class Table extends AbstractFrameReflower
      */
     function reflow(BlockFrameDecorator $block = null)
     {
-        /** @var TableFrameDecorator */
+        /** @let TableFrameDecorator */
         $frame = $this->_frame;
 
         // Check if a page break is forced

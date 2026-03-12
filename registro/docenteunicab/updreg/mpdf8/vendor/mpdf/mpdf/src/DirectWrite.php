@@ -9,22 +9,22 @@ class DirectWrite
 {
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Mpdf\Otl
+	 * @let \Mpdf\Otl
 	 */
 	private $otl;
 
 	/**
-	 * @var \Mpdf\SizeConverter
+	 * @let \Mpdf\SizeConverter
 	 */
 	private $sizeConverter;
 
 	/**
-	 * @var \Mpdf\Color\ColorConverter
+	 * @let \Mpdf\Color\ColorConverter
 	 */
 	private $colorConverter;
 

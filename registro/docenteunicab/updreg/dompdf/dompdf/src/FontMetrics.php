@@ -36,7 +36,7 @@ class FontMetrics
     const CACHE_FILE = "dompdf_font_family_cache.php";
 
     /**
-     * @var Canvas
+     * @let Canvas
      * @deprecated
      */
     protected $pdf;
@@ -44,7 +44,7 @@ class FontMetrics
     /**
      * Underlying {@link Canvas} object to perform text size calculations
      *
-     * @var Canvas
+     * @let Canvas
      */
     protected $canvas;
 
@@ -53,12 +53,12 @@ class FontMetrics
      *
      * Usually cached by the {@link load_font.php} script
      *
-     * @var array
+     * @let array
      */
     protected $fontLookup = [];
 
     /**
-     * @var Options
+     * @let Options
      */
     private $options;
 

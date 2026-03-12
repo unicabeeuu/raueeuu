@@ -16,7 +16,7 @@ use FontLib\TrueType\File;
  */
 abstract class Header extends BinaryStream {
   /**
-   * @var File
+   * @let File
    */
   protected $font;
   protected $def = array();

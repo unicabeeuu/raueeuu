@@ -24,7 +24,7 @@ class LineReader extends AbstractReader implements ReaderInterface
     /**
      * The object offsets.
      *
-     * @var array
+     * @let array
      */
     protected $offsets;
 

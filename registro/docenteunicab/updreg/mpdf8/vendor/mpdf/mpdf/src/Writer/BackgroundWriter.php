@@ -11,12 +11,12 @@ final class BackgroundWriter
 	use Strict;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Mpdf\Writer\BaseWriter
+	 * @let \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 

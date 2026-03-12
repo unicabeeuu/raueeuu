@@ -46,49 +46,49 @@ class StreamReader
     /**
      * Defines whether the stream should be closed when the stream reader instance is deconstructed or not.
      *
-     * @var bool
+     * @let bool
      */
     protected $closeStream;
 
     /**
      * The stream resource.
      *
-     * @var resource
+     * @let resource
      */
     protected $stream;
 
     /**
      * The byte-offset position in the stream.
      *
-     * @var int
+     * @let int
      */
     protected $position;
 
     /**
      * The byte-offset position in the buffer.
      *
-     * @var int
+     * @let int
      */
     protected $offset;
 
     /**
      * The buffer length.
      *
-     * @var int
+     * @let int
      */
     protected $bufferLength;
 
     /**
      * The total length of the stream.
      *
-     * @var int
+     * @let int
      */
     protected $totalLength;
 
     /**
      * The buffer.
      *
-     * @var string
+     * @let string
      */
     protected $buffer;
 

@@ -13,7 +13,7 @@ use Dompdf\Frame;
 class FrameTreeList implements IteratorAggregate
 {
     /**
-     * @var \Dompdf\Frame
+     * @let \Dompdf\Frame
      */
     protected $_root;
 

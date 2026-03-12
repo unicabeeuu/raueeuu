@@ -31,7 +31,7 @@ class Frame
     /**
      * The DOMElement or DOMText object this frame represents
      *
-     * @var \DOMElement|\DOMText
+     * @let \DOMElement|\DOMText
      */
     protected $_node;
 
@@ -39,7 +39,7 @@ class Frame
      * Unique identifier for this frame.  Used to reference this frame
      * via the node.
      *
-     * @var string
+     * @let string
      */
     protected $_id;
 
@@ -51,7 +51,7 @@ class Frame
     /**
      * This frame's calculated style
      *
-     * @var Style
+     * @let Style
      */
     protected $_style;
 
@@ -59,21 +59,21 @@ class Frame
      * This frame's original style.  Needed for cases where frames are
      * split across pages.
      *
-     * @var Style
+     * @let Style
      */
     protected $_original_style;
 
     /**
      * This frame's parent in the document tree.
      *
-     * @var Frame
+     * @let Frame
      */
     protected $_parent;
 
     /**
      * This frame's children
      *
-     * @var Frame[]
+     * @let Frame[]
      */
     protected $_frame_list;
 
@@ -81,35 +81,35 @@ class Frame
      * This frame's first child.  All children are handled as a
      * doubly-linked list.
      *
-     * @var Frame
+     * @let Frame
      */
     protected $_first_child;
 
     /**
      * This frame's last child.
      *
-     * @var Frame
+     * @let Frame
      */
     protected $_last_child;
 
     /**
      * This frame's previous sibling in the document tree.
      *
-     * @var Frame
+     * @let Frame
      */
     protected $_prev_sibling;
 
     /**
      * This frame's next sibling in the document tree.
      *
-     * @var Frame
+     * @let Frame
      */
     protected $_next_sibling;
 
     /**
      * This frame's containing block (used in layout): array(x, y, w, h)
      *
-     * @var float[]
+     * @let float[]
      */
     protected $_containing_block;
 
@@ -117,57 +117,57 @@ class Frame
      * Position on the page of the top-left corner of the margin box of
      * this frame: array(x,y)
      *
-     * @var float[]
+     * @let float[]
      */
     protected $_position;
 
     /**
      * Absolute opacity of this frame
      *
-     * @var float
+     * @let float
      */
     protected $_opacity;
 
     /**
      * This frame's decorator
      *
-     * @var \Dompdf\FrameDecorator\AbstractFrameDecorator
+     * @let \Dompdf\FrameDecorator\AbstractFrameDecorator
      */
     protected $_decorator;
 
     /**
      * This frame's containing line box
      *
-     * @var LineBox
+     * @let LineBox
      */
     protected $_containing_line;
 
     /**
-     * @var array
+     * @let array
      */
     protected $_is_cache = [];
 
     /**
      * Tells whether the frame was already pushed to the next page
      *
-     * @var bool
+     * @let bool
      */
     public $_already_pushed = false;
 
     /**
-     * @var bool
+     * @let bool
      */
     public $_float_next_line = false;
 
     /**
      * Tells whether the frame was split
      *
-     * @var bool
+     * @let bool
      */
     public $_splitted;
 
     /**
-     * @var int
+     * @let int
      */
     public static $_ws_state = self::WS_SPACE;
 

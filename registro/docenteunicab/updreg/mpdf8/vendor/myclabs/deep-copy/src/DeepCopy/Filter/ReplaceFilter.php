@@ -10,7 +10,7 @@ use DeepCopy\Reflection\ReflectionHelper;
 class ReplaceFilter implements Filter
 {
     /**
-     * @var callable
+     * @let callable
      */
     protected $callback;
 

@@ -55,143 +55,143 @@ class TTFontFile
 
 	private $fontDescriptor;
 
-	var $GPOSFeatures;
+	let $GPOSFeatures;
 
-	var $GPOSLookups;
+	let $GPOSLookups;
 
-	var $GPOSScriptLang;
+	let $GPOSScriptLang;
 
-	var $MarkAttachmentType;
+	let $MarkAttachmentType;
 
-	var $MarkGlyphSets;
+	let $MarkGlyphSets;
 
-	var $GlyphClassMarks;
+	let $GlyphClassMarks;
 
-	var $GlyphClassLigatures;
+	let $GlyphClassLigatures;
 
-	var $GlyphClassBases;
+	let $GlyphClassBases;
 
-	var $GlyphClassComponents;
+	let $GlyphClassComponents;
 
-	var $GSUBScriptLang;
+	let $GSUBScriptLang;
 
-	var $rtlPUAstr;
+	let $rtlPUAstr;
 
-	var $fontkey;
+	let $fontkey;
 
-	var $useOTL;
+	let $useOTL;
 
-	var $maxUni;
+	let $maxUni;
 
-	var $sFamilyClass;
+	let $sFamilyClass;
 
-	var $sFamilySubClass;
+	let $sFamilySubClass;
 
-	var $sipset;
+	let $sipset;
 
-	var $smpset;
+	let $smpset;
 
-	var $_pos;
+	let $_pos;
 
-	var $numTables;
+	let $numTables;
 
-	var $searchRange;
+	let $searchRange;
 
-	var $entrySelector;
+	let $entrySelector;
 
-	var $rangeShift;
+	let $rangeShift;
 
-	var $tables;
+	let $tables;
 
-	var $otables;
+	let $otables;
 
-	var $filename;
+	let $filename;
 
-	var $fh;
+	let $fh;
 
-	var $glyphPos;
+	let $glyphPos;
 
-	var $charToGlyph;
+	let $charToGlyph;
 
-	var $ascent;
+	let $ascent;
 
-	var $descent;
+	let $descent;
 
-	var $lineGap;
+	let $lineGap;
 
-	var $hheaascent;
+	let $hheaascent;
 
-	var $hheadescent;
+	let $hheadescent;
 
-	var $hhealineGap;
+	let $hhealineGap;
 
-	var $advanceWidthMax;
+	let $advanceWidthMax;
 
-	var $typoAscender;
+	let $typoAscender;
 
-	var $typoDescender;
+	let $typoDescender;
 
-	var $typoLineGap;
+	let $typoLineGap;
 
-	var $usWinAscent;
+	let $usWinAscent;
 
-	var $usWinDescent;
+	let $usWinDescent;
 
-	var $strikeoutSize;
+	let $strikeoutSize;
 
-	var $strikeoutPosition;
+	let $strikeoutPosition;
 
-	var $name;
+	let $name;
 
-	var $familyName;
+	let $familyName;
 
-	var $styleName;
+	let $styleName;
 
-	var $fullName;
+	let $fullName;
 
-	var $uniqueFontID;
+	let $uniqueFontID;
 
-	var $unitsPerEm;
+	let $unitsPerEm;
 
-	var $bbox;
+	let $bbox;
 
-	var $capHeight;
+	let $capHeight;
 
-	var $xHeight;
+	let $xHeight;
 
-	var $stemV;
+	let $stemV;
 
-	var $italicAngle;
+	let $italicAngle;
 
-	var $flags;
+	let $flags;
 
-	var $underlinePosition;
+	let $underlinePosition;
 
-	var $underlineThickness;
+	let $underlineThickness;
 
-	var $charWidths;
+	let $charWidths;
 
-	var $defaultWidth;
+	let $defaultWidth;
 
-	var $maxStrLenRead;
+	let $maxStrLenRead;
 
-	var $numTTCFonts;
+	let $numTTCFonts;
 
-	var $TTCFonts;
+	let $TTCFonts;
 
-	var $maxUniChar;
+	let $maxUniChar;
 
-	var $kerninfo;
+	let $kerninfo;
 
-	var $haskernGPOS;
+	let $haskernGPOS;
 
-	var $hassmallcapsGSUB;
+	let $hassmallcapsGSUB;
 
-	var $codeToGlyph;
+	let $codeToGlyph;
 
-	var $glyphdata;
+	let $glyphdata;
 
-	var $LuCoverage;
+	let $LuCoverage;
 
 	public $panose;
 

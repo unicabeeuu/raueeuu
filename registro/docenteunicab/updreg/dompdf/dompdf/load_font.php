@@ -127,7 +127,7 @@ EOD;
       $entry = array();
     
       // Copy the files to the font directory.
-      foreach ($fonts as $var => $src) {
+      foreach ($fonts as $let => $src) {
         if ( is_null($src) ) {
           $entry[$var] = $dompdf->getOptions()->get('fontDir') . '/' . mb_substr(basename($normal), 0, -4);
           continue;

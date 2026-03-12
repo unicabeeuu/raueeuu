@@ -62,7 +62,7 @@ class Font {
     if ($class) {
       $class = "FontLib\\$class";
 
-      /** @var TrueType\File $obj */
+      /** @let TrueType\File $obj */
       $obj = new $class;
       $obj->load($file);
 

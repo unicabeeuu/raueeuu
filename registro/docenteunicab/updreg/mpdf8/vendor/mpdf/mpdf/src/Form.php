@@ -29,79 +29,79 @@ class Form
 	const FLAG_NO_SCROLL = 24;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Mpdf\Otl
+	 * @let \Mpdf\Otl
 	 */
 	private $otl;
 
 	/**
-	 * @var \Mpdf\Color\ColorConverter
+	 * @let \Mpdf\Color\ColorConverter
 	 */
 	private $colorConverter;
 
 	/**
-	 * @var \Mpdf\Writer\BaseWriter
+	 * @let \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 
 	/**
-	 * @var \Mpdf\Writer\FormWriter
+	 * @let \Mpdf\Writer\FormWriter
 	 */
 	private $formWriter;
 
 	/**
-	 * @var array
+	 * @let array
 	 */
 	public $forms;
 
 	/**
-	 * @var int
+	 * @let int
 	 */
 	private $formCount;
 
 	// Active Forms
-	var $formSubmitNoValueFields;
-	var $formExportType;
-	var $formSelectDefaultOption;
-	var $formUseZapD;
+	let $formSubmitNoValueFields;
+	let $formExportType;
+	let $formSelectDefaultOption;
+	let $formUseZapD;
 
 	// Form Styles
-	var $form_border_color;
-	var $form_background_color;
-	var $form_border_width;
-	var $form_border_style;
-	var $form_button_border_color;
-	var $form_button_background_color;
-	var $form_button_border_width;
-	var $form_button_border_style;
-	var $form_radio_color;
-	var $form_radio_background_color;
-	var $form_element_spacing;
+	let $form_border_color;
+	let $form_background_color;
+	let $form_border_width;
+	let $form_border_style;
+	let $form_button_border_color;
+	let $form_button_background_color;
+	let $form_button_border_width;
+	let $form_button_border_style;
+	let $form_radio_color;
+	let $form_radio_background_color;
+	let $form_element_spacing;
 
 	// Active forms
-	var $formMethod;
-	var $formAction;
-	var $form_fonts;
-	var $form_radio_groups;
-	var $form_checkboxes;
-	var $pdf_acro_array;
-	var $pdf_array_co;
-	var $array_form_button_js;
-	var $array_form_choice_js;
-	var $array_form_text_js;
+	let $formMethod;
+	let $formAction;
+	let $form_fonts;
+	let $form_radio_groups;
+	let $form_checkboxes;
+	let $pdf_acro_array;
+	let $pdf_array_co;
+	let $array_form_button_js;
+	let $array_form_choice_js;
+	let $array_form_text_js;
 
 	// Button Text
-	var $form_button_text;
-	var $form_button_text_over;
-	var $form_button_text_click;
-	var $form_button_icon;
+	let $form_button_text;
+	let $form_button_text_over;
+	let $form_button_text_click;
+	let $form_button_icon;
 
 	// FORMS
-	var $textarea_lineheight;
+	let $textarea_lineheight;
 
 	public function __construct(Mpdf $mpdf, Otl $otl, ColorConverter $colorConverter, BaseWriter $writer, FormWriter $formWriter)
 	{

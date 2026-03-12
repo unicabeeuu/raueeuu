@@ -118,10 +118,10 @@ if (isset($_SESSION['uniprofe'])) {
             }
         </style>
         <script>
-            var gridViewScroll = null;
+            let gridViewScroll = null;
             
             $(function() {
-                var options = new GridViewScrollOptions();
+                let options = new GridViewScrollOptions();
                 options.elementID = "tblformula";
                 options.width = 800;
                 options.height = 300;
@@ -142,7 +142,7 @@ if (isset($_SESSION['uniprofe'])) {
                     $("#divresul").html("");
                     $("#divtabla").html("");
                     
-                    var gra = $("#selgra1").val();
+                    let gra = $("#selgra1").val();
                     //alert(gra);
             		$("#lblgra").html("Grado = " + gra);
             		
@@ -158,14 +158,14 @@ if (isset($_SESSION['uniprofe'])) {
             	    $("#divresul").html("");
             	    $("#divtabla").html("");
             	    
-            	    var pen = $("#selpen1").val();
+            	    let pen = $("#selpen1").val();
             	    //alert(pen);
             		if(pen == "NA") {
             			$("#submit").hide("");
             			$("#btnverf").hide("");
             		}
             		else {
-            		    var gra = $("#selgra1").val();
+            		    let gra = $("#selgra1").val();
                 		if(gra == "NA") {
                 			$("#submit").hide("");
                 			$("#btnverf").hide("");
@@ -338,7 +338,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- Classie --><!-- for toggle left push menu script -->
     	<script src="../../js/classie.js"></script>
     	<script>
-    		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     			showLeftPush = document.getElementById( 'showLeftPush' ),
     			body = document.body;
     			
@@ -384,7 +384,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- validar combo periodo -->
     	<script type="text/javascript">
     		function validacion() {
-    			var grado=document.getElementById('id_grado').value;
+    			let grado=document.getElementById('id_grado').value;
     			if (grado==0) {
     				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
     				return false;

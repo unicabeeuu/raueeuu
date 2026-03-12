@@ -28,14 +28,14 @@ class Renderer extends AbstractRenderer
     /**
      * Array of renderers for specific frame types
      *
-     * @var AbstractRenderer[]
+     * @let AbstractRenderer[]
      */
     protected $_renderers;
 
     /**
      * Cache of the callbacks array
      *
-     * @var array
+     * @let array
      */
     private $_callbacks;
 

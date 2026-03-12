@@ -12,66 +12,66 @@ class TableOfContents
 
 	private $sizeConverter;
 
-	var $_toc;
+	let $_toc;
 
-	var $TOCmark;
+	let $TOCmark;
 
-	var $TOCoutdent; // mPDF 5.6.31
+	let $TOCoutdent; // mPDF 5.6.31
 
-	var $TOCpreHTML;
+	let $TOCpreHTML;
 
-	var $TOCpostHTML;
+	let $TOCpostHTML;
 
-	var $TOCbookmarkText;
+	let $TOCbookmarkText;
 
-	var $TOCusePaging;
+	let $TOCusePaging;
 
-	var $TOCuseLinking;
+	let $TOCuseLinking;
 
-	var $TOCorientation;
+	let $TOCorientation;
 
-	var $TOC_margin_left;
+	let $TOC_margin_left;
 
-	var $TOC_margin_right;
+	let $TOC_margin_right;
 
-	var $TOC_margin_top;
+	let $TOC_margin_top;
 
-	var $TOC_margin_bottom;
+	let $TOC_margin_bottom;
 
-	var $TOC_margin_header;
+	let $TOC_margin_header;
 
-	var $TOC_margin_footer;
+	let $TOC_margin_footer;
 
-	var $TOC_odd_header_name;
+	let $TOC_odd_header_name;
 
-	var $TOC_even_header_name;
+	let $TOC_even_header_name;
 
-	var $TOC_odd_footer_name;
+	let $TOC_odd_footer_name;
 
-	var $TOC_even_footer_name;
+	let $TOC_even_footer_name;
 
-	var $TOC_odd_header_value;
+	let $TOC_odd_header_value;
 
-	var $TOC_even_header_value;
+	let $TOC_even_header_value;
 
-	var $TOC_odd_footer_value;
+	let $TOC_odd_footer_value;
 
-	var $TOC_even_footer_value;
+	let $TOC_even_footer_value;
 
-	var $TOC_page_selector;
+	let $TOC_page_selector;
 
-	var $TOC_resetpagenum; // mPDF 6
+	let $TOC_resetpagenum; // mPDF 6
 
-	var $TOC_pagenumstyle; // mPDF 6
+	let $TOC_pagenumstyle; // mPDF 6
 
-	var $TOC_suppress; // mPDF 6
+	let $TOC_suppress; // mPDF 6
 
-	var $TOCsheetsize;
+	let $TOCsheetsize;
 
-	var $m_TOC;
+	let $m_TOC;
 
 	/**
-	 * @var bool Determine if the TOC should be cloned to calculate the correct page numbers
+	 * @let bool Determine if the TOC should be cloned to calculate the correct page numbers
 	 */
 	protected $tocTocPaintBegun = false;
 

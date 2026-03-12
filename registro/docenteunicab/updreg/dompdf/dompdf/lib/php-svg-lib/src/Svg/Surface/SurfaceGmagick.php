@@ -14,13 +14,13 @@ class SurfaceGmagick implements SurfaceInterface
 {
     const DEBUG = false;
 
-    /** @var \GmagickDraw */
+    /** @let \GmagickDraw */
     private $canvas;
 
     private $width;
     private $height;
 
-    /** @var Style */
+    /** @let Style */
     private $style;
 
     public function __construct($w, $h)

@@ -43,643 +43,643 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 
 	const SCALE = 72 / 25.4;
 
-	var $useFixedNormalLineHeight; // mPDF 6
-	var $useFixedTextBaseline; // mPDF 6
-	var $adjustFontDescLineheight; // mPDF 6
-	var $interpolateImages; // mPDF 6
-	var $defaultPagebreakType; // mPDF 6 pagebreaktype
-	var $indexUseSubentries; // mPDF 6
+	let $useFixedNormalLineHeight; // mPDF 6
+	let $useFixedTextBaseline; // mPDF 6
+	let $adjustFontDescLineheight; // mPDF 6
+	let $interpolateImages; // mPDF 6
+	let $defaultPagebreakType; // mPDF 6 pagebreaktype
+	let $indexUseSubentries; // mPDF 6
 
-	var $autoScriptToLang; // mPDF 6
-	var $baseScript; // mPDF 6
-	var $autoVietnamese; // mPDF 6
-	var $autoArabic; // mPDF 6
+	let $autoScriptToLang; // mPDF 6
+	let $baseScript; // mPDF 6
+	let $autoVietnamese; // mPDF 6
+	let $autoArabic; // mPDF 6
 
-	var $CJKforceend;
-	var $h2bookmarks;
-	var $h2toc;
-	var $decimal_align;
-	var $margBuffer;
-	var $splitTableBorderWidth;
+	let $CJKforceend;
+	let $h2bookmarks;
+	let $h2toc;
+	let $decimal_align;
+	let $margBuffer;
+	let $splitTableBorderWidth;
 
-	var $bookmarkStyles;
-	var $useActiveForms;
+	let $bookmarkStyles;
+	let $useActiveForms;
 
-	var $repackageTTF;
-	var $allowCJKorphans;
-	var $allowCJKoverflow;
+	let $repackageTTF;
+	let $allowCJKorphans;
+	let $allowCJKoverflow;
 
-	var $useKerning;
-	var $restrictColorSpace;
-	var $bleedMargin;
-	var $crossMarkMargin;
-	var $cropMarkMargin;
-	var $cropMarkLength;
-	var $nonPrintMargin;
+	let $useKerning;
+	let $restrictColorSpace;
+	let $bleedMargin;
+	let $crossMarkMargin;
+	let $cropMarkMargin;
+	let $cropMarkLength;
+	let $nonPrintMargin;
 
-	var $PDFX;
-	var $PDFXauto;
+	let $PDFX;
+	let $PDFXauto;
 
-	var $PDFA;
-	var $PDFAversion = '1-B';
-	var $PDFAauto;
-	var $ICCProfile;
+	let $PDFA;
+	let $PDFAversion = '1-B';
+	let $PDFAauto;
+	let $ICCProfile;
 
-	var $printers_info;
-	var $iterationCounter;
-	var $smCapsScale;
-	var $smCapsStretch;
+	let $printers_info;
+	let $iterationCounter;
+	let $smCapsScale;
+	let $smCapsStretch;
 
-	var $backupSubsFont;
-	var $backupSIPFont;
-	var $fonttrans;
-	var $debugfonts;
-	var $useAdobeCJK;
-	var $percentSubset;
-	var $maxTTFFilesize;
-	var $BMPonly;
+	let $backupSubsFont;
+	let $backupSIPFont;
+	let $fonttrans;
+	let $debugfonts;
+	let $useAdobeCJK;
+	let $percentSubset;
+	let $maxTTFFilesize;
+	let $BMPonly;
 
-	var $tableMinSizePriority;
+	let $tableMinSizePriority;
 
-	var $dpi;
-	var $watermarkImgAlphaBlend;
-	var $watermarkImgBehind;
-	var $justifyB4br;
-	var $packTableData;
-	var $pgsIns;
-	var $simpleTables;
-	var $enableImports;
+	let $dpi;
+	let $watermarkImgAlphaBlend;
+	let $watermarkImgBehind;
+	let $justifyB4br;
+	let $packTableData;
+	let $pgsIns;
+	let $simpleTables;
+	let $enableImports;
 
-	var $debug;
+	let $debug;
 
-	var $setAutoTopMargin;
-	var $setAutoBottomMargin;
-	var $autoMarginPadding;
-	var $collapseBlockMargins;
-	var $falseBoldWeight;
-	var $normalLineheight;
-	var $incrementFPR1;
-	var $incrementFPR2;
-	var $incrementFPR3;
-	var $incrementFPR4;
+	let $setAutoTopMargin;
+	let $setAutoBottomMargin;
+	let $autoMarginPadding;
+	let $collapseBlockMargins;
+	let $falseBoldWeight;
+	let $normalLineheight;
+	let $incrementFPR1;
+	let $incrementFPR2;
+	let $incrementFPR3;
+	let $incrementFPR4;
 
-	var $SHYlang;
-	var $SHYleftmin;
-	var $SHYrightmin;
-	var $SHYcharmin;
-	var $SHYcharmax;
-	var $SHYlanguages;
+	let $SHYlang;
+	let $SHYleftmin;
+	let $SHYrightmin;
+	let $SHYcharmin;
+	let $SHYcharmax;
+	let $SHYlanguages;
 
 	// PageNumber Conditional Text
-	var $pagenumPrefix;
-	var $pagenumSuffix;
+	let $pagenumPrefix;
+	let $pagenumSuffix;
 
-	var $nbpgPrefix;
-	var $nbpgSuffix;
-	var $showImageErrors;
-	var $allow_output_buffering;
-	var $autoPadding;
-	var $tabSpaces;
-	var $autoLangToFont;
-	var $watermarkTextAlpha;
-	var $watermarkImageAlpha;
-	var $watermark_size;
-	var $watermark_pos;
-	var $annotSize;
-	var $annotMargin;
-	var $annotOpacity;
-	var $title2annots;
-	var $keepColumns;
-	var $keep_table_proportions;
-	var $ignore_table_widths;
-	var $ignore_table_percents;
-	var $list_number_suffix;
+	let $nbpgPrefix;
+	let $nbpgSuffix;
+	let $showImageErrors;
+	let $allow_output_buffering;
+	let $autoPadding;
+	let $tabSpaces;
+	let $autoLangToFont;
+	let $watermarkTextAlpha;
+	let $watermarkImageAlpha;
+	let $watermark_size;
+	let $watermark_pos;
+	let $annotSize;
+	let $annotMargin;
+	let $annotOpacity;
+	let $title2annots;
+	let $keepColumns;
+	let $keep_table_proportions;
+	let $ignore_table_widths;
+	let $ignore_table_percents;
+	let $list_number_suffix;
 
-	var $list_auto_mode; // mPDF 6
-	var $list_indent_first_level; // mPDF 6
-	var $list_indent_default; // mPDF 6
-	var $list_indent_default_mpdf;
-	var $list_marker_offset; // mPDF 6
-	var $list_symbol_size;
+	let $list_auto_mode; // mPDF 6
+	let $list_indent_first_level; // mPDF 6
+	let $list_indent_default; // mPDF 6
+	let $list_indent_default_mpdf;
+	let $list_marker_offset; // mPDF 6
+	let $list_symbol_size;
 
-	var $useSubstitutions;
-	var $CSSselectMedia;
+	let $useSubstitutions;
+	let $CSSselectMedia;
 
-	var $forcePortraitHeaders;
-	var $forcePortraitMargins;
-	var $displayDefaultOrientation;
-	var $ignore_invalid_utf8;
-	var $allowedCSStags;
-	var $onlyCoreFonts;
-	var $allow_charset_conversion;
+	let $forcePortraitHeaders;
+	let $forcePortraitMargins;
+	let $displayDefaultOrientation;
+	let $ignore_invalid_utf8;
+	let $allowedCSStags;
+	let $onlyCoreFonts;
+	let $allow_charset_conversion;
 
-	var $jSWord;
-	var $jSmaxChar;
-	var $jSmaxCharLast;
-	var $jSmaxWordLast;
+	let $jSWord;
+	let $jSmaxChar;
+	let $jSmaxCharLast;
+	let $jSmaxWordLast;
 
-	var $max_colH_correction;
+	let $max_colH_correction;
 
-	var $table_error_report;
-	var $table_error_report_param;
-	var $biDirectional;
-	var $text_input_as_HTML;
-	var $anchor2Bookmark;
-	var $shrink_tables_to_fit;
+	let $table_error_report;
+	let $table_error_report_param;
+	let $biDirectional;
+	let $text_input_as_HTML;
+	let $anchor2Bookmark;
+	let $shrink_tables_to_fit;
 
-	var $allow_html_optional_endtags;
+	let $allow_html_optional_endtags;
 
-	var $img_dpi;
-	var $whitelistStreamWrappers;
+	let $img_dpi;
+	let $whitelistStreamWrappers;
 
-	var $defaultheaderfontsize;
-	var $defaultheaderfontstyle;
-	var $defaultheaderline;
-	var $defaultfooterfontsize;
-	var $defaultfooterfontstyle;
-	var $defaultfooterline;
-	var $header_line_spacing;
-	var $footer_line_spacing;
+	let $defaultheaderfontsize;
+	let $defaultheaderfontstyle;
+	let $defaultheaderline;
+	let $defaultfooterfontsize;
+	let $defaultfooterfontstyle;
+	let $defaultfooterline;
+	let $header_line_spacing;
+	let $footer_line_spacing;
 
-	var $pregCJKchars;
-	var $pregRTLchars;
-	var $pregCURSchars; // mPDF 6
+	let $pregCJKchars;
+	let $pregRTLchars;
+	let $pregCURSchars; // mPDF 6
 
-	var $mirrorMargins;
-	var $watermarkText;
-	var $watermarkAngle;
-	var $watermarkImage;
-	var $showWatermarkText;
-	var $showWatermarkImage;
+	let $mirrorMargins;
+	let $watermarkText;
+	let $watermarkAngle;
+	let $watermarkImage;
+	let $showWatermarkText;
+	let $showWatermarkImage;
 
-	var $svgAutoFont;
-	var $svgClasses;
+	let $svgAutoFont;
+	let $svgClasses;
 
-	var $fontsizes;
+	let $fontsizes;
 
-	var $defaultPageNumStyle; // mPDF 6
+	let $defaultPageNumStyle; // mPDF 6
 
 	//////////////////////
 	// INTERNAL VARIABLES
 	//////////////////////
-	var $extrapagebreak; // mPDF 6 pagebreaktype
+	let $extrapagebreak; // mPDF 6 pagebreaktype
 
-	var $uniqstr; // mPDF 5.7.2
-	var $hasOC;
+	let $uniqstr; // mPDF 5.7.2
+	let $hasOC;
 
-	var $textvar; // mPDF 5.7.1
-	var $fontLanguageOverride; // mPDF 5.7.1
-	var $OTLtags; // mPDF 5.7.1
-	var $OTLdata;  // mPDF 5.7.1
+	let $textvar; // mPDF 5.7.1
+	let $fontLanguageOverride; // mPDF 5.7.1
+	let $OTLtags; // mPDF 5.7.1
+	let $OTLdata;  // mPDF 5.7.1
 
-	var $useDictionaryLBR;
-	var $useTibetanLBR;
+	let $useDictionaryLBR;
+	let $useTibetanLBR;
 
-	var $writingToC;
-	var $layers;
-	var $layerDetails;
-	var $current_layer;
-	var $open_layer_pane;
-	var $decimal_offset;
-	var $inMeter;
+	let $writingToC;
+	let $layers;
+	let $layerDetails;
+	let $current_layer;
+	let $open_layer_pane;
+	let $decimal_offset;
+	let $inMeter;
 
-	var $CJKleading;
-	var $CJKfollowing;
-	var $CJKoverflow;
+	let $CJKleading;
+	let $CJKfollowing;
+	let $CJKoverflow;
 
-	var $textshadow;
+	let $textshadow;
 
-	var $colsums;
-	var $spanborder;
-	var $spanborddet;
+	let $colsums;
+	let $spanborder;
+	let $spanborddet;
 
-	var $visibility;
+	let $visibility;
 
-	var $kerning;
-	var $fixedlSpacing;
-	var $minwSpacing;
-	var $lSpacingCSS;
-	var $wSpacingCSS;
+	let $kerning;
+	let $fixedlSpacing;
+	let $minwSpacing;
+	let $lSpacingCSS;
+	let $wSpacingCSS;
 
-	var $spotColorIDs;
-	var $SVGcolors;
-	var $spotColors;
-	var $defTextColor;
-	var $defDrawColor;
-	var $defFillColor;
+	let $spotColorIDs;
+	let $SVGcolors;
+	let $spotColors;
+	let $defTextColor;
+	let $defDrawColor;
+	let $defFillColor;
 
-	var $tableBackgrounds;
-	var $inlineDisplayOff;
-	var $kt_y00;
-	var $kt_p00;
-	var $upperCase;
-	var $checkSIP;
-	var $checkSMP;
-	var $checkCJK;
+	let $tableBackgrounds;
+	let $inlineDisplayOff;
+	let $kt_y00;
+	let $kt_p00;
+	let $upperCase;
+	let $checkSIP;
+	let $checkSMP;
+	let $checkCJK;
 
-	var $watermarkImgAlpha;
-	var $PDFAXwarnings;
+	let $watermarkImgAlpha;
+	let $PDFAXwarnings;
 
-	var $MetadataRoot;
-	var $OutputIntentRoot;
-	var $InfoRoot;
-	var $associatedFilesRoot;
+	let $MetadataRoot;
+	let $OutputIntentRoot;
+	let $InfoRoot;
+	let $associatedFilesRoot;
 
-	var $pdf_version;
+	let $pdf_version;
 
 	private $fontDir;
 
-	var $tempDir;
+	let $tempDir;
 
-	var $allowAnnotationFiles;
+	let $allowAnnotationFiles;
 
-	var $fontdata;
+	let $fontdata;
 
-	var $noImageFile;
-	var $lastblockbottommargin;
-	var $baselineC;
+	let $noImageFile;
+	let $lastblockbottommargin;
+	let $baselineC;
 
 	// mPDF 5.7.3  inline text-decoration parameters
-	var $baselineSup;
-	var $baselineSub;
-	var $baselineS;
-	var $baselineO;
+	let $baselineSup;
+	let $baselineSub;
+	let $baselineS;
+	let $baselineO;
 
-	var $subPos;
-	var $subArrMB;
-	var $ReqFontStyle;
-	var $tableClipPath;
+	let $subPos;
+	let $subArrMB;
+	let $ReqFontStyle;
+	let $tableClipPath;
 
-	var $fullImageHeight;
+	let $fullImageHeight;
 
-	var $inFixedPosBlock;  // Internal flag for position:fixed block
-	var $fixedPosBlock;  // Buffer string for position:fixed block
-	var $fixedPosBlockDepth;
-	var $fixedPosBlockBBox;
-	var $fixedPosBlockSave;
-	var $maxPosL;
-	var $maxPosR;
-	var $loaded;
+	let $inFixedPosBlock;  // Internal flag for position:fixed block
+	let $fixedPosBlock;  // Buffer string for position:fixed block
+	let $fixedPosBlockDepth;
+	let $fixedPosBlockBBox;
+	let $fixedPosBlockSave;
+	let $maxPosL;
+	let $maxPosR;
+	let $loaded;
 
-	var $extraFontSubsets;
+	let $extraFontSubsets;
 
-	var $docTemplateStart;  // Internal flag for page (page no. -1) that docTemplate starts on
+	let $docTemplateStart;  // Internal flag for page (page no. -1) that docTemplate starts on
 
-	var $time0;
+	let $time0;
 
-	var $hyphenationDictionaryFile;
+	let $hyphenationDictionaryFile;
 
-	var $spanbgcolorarray;
-	var $default_font;
-	var $headerbuffer;
-	var $lastblocklevelchange;
-	var $nestedtablejustfinished;
-	var $linebreakjustfinished;
-	var $cell_border_dominance_L;
-	var $cell_border_dominance_R;
-	var $cell_border_dominance_T;
-	var $cell_border_dominance_B;
-	var $table_keep_together;
-	var $plainCell_properties;
-	var $shrin_k1;
-	var $outerfilled;
+	let $spanbgcolorarray;
+	let $default_font;
+	let $headerbuffer;
+	let $lastblocklevelchange;
+	let $nestedtablejustfinished;
+	let $linebreakjustfinished;
+	let $cell_border_dominance_L;
+	let $cell_border_dominance_R;
+	let $cell_border_dominance_T;
+	let $cell_border_dominance_B;
+	let $table_keep_together;
+	let $plainCell_properties;
+	let $shrin_k1;
+	let $outerfilled;
 
-	var $blockContext;
-	var $floatDivs;
+	let $blockContext;
+	let $floatDivs;
 
-	var $patterns;
-	var $pageBackgrounds;
+	let $patterns;
+	let $pageBackgrounds;
 
-	var $bodyBackgroundGradient;
-	var $bodyBackgroundImage;
-	var $bodyBackgroundColor;
+	let $bodyBackgroundGradient;
+	let $bodyBackgroundImage;
+	let $bodyBackgroundColor;
 
-	var $writingHTMLheader; // internal flag - used both for writing HTMLHeaders/Footers and FixedPos block
-	var $writingHTMLfooter;
+	let $writingHTMLheader; // internal flag - used both for writing HTMLHeaders/Footers and FixedPos block
+	let $writingHTMLfooter;
 
-	var $angle;
+	let $angle;
 
-	var $gradients;
+	let $gradients;
 
-	var $kwt_Reference;
-	var $kwt_BMoutlines;
-	var $kwt_toc;
+	let $kwt_Reference;
+	let $kwt_BMoutlines;
+	let $kwt_toc;
 
-	var $tbrot_BMoutlines;
-	var $tbrot_toc;
+	let $tbrot_BMoutlines;
+	let $tbrot_toc;
 
-	var $col_BMoutlines;
-	var $col_toc;
+	let $col_BMoutlines;
+	let $col_toc;
 
-	var $floatbuffer;
-	var $floatmargins;
+	let $floatbuffer;
+	let $floatmargins;
 
-	var $bullet;
-	var $bulletarray;
+	let $bullet;
+	let $bulletarray;
 
-	var $currentLang;
-	var $default_lang;
+	let $currentLang;
+	let $default_lang;
 
-	var $default_available_fonts;
+	let $default_available_fonts;
 
-	var $pageTemplate;
-	var $docTemplate;
-	var $docTemplateContinue;
+	let $pageTemplate;
+	let $docTemplate;
+	let $docTemplateContinue;
 
-	var $arabGlyphs;
-	var $arabHex;
-	var $persianGlyphs;
-	var $persianHex;
-	var $arabVowels;
-	var $arabPrevLink;
-	var $arabNextLink;
+	let $arabGlyphs;
+	let $arabHex;
+	let $persianGlyphs;
+	let $persianHex;
+	let $arabVowels;
+	let $arabPrevLink;
+	let $arabNextLink;
 
-	var $formobjects; // array of Form Objects for WMF
-	var $InlineProperties;
-	var $InlineAnnots;
-	var $InlineBDF; // mPDF 6 Bidirectional formatting
-	var $InlineBDFctr; // mPDF 6
+	let $formobjects; // array of Form Objects for WMF
+	let $InlineProperties;
+	let $InlineAnnots;
+	let $InlineBDF; // mPDF 6 Bidirectional formatting
+	let $InlineBDFctr; // mPDF 6
 
-	var $ktAnnots;
-	var $tbrot_Annots;
-	var $kwt_Annots;
-	var $columnAnnots;
-	var $columnForms;
-	var $tbrotForms;
+	let $ktAnnots;
+	let $tbrot_Annots;
+	let $kwt_Annots;
+	let $columnAnnots;
+	let $columnForms;
+	let $tbrotForms;
 
-	var $PageAnnots;
+	let $PageAnnots;
 
-	var $pageDim; // Keep track of page wxh for orientation changes - set in _beginpage, used in _putannots
+	let $pageDim; // Keep track of page wxh for orientation changes - set in _beginpage, used in _putannots
 
-	var $breakpoints;
+	let $breakpoints;
 
-	var $tableLevel;
-	var $tbctr;
-	var $innermostTableLevel;
-	var $saveTableCounter;
-	var $cellBorderBuffer;
+	let $tableLevel;
+	let $tbctr;
+	let $innermostTableLevel;
+	let $saveTableCounter;
+	let $cellBorderBuffer;
 
-	var $saveHTMLFooter_height;
-	var $saveHTMLFooterE_height;
+	let $saveHTMLFooter_height;
+	let $saveHTMLFooterE_height;
 
-	var $firstPageBoxHeader;
-	var $firstPageBoxHeaderEven;
-	var $firstPageBoxFooter;
-	var $firstPageBoxFooterEven;
+	let $firstPageBoxHeader;
+	let $firstPageBoxHeaderEven;
+	let $firstPageBoxFooter;
+	let $firstPageBoxFooterEven;
 
-	var $page_box;
+	let $page_box;
 
-	var $show_marks; // crop or cross marks
-	var $basepathIsLocal;
+	let $show_marks; // crop or cross marks
+	let $basepathIsLocal;
 
-	var $use_kwt;
-	var $kwt;
-	var $kwt_height;
-	var $kwt_y0;
-	var $kwt_x0;
-	var $kwt_buffer;
-	var $kwt_Links;
-	var $kwt_moved;
-	var $kwt_saved;
+	let $use_kwt;
+	let $kwt;
+	let $kwt_height;
+	let $kwt_y0;
+	let $kwt_x0;
+	let $kwt_buffer;
+	let $kwt_Links;
+	let $kwt_moved;
+	let $kwt_saved;
 
-	var $PageNumSubstitutions;
+	let $PageNumSubstitutions;
 
-	var $table_borders_separate;
-	var $base_table_properties;
-	var $borderstyles;
+	let $table_borders_separate;
+	let $base_table_properties;
+	let $borderstyles;
 
-	var $blockjustfinished;
+	let $blockjustfinished;
 
-	var $orig_bMargin;
-	var $orig_tMargin;
-	var $orig_lMargin;
-	var $orig_rMargin;
-	var $orig_hMargin;
-	var $orig_fMargin;
+	let $orig_bMargin;
+	let $orig_tMargin;
+	let $orig_lMargin;
+	let $orig_rMargin;
+	let $orig_hMargin;
+	let $orig_fMargin;
 
-	var $pageHTMLheaders;
-	var $pageHTMLfooters;
+	let $pageHTMLheaders;
+	let $pageHTMLfooters;
 
-	var $saveHTMLHeader;
-	var $saveHTMLFooter;
+	let $saveHTMLHeader;
+	let $saveHTMLFooter;
 
-	var $HTMLheaderPageLinks;
-	var $HTMLheaderPageAnnots;
-	var $HTMLheaderPageForms;
+	let $HTMLheaderPageLinks;
+	let $HTMLheaderPageAnnots;
+	let $HTMLheaderPageForms;
 
 	// See Config\FontVariables for these next 5 values
-	var $available_unifonts;
-	var $sans_fonts;
-	var $serif_fonts;
-	var $mono_fonts;
-	var $defaultSubsFont;
+	let $available_unifonts;
+	let $sans_fonts;
+	let $serif_fonts;
+	let $mono_fonts;
+	let $defaultSubsFont;
 
 	// List of ALL available CJK fonts (incl. styles) (Adobe add-ons)  hw removed
-	var $available_CJK_fonts;
+	let $available_CJK_fonts;
 
-	var $HTMLHeader;
-	var $HTMLFooter;
-	var $HTMLHeaderE;
-	var $HTMLFooterE;
-	var $bufferoutput;
+	let $HTMLHeader;
+	let $HTMLFooter;
+	let $HTMLHeaderE;
+	let $HTMLFooterE;
+	let $bufferoutput;
 
 	// CJK fonts
-	var $Big5_widths;
-	var $GB_widths;
-	var $SJIS_widths;
-	var $UHC_widths;
+	let $Big5_widths;
+	let $GB_widths;
+	let $SJIS_widths;
+	let $UHC_widths;
 
 	// SetProtection
-	var $encrypted;
+	let $encrypted;
 
-	var $enc_obj_id; // encryption object id
+	let $enc_obj_id; // encryption object id
 
 	// Bookmark
-	var $BMoutlines;
-	var $OutlineRoot;
+	let $BMoutlines;
+	let $OutlineRoot;
 
 	// INDEX
-	var $ColActive;
-	var $Reference;
-	var $CurrCol;
-	var $NbCol;
-	var $y0;   // Top ordinate of columns
+	let $ColActive;
+	let $Reference;
+	let $CurrCol;
+	let $NbCol;
+	let $y0;   // Top ordinate of columns
 
-	var $ColL;
-	var $ColWidth;
-	var $ColGap;
+	let $ColL;
+	let $ColWidth;
+	let $ColGap;
 
 	// COLUMNS
-	var $ColR;
-	var $ChangeColumn;
-	var $columnbuffer;
-	var $ColDetails;
-	var $columnLinks;
-	var $colvAlign;
+	let $ColR;
+	let $ChangeColumn;
+	let $columnbuffer;
+	let $ColDetails;
+	let $columnLinks;
+	let $colvAlign;
 
 	// Substitutions
-	var $substitute;  // Array of substitution strings e.g. <ttz>112</ttz>
-	var $entsearch;  // Array of HTML entities (>ASCII 127) to substitute
-	var $entsubstitute; // Array of substitution decimal unicode for the Hi entities
+	let $substitute;  // Array of substitution strings e.g. <ttz>112</ttz>
+	let $entsearch;  // Array of HTML entities (>ASCII 127) to substitute
+	let $entsubstitute; // Array of substitution decimal unicode for the Hi entities
 
 	// Default values if no style sheet offered	(cf. http://www.w3.org/TR/CSS21/sample.html)
-	var $defaultCSS;
-	var $defaultCssFile;
+	let $defaultCSS;
+	let $defaultCssFile;
 
-	var $lastoptionaltag; // Save current block item which HTML specifies optionsl endtag
-	var $pageoutput;
-	var $charset_in;
-	var $blk;
-	var $blklvl;
-	var $ColumnAdjust;
+	let $lastoptionaltag; // Save current block item which HTML specifies optionsl endtag
+	let $pageoutput;
+	let $charset_in;
+	let $blk;
+	let $blklvl;
+	let $ColumnAdjust;
 
-	var $ws; // Word spacing
+	let $ws; // Word spacing
 
-	var $HREF;
-	var $pgwidth;
-	var $fontlist;
-	var $oldx;
-	var $oldy;
-	var $B;
-	var $I;
+	let $HREF;
+	let $pgwidth;
+	let $fontlist;
+	let $oldx;
+	let $oldy;
+	let $B;
+	let $I;
 
-	var $tdbegin;
-	var $table;
-	var $cell;
-	var $col;
-	var $row;
+	let $tdbegin;
+	let $table;
+	let $cell;
+	let $col;
+	let $row;
 
-	var $divbegin;
-	var $divwidth;
-	var $divheight;
-	var $spanbgcolor;
+	let $divbegin;
+	let $divwidth;
+	let $divheight;
+	let $spanbgcolor;
 
 	// mPDF 6 Used for table cell (block-type) properties
-	var $cellTextAlign;
-	var $cellLineHeight;
-	var $cellLineStackingStrategy;
-	var $cellLineStackingShift;
+	let $cellTextAlign;
+	let $cellLineHeight;
+	let $cellLineStackingStrategy;
+	let $cellLineStackingShift;
 
 	// mPDF 6  Lists
-	var $listcounter;
-	var $listlvl;
-	var $listtype;
-	var $listitem;
+	let $listcounter;
+	let $listlvl;
+	let $listtype;
+	let $listitem;
 
-	var $pjustfinished;
-	var $ignorefollowingspaces;
-	var $SMALL;
-	var $BIG;
-	var $dash_on;
-	var $dotted_on;
+	let $pjustfinished;
+	let $ignorefollowingspaces;
+	let $SMALL;
+	let $BIG;
+	let $dash_on;
+	let $dotted_on;
 
-	var $textbuffer;
-	var $currentfontstyle;
-	var $currentfontfamily;
-	var $currentfontsize;
-	var $colorarray;
-	var $bgcolorarray;
-	var $internallink;
-	var $enabledtags;
+	let $textbuffer;
+	let $currentfontstyle;
+	let $currentfontfamily;
+	let $currentfontsize;
+	let $colorarray;
+	let $bgcolorarray;
+	let $internallink;
+	let $enabledtags;
 
-	var $lineheight;
-	var $default_lineheight_correction;
-	var $basepath;
-	var $textparam;
+	let $lineheight;
+	let $default_lineheight_correction;
+	let $basepath;
+	let $textparam;
 
-	var $specialcontent;
-	var $selectoption;
-	var $objectbuffer;
+	let $specialcontent;
+	let $selectoption;
+	let $objectbuffer;
 
 	// Table Rotation
-	var $table_rotate;
-	var $tbrot_maxw;
-	var $tbrot_maxh;
-	var $tablebuffer;
-	var $tbrot_align;
-	var $tbrot_Links;
+	let $table_rotate;
+	let $tbrot_maxw;
+	let $tbrot_maxh;
+	let $tablebuffer;
+	let $tbrot_align;
+	let $tbrot_Links;
 
-	var $keep_block_together; // Keep a Block from page-break-inside: avoid
+	let $keep_block_together; // Keep a Block from page-break-inside: avoid
 
-	var $tbrot_y0;
-	var $tbrot_x0;
-	var $tbrot_w;
-	var $tbrot_h;
+	let $tbrot_y0;
+	let $tbrot_x0;
+	let $tbrot_w;
+	let $tbrot_h;
 
-	var $mb_enc;
-	var $originalMbEnc;
-	var $originalMbRegexEnc;
+	let $mb_enc;
+	let $originalMbEnc;
+	let $originalMbRegexEnc;
 
-	var $directionality;
+	let $directionality;
 
-	var $extgstates; // Used for alpha channel - Transparency (Watermark)
-	var $mgl;
-	var $mgt;
-	var $mgr;
-	var $mgb;
+	let $extgstates; // Used for alpha channel - Transparency (Watermark)
+	let $mgl;
+	let $mgt;
+	let $mgr;
+	let $mgb;
 
-	var $tts;
-	var $ttz;
-	var $tta;
+	let $tts;
+	let $ttz;
+	let $tta;
 
 	// Best to alter the below variables using default stylesheet above
-	var $page_break_after_avoid;
-	var $margin_bottom_collapse;
-	var $default_font_size; // in pts
-	var $original_default_font_size; // used to save default sizes when using table default
-	var $original_default_font;
-	var $watermark_font;
-	var $defaultAlign;
+	let $page_break_after_avoid;
+	let $margin_bottom_collapse;
+	let $default_font_size; // in pts
+	let $original_default_font_size; // used to save default sizes when using table default
+	let $original_default_font;
+	let $watermark_font;
+	let $defaultAlign;
 
 	// TABLE
-	var $defaultTableAlign;
-	var $tablethead;
-	var $thead_font_weight;
-	var $thead_font_style;
-	var $thead_font_smCaps;
-	var $thead_valign_default;
-	var $thead_textalign_default;
-	var $tabletfoot;
-	var $tfoot_font_weight;
-	var $tfoot_font_style;
-	var $tfoot_font_smCaps;
-	var $tfoot_valign_default;
-	var $tfoot_textalign_default;
+	let $defaultTableAlign;
+	let $tablethead;
+	let $thead_font_weight;
+	let $thead_font_style;
+	let $thead_font_smCaps;
+	let $thead_valign_default;
+	let $thead_textalign_default;
+	let $tabletfoot;
+	let $tfoot_font_weight;
+	let $tfoot_font_style;
+	let $tfoot_font_smCaps;
+	let $tfoot_valign_default;
+	let $tfoot_textalign_default;
 
-	var $trow_text_rotate;
+	let $trow_text_rotate;
 
-	var $cellPaddingL;
-	var $cellPaddingR;
-	var $cellPaddingT;
-	var $cellPaddingB;
-	var $table_border_attr_set;
-	var $table_border_css_set;
+	let $cellPaddingL;
+	let $cellPaddingR;
+	let $cellPaddingT;
+	let $cellPaddingB;
+	let $table_border_attr_set;
+	let $table_border_css_set;
 
-	var $shrin_k; // factor with which to shrink tables - used internally - do not change
-	var $shrink_this_table_to_fit; // 0 or false to disable; value (if set) gives maximum factor to reduce fontsize
-	var $MarginCorrection; // corrects for OddEven Margins
-	var $margin_footer;
-	var $margin_header;
+	let $shrin_k; // factor with which to shrink tables - used internally - do not change
+	let $shrink_this_table_to_fit; // 0 or false to disable; value (if set) gives maximum factor to reduce fontsize
+	let $MarginCorrection; // corrects for OddEven Margins
+	let $margin_footer;
+	let $margin_header;
 
-	var $tabletheadjustfinished;
-	var $usingCoreFont;
-	var $charspacing;
+	let $tabletheadjustfinished;
+	let $usingCoreFont;
+	let $charspacing;
 
-	var $js;
+	let $js;
 
 	/**
 	 * Set timeout for cURL
 	 *
-	 * @var int
+	 * @let int
 	 */
-	var $curlTimeout;
+	let $curlTimeout;
 
 	/**
 	 * Set to true to follow redirects with cURL.
 	 *
-	 * @var bool
+	 * @let bool
 	 */
-	var $curlFollowLocation;
+	let $curlFollowLocation;
 
 	/**
 	 * Set your own CA certificate store for SSL Certificate verification when using cURL
@@ -688,337 +688,337 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 	 *
 	 * Download the latest CA certificate from https://curl.haxx.se/docs/caextract.html
 	 *
-	 * @var string The absolute path to the pem file
+	 * @let string The absolute path to the pem file
 	 */
-	var $curlCaCertificate;
+	let $curlCaCertificate;
 
 	/**
 	 * Set to true to allow unsafe SSL HTTPS requests.
 	 *
 	 * Can be useful when using CDN with HTTPS and if you don't want to configure settings with SSL certificates.
 	 *
-	 * @var bool
+	 * @let bool
 	 */
-	var $curlAllowUnsafeSslRequests;
+	let $curlAllowUnsafeSslRequests;
 
 	/**
 	 * Set the proxy for cURL.
 	 *
 	 * @see https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html
 	 *
-	 * @var string
+	 * @let string
 	 */
-	var $curlProxy;
+	let $curlProxy;
 
 	/**
 	 * Set the proxy auth for cURL.
 	 *
 	 * @see https://curl.haxx.se/libcurl/c/CURLOPT_PROXYUSERPWD.html
 	 *
-	 * @var string
+	 * @let string
 	 */
-	var $curlProxyAuth;
+	let $curlProxyAuth;
 
 	/**
 	 * Set the User-Agent header in the HTTP requests sent by cURL.
 	 *
 	 * @see https://curl.haxx.se/libcurl/c/CURLOPT_USERAGENT.html
 	 *
-	 * @var string User Agent header
+	 * @let string User Agent header
 	 */
-	var $curlUserAgent;
+	let $curlUserAgent;
 
 	// Private properties FROM FPDF
-	var $DisplayPreferences;
-	var $flowingBlockAttr;
+	let $DisplayPreferences;
+	let $flowingBlockAttr;
 
-	var $page; // current page number
+	let $page; // current page number
 
-	var $n; // current object number
-	var $n_js; // current object number
+	let $n; // current object number
+	let $n_js; // current object number
 
-	var $n_ocg_hidden;
-	var $n_ocg_print;
-	var $n_ocg_view;
+	let $n_ocg_hidden;
+	let $n_ocg_print;
+	let $n_ocg_view;
 
-	var $offsets; // array of object offsets
-	var $buffer; // buffer holding in-memory PDF
-	var $pages; // array containing pages
-	var $state; // current document state
-	var $compress; // compression flag
+	let $offsets; // array of object offsets
+	let $buffer; // buffer holding in-memory PDF
+	let $pages; // array containing pages
+	let $state; // current document state
+	let $compress; // compression flag
 
-	var $DefOrientation; // default orientation
-	var $CurOrientation; // current orientation
-	var $OrientationChanges; // array indicating orientation changes
+	let $DefOrientation; // default orientation
+	let $CurOrientation; // current orientation
+	let $OrientationChanges; // array indicating orientation changes
 
-	var $fwPt;
-	var $fhPt; // dimensions of page format in points
-	var $fw;
-	var $fh; // dimensions of page format in user unit
-	var $wPt;
-	var $hPt; // current dimensions of page in points
+	let $fwPt;
+	let $fhPt; // dimensions of page format in points
+	let $fw;
+	let $fh; // dimensions of page format in user unit
+	let $wPt;
+	let $hPt; // current dimensions of page in points
 
-	var $w;
-	var $h; // current dimensions of page in user unit
+	let $w;
+	let $h; // current dimensions of page in user unit
 
-	var $lMargin; // left margin
-	var $tMargin; // top margin
-	var $rMargin; // right margin
-	var $bMargin; // page break margin
-	var $cMarginL; // cell margin Left
-	var $cMarginR; // cell margin Right
-	var $cMarginT; // cell margin Left
-	var $cMarginB; // cell margin Right
+	let $lMargin; // left margin
+	let $tMargin; // top margin
+	let $rMargin; // right margin
+	let $bMargin; // page break margin
+	let $cMarginL; // cell margin Left
+	let $cMarginR; // cell margin Right
+	let $cMarginT; // cell margin Left
+	let $cMarginB; // cell margin Right
 
-	var $DeflMargin; // Default left margin
-	var $DefrMargin; // Default right margin
+	let $DeflMargin; // Default left margin
+	let $DefrMargin; // Default right margin
 
-	var $x;
-	var $y; // current position in user unit for cell positioning
+	let $x;
+	let $y; // current position in user unit for cell positioning
 
-	var $lasth; // height of last cell printed
-	var $LineWidth; // line width in user unit
+	let $lasth; // height of last cell printed
+	let $LineWidth; // line width in user unit
 
-	var $CoreFonts; // array of standard font names
-	var $fonts; // array of used fonts
-	var $FontFiles; // array of font files
+	let $CoreFonts; // array of standard font names
+	let $fonts; // array of used fonts
+	let $FontFiles; // array of font files
 
-	var $images; // array of used images
-	var $imageVars = []; // array of image vars
+	let $images; // array of used images
+	let $imageVars = []; // array of image vars
 
-	var $PageLinks; // array of links in pages
-	var $links; // array of internal links
-	var $FontFamily; // current font family
-	var $FontStyle; // current font style
-	var $CurrentFont; // current font info
-	var $FontSizePt; // current font size in points
-	var $FontSize; // current font size in user unit
-	var $DrawColor; // commands for drawing color
-	var $FillColor; // commands for filling color
-	var $TextColor; // commands for text color
-	var $ColorFlag; // indicates whether fill and text colors are different
-	var $autoPageBreak; // automatic page breaking
-	var $PageBreakTrigger; // threshold used to trigger page breaks
-	var $InFooter; // flag set when processing footer
+	let $PageLinks; // array of links in pages
+	let $links; // array of internal links
+	let $FontFamily; // current font family
+	let $FontStyle; // current font style
+	let $CurrentFont; // current font info
+	let $FontSizePt; // current font size in points
+	let $FontSize; // current font size in user unit
+	let $DrawColor; // commands for drawing color
+	let $FillColor; // commands for filling color
+	let $TextColor; // commands for text color
+	let $ColorFlag; // indicates whether fill and text colors are different
+	let $autoPageBreak; // automatic page breaking
+	let $PageBreakTrigger; // threshold used to trigger page breaks
+	let $InFooter; // flag set when processing footer
 
-	var $InHTMLFooter;
-	var $processingFooter; // flag set when processing footer - added for columns
-	var $processingHeader; // flag set when processing header - added for columns
-	var $ZoomMode; // zoom display mode
-	var $LayoutMode; // layout display mode
-	var $title; // title
-	var $subject; // subject
-	var $author; // author
-	var $keywords; // keywords
-	var $creator; // creator
+	let $InHTMLFooter;
+	let $processingFooter; // flag set when processing footer - added for columns
+	let $processingHeader; // flag set when processing header - added for columns
+	let $ZoomMode; // zoom display mode
+	let $LayoutMode; // layout display mode
+	let $title; // title
+	let $subject; // subject
+	let $author; // author
+	let $keywords; // keywords
+	let $creator; // creator
 
-	var $customProperties; // array of custom document properties
+	let $customProperties; // array of custom document properties
 
-	var $associatedFiles; // associated files (see SetAssociatedFiles below)
-	var $additionalXmpRdf; // additional rdf added in xmp
+	let $associatedFiles; // associated files (see SetAssociatedFiles below)
+	let $additionalXmpRdf; // additional rdf added in xmp
 
-	var $aliasNbPg; // alias for total number of pages
-	var $aliasNbPgGp; // alias for total number of pages in page group
+	let $aliasNbPg; // alias for total number of pages
+	let $aliasNbPgGp; // alias for total number of pages in page group
 
-	var $ispre;
-	var $outerblocktags;
-	var $innerblocktags;
+	let $ispre;
+	let $outerblocktags;
+	let $innerblocktags;
 
 	public $exposeVersion;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $fontDescriptor;
 
 	/**
-	 * @var \Mpdf\Otl
+	 * @let \Mpdf\Otl
 	 */
 	private $otl;
 
 	/**
-	 * @var \Mpdf\CssManager
+	 * @let \Mpdf\CssManager
 	 */
 	private $cssManager;
 
 	/**
-	 * @var \Mpdf\Gradient
+	 * @let \Mpdf\Gradient
 	 */
 	private $gradient;
 
 	/**
-	 * @var \Mpdf\Image\Bmp
+	 * @let \Mpdf\Image\Bmp
 	 */
 	private $bmp;
 
 	/**
-	 * @var \Mpdf\Image\Wmf
+	 * @let \Mpdf\Image\Wmf
 	 */
 	private $wmf;
 
 	/**
-	 * @var \Mpdf\TableOfContents
+	 * @let \Mpdf\TableOfContents
 	 */
 	private $tableOfContents;
 
 	/**
-	 * @var \Mpdf\Form
+	 * @let \Mpdf\Form
 	 */
 	private $form;
 
 	/**
-	 * @var \Mpdf\DirectWrite
+	 * @let \Mpdf\DirectWrite
 	 */
 	private $directWrite;
 
 	/**
-	 * @var \Mpdf\Cache
+	 * @let \Mpdf\Cache
 	 */
 	private $cache;
 
 	/**
-	 * @var \Mpdf\Fonts\FontCache
+	 * @let \Mpdf\Fonts\FontCache
 	 */
 	private $fontCache;
 
 	/**
-	 * @var \Mpdf\Fonts\FontFileFinder
+	 * @let \Mpdf\Fonts\FontFileFinder
 	 */
 	private $fontFileFinder;
 
 	/**
-	 * @var \Mpdf\Tag
+	 * @let \Mpdf\Tag
 	 */
 	private $tag;
 
 	/**
-	 * @var \Mpdf\Barcode
+	 * @let \Mpdf\Barcode
 	 * @todo solve Tag dependency and make private
 	 */
 	public $barcode;
 
 	/**
-	 * @var \Mpdf\QrCode\QrCode
+	 * @let \Mpdf\QrCode\QrCode
 	 */
 	private $qrcode;
 
 	/**
-	 * @var \Mpdf\SizeConverter
+	 * @let \Mpdf\SizeConverter
 	 */
 	private $sizeConverter;
 
 	/**
-	 * @var \Mpdf\Color\ColorConverter
+	 * @let \Mpdf\Color\ColorConverter
 	 */
 	private $colorConverter;
 
 	/**
-	 * @var \Mpdf\Color\ColorModeConverter
+	 * @let \Mpdf\Color\ColorModeConverter
 	 */
 	private $colorModeConverter;
 
 	/**
-	 * @var \Mpdf\Color\ColorSpaceRestrictor
+	 * @let \Mpdf\Color\ColorSpaceRestrictor
 	 */
 	private $colorSpaceRestrictor;
 
 	/**
-	 * @var \Mpdf\Hyphenator
+	 * @let \Mpdf\Hyphenator
 	 */
 	private $hyphenator;
 
 	/**
-	 * @var \Mpdf\Pdf\Protection
+	 * @let \Mpdf\Pdf\Protection
 	 */
 	private $protection;
 
 	/**
-	 * @var \Mpdf\RemoteContentFetcher
+	 * @let \Mpdf\RemoteContentFetcher
 	 */
 	private $remoteContentFetcher;
 
 	/**
-	 * @var \Mpdf\Image\ImageProcessor
+	 * @let \Mpdf\Image\ImageProcessor
 	 */
 	private $imageProcessor;
 
 	/**
-	 * @var \Mpdf\Language\LanguageToFontInterface
+	 * @let \Mpdf\Language\LanguageToFontInterface
 	 */
 	private $languageToFont;
 
 	/**
-	 * @var \Mpdf\Language\ScriptToLanguageInterface
+	 * @let \Mpdf\Language\ScriptToLanguageInterface
 	 */
 	private $scriptToLanguage;
 
 	/**
-	 * @var \Psr\Log\LoggerInterface
+	 * @let \Psr\Log\LoggerInterface
 	 */
 	private $logger;
 
 	/**
-	 * @var \Mpdf\Writer\BaseWriter
+	 * @let \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 
 	/**
-	 * @var \Mpdf\Writer\FontWriter
+	 * @let \Mpdf\Writer\FontWriter
 	 */
 	private $fontWriter;
 
 	/**
-	 * @var \Mpdf\Writer\MetadataWriter
+	 * @let \Mpdf\Writer\MetadataWriter
 	 */
 	private $metadataWriter;
 
 	/**
-	 * @var \Mpdf\Writer\ImageWriter
+	 * @let \Mpdf\Writer\ImageWriter
 	 */
 	private $imageWriter;
 
 	/**
-	 * @var \Mpdf\Writer\FormWriter
+	 * @let \Mpdf\Writer\FormWriter
 	 */
 	private $formWriter;
 
 	/**
-	 * @var \Mpdf\Writer\PageWriter
+	 * @let \Mpdf\Writer\PageWriter
 	 */
 	private $pageWriter;
 
 	/**
-	 * @var \Mpdf\Writer\BookmarkWriter
+	 * @let \Mpdf\Writer\BookmarkWriter
 	 */
 	private $bookmarkWriter;
 
 	/**
-	 * @var \Mpdf\Writer\OptionalContentWriter
+	 * @let \Mpdf\Writer\OptionalContentWriter
 	 */
 	private $optionalContentWriter;
 
 	/**
-	 * @var \Mpdf\Writer\ColorWriter
+	 * @let \Mpdf\Writer\ColorWriter
 	 */
 	private $colorWriter;
 
 	/**
-	 * @var \Mpdf\Writer\BackgroundWriter
+	 * @let \Mpdf\Writer\BackgroundWriter
 	 */
 	private $backgroundWriter;
 
 	/**
-	 * @var \Mpdf\Writer\JavaScriptWriter
+	 * @let \Mpdf\Writer\JavaScriptWriter
 	 */
 	private $javaScriptWriter;
 
 	/**
-	 * @var \Mpdf\Writer\ResourceWriter
+	 * @let \Mpdf\Writer\ResourceWriter
 	 */
 	private $resourceWriter;
 
 	/**
-	 * @var string[]
+	 * @let string[]
 	 */
 	private $services;
 
@@ -1573,7 +1573,7 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 		$defaults = $configObject->getDefaults();
 		$config = array_intersect_key($config + $defaults, $defaults);
 
-		foreach ($config as $var => $val) {
+		foreach ($config as $let => $val) {
 			$this->{$var} = $val;
 		}
 
@@ -1610,7 +1610,7 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 		$configObject = new FontVariables();
 		$defaults = $configObject->getDefaults();
 		$config = array_intersect_key($config + $defaults, $defaults);
-		foreach ($config as $var => $val) {
+		foreach ($config as $let => $val) {
 			$this->{$var} = $val;
 		}
 
@@ -21222,15 +21222,15 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 		if ($set) {
 			$set = true;
 		}
-		$var = intval($var);
-		$var = $set ? ($var | $flag) : ($var & ~$flag);
+		$let = intval($var);
+		$let = $set ? ($let | $flag) : ($let & ~$flag);
 	}
 
 	function issetBorder($var, $flag)
 	{
 		$flag = intval($flag);
-		$var = intval($var);
-		return (($var & $flag) == $flag);
+		$let = intval($var);
+		return (($let & $flag) == $flag);
 	}
 
 	function _table2cellBorder(&$tableb, &$cbdb, &$cellb, $bval)

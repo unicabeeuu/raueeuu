@@ -29,14 +29,14 @@ abstract class AbstractFrameReflower
     /**
      * Frame for this reflower
      *
-     * @var Frame
+     * @let Frame
      */
     protected $_frame;
 
     /**
      * Cached min/max size
      *
-     * @var array
+     * @let array
      */
     protected $_min_max_cache;
 

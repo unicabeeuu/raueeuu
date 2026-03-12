@@ -204,10 +204,10 @@
             }
 		</style>
 		<script>
-		    var gridViewScroll = null;
+		    let gridViewScroll = null;
 		    
 		    $(function() {
-		        var options = new GridViewScrollOptions();
+		        let options = new GridViewScrollOptions();
                 options.elementID = "listatran";
                 options.width = 1200;
                 options.height = 400;
@@ -222,8 +222,8 @@
                 
                 $("#listatran tbody tr").click(function(){ 
                     $(this).addClass('GridviewScrollItemSelected').siblings().removeClass('GridviewScrollItemSelected');  
-                    //var value=$(this).find('td:nth-child(2)').text();
-                    //var value1=$(this).find('td:nth-child(18)').text();
+                    //let value=$(this).find('td:nth-child(2)').text();
+                    //let value1=$(this).find('td:nth-child(18)').text();
                     //$("#txtidest").val(value);
                     //$("#txtidgra").val(value1);
                     //ver_cal_mood(value,value1);
@@ -231,7 +231,7 @@
                 
                 $("#listatran tbody tr").hover(function(){ 
                     $(this).addClass('GridviewScrollItemHover').siblings().removeClass('GridviewScrollItemHover');  
-                    //var value=$(this).find('td:first').html();
+                    //let value=$(this).find('td:first').html();
                 });
                 
                 $("#search").keyup(function(){

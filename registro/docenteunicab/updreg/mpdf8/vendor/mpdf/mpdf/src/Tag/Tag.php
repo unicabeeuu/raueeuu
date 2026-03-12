@@ -21,52 +21,52 @@ abstract class Tag
 	use Strict;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	protected $mpdf;
 
 	/**
-	 * @var \Mpdf\Cache
+	 * @let \Mpdf\Cache
 	 */
 	protected $cache;
 
 	/**
-	 * @var \Mpdf\CssManager
+	 * @let \Mpdf\CssManager
 	 */
 	protected $cssManager;
 
 	/**
-	 * @var \Mpdf\Form
+	 * @let \Mpdf\Form
 	 */
 	protected $form;
 
 	/**
-	 * @var \Mpdf\Otl
+	 * @let \Mpdf\Otl
 	 */
 	protected $otl;
 
 	/**
-	 * @var \Mpdf\TableOfContents
+	 * @let \Mpdf\TableOfContents
 	 */
 	protected $tableOfContents;
 
 	/**
-	 * @var \Mpdf\SizeConverter
+	 * @let \Mpdf\SizeConverter
 	 */
 	protected $sizeConverter;
 
 	/**
-	 * @var \Mpdf\Color\ColorConverter
+	 * @let \Mpdf\Color\ColorConverter
 	 */
 	protected $colorConverter;
 
 	/**
-	 * @var \Mpdf\Image\ImageProcessor
+	 * @let \Mpdf\Image\ImageProcessor
 	 */
 	protected $imageProcessor;
 
 	/**
-	 * @var \Mpdf\Language\LanguageToFontInterface
+	 * @let \Mpdf\Language\LanguageToFontInterface
 	 */
 	protected $languageToFont;
 

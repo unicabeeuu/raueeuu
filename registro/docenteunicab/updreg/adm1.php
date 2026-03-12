@@ -94,21 +94,21 @@ if (isset($_SESSION['uniprofe'])) {
             });
             
             function change_idest() {
-                var v_idest = document.getElementById("idest_ra0").value;
+                let v_idest = document.getElementById("idest_ra0").value;
                 //alert(v_idest);
                 document.getElementById("idest_ra01").value = v_idest;
             }
             function change_idest1() {
-                var v_idest1 = document.getElementById("idest_ra01").value;
+                let v_idest1 = document.getElementById("idest_ra01").value;
                 document.getElementById("idest_ra0").value = v_idest1;
             }
             function change_idgra() {
-                var v_idgra = document.getElementById("idgra_ra0").value;
+                let v_idgra = document.getElementById("idgra_ra0").value;
                 //alert(v_idest);
                 document.getElementById("idgra_ra01").value = v_idgra;
             }
             function change_idgra1() {
-                var v_idgra1 = document.getElementById("idgra_ra01").value;
+                let v_idgra1 = document.getElementById("idgra_ra01").value;
                 document.getElementById("idgra_ra0").value = v_idgra1;
             }
         </script>
@@ -429,7 +429,7 @@ if (isset($_SESSION['uniprofe'])) {
 	    <!-- Classie --><!-- for toggle left push menu script -->
     	<script src="../../js/classie.js"></script>
     	<script>
-    		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     			showLeftPush = document.getElementById( 'showLeftPush' ),
     			body = document.body;
     			
@@ -475,7 +475,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- validar combo periodo -->
     	<script type="text/javascript">
     		function validacion() {
-    			var grado=document.getElementById('id_grado').value;
+    			let grado=document.getElementById('id_grado').value;
     			if (grado==0) {
     				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
     				return false;

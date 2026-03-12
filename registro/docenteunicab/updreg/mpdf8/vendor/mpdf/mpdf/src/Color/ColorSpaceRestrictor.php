@@ -14,17 +14,17 @@ class ColorSpaceRestrictor
 	const RESTRICT_TO_CMYK_SPOT_GRAYSCALE = 3;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Mpdf\Color\ColorModeConverter
+	 * @let \Mpdf\Color\ColorModeConverter
 	 */
 	private $colorModeConverter;
 
 	/**
-	 * @var int
+	 * @let int
 	 */
 	private $mode;
 

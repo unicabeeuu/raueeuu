@@ -8,7 +8,7 @@ namespace DeepCopy\Matcher;
 class PropertyNameMatcher implements Matcher
 {
     /**
-     * @var string
+     * @let string
      */
     private $property;
 

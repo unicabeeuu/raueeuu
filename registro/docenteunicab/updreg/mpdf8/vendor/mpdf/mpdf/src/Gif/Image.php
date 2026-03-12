@@ -15,23 +15,23 @@ namespace Mpdf\Gif;
 class Image
 {
 
-	var $m_disp;
+	let $m_disp;
 
-	var $m_bUser;
+	let $m_bUser;
 
-	var $m_bTrans;
+	let $m_bTrans;
 
-	var $m_nDelay;
+	let $m_nDelay;
 
-	var $m_nTrans;
+	let $m_nTrans;
 
-	var $m_lpComm;
+	let $m_lpComm;
 
-	var $m_gih;
+	let $m_gih;
 
-	var $m_data;
+	let $m_data;
 
-	var $m_lzw;
+	let $m_lzw;
 
 	public function __construct()
 	{

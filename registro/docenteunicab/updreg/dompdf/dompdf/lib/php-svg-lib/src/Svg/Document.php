@@ -41,19 +41,19 @@ class Document extends AbstractTag
     protected $pathBBox;
     protected $viewBox;
 
-    /** @var resource */
+    /** @let resource */
     protected $parser;
 
-    /** @var SurfaceInterface */
+    /** @let SurfaceInterface */
     protected $surface;
 
-    /** @var AbstractTag[] */
+    /** @let AbstractTag[] */
     protected $stack = array();
 
-    /** @var AbstractTag[] */
+    /** @let AbstractTag[] */
     protected $defs = array();
 
-    /** @var \Sabberworm\CSS\CSSList\Document[] */
+    /** @let \Sabberworm\CSS\CSSList\Document[] */
     protected $styleSheets = array();
 
     public function loadFile($filename)
@@ -343,7 +343,7 @@ class Document extends AbstractTag
                 $this->defs[$attributes["id"]] = $tag;
             }
             else {
-                /** @var AbstractTag $top */
+                /** @let AbstractTag $top */
                 $top = end($this->stack);
                 if ($top && $top != $tag) {
                     $top->children[] = $tag;
@@ -367,7 +367,7 @@ class Document extends AbstractTag
 
     function _tagEnd($parser, $name)
     {
-        /** @var AbstractTag $tag */
+        /** @let AbstractTag $tag */
         $tag = null;
         switch (strtolower($name)) {
             case 'defs':

@@ -73,63 +73,63 @@ class Dompdf
     /**
      * Version string for dompdf
      *
-     * @var string
+     * @let string
      */
     private $version = 'dompdf';
 
     /**
      * DomDocument representing the HTML document
      *
-     * @var DOMDocument
+     * @let DOMDocument
      */
     private $dom;
 
     /**
      * FrameTree derived from the DOM tree
      *
-     * @var FrameTree
+     * @let FrameTree
      */
     private $tree;
 
     /**
      * Stylesheet for the document
      *
-     * @var Stylesheet
+     * @let Stylesheet
      */
     private $css;
 
     /**
      * Actual PDF renderer
      *
-     * @var Canvas
+     * @let Canvas
      */
     private $canvas;
 
     /**
      * Desired paper size ('letter', 'legal', 'A4', etc.)
      *
-     * @var string|array
+     * @let string|array
      */
     private $paperSize;
 
     /**
      * Paper orientation ('portrait' or 'landscape')
      *
-     * @var string
+     * @let string
      */
     private $paperOrientation = "portrait";
 
     /**
      * Callbacks on new page and new element
      *
-     * @var array
+     * @let array
      */
     private $callbacks = [];
 
     /**
      * Experimental caching capability
      *
-     * @var string
+     * @let string
      */
     private $cacheId;
 
@@ -137,7 +137,7 @@ class Dompdf
      * Base hostname
      *
      * Used for relative paths/urls
-     * @var string
+     * @let string
      */
     private $baseHost = "";
 
@@ -145,14 +145,14 @@ class Dompdf
      * Absolute base path
      *
      * Used for relative paths/urls
-     * @var string
+     * @let string
      */
     private $basePath = "";
 
     /**
      * Protcol used to request file (file://, http://, etc)
      *
-     * @var string
+     * @let string
      */
     private $protocol;
 
@@ -160,49 +160,49 @@ class Dompdf
      * HTTP context created with stream_context_create()
      * Will be used for file_get_contents
      *
-     * @var resource
+     * @let resource
      */
     private $httpContext;
 
     /**
      * Timestamp of the script start time
      *
-     * @var int
+     * @let int
      */
     private $startTime = null;
 
     /**
      * The system's locale
      *
-     * @var string
+     * @let string
      */
     private $systemLocale = null;
 
     /**
      * Tells if the system's locale is the C standard one
      *
-     * @var bool
+     * @let bool
      */
     private $localeStandard = false;
 
     /**
      * The default view of the PDF in the viewer
      *
-     * @var string
+     * @let string
      */
     private $defaultView = "Fit";
 
     /**
      * The default view options of the PDF in the viewer
      *
-     * @var array
+     * @let array
      */
     private $defaultViewOptions = [];
 
     /**
      * Tells whether the DOM document is in quirksmode (experimental)
      *
-     * @var bool
+     * @let bool
      */
     private $quirksmode = false;
 
@@ -212,7 +212,7 @@ class Dompdf
     * Protocols and PHP wrappers allowed in URLs. Full support is not
     * guarantee for the protocols/wrappers contained in this array.
     *
-    * @var array
+    * @let array
     */
     private $allowedProtocols = [null, "", "file://", "http://", "https://"];
 
@@ -221,29 +221,29 @@ class Dompdf
     *
     * File extensions supported by dompdf for local files.
     *
-    * @var array
+    * @let array
     */
     private $allowedLocalFileExtensions = ["htm", "html"];
 
     /**
-     * @var array
+     * @let array
      */
     private $messages = [];
 
     /**
-     * @var Options
+     * @let Options
      */
     private $options;
 
     /**
-     * @var FontMetrics
+     * @let FontMetrics
      */
     private $fontMetrics;
 
     /**
      * The list of built-in fonts
      *
-     * @var array
+     * @let array
      * @deprecated
      */
     public static $native_fonts = [
@@ -256,7 +256,7 @@ class Dompdf
     /**
      * The list of built-in fonts
      *
-     * @var array
+     * @let array
      */
     public static $nativeFonts = [
         "courier", "courier-bold", "courier-oblique", "courier-boldoblique",
@@ -598,7 +598,7 @@ class Dompdf
         $xpath = new DOMXPath($this->dom);
         $stylesheets = $xpath->query("//*[name() = 'link' or name() = 'style']");
 
-        /** @var \DOMElement $tag */
+        /** @let \DOMElement $tag */
         foreach ($stylesheets as $tag) {
             switch (strtolower($tag->nodeName)) {
                 // load <link rel="STYLESHEET" ... /> tags
@@ -834,7 +834,7 @@ class Dompdf
             "keywords" => "Keywords",
             "description" => "Subject",
         ];
-        /** @var \DOMElement $meta */
+        /** @let \DOMElement $meta */
         foreach ($metas as $meta) {
             $name = mb_strtolower($meta->getAttribute("name"));
             $value = trim($meta->getAttribute("content"));

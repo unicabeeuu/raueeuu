@@ -166,7 +166,7 @@ class name extends Table {
   protected function _encode() {
     $font = $this->getFont();
 
-    /** @var nameRecord[] $records */
+    /** @let nameRecord[] $records */
     $records       = $this->data["records"];
     $count_records = count($records);
 

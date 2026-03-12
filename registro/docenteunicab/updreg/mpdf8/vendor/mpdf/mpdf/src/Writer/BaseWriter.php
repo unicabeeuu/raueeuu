@@ -13,12 +13,12 @@ final class BaseWriter
 	use Strict;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Mpdf\Pdf\Protection
+	 * @let \Mpdf\Pdf\Protection
 	 */
 	private $protection;
 

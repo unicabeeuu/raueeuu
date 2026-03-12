@@ -17,17 +17,17 @@ class FrameListIterator implements Iterator
 {
 
     /**
-     * @var Frame
+     * @let Frame
      */
     protected $_parent;
 
     /**
-     * @var Frame
+     * @let Frame
      */
     protected $_cur;
 
     /**
-     * @var int
+     * @let int
      */
     protected $_num;
 

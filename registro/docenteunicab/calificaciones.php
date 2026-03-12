@@ -133,7 +133,7 @@ include "../adminunicab/php/conexion.php";
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -192,8 +192,8 @@ include "../adminunicab/php/conexion.php";
 <!-- validar combo periodo -->
 <script type="text/javascript">
 	function validacion() {
-		var periodo1=document.getElementById('id_periodo1').value;
-		var periodo2=document.getElementById('id_periodo2').value;
+		let periodo1=document.getElementById('id_periodo1').value;
+		let periodo2=document.getElementById('id_periodo2').value;
 		if (periodo1==0 && periodo2==0) {
 			$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un periodo valido</center>').slideDown(500);
 			return false;

@@ -156,7 +156,7 @@
 		</style>
 		<script type="text/javascript">
 		    $(function() {
-		        var msgt = "<?php echo $msgt; ?>";
+		        let msgt = "<?php echo $msgt; ?>";
                 //alert(msgt);
                 if(msgt == "error") {
                     $("#lblmsg").css("color","red");
@@ -166,8 +166,8 @@
                 }
                 
                 /*$("#selest1").change(function() {
-            		var est = $("#selest1").val();
-            		var est1 = $("#seltrana").val();
+            		let est = $("#selest1").val();
+            		let est1 = $("#seltrana").val();
             		if(est == "NA" || est1 == "NA") {
             			$("#btnest1").hide();
             		}
@@ -177,8 +177,8 @@
             	});
             	
             	$("#selest2").change(function() {
-            		var est = $("#selest2").val();
-            		var est1 = $("#seltranp").val();
+            		let est = $("#selest2").val();
+            		let est1 = $("#seltranp").val();
             		if(est == "NA" || est1 == "NA") {
             			$("#btnest2").hide();
             		}
@@ -188,8 +188,8 @@
             	});*/
             	
             	$("#seltrana").change(function() {
-            		var est = $("#selest1").val();
-            		var est1 = $("#seltrana").val();
+            		let est = $("#selest1").val();
+            		let est1 = $("#seltrana").val();
             		//if(est == "NA" || est1 == "NA") {
             		if(est1 == "NA") {
             			$("#btnest1").hide();
@@ -200,8 +200,8 @@
             	});
             	
             	$("#seltranp").change(function() {
-            		var est = $("#selest2").val();
-            		var est1 = $("#seltranp").val();
+            		let est = $("#selest2").val();
+            		let est1 = $("#seltranp").val();
             		if(est1 == "NA") {
             			$("#btnest2").hide();
             		}

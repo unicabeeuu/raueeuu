@@ -26,7 +26,7 @@ class Block extends AbstractFrameReflower
     const MIN_JUSTIFY_WIDTH = 0.80;
 
     /**
-     * @var BlockFrameDecorator
+     * @let BlockFrameDecorator
      */
     protected $_frame;
 

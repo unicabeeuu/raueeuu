@@ -88,7 +88,7 @@ class Cache
 	{
 		$iterator = new DirectoryIterator($this->basePath);
 
-		/** @var \DirectoryIterator $item */
+		/** @let \DirectoryIterator $item */
 		foreach ($iterator as $item) {
 			if (!$item->isDot()
 					&& $item->isFile()

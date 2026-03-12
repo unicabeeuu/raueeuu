@@ -30,24 +30,24 @@ use setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException;
 class Page
 {
     /**
-     * @var PdfIndirectObject
+     * @let PdfIndirectObject
      */
     protected $pageObject;
 
     /**
-     * @var PdfDictionary
+     * @let PdfDictionary
      */
     protected $pageDictionary;
 
     /**
-     * @var PdfParser
+     * @let PdfParser
      */
     protected $parser;
 
     /**
      * Inherited attributes
      *
-     * @var null|array
+     * @let null|array
      */
     protected $inheritedAttributes;
 

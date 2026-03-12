@@ -22,14 +22,14 @@ use setasign\Fpdi\PdfParser\StreamReader;
 class FixedReader extends AbstractReader implements ReaderInterface
 {
     /**
-     * @var StreamReader
+     * @let StreamReader
      */
     protected $reader;
 
     /**
      * Data of subsections.
      *
-     * @var array
+     * @let array
      */
     protected $subSections;
 
@@ -63,8 +63,8 @@ class FixedReader extends AbstractReader implements ReaderInterface
     {
         foreach ($this->subSections as $offset => list($startObject, $objectCount)) {
             /**
-             * @var int $startObject
-             * @var int $objectCount
+             * @let int $startObject
+             * @let int $objectCount
              */
             if ($objectNumber >= $startObject && $objectNumber < ($startObject + $objectCount)) {
                 $position = $offset + 20 * ($objectNumber - $startObject);

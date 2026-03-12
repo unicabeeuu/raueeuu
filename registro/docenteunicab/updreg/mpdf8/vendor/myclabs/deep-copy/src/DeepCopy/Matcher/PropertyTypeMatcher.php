@@ -16,7 +16,7 @@ use ReflectionException;
 class PropertyTypeMatcher implements Matcher
 {
     /**
-     * @var string
+     * @let string
      */
     private $propertyType;
 

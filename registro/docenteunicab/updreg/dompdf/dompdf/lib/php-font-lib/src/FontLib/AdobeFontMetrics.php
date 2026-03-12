@@ -20,7 +20,7 @@ class AdobeFontMetrics {
   private $f;
 
   /**
-   * @var File
+   * @let File
    */
   private $font;
 

@@ -32,38 +32,38 @@ use setasign\Fpdi\PdfParser\Type\PdfType;
 class PdfParser
 {
     /**
-     * @var StreamReader
+     * @let StreamReader
      */
     protected $streamReader;
 
     /**
-     * @var Tokenizer
+     * @let Tokenizer
      */
     protected $tokenizer;
 
     /**
      * The file header.
      *
-     * @var string
+     * @let string
      */
     protected $fileHeader;
 
     /**
      * The offset to the file header.
      *
-     * @var int
+     * @let int
      */
     protected $fileHeaderOffset;
 
     /**
-     * @var CrossReference|null
+     * @let CrossReference|null
      */
     protected $xref;
 
     /**
      * All read objects.
      *
-     * @var array
+     * @let array
      */
     protected $objects = [];
 

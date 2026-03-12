@@ -23,7 +23,7 @@ class File extends \FontLib\TrueType\File {
   const TTEMBED_XORENCRYPTDATA = 0x10000000;
 
   /**
-   * @var Header
+   * @let Header
    */
   public $header;
 

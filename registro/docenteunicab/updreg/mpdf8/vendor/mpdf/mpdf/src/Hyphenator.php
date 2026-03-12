@@ -6,7 +6,7 @@ class Hyphenator
 {
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
@@ -19,7 +19,7 @@ class Hyphenator
 	private $loadedPatterns;
 
 	/**
-	 * @var bool
+	 * @let bool
 	 */
 	private $dictionaryLoaded;
 

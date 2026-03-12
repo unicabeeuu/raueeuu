@@ -24,7 +24,7 @@ use FontLib\Table\Type\nameRecord;
  */
 class File extends BinaryStream {
   /**
-   * @var Header
+   * @let Header
    */
   public $header = array();
 
@@ -197,7 +197,7 @@ class File extends BinaryStream {
       $gids[$gid] = $gid;
     }
 
-    /** @var glyf $glyf */
+    /** @let glyf $glyf */
     $glyf = $this->getTableObject("glyf");
     $gids = $glyf->getGlyphIDs($gids);
 
@@ -228,7 +228,7 @@ class File extends BinaryStream {
 
     Font::d("Tables : " . implode(", ", $tags));
 
-    /** @var DirectoryEntry[] $entries */
+    /** @let DirectoryEntry[] $entries */
     $entries = array();
     foreach ($tags as $tag) {
       if (!isset($this->directory[$tag])) {
@@ -285,7 +285,7 @@ class File extends BinaryStream {
     $class = "FontLib\\$type\\TableDirectoryEntry";
 
     for ($i = 0; $i < $this->header->data["numTables"]; $i++) {
-      /** @var TableDirectoryEntry $entry */
+      /** @let TableDirectoryEntry $entry */
       $entry = new $class($this);
       $entry->parse();
 
@@ -313,7 +313,7 @@ class File extends BinaryStream {
       $class = "FontLib\\Table\\Table";
     }
 
-    /** @var Table $table */
+    /** @let Table $table */
     $table = new $class($this->directory[$tag]);
     $table->parse();
 
@@ -369,7 +369,7 @@ class File extends BinaryStream {
    * @return string|null
    */
   function getNameTableString($nameID) {
-    /** @var nameRecord[] $records */
+    /** @let nameRecord[] $records */
     $records = $this->getData("name", "records");
 
     if (!isset($records[$nameID])) {

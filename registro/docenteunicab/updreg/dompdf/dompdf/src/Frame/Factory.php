@@ -34,7 +34,7 @@ class Factory
      /**
      * Array of positioners for specific frame types
      *
-     * @var AbstractPositioner[]
+     * @let AbstractPositioner[]
      */
     protected static $_positioners;
 
@@ -219,7 +219,7 @@ class Factory
         $decorator  = "Dompdf\\FrameDecorator\\$decorator";
         $reflower   = "Dompdf\\FrameReflower\\$reflower";
 
-        /** @var AbstractFrameDecorator $deco */
+        /** @let AbstractFrameDecorator $deco */
         $deco = new $decorator($frame, $dompdf);
 
         $deco->set_positioner(self::getPositionerInstance($positioner));

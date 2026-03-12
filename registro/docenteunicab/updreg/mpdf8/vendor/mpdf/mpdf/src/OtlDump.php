@@ -30,135 +30,135 @@ if (!function_exists('Mpdf\unicode_hex')) {
 class OtlDump
 {
 
-	var $GPOSFeatures; // mPDF 5.7.1
+	let $GPOSFeatures; // mPDF 5.7.1
 
-	var $GPOSLookups;  // mPDF 5.7.1
+	let $GPOSLookups;  // mPDF 5.7.1
 
-	var $GPOSScriptLang; // mPDF 5.7.1
+	let $GPOSScriptLang; // mPDF 5.7.1
 
-	var $ignoreStrings; // mPDF 5.7.1
+	let $ignoreStrings; // mPDF 5.7.1
 
-	var $MarkAttachmentType; // mPDF 5.7.1
+	let $MarkAttachmentType; // mPDF 5.7.1
 
-	var $MarkGlyphSets; // mPDF 7.5.1
+	let $MarkGlyphSets; // mPDF 7.5.1
 
-	var $GlyphClassMarks; // mPDF 5.7.1
+	let $GlyphClassMarks; // mPDF 5.7.1
 
-	var $GlyphClassLigatures; // mPDF 5.7.1
+	let $GlyphClassLigatures; // mPDF 5.7.1
 
-	var $GlyphClassBases; // mPDF 5.7.1
+	let $GlyphClassBases; // mPDF 5.7.1
 
-	var $GlyphClassComponents; // mPDF 5.7.1
+	let $GlyphClassComponents; // mPDF 5.7.1
 
-	var $GSUBScriptLang; // mPDF 5.7.1
+	let $GSUBScriptLang; // mPDF 5.7.1
 
-	var $rtlPUAstr; // mPDF 5.7.1
+	let $rtlPUAstr; // mPDF 5.7.1
 
-	var $rtlPUAarr; // mPDF 5.7.1
+	let $rtlPUAarr; // mPDF 5.7.1
 
-	var $fontkey; // mPDF 5.7.1
+	let $fontkey; // mPDF 5.7.1
 
-	var $useOTL; // mPDF 5.7.1
+	let $useOTL; // mPDF 5.7.1
 
-	var $panose;
+	let $panose;
 
-	var $maxUni;
+	let $maxUni;
 
-	var $sFamilyClass;
+	let $sFamilyClass;
 
-	var $sFamilySubClass;
+	let $sFamilySubClass;
 
-	var $sipset;
+	let $sipset;
 
-	var $smpset;
+	let $smpset;
 
-	var $_pos;
+	let $_pos;
 
-	var $numTables;
+	let $numTables;
 
-	var $searchRange;
+	let $searchRange;
 
-	var $entrySelector;
+	let $entrySelector;
 
-	var $rangeShift;
+	let $rangeShift;
 
-	var $tables;
+	let $tables;
 
-	var $otables;
+	let $otables;
 
-	var $filename;
+	let $filename;
 
-	var $fh;
+	let $fh;
 
-	var $glyphPos;
+	let $glyphPos;
 
-	var $charToGlyph;
+	let $charToGlyph;
 
-	var $ascent;
+	let $ascent;
 
-	var $descent;
+	let $descent;
 
-	var $name;
+	let $name;
 
-	var $familyName;
+	let $familyName;
 
-	var $styleName;
+	let $styleName;
 
-	var $fullName;
+	let $fullName;
 
-	var $uniqueFontID;
+	let $uniqueFontID;
 
-	var $unitsPerEm;
+	let $unitsPerEm;
 
-	var $bbox;
+	let $bbox;
 
-	var $capHeight;
+	let $capHeight;
 
-	var $stemV;
+	let $stemV;
 
-	var $italicAngle;
+	let $italicAngle;
 
-	var $flags;
+	let $flags;
 
-	var $underlinePosition;
+	let $underlinePosition;
 
-	var $underlineThickness;
+	let $underlineThickness;
 
-	var $charWidths;
+	let $charWidths;
 
-	var $defaultWidth;
+	let $defaultWidth;
 
-	var $maxStrLenRead;
+	let $maxStrLenRead;
 
-	var $numTTCFonts;
+	let $numTTCFonts;
 
-	var $TTCFonts;
+	let $TTCFonts;
 
-	var $maxUniChar;
+	let $maxUniChar;
 
-	var $kerninfo;
+	let $kerninfo;
 
-	var $mode;
+	let $mode;
 
-	var $glyphToChar;
+	let $glyphToChar;
 
-	var $fontRevision;
+	let $fontRevision;
 
-	var $glyphdata;
+	let $glyphdata;
 
-	var $glyphIDtoUn;
+	let $glyphIDtoUn;
 
-	var $restrictedUse;
+	let $restrictedUse;
 
-	var $GSUBFeatures;
+	let $GSUBFeatures;
 
-	var $GSUBLookups;
+	let $GSUBLookups;
 
-	var $glyphIDtoUni;
+	let $glyphIDtoUni;
 
-	var $GSLuCoverage;
+	let $GSLuCoverage;
 
-	var $version;
+	let $version;
 
 	private $mpdf;
 

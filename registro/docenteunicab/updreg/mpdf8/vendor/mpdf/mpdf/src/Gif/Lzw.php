@@ -15,27 +15,27 @@ namespace Mpdf\Gif;
 class Lzw
 {
 
-	var $MAX_LZW_BITS;
+	let $MAX_LZW_BITS;
 
-	var $Fresh;
-	var $CodeSize;
-	var $SetCodeSize;
-	var $MaxCode;
-	var $MaxCodeSize;
-	var $FirstCode;
-	var $OldCode;
+	let $Fresh;
+	let $CodeSize;
+	let $SetCodeSize;
+	let $MaxCode;
+	let $MaxCodeSize;
+	let $FirstCode;
+	let $OldCode;
 
-	var $ClearCode;
-	var $EndCode;
-	var $Next;
-	var $Vals;
-	var $Stack;
-	var $sp;
-	var $Buf;
-	var $CurBit;
-	var $LastBit;
-	var $Done;
-	var $LastByte;
+	let $ClearCode;
+	let $EndCode;
+	let $Next;
+	let $Vals;
+	let $Stack;
+	let $sp;
+	let $Buf;
+	let $CurBit;
+	let $LastBit;
+	let $Done;
+	let $LastByte;
 
 	public function __construct()
 	{

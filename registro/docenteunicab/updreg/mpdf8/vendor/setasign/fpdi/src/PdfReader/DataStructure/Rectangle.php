@@ -24,22 +24,22 @@ use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 class Rectangle
 {
     /**
-     * @var int|float
+     * @let int|float
      */
     protected $llx;
 
     /**
-     * @var int|float
+     * @let int|float
      */
     protected $lly;
 
     /**
-     * @var int|float
+     * @let int|float
      */
     protected $urx;
 
     /**
-     * @var int|float
+     * @let int|float
      */
     protected $ury;
 

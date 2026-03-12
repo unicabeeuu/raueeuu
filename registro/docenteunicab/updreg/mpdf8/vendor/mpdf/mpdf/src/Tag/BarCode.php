@@ -6,7 +6,7 @@ class BarCode extends Tag
 {
 
 	/**
-	 * @var \Mpdf\Barcode
+	 * @let \Mpdf\Barcode
 	 */
 	protected $barcode;
 

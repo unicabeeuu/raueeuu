@@ -165,10 +165,10 @@
             }
 		</style>
 		<script>
-		    var gridViewScroll = null;
+		    let gridViewScroll = null;
         
             $(function() {
-                var options = new GridViewScrollOptions();
+                let options = new GridViewScrollOptions();
                 options.elementID = "tblest";
                 options.width = 1000;
                 options.height = 300;
@@ -183,8 +183,8 @@
                 
                 $("#tblest tbody tr").click(function(){ 
                     $(this).addClass('GridviewScrollItemSelected').siblings().removeClass('GridviewScrollItemSelected');  
-                    var value=$(this).find('td:nth-child(2)').text();
-                    var value1=$(this).find('td:nth-child(3)').text();
+                    let value=$(this).find('td:nth-child(2)').text();
+                    let value1=$(this).find('td:nth-child(3)').text();
                     $("#txtidest").val(value);
                     $("#txtidgra").val(value1);
                     
@@ -195,7 +195,7 @@
                 
                 $("#tblest tbody tr").hover(function(){ 
                     $(this).addClass('GridviewScrollItemHover').siblings().removeClass('GridviewScrollItemHover');  
-                    var value=$(this).find('td:first').html();
+                    let value=$(this).find('td:first').html();
                 });
             });
             
@@ -207,7 +207,7 @@
             		url:"observaciones_getdat.php",
             		data:"idest=" + idest,
             		success:function(r) {
-            		    var obs = r.replace("_"," ");
+            		    let obs = r.replace("_"," ");
             		    //alert(obs);
             		    //$("#txtobs").val(r.replace("_"," "));
             		    $("#txtobs").val(r);
@@ -230,43 +230,43 @@
             
             //*******************************************************************************
             function mostrar_notas(data) {
-                var vper = $("#selperiodo").val();
-                //var a = isnanc(4.8);
+                let vper = $("#selperiodo").val();
+                //let a = isnanc(4.8);
                 //alert(a);
                 /*alert(pensam);
     			alert(p1);
     			alert(p2);
     			alert(p3);
     			alert(p4);*/
-    			var res = JSON.parse(data);
+    			let res = JSON.parse(data);
     			console.log(res);
     			//alert(res.lbls.length);
     			if(res.lbls.length == 1) {
     			    /*if(isNaN(parseFloat(res.p2[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
     			    }
     			    else if(isNaN(parseFloat(res.p3[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p4[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
             	    }*/
             	    if(vper == "1") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
     			    }
     			    else if(vper == "2") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
             	    }
             	    else if(vper == "3") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
             	    }
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0] + " (CF="+cf0+")","."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],0], order: 1},
@@ -280,38 +280,38 @@
             	}
     			else if(res.lbls.length == 2) {
     			    if(vper == "1") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
     			    }
     			    else if(vper == "2") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
             	    }
             	    else if(vper == "3") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
             	    }
     			    /*if(isNaN(parseFloat(res.p2[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
     			    }
     			    else if(isNaN(parseFloat(res.p3[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p4[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
             	    }*/
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0] + " (CF="+cf0+")",res.lbls[1] + " (CF="+cf1+")","."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],0], order: 1},
@@ -325,46 +325,46 @@
             	}
     			else if(res.lbls.length == 3) {
     			    if(vper == "1") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
     			    }
     			    else if(vper == "2") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
             	    }
             	    else if(vper == "3") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
             	    }
     			    /*if(isNaN(parseFloat(res.p2[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
     			    }
     			    else if(isNaN(parseFloat(res.p3[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p4[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
             	    }*/
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0] + " (CF="+cf0+")",res.lbls[1] + " (CF="+cf1+")",res.lbls[2] + " (CF="+cf2+")","."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],0], order: 1},
@@ -378,54 +378,54 @@
             	}
     			else if(res.lbls.length == 4) {
     			    if(vper == "1") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
     			    }
     			    else if(vper == "2") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
             	    }
             	    else if(vper == "3") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
             	    }
     			    /*if(isNaN(parseFloat(res.p2[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
     			    }
     			    else if(isNaN(parseFloat(res.p3[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p4[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
             	    }*/
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0] + " (CF="+cf0+")",res.lbls[1] + " (CF="+cf1+")",res.lbls[2] + " (CF="+cf2+")",res.lbls[3] + " (CF="+cf3+")","."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],0], order: 1},
@@ -439,62 +439,62 @@
             	}
     			else if(res.lbls.length == 5) {
     			    if(vper == "1") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
     			    }
     			    else if(vper == "2") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
             	    }
             	    else if(vper == "3") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
             	    }
     			    /*if(isNaN(parseFloat(res.p2[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
     			    }
     			    else if(isNaN(parseFloat(res.p3[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p4[0]))) {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
             	    }*/
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0] + " (CF="+cf0+")",res.lbls[1] + " (CF="+cf1+")",res.lbls[2] + " (CF="+cf2+")",res.lbls[3] + " (CF="+cf3+")",res.lbls[4] + " (CF="+cf4+")","."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],res.p1[4],0], order: 1},
@@ -507,84 +507,84 @@
                     };
             	}
             	else if(res.lbls.length == 6) {
-            	    /*var cf0 = ((parseFloat(res.p1[0]) + parseFloat(res.p2[0]) + parseFloat(res.p3[0]) + parseFloat(res.p4[0]))/4).toFixed(1);
-            	    var cf1 = ((parseFloat(res.p1[1]) + parseFloat(res.p2[1]) + parseFloat(res.p3[1]) + parseFloat(res.p4[1]))/4).toFixed(1);
-            	    var cf2 = ((parseFloat(res.p1[2]) + parseFloat(res.p2[2]) + parseFloat(res.p3[2]) + parseFloat(res.p4[2]))/4).toFixed(1);
-            	    var cf3 = ((parseFloat(res.p1[3]) + parseFloat(res.p2[3]) + parseFloat(res.p3[3]) + parseFloat(res.p4[3]))/4).toFixed(1);
-            	    var cf4 = ((parseFloat(res.p1[4]) + parseFloat(res.p2[4]) + parseFloat(res.p3[4]) + parseFloat(res.p4[4]))/4).toFixed(1);
-            	    var cf5 = ((parseFloat(res.p1[5]) + parseFloat(res.p2[5]) + parseFloat(res.p3[5]) + parseFloat(res.p4[5]))/4).toFixed(1);*/
+            	    /*let cf0 = ((parseFloat(res.p1[0]) + parseFloat(res.p2[0]) + parseFloat(res.p3[0]) + parseFloat(res.p4[0]))/4).toFixed(1);
+            	    let cf1 = ((parseFloat(res.p1[1]) + parseFloat(res.p2[1]) + parseFloat(res.p3[1]) + parseFloat(res.p4[1]))/4).toFixed(1);
+            	    let cf2 = ((parseFloat(res.p1[2]) + parseFloat(res.p2[2]) + parseFloat(res.p3[2]) + parseFloat(res.p4[2]))/4).toFixed(1);
+            	    let cf3 = ((parseFloat(res.p1[3]) + parseFloat(res.p2[3]) + parseFloat(res.p3[3]) + parseFloat(res.p4[3]))/4).toFixed(1);
+            	    let cf4 = ((parseFloat(res.p1[4]) + parseFloat(res.p2[4]) + parseFloat(res.p3[4]) + parseFloat(res.p4[4]))/4).toFixed(1);
+            	    let cf5 = ((parseFloat(res.p1[5]) + parseFloat(res.p2[5]) + parseFloat(res.p3[5]) + parseFloat(res.p4[5]))/4).toFixed(1);*/
             	    if(vper == "1") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
     			    }
     			    else if(vper == "2") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
             	    }
             	    else if(vper == "3") {
-    			        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
+    			        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
             	    }
             	    /*if(isNaN(parseFloat(res.p2[0]))) {
             	        //alert(1);
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p3[0]))) {
             	        //alert(2);
             	        //alert(parseFloat(res.p1[3]));
             	        //alert(parseFloat(res.p2[3]));
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p4[0]))) {
             	        //alert(3);
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
             	    }
             	    else {
             	        //alert(4);
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
             	    }*/
             	    //alert (cf3);
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0] + " (CF="+cf0+")",res.lbls[1] + " (CF="+cf1+")",res.lbls[2] + " (CF="+cf2+")",res.lbls[3] + " (CF="+cf3+")",res.lbls[4] + " (CF="+cf4+")",res.lbls[5] + " (CF="+cf5+")","."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],res.p1[4],res.p1[5],0], order: 1},
@@ -606,80 +606,80 @@
             	}
             	else if(res.lbls.length == 7) {
             	    if(vper == "1") {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])))/1).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])))/1).toFixed(1);
             	    }
             	    else if(vper == "2") {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])))/2).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])))/2).toFixed(1);
             	    }
             	    else if(vper == "3") {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])))/3).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])) + isnanc(parseFloat(res.p4[6])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])) + isnanc(parseFloat(res.p4[6])))/4).toFixed(1);
             	    }
             	    /*if(isNaN(parseFloat(res.p2[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])))/1).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])))/1).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])))/1).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p3[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])))/2).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])))/2).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])))/2).toFixed(1);
             	    }
             	    else if(isNaN(parseFloat(res.p4[0]))) {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])))/3).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])))/3).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])))/3).toFixed(1);
             	    }
             	    else {
-            	        var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-                	    var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-                	    var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-                	    var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
-                	    var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
-                	    var cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
-                	    var cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])) + isnanc(parseFloat(res.p4[6])))/4).toFixed(1);
+            	        let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+                	    let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+                	    let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+                	    let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+                	    let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
+                	    let cf5 = ((isnanc(parseFloat(res.p1[5])) + isnanc(parseFloat(res.p2[5])) + isnanc(parseFloat(res.p3[5])) + isnanc(parseFloat(res.p4[5])))/4).toFixed(1);
+                	    let cf6 = ((isnanc(parseFloat(res.p1[6])) + isnanc(parseFloat(res.p2[6])) + isnanc(parseFloat(res.p3[6])) + isnanc(parseFloat(res.p4[6])))/4).toFixed(1);
             	    }*/
             	    //labels : [res.lbls[0],res.lbls[1],res.lbls[2],res.lbls[3],res.lbls[4],res.lbls[5],res.lbls[6],"."],
             	    //labels : [res.lbls[0] + " (CF="+cf0+")",res.lbls[1] + " (CF="+cf1+")",res.lbls[2] + " (CF="+cf2+")",res.lbls[3] + " (CF="+cf3+")",res.lbls[4] + " (CF="+cf4+")",res.lbls[5] + " (CF="+cf5+")",res.lbls[6] + " (CF="+cf6+")","."],
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0] + " (CF="+cf0+")",res.lbls[1] + " (CF="+cf1+")",res.lbls[2] + " (CF="+cf2+")",res.lbls[3] + " (CF="+cf3+")",res.lbls[4] + " (CF="+cf4+")",res.lbls[5] + " (CF="+cf5+")",res.lbls[6] + " (CF="+cf6+")","."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],res.p1[4],res.p1[5],res.p1[6],0], order: 1},
@@ -699,7 +699,7 @@
     			//Se genera un nuevo canvas
     			$("#divcanvas").append('<canvas id="grafico" width="800" height="200"></canvas>');
                 
-                var canvas = document.getElementById("grafico").getContext("2d");
+                let canvas = document.getElementById("grafico").getContext("2d");
                 window.bar = new Chart(canvas, {
                     type : "bar",
                     data : datos,
@@ -723,7 +723,7 @@
                 });
                 //window.bar.update();
                 
-                var value=$("#txtidest").val();
+                let value=$("#txtidest").val();
                 ver_desemp(value);
                 $("#divdesemp").show();
             }
@@ -755,12 +755,12 @@
             
             //*******************************************************************************
             function mostrar_desemp(data) {
-                var res = JSON.parse(data);
+                let res = JSON.parse(data);
                 // *** PRIMER PEN ***
             	//Se borra la etiqueta canvas
     			$("#grafico1").remove();
     			if(res.length >= 1) {
-    			    var datos = {
+    			    let datos = {
                         labels : ["DB","DA","AF"],
                         datasets : [
                             {data : [res[0].cb, res[0].ca, res[0].cf],
@@ -774,7 +774,7 @@
         			//Se genera un nuevo canvas
         			$("#divcanvas1").append('<canvas id="grafico1" width="200" height="200"></canvas>');
                     
-                    var canvas = document.getElementById("grafico1").getContext("2d");
+                    let canvas = document.getElementById("grafico1").getContext("2d");
                     window.pie = new Chart(canvas, {
                         type : "pie",
                         data : datos,
@@ -794,7 +794,7 @@
             	//Se borra la etiqueta canvas
     			$("#grafico2").remove();
     			if(res.length >= 2) {
-    			    var datos = {
+    			    let datos = {
                         labels : ["DB","DA","AF"],
                         datasets : [
                             {data : [res[1].cb, res[1].ca, res[1].cf],
@@ -808,7 +808,7 @@
         			//Se genera un nuevo canvas
         			$("#divcanvas2").append('<canvas id="grafico2" width="200" height="200"></canvas>');
                     
-                    var canvas = document.getElementById("grafico2").getContext("2d");
+                    let canvas = document.getElementById("grafico2").getContext("2d");
                     window.pie = new Chart(canvas, {
                         type : "pie",
                         data : datos,
@@ -828,7 +828,7 @@
             	//Se borra la etiqueta canvas
     			$("#grafico3").remove();
     			if(res.length >= 3) {
-    			    var datos = {
+    			    let datos = {
                         labels : ["DB","DA","AF"],
                         datasets : [
                             {data : [res[2].cb, res[2].ca, res[2].cf],
@@ -842,7 +842,7 @@
         			//Se genera un nuevo canvas
         			$("#divcanvas3").append('<canvas id="grafico3" width="200" height="200"></canvas>');
                     
-                    var canvas = document.getElementById("grafico3").getContext("2d");
+                    let canvas = document.getElementById("grafico3").getContext("2d");
                     window.pie = new Chart(canvas, {
                         type : "pie",
                         data : datos,
@@ -862,7 +862,7 @@
             	//Se borra la etiqueta canvas
     			$("#grafico4").remove();
     			if(res.length >= 4) {
-    			    var datos = {
+    			    let datos = {
                         labels : ["DB","DA","AF"],
                         datasets : [
                             {data : [res[3].cb, res[3].ca, res[3].cf],
@@ -876,7 +876,7 @@
         			//Se genera un nuevo canvas
         			$("#divcanvas4").append('<canvas id="grafico4" width="200" height="200"></canvas>');
                     
-                    var canvas = document.getElementById("grafico4").getContext("2d");
+                    let canvas = document.getElementById("grafico4").getContext("2d");
                     window.pie = new Chart(canvas, {
                         type : "pie",
                         data : datos,
@@ -896,7 +896,7 @@
             	//Se borra la etiqueta canvas
     			$("#grafico5").remove();
     			if(res.length >= 5) {
-    			    var datos = {
+    			    let datos = {
                         labels : ["DB","DA","AF"],
                         datasets : [
                             {data : [res[4].cb, res[4].ca, res[4].cf],
@@ -910,7 +910,7 @@
         			//Se genera un nuevo canvas
         			$("#divcanvas5").append('<canvas id="grafico5" width="200" height="200"></canvas>');
                     
-                    var canvas = document.getElementById("grafico5").getContext("2d");
+                    let canvas = document.getElementById("grafico5").getContext("2d");
                     window.pie = new Chart(canvas, {
                         type : "pie",
                         data : datos,
@@ -931,7 +931,7 @@
             	//Se borra la etiqueta canvas
     			$("#grafico6").remove();
     			if(res.length >= 6) {
-    			    var datos = {
+    			    let datos = {
                         labels : ["DB","DA","AF"],
                         datasets : [
                             {data : [res[5].cb, res[5].ca, res[5].cf],
@@ -945,7 +945,7 @@
         			//Se genera un nuevo canvas
         			$("#divcanvas6").append('<canvas id="grafico6" width="200" height="200"></canvas>');
                     
-                    var canvas = document.getElementById("grafico6").getContext("2d");
+                    let canvas = document.getElementById("grafico6").getContext("2d");
                     window.pie = new Chart(canvas, {
                         type : "pie",
                         data : datos,
@@ -961,7 +961,7 @@
                     });
     			}
                 
-                //var value=$("#txtidest").val();
+                //let value=$("#txtidest").val();
                 //ver_cal_mood(value);
                 //$("#divcanvasm").show();
             }
@@ -969,7 +969,7 @@
             
             function ver_cal_mood(id_est, id_gra) {
                 //alert(id_est + id_gra);
-                var cadena = "";
+                let cadena = "";
                 cadena = cadena + "<fieldset id='ftm'><legend>NOTAS EN MOODLE</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
                                     "<tr>" +
                                     "<td><b>ID ESTUDIANTE</b></td>" +
@@ -990,20 +990,20 @@
             		    //mostrar_notas_mood(r);
             			
             			//Esto es para mostrar la tabla con las notas moodle
-            			var res = JSON.parse(r);
+            			let res = JSON.parse(r);
             			console.log(res);
-            			var lineas = res.tabla.lineas;
+            			let lineas = res.tabla.lineas;
             			//console.log(lineas);
             			//$("#tablam").html(lineas.length);
-            			for(var i = 0; i < lineas.length; i++) {
-            			    var idestm = lineas[i].id_est;
-            			    var lastn = lineas[i].lastname;
-            			    var firstn = lineas[i].firstname;
-            			    var shortn = lineas[i].shortname;
-            			    var pen = lineas[i].pensamiento;
-            			    var idnumber = lineas[i].idnumber;
-            			    var per = lineas[i].periodo;
-            			    var cal = lineas[i].calificacion;
+            			for(let i = 0; i < lineas.length; i++) {
+            			    let idestm = lineas[i].id_est;
+            			    let lastn = lineas[i].lastname;
+            			    let firstn = lineas[i].firstname;
+            			    let shortn = lineas[i].shortname;
+            			    let pen = lineas[i].pensamiento;
+            			    let idnumber = lineas[i].idnumber;
+            			    let per = lineas[i].periodo;
+            			    let cal = lineas[i].calificacion;
             			    cadena = cadena + "<tr>" +
                         						"<td>" + idestm + "</td>" +
                         						"<td>" + lastn + "</td>" +
@@ -1022,18 +1022,18 @@
             		}
             	});
             	
-            	var value=$("#txtidest").val();
-            	var value1=$("#txtidgra").val();
+            	let value=$("#txtidest").val();
+            	let value1=$("#txtidgra").val();
             	ver_cal(value,value1);
             }
             
             //*******************************************************************************
             function mostrar_notas_mood(data) {
-                var res = JSON.parse(data);
+                let res = JSON.parse(data);
     			//console.log(res);
     			//alert(data);
     			if(res.lbls.length == 1) {
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0],"."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],0]},
@@ -1044,7 +1044,7 @@
                     };
             	}
     			else if(res.lbls.length == 2) {
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0],res.lbls[1],"."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],0]},
@@ -1055,7 +1055,7 @@
                     };
             	}
     			else if(res.lbls.length == 3) {
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0],res.lbls[1],res.lbls[2],"."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],0]},
@@ -1066,7 +1066,7 @@
                     };
             	}
     			else if(res.lbls.length == 4) {
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0],res.lbls[1],res.lbls[2],res.lbls[3],"."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],0]},
@@ -1077,7 +1077,7 @@
                     };
             	}
     			else if(res.lbls.length == 5) {
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0],res.lbls[1],res.lbls[2],res.lbls[3],res.lbls[4],"."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],res.p1[4],0]},
@@ -1088,7 +1088,7 @@
                     };
             	}
             	else if(res.lbls.length == 6) {
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0],res.lbls[1],res.lbls[2],res.lbls[3],res.lbls[4],res.lbls[5],"."],
                         datasets : [
                             {label : "P1R", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],res.p1[4],res.p1[5],0]},
@@ -1099,7 +1099,7 @@
                     };
             	}
             	else if(res.lbls.length == 7) {
-            	    var datos = {
+            	    let datos = {
                         labels : [res.lbls[0],res.lbls[1],res.lbls[2],res.lbls[3],res.lbls[4],res.lbls[5],res.lbls[6],"."],
                         datasets : [
                             {label : "P1", backgroundColor : "rgba(249,255,51,0.9)", data : [res.p1[0],res.p1[1],res.p1[2],res.p1[3],res.p1[4],res.p1[5],res.p1[6],0]},
@@ -1117,7 +1117,7 @@
     			//Se genera un nuevo canvas
     			$("#divcanvasm").append('<canvas id="graficom" width="800" height="200"></canvas>');
                 
-                var canvas = document.getElementById("graficom").getContext("2d");
+                let canvas = document.getElementById("graficom").getContext("2d");
                 window.bar = new Chart(canvas, {
                     type : "bar",
                     data : datos,

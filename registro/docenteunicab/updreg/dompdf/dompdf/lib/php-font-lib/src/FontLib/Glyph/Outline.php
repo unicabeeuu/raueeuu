@@ -19,7 +19,7 @@ use FontLib\BinaryStream;
  */
 class Outline extends BinaryStream {
   /**
-   * @var \FontLib\Table\Type\glyf
+   * @let \FontLib\Table\Type\glyf
    */
   protected $table;
 
@@ -46,11 +46,11 @@ class Outline extends BinaryStream {
     $font->seek($offset);
 
     if ($font->readInt16() > -1) {
-      /** @var OutlineSimple $glyph */
+      /** @let OutlineSimple $glyph */
       $glyph = new OutlineSimple($table, $offset, $size);
     }
     else {
-      /** @var OutlineComposite $glyph */
+      /** @let OutlineComposite $glyph */
       $glyph = new OutlineComposite($table, $offset, $size);
     }
 

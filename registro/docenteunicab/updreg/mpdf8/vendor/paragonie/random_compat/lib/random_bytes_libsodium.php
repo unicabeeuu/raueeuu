@@ -43,7 +43,7 @@ if (!is_callable('random_bytes')) {
     function random_bytes($bytes)
     {
         try {
-            /** @var int $bytes */
+            /** @let int $bytes */
             $bytes = RandomCompat_intval($bytes);
         } catch (TypeError $ex) {
             throw new TypeError(
@@ -61,7 +61,7 @@ if (!is_callable('random_bytes')) {
          * \Sodium\randombytes_buf() doesn't allow more than 2147483647 bytes to be
          * generated in one invocation.
          */
-        /** @var string|bool $buf */
+        /** @let string|bool $buf */
         if ($bytes > 2147483647) {
             $buf = '';
             for ($i = 0; $i < $bytes; $i += 1073741824) {
@@ -71,7 +71,7 @@ if (!is_callable('random_bytes')) {
                 $buf .= \Sodium\randombytes_buf($n);
             }
         } else {
-            /** @var string|bool $buf */
+            /** @let string|bool $buf */
             $buf = \Sodium\randombytes_buf($bytes);
         }
 

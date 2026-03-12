@@ -13,12 +13,12 @@ class SizeConverter implements \Psr\Log\LoggerAwareInterface
 	private $defaultFontSize;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Psr\Log\LoggerInterface
+	 * @let \Psr\Log\LoggerInterface
 	 */
 	private $logger;
 

@@ -22,57 +22,57 @@ class LineBox
 {
 
     /**
-     * @var Block
+     * @let Block
      */
     protected $_block_frame;
 
     /**
-     * @var Frame[]
+     * @let Frame[]
      */
     protected $_frames = [];
 
     /**
-     * @var integer
+     * @let integer
      */
     public $wc = 0;
 
     /**
-     * @var float
+     * @let float
      */
     public $y = null;
 
     /**
-     * @var float
+     * @let float
      */
     public $w = 0.0;
 
     /**
-     * @var float
+     * @let float
      */
     public $h = 0.0;
 
     /**
-     * @var float
+     * @let float
      */
     public $left = 0.0;
 
     /**
-     * @var float
+     * @let float
      */
     public $right = 0.0;
 
     /**
-     * @var Frame
+     * @let Frame
      */
     public $tallest_frame = null;
 
     /**
-     * @var bool[]
+     * @let bool[]
      */
     public $floating_blocks = [];
 
     /**
-     * @var bool
+     * @let bool
      */
     public $br = false;
 

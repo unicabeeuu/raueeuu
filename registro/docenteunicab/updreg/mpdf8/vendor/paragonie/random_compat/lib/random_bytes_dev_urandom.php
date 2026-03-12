@@ -47,7 +47,7 @@ if (!is_callable('random_bytes')) {
      */
     function random_bytes($bytes)
     {
-        /** @var resource $fp */
+        /** @let resource $fp */
         static $fp = null;
 
         /**
@@ -75,10 +75,10 @@ if (!is_callable('random_bytes')) {
                  * We use /dev/urandom if it is a char device.
                  * We never fall back to /dev/random
                  */
-                /** @var resource|bool $fp */
+                /** @let resource|bool $fp */
                 $fp = fopen('/dev/urandom', 'rb');
                 if (is_resource($fp)) {
-                    /** @var array<string, int> $st */
+                    /** @let array<string, int> $st */
                     $st = fstat($fp);
                     if (($st['mode'] & 0170000) !== 020000) {
                         fclose($fp);
@@ -106,7 +106,7 @@ if (!is_callable('random_bytes')) {
         }
 
         try {
-            /** @var int $bytes */
+            /** @let int $bytes */
             $bytes = RandomCompat_intval($bytes);
         } catch (TypeError $ex) {
             throw new TypeError(
@@ -129,12 +129,12 @@ if (!is_callable('random_bytes')) {
          */
         if (is_resource($fp)) {
             /**
-             * @var int
+             * @let int
              */
             $remaining = $bytes;
 
             /**
-             * @var string|bool
+             * @let string|bool
              */
             $buf = '';
 
@@ -143,7 +143,7 @@ if (!is_callable('random_bytes')) {
              */
             do {
                 /**
-                 * @var string|bool
+                 * @let string|bool
                  */
                 $read = fread($fp, $remaining);
                 if (!is_string($read)) {
@@ -151,7 +151,7 @@ if (!is_callable('random_bytes')) {
                      * We cannot safely read from the file. Exit the
                      * do-while loop and trigger the exception condition
                      *
-                     * @var string|bool
+                     * @let string|bool
                      */
                     $buf = false;
                     break;
@@ -161,14 +161,14 @@ if (!is_callable('random_bytes')) {
                  */
                 $remaining -= RandomCompat_strlen($read);
                 /**
-                 * @var string $buf
+                 * @let string $buf
                  */
                 $buf .= $read;
             } while ($remaining > 0);
 
             /**
              * Is our result valid?
-             * @var string|bool $buf
+             * @let string|bool $buf
              */
             if (is_string($buf)) {
                 if (RandomCompat_strlen($buf) === $bytes) {

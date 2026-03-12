@@ -251,7 +251,7 @@
 				    --https://parzibyte.me/blog/2019/10/22/evitar-expiracion-sesion-php/
 				    echo "<script>";
 				        echo "document.addEventListener('DOMContentLoaded', function(){";
-				            echo "var milisegundos = 10 *1000;";
+				            echo "let milisegundos = 10 *1000;";
 				            echo "file = 'c2s34n.php'";
 				            echo "setInterval(function(){";
 				                echo "fetch(".file.");";

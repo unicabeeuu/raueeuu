@@ -204,7 +204,7 @@ if (isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -250,7 +250,7 @@ if (isset($_SESSION['uniprofe'])) {
 	<!-- validar combo periodo -->
 	<script type="text/javascript">
 		function validacion() {
-			var grado=document.getElementById('id_grado').value;
+			let grado=document.getElementById('id_grado').value;
 			if (grado==0) {
 				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
 				return false;

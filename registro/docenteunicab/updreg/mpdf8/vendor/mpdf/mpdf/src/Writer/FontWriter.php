@@ -14,22 +14,22 @@ class FontWriter
 	use Strict;
 
 	/**
-	 * @var \Mpdf\Mpdf
+	 * @let \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @var \Mpdf\Writer\BaseWriter
+	 * @let \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 
 	/**
-	 * @var \Mpdf\Fonts\FontCache
+	 * @let \Mpdf\Fonts\FontCache
 	 */
 	private $fontCache;
 
 	/**
-	 * @var string
+	 * @let string
 	 */
 	private $fontDescriptor;
 

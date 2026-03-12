@@ -41,7 +41,7 @@ class Shape extends AbstractTag
                     $surface->fillStroke();
                 } else {
 //                    if (is_string($style->fill)) {
-//                        /** @var LinearGradient|RadialGradient $gradient */
+//                        /** @let LinearGradient|RadialGradient $gradient */
 //                        $gradient = $this->getDocument()->getDef($style->fill);
 //
 //                        var_dump($gradient->getStops());

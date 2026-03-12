@@ -21,12 +21,12 @@ use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 abstract class AbstractReader
 {
     /**
-     * @var PdfParser
+     * @let PdfParser
      */
     protected $parser;
 
     /**
-     * @var PdfDictionary
+     * @let PdfDictionary
      */
     protected $trailer;
 

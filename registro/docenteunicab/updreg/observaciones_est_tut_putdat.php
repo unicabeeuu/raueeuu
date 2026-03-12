@@ -126,10 +126,10 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 		</style>
 		
 		<script>
-		    var gridViewScroll = null;
+		    let gridViewScroll = null;
         
             $(function() {
-                var options = new GridViewScrollOptions();
+                let options = new GridViewScrollOptions();
                 options.elementID = "tblest";
                 options.width = 1100;
                 options.height = 300;
@@ -144,10 +144,10 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
                 
                 $("#tblest tbody tr").click(function(){ 
                     $(this).addClass('GridviewScrollItemSelected').siblings().removeClass('GridviewScrollItemSelected');  
-                    var id=$(this).find('td:nth-child(5)').text();
-                    var nombres=$(this).find('td:nth-child(2)').text();
-                    var apellidos=$(this).find('td:nth-child(3)').text();
-                    var obs=$(this).find('td:nth-child(4)').text();
+                    let id=$(this).find('td:nth-child(5)').text();
+                    let nombres=$(this).find('td:nth-child(2)').text();
+                    let apellidos=$(this).find('td:nth-child(3)').text();
+                    let obs=$(this).find('td:nth-child(4)').text();
                     //alert(id);
                     
                     /*$("#txtidest").val(id);
@@ -160,7 +160,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
                 
                 $("#tblest tbody tr").hover(function(){ 
                     $(this).addClass('GridviewScrollItemHover').siblings().removeClass('GridviewScrollItemHover');  
-                    var value=$(this).find('td:first').html();
+                    let value=$(this).find('td:first').html();
                 });
                 
                 $("#search").keyup(function(){

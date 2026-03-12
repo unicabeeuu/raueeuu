@@ -22,14 +22,14 @@ class Block extends AbstractFrameDecorator
     /**
      * Current line index
      *
-     * @var int
+     * @let int
      */
     protected $_cl;
 
     /**
      * The block's line boxes
      *
-     * @var LineBox[]
+     * @let LineBox[]
      */
     protected $_line_boxes;
 
