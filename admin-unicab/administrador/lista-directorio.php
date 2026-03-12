@@ -129,7 +129,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -166,7 +166,7 @@
 
 	<script type="text/javascript">
    		function Validar(){
-			var categoria=document.getElementById('categoria').value;
+			let categoria=document.getElementById('categoria').value;
 			
 			if (categoria==0) {
 				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar una categoria valida</center>').slideDown(500);
@@ -181,7 +181,7 @@
 </html>
 <?php 
 }else{
-	echo "<script>alert('Debe iniciar sesi¨®n');</script>";
+	echo "<script>alert('Debe iniciar sesiï¿½ï¿½n');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

@@ -7,9 +7,9 @@
         
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                var initialLocaleCode = 'es';
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
+                let initialLocaleCode = 'es';
+                let calendarEl = document.getElementById('calendar');
+                let calendar = new FullCalendar.Calendar(calendarEl, {
                     //initialView: 'dayGridMonth'
                     initialView: 'timeGridWeek',
                     nowIndicator: true,

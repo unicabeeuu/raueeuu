@@ -120,13 +120,13 @@
             $("#selgra1").change(function() {
                 $("#resul_bus").hide("");
                 
-                var gra = $("#selgra1").val();
+                let gra = $("#selgra1").val();
         		
         		if(gra == "NA") {
         			$("#submit").hide("");
         		}
         		else {
-        		    var per = $("#selper1").val();
+        		    let per = $("#selper1").val();
             		if(per == "0") {
             			$("#submit").hide("");
             		}
@@ -138,13 +138,13 @@
         	$("#selper1").change(function() {
         	    $("#resul_bus").hide("");
         	    
-                var per = $("#selper1").val();
+                let per = $("#selper1").val();
         		
         		if(per == "0") {
         			$("#submit").hide("");
         		}
         		else {
-        		    var gra = $("#selgra1").val();
+        		    let gra = $("#selgra1").val();
             		if(gra == "NA") {
             			$("#submit").hide("");
             		}
@@ -157,7 +157,7 @@
         	$(".accordion-titulo1").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content1");
+                let contenido=$(this).next(".accordion-content1");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -176,7 +176,7 @@
             $(".accordion-titulo2").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content2");
+                let contenido=$(this).next(".accordion-content2");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -195,7 +195,7 @@
             $(".accordion-titulo3").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content3");
+                let contenido=$(this).next(".accordion-content3");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -214,7 +214,7 @@
             $(".accordion-titulo4").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content4");
+                let contenido=$(this).next(".accordion-content4");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -233,7 +233,7 @@
             $(".accordion-titulo5").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content5");
+                let contenido=$(this).next(".accordion-content5");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -252,7 +252,7 @@
             $(".accordion-titulo6").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content6");
+                let contenido=$(this).next(".accordion-content6");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -271,7 +271,7 @@
             $(".accordion-titulo7").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content7");
+                let contenido=$(this).next(".accordion-content7");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -290,7 +290,7 @@
             $(".accordion-titulo8").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content8");
+                let contenido=$(this).next(".accordion-content8");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -324,7 +324,7 @@
         		    //alert(r);
         			$("#divtabla").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot").html();
+        			let stot = $("#stot").html();
         			if(stot == "0") {
         			    $(".accordion-titulo1").hide();
         			}
@@ -346,7 +346,7 @@
         		    //alert(r);
         			$("#divtabla1").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot1").html();
+        			let stot = $("#stot1").html();
         			if(stot == "0") {
         			    $(".accordion-titulo2").hide();
         			}
@@ -367,7 +367,7 @@
         		    //alert(r);
         			$("#divtabla2").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot2").html();
+        			let stot = $("#stot2").html();
         			if(stot == "0") {
         			    $(".accordion-titulo3").hide();
         			}
@@ -388,7 +388,7 @@
         		    //alert(r);
         			$("#divtabla3").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot3").html();
+        			let stot = $("#stot3").html();
         			if(stot == "0") {
         			    $(".accordion-titulo4").hide();
         			}
@@ -409,7 +409,7 @@
         		    //alert(r);
         			$("#divtabla4").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot4").html();
+        			let stot = $("#stot4").html();
         			if(stot == "0") {
         			    $(".accordion-titulo5").hide();
         			}
@@ -430,7 +430,7 @@
         		    //alert(r);
         			$("#divtabla5").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot5").html();
+        			let stot = $("#stot5").html();
         			if(stot == "0") {
         			    $(".accordion-titulo6").hide();
         			}
@@ -451,7 +451,7 @@
         		    //alert(r);
         			$("#divtabla6").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot6").html();
+        			let stot = $("#stot6").html();
         			if(stot == "0") {
         			    $(".accordion-titulo7").hide();
         			}
@@ -472,7 +472,7 @@
         		    //alert(r);
         			$("#divtabla7").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot7").html();
+        			let stot = $("#stot7").html();
         			if(stot == "0") {
         			    $(".accordion-titulo8").hide();
         			}
@@ -505,7 +505,7 @@
             		url:"consultar_acudiente.php",
             		data:"idest=" + idest,
             		success:function(r) {
-            		    var arrayDatos = r.split("|");
+            		    let arrayDatos = r.split("|");
             		    
             		    $("#txtacu1").val(arrayDatos[0]);
             		    $("#txtcel1").val(arrayDatos[1]);
@@ -728,7 +728,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -758,9 +758,9 @@
 
    <script type="text/javascript">
    		function Validar(){
-			var nombre=document.getElementById('TituloB').value;
-			var descripcion=document.getElementById('DescripcionB').value;
-			var categoria=document.getElementById('CategoriaB').value;
+			let nombre=document.getElementById('TituloB').value;
+			let descripcion=document.getElementById('DescripcionB').value;
+			let categoria=document.getElementById('CategoriaB').value;
 			
 			if (nombre=="") {
  				$('#alert').html('<center><strong>Advertencia</strong> El título del Blog es Obligatorio</center>').slideDown(500);
@@ -789,8 +789,8 @@
    	<script type="text/javascript">
 
    		$(document).ready(function(){
-   			var extensionesValidas = ".png, .gif, .jpeg, .jpg";
-     		var pesoPermitido = 1024;
+   			let extensionesValidas = ".png, .gif, .jpeg, .jpg";
+     		let pesoPermitido = 1024;
 
      		$("#ImagenB").change(function () {
      			$('#texto').text('');
@@ -806,9 +806,9 @@
 		    // Validacion de extensiones permitidas
 		    function validarExtension(datos) {
 
-				var ruta = datos.value;
-				var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-				var extensionValida = extensionesValidas.indexOf(extension);
+				let ruta = datos.value;
+				let extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
+				let extensionValida = extensionesValidas.indexOf(extension);
 
 				if(extensionValida < 0) {
 		            $('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
@@ -823,7 +823,7 @@
 
 		        if (datos.files && datos.files[0]) {
 
-				    var pesoFichero = datos.files[0].size/1024;
+				    let pesoFichero = datos.files[0].size/1024;
 
 				    if(pesoFichero > pesoPermitido) {
 				        $('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: '+ pesoFichero +' KBs');
@@ -837,7 +837,7 @@
 		  	// Vista preliminar de la imagen.
 		  	function verImagen(datos) {
 			    if (datos.files && datos.files[0]) {
-			        var reader = new FileReader();
+			        let reader = new FileReader();
 		         	reader.onload = function (e) {
 		         		$('#img').attr('src', e.target.result);
 		          	};

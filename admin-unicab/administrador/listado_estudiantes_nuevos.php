@@ -157,7 +157,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -213,7 +213,7 @@
 			
 			//La siguiente configuración corresponde a Filas secundarias controladas por columnas
 			//https://datatables.net/extensions/responsive/examples/child-rows/column-control.html
-			var datatable = $('#estudiantes').DataTable({
+			let datatable = $('#estudiantes').DataTable({
 				"processing": true,
 				"ajax": "listado_estudiantes_nuevos1.php",
 				language: {

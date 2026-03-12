@@ -118,7 +118,7 @@
             $("#selgrado").change(function() {
                 /*$("#btnsubmit").hide();
                 
-                var gra = $("#selgrado").val();
+                let gra = $("#selgrado").val();
                 //alert(gra);
                 
                 if (gra == "NA") {
@@ -138,13 +138,13 @@
         });
         
         function validar_texto(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var v_input = document.getElementById(id);
-            //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-            var v_val = /[_'"\~\$\#\&\|;\(\)\{\}\[\]\\]{1,}/;
-            var val = String($(id_obj).val()).match(v_val);
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let v_input = document.getElementById(id);
+            //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let v_val = /[_'"\~\$\#\&\|;\(\)\{\}\[\]\\]{1,}/;
+            let val = String($(id_obj).val()).match(v_val);
             
             if(val == null) {
                 v_input.setCustomValidity("");
@@ -154,7 +154,7 @@
             }
             else {
                 v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-                var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                 texto += " _ \' \" ~ $ # & | ; ( ) { } [ ] \\";
                 //alert(texto);
                 $("#lblmsg").html(texto).css("color","red");
@@ -166,18 +166,18 @@
         }
         
         function mostrar_submit() {
-            var a = parseInt($("#ctr_email").val());
+            let a = parseInt($("#ctr_email").val());
             (a == 1) ? $("#email").addClass("error") : $("#email").removeClass("error");
             
-            var control = 0;
-            var gra = $("#selgrado").val();
+            let control = 0;
+            let gra = $("#selgrado").val();
             if(gra == "NA") {
                 $("#btnsubmit").hide();
                 control = 1;
             }
             
             if(control == 0) {
-                var email = $("#ctr_email").val();
+                let email = $("#ctr_email").val();
                 if(email == 1) {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -185,7 +185,7 @@
             }
 			
 			if(control == 0) {
-				var origen = $("#selorigen").val();
+				let origen = $("#selorigen").val();
 				if(origen == "NA") {
 					$("#btnsubmit").hide();
 					control = 1;
@@ -198,12 +198,12 @@
         }
         
         function validar_email(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var input_email = document.getElementById(id);
-            var patron = /^[_-\w.]+@[a-z]+\.[a-z.]{2,6}$/;
-            var esCoincidente = patron.test($(id_obj).val());
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let input_email = document.getElementById(id);
+            let patron = /^[_-\w.]+@[a-z]+\.[a-z.]{2,6}$/;
+            let esCoincidente = patron.test($(id_obj).val());
             if(esCoincidente) {
                 input_email.setCustomValidity("");
                 //$("#lblmsg_email").html("");
@@ -211,7 +211,7 @@
             }
             else {
                 input_email.setCustomValidity("No es un patrón de correo válido");
-                var texto = "No es un patrón de correo válido para " + desc;
+                let texto = "No es un patrón de correo válido para " + desc;
                 //alert(texto);
                 //$("#lblmsg_email").html(texto).css("color","red");
                 $(ctr_obj).val(1);
@@ -234,15 +234,15 @@
 			document.getElementById("selgrado").value = "NA";
             
             //Se valida si el documento corresponde al código de pre-matrícula
-            var buscar = $("#buscar").val();
+            let buscar = $("#buscar").val();
             
             $.ajax({
                 type:"POST",
         		url:"informacion_premat_getdat.php",
         		data:"buscar=" + buscar + "&tipo=DOC",
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var r_est = res.estado;
+        		    let res = JSON.parse(r);
+        		    let r_est = res.estado;
         		    //alert(res.entrevista);
         		    $("#estado").val(r_est);
         		    
@@ -394,7 +394,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

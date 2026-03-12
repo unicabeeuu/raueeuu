@@ -147,7 +147,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -177,9 +177,9 @@
 
    <script type="text/javascript">
    		function Validar(){
-			var nombre=document.getElementById('nombreD').value;
-			var dependencia=document.getElementById('dependenciaD').value;
-			var cargo=document.getElementById('cargoD').value;
+			let nombre=document.getElementById('nombreD').value;
+			let dependencia=document.getElementById('dependenciaD').value;
+			let cargo=document.getElementById('cargoD').value;
 			
 			if (nombre=="") {
  				$('#alert').html('<center><strong>Advertencia</strong> El nombre de la persona es importante para el directorio</center>').slideDown(500);

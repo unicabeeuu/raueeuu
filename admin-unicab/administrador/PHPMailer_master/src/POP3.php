@@ -43,21 +43,21 @@ class POP3
     /**
      * The POP3 PHPMailer Version number.
      *
-     * @var string
+     * @let string
      */
     const VERSION = '6.1.7';
 
     /**
      * Default POP3 port number.
      *
-     * @var int
+     * @let int
      */
     const DEFAULT_PORT = 110;
 
     /**
      * Default timeout in seconds.
      *
-     * @var int
+     * @let int
      */
     const DEFAULT_TIMEOUT = 30;
 
@@ -65,63 +65,63 @@ class POP3
      * Debug display level.
      * Options: 0 = no, 1+ = yes.
      *
-     * @var int
+     * @let int
      */
     public $do_debug = 0;
 
     /**
      * POP3 mail server hostname.
      *
-     * @var string
+     * @let string
      */
     public $host;
 
     /**
      * POP3 port number.
      *
-     * @var int
+     * @let int
      */
     public $port;
 
     /**
      * POP3 Timeout Value in seconds.
      *
-     * @var int
+     * @let int
      */
     public $tval;
 
     /**
      * POP3 username.
      *
-     * @var string
+     * @let string
      */
     public $username;
 
     /**
      * POP3 password.
      *
-     * @var string
+     * @let string
      */
     public $password;
 
     /**
      * Resource handle for the POP3 connection socket.
      *
-     * @var resource
+     * @let resource
      */
     protected $pop_conn;
 
     /**
      * Are we connected?
      *
-     * @var bool
+     * @let bool
      */
     protected $connected = false;
 
     /**
      * Error container.
      *
-     * @var array
+     * @let array
      */
     protected $errors = [];
 

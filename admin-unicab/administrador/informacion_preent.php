@@ -116,7 +116,7 @@
             $("#selgrado").change(function() {
                 /*$("#btnsubmit").hide();
                 
-                var gra = $("#selgrado").val();
+                let gra = $("#selgrado").val();
                 //alert(gra);
                 
                 if (gra == "NA") {
@@ -158,15 +158,15 @@
             $("#buscar1").val("");
             
             //Se valida si el documento corresponde al código de pre-matrícula
-            var buscar = $("#buscar").val();
+            let buscar = $("#buscar").val();
             
             $.ajax({
                 type:"POST",
         		url:"informacion_premat_getdat.php",
         		data:"buscar=" + buscar + "&tipo=DOC",
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var r_est = res.estado;
+        		    let res = JSON.parse(r);
+        		    let r_est = res.estado;
         		    //alert(res.entrevista);
         		    $("#estado").val(r_est);
         		    
@@ -219,15 +219,15 @@
             $("#buscar").val("");
             
             //Se valida si el documento corresponde al código de pre-matrícula
-            var buscar = $("#buscar1").val();
+            let buscar = $("#buscar1").val();
             
             $.ajax({
                 type:"POST",
         		url:"informacion_premat_getdat.php",
         		data:"buscar=" + buscar + "&tipo=CEL",
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var r_est = res.estado;
+        		    let res = JSON.parse(r);
+        		    let r_est = res.estado;
         		    //alert(r_est);
         		    $("#estado").val(r_est);
         		    
@@ -257,13 +257,13 @@
         }
         
         function validar_texto(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var v_input = document.getElementById(id);
-            //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-            var v_val = /[_'"\~\$\#\&\|;\(\)\{\}\[\]\\]{1,}/;
-            var val = String($(id_obj).val()).match(v_val);
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let v_input = document.getElementById(id);
+            //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let v_val = /[_'"\~\$\#\&\|;\(\)\{\}\[\]\\]{1,}/;
+            let val = String($(id_obj).val()).match(v_val);
             
             if(val == null) {
                 v_input.setCustomValidity("");
@@ -273,7 +273,7 @@
             }
             else {
                 v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-                var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                 texto += " _ \' \" ~ $ # & | ; ( ) { } [ ] \\";
                 //alert(texto);
                 $("#lblmsg").html(texto).css("color","red");
@@ -285,18 +285,18 @@
         }
         
         function mostrar_submit() {
-            var a = parseInt($("#ctr_emaila").val());
+            let a = parseInt($("#ctr_emaila").val());
             (a == 1) ? $("#emaila").addClass("error") : $("#emaila").removeClass("error");
             
-            var control = 0;
-            var gra = $("#selgrado").val();
+            let control = 0;
+            let gra = $("#selgrado").val();
             if(gra == "NA") {
                 $("#btnsubmit").hide();
                 control = 1;
             }
             
             if(control == 0) {
-                var observ = $("#ctr_observ").val();
+                let observ = $("#ctr_observ").val();
                 if(observ == 1) {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -304,7 +304,7 @@
             }
             
             if(control == 0) {
-                var emaila = $("#ctr_emaila").val();
+                let emaila = $("#ctr_emaila").val();
                 if(emaila == 1) {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -312,7 +312,7 @@
             }
             
             if(control == 0) {
-                var medio = $("#selmedio").val();
+                let medio = $("#selmedio").val();
                 if(medio == "NA") {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -320,7 +320,7 @@
             }
             
             if(control == 0) {
-                var interesado = $("#selinteresado").val();
+                let interesado = $("#selinteresado").val();
                 if(interesado == "NA") {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -333,12 +333,12 @@
         }
         
         function validar_email(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var input_email = document.getElementById(id);
-            var patron = /^[_-\w.]+@[a-z]+\.[a-z.]{2,6}$/;
-            var esCoincidente = patron.test($(id_obj).val());
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let input_email = document.getElementById(id);
+            let patron = /^[_-\w.]+@[a-z]+\.[a-z.]{2,6}$/;
+            let esCoincidente = patron.test($(id_obj).val());
             if(esCoincidente) {
                 input_email.setCustomValidity("");
                 //$("#lblmsg_email").html("");
@@ -346,7 +346,7 @@
             }
             else {
                 input_email.setCustomValidity("No es un patrón de correo válido");
-                var texto = "No es un patrón de correo válido para " + desc;
+                let texto = "No es un patrón de correo válido para " + desc;
                 //alert(texto);
                 //$("#lblmsg_email").html(texto).css("color","red");
                 $(ctr_obj).val(1);
@@ -538,7 +538,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -568,9 +568,9 @@
 
    <script type="text/javascript">
    		function Validar(){
-			var nombre=document.getElementById('TituloB').value;
-			var descripcion=document.getElementById('DescripcionB').value;
-			var categoria=document.getElementById('CategoriaB').value;
+			let nombre=document.getElementById('TituloB').value;
+			let descripcion=document.getElementById('DescripcionB').value;
+			let categoria=document.getElementById('CategoriaB').value;
 			
 			if (nombre=="") {
  				$('#alert').html('<center><strong>Advertencia</strong> El título del Blog es Obligatorio</center>').slideDown(500);
@@ -599,8 +599,8 @@
    	<script type="text/javascript">
 
    		$(document).ready(function(){
-   			var extensionesValidas = ".png, .gif, .jpeg, .jpg";
-     		var pesoPermitido = 1024;
+   			let extensionesValidas = ".png, .gif, .jpeg, .jpg";
+     		let pesoPermitido = 1024;
 
      		$("#ImagenB").change(function () {
      			$('#texto').text('');
@@ -616,9 +616,9 @@
 		    // Validacion de extensiones permitidas
 		    function validarExtension(datos) {
 
-				var ruta = datos.value;
-				var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-				var extensionValida = extensionesValidas.indexOf(extension);
+				let ruta = datos.value;
+				let extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
+				let extensionValida = extensionesValidas.indexOf(extension);
 
 				if(extensionValida < 0) {
 		            $('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
@@ -633,7 +633,7 @@
 
 		        if (datos.files && datos.files[0]) {
 
-				    var pesoFichero = datos.files[0].size/1024;
+				    let pesoFichero = datos.files[0].size/1024;
 
 				    if(pesoFichero > pesoPermitido) {
 				        $('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: '+ pesoFichero +' KBs');
@@ -647,7 +647,7 @@
 		  	// Vista preliminar de la imagen.
 		  	function verImagen(datos) {
 			    if (datos.files && datos.files[0]) {
-			        var reader = new FileReader();
+			        let reader = new FileReader();
 		         	reader.onload = function (e) {
 		         		$('#img').attr('src', e.target.result);
 		          	};

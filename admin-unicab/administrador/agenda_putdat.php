@@ -76,15 +76,15 @@
     <script>
         
         document.addEventListener('DOMContentLoaded', function() {
-            var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-            var initialLocaleCode = 'es';
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+            let initialLocaleCode = 'es';
+            let calendarEl = document.getElementById('calendar');
+            let calendar = new FullCalendar.Calendar(calendarEl, {
                 //initialView: 'dayGridMonth'
                 initialView: 'timeGridWeek',
                 nowIndicator: true,
                 eventClick: function(info) {
-                    var eventObj = info.event;
+                    let eventObj = info.event;
                     $("#fecha_agenda").val("");
                     $("#hora_agenda").val("");
                     $("#ctr_fecha_agenda").val(1);
@@ -158,12 +158,12 @@
                     }
                 ],
                 dateClick: function(info) {
-                    var dia = info.dateStr.substring(0,10);
-                    var hora = info.dateStr.substring(11,13);
-                    var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+                    let dia = info.dateStr.substring(0,10);
+                    let hora = info.dateStr.substring(11,13);
+                    let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
                     
-                    var parts = dia.split('-');
-                    var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+                    let parts = dia.split('-');
+                    let mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
                     //alert(mydate.toDateString());
                     ////alert(diasSemana[mydate.getDay()]);
                     
@@ -209,16 +209,16 @@
             calendar.render();
             
             $("#tipoagenda").change(function() {
-        		var ta = $("#tipoagenda").val();
-        		var ta_txt = $("#tipoagenda option:selected").text();
+        		let ta = $("#tipoagenda").val();
+        		let ta_txt = $("#tipoagenda option:selected").text();
         		$("#ta_text").val(ta_txt);
         		
-        		var control = 0;
+        		let control = 0;
         		//alert(td);
         		if(ta == 0) {
         			$("#btnguardar").hide();
         			$("#ctr_tipoagenda").val(1);
-        			var texto = "Debe seleccionar un tipo de agenda";
+        			let texto = "Debe seleccionar un tipo de agenda";
                     $("#lblmsg").html(texto).css("color","red");
         		}
         		else {
@@ -242,13 +242,13 @@
         }
         
         function validar_texto(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var v_input = document.getElementById(id);
-            var v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
-            //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-            var val = String($(id_obj).val()).match(v_val);
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let v_input = document.getElementById(id);
+            let v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
+            //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let val = String($(id_obj).val()).match(v_val);
             
             if(val == null) {
                 v_input.setCustomValidity("");
@@ -258,7 +258,7 @@
             }
             else {
                 v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-                var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                 texto += "- _ \' \" < > ~ ^ * $ # & = + | { } [ ] \\";
                 //alert(texto);
                 $("#lblmsg").html(texto).css("color","red");
@@ -269,7 +269,7 @@
 			
 			if(control == 0) {
 			    if($(id_obj).val() == "") {
-			        var texto = "El campo " + desc + " se debe llenar";
+			        let texto = "El campo " + desc + " se debe llenar";
     				$("#lblmsg").html(texto).css("color","red");
     				//$("#alert").show();
                     $(ctr_obj).val(1);
@@ -280,10 +280,10 @@
         }
         
         function mostrar_submit(id) {
-            var control = 0;
+            let control = 0;
             
-            var id_obj = "#" + id;
-            var long = $(id_obj).val().length;
+            let id_obj = "#" + id;
+            let long = $(id_obj).val().length;
             //alert(long);
             
             //Se controla la longitud máxima
@@ -294,11 +294,11 @@
                 }
             }
             
-            //var a = parseInt($("#ctr_psicologo").val());
-            var b = parseInt($("#ctr_tipoagenda").val());
-            var c = parseInt($("#ctr_descripcion").val());
-            var d = parseInt($("#ctr_fecha_agenda").val());
-            var e = parseInt($("#ctr_hora_agenda").val());
+            //let a = parseInt($("#ctr_psicologo").val());
+            let b = parseInt($("#ctr_tipoagenda").val());
+            let c = parseInt($("#ctr_descripcion").val());
+            let d = parseInt($("#ctr_fecha_agenda").val());
+            let e = parseInt($("#ctr_hora_agenda").val());
             
             control = parseInt($("#ctr_tipoagenda").val()) + parseInt($("#ctr_descripcion").val()) 
             + parseInt($("#ctr_fecha_agenda").val()) + parseInt($("#ctr_hora_agenda").val());

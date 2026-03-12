@@ -68,10 +68,10 @@ while ($fila = mysqli_fetch_array($resultado))
     <script>
         $(function() {
             $("#psicologo").change(function() {
-                var psi_txt = $("#psicologo option:selected").text();
+                let psi_txt = $("#psicologo option:selected").text();
                 $("#txt_psicologo").val(psi_txt);
                 
-                var psi = $("#psicologo").val();
+                let psi = $("#psicologo").val();
                 //alert(psi);
                 if(psi == "0") {
                     $("#btnsubmit").hide();
