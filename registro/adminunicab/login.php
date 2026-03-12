@@ -57,8 +57,8 @@
 <!--//scrolling js-->
 <script type="text/javascript">
 	function Validar(){
-	    var usuario=document.getElementById('user').value;
-    	var contrasena=document.getElementById('pass').value;
+	    let usuario=document.getElementById('user').value;
+    	let contrasena=document.getElementById('pass').value;
 
 	    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 

@@ -97,8 +97,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <script>
 	//(1)
 	function buscar_estadistica() {
-		var idGrado = $("#selgra1").val();
-		var idPreg = $("#selpreg1").val();
+		let idGrado = $("#selgra1").val();
+		let idPreg = $("#selpreg1").val();
 		
 		if (idPreg == "NA") {
 			alert("Debe seleccionar una pregunta");
@@ -118,33 +118,33 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	//*******************************************************************************
 	//(2)
 	function mostrar_estadistica(data, idPreg) {
-		var res = JSON.parse(data);
+		let res = JSON.parse(data);
 		if(res.lbls.length == 4) {
 			/*if(vper == "1") {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
 			}
 			else if(vper == "2") {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
 			}
 			else if(vper == "3") {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
 			}
 			else {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
 			}*/
-			var datos = {
+			let datos = {
 				labels : [res.lbls[0], res.lbls[1], res.lbls[2], res.lbls[3], "."],
 				datasets : [
 					{label : "Pregunta " + idPreg, backgroundColor : "rgba(249,255,51,0.9)", data : [res.cantidades[0], res.cantidades[1], res.cantidades[2], res.cantidades[3], 0], order: 1},
@@ -158,34 +158,34 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		}
 		else if(res.lbls.length == 5) {
 			/*if(vper == "1") {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
-				var cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])))/1).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])))/1).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])))/1).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])))/1).toFixed(1);
+				let cf4 = ((isnanc(parseFloat(res.p1[4])))/1).toFixed(1);
 			}
 			else if(vper == "2") {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
-				var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])))/2).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])))/2).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])))/2).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])))/2).toFixed(1);
+				let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])))/2).toFixed(1);
 			}
 			else if(vper == "3") {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
-				var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])))/3).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])))/3).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])))/3).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])))/3).toFixed(1);
+				let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])))/3).toFixed(1);
 			}
 			else {
-				var cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
-				var cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
-				var cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
-				var cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
-				var cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
+				let cf0 = ((isnanc(parseFloat(res.p1[0])) + isnanc(parseFloat(res.p2[0])) + isnanc(parseFloat(res.p3[0])) + isnanc(parseFloat(res.p4[0])))/4).toFixed(1);
+				let cf1 = ((isnanc(parseFloat(res.p1[1])) + isnanc(parseFloat(res.p2[1])) + isnanc(parseFloat(res.p3[1])) + isnanc(parseFloat(res.p4[1])))/4).toFixed(1);
+				let cf2 = ((isnanc(parseFloat(res.p1[2])) + isnanc(parseFloat(res.p2[2])) + isnanc(parseFloat(res.p3[2])) + isnanc(parseFloat(res.p4[2])))/4).toFixed(1);
+				let cf3 = ((isnanc(parseFloat(res.p1[3])) + isnanc(parseFloat(res.p2[3])) + isnanc(parseFloat(res.p3[3])) + isnanc(parseFloat(res.p4[3])))/4).toFixed(1);
+				let cf4 = ((isnanc(parseFloat(res.p1[4])) + isnanc(parseFloat(res.p2[4])) + isnanc(parseFloat(res.p3[4])) + isnanc(parseFloat(res.p4[4])))/4).toFixed(1);
 			}*/
-			var datos = {
+			let datos = {
 				labels : [res.lbls[0], res.lbls[1], res.lbls[2], res.lbls[3], res.lbls[4], "."],
 				datasets : [
 					{label : "Pregunta " + idPreg, backgroundColor : "rgba(249,255,51,0.9)", data : [res.cantidades[0], res.cantidades[1], res.cantidades[2], res.cantidades[3], res.cantidades[4], 0], order: 1},
@@ -203,7 +203,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		//Se genera un nuevo canvas
 		$("#divcanvas").append('<canvas id="grafico" width="800" height="200"></canvas>');
 		
-		var canvas = document.getElementById("grafico").getContext("2d");
+		let canvas = document.getElementById("grafico").getContext("2d");
 		window.bar = new Chart(canvas, {
 			type : "bar",
 			data : datos,
@@ -352,7 +352,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

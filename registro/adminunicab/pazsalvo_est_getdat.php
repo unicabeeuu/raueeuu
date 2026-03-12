@@ -95,7 +95,7 @@ if (isset($_SESSION['unisuper'])) {
             
             $("#resul_est").html("");
             
-            var gra = $("#selgra1").val();
+            let gra = $("#selgra1").val();
     		$("#lblgra").html("Grado = " + gra);
     		$("#selgra1_").val(gra);
             
@@ -123,7 +123,7 @@ if (isset($_SESSION['unisuper'])) {
             $("#idest").hide("");
             $("#periodo").hide("");
             
-            var gra = $("#selgra2").val();
+            let gra = $("#selgra2").val();
     		$("#lblgra1").html("Grado = " + gra);
             
     		if(gra == "NA") {
@@ -149,8 +149,8 @@ if (isset($_SESSION['unisuper'])) {
     });
     
     function consultar_pazsalvo() {
-        var idgra = $("#selgra2").val();
-        var anio = $("#idanio").val();
+        let idgra = $("#selgra2").val();
+        let anio = $("#idanio").val();
         
         //alert (anio);
         $.ajax({
@@ -166,9 +166,9 @@ if (isset($_SESSION['unisuper'])) {
     }
     
     function consultar_estudiantes() {
-        var idgra = $("#selgra1").val();
-        var anio = $("#a_").val();
-        var idest = $("#idest").val();
+        let idgra = $("#selgra1").val();
+        let anio = $("#a_").val();
+        let idest = $("#idest").val();
         
         $("#txtidest").val("");
         
@@ -362,7 +362,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -383,7 +383,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 	<script type="text/javascript">
 		$('#tipo_certificado').change(function(){
-    var valorCambiado =$(this).val();
+    let valorCambiado =$(this).val();
     if((valorCambiado == 'Estudio')){
        $('#select_periodo').hide();
        

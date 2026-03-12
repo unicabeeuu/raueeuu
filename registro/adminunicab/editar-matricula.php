@@ -94,12 +94,12 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 	}	
 	
 	function validar_email(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var input_email = document.getElementById(id);
-            var patron = /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/;
-            var esCoincidente = patron.test($(id_obj).val());
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let input_email = document.getElementById(id);
+            let patron = /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/;
+            let esCoincidente = patron.test($(id_obj).val());
             if(esCoincidente) {
                 input_email.setCustomValidity("");
                 $("#msgemail").html("");
@@ -108,7 +108,7 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
             }
             else {
                 input_email.setCustomValidity("No es un patrón de correo válido");
-                var texto = "No es un patrón de correo válido para " + desc;
+                let texto = "No es un patrón de correo válido para " + desc;
                 //alert(texto);
                 $("#msgemail").html(texto).css("color","red");
                 //$(ctr_obj).val(1);
@@ -245,7 +245,7 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

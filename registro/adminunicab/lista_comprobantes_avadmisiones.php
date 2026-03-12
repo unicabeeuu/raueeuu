@@ -301,7 +301,7 @@ if (isset($_SESSION['unisuper'])) {
         		url:"estudiante_grupo_getdat2.php",
         		data:"id_est=" + id_est + "&grupo=" + grupo,
         		success:function(r) {
-        			var res = JSON.parse(r);
+        			let res = JSON.parse(r);
         		    
         		    $("#txtid").val(res.id);
         		    $("#txtnom").val(res.nombres);
@@ -316,7 +316,7 @@ if (isset($_SESSION['unisuper'])) {
         }
         
         function updgru() {
-            var datos = "idest=" + $("#txtid").val() + "&grupo=" + $("#txtgru").val();
+            let datos = "idest=" + $("#txtid").val() + "&grupo=" + $("#txtgru").val();
         	//alert(datos);
         	
             $.ajax({
@@ -624,7 +624,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -697,7 +697,7 @@ if (isset($_SESSION['unisuper'])) {
    		<!-- validar combo periodo -->
 		<script type="text/javascript">
 			function validacion() {
-				var grado=document.getElementById('id_grado').value;
+				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
 					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
 					return false;

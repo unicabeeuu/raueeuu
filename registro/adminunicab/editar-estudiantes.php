@@ -165,14 +165,14 @@
 	}
 	
 	function buscar() {
-			var doc = $("#n_documento").val();
+			let doc = $("#n_documento").val();
 			
 			$.ajax({
         		type:"POST",
         		url:"buscar_estudiante_getdat.php",
         		data:"doc=" + doc,
         		success:function(r) {
-        		    var res = JSON.parse(r);
+        		    let res = JSON.parse(r);
         			//alert(res.idgenero);
 					$("#apellidos").val(res.apellidos);
 					$("#nombres").val(res.nombres);
@@ -507,7 +507,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

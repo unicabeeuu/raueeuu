@@ -107,7 +107,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 //$("#search").val("");
                 $("td:nth-child(7)").hide();
                 
-                var oper = $("#seloper").val();
+                let oper = $("#seloper").val();
                 
         		if(oper == "NA") {
         			$("td:nth-child(7)").hide();
@@ -158,7 +158,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         		    $("#search").show();
         		    $("#divtabla").html(r);
         			//$("#tbodyact").html(r);
-        			var oper = $("#seloper").val();
+        			let oper = $("#seloper").val();
         			if(oper == "MODIFICAR") {
         			    $("td:nth-child(7)").show();
         			}
@@ -184,7 +184,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updcarga() {
-            var tutor = $("#seltutorupd").val();
+            let tutor = $("#seltutorupd").val();
             //alert(datos);
         	
             $.ajax({
@@ -201,8 +201,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putcarga() {
-            var datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
-            var cargo = $("#txtcargoput").val();
+            let datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
+            let cargo = $("#txtcargoput").val();
             cargo = cargo.replace(" ","_");
         	//alert(datos);
         	
@@ -237,7 +237,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_campos_upd() {
-            var suma = parseInt($("#seltutorupdv").val());
+            let suma = parseInt($("#seltutorupdv").val());
             //alert (suma);
             if(suma > 0) {
                 $("#btnupdcarga").hide();
@@ -248,7 +248,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_campos_put() {
-            var suma = parseInt($("#seltutorputv").val());
+            let suma = parseInt($("#seltutorputv").val());
             //alert (suma);
             if(suma > 0) {
                 $("#btnputcarga").hide();
@@ -387,7 +387,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

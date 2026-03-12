@@ -152,7 +152,7 @@
 	</div>
   <script type="text/javascript">
     function cierre(){
-      var evalua=confirm("Las modificaciones en esta sección son irreversibles\n¿Desea continuar?");
+      let evalua=confirm("Las modificaciones en esta sección son irreversibles\n¿Desea continuar?");
       if (evalua==true) {
         location.href='cierre-academico.php';
       }else{

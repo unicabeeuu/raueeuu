@@ -133,21 +133,21 @@ legend {
         //alert("hola");
     });
     function change_idest() {
-        var v_idest = document.getElementById("idest_ra0").value;
+        let v_idest = document.getElementById("idest_ra0").value;
         //alert(v_idest);
         document.getElementById("idest_ra01").value = v_idest;
     }
     function change_idest1() {
-        var v_idest1 = document.getElementById("idest_ra01").value;
+        let v_idest1 = document.getElementById("idest_ra01").value;
         document.getElementById("idest_ra0").value = v_idest1;
     }
     function change_idgra() {
-        var v_idgra = document.getElementById("idgra_ra0").value;
+        let v_idgra = document.getElementById("idgra_ra0").value;
         //alert(v_idest);
         document.getElementById("idgra_ra01").value = v_idgra;
     }
     function change_idgra1() {
-        var v_idgra1 = document.getElementById("idgra_ra01").value;
+        let v_idgra1 = document.getElementById("idgra_ra01").value;
         document.getElementById("idgra_ra0").value = v_idgra1;
     }
 </script>
@@ -398,7 +398,7 @@ legend {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

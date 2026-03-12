@@ -93,7 +93,7 @@ if (isset($_SESSION['unisuper'])) {
             $("#idest").val("0");
             $("#submit1").hide("");
             
-            var gra = $("#selgra1").val();
+            let gra = $("#selgra1").val();
     		$("#lblgra").html("Grado = " + gra);
             
     		if(gra == "NA") {
@@ -116,7 +116,7 @@ if (isset($_SESSION['unisuper'])) {
             $("#idest").hide("");
             $("#periodo").hide("");
             
-            var gra = $("#selgra2").val();
+            let gra = $("#selgra2").val();
     		$("#lblgra1").html("Grado = " + gra);
             
     		if(gra == "NA") {
@@ -142,8 +142,8 @@ if (isset($_SESSION['unisuper'])) {
     });
     
     function consultar_carnet() {
-        var idgra = $("#selgra2").val();
-        var anio = $("#idanio").val();
+        let idgra = $("#selgra2").val();
+        let anio = $("#idanio").val();
         
         //alert (idgra);
         $.ajax({
@@ -280,7 +280,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -301,7 +301,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 	<script type="text/javascript">
 		$('#tipo_certificado').change(function(){
-    var valorCambiado =$(this).val();
+    let valorCambiado =$(this).val();
     if((valorCambiado == 'Estudio')){
        $('#select_periodo').hide();
        

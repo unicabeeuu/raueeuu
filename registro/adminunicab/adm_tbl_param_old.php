@@ -131,14 +131,14 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
                     $("#btnformula").hide();
                     $("#btndesformula").hide();
                     
-                    var gra = $("#selgra1").val();
+                    let gra = $("#selgra1").val();
             		$("#lblgra").html("Grado = " + gra);
                     
             		/*if(gra == "NA") {
             			$("#submit").hide("");
             		}
             		else {
-            		    var pen = $("#selpen1").val();
+            		    let pen = $("#selpen1").val();
                 		if(pen == "NA") {
                 			$("#submit").hide("");
                 		}
@@ -160,12 +160,12 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
                     $("#btnformula").hide();
                     $("#btndesformula").hide();
             		
-            		var pen = $("#selpen1").val();
+            		let pen = $("#selpen1").val();
             		if(pen == "NA") {
             			$("#submit").hide("");
             		}
             		else {
-            		    var gra = $("#selgra1").val();
+            		    let gra = $("#selgra1").val();
                 		if(gra == "NA") {
                 			$("#submit").hide("");
                 		}
@@ -202,7 +202,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
             }
             
             function updpor() {
-                var datos = "idgra=" + $("#txtidgra").val() + "&idpen=" + $("#txtidpen").val() + "&por=" + $("#txtporc").val() 
+                let datos = "idgra=" + $("#txtidgra").val() + "&idpen=" + $("#txtidpen").val() + "&por=" + $("#txtporc").val() 
             		+ "&comp=" + $("#txtcomputar").val() + "&idact=" + $("#txtidact").val();
             	//alert(datos);
             	$("#txtidtp").val($("#txtcomputar").val());
@@ -257,10 +257,10 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
             }
             
             function validapor() {
-                var input_por = document.getElementById("txtporc");
-                var patron = /^[0-9]{1,3}$/;
-                //var esCoincidente = patron.test(document.getElementById("email2").value);
-                var esCoincidente = patron.test($("#txtporc").val());
+                let input_por = document.getElementById("txtporc");
+                let patron = /^[0-9]{1,3}$/;
+                //let esCoincidente = patron.test(document.getElementById("email2").value);
+                let esCoincidente = patron.test($("#txtporc").val());
                 if(esCoincidente) {
                     input_por.setCustomValidity("");
                     $("#lblval").html("");
@@ -284,9 +284,9 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
             		url:"act_formula_upddat.php",
             		data:"idact=" + $("#txtidtp").val() + "&idgra=" + $("#txtidgra").val() + "&idpen=" + $("#txtidpen").val(),
             		success:function(r) {
-            		    var res = JSON.parse(r);
+            		    let res = JSON.parse(r);
             			console.log(res);
-            			var datos = res.datos;
+            			let datos = res.datos;
         			
             		    if(datos.resultado == "Error") {
             		        $("#lblformulaok").html("");
@@ -314,9 +314,9 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
             		url:"act_formula_getdat.php",
             		data:"idact=" + idact,
             		success:function(r) {
-            		    var res = JSON.parse(r);
+            		    let res = JSON.parse(r);
             			console.log(res);
-            			var datos = res.datos;
+            			let datos = res.datos;
             			
             			if(datos.resultado == "Ok") {
             			    $("#lblformulaok").html(datos.form);
@@ -485,7 +485,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
 	    <!-- Classie --><!-- for toggle left push menu script -->
     	<script src="../../js/classie.js"></script>
     	<script>
-    		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     			showLeftPush = document.getElementById( 'showLeftPush' ),
     			body = document.body;
     			
@@ -531,7 +531,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
     	<!-- validar combo periodo -->
     	<script type="text/javascript">
     		function validacion() {
-    			var grado=document.getElementById('id_grado').value;
+    			let grado=document.getElementById('id_grado').value;
     			if (grado==0) {
     				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
     				return false;

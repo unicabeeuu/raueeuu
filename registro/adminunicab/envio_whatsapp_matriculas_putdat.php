@@ -134,7 +134,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$("#textoPdf").val("");
 	    
 	    $("#ImagenW").change(function () {
-	        var envio = $("#selenvio").val();
+	        let envio = $("#selenvio").val();
 	        
  			$('#texto').text('');
  			$('#img').attr('src', '');
@@ -157,8 +157,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		});
 		
 		$("#selusuario").change(function() {
-		    var usu = $("#selusuario").val();
-		    var datos = usu.split(" | ");
+		    let usu = $("#selusuario").val();
+		    let datos = usu.split(" | ");
 		    
 		    $("#textoI").val("");
 	        $("#textoW").val("");
@@ -199,8 +199,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		        $("#idInstancia").val(datos[1]);
     		    $("#token").val(datos[2]);
     		    
-    		    //var url = "https://api.ultramsg.com/instance2169/messages/image";
-    		    var url = "https://api.ultramsg.com/" + datos[1] + "/messages/";
+    		    //let url = "https://api.ultramsg.com/instance2169/messages/image";
+    		    let url = "https://api.ultramsg.com/" + datos[1] + "/messages/";
     		    $("#url").val(url);
     		    $("#ctr_url").val(url);
     		    
@@ -212,8 +212,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     	});
     	
     	$("#selenvio").change(function() {
-		    var envio = $("#selenvio").val();
-		    var url = $("#ctr_url").val();
+		    let envio = $("#selenvio").val();
+		    let url = $("#ctr_url").val();
 		    
 		    $('#img').attr('src', '');
 		    $("#seltipoimg").val(0);
@@ -382,8 +382,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     	});
     	
     	$("#seltipoimg").change(function() {
-		    var tipo = $("#seltipoimg").val();
-		    var envio = $("#selenvio").val();
+		    let tipo = $("#seltipoimg").val();
+		    let envio = $("#selenvio").val();
 		    
 		    $('#img').attr('src', '');
 		    $("#ImagenW").val("");
@@ -436,7 +436,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     	});
     	
     	$("#selimg").change(function() {
-		    var archivo = $("#selimg").val();
+		    let archivo = $("#selimg").val();
 		    //alert(archivo);
 		    
 		    $('#img').attr('src', '');
@@ -455,23 +455,23 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
    	// Validacion de extensiones permitidas
     function validarExtension(datos) {
-        var envio = $("#selenvio").val();
+        let envio = $("#selenvio").val();
         
         if(envio == 1) {
-            var extensionesValidas = ".png, .gif, .jpeg, .jpg";
+            let extensionesValidas = ".png, .gif, .jpeg, .jpg";
         }
         else if(envio == 3) {
-            var extensionesValidas = ".mp4, .3gp, .mov";
+            let extensionesValidas = ".mp4, .3gp, .mov";
         }
         //console.log(extensionesValidas);
         
-		var ruta = datos.value;
-		var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-		var extensionValida = extensionesValidas.indexOf(extension);
+		let ruta = datos.value;
+		let extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
+		let extensionValida = extensionesValidas.indexOf(extension);
 		
-		var nombre = ruta.substring(ruta.lastIndexOf('\\') + 1).toLowerCase();
+		let nombre = ruta.substring(ruta.lastIndexOf('\\') + 1).toLowerCase();
         //alert(nombre);
-        var noValido = /\s/;
+        let noValido = /\s/;
 		
 		if(extensionValida < 0) {
             //$('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
@@ -493,18 +493,18 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
    	// Validacion de peso del fichero en kbs
     function validarPeso(datos) {
-        var envio = $("#selenvio").val();
+        let envio = $("#selenvio").val();
         
         if(envio == 1) {
-            var pesoPermitido = 1024;
+            let pesoPermitido = 1024;
         }
         else if(envio == 3) {
-            var pesoPermitido = 15360;
+            let pesoPermitido = 15360;
         }
         
         if (datos.files && datos.files[0]) {
 
-		    var pesoFichero = datos.files[0].size/1024;
+		    let pesoFichero = datos.files[0].size/1024;
 		    
 		    if(pesoFichero > pesoPermitido) {
 		        //$('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: ' + pesoFichero +' KBs');
@@ -521,7 +521,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
   	// Vista preliminar de la imagen local.
   	function verImagen(datos) {
 	    if (datos.files && datos.files[0]) {
-	        var reader = new FileReader();
+	        let reader = new FileReader();
          	reader.onload = function (e) {
          		$('#img').attr('src', e.target.result);
           	};
@@ -549,13 +549,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     function validar_texto(id, desc) {
-        var control = 0;
-        var id_obj = "#" + id;
-        var ctr_obj = "#ctr_" + id;
-        var v_input = document.getElementById(id);
-        var v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
-        //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-        var val = String($(id_obj).val()).match(v_val);
+        let control = 0;
+        let id_obj = "#" + id;
+        let ctr_obj = "#ctr_" + id;
+        let v_input = document.getElementById(id);
+        let v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
+        //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+        let val = String($(id_obj).val()).match(v_val);
         
         if(val == null) {
             v_input.setCustomValidity("");
@@ -565,7 +565,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         else {
             v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-            var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+            let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
             texto += "- _ \' \" < > ~ ^ * $ # & = + | { } [ ] \\";
             //alert(texto);
             $("#lblmsg").html(texto).css("color","red");
@@ -576,7 +576,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 		    if($(id_obj).val() == "") {
-		        var texto = "El campo " + desc + " se debe llenar";
+		        let texto = "El campo " + desc + " se debe llenar";
 				$("#lblmsg").html(texto).css("color","red");
 				//$("#alert").show();
                 $(ctr_obj).val(1);
@@ -587,10 +587,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     function mostrar_submit(id) {
-        var control = 0;
+        let control = 0;
         
-        var id_obj = "#" + id;
-        var long = $(id_obj).val().length;
+        let id_obj = "#" + id;
+        let long = $(id_obj).val().length;
         //alert(long);
         
         //Se controla la longitud máxima
@@ -601,9 +601,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             }
         }
         
-        var a = parseInt($("#ctr_DescripcionA").val());
-        var b = parseInt($("#ctr_TituloA").val());
-        var c = parseInt($("#ctr_ImagenA").val());
+        let a = parseInt($("#ctr_DescripcionA").val());
+        let b = parseInt($("#ctr_TituloA").val());
+        let c = parseInt($("#ctr_ImagenA").val());
         //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
         
         control = parseInt($("#ctr_DescripcionA").val()) + parseInt($("#ctr_TituloA").val()) + parseInt($("#ctr_ImagenA").val());
@@ -624,19 +624,19 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     function validar_datos() {
         //alert("hola");
 		$("#btnguardar").hide();
-        var usu = $("#selusuario").val();
-        var envio = $("#selenvio").val();
-        var texto_msg = $("#textoW").val();
-        var tipo = $("#seltipoimg").val();
-        var imgloc = $("#ImagenW").val();
-        var texto_img = $("#textoI").val();
-        var imgser = $("#selimg").val();
-        var vidser = $("#selvid").val();
-        var idmat = $("#txtidmat").val();
-		var pdf = $("#pdfW").val();
-		var texto_pdf = $("#textoPdf").val();
+        let usu = $("#selusuario").val();
+        let envio = $("#selenvio").val();
+        let texto_msg = $("#textoW").val();
+        let tipo = $("#seltipoimg").val();
+        let imgloc = $("#ImagenW").val();
+        let texto_img = $("#textoI").val();
+        let imgser = $("#selimg").val();
+        let vidser = $("#selvid").val();
+        let idmat = $("#txtidmat").val();
+		let pdf = $("#pdfW").val();
+		let texto_pdf = $("#textoPdf").val();
         
-        var control = 0;
+        let control = 0;
         //alert("usuario: " + usu);
         //alert("envio: " + envio);
         //alert("texto mensaje: " + texto_msg);
@@ -1088,7 +1088,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
