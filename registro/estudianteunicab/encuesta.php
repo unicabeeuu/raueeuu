@@ -97,13 +97,13 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
         });
 		
 		function guardar_encuesta() {
-			var idGrado = $("#txtidgra").val();
-			var documento = $("#txtdocumento").val();
+			let idGrado = $("#txtidgra").val();
+			let documento = $("#txtdocumento").val();
 			
 			//SELECCIÓN MÚLTIPLE
-			var encuesta1p1 = $('input:radio[name=encuesta1pregunta1]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta1").val();
-			var pregunta = $("#preguntaencuesta1pregunta1").val();
+			let encuesta1p1 = $('input:radio[name=encuesta1pregunta1]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta1").val();
+			let pregunta = $("#preguntaencuesta1pregunta1").val();
 			    
 			if(encuesta1p1 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -116,9 +116,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta1").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p2 = $('input:radio[name=encuesta1pregunta2]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta2").val();
-			var pregunta = $("#preguntaencuesta1pregunta2").val();
+			let encuesta1p2 = $('input:radio[name=encuesta1pregunta2]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta2").val();
+			let pregunta = $("#preguntaencuesta1pregunta2").val();
                 
 			if(encuesta1p2 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -131,9 +131,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta2").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p3 = $('input:radio[name=encuesta1pregunta3]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta3").val();
-			var pregunta = $("#preguntaencuesta1pregunta3").val();
+			let encuesta1p3 = $('input:radio[name=encuesta1pregunta3]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta3").val();
+			let pregunta = $("#preguntaencuesta1pregunta3").val();
                 
 			if(encuesta1p3 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -146,9 +146,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta3").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p4 = $('input:radio[name=encuesta1pregunta4]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta4").val();
-			var pregunta = $("#preguntaencuesta1pregunta4").val();
+			let encuesta1p4 = $('input:radio[name=encuesta1pregunta4]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta4").val();
+			let pregunta = $("#preguntaencuesta1pregunta4").val();
                 
 			if(encuesta1p4 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -161,9 +161,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta4").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p5 = $('input:radio[name=encuesta1pregunta5]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta5").val();
-			var pregunta = $("#preguntaencuesta1pregunta5").val();
+			let encuesta1p5 = $('input:radio[name=encuesta1pregunta5]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta5").val();
+			let pregunta = $("#preguntaencuesta1pregunta5").val();
                 
 			if(encuesta1p5 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -176,9 +176,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta5").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p6 = $('input:radio[name=encuesta1pregunta6]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta6").val();
-			var pregunta = $("#preguntaencuesta1pregunta6").val();
+			let encuesta1p6 = $('input:radio[name=encuesta1pregunta6]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta6").val();
+			let pregunta = $("#preguntaencuesta1pregunta6").val();
                 
 			if(encuesta1p6 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -191,9 +191,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta6").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p7 = $('input:radio[name=encuesta1pregunta7]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta7").val();
-			var pregunta = $("#preguntaencuesta1pregunta7").val();
+			let encuesta1p7 = $('input:radio[name=encuesta1pregunta7]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta7").val();
+			let pregunta = $("#preguntaencuesta1pregunta7").val();
                 
 			if(encuesta1p7 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -206,9 +206,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta7").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p8 = $('input:radio[name=encuesta1pregunta8]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta8").val();
-			var pregunta = $("#preguntaencuesta1pregunta8").val();
+			let encuesta1p8 = $('input:radio[name=encuesta1pregunta8]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta8").val();
+			let pregunta = $("#preguntaencuesta1pregunta8").val();
                 
 			if(encuesta1p8 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -221,9 +221,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta8").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p9 = $('input:radio[name=encuesta1pregunta9]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta9").val();
-			var pregunta = $("#preguntaencuesta1pregunta9").val();
+			let encuesta1p9 = $('input:radio[name=encuesta1pregunta9]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta9").val();
+			let pregunta = $("#preguntaencuesta1pregunta9").val();
                 
 			if(encuesta1p9 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -236,9 +236,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta9").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p10 = $('input:radio[name=encuesta1pregunta10]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta10").val();
-			var pregunta = $("#preguntaencuesta1pregunta10").val();
+			let encuesta1p10 = $('input:radio[name=encuesta1pregunta10]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta10").val();
+			let pregunta = $("#preguntaencuesta1pregunta10").val();
                 
 			if(encuesta1p10 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -251,9 +251,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta10").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p11 = $('input:radio[name=encuesta1pregunta11]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta11").val();
-			var pregunta = $("#preguntaencuesta1pregunta11").val();
+			let encuesta1p11 = $('input:radio[name=encuesta1pregunta11]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta11").val();
+			let pregunta = $("#preguntaencuesta1pregunta11").val();
                 
 			if(encuesta1p11 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -266,9 +266,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta11").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p12 = $('input:radio[name=encuesta1pregunta12]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta12").val();
-			var pregunta = $("#preguntaencuesta1pregunta12").val();
+			let encuesta1p12 = $('input:radio[name=encuesta1pregunta12]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta12").val();
+			let pregunta = $("#preguntaencuesta1pregunta12").val();
                 
 			if(encuesta1p12 == undefined) {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -282,9 +282,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			}
 			
 			//PREGUNTAS ABIERTAS
-			var encuesta1p13 = $('.encuesta1pregunta13').val();
-			var tipo = $("#tipoencuesta1pregunta13").val();
-			var pregunta = $("#preguntaencuesta1pregunta13").val();
+			let encuesta1p13 = $('.encuesta1pregunta13').val();
+			let tipo = $("#tipoencuesta1pregunta13").val();
+			let pregunta = $("#preguntaencuesta1pregunta13").val();
                 
 			if(encuesta1p13 == undefined || encuesta1p13 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -297,9 +297,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta13").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p14 = $('.encuesta1pregunta14').val();
-			var tipo = $("#tipoencuesta1pregunta14").val();
-			var pregunta = $("#preguntaencuesta1pregunta14").val();
+			let encuesta1p14 = $('.encuesta1pregunta14').val();
+			let tipo = $("#tipoencuesta1pregunta14").val();
+			let pregunta = $("#preguntaencuesta1pregunta14").val();
                 
 			if(encuesta1p14 == undefined || encuesta1p14 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -312,9 +312,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta14").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p15 = $('.encuesta1pregunta15').val();
-			var tipo = $("#tipoencuesta1pregunta15").val();
-			var pregunta = $("#preguntaencuesta1pregunta15").val();
+			let encuesta1p15 = $('.encuesta1pregunta15').val();
+			let tipo = $("#tipoencuesta1pregunta15").val();
+			let pregunta = $("#preguntaencuesta1pregunta15").val();
                 
 			if(encuesta1p15 == undefined || encuesta1p15 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -327,9 +327,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta15").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p16 = $('.encuesta1pregunta16').val();
-			var tipo = $("#tipoencuesta1pregunta16").val();
-			var pregunta = $("#preguntaencuesta1pregunta16").val();
+			let encuesta1p16 = $('.encuesta1pregunta16').val();
+			let tipo = $("#tipoencuesta1pregunta16").val();
+			let pregunta = $("#preguntaencuesta1pregunta16").val();
                 
 			if(encuesta1p16 == undefined || encuesta1p16 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -342,9 +342,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta16").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p17 = $('.encuesta1pregunta17').val();
-			var tipo = $("#tipoencuesta1pregunta17").val();
-			var pregunta = $("#preguntaencuesta1pregunta17").val();
+			let encuesta1p17 = $('.encuesta1pregunta17').val();
+			let tipo = $("#tipoencuesta1pregunta17").val();
+			let pregunta = $("#preguntaencuesta1pregunta17").val();
                 
 			if(encuesta1p17 == undefined || encuesta1p17 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -357,9 +357,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta17").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p18 = $('.encuesta1pregunta18').val();
-			var tipo = $("#tipoencuesta1pregunta18").val();
-			var pregunta = $("#preguntaencuesta1pregunta18").val();
+			let encuesta1p18 = $('.encuesta1pregunta18').val();
+			let tipo = $("#tipoencuesta1pregunta18").val();
+			let pregunta = $("#preguntaencuesta1pregunta18").val();
                 
 			if(encuesta1p18 == undefined || encuesta1p18 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -372,9 +372,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta18").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p19 = $('.encuesta1pregunta19').val();
-			var tipo = $("#tipoencuesta1pregunta19").val();
-			var pregunta = $("#preguntaencuesta1pregunta19").val();
+			let encuesta1p19 = $('.encuesta1pregunta19').val();
+			let tipo = $("#tipoencuesta1pregunta19").val();
+			let pregunta = $("#preguntaencuesta1pregunta19").val();
                 
 			if(encuesta1p19 == undefined || encuesta1p19 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -387,9 +387,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta19").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p20 = $('.encuesta1pregunta20').val();
-			var tipo = $("#tipoencuesta1pregunta20").val();
-			var pregunta = $("#preguntaencuesta1pregunta20").val();
+			let encuesta1p20 = $('.encuesta1pregunta20').val();
+			let tipo = $("#tipoencuesta1pregunta20").val();
+			let pregunta = $("#preguntaencuesta1pregunta20").val();
                 
 			if(encuesta1p20 == undefined || encuesta1p20 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -402,9 +402,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta20").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p21 = $('.encuesta1pregunta21').val();
-			var tipo = $("#tipoencuesta1pregunta21").val();
-			var pregunta = $("#preguntaencuesta1pregunta21").val();
+			let encuesta1p21 = $('.encuesta1pregunta21').val();
+			let tipo = $("#tipoencuesta1pregunta21").val();
+			let pregunta = $("#preguntaencuesta1pregunta21").val();
                 
 			if(encuesta1p21 == undefined || encuesta1p21 == "") {
 				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
@@ -417,7 +417,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 				$("#encuesta1pregunta21").removeClass('bordeRojo');
 			}
 			
-			var datos = "idGrado=" + idGrado + "&documento=" + documento + "&idEncuesta=" + 1 + 
+			let datos = "idGrado=" + idGrado + "&documento=" + documento + "&idEncuesta=" + 1 + 
 			"&encuesta1p1=" + encuesta1p1 + "&encuesta1p2=" + encuesta1p2 + "&encuesta1p3=" + encuesta1p3 + 
 			"&encuesta1p4=" + encuesta1p4 + "&encuesta1p5=" + encuesta1p5 + "&encuesta1p6=" + encuesta1p6 + 
 			"&encuesta1p7=" + encuesta1p7 + "&encuesta1p8=" + encuesta1p8 + "&encuesta1p9=" + encuesta1p9 + 
@@ -433,7 +433,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
         		data:datos,
         		success:function(r) {
 					//alert(r);
-        		    var res = JSON.parse(r);
+        		    let res = JSON.parse(r);
 					console.log(res.insert);
 					if (res.insert == "OK") {
 						window.location.href = "certificado_notas.php";
@@ -582,7 +582,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

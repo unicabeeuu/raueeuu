@@ -98,8 +98,8 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
             
         function ver_cal_mood() {
             alert("hola");
-            var value=$("#txtidest").val();
-        	var value1=$("#txtidgra").val();
+            let value=$("#txtidest").val();
+        	let value1=$("#txtidgra").val();
         	//alert(id_est + id_gra);
             
             /*$.ajax({
@@ -108,20 +108,20 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
         		data:"idest_ra1=" + value + "&idgra_ra1=" + value1,
         		success:function(r) {
         		    //Esto es para mostrar la tabla con las notas moodle
-        			var res = JSON.parse(r);
+        			let res = JSON.parse(r);
         			console.log(res);
-        			var lineas = res.tabla.lineas;
+        			let lineas = res.tabla.lineas;
         			//console.log(lineas);
         			//$("#tablam").html(lineas.length);
-        			for(var i = 0; i < lineas.length; i++) {
-        			    var idestm = lineas[i].id_est;
-        			    var lastn = lineas[i].lastname;
-        			    var firstn = lineas[i].firstname;
-        			    var shortn = lineas[i].shortname;
-        			    var pen = lineas[i].pensamiento;
-        			    var idnumber = lineas[i].idnumber;
-        			    var per = lineas[i].periodo;
-        			    var cal = lineas[i].calificacion;
+        			for(let i = 0; i < lineas.length; i++) {
+        			    let idestm = lineas[i].id_est;
+        			    let lastn = lineas[i].lastname;
+        			    let firstn = lineas[i].firstname;
+        			    let shortn = lineas[i].shortname;
+        			    let pen = lineas[i].pensamiento;
+        			    let idnumber = lineas[i].idnumber;
+        			    let per = lineas[i].periodo;
+        			    let cal = lineas[i].calificacion;
         		    }
         		}
         	});*/
@@ -292,7 +292,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
