@@ -76,15 +76,15 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="adm_tbl_param.php?tabla=tbl_cargos"><i class="fa fa-angle-right"></i> Cargos</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=tbl_dependencias"><i class="fa fa-angle-right"></i> Dependencias</a></li>
+                  <!-- <li><a href="adm_tbl_param.php?tabla=tbl_cargos"><i class="fa fa-angle-right"></i> Cargos</a></li>
+                  <li><a href="adm_tbl_param.php?tabla=tbl_dependencias"><i class="fa fa-angle-right"></i> Dependencias</a></li> -->
                   <li><a href="adm_tbl_param.php?tabla=tbl_empleados"><i class="fa fa-angle-right"></i> Empleados</a></li>
                   <!--<li><a href="adm_tbl_param.php?tabla=estudiantes&estado=activo"><i class="fa fa-angle-right"></i> Estudiantes activos</a></li>
                   <li><a href="adm_tbl_param.php?tabla=estudiantes&estado=inactivo"><i class="fa fa-angle-right"></i> Estudiantes inactivos</a></li>-->
-                  <li><a href="registro-estudiantes.php"><i class="fa fa-angle-right"></i> Registrar Estudiante</a></li>
+                  <!-- <li><a href="registro-estudiantes.php"><i class="fa fa-angle-right"></i> Registrar Estudiante</a></li> -->
                   <li><a href="lista-estudiantes.php"><i class="fa fa-angle-right"></i> Editar Estudiante</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=tbl_profesiones"><i class="fa fa-angle-right"></i> Profesiones</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=tbl_tipos_documento"><i class="fa fa-angle-right"></i> Tipos Documento</a></li>
+                  <!-- <li><a href="adm_tbl_param.php?tabla=tbl_profesiones"><i class="fa fa-angle-right"></i> Profesiones</a></li>
+                  <li><a href="adm_tbl_param.php?tabla=tbl_tipos_documento"><i class="fa fa-angle-right"></i> Tipos Documento</a></li> -->
                 </ul>
               </li>
               <li class="treeview">
@@ -97,7 +97,7 @@
                   <li><a href="../docenteunicab/updreg/pen_gra_upddat.php" target="_blank"><i class="fa fa-line-chart"></i> Actualizar Calificaciones</a></li>
                   <li><a href="carga_academica.php"><i class="fa fa-battery-three-quarters "></i> Carga Docente</a></li>
                   <li><a href="cierre-academico.php"><i class="fa fa-power-off"></i> Cierre Académico</a></li>
-                  <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Registrar Matrícula</a></li>
+                  <!-- <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Registrar Matrícula</a></li> -->
                   <li><a href="lista-matricula.php"><i class="fa fa-edit"></i> Editar Matrícula</a></li>
                   
                   <li class="treeview">
@@ -122,7 +122,7 @@
                       if($id_administrador == 18 || $id_administrador == 3 || $id_administrador == 2) {
                   ?>
 						<li><a href="pazsalvo_est_getdat.php"><i class="fa fa-check-circle"></i> Paz y salvos</a></li>
-						<li><a href="domain_put_upddat.php"><i class="fa fa-share-square "></i> Método Doman</a></li>
+						<!-- <li><a href="domain_put_upddat.php"><i class="fa fa-share-square "></i> Método Doman</a></li>
 						<li><a href="domain_put_upddat_i.php"><i class="fa fa-share-square "></i> Método Doman I</a></li>
                   <?php  
                       }
@@ -136,7 +136,7 @@
                       </ul>
                   </li>
                   
-                  <li><a href="lista-estudiantes_presol.php"><i class="fa fa-upload"></i> Pre_solicitud a Solicitud</a></li>
+                  <li><a href="lista-estudiantes_presol.php"><i class="fa fa-upload"></i> Pre_solicitud a Solicitud</a></li> -->
                   
                 </ul>
               </li>
@@ -169,13 +169,13 @@
                   </ul>
                   </li>
                   <li><a href="cupos_getdat.php"><i class="fa fa-check-circle"></i> Cupos apartados</a></li>
-                  <li><a href="estudiante.php"><i class="fa fa-user"></i> Estudiante</a></li>
-                  <li><a href="diferencia_est_getdat.php?q=rnom"><i class="fa fa-user-secret"></i> Estudiantes en R y no en M</a></li>
-                  <li><a href="diferencia_est_getdat.php?q=mnor"><i class="fa fa-user-times"></i> Estudiantes en M y no en R</a></li>
+                  <!-- <li><a href="estudiante.php"><i class="fa fa-user"></i> Estudiante</a></li> -->
+                  <!-- <li><a href="diferencia_est_getdat.php?q=rnom"><i class="fa fa-user-secret"></i> Estudiantes en R y no en M</a></li>
+                  <li><a href="diferencia_est_getdat.php?q=mnor"><i class="fa fa-user-times"></i> Estudiantes en M y no en R</a></li> -->
                   <li><a href="desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Desempeño estudiantes</a></li>
                   <li><a href="ranking_getdat.php"><i class="fa fa-sort-amount-desc"></i> Ranking</a></li>
                   <li><a href="estudiante_grupo_getdat.php"><i class="fa fa-user-plus"></i> Estudiantes grupo</a></li>
-                  <li><a href="lista-est_ant_sinmat.php"><i class="fa fa-user-plus"></i> Estudiantes Ant. SinMat.</a></li>				  
+                  <!-- <li><a href="lista-est_ant_sinmat.php"><i class="fa fa-user-plus"></i> Estudiantes Ant. SinMat.</a></li>	-->			  
                   <?php
                     if($v_param1 == 1) {
                   ?>                        
@@ -184,18 +184,18 @@
 							<ul class='treeview-menu'>
 								<li><a href="lista-estudiantes_evalpres.php"><i class="fa fa-file-text "></i> Admisión</a></li>
 								<li><a href="lista-estudiantes_evalpres_sm.php"><i class="fa fa-file-text "></i> Admisión Sin Matrícula</a></li>
-								<li><a href="lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validación</a></li>
+								<!-- <li><a href="lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validación</a></li> -->
 							</ul>
 						</li>
                   <?php
                     }
                   ?>
-				  <li class='treeview'>
+				 <!-- <li class='treeview'>
 					  <a href='#'><i class='fa fa-file-text'></i>Resultados Encuestas<i class='fa fa-angle-left pull-right'></i></a>
 					  <ul class='treeview-menu'>
 						  <li><a href="resultado_encuesta.php"><i class="fa fa-file-text "></i> Encuesta Bimestre 1</a></li>
 					  </ul>
-				  </li>
+				  </li> -->
                 </ul>
               </li>
              <li class="treeview">
@@ -215,13 +215,13 @@
                     }
                 ?>
                     <!--<li><a href="adm1.php"><i class="fa fa-users"></i> Base de datos</a></li>-->
-					<li><a href="backup.php"><i class="fa fa-database"></i> Copia de seguridad</a></li>
+					<!-- <li><a href="backup.php"><i class="fa fa-database"></i> Copia de seguridad</a></li> -->
 					<li><a href="lista_comprobantes_avadmisiones.php"><i class="fa fa-check-circle"></i> Validar documentos matrícula</a></li>
 					<li><a href="stickers_correspondencia.php"><i class="fa fa-file-text"></i> Stickers correspondencia</a></li>
                 </ul>
               </li>
               
-              <li class='treeview'>
+              <!-- <li class='treeview'>
                   <a href='#'><i class='fa fa-phone-square'></i>Envíos Whatsapp<i class='fa fa-angle-left pull-right'></i></a>
                   <ul class='treeview-menu'>
                       <li><a href="envio_whatsapp_putdat.php"><i class="fa fa-user"></i> Est. Ant. Sin Mat.</a></li>
@@ -230,7 +230,7 @@
                       <li><a href="envio_whatsapp_matriculas_putdat.php"><i class="fa fa-user"></i> Matrículas efectivas</a></li>
 					  <li><a href="envio_whatsapp_contactos_drive.php"><i class="fa fa-user"></i> Contactos Drive.</a></li>
                   </ul>
-              </li>
+              </li> -->
                   
               <!--  -->
               <!--<li class="treeview">
