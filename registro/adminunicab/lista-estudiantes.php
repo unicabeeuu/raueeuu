@@ -132,7 +132,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							        		}
 							        		echo "<td>".$fila['estado_m']."</td>
 							        		<td><center>
-							        		<a href='editar-estudiantes.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Estudiante'><i class='fa fa-pencil'></i> Editar</a></center></td></tr>";
+							        		<a href='editar-estudiantes.php?id=".$fila['id']."' class='btn-lst-est' title='Editar Estudiante'><i class='fa fa-pencil'></i> Editar</a></center></td></tr>";
 							        	}
 						        	?>
 						        </tbody>

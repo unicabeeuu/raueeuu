@@ -839,7 +839,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     		<div class="form-group"> 
                     			<div class="form-body">
                     			    <fieldset>
-                    				<legend class="alert alert-info" role="alert"><h3>ADMINISTRACION DE <?php echo strtoupper($tabla); ?></h3></legend>
+                    				<legend class="alert alert-tbl-param" role="alert"><h3>ADMINISTRACION DE <?php echo strtoupper($tabla); ?></h3></legend>
                     				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                     					<select id="seloper" name="seloper" class="my-select" style="color: white;">
                     					    <option selected="selected" data-img-src="../docenteunicab/updreg/img/sel.png" value="NA">SO</option>
@@ -850,7 +850,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     					<!--</form>-->
                     				</fieldset><br/>
                     				<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
-                    			    <div id="divtabla">
+                    			    <div id="divtabla" style="width: 100%;">
         							</div>
         							<!--<button class="btn btn-primary" id="btnadd" style="display: none;">Agregar</button>
                         			<button class="btn btn-warning" >Modificar</button>-->

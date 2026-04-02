@@ -68,6 +68,27 @@ CREATE TABLE tbl_equivalence_idgra (
   grado_ra varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+INSERT INTO `tbl_equivalence_idgra` (`id_category`, `name`, `id_grado_ra`, `grado_ra`) VALUES
+(4, 'Primero 1°', 2, 'Primero'),
+(5, 'Segundo 2°', 3, 'Segundo'),
+(6, 'Tercero 3°', 4, 'Tercero'),
+(8, 'Cuarto 4°', 5, 'Cuarto'),
+(9, 'Quinto 5°', 6, 'Quinto'),
+(12, 'Sexto 6 °', 7, 'Sexto'),
+(13, 'Séptimo 7°', 8, 'Septimo'),
+(14, 'Octavo 8°', 9, 'Octavo'),
+(15, 'Noveno 9°', 10, 'Noveno'),
+(16, 'Décimo 10°', 11, 'Decimo'),
+(17, 'Once 11°', 12, 'Once'),
+(19, 'Ciclo III', 15, 'Ciclo III'),
+(20, 'Ciclo IV', 16, 'Ciclo IV'),
+(22, 'Ciclo V', 17, 'Ciclo V'),
+(23, 'Ciclo VI', 18, 'Ciclo VI'),
+(28, 'Ciclo I', 13, 'Ciclo I'),
+(30, 'Ciclo II', 14, 'Ciclo II');
+
+
+
 /*######################################################################################################*/
 
 DROP TABLE IF EXISTS tbl_equivalence_idmat;

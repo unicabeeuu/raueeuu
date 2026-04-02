@@ -138,8 +138,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 											?>
 						              </select>
 									</div>
-								  	<button type="submit" class="btn btn-default"><span style="color:#FFF" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                    <a href="cierre-academico.php" class="btn btn-success">Todo</a>
+								  	<button type="submit" style="background-color: #222a75;" class="btn"><span style="color:#FFF; background-color: #222a75;" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    <a href="cierre-academico.php" class="btn" style="background-color: #ff9805; color: #FFF;">Todo</a>
                     			</form>
 							</div>
 							<hr>

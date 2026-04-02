@@ -14,7 +14,7 @@
         ORDER BY g.id, m.id";
 	//echo $cadena; 
 	
-	$cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
+	$cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px' style='width: 100%;'>
 	                        <thead>
 	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
 	                            <td>GRADO</td>

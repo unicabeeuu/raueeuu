@@ -29,7 +29,7 @@
 	if($tabla == "tbl_cargos") {
 	    $cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
 	                        <thead>
-	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
+	                        <tr style='background-color: #0d3041; color: white; text-weight: bold;'>
 	                            <td>ID</td>
 	                            <td>CARGO</td>
 	                            <td>...</td>
@@ -38,7 +38,7 @@
 	else if($tabla == "tbl_dependencias") {
 	    $cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
 	                        <thead>
-	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
+	                        <tr style='background-color: #0d3041; color: white; text-weight: bold;'>
 	                            <td>ID</td>
 	                            <td>DEPENDENCIA</td>
 	                            <td>...</td>
@@ -47,7 +47,7 @@
 	else if($tabla == "tbl_tipos_documento") {
 	    $cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
 	                        <thead>
-	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
+	                        <tr style='background-color: #0d3041; color: white; text-weight: bold;'>
 	                            <td>ID</td>
 	                            <td>TIPO DOCUMENTO</td>
 	                            <td>...</td>
@@ -56,16 +56,16 @@
 	else if($tabla == "tbl_profesiones") {
 	    $cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
 	                        <thead>
-	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
+	                        <tr style='background-color: #0d3041; color: white; text-weight: bold;'>
 	                            <td>ID</td>
 	                            <td>PROFESION</td>
 	                            <td>...</td>
 	                        </tr></thead><tbody>";
 	}
 	else if($tabla == "tbl_empleados") {
-	    $cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
+	    $cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px' style='width: 100%;'>
 	                        <thead>
-	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
+	                        <tr style='background-color: #0d3041; color: white; text-weight: bold;'>
 	                            <td>ID</td>
 	                            <td>NOMBRES</td>
 	                            <td>APELLIDOS</td>
@@ -79,7 +79,7 @@
 	else if($tabla == "estudiantes") {
 	    $cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
 	                        <thead>
-	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
+	                        <tr style='background-color: #0d3041; color: white; text-weight: bold;'>
 	                            <td>ID</td>
 	                            <td>NOMBRES</td>
 	                            <td>APELLIDOS</td>

@@ -123,7 +123,7 @@
 	<div id="page-wrapper" style="padding: 2em 2em 2.5em;">
 		<div class="main-page login-page ">
 			<h2 class="title1">
-				<img src="../../assets/img/footer_log_blanco2025.png" width="30%">
+				<img src="../../assets/img/logo-unicab/logo_thrive_f4.png" width="50%">
 			</h2>
 			<div class="widget-shadow">
 				<div class="login-body">

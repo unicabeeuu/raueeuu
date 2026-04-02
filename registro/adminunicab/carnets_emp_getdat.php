@@ -147,7 +147,7 @@ if (isset($_SESSION['unisuper'])) {
         <section>
            <div id="page-wrapper">
 				<div class="forms">
-					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+					<div class="form-grids row widget-shadow" data-example-id="basic-forms" style="padding: 2rem;"> 
 						
 						<!---------------------------------------------->
                         <div id="cont">
@@ -155,18 +155,18 @@ if (isset($_SESSION['unisuper'])) {
                 			<!--***********************************************************************************************-->
                 			<div id="div1">
                 				<fieldset>
-                				<legend><h3>GENERAR CARNET EMPLEADO</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERAR CARNET EMPLEADO</h3></legend>
                 				    <form class="form-horizontal" action="../docenteunicab/carnet_mpdf.php"  method="POST" target="_blank" onsubmit="return validacion()">
                 					<ul class="mprincipal">
                 						<li><h3>GENRAR CARNET POR<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<input type="text" id="idest" name="idest" placeholder="idemp" style="width: 50px;" value="0"/>
 													<label style="color: white;">...</label>
 													<!--<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 													<label style="color: white;">...</label>-->
-													<button id="submit" class="btn btn-primary">Generar</button>
+													<button id="submit" class="btn" style="background-color: #ff9805;">Generar</button>
 												</li>
                 							</ul>
                 							<input type="hidden" id="tipo_carnet" name="tipo_carnet" value="EMP"/>
@@ -178,16 +178,16 @@ if (isset($_SESSION['unisuper'])) {
                 			</div>
                 			<div id="div2">
                 				<fieldset>
-                				<legend><h3>CONSULTAR CARNET EMPLEADO</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">CONSULTAR CARNET EMPLEADO</h3></legend>
                 				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                 					<ul class="mprincipal">
                 						<li><h3>LISTADO DE CARNETS POR<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<input type="text" id="idanio" name="idanio" placeholder="a09o" style="width: 50px;" value="2021"/>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn btn-primary" onclick="consultar_carnet()">Buscar</button>
+													<button id="submit1" class="btn" style="background-color: #ff9805;" onclick="consultar_carnet()">Buscar</button>
 												</li>
                 							</ul>
                 					</ul>

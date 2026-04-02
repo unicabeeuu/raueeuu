@@ -1696,7 +1696,7 @@ form.search-form {
 .login-page h2.title1,.signup-page h2.title1{
     text-align: center;
     padding: 1em;
-    background: #247FB7;
+    background: #222a75;
     margin: 0;
     color: #fff;
     font-size: 1.6em;
@@ -1774,7 +1774,7 @@ form.search-form {
     outline: none;
     cursor: pointer;
     color: #fff;
-    background: #2ecc71;
+    background: #fc0d8c;
     width: 40%;
     padding: .6em 1em;
     font-size: 1em;
@@ -1787,7 +1787,7 @@ form.search-form {
 	-o-transition: 0.5s all;
 }
 .login-page input[type="submit"]:hover{
-    background: #27ae60;
+    background: #d00671;
 }
 .login-page-bottom {
     text-align: center;
@@ -8465,6 +8465,4 @@ h4.asd label {
 	}
 }
 /*--//responsive-design---*/
-
-
 

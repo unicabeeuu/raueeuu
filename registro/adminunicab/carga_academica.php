@@ -303,7 +303,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     					<!--</form>-->
                     				</fieldset><br/>
                     				<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
-                    			    <div id="divtabla">
+                    			    <div id="divtabla" style="width: 100%;">
                     			       
         							</div>
 								</div>
