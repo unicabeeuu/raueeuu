@@ -283,12 +283,12 @@ if (isset($_SESSION['unisuper'])) {
 							?>
                 			<div id="div1" style="width: 50%">
                 				<fieldset>
-                				<legend><h3>GENERAR STICKERS CORRESPONDENCIA</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERAR STICKERS CORRESPONDENCIA</h3></legend>
                 				    <ul class="mprincipal">
                 						<li><h3>GENRAR STICKER POR<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<select id="selgra1" name="selgra1" required>
 													    <option value="NA" selected>Seleccione grado</option>
 													    <?php 
@@ -318,7 +318,7 @@ if (isset($_SESSION['unisuper'])) {
             						    <input type="hidden" id="a_" name="a_" value="2025">
             						    <div>
                 						    <label>Ids de estudiantes:</label>
-                						    <textarea id="txtidest" name="txtidest" readonly style="width: 100%; background: lightgreen" height="50px"></textarea>
+                						    <textarea id="txtidest" name="txtidest" readonly style="width: 100%; background: #222a75" height="50px"></textarea>
                 						</div>
             						    <!--<input type="submit" id="submit" class="btn btn-primary" style="display: none;" value="Generar">-->
 										<button id="submit" class="btn btn-primary" style="display: none;" onclick="generar_stickers();">Generar</button>

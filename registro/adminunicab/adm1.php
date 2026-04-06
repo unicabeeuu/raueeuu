@@ -117,13 +117,13 @@ legend {
 }
 .msecund {
 	list-style-image: url(../docenteunicab/updreg/img/bd30.png); 
-	background: lightgreen;
+	background: #222a75;
 	padding: 20px;
 	font-weight: bold;
 	font-size: 18px;
 }
 .msecund li {
-	background: #cce5ff;
+	background: #222a75;
 	margin-left: 20px;
 	margin-top: 5px;
 }
@@ -205,7 +205,7 @@ legend {
                         				    <ul class="mprincipal">
                         						<li><h3>CARGAR INFORMACION MOODLE TOTAL</h3></li>
                         							<ul class="msecund">
-                        								<li><input type="submit" class="btn btn-primary" value="Cargar" ></li>
+                        								<li><input type="submit" class="btn " value="Cargar" ></li>
                         							</ul>
                         					</ul>
                         					</form>
@@ -220,7 +220,7 @@ legend {
                         								    <input type="text" id="idest_ra0" name="idest_ra0" placeholder="idest" style="width: 50px;" oninput="change_idest()"/>
                         								    <input type="text" id="idgra_ra0" name="idgra_ra0" placeholder="idgra" style="width: 50px;" oninput="change_idgra()"/>
 															<label style="color: white;">...</label>
-															<input type="submit" class="btn btn-primary" value="Cargar" >
+															<input type="submit" class="btn " value="Cargar" >
 														</li>
                         							</ul>
                         					</ul>
@@ -234,7 +234,7 @@ legend {
                             								    <input type="text" id="idest_ra01" name="idest_ra01" placeholder="idest" style="width: 50px;" oninput="change_idest1()"/>
                             								    <input type="text" id="idgra_ra01" name="idgra_ra01" placeholder="idgra" style="width: 50px;" oninput="change_idgra1()"/>
 																<label style="color: white;">...</label>
-                            								    <input type="submit" class="btn btn-primary" value="Cargar" >
+                            								    <input type="submit" class="btn " value="Cargar" >
 															</li>
                             							</ul>
                             					</ul>
@@ -243,7 +243,7 @@ legend {
                         			</div>-->
                         			<div id="div2">
                         				<fieldset>
-                        				<legend><h3>BUSCAR EN BASE DE DATOS</h3></legend>
+                        				<legend><h3 style="color: #FC0D8C;">BUSCAR EN BASE DE DATOS</h3></legend>
                         				    <form class="form-horizontal" action="../docenteunicab/updreg/estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                         					<ul class="mprincipal">
                         						<li><h3>BUSCAR POR NOMBRE O APELLIDO <span style="color: blue;">ACTIVO</span></h3></li>
@@ -252,7 +252,7 @@ legend {
 															<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
 															<label style="color: white;">...</label>
 															<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-															<input type="submit" class="btn btn-primary" value="Buscar" >
+															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: white;">
 															<input type="hidden" id="estado" name="estado" value="activo" required/>
 														</li>
                         							</ul>
@@ -266,7 +266,7 @@ legend {
 																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
 																<label style="color: white;">...</label>
 																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: white;">
 																<input type="hidden" id="estado" name="estado" value="inactivo" required/>
 															</li>
                             							</ul>
@@ -304,7 +304,7 @@ legend {
 															</select>
 															<label style="color: white;">...</label>
 															<!--<a href="estudianteg_getdat.php" >Buscar</a>-->
-															<input type="submit" class="btn btn-primary" value="Buscar" >
+															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: white;">
 															<input type="hidden" id="estadog" name="estadog" value="activo" required/>
 														</li>
                         							</ul>
@@ -321,7 +321,7 @@ legend {
     																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
     																<label style="color: white;">...</label>
     																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-    																<input type="submit" class="btn btn-primary" value="Asignar" >
+    																<input type="submit" class="btn " value="Asignar" style="background-color: #ff9805; color: white;">
     															</li>
                                 							</ul>
                                 					</ul>
@@ -334,7 +334,7 @@ legend {
                             						<li><h3>EXPORTAR BASE DE DATOS</h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="submit" class="btn btn-primary" value="Exportar" >
+																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
 															</li>
                             							</ul>
                             					</ul>
@@ -344,7 +344,7 @@ legend {
                             						<li><h3>EXPORTAR RETIRADOS</h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="submit" class="btn btn-primary" value="Exportar" >
+																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
 															</li>
                             							</ul>
                             					</ul>
@@ -357,7 +357,7 @@ legend {
                                 						<li><h3>LISTADO DE ACTIVIDADES EXTRA</h3></li>
                                 							<ul class="msecund">
                                 								<li>
-    																<input type="submit" class="btn btn-primary" value="Exportar" >
+    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
     															</li>
                                 							</ul>
                                 					</ul>
@@ -367,7 +367,7 @@ legend {
                                 						<li><h3>LISTADO DE EVALUACIONES DE ADMISIÓN</h3></li>
                                 							<ul class="msecund">
                                 								<li>
-    																<input type="submit" class="btn btn-primary" value="Exportar" >
+    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
     															</li>
                                 							</ul>
                                 					</ul>

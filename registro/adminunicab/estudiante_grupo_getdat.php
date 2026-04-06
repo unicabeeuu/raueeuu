@@ -150,9 +150,12 @@ if (isset($_SESSION['unisuper'])) {
             border-right: 1px solid black;
         }
         h3 {
-            color: blue;
+            color: #FC0D8C;
             font-weight: bold;
         }
+		tr {
+			background-color: #222a75;
+		}
     </style>
     <script>
         

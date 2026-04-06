@@ -198,13 +198,13 @@ if (isset($_SESSION['unisuper'])) {
                 			<!--***********************************************************************************************-->
                 			<div id="div1">
                 				<fieldset>
-                				<legend><h3>GENERAR CERTIFICADOS DE NOTAS</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERAR CERTIFICADOS DE NOTAS</h3></legend>
                 				    <form class="form-horizontal" action="../docenteunicab/updreg/reporte_notas_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                 					<ul class="mprincipal">
                 						<li><h3>GENRAR CERTIFICADOS POR<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<select id="selgra1" name="selgra1" required>
 													    <option value="NA" selected>Seleccione grado</option>
 													    <?php 
@@ -228,13 +228,13 @@ if (isset($_SESSION['unisuper'])) {
                 			</div>
                 			<div id="div2">
                 				<fieldset>
-                				<legend><h3>CONSULTAR CERTIFICADOS DE NOTAS</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">CONSULTAR CERTIFICADOS DE NOTAS</h3></legend>
                 				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                 					<ul class="mprincipal">
                 						<li><h3>LISTADO DE CERTIFICADOS POR<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<select id="selgra2" name="selgra2" required>
 													    <option value="NA" selected>Seleccione grado</option>
 													    <?php 

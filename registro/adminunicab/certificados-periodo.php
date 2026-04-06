@@ -132,8 +132,8 @@ $resultado1 = mysqli_query($conexion, $peticion);
 											?>
 						              	</select>
 									</div>
-								  	<button type="submit" class="btn btn-default"><span style="color:#FFF" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                    <a href="certificados-periodo.php" class="btn btn-success">Todo</a>
+								  	<button type="submit" class="btn" style="background-color: #222a75;"><span style="color: white" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    <a href="certificados-periodo.php" class="btn" style="background-color: #ff9805;">Todo</a>
                     			</form>
 							</div>
 							<hr>

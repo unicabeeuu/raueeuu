@@ -245,6 +245,11 @@ if (isset($_SESSION['unisuper'])) {
 		.custom-switch-v3 input:checked + .custom-slider-v3:before {
 		  transform: translateX(25px) !important;
 		}
+
+		thead {
+			background-color: #222a75;
+			color: white;
+		}
     </style>
     <script>
         

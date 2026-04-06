@@ -550,7 +550,7 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             			    <fieldset>
-                            				<legend><h3>RESULTADOS DE ESTUDIANTES</h3></legend>
+                            				<legend><h3 style="color: #FC0D8C !important;">RESULTADOS DE ESTUDIANTES</h3></legend>
                             				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                             					<ul class="mprincipal">
                             						<li><h3>LISTADO POR<span style="color: white;">.....</span>

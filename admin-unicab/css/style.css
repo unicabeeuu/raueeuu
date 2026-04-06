@@ -1687,7 +1687,7 @@ form.search-form {
 /*--login-page--*/
 .login-page {
     width: 40%;
-    margin: 1em auto 0;
+    margin: 3em auto 0;
 }
 .signup-page {
     width: 40%;
@@ -1700,6 +1700,7 @@ form.search-form {
     margin: 0;
     color: #fff;
     font-size: 1.6em;
+    border-radius: 50px 50px 0 0;
 }
 .login-top {
     padding: 1.5em;
@@ -8466,3 +8467,8 @@ h4.asd label {
 }
 /*--//responsive-design---*/
 
+
+/*--Nuevos estilos--*/
+.widget-shadow {
+    border-radius: 0 0 50px 50px;
+}

@@ -261,12 +261,12 @@ if (isset($_SESSION['unisuper'])) {
 							?>
                 			<div id="div1" style="width: 50%">
                 				<fieldset>
-                				<legend><h3>GENERAR PAZ Y SALVO ESTUDIANTIL</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERAR PAZ Y SALVO ESTUDIANTIL</h3></legend>
                 				    <ul class="mprincipal">
                 						<li><h3>GENRAR PAZ Y SALVO POR<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<select id="selgra1" name="selgra1" required>
 													    <option value="NA" selected>Seleccione grado</option>
 													    <?php 
@@ -295,9 +295,9 @@ if (isset($_SESSION['unisuper'])) {
             						    <input type="hidden" id="a_" name="a_" value="2025">
             						    <div>
                 						    <label>Ids de estudiantes a generarles paz y salvo:</label>
-                						    <textarea id="txtidest" name="txtidest" readonly style="width: 100%; background: lightgreen" height="50px"></textarea>
+                						    <textarea id="txtidest" name="txtidest" readonly style="width: 100%; background: #222a75" height="50px"></textarea>
                 						</div>
-            						    <input type="submit" id="submit" class="btn btn-primary" style="display: none;" value="Generar">
+            						    <input type="submit" id="submit" class="btn" style="background-color: #ff9805; display: none;" value="Generar">
                 					</form>
                 				</fieldset>
                 
@@ -308,13 +308,13 @@ if (isset($_SESSION['unisuper'])) {
 							
                 			<div id="div2" style="width: 40%">
                 				<fieldset>
-                				<legend><h3>CONSULTAR PAZ Y SALVO ESTUDIANTIL</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">CONSULTAR PAZ Y SALVO ESTUDIANTIL</h3></legend>
                 				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                 					<ul class="mprincipal">
                 						<li><h3>LISTADO DE PAZ Y SALVO POR<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<select id="selgra2" name="selgra2" required>
 													    <option value="NA" selected>Seleccione grado</option>
 													    <?php 

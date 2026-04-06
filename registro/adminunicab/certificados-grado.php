@@ -134,7 +134,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 											<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Número Documento" required maxlength="15" autofocus="">
 											</div>
 									</div>
-								  	<button type="submit" class="btn btn-default"><span style="color:#FFF" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+								  	<button type="submit" class="btn" style="background-color: #222a75;"><span style="color: white" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     			</form>
 								<hr>
 								</div>
