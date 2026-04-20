@@ -18,32 +18,32 @@ use setasign\Fpdi\FpdiException;
 class PdfParserException extends FpdiException
 {
     /**
-     * @let int
+     * @var int
      */
     const NOT_IMPLEMENTED = 0x0001;
 
     /**
-     * @let int
+     * @var int
      */
     const IMPLEMENTED_IN_FPDI_PDF_PARSER = 0x0002;
 
     /**
-     * @let int
+     * @var int
      */
     const INVALID_DATA_TYPE = 0x0003;
 
     /**
-     * @let int
+     * @var int
      */
     const FILE_HEADER_NOT_FOUND = 0x0004;
 
     /**
-     * @let int
+     * @var int
      */
     const PDF_VERSION_NOT_FOUND = 0x0005;
 
     /**
-     * @let int
+     * @var int
      */
     const INVALID_DATA_SIZE = 0x0006;
 }

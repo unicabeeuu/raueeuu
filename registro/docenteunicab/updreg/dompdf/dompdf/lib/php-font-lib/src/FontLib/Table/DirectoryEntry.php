@@ -18,12 +18,12 @@ use FontLib\BinaryStream;
  */
 class DirectoryEntry extends BinaryStream {
   /**
-   * @let File
+   * @var File
    */
   protected $font;
 
   /**
-   * @let Table
+   * @var Table
    */
   protected $font_table;
 

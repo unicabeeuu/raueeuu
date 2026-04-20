@@ -51,7 +51,7 @@ if (!is_callable('random_int')) {
          */
 
         try {
-            /** @let int $min */
+            /** @var int $min */
             $min = RandomCompat_intval($min);
         } catch (TypeError $ex) {
             throw new TypeError(
@@ -60,7 +60,7 @@ if (!is_callable('random_int')) {
         }
 
         try {
-            /** @let int $max */
+            /** @var int $max */
             $max = RandomCompat_intval($max);
         } catch (TypeError $ex) {
             throw new TypeError(
@@ -92,18 +92,18 @@ if (!is_callable('random_int')) {
          *          so we can minimize the number of discards
          */
         $attempts = $bits = $bytes = $mask = $valueShift = 0;
-        /** @let int $attempts */
-        /** @let int $bits */
-        /** @let int $bytes */
-        /** @let int $mask */
-        /** @let int $valueShift */
+        /** @var int $attempts */
+        /** @var int $bits */
+        /** @var int $bytes */
+        /** @var int $mask */
+        /** @var int $valueShift */
 
         /**
          * At this point, $range is a positive number greater than 0. It might
          * overflow, however, if $max - $min > PHP_INT_MAX. PHP will cast it to
          * a float and we will lose some precision.
          *
-         * @let int|float $range
+         * @var int|float $range
          */
         $range = $max - $min;
 
@@ -124,7 +124,7 @@ if (!is_callable('random_int')) {
              * @ref http://3v4l.org/XX9r5  (64-bit)
              */
             $bytes = PHP_INT_SIZE;
-            /** @let int $mask */
+            /** @var int $mask */
             $mask = ~0;
 
         } else {
@@ -139,13 +139,13 @@ if (!is_callable('random_int')) {
                 }
                 ++$bits;
                 $range >>= 1;
-                /** @let int $mask */
+                /** @var int $mask */
                 $mask = $mask << 1 | 1;
             }
             $valueShift = $min;
         }
 
-        /** @let int $val */
+        /** @var int $val */
         $val = 0;
         /**
          * Now that we have our parameters set up, let's begin generating
@@ -182,7 +182,7 @@ if (!is_callable('random_int')) {
             for ($i = 0; $i < $bytes; ++$i) {
                 $val |= ord($randomByteString[$i]) << ($i * 8);
             }
-            /** @let int $val */
+            /** @var int $val */
 
             /**
              * Apply mask

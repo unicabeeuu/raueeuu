@@ -18,62 +18,62 @@ use setasign\Fpdi\PdfParser\PdfParserException;
 class CrossReferenceException extends PdfParserException
 {
     /**
-     * @let int
+     * @var int
      */
     const INVALID_DATA = 0x0101;
 
     /**
-     * @let int
+     * @var int
      */
     const XREF_MISSING = 0x0102;
 
     /**
-     * @let int
+     * @var int
      */
     const ENTRIES_TOO_LARGE = 0x0103;
 
     /**
-     * @let int
+     * @var int
      */
     const ENTRIES_TOO_SHORT = 0x0104;
 
     /**
-     * @let int
+     * @var int
      */
     const NO_ENTRIES = 0x0105;
 
     /**
-     * @let int
+     * @var int
      */
     const NO_TRAILER_FOUND = 0x0106;
 
     /**
-     * @let int
+     * @var int
      */
     const NO_STARTXREF_FOUND = 0x0107;
 
     /**
-     * @let int
+     * @var int
      */
     const NO_XREF_FOUND = 0x0108;
 
     /**
-     * @let int
+     * @var int
      */
     const UNEXPECTED_END = 0x0109;
 
     /**
-     * @let int
+     * @var int
      */
     const OBJECT_NOT_FOUND = 0x010A;
 
     /**
-     * @let int
+     * @var int
      */
     const COMPRESSED_XREF = 0x010B;
 
     /**
-     * @let int
+     * @var int
      */
     const ENCRYPTED = 0x010C;
 }

@@ -164,7 +164,7 @@ if (isset($_SESSION['uniprofe'])) {
                     //$("#txtctrpen").val("NA");
                     //$("#selpenp").html("");
                     
-                    let gra = $("#selgrap").val();
+                    var gra = $("#selgrap").val();
                     //alert(gra);
                     //cargarpen(gra);
                     
@@ -173,9 +173,9 @@ if (isset($_SESSION['uniprofe'])) {
             		    $("#btncontinuar").hide();
                     }
                     else {
-                        //let pen = $("#txtctrpen").val();
+                        //var pen = $("#txtctrpen").val();
                         //alert (pen);
-                		let op = $("#selop").val();
+                		var op = $("#selop").val();
 						//alert ("gra = " + gra + ", pen = " + pen + ", op = " + op);
 						if(op == "N") {
 							//$("#seltp").show();
@@ -194,9 +194,9 @@ if (isset($_SESSION['uniprofe'])) {
             	
             	$("#selop").change(function() {
             	    $("#divtabla").empty();
-            	    let idgra = $("#selgrap").val();
-            	    //let idpen = $("#selpenp").val();
-            	    let op = $("#selop").val();
+            	    var idgra = $("#selgrap").val();
+            	    //var idpen = $("#selpenp").val();
+            	    var op = $("#selop").val();
             	    //alert(op);
             	    
             		if(op == "N") {
@@ -224,13 +224,13 @@ if (isset($_SESSION['uniprofe'])) {
             	    $("#txtretro").prop("readonly",false);
                     $("#ctr_txtretro").val(1);
             	    
-            	    let tema = $("#seltema").val();
-            	    let tematxt = $("select[name='seltema'] option:selected").text();
+            	    var tema = $("#seltema").val();
+            	    var tematxt = $("select[name='seltema'] option:selected").text();
             	    
             		if(tema == 1) {
             			$("#btnguardar").hide();
             			$("#ctr_seltema").val(1);
-            			let texto = "Debe seleccionar un tema";
+            			var texto = "Debe seleccionar un tema";
                         $("#lblmsg").html(texto).css("color","red");
                         
                         $("#divotro").hide();
@@ -253,7 +253,7 @@ if (isset($_SESSION['uniprofe'])) {
                     		url:"buscar_retro_html5.php",
                     		data:"idtema=" + tema,
                     		success:function(r) {
-                    		    let texto = ""
+                    		    var texto = ""
                     		    if(r == "") {
                     		        texto = "REFORZAR " + tematxt;
                     		    }
@@ -279,13 +279,13 @@ if (isset($_SESSION['uniprofe'])) {
             	    $("#txtupdretro").prop("readonly",false);
                     $("#ctr_txtupdretro").val(1);
             	    
-            	    let tema = $("#selupdtema").val();
-            	    let tematxt = $("select[name='selupdtema'] option:selected").text();
+            	    var tema = $("#selupdtema").val();
+            	    var tematxt = $("select[name='selupdtema'] option:selected").text();
             	    
             		if(tema == 1) {
             			$("#btneditar").hide();
             			$("#ctr_selupdtema").val(1);
-            			let texto = "Debe seleccionar un tema";
+            			var texto = "Debe seleccionar un tema";
                         $("#lblupdmsg").html(texto).css("color","red");
                         
                         $("#divupdotro").hide();
@@ -308,7 +308,7 @@ if (isset($_SESSION['uniprofe'])) {
                     		url:"buscar_retro_html5.php",
                     		data:"idtema=" + tema,
                     		success:function(r) {
-                    		    let texto = ""
+                    		    var texto = ""
                     		    if(r == "") {
                     		        texto = "REFORZAR " + tematxt;
                     		    }
@@ -326,15 +326,15 @@ if (isset($_SESSION['uniprofe'])) {
             	});
             	
             	$("#adjunto").change(function () {
-     			    let pesoimg = this.files[0].size/1024;
-     			    let img = this.files[0].name;
-     			    let path = "../../images/preguntas/";
-     			    let archivo = path + img;
+     			    var pesoimg = this.files[0].size/1024;
+     			    var img = this.files[0].name;
+     			    var path = "../../images/preguntas/";
+     			    var archivo = path + img;
      			    //alert(pesoimg);
      			    //alert(archivo);
      			    if(pesoimg > 200) {
      			        $("#ctr_adjunto").val(1);
-     			        let texto = "El peso permitido para la imagen es de 200 Kb ";
+     			        var texto = "El peso permitido para la imagen es de 200 Kb ";
                         $("#lblmsg").html(texto).css("color","red");
                         $("#adjunto").val(null);
      			    }
@@ -354,7 +354,7 @@ if (isset($_SESSION['uniprofe'])) {
                         {
                             //alert("Archivo existe");
                             $("#ctr_adjunto").val(1);
-         			        let texto = "Ya existe una imagen con el nombre " + img;
+         			        var texto = "Ya existe una imagen con el nombre " + img;
                             $("#lblmsg").html(texto).css("color","red");
                             $("#adjunto").val(null);
                         }
@@ -364,11 +364,11 @@ if (isset($_SESSION['uniprofe'])) {
                 		url:"buscar_img.php",
                 		data:"img=" + img,
                 		success:function(r) {
-                		    let ct_img = r;
+                		    var ct_img = r;
                 			//alert(ct_img);
                 			if(ct_img == 1) {
                 			    $("#ctr_adjunto").val(1);
-             			        let texto = "Ya existe una imagen con el nombre " + img;
+             			        var texto = "Ya existe una imagen con el nombre " + img;
                                 $("#lblmsg").html(texto).css("color","red");
                                 $("#adjunto").val(null);
                 			}
@@ -377,15 +377,15 @@ if (isset($_SESSION['uniprofe'])) {
         		});
             	
             	$("#updadjunto").change(function () {
-     			    let pesoimg = this.files[0].size/1024;
-     			    let img = this.files[0].name;
-     			    let path = "../../images/preguntas/";
-     			    let archivo = path + img;
+     			    var pesoimg = this.files[0].size/1024;
+     			    var img = this.files[0].name;
+     			    var path = "../../images/preguntas/";
+     			    var archivo = path + img;
      			    //alert(pesoimg);
      			    //alert(archivo);
      			    if(pesoimg > 200) {
      			        $("#ctr_updadjunto").val(1);
-     			        let texto = "El peso permitido para la imagen es de 200 Kb ";
+     			        var texto = "El peso permitido para la imagen es de 200 Kb ";
                         $("#lblupdmsg").html(texto).css("color","red");
                         $("#updadjunto").val(null);
      			    }
@@ -399,11 +399,11 @@ if (isset($_SESSION['uniprofe'])) {
                 		url:"buscar_img.php",
                 		data:"img=" + img,
                 		success:function(r) {
-                		    let ct_img = r;
+                		    var ct_img = r;
                 			//alert(ct_img);
                 			if(ct_img == 1) {
                 			    $("#ctr_updadjunto").val(1);
-             			        let texto = "Ya existe una imagen con el nombre " + img;
+             			        var texto = "Ya existe una imagen con el nombre " + img;
                                 $("#lblupdmsg").html(texto).css("color","red");
                                 $("#updadjunto").val(null);
                 			}
@@ -432,13 +432,13 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function validar_texto1(id, desc) {
-                let control = 0;
-                let id_obj = "#" + id;
-                let ctr_obj = "#ctr_" + id;
-                //let input_desc = document.getElementById("desc");
-                let v_input = document.getElementById(id);
-                let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
-                let val = String($(id_obj).val()).match(v_val);
+                var control = 0;
+                var id_obj = "#" + id;
+                var ctr_obj = "#ctr_" + id;
+                //var input_desc = document.getElementById("desc");
+                var v_input = document.getElementById(id);
+                var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
+                var val = String($(id_obj).val()).match(v_val);
                 $("#imgnp").hide();
                 
                 if(val == null) {
@@ -448,7 +448,7 @@ if (isset($_SESSION['uniprofe'])) {
                 }
                 else {
                     v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-                    let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                    var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                     //texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + . , ; : ( ) { } [ ] \\";
                     $("#imgnp").show();
                     
@@ -460,7 +460,7 @@ if (isset($_SESSION['uniprofe'])) {
                 
                 if(control == 0) {
     			    if($(id_obj).val() == "") {
-    			        let texto = "El campo " + desc + " se debe llenar";
+    			        var texto = "El campo " + desc + " se debe llenar";
         				$("#lblmsg").html(texto).css("color","red");
                         $(ctr_obj).val(1);
     			    }
@@ -470,13 +470,13 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function validar_texto1upd(id, desc) {
-                let control = 0;
-                let id_obj = "#" + id;
-                let ctr_obj = "#ctr_" + id;
-                //let input_desc = document.getElementById("desc");
-                let v_input = document.getElementById(id);
-                let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
-                let val = String($(id_obj).val()).match(v_val);
+                var control = 0;
+                var id_obj = "#" + id;
+                var ctr_obj = "#ctr_" + id;
+                //var input_desc = document.getElementById("desc");
+                var v_input = document.getElementById(id);
+                var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
+                var val = String($(id_obj).val()).match(v_val);
                 $("#imgep").hide();
                 
                 if(val == null) {
@@ -486,7 +486,7 @@ if (isset($_SESSION['uniprofe'])) {
                 }
                 else {
                     v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-                    let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                    var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                     //texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + . , ; : ( ) { } [ ] \\";
                     $("#imgep").show();
                     
@@ -498,7 +498,7 @@ if (isset($_SESSION['uniprofe'])) {
                 
                 if(control == 0) {
     			    if($(id_obj).val() == "") {
-    			        let texto = "El campo " + desc + " se debe llenar";
+    			        var texto = "El campo " + desc + " se debe llenar";
         				$("#lblupdmsg").html(texto).css("color","red");
                         $(ctr_obj).val(1);
     			    }
@@ -508,13 +508,13 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function validar_texto(id, desc) {
-                let control = 0;
-                let id_obj = "#" + id;
-                let ctr_obj = "#ctr_" + id;
-                let v_input = document.getElementById(id);
-                //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-                let v_val = /[_'"\~\$\#\&\|\{\}\[\]\\]{1,}/;
-                let val = String($(id_obj).val()).match(v_val);
+                var control = 0;
+                var id_obj = "#" + id;
+                var ctr_obj = "#ctr_" + id;
+                var v_input = document.getElementById(id);
+                //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+                var v_val = /[_'"\~\$\#\&\|\{\}\[\]\\]{1,}/;
+                var val = String($(id_obj).val()).match(v_val);
                 $("#imgnp").hide();
                 
                 if(val == null) {
@@ -524,7 +524,7 @@ if (isset($_SESSION['uniprofe'])) {
                 }
                 else {
                     v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-                    let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                    var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                     texto += " _ \' \" ~ $ # & | { } [ ] \\";
                     //alert(texto);
                     $("#lblmsg").html(texto).css("color","red");
@@ -534,7 +534,7 @@ if (isset($_SESSION['uniprofe'])) {
     			
     			if(control == 0) {
     			    if($(id_obj).val() == "") {
-    			        let texto = "El campo " + desc + " se debe llenar";
+    			        var texto = "El campo " + desc + " se debe llenar";
         				$("#lblmsg").html(texto).css("color","red");
                         $(ctr_obj).val(1);
     			    }
@@ -544,13 +544,13 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function validar_textoupd(id, desc) {
-                let control = 0;
-                let id_obj = "#" + id;
-                let ctr_obj = "#ctr_" + id;
-                let v_input = document.getElementById(id);
-                //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-                let v_val = /[_'"\~\$\#\&\|\{\}\[\]\\]{1,}/;
-                let val = String($(id_obj).val()).match(v_val);
+                var control = 0;
+                var id_obj = "#" + id;
+                var ctr_obj = "#ctr_" + id;
+                var v_input = document.getElementById(id);
+                //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+                var v_val = /[_'"\~\$\#\&\|\{\}\[\]\\]{1,}/;
+                var val = String($(id_obj).val()).match(v_val);
                 $("#imgep").hide();
                 
                 if(val == null) {
@@ -560,7 +560,7 @@ if (isset($_SESSION['uniprofe'])) {
                 }
                 else {
                     v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-                    let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                    var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                     texto += " _ \' \" ~ $ # & | { } [ ] \\";
                     //alert(texto);
                     $("#lblupdmsg").html(texto).css("color","red");
@@ -570,7 +570,7 @@ if (isset($_SESSION['uniprofe'])) {
     			
     			if(control == 0) {
     			    if($(id_obj).val() == "") {
-    			        let texto = "El campo " + desc + " se debe llenar";
+    			        var texto = "El campo " + desc + " se debe llenar";
         				$("#lblupdmsg").html(texto).css("color","red");
                         $(ctr_obj).val(1);
     			    }
@@ -616,19 +616,19 @@ if (isset($_SESSION['uniprofe'])) {
                 $("#divotro").hide();
                 
                 $("#lblmsg").html("");
-                let seltp = $("#selop").val();
+                var seltp = $("#selop").val();
                 //alert(seltp);
                 
                 if (seltp == "NA") {
                     $('#modal_new').modal('hide');
                 }
                 else if (seltp == "N") {
-                    let selgra = $("#selgrap").val();
-                    let selgra_txt = $("#selgrap option:selected").text();
-                    //let selpen = $("#selpenp").val();
-                    //let selpen_txt = $("#selpenp option:selected").text();
-                    //let seltp = $("#seltp").val();
-                    //let seltp_txt = $("#seltp option:selected").text();
+                    var selgra = $("#selgrap").val();
+                    var selgra_txt = $("#selgrap option:selected").text();
+                    //var selpen = $("#selpenp").val();
+                    //var selpen_txt = $("#selpenp option:selected").text();
+                    //var seltp = $("#seltp").val();
+                    //var seltp_txt = $("#seltp option:selected").text();
                     
                     $("#txtidgra").val(selgra);
                     //$("#txtidpen").val(selpen);
@@ -664,11 +664,11 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function mostrar_submit(id) {
-                let control = 0;
-                let tema = $("#seltema").val();
+                var control = 0;
+                var tema = $("#seltema").val();
                 
-                let id_obj = "#" + id;
-                let long = $(id_obj).val().length;
+                var id_obj = "#" + id;
+                var long = $(id_obj).val().length;
                 //alert(long);
                 
                 //Se controla la longitud m¨¢xima
@@ -698,10 +698,10 @@ if (isset($_SESSION['uniprofe'])) {
                 }
                 
                 if(tema == 2) {
-                    let a = parseInt($("#ctr_txtpreg").val());
-                    let b = parseInt($("#ctr_txtresp").val());
-                    let c = parseInt($("#ctr_txtretro").val());
-                    let d = parseInt($("#ctr_txtotro").val());
+                    var a = parseInt($("#ctr_txtpreg").val());
+                    var b = parseInt($("#ctr_txtresp").val());
+                    var c = parseInt($("#ctr_txtretro").val());
+                    var d = parseInt($("#ctr_txtotro").val());
                     //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
                     
                     control = parseInt($("#ctr_txtpreg").val()) + parseInt($("#ctr_txtresp").val()) + parseInt($("#ctr_txtretro").val()) + 
@@ -721,10 +721,10 @@ if (isset($_SESSION['uniprofe'])) {
                     (d == 1) ? $("#txtotro").addClass("error") : $("#txtotro").removeClass("error");
                 }
                 else {
-                    let a = parseInt($("#ctr_txtpreg").val());
-                    let b = parseInt($("#ctr_txtresp").val());
-                    let c = parseInt($("#ctr_txtretro").val());
-                    let d = parseInt($("#ctr_seltema").val());
+                    var a = parseInt($("#ctr_txtpreg").val());
+                    var b = parseInt($("#ctr_txtresp").val());
+                    var c = parseInt($("#ctr_txtretro").val());
+                    var d = parseInt($("#ctr_seltema").val());
                     //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
                     
                     control = parseInt($("#ctr_txtpreg").val()) + parseInt($("#ctr_txtresp").val()) + parseInt($("#ctr_txtretro").val()) + 
@@ -747,11 +747,11 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function mostrar_editar(id) {
-                let control = 0;
-                let tema = $("#selupdtema").val();
+                var control = 0;
+                var tema = $("#selupdtema").val();
                 
-                let id_obj = "#" + id;
-                /*let long = $(id_obj).val().length;
+                var id_obj = "#" + id;
+                /*var long = $(id_obj).val().length;
                 //alert(long);
                 
                 //Se controla la longitud m¨¢xima
@@ -781,10 +781,10 @@ if (isset($_SESSION['uniprofe'])) {
                 }*/
                 
                 if(tema == 2) {// OTRO
-                    let a = parseInt($("#ctr_txtupcpreg").val());
-                    let b = parseInt($("#ctr_txtupdresp").val());
-                    let c = parseInt($("#ctr_txtupdretro").val());
-                    let d = parseInt($("#ctr_txtupdotro").val());
+                    var a = parseInt($("#ctr_txtupcpreg").val());
+                    var b = parseInt($("#ctr_txtupdresp").val());
+                    var c = parseInt($("#ctr_txtupdretro").val());
+                    var d = parseInt($("#ctr_txtupdotro").val());
                     //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
                     
                     control = parseInt($("#ctr_txtupdpreg").val()) + parseInt($("#ctr_txtupdresp").val()) + parseInt($("#ctr_txtupdretro").val()) + 
@@ -804,10 +804,10 @@ if (isset($_SESSION['uniprofe'])) {
                     (d == 1) ? $("#txtupdotro").addClass("error") : $("#txtupdotro").removeClass("error");
                 }
                 else {
-                    let a = parseInt($("#ctr_txtupdpreg").val());
-                    let b = parseInt($("#ctr_txtupdresp").val());
-                    let c = parseInt($("#ctr_txtupdretro").val());
-                    let d = parseInt($("#ctr_selupdtema").val());
+                    var a = parseInt($("#ctr_txtupdpreg").val());
+                    var b = parseInt($("#ctr_txtupdresp").val());
+                    var c = parseInt($("#ctr_txtupdretro").val());
+                    var d = parseInt($("#ctr_selupdtema").val());
                     //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
                     
                     control = parseInt($("#ctr_txtupdpreg").val()) + parseInt($("#ctr_txtupdresp").val()) + parseInt($("#ctr_txtupdretro").val()) + 
@@ -842,20 +842,20 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function guardar() {
-                let idgra = $("#txtidgra").val();
-                //let idpen = $("#txtidpen").val();
-                let idtp = $("#txtidtp1").val();
-                let pregunta = $("#txtpreg").val();
+                var idgra = $("#txtidgra").val();
+                //var idpen = $("#txtidpen").val();
+                var idtp = $("#txtidtp1").val();
+                var pregunta = $("#txtpreg").val();
                 pregunta = pregunta.replace(" ", "_");
                 pregunta = pregunta.replace("+", "|");
-                let r1ok = $("#txtresp").val();
+                var r1ok = $("#txtresp").val();
                 r1ok = r1ok.replace(" ", "_");
-                let idtema = $("#seltema").val();
-                let retro = $("#txtretro").val();
+                var idtema = $("#seltema").val();
+                var retro = $("#txtretro").val();
                 retro = retro.replace(" ", "_");
                 
-                let tema = $("#seltema").val();
-                let ntema = $("#txtotro").val();
+                var tema = $("#seltema").val();
+                var ntema = $("#txtotro").val();
                 ntema =ntema.replace(" ", "_");
                 //alert("ntema= " + ntema + " idgra= " + idgra + " idpen= " + idpen);
                  
@@ -873,7 +873,7 @@ if (isset($_SESSION['uniprofe'])) {
                     });
                 }
                 else if(tema == 1) {
-                    let texto = "Debe seleccionar un tema";
+                    var texto = "Debe seleccionar un tema";
                     $("#lblmsg").html(texto).css("color","red");
                 }
                 else {
@@ -894,8 +894,8 @@ if (isset($_SESSION['uniprofe'])) {
                             //alert(r);
                         }
                     });*/
-                    let formData = new FormData();
-                    let files = $('#adjunto')[0].files[0];
+                    var formData = new FormData();
+                    var files = $('#adjunto')[0].files[0];
                     //alert(files);
                     
                     formData.append('idgra',idgra);
@@ -930,14 +930,14 @@ if (isset($_SESSION['uniprofe'])) {
             function enviardat(id, idtema, pregunta, r1ok, retro, imagen) {
                 //alert (idtema);
                 $("#idpregunta").val(id);
-				let control = 0;
+				var control = 0;
                 
-                let selgra = $("#selgrap").val();
-                let selgra_txt = $("#selgrap option:selected").text();
-                //let selpen = $("#selpenp").val();
-                //let selpen_txt = $("#selpenp option:selected").text();
-                //let seltp = $("#seltp").val();
-                //let seltp_txt = $("#seltp option:selected").text();
+                var selgra = $("#selgrap").val();
+                var selgra_txt = $("#selgrap option:selected").text();
+                //var selpen = $("#selpenp").val();
+                //var selpen_txt = $("#selpenp option:selected").text();
+                //var seltp = $("#seltp").val();
+                //var seltp_txt = $("#seltp option:selected").text();
                 
                 $("#txtupdidgra").val(selgra);
                 //$("#txtupdidpen").val(selpen);
@@ -949,7 +949,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $("#txtupd_tp1").val("RESPUESTA CORTA");
                 
                 $("#txtupdpreg").val(pregunta);
-                let long = $("#txtupdpreg").val().length;
+                var long = $("#txtupdpreg").val().length;
                 //alert(long);
                 $("#lblupdpreg").html(long);
                 
@@ -991,8 +991,8 @@ if (isset($_SESSION['uniprofe'])) {
                 
                 //Se carga la imagen
                 //$('#imgpreg').removeAttr('src');
-                //let image = new Image();
-                //let src = imagen;
+                //var image = new Image();
+                //var src = imagen;
                 //image.src = src;
                 //$('#imgpreg').append(image);
                 $('#imgpreg').attr("src", imagen);
@@ -1011,21 +1011,21 @@ if (isset($_SESSION['uniprofe'])) {
             
             function modificar() {
                 //alert("modificar");
-                let idpregunta = $("#idpregunta").val();
-                let idgra = $("#txtupdidgra").val();
-                //let idpen = $("#txtupdidpen").val();
-                let idtp = $("#txtupdidtp1").val();
-                let pregunta = $("#txtupdpreg").val();
+                var idpregunta = $("#idpregunta").val();
+                var idgra = $("#txtupdidgra").val();
+                //var idpen = $("#txtupdidpen").val();
+                var idtp = $("#txtupdidtp1").val();
+                var pregunta = $("#txtupdpreg").val();
                 pregunta = pregunta.replace(" ", "_");
                 pregunta = pregunta.replace("+", "|");
-                let r1ok = $("#txtupdresp").val();
+                var r1ok = $("#txtupdresp").val();
                 r1ok = r1ok.replace(" ", "_");
-                let idtema = $("#selupdtema").val();
-                let retro = $("#txtupdretro").val();
+                var idtema = $("#selupdtema").val();
+                var retro = $("#txtupdretro").val();
                 retro = retro.replace(" ", "_");
                 
-                let tema = $("#selupdtema").val();
-                let ntema = $("#txtupdotro").val();
+                var tema = $("#selupdtema").val();
+                var ntema = $("#txtupdotro").val();
                 ntema =ntema.replace(" ", "_");
                 //alert("ntema= " + ntema + " idgra= " + idgra + " idpen= " + idpen);
                  
@@ -1043,7 +1043,7 @@ if (isset($_SESSION['uniprofe'])) {
                     });
                 }
                 else if(tema == 1) {
-                    let texto = "Debe seleccionar un tema";
+                    var texto = "Debe seleccionar un tema";
                     $("#lblupdmsg").html(texto).css("color","red");
                 }
                 else {
@@ -1055,8 +1055,8 @@ if (isset($_SESSION['uniprofe'])) {
                 //alert(idtp);
                 if(idtp == 2) {
                     //Se modifica la pregunta de respuesta corta
-                    let formData = new FormData();
-                    let files = $('#updadjunto')[0].files[0];
+                    var formData = new FormData();
+                    var files = $('#updadjunto')[0].files[0];
                     //alert(files);
                     
                     formData.append('idgra',idgra);
@@ -1462,7 +1462,7 @@ if (isset($_SESSION['uniprofe'])) {
 	    <!-- Classie --><!-- for toggle left push menu script -->
     	<script src="../../js/classie.js"></script>
     	<script>
-    		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     			showLeftPush = document.getElementById( 'showLeftPush' ),
     			body = document.body;
     			
@@ -1508,7 +1508,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- validar combo periodo -->
     	<script type="text/javascript">
     		function validacion() {
-    			let grado=document.getElementById('id_grado').value;
+    			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
     				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
     				return false;

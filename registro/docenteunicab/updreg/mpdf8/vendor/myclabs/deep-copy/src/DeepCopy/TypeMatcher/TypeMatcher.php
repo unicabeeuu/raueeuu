@@ -5,7 +5,7 @@ namespace DeepCopy\TypeMatcher;
 class TypeMatcher
 {
     /**
-     * @let string
+     * @var string
      */
     private $type;
 

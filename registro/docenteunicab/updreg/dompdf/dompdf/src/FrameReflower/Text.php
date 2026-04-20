@@ -22,19 +22,19 @@ class Text extends AbstractFrameReflower
 {
 
     /**
-     * @let BlockFrameDecorator
+     * @var BlockFrameDecorator
      */
     protected $_block_parent; // Nearest block-level ancestor
 
     /**
-     * @let TextFrameDecorator
+     * @var TextFrameDecorator
      */
     protected $_frame;
 
     public static $_whitespace_pattern = "/[ \t\r\n\f]+/u";
 
     /**
-     * @let FontMetrics
+     * @var FontMetrics
      */
     private $fontMetrics;
 

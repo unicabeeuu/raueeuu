@@ -149,7 +149,7 @@ if (isset($_SESSION['uniprofe'])) {
                     $("#divtabla").empty();
                     //$("#tbodyact").empty();
                     
-                    let gra = $("#selgra1").val();
+                    var gra = $("#selgra1").val();
             		$("#lblgra").html("Grado = " + gra);
                     
             		if(gra == "NA") {
@@ -167,7 +167,7 @@ if (isset($_SESSION['uniprofe'])) {
             function consultar_ranking() {
                 $("#divtabla").empty();
                 
-                let gra = $("#selgra1").val();
+                var gra = $("#selgra1").val();
                 //alert(gra);
                 $.ajax({
             		type:"POST",
@@ -183,7 +183,7 @@ if (isset($_SESSION['uniprofe'])) {
             function consultar_ranking1() {
                 $("#divtabla").empty();
                 
-                let gra = $("#selgra1").val();
+                var gra = $("#selgra1").val();
                 //alert(gra);
                 $.ajax({
             		type:"POST",
@@ -319,7 +319,7 @@ if (isset($_SESSION['uniprofe'])) {
 	    <!-- Classie --><!-- for toggle left push menu script -->
     	<script src="../../js/classie.js"></script>
     	<script>
-    		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     			showLeftPush = document.getElementById( 'showLeftPush' ),
     			body = document.body;
     			
@@ -365,7 +365,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- validar combo periodo -->
     	<script type="text/javascript">
     		function validacion() {
-    			let grado=document.getElementById('id_grado').value;
+    			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
     				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
     				return false;

@@ -119,7 +119,7 @@ if (!is_callable('RandomCompat_substr')) {
                  * mb_substr($str, 0, NULL, '8bit') returns an empty string on
                  * PHP 5.3, so we have to find the length ourselves.
                  */
-                /** @let int $length */
+                /** @var int $length */
                 $length = RandomCompat_strlen($binary_string) - $start;
             } elseif (!is_int($length)) {
                 throw new TypeError(

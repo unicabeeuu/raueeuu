@@ -18,7 +18,7 @@ use FontLib\BinaryStream;
  */
 class Table extends BinaryStream {
   /**
-   * @let DirectoryEntry
+   * @var DirectoryEntry
    */
   protected $entry;
   protected $def = array();

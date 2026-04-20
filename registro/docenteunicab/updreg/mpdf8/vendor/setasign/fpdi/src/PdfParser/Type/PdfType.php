@@ -72,7 +72,7 @@ class PdfType
     /**
      * The value of the PDF type.
      *
-     * @let mixed
+     * @var mixed
      */
     public $value;
 }

@@ -12,62 +12,62 @@ final class ResourceWriter implements \Psr\Log\LoggerAwareInterface
 	use Strict;
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Mpdf\Writer\BaseWriter
+	 * @var \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 
 	/**
-	 * @let \Mpdf\Writer\ColorWriter
+	 * @var \Mpdf\Writer\ColorWriter
 	 */
 	private $colorWriter;
 
 	/**
-	 * @let \Mpdf\Writer\FontWriter
+	 * @var \Mpdf\Writer\FontWriter
 	 */
 	private $fontWriter;
 
 	/**
-	 * @let \Mpdf\Writer\ImageWriter
+	 * @var \Mpdf\Writer\ImageWriter
 	 */
 	private $imageWriter;
 
 	/**
-	 * @let \Mpdf\Writer\FormWriter
+	 * @var \Mpdf\Writer\FormWriter
 	 */
 	private $formWriter;
 
 	/**
-	 * @let \Mpdf\Writer\OptionalContentWriter
+	 * @var \Mpdf\Writer\OptionalContentWriter
 	 */
 	private $optionalContentWriter;
 
 	/**
-	 * @let \Mpdf\Writer\BackgroundWriter
+	 * @var \Mpdf\Writer\BackgroundWriter
 	 */
 	private $backgroundWriter;
 
 	/**
-	 * @let \Mpdf\Writer\BookmarkWriter
+	 * @var \Mpdf\Writer\BookmarkWriter
 	 */
 	private $bookmarkWriter;
 
 	/**
-	 * @let \Mpdf\Writer\MetadataWriter
+	 * @var \Mpdf\Writer\MetadataWriter
 	 */
 	private $metadataWriter;
 
 	/**
-	 * @let \Mpdf\Writer\JavaScriptWriter
+	 * @var \Mpdf\Writer\JavaScriptWriter
 	 */
 	private $javaScriptWriter;
 
 	/**
-	 * @let \Psr\Log\LoggerInterface
+	 * @var \Psr\Log\LoggerInterface
 	 */
 	private $logger;
 

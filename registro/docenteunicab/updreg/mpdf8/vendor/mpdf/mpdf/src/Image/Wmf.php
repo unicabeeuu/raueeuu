@@ -9,17 +9,17 @@ class Wmf
 {
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Mpdf\Color\ColorConverter
+	 * @var \Mpdf\Color\ColorConverter
 	 */
 	private $colorConverter;
 
 	/**
-	 * @let array
+	 * @var array
 	 */
 	private $gdiObjectArray;
 

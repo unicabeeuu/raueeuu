@@ -106,10 +106,10 @@ class Style
 
         foreach ($stylesheets as $_sc) {
 
-            /** @let \Sabberworm\CSS\RuleSet\DeclarationBlock $_decl */
+            /** @var \Sabberworm\CSS\RuleSet\DeclarationBlock $_decl */
             foreach ($_sc->getAllDeclarationBlocks() as $_decl) {
 
-                /** @let \Sabberworm\CSS\Property\Selector $_selector */
+                /** @var \Sabberworm\CSS\Property\Selector $_selector */
                 foreach ($_decl->getSelectors() as $_selector) {
                     $_selector = $_selector->getSelector();
 
@@ -117,7 +117,7 @@ class Style
                     if ($class !== null) {
                         foreach ($class as $_class) {
                             if ($_selector === ".$_class") {
-                                /** @let \Sabberworm\CSS\Rule\Rule $_rule */
+                                /** @var \Sabberworm\CSS\Rule\Rule $_rule */
                                 foreach ($_decl->getRules() as $_rule) {
                                     $styles[$_rule->getRule()] = $_rule->getValue() . "";
                                 }
@@ -129,7 +129,7 @@ class Style
 
                     // Match tag name
                     if ($_selector === $tag->tagName) {
-                        /** @let \Sabberworm\CSS\Rule\Rule $_rule */
+                        /** @var \Sabberworm\CSS\Rule\Rule $_rule */
                         foreach ($_decl->getRules() as $_rule) {
                             $styles[$_rule->getRule()] = $_rule->getValue() . "";
                         }

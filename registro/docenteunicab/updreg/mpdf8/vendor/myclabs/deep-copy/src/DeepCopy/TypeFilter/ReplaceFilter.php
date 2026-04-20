@@ -8,7 +8,7 @@ namespace DeepCopy\TypeFilter;
 class ReplaceFilter implements TypeFilter
 {
     /**
-     * @let callable
+     * @var callable
      */
     protected $callback;
 

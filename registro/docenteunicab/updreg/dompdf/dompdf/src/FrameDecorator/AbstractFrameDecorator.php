@@ -36,56 +36,56 @@ abstract class AbstractFrameDecorator extends Frame
     /**
      * The root node of the DOM tree
      *
-     * @let Frame
+     * @var Frame
      */
     protected $_root;
 
     /**
      * The decorated frame
      *
-     * @let Frame
+     * @var Frame
      */
     protected $_frame;
 
     /**
      * AbstractPositioner object used to position this frame (Strategy pattern)
      *
-     * @let AbstractPositioner
+     * @var AbstractPositioner
      */
     protected $_positioner;
 
     /**
      * Reflower object used to calculate frame dimensions (Strategy pattern)
      *
-     * @let \Dompdf\FrameReflower\AbstractFrameReflower
+     * @var \Dompdf\FrameReflower\AbstractFrameReflower
      */
     protected $_reflower;
 
     /**
      * Reference to the current dompdf instance
      *
-     * @let Dompdf
+     * @var Dompdf
      */
     protected $_dompdf;
 
     /**
      * First block parent
      *
-     * @let Block
+     * @var Block
      */
     private $_block_parent;
 
     /**
      * First positionned parent (position: relative | absolute | fixed)
      *
-     * @let AbstractFrameDecorator
+     * @var AbstractFrameDecorator
      */
     private $_positionned_parent;
 
     /**
      * Cache for the get_parent while loop results
      *
-     * @let Frame
+     * @var Frame
      */
     private $_cached_parent;
 

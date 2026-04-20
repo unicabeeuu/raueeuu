@@ -23,7 +23,7 @@ class Cellmap
     /**
      * Border style weight lookup for collapsed border resolution.
      *
-     * @let array
+     * @var array
      */
     protected static $_BORDER_STYLE_SCORE = [
         "inset"  => 1,
@@ -41,84 +41,84 @@ class Cellmap
     /**
      * The table object this cellmap is attached to.
      *
-     * @let TableFrameDecorator
+     * @var TableFrameDecorator
      */
     protected $_table;
 
     /**
      * The total number of rows in the table
      *
-     * @let int
+     * @var int
      */
     protected $_num_rows;
 
     /**
      * The total number of columns in the table
      *
-     * @let int
+     * @var int
      */
     protected $_num_cols;
 
     /**
      * 2D array mapping <row,column> to frames
      *
-     * @let Frame[][]
+     * @var Frame[][]
      */
     protected $_cells;
 
     /**
      * 1D array of column dimensions
      *
-     * @let array
+     * @var array
      */
     protected $_columns;
 
     /**
      * 1D array of row dimensions
      *
-     * @let array
+     * @var array
      */
     protected $_rows;
 
     /**
      * 2D array of border specs
      *
-     * @let array
+     * @var array
      */
     protected $_borders;
 
     /**
      * 1D Array mapping frames to (multiple) <row, col> pairs, keyed on frame_id.
      *
-     * @let Frame[]
+     * @var Frame[]
      */
     protected $_frames;
 
     /**
      * Current column when adding cells, 0-based
      *
-     * @let int
+     * @var int
      */
     private $__col;
 
     /**
      * Current row when adding cells, 0-based
      *
-     * @let int
+     * @var int
      */
     private $__row;
 
     /**
      * Tells whether the columns' width can be modified
      *
-     * @let bool
+     * @var bool
      */
     private $_columns_locked = false;
 
     /**
      * Tells whether the table has table-layout:fixed
      *
-     * @let bool
+     * @var bool
      */
     private $_fixed_layout = false;
 
@@ -648,10 +648,10 @@ class Cellmap
 
             $val = null;
             if (Helpers::is_percent($width)) {
-                $let = "percent";
+                $var = "percent";
                 $val = (float)rtrim($width, "% ") / $colspan;
             } else if ($width !== "auto") {
-                $let = "absolute";
+                $var = "absolute";
                 $val = $style->length_in_pt($frame_min) / $colspan;
             }
 
@@ -662,7 +662,7 @@ class Cellmap
                 // Resolve the frame's width(s) with other cells
                 $col =& $this->get_column($this->__col + $cs);
 
-                // Note: $let is either 'percent' or 'absolute'.  We compare the
+                // Note: $var is either 'percent' or 'absolute'.  We compare the
                 // requested percentage or absolute values with the existing widths
                 // and adjust accordingly.
                 if (isset($var) && $val > $col[$var]) {

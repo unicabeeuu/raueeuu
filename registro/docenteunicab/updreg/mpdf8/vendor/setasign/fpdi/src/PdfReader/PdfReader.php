@@ -27,19 +27,19 @@ use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 class PdfReader
 {
     /**
-     * @let PdfParser
+     * @var PdfParser
      */
     protected $parser;
 
     /**
-     * @let int
+     * @var int
      */
     protected $pageCount;
 
     /**
      * Indirect objects of resolved pages.
      *
-     * @let PdfIndirectObjectReference[]|PdfIndirectObject[]
+     * @var PdfIndirectObjectReference[]|PdfIndirectObject[]
      */
     protected $pages = [];
 

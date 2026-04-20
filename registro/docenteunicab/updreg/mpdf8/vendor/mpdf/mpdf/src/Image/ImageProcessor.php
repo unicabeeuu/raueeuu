@@ -32,77 +32,77 @@ class ImageProcessor implements \Psr\Log\LoggerAwareInterface
 {
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Mpdf\Otl
+	 * @var \Mpdf\Otl
 	 */
 	private $otl;
 
 	/**
-	 * @let \Mpdf\CssManager
+	 * @var \Mpdf\CssManager
 	 */
 	private $cssManager;
 
 	/**
-	 * @let \Mpdf\SizeConverter
+	 * @var \Mpdf\SizeConverter
 	 */
 	private $sizeConverter;
 
 	/**
-	 * @let \Mpdf\Color\ColorConverter
+	 * @var \Mpdf\Color\ColorConverter
 	 */
 	private $colorConverter;
 
 	/**
-	 * @let \Mpdf\Color\ColorModeConverter
+	 * @var \Mpdf\Color\ColorModeConverter
 	 */
 	private $colorModeConverter;
 
 	/**
-	 * @let \Mpdf\Cache
+	 * @var \Mpdf\Cache
 	 */
 	private $cache;
 
 	/**
-	 * @let \Mpdf\Image\ImageTypeGuesser
+	 * @var \Mpdf\Image\ImageTypeGuesser
 	 */
 	private $guesser;
 
 	/**
-	 * @let string[]
+	 * @var string[]
 	 */
 	private $failedImages;
 
 	/**
-	 * @let \Mpdf\Image\Bmp
+	 * @var \Mpdf\Image\Bmp
 	 */
 	private $bmp;
 
 	/**
-	 * @let \Mpdf\Image\Wmf
+	 * @var \Mpdf\Image\Wmf
 	 */
 	private $wmf;
 
 	/**
-	 * @let \Mpdf\Language\LanguageToFontInterface
+	 * @var \Mpdf\Language\LanguageToFontInterface
 	 */
 	private $languageToFont;
 
 	/**
-	 * @let \Mpdf\Language\ScriptToLanguageInterface
+	 * @var \Mpdf\Language\ScriptToLanguageInterface
 	 */
 	public $scriptToLanguage;
 
 	/**
-	 * @let \Mpdf\RemoteContentFetcher
+	 * @var \Mpdf\RemoteContentFetcher
 	 */
 	private $remoteContentFetcher;
 
 	/**
-	 * @let \Psr\Log\LoggerInterface
+	 * @var \Psr\Log\LoggerInterface
 	 */
 	public $logger;
 

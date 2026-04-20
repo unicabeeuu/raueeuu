@@ -16,7 +16,7 @@ namespace setasign\Fpdi\PdfParser\Filter;
 class LzwException extends FilterException
 {
     /**
-     * @let integer
+     * @var integer
      */
     const LZW_FLAVOUR_NOT_SUPPORTED = 0x0501;
 }

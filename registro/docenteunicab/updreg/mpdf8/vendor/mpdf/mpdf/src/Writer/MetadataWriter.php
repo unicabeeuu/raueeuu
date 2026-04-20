@@ -17,27 +17,27 @@ class MetadataWriter implements \Psr\Log\LoggerAwareInterface
 	use Strict;
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Mpdf\Writer\BaseWriter
+	 * @var \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 
 	/**
-	 * @let \Mpdf\Form
+	 * @var \Mpdf\Form
 	 */
 	private $form;
 
 	/**
-	 * @let \Mpdf\Pdf\Protection
+	 * @var \Mpdf\Pdf\Protection
 	 */
 	private $protection;
 
 	/**
-	 * @let \Psr\Log\LoggerInterface
+	 * @var \Psr\Log\LoggerInterface
 	 */
 	private $logger;
 

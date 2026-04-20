@@ -16,14 +16,14 @@ namespace setasign\Fpdi\PdfParser;
 class Tokenizer
 {
     /**
-     * @let StreamReader
+     * @var StreamReader
      */
     protected $streamReader;
 
     /**
      * A token stack.
      *
-     * @let string[]
+     * @var string[]
      */
     protected $stack = [];
 

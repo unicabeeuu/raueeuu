@@ -15,17 +15,17 @@ use Dompdf\Frame;
 class FrameTreeIterator implements Iterator
 {
     /**
-     * @let Frame
+     * @var Frame
      */
     protected $_root;
 
     /**
-     * @let array
+     * @var array
      */
     protected $_stack = [];
 
     /**
-     * @let int
+     * @var int
      */
     protected $_num;
 

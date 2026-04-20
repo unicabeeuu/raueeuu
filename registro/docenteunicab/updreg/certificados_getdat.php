@@ -114,7 +114,7 @@ if (isset($_SESSION['uniprofe'])) {
             
             $(function() {
                 //Se valida el id del empleador para mostrar la opci¨®n de generar certificados
-                let idemp = $("#idemp").val();
+                var idemp = $("#idemp").val();
                 if(idemp == 18 || idemp == 40) {
                     
                 }
@@ -130,7 +130,7 @@ if (isset($_SESSION['uniprofe'])) {
                     $("#idest").val("0");
                     $("#submit1").hide("");
                     
-                    let gra = $("#selgra1").val();
+                    var gra = $("#selgra1").val();
             		$("#lblgra").html("Grado = " + gra);
                     
             		if(gra == "NA") {
@@ -144,7 +144,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    $("#idest").show("");
             		    $("#periodo").show("");
             		}
-            		//let selna = "NA";
+            		//var selna = "NA";
             		//$("#selgra2 option[value='" + selna + "']").attr("selected",true);
             	});
             	
@@ -156,7 +156,7 @@ if (isset($_SESSION['uniprofe'])) {
                     $("#idest").hide("");
                     $("#periodo").hide("");
                     
-                    let gra = $("#selgra2").val();
+                    var gra = $("#selgra2").val();
             		$("#lblgra1").html("Grado = " + gra);
                     
             		if(gra == "NA") {
@@ -182,8 +182,8 @@ if (isset($_SESSION['uniprofe'])) {
             });
             
             function consultar_cert() {
-                let idgra = $("#selgra2").val();
-                let anio = $("#idanio").val();
+                var idgra = $("#selgra2").val();
+                var anio = $("#idanio").val();
                 
                 //alert (anio);
                 $.ajax({
@@ -199,7 +199,7 @@ if (isset($_SESSION['uniprofe'])) {
             }
             
             function validar_per() {
-                let per = $("#peridodo").val();
+                var per = $("#peridodo").val();
                 alert(per);
                 if(per > 1 && per < 5) {
                     $("#submit").show("");
@@ -326,7 +326,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- Classie --><!-- for toggle left push menu script -->
     	<script src="../../js/classie.js"></script>
     	<script>
-    		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     			showLeftPush = document.getElementById( 'showLeftPush' ),
     			body = document.body;
     			
@@ -372,7 +372,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- validar combo periodo -->
     	<script type="text/javascript">
     		function validacion() {
-    			let grado=document.getElementById('id_grado').value;
+    			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
     				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
     				return false;

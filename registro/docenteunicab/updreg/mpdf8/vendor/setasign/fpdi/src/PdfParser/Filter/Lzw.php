@@ -16,47 +16,47 @@ namespace setasign\Fpdi\PdfParser\Filter;
 class Lzw implements FilterInterface
 {
     /**
-     * @let null|string
+     * @var null|string
      */
     protected $data;
 
     /**
-     * @let array
+     * @var array
      */
     protected $sTable = [];
 
     /**
-     * @let int
+     * @var int
      */
     protected $dataLength = 0;
 
     /**
-     * @let int
+     * @var int
      */
     protected $tIdx;
 
     /**
-     * @let int
+     * @var int
      */
     protected $bitsToGet = 9;
 
     /**
-     * @let int
+     * @var int
      */
     protected $bytePointer;
 
     /**
-     * @let int
+     * @var int
      */
     protected $nextData = 0;
 
     /**
-     * @let int
+     * @var int
      */
     protected $nextBits = 0;
 
     /**
-     * @let array
+     * @var array
      */
     protected $andTable = [511, 1023, 2047, 4095];
 

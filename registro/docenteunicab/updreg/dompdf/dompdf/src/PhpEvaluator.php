@@ -16,7 +16,7 @@ class PhpEvaluator
 {
 
     /**
-     * @let Canvas
+     * @var Canvas
      */
     protected $_canvas;
 

@@ -57,7 +57,7 @@ use Psr\Log\AbstractLogger;
 class TestLogger extends AbstractLogger
 {
     /**
-     * @let array
+     * @var array
      */
     public $records = [];
 

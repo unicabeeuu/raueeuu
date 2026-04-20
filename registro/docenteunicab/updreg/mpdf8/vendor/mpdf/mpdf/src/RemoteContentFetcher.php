@@ -10,12 +10,12 @@ class RemoteContentFetcher implements \Psr\Log\LoggerAwareInterface
 {
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Psr\Log\LoggerInterface
+	 * @var \Psr\Log\LoggerInterface
 	 */
 	private $logger;
 

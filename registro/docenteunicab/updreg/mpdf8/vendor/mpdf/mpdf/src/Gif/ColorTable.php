@@ -15,9 +15,9 @@ namespace Mpdf\Gif;
 class ColorTable
 {
 
-	let $m_nColors;
+	var $m_nColors;
 
-	let $m_arColors;
+	var $m_arColors;
 
 	public function __construct()
 	{

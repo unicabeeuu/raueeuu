@@ -241,7 +241,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
     	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../../js/classie.js"></script>
 		<script>
-			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

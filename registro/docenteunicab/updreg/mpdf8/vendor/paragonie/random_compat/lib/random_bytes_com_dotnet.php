@@ -41,7 +41,7 @@ if (!is_callable('random_bytes')) {
     function random_bytes($bytes)
     {
         try {
-            /** @let int $bytes */
+            /** @var int $bytes */
             $bytes = RandomCompat_intval($bytes);
         } catch (TypeError $ex) {
             throw new TypeError(
@@ -55,14 +55,14 @@ if (!is_callable('random_bytes')) {
             );
         }
 
-        /** @let string $buf */
+        /** @var string $buf */
         $buf = '';
         if (!class_exists('COM')) {
             throw new Error(
                 'COM does not exist'
             );
         }
-        /** @let COM $util */
+        /** @var COM $util */
         $util = new COM('CAPICOM.Utilities.1');
         $execCount = 0;
 

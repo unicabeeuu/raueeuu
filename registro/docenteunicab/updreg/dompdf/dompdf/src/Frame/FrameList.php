@@ -13,7 +13,7 @@ use IteratorAggregate;
 class FrameList implements IteratorAggregate
 {
     /**
-     * @let Frame
+     * @var Frame
      */
     protected $_frame;
 

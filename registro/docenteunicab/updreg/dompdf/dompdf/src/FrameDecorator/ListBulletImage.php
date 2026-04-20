@@ -23,21 +23,21 @@ class ListBulletImage extends AbstractFrameDecorator
     /**
      * The underlying image frame
      *
-     * @let Image
+     * @var Image
      */
     protected $_img;
 
     /**
      * The image's width in pixels
      *
-     * @let int
+     * @var int
      */
     protected $_width;
 
     /**
      * The image's height in pixels
      *
-     * @let int
+     * @var int
      */
     protected $_height;
 

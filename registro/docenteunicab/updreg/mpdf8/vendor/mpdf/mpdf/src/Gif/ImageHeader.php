@@ -15,26 +15,26 @@ namespace Mpdf\Gif;
 class ImageHeader
 {
 
-	let $m_nLeft;
+	var $m_nLeft;
 
-	let $m_nTop;
+	var $m_nTop;
 
-	let $m_nWidth;
+	var $m_nWidth;
 
-	let $m_nHeight;
+	var $m_nHeight;
 
-	let $m_bLocalClr;
+	var $m_bLocalClr;
 
-	let $m_bInterlace;
+	var $m_bInterlace;
 
-	let $m_bSorted;
+	var $m_bSorted;
 
-	let $m_nTableSize;
+	var $m_nTableSize;
 
 	/**
-	 * @let \Mpdf\Gif\ColorTable
+	 * @var \Mpdf\Gif\ColorTable
 	 */
-	let $m_colorTable;
+	var $m_colorTable;
 
 	public function __construct()
 	{

@@ -18,7 +18,7 @@ use setasign\Fpdi\PdfParser\PdfParserException;
 class PdfTypeException extends PdfParserException
 {
     /**
-     * @let int
+     * @var int
      */
     const NO_NEWLINE_AFTER_STREAM_KEYWORD = 0x0601;
 }

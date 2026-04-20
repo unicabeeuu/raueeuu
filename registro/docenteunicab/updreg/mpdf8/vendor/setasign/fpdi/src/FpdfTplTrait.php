@@ -20,21 +20,21 @@ trait FpdfTplTrait
     /**
      * Data of all created templates.
      *
-     * @let array
+     * @var array
      */
     protected $templates = [];
 
     /**
      * The template id for the currently created template.
      *
-     * @let null|int
+     * @var null|int
      */
     protected $currentTemplateId;
 
     /**
      * A counter for template ids.
      *
-     * @let int
+     * @var int
      */
     protected $templateId = 0;
 

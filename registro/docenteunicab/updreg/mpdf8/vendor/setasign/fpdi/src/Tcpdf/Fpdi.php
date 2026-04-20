@@ -47,14 +47,14 @@ class Fpdi extends \TCPDF
     /**
      * A counter for template ids.
      *
-     * @let int
+     * @var int
      */
     protected $templateId = 0;
 
     /**
      * The currently used object number.
      *
-     * @let int|null
+     * @var int|null
      */
     protected $currentObjectNumber;
 
@@ -260,7 +260,7 @@ class Fpdi extends \TCPDF
             $value = PdfStream::create($dictionary, $stream);
         } elseif ($value instanceof PdfIndirectObject) {
             /**
-             * @let PdfIndirectObject $value
+             * @var PdfIndirectObject $value
              */
             $this->currentObjectNumber = $this->objectMap[$this->currentReaderId][$value->objectNumber];
         }

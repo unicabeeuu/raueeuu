@@ -53,7 +53,7 @@ if (!is_callable('RandomCompat_intval')) {
             /** @psalm-suppress InvalidOperand */
             $number += 0;
         }
-        /** @let int|float $number */
+        /** @var int|float $number */
 
         if (
             is_float($number)

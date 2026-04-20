@@ -46,7 +46,7 @@ class PdfIndirectObjectReference extends PdfType
     /**
      * The generation number.
      *
-     * @let int
+     * @var int
      */
     public $generationNumber;
 }

@@ -2,7 +2,7 @@
 /**
  * @package php-svg-lib
  * @link    http://github.com/PhenX/php-svg-lib
- * @author  Fabien Mï¿½nager <fabien.menager@gmail.com>
+ * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license GNU LGPLv3+ http://www.gnu.org/copyleft/lesser.html
  */
 
@@ -13,19 +13,19 @@ use Svg\Style;
 
 abstract class AbstractTag
 {
-    /** @let Document */
+    /** @var Document */
     protected $document;
 
     public $tagName;
 
-    /** @let Style */
+    /** @var Style */
     protected $style;
 
     protected $attributes = array();
 
     protected $hasShape = true;
 
-    /** @let self[] */
+    /** @var self[] */
     protected $children = array();
 
     public function __construct(Document $document, $tagName)

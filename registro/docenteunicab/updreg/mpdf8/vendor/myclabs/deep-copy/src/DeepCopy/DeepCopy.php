@@ -23,31 +23,31 @@ use SplDoublyLinkedList;
 class DeepCopy
 {
     /**
-     * @let object[] List of objects copied.
+     * @var object[] List of objects copied.
      */
     private $hashMap = [];
 
     /**
      * Filters to apply.
      *
-     * @let array Array of ['filter' => Filter, 'matcher' => Matcher] pairs.
+     * @var array Array of ['filter' => Filter, 'matcher' => Matcher] pairs.
      */
     private $filters = [];
 
     /**
      * Type Filters to apply.
      *
-     * @let array Array of ['filter' => Filter, 'matcher' => Matcher] pairs.
+     * @var array Array of ['filter' => Filter, 'matcher' => Matcher] pairs.
      */
     private $typeFilters = [];
 
     /**
-     * @let bool
+     * @var bool
      */
     private $skipUncloneable = false;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $useCloneMethod;
 
@@ -209,9 +209,9 @@ class DeepCopy
 
         // Apply the filters
         foreach ($this->filters as $item) {
-            /** @let Matcher $matcher */
+            /** @var Matcher $matcher */
             $matcher = $item['matcher'];
-            /** @let Filter $filter */
+            /** @var Filter $filter */
             $filter = $item['filter'];
 
             if ($matcher->matches($object, $property->getName())) {
@@ -240,7 +240,8 @@ class DeepCopy
      *
      * @param array $filterRecords Associative array with 2 members: 'filter' with value of type {@see TypeFilter} and
      *                             'matcher' with value of type {@see TypeMatcher}
-     * @param mixed $let *
+     * @param mixed $var
+     *
      * @return TypeFilter|null
      */
     private function getFirstMatchedTypeFilter(array $filterRecords, $var)
@@ -248,7 +249,7 @@ class DeepCopy
         $matched = $this->first(
             $filterRecords,
             function (array $record) use ($var) {
-                /* @let TypeMatcher $matcher */
+                /* @var TypeMatcher $matcher */
                 $matcher = $record['matcher'];
 
                 return $matcher->matches($var);

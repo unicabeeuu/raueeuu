@@ -48,42 +48,42 @@ trait FpdiTrait
     /**
      * The pdf reader instances.
      *
-     * @let PdfReader[]
+     * @var PdfReader[]
      */
     protected $readers = [];
 
     /**
      * Instances created internally.
      *
-     * @let array
+     * @var array
      */
     protected $createdReaders = [];
 
     /**
      * The current reader id.
      *
-     * @let string|null
+     * @var string|null
      */
     protected $currentReaderId;
 
     /**
      * Data of all imported pages.
      *
-     * @let array
+     * @var array
      */
     protected $importedPages = [];
 
     /**
      * A map from object numbers of imported objects to new assigned object numbers by FPDF.
      *
-     * @let array
+     * @var array
      */
     protected $objectMap = [];
 
     /**
      * An array with information about objects, which needs to be copied to the resulting document.
      *
-     * @let array
+     * @var array
      */
     protected $objectsToCopy = [];
 
@@ -341,7 +341,7 @@ trait FpdiTrait
         ) {
             if ($contentsIsStream) {
                 /**
-                 * @let PdfIndirectObject $contentsObject
+                 * @var PdfIndirectObject $contentsObject
                  */
                 $stream = $contents;
             } else {
@@ -521,7 +521,7 @@ trait FpdiTrait
             $this->_put('null ');
         } elseif ($value instanceof PdfStream) {
             /**
-             * @let $value PdfStream
+             * @var $value PdfStream
              */
             $this->writePdfType($value->value);
             $this->_put('stream');
@@ -540,7 +540,7 @@ trait FpdiTrait
             $this->_put($this->objectMap[$this->currentReaderId][$value->value] . ' 0 R ', false);
         } elseif ($value instanceof PdfIndirectObject) {
             /**
-             * @let PdfIndirectObject $value
+             * @var PdfIndirectObject $value
              */
             $n = $this->objectMap[$this->currentReaderId][$value->objectNumber];
             $this->_newobj($n);

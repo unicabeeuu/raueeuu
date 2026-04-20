@@ -28,22 +28,22 @@ class CrossReference
     /**
      * The byte length in which the "startxref" keyword should be searched.
      *
-     * @let int
+     * @var int
      */
     public static $trailerSearchLength = 5500;
 
     /**
-     * @let int
+     * @var int
      */
     protected $fileHeaderOffset = 0;
 
     /**
-     * @let PdfParser
+     * @var PdfParser
      */
     protected $parser;
 
     /**
-     * @let ReaderInterface[]
+     * @var ReaderInterface[]
      */
     protected $readers = [];
 
@@ -89,7 +89,7 @@ class CrossReference
         // fix faulty sub-section header
         if ($reader instanceof FixedReader) {
             /**
-             * @let FixedReader $reader
+             * @var FixedReader $reader
              */
             $reader->fixFaultySubSectionShift();
         }
@@ -170,7 +170,7 @@ class CrossReference
         $parser->getStreamReader()->reset($offset + $this->fileHeaderOffset);
 
         try {
-            /** @let PdfIndirectObject $object */
+            /** @var PdfIndirectObject $object */
             $object = $parser->readValue(null, PdfIndirectObject::class);
         } catch (PdfTypeException $e) {
             throw new CrossReferenceException(

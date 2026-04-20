@@ -23,14 +23,14 @@ class Page extends AbstractFrameReflower
     /**
      * Cache of the callbacks array
      *
-     * @let array
+     * @var array
      */
     private $_callbacks;
 
     /**
      * Cache of the canvas
      *
-     * @let \Dompdf\Canvas
+     * @var \Dompdf\Canvas
      */
     private $_canvas;
 

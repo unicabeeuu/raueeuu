@@ -107,21 +107,21 @@ class PdfStream extends PdfType
     /**
      * The stream or its byte-offset position.
      *
-     * @let int|string
+     * @var int|string
      */
     protected $stream;
 
     /**
      * The stream reader instance.
      *
-     * @let StreamReader|null
+     * @var StreamReader|null
      */
     protected $reader;
 
     /**
      * The PDF parser instance.
      *
-     * @let PdfParser
+     * @var PdfParser
      */
     protected $parser;
 

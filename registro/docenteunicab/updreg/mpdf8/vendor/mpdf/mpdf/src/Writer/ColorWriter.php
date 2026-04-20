@@ -11,12 +11,12 @@ final class ColorWriter
 	use Strict;
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Mpdf\Writer\BaseWriter
+	 * @var \Mpdf\Writer\BaseWriter
 	 */
 	private $writer;
 

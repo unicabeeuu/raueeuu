@@ -16,52 +16,52 @@ class Tag
 	use Strict;
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Mpdf\Cache
+	 * @var \Mpdf\Cache
 	 */
 	private $cache;
 
 	/**
-	 * @let \Mpdf\CssManager
+	 * @var \Mpdf\CssManager
 	 */
 	private $cssManager;
 
 	/**
-	 * @let \Mpdf\Form
+	 * @var \Mpdf\Form
 	 */
 	private $form;
 
 	/**
-	 * @let \Mpdf\Otl
+	 * @var \Mpdf\Otl
 	 */
 	private $otl;
 
 	/**
-	 * @let \Mpdf\TableOfContents
+	 * @var \Mpdf\TableOfContents
 	 */
 	private $tableOfContents;
 
 	/**
-	 * @let \Mpdf\SizeConverter
+	 * @var \Mpdf\SizeConverter
 	 */
 	private $sizeConverter;
 
 	/**
-	 * @let \Mpdf\Color\ColorConverter
+	 * @var \Mpdf\Color\ColorConverter
 	 */
 	private $colorConverter;
 
 	/**
-	 * @let \Mpdf\Image\ImageProcessor
+	 * @var \Mpdf\Image\ImageProcessor
 	 */
 	private $imageProcessor;
 
 	/**
-	 * @let \Mpdf\Language\LanguageToFontInterface
+	 * @var \Mpdf\Language\LanguageToFontInterface
 	 */
 	private $languageToFont;
 

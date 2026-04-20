@@ -32,14 +32,14 @@ trait FpdiTrait
 	/**
 	 * The currently used object number.
 	 *
-	 * @let int
+	 * @var int
 	 */
 	public $currentObjectNumber;
 
 	/**
 	 * A counter for template ids.
 	 *
-	 * @let int
+	 * @var int
 	 */
 	protected $templateId = 0;
 
@@ -361,7 +361,7 @@ trait FpdiTrait
 		if (!$this->encrypted) {
 			if ($value instanceof PdfIndirectObject) {
 				/**
-				 * @let $value PdfIndirectObject
+				 * @var $value PdfIndirectObject
 				 */
 				$n = $this->objectMap[$this->currentReaderId][$value->objectNumber];
 				$this->writer->object($n);
@@ -394,11 +394,11 @@ trait FpdiTrait
 
 		} elseif ($value instanceof PdfIndirectObject) {
 			/**
-			 * @let $value PdfIndirectObject
+			 * @var $value PdfIndirectObject
 			 */
 			$this->currentObjectNumber = $this->objectMap[$this->currentReaderId][$value->objectNumber];
 			/**
-			 * @let $value PdfIndirectObject
+			 * @var $value PdfIndirectObject
 			 */
 			$n = $this->objectMap[$this->currentReaderId][$value->objectNumber];
 			$this->writer->object($n);

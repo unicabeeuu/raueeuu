@@ -35,21 +35,21 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 class HTML5_Tokenizer {
     /**
-     * @let HTML5_InputStream
+     * @var HTML5_InputStream
      *
      * Points to an InputStream object.
      */
     protected $stream;
 
     /**
-     * @let HTML5_TreeBuilder
+     * @var HTML5_TreeBuilder
      *
      * Tree builder that the tokenizer emits token to.
      */
     private $tree;
 
     /**
-     * @let int
+     * @var int
      *
      * Current content model we are parsing as.
      */

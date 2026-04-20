@@ -41,21 +41,21 @@ class Table extends AbstractFrameDecorator
      * The Cellmap object for this table.  The cellmap maps table cells
      * to rows and columns, and aids in calculating column widths.
      *
-     * @let \Dompdf\Cellmap
+     * @var \Dompdf\Cellmap
      */
     protected $_cellmap;
 
     /**
      * The minimum width of the table, in pt
      *
-     * @let float
+     * @var float
      */
     protected $_min_width;
 
     /**
      * The maximum width of the table, in pt
      *
-     * @let float
+     * @var float
      */
     protected $_max_width;
 
@@ -63,7 +63,7 @@ class Table extends AbstractFrameDecorator
      * Table header rows.  Each table header is duplicated when a table
      * spans pages.
      *
-     * @let array
+     * @var array
      */
     protected $_headers;
 
@@ -71,7 +71,7 @@ class Table extends AbstractFrameDecorator
      * Table footer rows.  Each table footer is duplicated when a table
      * spans pages.
      *
-     * @let array
+     * @var array
      */
     protected $_footers;
 

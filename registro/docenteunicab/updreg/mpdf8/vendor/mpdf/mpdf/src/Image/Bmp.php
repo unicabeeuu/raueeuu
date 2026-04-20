@@ -8,7 +8,7 @@ class Bmp
 {
 
 	/**
-	 * @let Mpdf
+	 * @var Mpdf
 	 */
 	private $mpdf;
 
@@ -269,7 +269,8 @@ class Bmp
 								$c = ord($str[++$i]);
 								$pixels[] = ($c & 240) >> 4;
 							} else {
-								$pixels[] = $c & 15; //FIXME: undefined let }
+								$pixels[] = $c & 15; //FIXME: undefined var
+							}
 						}
 						if ($num % 2) {
 							$i++;

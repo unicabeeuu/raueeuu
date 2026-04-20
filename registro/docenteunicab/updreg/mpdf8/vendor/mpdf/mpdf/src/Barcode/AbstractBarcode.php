@@ -6,7 +6,7 @@ abstract class AbstractBarcode
 {
 
 	/**
-	 * @let mixed[]
+	 * @var mixed[]
 	 */
 	protected $data;
 

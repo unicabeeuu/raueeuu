@@ -16,12 +16,12 @@ namespace setasign\Fpdi\PdfParser\Filter;
 class FlateException extends FilterException
 {
     /**
-     * @let integer
+     * @var integer
      */
     const NO_ZLIB = 0x0401;
 
     /**
-     * @let integer
+     * @var integer
      */
     const DECOMPRESS_ERROR = 0x0402;
 }

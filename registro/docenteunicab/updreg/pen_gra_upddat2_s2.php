@@ -43,8 +43,8 @@
 		<title></title>
 		<!--<script>
 			function add_resumen(elemento) {
-				 let u1 = document.getElementsByTagName("ul")[0];
-				 let li1 = document.createElement("li");
+				 var u1 = document.getElementsByTagName("ul")[0];
+				 var li1 = document.createElement("li");
 				 li1.textContent = elemento;
 				 u1.appendChild(li1);
 			}

@@ -12,40 +12,40 @@ class CssManager
 {
 
 	/**
-	 * @let \Mpdf\Mpdf
+	 * @var \Mpdf\Mpdf
 	 */
 	private $mpdf;
 
 	/**
-	 * @let \Mpdf\Cache
+	 * @var \Mpdf\Cache
 	 */
 	private $cache;
 
 	/**
-	 * @let \Mpdf\SizeConverter
+	 * @var \Mpdf\SizeConverter
 	 */
 	private $sizeConverter;
 
 	/**
-	 * @let \Mpdf\Color\ColorConverter
+	 * @var \Mpdf\Color\ColorConverter
 	 */
 	private $colorConverter;
 
-	let $tablecascadeCSS;
+	var $tablecascadeCSS;
 
-	let $cascadeCSS;
+	var $cascadeCSS;
 
-	let $CSS;
+	var $CSS;
 
-	let $tbCSSlvl;
+	var $tbCSSlvl;
 
-	let $cell_border_dominance_B;
+	var $cell_border_dominance_B;
 
-	let $cell_border_dominance_L;
+	var $cell_border_dominance_L;
 
-	let $cell_border_dominance_R;
+	var $cell_border_dominance_R;
 
-	let $cell_border_dominance_T;
+	var $cell_border_dominance_T;
 
 	public function __construct(Mpdf $mpdf, Cache $cache, SizeConverter $sizeConverter, ColorConverter $colorConverter)
 	{

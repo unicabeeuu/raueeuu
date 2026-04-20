@@ -28,85 +28,85 @@ class Otl
 
 	private $fontCache;
 
-	let $arabLeftJoining;
+	var $arabLeftJoining;
 
-	let $arabRightJoining;
+	var $arabRightJoining;
 
-	let $arabTransparentJoin;
+	var $arabTransparentJoin;
 
-	let $arabTransparent;
+	var $arabTransparent;
 
-	let $GSUBdata;
+	var $GSUBdata;
 
-	let $GPOSdata;
+	var $GPOSdata;
 
-	let $GSUBfont;
+	var $GSUBfont;
 
-	let $fontkey;
+	var $fontkey;
 
-	let $ttfOTLdata;
+	var $ttfOTLdata;
 
-	let $glyphIDtoUni;
+	var $glyphIDtoUni;
 
-	let $_pos;
+	var $_pos;
 
-	let $GSUB_offset;
+	var $GSUB_offset;
 
-	let $GPOS_offset;
+	var $GPOS_offset;
 
-	let $MarkAttachmentType;
+	var $MarkAttachmentType;
 
-	let $MarkGlyphSets;
+	var $MarkGlyphSets;
 
-	let $GlyphClassMarks;
+	var $GlyphClassMarks;
 
-	let $GlyphClassLigatures;
+	var $GlyphClassLigatures;
 
-	let $GlyphClassBases;
+	var $GlyphClassBases;
 
-	let $GlyphClassComponents;
+	var $GlyphClassComponents;
 
-	let $Ignores;
+	var $Ignores;
 
-	let $LuCoverage;
+	var $LuCoverage;
 
-	let $OTLdata;
+	var $OTLdata;
 
-	let $assocLigs;
+	var $assocLigs;
 
-	let $assocMarks;
+	var $assocMarks;
 
-	let $shaper;
+	var $shaper;
 
-	let $restrictToSyllable;
+	var $restrictToSyllable;
 
-	let $lbdicts; // Line-breaking dictionaries
+	var $lbdicts; // Line-breaking dictionaries
 
-	let $LuDataCache;
+	var $LuDataCache;
 
-	let $arabGlyphs;
+	var $arabGlyphs;
 
-	let $current_fh;
+	var $current_fh;
 
-	let $Entry;
+	var $Entry;
 
-	let $Exit;
+	var $Exit;
 
-	let $GDEFdata;
+	var $GDEFdata;
 
-	let $GPOSLookups;
+	var $GPOSLookups;
 
-	let $GSLuCoverage;
+	var $GSLuCoverage;
 
-	let $GSUB_length;
+	var $GSUB_length;
 
-	let $GSUBLookups;
+	var $GSUBLookups;
 
-	let $schOTLdata;
+	var $schOTLdata;
 
-	let $lastBidiStrongType;
+	var $lastBidiStrongType;
 
-	let $debugOTL = false;
+	var $debugOTL = false;
 
 	public function __construct(Mpdf $mpdf, FontCache $fontCache)
 	{

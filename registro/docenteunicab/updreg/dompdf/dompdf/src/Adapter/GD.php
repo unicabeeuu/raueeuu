@@ -24,98 +24,98 @@ use Dompdf\Helpers;
 class GD implements Canvas
 {
     /**
-     * @let Dompdf
+     * @var Dompdf
      */
     protected $_dompdf;
 
     /**
      * Resource handle for the image
      *
-     * @let resource
+     * @var resource
      */
     protected $_img;
 
     /**
      * Resource handle for the image
      *
-     * @let resource[]
+     * @var resource[]
      */
     protected $_imgs;
 
     /**
      * Apparent canvas width in pixels
      *
-     * @let int
+     * @var int
      */
     protected $_width;
 
     /**
      * Apparent canvas height in pixels
      *
-     * @let int
+     * @var int
      */
     protected $_height;
 
     /**
      * Actual image width in pixels
      *
-     * @let int
+     * @var int
      */
     protected $_actual_width;
 
     /**
      * Actual image height in pixels
      *
-     * @let int
+     * @var int
      */
     protected $_actual_height;
 
     /**
      * Current page number
      *
-     * @let int
+     * @var int
      */
     protected $_page_number;
 
     /**
      * Total number of pages
      *
-     * @let int
+     * @var int
      */
     protected $_page_count;
 
     /**
      * Image antialias factor
      *
-     * @let float
+     * @var float
      */
     protected $_aa_factor;
 
     /**
      * Allocated colors
      *
-     * @let array
+     * @var array
      */
     protected $_colors;
 
     /**
      * Background color
      *
-     * @let int
+     * @var int
      */
     protected $_bg_color;
 
     /**
      * Background color array
      *
-     * @let int
+     * @var int
      */
     protected $_bg_color_array;
 
     /**
      * Actual DPI
      *
-     * @let int
+     * @var int
      */
     protected $dpi;
 
@@ -125,7 +125,7 @@ class GD implements Canvas
      * Font sizes are 72 DPI, GD internally uses 96. Scale them proportionally.
      * 72 / 96 = 0.75.
      *
-     * @let float
+     * @var float
      */
     const FONT_SCALE = 0.75;
 

@@ -20,7 +20,7 @@ class SurfacePDFLib implements SurfaceInterface
     private $width;
     private $height;
 
-    /** @let Style */
+    /** @var Style */
     private $style;
 
     public function __construct(Document $doc, $canvas = null)

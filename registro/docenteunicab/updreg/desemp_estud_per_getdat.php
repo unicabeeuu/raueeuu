@@ -114,14 +114,14 @@ if (isset($_SESSION['uniprofe'])) {
                 $("#selgra1").change(function() {
                     $("#resul_bus").hide("");
                     
-                    let gra = $("#selgra1").val();
+                    var gra = $("#selgra1").val();
                     //alert (gra);
             		
             		if(gra == "NA") {
             			$("#submit").hide("");
             		}
             		else {
-            		    let per = $("#selper1").val();
+            		    var per = $("#selper1").val();
                 		if(per == "0") {
                 			$("#submit").hide("");
                 		}
@@ -133,13 +133,13 @@ if (isset($_SESSION['uniprofe'])) {
             	$("#selper1").change(function() {
             	    $("#resul_bus").hide("");
             	    
-                    let per = $("#selper1").val();
+                    var per = $("#selper1").val();
             		
             		if(per == "0") {
             			$("#submit").hide("");
             		}
             		else {
-            		    let gra = $("#selgra1").val();
+            		    var gra = $("#selgra1").val();
                 		if(gra == "NA") {
                 			$("#submit").hide("");
                 		}
@@ -152,7 +152,7 @@ if (isset($_SESSION['uniprofe'])) {
             	$(".accordion-titulo1").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content1");
+                    var contenido=$(this).next(".accordion-content1");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -171,7 +171,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $(".accordion-titulo2").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content2");
+                    var contenido=$(this).next(".accordion-content2");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -190,7 +190,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $(".accordion-titulo3").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content3");
+                    var contenido=$(this).next(".accordion-content3");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -209,7 +209,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $(".accordion-titulo4").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content4");
+                    var contenido=$(this).next(".accordion-content4");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -228,7 +228,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $(".accordion-titulo5").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content5");
+                    var contenido=$(this).next(".accordion-content5");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -247,7 +247,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $(".accordion-titulo6").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content6");
+                    var contenido=$(this).next(".accordion-content6");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -266,7 +266,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $(".accordion-titulo7").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content7");
+                    var contenido=$(this).next(".accordion-content7");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -285,7 +285,7 @@ if (isset($_SESSION['uniprofe'])) {
                 $(".accordion-titulo8").click(function(e){
                     e.preventDefault();
                 
-                    let contenido=$(this).next(".accordion-content8");
+                    var contenido=$(this).next(".accordion-content8");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -307,7 +307,7 @@ if (isset($_SESSION['uniprofe'])) {
             
             function consultar_desemp() {
                 //alert("hola");
-                let data = "per=" + $("#selper1").val() + "&idgra=" + $("#selgra1").val() + "&selgrupo=" + $("#selgrupo").val();
+                var data = "per=" + $("#selper1").val() + "&idgra=" + $("#selgra1").val() + "&selgrupo=" + $("#selgrupo").val();
                 //alert(data);
                 
                 $("#divtabla").empty();
@@ -320,7 +320,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot").html();
+            			var stot = $("#stot").html();
             			if(stot == "0") {
             			    $(".accordion-titulo1").hide();
             			}
@@ -343,7 +343,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla1").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot1").html();
+            			var stot = $("#stot1").html();
             			if(stot == "0") {
             			    $(".accordion-titulo2").hide();
             			}
@@ -365,7 +365,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla2").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot2").html();
+            			var stot = $("#stot2").html();
             			if(stot == "0") {
             			    $(".accordion-titulo3").hide();
             			}
@@ -387,7 +387,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla3").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot3").html();
+            			var stot = $("#stot3").html();
             			if(stot == "0") {
             			    $(".accordion-titulo4").hide();
             			}
@@ -409,7 +409,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla4").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot4").html();
+            			var stot = $("#stot4").html();
             			if(stot == "0") {
             			    $(".accordion-titulo5").hide();
             			}
@@ -431,7 +431,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla5").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot5").html();
+            			var stot = $("#stot5").html();
             			if(stot == "0") {
             			    $(".accordion-titulo6").hide();
             			}
@@ -453,7 +453,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla6").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot6").html();
+            			var stot = $("#stot6").html();
             			if(stot == "0") {
             			    $(".accordion-titulo7").hide();
             			}
@@ -475,7 +475,7 @@ if (isset($_SESSION['uniprofe'])) {
             		    //alert(r);
             			$("#divtabla7").html(r);
             			//$("#tbodyact").html(r);
-            			let stot = $("#stot7").html();
+            			var stot = $("#stot7").html();
             			if(stot == "0") {
             			    $(".accordion-titulo8").hide();
             			}
@@ -508,7 +508,7 @@ if (isset($_SESSION['uniprofe'])) {
             		url:"consultar_acudiente.php",
             		data:"idest=" + idest,
             		success:function(r) {
-            		    let arrayDatos = r.split("|");
+            		    var arrayDatos = r.split("|");
             		    
             		    $("#txtacu1").val(arrayDatos[0]);
             		    $("#txtcel1").val(arrayDatos[1]);
@@ -550,7 +550,7 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             			    <fieldset>
-                            				<legend><h3 style="color: #FC0D8C !important;">RESULTADOS DE ESTUDIANTES</h3></legend>
+                            				<legend><h3>RESULTADOS DE ESTUDIANTES</h3></legend>
                             				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                             					<ul class="mprincipal">
                             						<li><h3>LISTADO POR<span style="color: white;">.....</span>
@@ -731,7 +731,7 @@ if (isset($_SESSION['uniprofe'])) {
     	<!-- Classie --><!-- for toggle left push menu script -->
     	<script src="../../js/classie.js"></script>
     	<script>
-    		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+    		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
     			showLeftPush = document.getElementById( 'showLeftPush' ),
     			body = document.body;
     			

@@ -6,7 +6,7 @@ class Options
     /**
      * The root of your DOMPDF installation
      *
-     * @let string
+     * @var string
      */
     private $rootDir;
 
@@ -17,7 +17,7 @@ class Options
      * The temporary directory is required to download remote images and when
      * using the PFDLib back end.
      *
-     * @let string
+     * @var string
      */
     private $tempDir;
 
@@ -27,7 +27,7 @@ class Options
      * The location of the directory where DOMPDF will store fonts and font metrics
      * Note: This directory must exist and be writable by the webserver process.
      *
-     * @let string
+     * @var string
      */
     private $fontDir;
 
@@ -39,7 +39,7 @@ class Options
      *
      * Note: This directory must exist and be writable by the webserver process.
      *
-     * @let string
+     * @var string
      */
     private $fontCache;
 
@@ -57,12 +57,12 @@ class Options
      * documentation is available on the dompdf wiki at:
      * https://github.com/dompdf/dompdf/wiki
      *
-     * @let string
+     * @var string
      */
     private $chroot;
 
     /**
-     * @let string
+     * @var string
      */
     private $logOutputFile;
 
@@ -76,7 +76,7 @@ class Options
      * the desired content might be different (e.g. screen or projection view of html file).
      * Therefore allow specification of content here.
      *
-     * @let string
+     * @var string
      */
     private $defaultMediaType = "screen";
 
@@ -86,7 +86,7 @@ class Options
      * North America standard is "letter"; other countries generally "a4"
      * @see \Dompdf\Adapter\CPDF::PAPER_SIZES for valid sizes
      *
-     * @let string
+     * @var string
      */
     private $defaultPaperSize = "letter";
 
@@ -95,7 +95,7 @@ class Options
      *
      * The orientation of the page (portrait or landscape).
      *
-     * @let string
+     * @var string
      */
     private $defaultPaperOrientation = "portrait";
 
@@ -104,7 +104,7 @@ class Options
      *
      * Used if no suitable fonts can be found. This must exist in the font folder.
      *
-     * @let string
+     * @var string
      */
     private $defaultFont = "serif";
 
@@ -127,14 +127,14 @@ class Options
      *
      * In pdf, always 1 pt = 1/72 inch
      *
-     * @let int
+     * @var int
      */
     private $dpi = 96;
 
     /**
      * A ratio applied to the fonts height to be more like browsers' line height
      *
-     * @let float
+     * @var float
      */
     private $fontHeightRatio = 1.1;
 
@@ -155,7 +155,7 @@ class Options
      * documentation is available on the dompdf wiki at:
      * https://github.com/dompdf/dompdf/wiki
      *
-     * @let bool
+     * @var bool
      */
     private $isPhpEnabled = false;
 
@@ -177,7 +177,7 @@ class Options
      * documentation is available on the dompdf wiki at:
      * https://github.com/dompdf/dompdf/wiki
      *
-     * @let bool
+     * @var bool
      */
     private $isRemoteEnabled = false;
 
@@ -187,61 +187,61 @@ class Options
      * If this setting is set to true then DOMPDF will automatically insert
      * JavaScript code contained within <script type="text/javascript"> ... </script> tags.
      *
-     * @let bool
+     * @var bool
      */
     private $isJavascriptEnabled = true;
 
     /**
      * Use the more-than-experimental HTML5 Lib parser
      *
-     * @let bool
+     * @var bool
      */
     private $isHtml5ParserEnabled = false;
 
     /**
      * Whether to enable font subsetting or not.
      *
-     * @let bool
+     * @var bool
      */
     private $isFontSubsettingEnabled = false;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugPng = false;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugKeepTemp = false;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugCss = false;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugLayout = false;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugLayoutLines = true;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugLayoutBlocks = true;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugLayoutInline = true;
 
     /**
-     * @let bool
+     * @var bool
      */
     private $debugLayoutPaddingBox = true;
 
@@ -254,7 +254,7 @@ class Options
      * ultimately determines which rendering class to instantiate
      * based on this setting.
      *
-     * @let string
+     * @var string
      */
     private $pdfBackend = "CPDF";
 
@@ -270,18 +270,18 @@ class Options
      * If pdflib present in web server and auto or selected explicitly above,
      * a real license code must exist!
      *
-     * @let string
+     * @var string
      */
     private $pdflibLicense = "";
 
     /**
-     * @let string
+     * @var string
      * @deprecated
      */
     private $adminUsername = "user";
 
     /**
-     * @let string
+     * @var string
      * @deprecated
      */
     private $adminPassword = "password";

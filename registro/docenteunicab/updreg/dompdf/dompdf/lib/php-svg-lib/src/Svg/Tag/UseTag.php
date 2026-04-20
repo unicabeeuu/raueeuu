@@ -15,7 +15,7 @@ class UseTag extends AbstractTag
     protected $width;
     protected $height;
 
-    /** @let AbstractTag */
+    /** @var AbstractTag */
     protected $reference;
 
     protected function before($attributes)

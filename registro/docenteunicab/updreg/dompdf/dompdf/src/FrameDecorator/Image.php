@@ -24,14 +24,14 @@ class Image extends AbstractFrameDecorator
      * The path to the image file (note that remote images are
      * downloaded locally to Options:tempDir).
      *
-     * @let string
+     * @var string
      */
     protected $_image_url;
 
     /**
      * The image's file error message
      *
-     * @let string
+     * @var string
      */
     protected $_image_msg;
 

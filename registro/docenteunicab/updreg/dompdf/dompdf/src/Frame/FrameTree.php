@@ -32,7 +32,7 @@ class FrameTree
     /**
      * Tags to ignore while parsing the tree
      *
-     * @let array
+     * @var array
      */
     protected static $HIDDEN_TAGS = [
         "area",
@@ -52,28 +52,28 @@ class FrameTree
      * The main DomDocument
      *
      * @see http://ca2.php.net/manual/en/ref.dom.php
-     * @let DOMDocument
+     * @var DOMDocument
      */
     protected $_dom;
 
     /**
      * The root node of the FrameTree.
      *
-     * @let Frame
+     * @var Frame
      */
     protected $_root;
 
     /**
      * Subtrees of absolutely positioned elements
      *
-     * @let array of Frames
+     * @var array of Frames
      */
     protected $_absolute_frames;
 
     /**
      * A mapping of {@link Frame} objects to DOMNode objects
      *
-     * @let array
+     * @var array
      */
     protected $_registry;
 
@@ -166,7 +166,7 @@ class FrameTree
         }
 
         $firstRows = $xp->query('//table/tr[1]');
-        /** @let DOMElement $tableChild */
+        /** @var DOMElement $tableChild */
         foreach ($firstRows as $tableChild) {
             $tbody = $this->_dom->createElement('tbody');
             $tableNode = $tableChild->parentNode;
