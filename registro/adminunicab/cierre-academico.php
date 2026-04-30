@@ -159,7 +159,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     					        	while ($fila = mysqli_fetch_array($resultado1)){
     									$id_estudiante=$fila['id'];
     					        		echo"<tr><td>".$fila['grado']."</td><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['n_documento'].
-    					        		"</td><td><a class='btn btn-danger' href='php/historial-notas.php?id=".$fila['id']."' title='Cierre académico'>CIERRE ACADÉMICO</a></td></tr>";
+    					        		"</td><td><a class='btn' style='background-color: #ff9805; color: white;' href='php/historial-notas.php?id=".$fila['id']."' title='Cierre académico'>CIERRE ACADÉMICO</a></td></tr>";
     					        	}
 					        	?>
 					        </tbody>

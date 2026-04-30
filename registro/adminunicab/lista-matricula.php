@@ -133,7 +133,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td class='activo'>".$fila['estado']."</td>
     						        		<td>".$fila['apellidos']." ".$fila['nombres']."</td>
     						        		<td>".$fila['grado']."</td>
-    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Editar</a></td>
+    						        		<td><a href='editar-matricula.php?id=".$fila['id']."' class='btn' style='background-color: #ff9805; color:white;' title='Editar Matricula ".$fila['id']."'><i class='fa fa-pencil'></i> Editar</a></td>
     						        		</tr>";
 										}
 						        		else if($fila['estado'] == 'inactivo') {
@@ -142,7 +142,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td class='inactivo'>".$fila['estado']."</td>
     						        		<td>".$fila['apellidos']." ".$fila['nombres']."</td>
     						        		<td>".$fila['grado']."</td>
-    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Editar</a></td>
+    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn' style='background-color: #ff9805; color:white;' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Editar</a></td>
     						        		</tr>";
 										}
 										else if($fila['estado'] == 'retirado') {
