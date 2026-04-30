@@ -218,7 +218,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 																<label style="color: white;">...</label>
-													<button id="submit" class="btn btn-primary" style="display: none;" >Generar</button>
+													<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" >Generar</button>
 												</li>
                 							</ul>
                 					</ul>
@@ -246,7 +246,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<input type="text" id="idanio" name="idanio" placeholder="año" style="width: 50px;" value="2021"/>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_cert()">Buscar</button>
+													<button id="submit1" class="btn btn-primary" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_cert()">Buscar</button>
 												</li>
                 							</ul>
                 					</ul>

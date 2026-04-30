@@ -59,12 +59,12 @@
 	
 	if($grupo == "NA") {
 	    $query1 = "SELECT DISTINCT CONCAT(e.nombres, ' ', e.apellidos) nombre, e.id 
-    	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra 
+    	FROM tbl_estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra 
     	ORDER BY 1";
 	}
 	else {
 	    $query1 = "SELECT DISTINCT CONCAT(e.nombres, ' ', e.apellidos) nombre, e.id 
-    	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra AND m.grupo = '$grupo' 
+    	FROM tbl_estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra AND m.grupo = '$grupo' 
     	ORDER BY 1";
 	}
 	

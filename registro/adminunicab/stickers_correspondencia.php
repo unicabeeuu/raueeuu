@@ -302,7 +302,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>-->
 													<input type="text" id="periodo" name="periodo" placeholder="año" style="width: 50px;" value="2025" onchange="a_.value = this.value"/>
 													<label style="color: white;">...</label>
-													<button id="btnbuscar" class="btn btn-primary" style="display: none;" onclick="consultar_estudiantes()">Buscar</button>
+													<button id="btnbuscar" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_estudiantes()">Buscar</button>
 												</li>
                 							</ul>
                 							

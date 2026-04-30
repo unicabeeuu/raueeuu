@@ -26,31 +26,31 @@
 	
 	//Este sería el query a la tabla de paz y salvos tbl_pazsalvos
 	/*$query1 = "SELECT c.*, CONCAT(e.nombres,' ',e.apellidos) nombre, g.grado 
-	FROM tbl_carnets c, estudiantes e, grados g 
+	FROM tbl_carnets c, tbl_estudiantes e, tbl_grados g 
 	WHERE c.id_emp_est = e.id AND c.id_grado = g.id AND c.tipo = 'EST'  
 	AND c.id_grado = $idgra AND c.a = '$anio' 
 	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";*/
 	
 	if($idest != 0) {
 	    /*$query1 = "SELECT e.id, CONCAT(e.nombres,' ',e.apellidos) nombre, g.grado, m.estado 
-    	FROM estudiantes e, grados g, matricula m  
+    	FROM tbl_estudiantes e, tbl_grados g, tbl_matriculas m  
     	WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
     	AND m.id_grado = $idgra AND e.id = $idest AND m.estado IN ('aprobado', 'reprobado', 'retirado') AND date_format(m.fecha_ingreso, '%Y') = $anio 
     	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";*/
     	$query1 = "SELECT e.id, CONCAT(e.nombres,' ',e.apellidos) nombre, g.grado, m.estado 
-    	FROM estudiantes e, grados g, matricula m  
+    	FROM tbl_estudiantes e, tbl_grados g, tbl_matriculas m  
     	WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
     	AND m.id_grado = $idgra AND e.id = $idest AND m.estado IN ('aprobado', 'reprobado', 'retirado') AND m.n_matricula like '%".$anio."%' 
     	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";
 	}
 	else {
 	    /*$query1 = "SELECT e.id, CONCAT(e.nombres,' ',e.apellidos) nombre, g.grado, m.estado 
-    	FROM estudiantes e, grados g, matricula m  
+    	FROM tbl_estudiantes e, tbl_grados g, tbl_matriculas m  
     	WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
     	AND m.id_grado = $idgra AND m.estado IN ('aprobado', 'reprobado', 'retirado') AND date_format(m.fecha_ingreso, '%Y') = $anio 
     	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";*/
     	$query1 = "SELECT e.id, CONCAT(e.nombres,' ',e.apellidos) nombre, g.grado, m.estado 
-    	FROM estudiantes e, grados g, matricula m  
+    	FROM tbl_estudiantes e, tbl_grados g, tbl_matriculas m  
     	WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
     	AND m.id_grado = $idgra AND m.estado IN ('aprobado', 'reprobado', 'retirado') AND m.n_matricula like '%".$anio."%' 
     	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";

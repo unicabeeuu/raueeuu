@@ -1,8 +1,10 @@
 <?php
+    // Ocultar reporte de errores temportalmente
+    error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
     include "../adminunicab/php/conexion.php";
     require("updreg/1cc3s4db.php");
     header("Cache-Control: no-store");
-    //https://unicab.org/registro/docenteunicab/carnet_mpdf.php?selgra1=2&idest=3343&tipo_carnet=EST
+    //https://thriveusa.org/registro/docenteunicab/carnet_mpdf.php?selgra1=2&idest=3343&tipo_carnet=EST
     
     $idgra = strtoupper($_REQUEST['selgra1']);
     $id = $_REQUEST['idest'];
@@ -18,7 +20,7 @@
     //Estas líneas son para generar qr
     require '../financieraunicab/phpqrcode/qrlib.php';
     $dir = 'carnets/qr/';
-	//$dir1 = 'https://unicab.org/registro/docenteunicab/carnets/qr/';
+	//$dir1 = 'https://thriveusa.org/registro/docenteunicab/carnets/qr/';
     
     include 'updreg/mpdf8/vendor/autoload.php';
     
@@ -94,7 +96,7 @@
 		//$content .= '#div2 {width: 650px; height: 1004px; background-image: url("carnets/img/fondo_carnet_2024_2.jpg"); background-repeat: no-repeat; background-size: cover;  margin-left: 100px; border: 1px dashed lightgray;}';
         //$content .= '#div4 {width: 650px; height: 1004px; background-image: url("carnets/img/posterior_2024_1.jpg"); background-repeat: no-repeat; background-size: cover;  margin-left: 100px; border: 1px dashed lightgray;}';
 		$content .= '#div2 {width: 650px; height: 1004px; background-image: url("carnets/img/fondo_carnet_2025_2.jpg"); background-repeat: no-repeat; background-size: cover;  margin-left: 100px; border: 1px dashed lightgray;}';
-        $content .= '#div4 {width: 650px; height: 1004px; background-image: url("carnets/img/posterior_carnet_2025_1.jpg"); background-repeat: no-repeat; background-size: cover;  margin-left: 100px; border: 1px dashed lightgray;}';
+        $content .= '#div4 {width: 650px; height: 1004px; background-image: url("carnets/img/posterior_carnet_2026_1.jpg"); background-repeat: no-repeat; background-size: cover;  margin-left: 100px; border: 1px dashed lightgray;}';
 		//$content .= '#div2 {width: 1004px; height: 650px; background-image: url("carnets/img/fondo_carnet_2024h_1.jpg"); background-repeat: no-repeat; background-size: cover;  margin-left: 100px; border: 1px dashed lightgray;}';
         //$content .= '#div4 {width: 1004px; height: 650px; background-image: url("carnets/img/posterior_2024h_1.jpg"); background-repeat: no-repeat; background-size: cover;  margin-left: 100px;}';
 		
@@ -133,9 +135,9 @@
             WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
             AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $fanio AND m.id_grado = $idgra AND e.estado != 'NA'";*/
             $sql_carnets = "SELECT e.*, g.grado, m.id_grado, m.grupo 
-            FROM estudiantes e, matricula m, grados g 
+            FROM tbl_estudiantes e, tbl_matriculas m, tbl_grados g 
             WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
-            AND m.estado = 'activo' AND m.n_matricula like '%".$fanio."%' AND m.id_grado = $idgra AND e.estado != 'NA'";
+            AND m.estado = 'activo' AND m.n_matricula like '%".$fanio."%' AND m.id_grado = $idgra AND e.rh != 'NA'";
         }
         else if($tipo_c == "EMP") {
             $sql_carnets = "SELECT * FROM tbl_empleados WHERE rh != 'NA'";
@@ -148,9 +150,9 @@
             WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
             AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $fanio AND m.id_grado = $idgra AND e.estado != 'NA' AND e.id = $id";*/
             $sql_carnets = "SELECT e.*, g.grado, m.id_grado, m.grupo 
-            FROM estudiantes e, matricula m, grados g 
+            FROM tbl_estudiantes e, tbl_matriculas m, tbl_grados g 
             WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
-            AND m.estado = 'activo' AND m.n_matricula like '%".$fanio."%' AND m.id_grado = $idgra AND e.estado != 'NA' AND e.id = $id";
+            AND m.estado = 'activo' AND m.n_matricula like '%".$fanio."%' AND m.id_grado = $idgra AND e.rh != 'NA' AND e.id = $id";
         }
         else if($tipo_c == "EMP") {
             $sql_carnets = "SELECT * FROM tbl_empleados WHERE id = $id AND rh != 'NA'";
@@ -165,7 +167,7 @@
 		$nombres = $row_carnets['nombres'];
 		$apellidos = $row_carnets['apellidos'];
         $id1 = $row_carnets['id'];
-		$rh = $row_carnets['estado'];
+		$rh = $row_carnets['rh'];
 		$rh = str_replace("+"," Positivo",$rh);
 		$rh = str_replace("-"," Negativo",$rh);
         
@@ -195,7 +197,8 @@
         QRcode::png($contenido, $filename, $level, $tamano, $framesize);
         //Fin código qr
 		
-		$filename1 = 'https://unicab.org/registro/docenteunicab/'.$path.'qr_'.$nombre_completo.'.png';
+		// $filename1 = 'https://thriveusa.org/registro/docenteunicab/'.$path.'qr_'.$nombre_completo.'.png';
+		$filename1 = 'http://localhost:90/raeeuu_2/raueeuu/registro/docenteunicab/'.$path.'qr_'.$nombre_completo.'.png';
 		//echo $filename1;
         
         //Se inserta los datos en la tabla de carnets
@@ -299,7 +302,8 @@
             //echo "<br>".$folder;
             //PDF::saveDisk($nom_pdf,$content.$content1,$folder);
             
-            $ruta = "https://unicab.org/registro/docenteunicab".$folder0.$nom_pdf;
+            // $ruta = "https://thriveusa.org/registro/docenteunicab".$folder0.$nom_pdf;
+            $ruta = "http://localhost:90/raeeuu_2/raueeuu/registro/docenteunicab".$folder0.$nom_pdf;
             //echo "<br>".$ruta;
         }
         else {
@@ -320,7 +324,7 @@
                         //$content1 .= '<img id="imgqr" src="carnets/qr/qr_imelda.png" width="260px">';
                     $content1 .= '</div>';
                 $content1 .= '</div>';
-            $content1 .= '</div>';
+            // $content1 .= '</div>'; // Etiqueta sobrante eliminada
             
             $content1 .= '<div id="div3">...</div>';
             
@@ -350,7 +354,8 @@
             //echo "<br>".$folder;
             //PDF::saveDisk($nom_pdf,$content.$content1,$folder);
             
-            $ruta = "https://unicab.org/registro/docenteunicab".$folder0.$nom_pdf;
+            // $ruta = "https://thriveusa.org/registro/docenteunicab".$folder0.$nom_pdf;
+            $ruta = "http://localhost:90/raeeuu_2/raueeuu/registro/docenteunicab".$folder0.$nom_pdf;
             //echo "<br>".$ruta;
         }
         
@@ -373,11 +378,11 @@
         
         //Se busca la póliza
         $poliza = "";
-        if(!$row_carnets['id_grado']) {
+        if(!$row_carnets['id']) {
             $idgra = 0;
         }
         else {
-           $idgra =  $row_carnets['id_grado'];
+           $idgra =  $row_carnets['id'];
         }
         $sql_poliza = "SELECT * FROM tbl_polizas WHERE n_documento = '".$row_carnets['n_documento']."' AND a = '$fanio' AND id_grado = ".$idgra;
         //echo $sql_poliza;
@@ -440,13 +445,13 @@
             // Attachments
             $mail->addAttachment($folder_correo.$nom_pdf, $nom_pdf);         // Add attachments
             if($poliza != "") {
-                $mail->addAttachment($poliza, "poliza_2021_".$nombre_completo.".pdf");         // Add attachments
+                $mail->addAttachment($poliza, "poliza_2026_".$nombre_completo.".pdf");         // Add attachments
             }
             
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->CharSet = 'UTF-8';
-            $mail->Subject = 'Carnet UNICAB '.$fanio;
+            $mail->Subject = 'Carnet THRIVEUSA '.$fanio;
             if($tipo_c == "EST") {
                 if($poliza != "") {
                     $mail->Body    = '<p>Estimada familia</p>
@@ -540,9 +545,9 @@
             $sql_carnet_getdat = "SELECT * FROM tbl_carnets WHERE tipo = 'EST' AND id_grado = $idgra AND a = $fanio";
             
             $sql_sin_carnet_getdat = "SELECT e.*, g.grado, m.id_grado, m.grupo 
-            FROM estudiantes e, matricula m, grados g 
+            FROM tbl_estudiantes e, tbl_matriculas m, tbl_grados g 
             WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
-            AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $fanio AND m.id_grado = $idgra AND e.estado = 'NA'";
+            AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $fanio AND m.id_grado = $idgra AND e.rh = 'NA'";
         }
         else {
             $sql_carnet_getdat = "SELECT * FROM tbl_carnets WHERE tipo = 'EMP'";
@@ -555,9 +560,9 @@
             $sql_carnet_getdat = "SELECT * FROM tbl_carnets WHERE tipo = 'EST' AND id_grado = $idgra AND id_emp_est = $id AND a = $fanio";			
             
             $sql_sin_carnet_getdat = "SELECT e.*, g.grado, m.id_grado, m.grupo 
-            FROM estudiantes e, matricula m, grados g 
+            FROM tbl_estudiantes e, tbl_matriculas m, tbl_grados g 
             WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
-            AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $fanio AND m.id_grado = $idgra AND e.estado = 'NA' AND e.id = $id";
+            AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $fanio AND m.id_grado = $idgra AND e.rh = 'NA' AND e.id = $id";
         }
         else {
             $sql_carnet_getdat = "SELECT * FROM tbl_carnets WHERE tipo = 'EMP' AND id_emp_est = $id";

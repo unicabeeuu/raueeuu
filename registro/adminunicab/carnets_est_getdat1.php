@@ -24,7 +24,7 @@
 	}
 	
 	$query1 = "SELECT c.*, CONCAT(e.nombres,' ',e.apellidos) nombre, g.grado 
-	FROM tbl_carnets c, estudiantes e, grados g 
+	FROM tbl_carnets c, tbl_estudiantes e, tbl_grados g 
 	WHERE c.id_emp_est = e.id AND c.id_grado = g.id AND c.tipo = 'EST'  
 	AND c.id_grado = $idgra AND c.a = '$anio' 
 	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";

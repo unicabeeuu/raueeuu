@@ -271,7 +271,7 @@ if (isset($_SESSION['unisuper'])) {
 														<option value="2027">2027</option>
 													</select>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_cert()">Buscar</button>
+													<button id="submit1" class="btn btn-primary" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_cert()">Buscar</button>
 												</li>
                 							</ul>
                 					</ul>

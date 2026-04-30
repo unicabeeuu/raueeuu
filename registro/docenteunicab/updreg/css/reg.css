@@ -61,10 +61,10 @@ legend {
 	margin-top: 5px;
 }
 .tr tbody tr:nth-child(odd) {
-	background: #A9F5BC;
+	background: rgba(252, 13, 140, 0.4);
 }
 .tr tbody tr:nth-child(even) {
-	background: #A9BCF5;
+	background: rgba(34, 42, 117, 0.5);
 }
 .msg {
 	color: red;

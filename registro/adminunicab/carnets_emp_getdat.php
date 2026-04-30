@@ -166,7 +166,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<!--<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 													<label style="color: white;">...</label>-->
-													<button id="submit" class="btn" style="background-color: #ff9805;">Generar</button>
+													<button id="submit" class="btn" style="background-color: #ff9805; color: white;">Generar</button>
 												</li>
                 							</ul>
                 							<input type="hidden" id="tipo_carnet" name="tipo_carnet" value="EMP"/>
@@ -187,7 +187,7 @@ if (isset($_SESSION['unisuper'])) {
                 								<li style="background-color: #222a75;">
 													<input type="text" id="idanio" name="idanio" placeholder="a09o" style="width: 50px;" value="2021"/>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn" style="background-color: #ff9805;" onclick="consultar_carnet()">Buscar</button>
+													<button id="submit1" class="btn" style="background-color: #ff9805; color: white;" onclick="consultar_carnet()">Buscar</button>
 												</li>
                 							</ul>
                 					</ul>

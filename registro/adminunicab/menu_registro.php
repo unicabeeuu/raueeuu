@@ -168,7 +168,7 @@
                     <li><a href="certificados_adm_getdat.php"><i class="fa fa-file-pdf-o"></i> Generar</a></li>
                   </ul>
                   </li>
-                  <li><a href="cupos_getdat.php"><i class="fa fa-check-circle"></i> Cupos apartados</a></li>
+                  <!-- <li><a href="cupos_getdat.php"><i class="fa fa-check-circle"></i> Cupos apartados</a></li> -->
                   <!-- <li><a href="estudiante.php"><i class="fa fa-user"></i> Estudiante</a></li> -->
                   <!-- <li><a href="diferencia_est_getdat.php?q=rnom"><i class="fa fa-user-secret"></i> Estudiantes en R y no en M</a></li>
                   <li><a href="diferencia_est_getdat.php?q=mnor"><i class="fa fa-user-times"></i> Estudiantes en M y no en R</a></li> -->

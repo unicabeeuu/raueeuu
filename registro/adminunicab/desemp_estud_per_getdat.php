@@ -603,7 +603,7 @@ if (isset($_SESSION['unisuper'])) {
 															<label style="color: white;">...</label>
 															<!--<a href="estudianteg_getdat.php" >Buscar</a>
 															<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
-															<button id="submit" class="btn btn-primary" style="display: none;" onclick="consultar_desemp()">Cargar</button>
+															<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_desemp()">Cargar</button>
 														</li>
                         							</ul>
                         					</ul>

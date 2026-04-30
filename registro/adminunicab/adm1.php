@@ -117,13 +117,13 @@ legend {
 }
 .msecund {
 	list-style-image: url(../docenteunicab/updreg/img/bd30.png); 
-	background: #222a75;
+	background: rgba(34, 42, 117, 0.75) !important;
 	padding: 20px;
 	font-weight: bold;
 	font-size: 18px;
 }
 .msecund li {
-	background: #222a75;
+	/*background: rgba(34, 42, 117, 0.75) !important;*/
 	margin-left: 20px;
 	margin-top: 5px;
 }

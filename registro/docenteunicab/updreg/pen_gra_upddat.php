@@ -70,7 +70,7 @@
 						<tr>
 							<td>
 								<fieldset>
-									<legend>PENSAMIENTOS Y GRADOS A CARGAR</legend>
+									<legend style="color: #FC0D8C;">PENSAMIENTOS Y GRADOS A CARGAR</legend>
 									<div>
 									    <?php
 										echo '<label>Total Registros &#9658; '.$sel_upd.' ---------------> Registros '.$ini1.' al '.$fin.'</label>';

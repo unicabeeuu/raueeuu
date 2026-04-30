@@ -129,38 +129,38 @@
         $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero, m.estado, 
     	    case td.id when 1 then 'T.I.' when 2 then 'R.C.' when 3 then 'C.C.' when 4 then 'P.' when 5 then 'P.E.P.' end td 
-    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
-    		FROM $tabla_est_mood em LEFT JOIN equivalence_idest ee
+    		FROM $tabla_est_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a, tbl_tipos_documento td 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND e.tipo_documento = td.id 
     		AND m.estado IN ('aprobado', 'reprobado', 'retirado') AND eg.id_grado_ra = ".$idgra." AND m.id_grado = ".$idgra." 
     		AND e.id IN ($ids) AND m.n_matricula like '%".$anio_pys."%' 
-    		ORDER BY a.grado, nombre";
+    		ORDER BY grado, nombre";
     }
     else {
 		if ($fanio > $anio_pys) {
 			$query1 = "SELECT DISTINCT e.id, eg.id id_grado_ra, eg.grado grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero, m.estado, 
     	    case td.id when 1 then 'T.I.' when 2 then 'R.C.' when 3 then 'C.C.' when 4 then 'P.' when 5 then 'P.E.P.' end td 
-    		FROM estudiantes e, matricula m, grados eg, tbl_tipos_documento td 
+    		FROM tbl_estudiantes e, tbl_matriculas m, grados eg, tbl_tipos_documento td 
     		WHERE e.id = m.id_estudiante AND m.id_grado = eg.id AND e.tipo_documento = td.id 
     		AND m.estado IN ('aprobado', 'reprobado', 'retirado') AND eg.id = ".$idgra." AND m.id_grado = ".$idgra." 
     		AND e.id = $id AND m.n_matricula like '%".$anio_pys."%' 
-    		ORDER BY eg.grado, nombre";
+    		ORDER BY grado, nombre";
 		}
 		else {
 			$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero, m.estado, 
     	    case td.id when 1 then 'T.I.' when 2 then 'R.C.' when 3 then 'C.C.' when 4 then 'P.' when 5 then 'P.E.P.' end td 
-    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
-    		FROM $tabla_est_mood em LEFT JOIN equivalence_idest ee
+    		FROM $tabla_est_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a, tbl_tipos_documento td 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND e.tipo_documento = td.id 
     		AND m.estado IN ('aprobado', 'reprobado', 'retirado') AND eg.id_grado_ra = ".$idgra." AND m.id_grado = ".$idgra." 
     		AND e.id = $id AND m.n_matricula like '%".$anio_pys."%' 
-    		ORDER BY a.grado, nombre";
+    		ORDER BY grado, nombre";
 		}
     }
 	//echo "<br>".$query1;	
