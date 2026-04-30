@@ -252,7 +252,7 @@ legend {
 															<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
 															<label style="color: white;">...</label>
 															<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: white;">
+															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: black;">
 															<input type="hidden" id="estado" name="estado" value="activo" required/>
 														</li>
                         							</ul>
@@ -266,7 +266,7 @@ legend {
 																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
 																<label style="color: white;">...</label>
 																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: white;">
+																<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: black;">
 																<input type="hidden" id="estado" name="estado" value="inactivo" required/>
 															</li>
                             							</ul>
@@ -304,7 +304,7 @@ legend {
 															</select>
 															<label style="color: white;">...</label>
 															<!--<a href="estudianteg_getdat.php" >Buscar</a>-->
-															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: white;">
+															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: black;">
 															<input type="hidden" id="estadog" name="estadog" value="activo" required/>
 														</li>
                         							</ul>
@@ -321,7 +321,7 @@ legend {
     																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
     																<label style="color: white;">...</label>
     																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-    																<input type="submit" class="btn " value="Asignar" style="background-color: #ff9805; color: white;">
+    																<input type="submit" class="btn " value="Asignar" style="background-color: #ff9805; color: black;">
     															</li>
                                 							</ul>
                                 					</ul>
@@ -334,7 +334,7 @@ legend {
                             						<li><h3>EXPORTAR BASE DE DATOS</h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
+																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
 															</li>
                             							</ul>
                             					</ul>
@@ -344,7 +344,7 @@ legend {
                             						<li><h3>EXPORTAR RETIRADOS</h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
+																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
 															</li>
                             							</ul>
                             					</ul>
@@ -357,7 +357,7 @@ legend {
                                 						<li><h3>LISTADO DE ACTIVIDADES EXTRA</h3></li>
                                 							<ul class="msecund">
                                 								<li>
-    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
+    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
     															</li>
                                 							</ul>
                                 					</ul>
@@ -367,7 +367,7 @@ legend {
                                 						<li><h3>LISTADO DE EVALUACIONES DE ADMISIÓN</h3></li>
                                 							<ul class="msecund">
                                 								<li>
-    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: white;" >
+    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
     															</li>
                                 							</ul>
                                 					</ul>
