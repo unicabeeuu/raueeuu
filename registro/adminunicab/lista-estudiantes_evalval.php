@@ -25,7 +25,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -90,20 +90,20 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Resultados Evaluación de Validación:</h4>
+							<h4>Validation Evaluation Results:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Grado</th>
-						                <th>Nombre Acud.</th>
-						                <th>Teléfono Acud.</th>
-										<th>Año</th>
-						                <th>Acción</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Grade</th>
+						                <th>Guardian Name</th>
+						                <th>Guardian Phone</th>
+										<th>Year</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>

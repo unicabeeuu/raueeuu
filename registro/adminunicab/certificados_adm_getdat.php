@@ -34,7 +34,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -198,15 +198,15 @@ if (isset($_SESSION['unisuper'])) {
                 			<!--***********************************************************************************************-->
                 			<div id="div1">
                 				<fieldset>
-                				<legend><h3 style="color: #FC0D8C;">GENERAR CERTIFICADOS DE NOTAS</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERATE GRADE CERTIFICATES</h3></legend>
                 				    <form class="form-horizontal" action="../docenteunicab/updreg/reporte_notas_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                 					<ul class="mprincipal">
-                						<li><h3>GENRAR CERTIFICADOS POR<span style="color: white;">.....</span>
+                						<li><h3>GENERATE CERTIFICATES BY<span style="color: white;">.....</span>
                 						</h3></li>
                 							<ul class="msecund" style="background-color: #222a75;">
                 								<li style="background-color: #222a75;">
 													<select id="selgra1" name="selgra1" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -218,7 +218,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 																<label style="color: white;">...</label>
-													<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" >Generar</button>
+													<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" >Generate</button>
 												</li>
                 							</ul>
                 					</ul>
@@ -228,15 +228,15 @@ if (isset($_SESSION['unisuper'])) {
                 			</div>
                 			<div id="div2">
                 				<fieldset>
-                				<legend><h3 style="color: #FC0D8C;">CONSULTAR CERTIFICADOS DE NOTAS</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">CONSULT GRADE CERTIFICATES</h3></legend>
                 				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                 					<ul class="mprincipal">
-                						<li><h3>LISTADO DE CERTIFICADOS POR<span style="color: white;">.....</span>
+                						<li><h3>CERTIFICATE LIST BY<span style="color: white;">.....</span>
                 						</h3></li>
                 							<ul class="msecund" style="background-color: #222a75;">
                 								<li style="background-color: #222a75;">
 													<select id="selgra2" name="selgra2" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado1->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -246,7 +246,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<input type="text" id="idanio" name="idanio" placeholder="año" style="width: 50px;" value="2021"/>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn btn-primary" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_cert()">Buscar</button>
+													<button id="submit1" class="btn btn-primary" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_cert()">Search</button>
 												</li>
                 							</ul>
                 					</ul>
@@ -262,7 +262,7 @@ if (isset($_SESSION['unisuper'])) {
             				$mysqli1->close();
             			?>
 						<!---------------------------------------------->
-						<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
+						<input type='search' placeholder='Enter search text' id='search' name='search' style="display: none;"><br/><br/>
 						<div id="divtabla">
 						    
 						</div>

@@ -41,7 +41,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -101,7 +101,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		let idPreg = $("#selpreg1").val();
 		
 		if (idPreg == "NA") {
-			alert("Debe seleccionar una pregunta");
+			alert("You must select a question");
 			return;
 		}
 		//alert(id_est + id_gra);
@@ -259,20 +259,20 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
            		<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>RESULTADO ENCUESTA BIMESTRE 4 2024:</h4>
+							<h4>SURVEY RESULTS BIMESTER 4 2024:</h4>
 						</div>
 						<div class="form-body">  
 							<?php //echo $peticion; ?>
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Grado</th>
-	                                    <th>Documento</th>						                
-						                <th>Nombre</th>
-										<th>Tipo Pregunta</th>
-						                <th>Pregunta</th>
-						                <th>Resultado</th>
-										<th>Año</th>
+						                <th>Grade</th>
+	                                    <th>Document</th>						                
+						                <th>Name</th>
+										<th>Question Type</th>
+						                <th>Question</th>
+						                <th>Result</th>
+										<th>Year</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -294,12 +294,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                    		</div>
 						
 						<div class="form-title">
-							<h4>VER ESTADISTICAS POR PREGUNTA Y GRADO</h4>
+							<h4>VIEW STATISTICS BY QUESTION AND GRADE</h4>
 						</div><br>
 						<div class="row">  
 							<div class="col-sm-6">
 								<select id="selgra1" name="selgra1" class="form-control">
-									<option value="NA">Seleccione grado</option>
+									<option value="NA">Select grade</option>
 									<?php 
 										while($row_grados = $grados->fetch_assoc()){
 											echo "<option value='".$row_grados['id']."'>".$row_grados['grado']."</option>";
@@ -309,7 +309,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							</div>
 							<div class="col-sm-6">
 								<select id="selpreg1" name="selpreg1" class="form-control">
-									<option value="NA">Seleccione pregunta</option>
+									<option value="NA">Select question</option>
 									<?php 
 										while($row_preg = $preguntas->fetch_assoc()){
 											echo "<option value='".$row_preg['id']."'>".$row_preg['id']." - ".$row_preg['pregunta']."</option>";
@@ -321,7 +321,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						
 						<div class="row">  
 							<div class="col-sm-6">
-								<button class="btn btn-primary" onclick="buscar_estadistica();">Ver Estadística</button>
+								<button class="btn btn-primary" onclick="buscar_estadistica();">View Statistics</button>
 							</div>
                    		</div>
 						
@@ -336,7 +336,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						<div class="row">
 							<div class="col-sm-12">
 								<form class="form-horizontal" action="bd_exportar_encuesta.php"  method="POST" target="_blank">
-									<input type="submit" class="btn btn-primary" value="Exportar Estadísticas" >
+									<input type="submit" class="btn btn-primary" value="Export Statistics" >
 								</form>
 							</div>
 						</div>

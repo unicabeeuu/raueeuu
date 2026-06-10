@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -120,9 +120,9 @@ $resultado1 = mysqli_query($conexion, $peticion);
                     			<div class="form-body">
                     			<form  method="POST">
                     				<div class="form-group">
-										<label for="n_certificado" class="col-sm-2 control-label">Número Certificado:<span class="req">*</span></label>
+										<label for="n_certificado" class="col-sm-2 control-label">Certificate Number:<span class="req">*</span></label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control1" id="n_certificado" name="n_certificado" placeholder="Ejemplo: CS123" required maxlength="15" autofocus="">
+											<input type="text" class="form-control1" id="n_certificado" name="n_certificado" placeholder="Example: CS123" required maxlength="15" autofocus="">
 											</div>
 									</div>
 								  	<button type="submit" class="btn btn-default"><span style="color:#FFF" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -155,49 +155,49 @@ $resultado1 = mysqli_query($conexion, $peticion);
 									<div class="form-group">
 								<form class="form-horizontal">
 									<div class="form-group">				
-										<label for="apellidos" class="col-sm-2 control-label">Apellidos: </label>
+										<label for="apellidos" class="col-sm-2 control-label">Last Names: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="apellidos" name="apellidos" value="<?php echo $apellidos;?>">
 										</div>
 									</div>
 
 								<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Nombres: </label>
+										<label for="nombres" class="col-sm-2 control-label">First Names: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $nombres;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Documento: </label>
+										<label for="nombres" class="col-sm-2 control-label">Document: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $n_documento;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Grado: </label>
+										<label for="nombres" class="col-sm-2 control-label">Grade: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $grado;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Fecha Expedición: </label>
+										<label for="nombres" class="col-sm-2 control-label">Issue Date: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $fecha_expedicion;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Número Certificado: </label>
+										<label for="nombres" class="col-sm-2 control-label">Certificate Number: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $numero;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Tipo Certificado: </label>
+										<label for="nombres" class="col-sm-2 control-label">Certificate Type: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $tipo_certificado;?>">
 										</div>

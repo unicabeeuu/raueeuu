@@ -33,7 +33,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Matricula</title>
+<title>Unicab Enrollment Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -106,20 +106,20 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 					<div class="forms">
 						<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 							<div class="form-title">
-								<h4>Validar Matricula:</h4>
+								<h4>Validate Enrollment:</h4>
 							</div>
 							<div class="form-body">
 								<form class="form-horizontal" action="php/registroMatricula.php" method="POST">
 									
 									<div class="form-group">
-										<label for="n_matricula" class="col-sm-2 control-label">Número Matricula:<span class="req">*</span></label>
+										<label for="n_matricula" class="col-sm-2 control-label">Enrollment Number:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control1" id="n_matricula" name="n_matricula" placeholder="001-2018-1G" required maxlength="25" autofocus>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="fecha_ingreso" class="col-sm-2 control-label">Fecha Ingreso:<span class="req">*</span></label>
+										<label for="fecha_ingreso" class="col-sm-2 control-label">Entry Date:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<input type="date" class="form-control1" id="fecha_ingreso" name="fecha_ingreso" required maxlength="25">
 										</div>
@@ -128,7 +128,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 									<input type="hidden" value="<?php echo $id_estudiante ?>" id="id" name="id">
 
 	                                <div class="form-group">
-										<label for="id_grado" class="col-sm-2 control-label">Grado a cursar:<span class="req">*</span></label>
+										<label for="id_grado" class="col-sm-2 control-label">Grade to Enroll:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<select id="id_grado" name="id_grado" class="form-control1" required>
 											<?php 
@@ -173,7 +173,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 							              </select>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-primary">Guardar</button>
+									<button type="submit" class="btn btn-primary">Save</button>
 								</form> 
 							</div>
 						</div>

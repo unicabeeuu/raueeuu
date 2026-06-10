@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -100,10 +100,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     			<div class="form-body">
                     			<form class="form-horizontal" action="estudiante.php"  method="POST" onsubmit="return validacion()">
 									<div class="form-group">
-										<label  class="col-sm-2 control-label">Grado<span class="req">*</span></label>
+										<label  class="col-sm-2 control-label">Grade<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<select id="id_grado" name="grado" class="form-control1" required>
-												<option value='0'>Seleccionar Grado</option>
+												<option value='0'>Select Grade</option>
 												<?php 
 													$sql="SELECT * FROM grados";
 													$consulta=mysqli_query($conexion,$sql);
@@ -116,7 +116,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									</div>
                             
 									<div class="modal-footer">
-										<input type="submit" class="btn btn-primary" value="Buscar Estudiante" title="Buscar Estudiante">
+										<input type="submit" class="btn btn-primary" value="Search Student" title="Search Student">
 									</div>
 									<div class="alert alert-danger" role="alert" id="alert" style="display:none; margin-top: 20px;"></div>
 								</form>

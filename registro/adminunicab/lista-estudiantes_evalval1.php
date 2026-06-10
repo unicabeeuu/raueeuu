@@ -196,7 +196,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -360,15 +360,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 					
-						<h3><span class="badge badge-success">Evaluación de Validación de: </span> <?php echo $nombre_completo; ?></h3>
+						<h3><span class="badge badge-success">Validation Evaluation of: </span> <?php echo $nombre_completo; ?></h3>
                                                 
                         <div class="register-form" id="divform">
                             <!--<form name="formulario" id="formulario" method="post" action="" enctype="multipart/form-data">-->
                                 
                                 <div>
-                                    <p><i class="fa fa-hand-o-right "></i> <strong>Este es el resultado de tu evaluación de validación para grado <?php echo $grado_ra; ?>.</strong></p>
-                                    <p><i class="fa fa-hand-o-right "></i> <strong>Se envío una copia de ésta evaluación al correo del acudiente.</strong></p>
-                                    <p><i class="fa fa-hand-o-right "></i> <strong>Resumen:</strong> (cantidad de preguntas bien contestadas, mal contestadas y no contestadas por pensamiento)</p>
+                                    <p><i class="fa fa-hand-o-right "></i> <strong>This is the result of your validation evaluation for grade<?php echo $grado_ra; ?>.</strong></p>
+                                    <p><i class="fa fa-hand-o-right "></i> <strong>A copy of this evaluation was sent to the guardian's email.</strong></p>
+                                    <p><i class="fa fa-hand-o-right "></i> <strong>Summary:</strong> (number of correctly answered, incorrectly answered, and unanswered questions per area)</p>
                                 </div>
                                 
                                 <div class="row">
@@ -533,14 +533,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         <?php
                             if($porc >= 70) {
                         ?>
-                                <p><h3><span class="badge badge-success">El resultado de la evaluación de validación es: <?php echo $porc;?>%. Validación aprobada</span></h3></p><br>
-                                <p><h3><span class="badge badge-secondary">Puedes empezar proceso de matrícula <a href="https://unicab.org/pre_admisiones.php" id="al">AQUI</a></span></h3></p>
+                                <p><h3><span class="badge badge-success">The result of the validation evaluation is: <?php echo $porc;?>%. Validation approved</span></h3></p><br>
+                                <p><h3><span class="badge badge-secondary">You can start the enrollment process <a href="https://unicab.org/pre_admisiones.php" id="al">HERE</a></span></h3></p>
                         <?php
                             }
                             else {
                         ?>
-                                <p><h3><span class="badge badge-danger">El resultado de la evaluación de validación es: <?php echo $porc;?>%. Validación no aprobada</span></h3></p><br>
-                                <p><h5><span class="badge badge-warning">Por favor ponte en contacto con el Coordinador Académico al número 318 400 4412</span></h5></p>
+                                <p><h3><span class="badge badge-danger">The result of the validation evaluation is: <?php echo $porc;?>%. Validation not approved</span></h3></p><br>
+                                <p><h5><span class="badge badge-warning">Please contact the Academic Coordinator at 318 400 4412</span></h5></p>
                         <?php
                             }
                         ?>

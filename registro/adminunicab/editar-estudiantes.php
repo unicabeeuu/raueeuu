@@ -58,7 +58,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -237,101 +237,101 @@
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Información Estudiante: <?php echo $nombres." ".$apellidos; ?></h4>
+							<h4>Student Information: <?php echo $nombres." ".$apellidos; ?></h4>
 						</div>
 						<div class="form-body">
 							<form class="form-horizontal" action="php/update-estudiante-admin.php" method="POST">
 								<div class="form-group">
-									<label for="n_documento" class="col-sm-2 control-label">Identificación:<span class="req">*</span></label>
+									<label for="n_documento" class="col-sm-2 control-label">Identification:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Número Documento" required maxlength="15" value="<?php echo $n_documento;?>">
+										<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Document Number" required maxlength="15" value="<?php echo $n_documento;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="apellidos" class="col-sm-2 control-label">Apellidos:<span class="req">*</span></label>
+									<label for="apellidos" class="col-sm-2 control-label">Last Names:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Apellidos Estudiante" required maxlength="25" value="<?php //echo $apellidos;?>">
+										<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Student Last Names" required maxlength="25" value="<?php //echo $apellidos;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="nombres" class="col-sm-2 control-label">Nombres:<span class="req">*</span></label>
+									<label for="nombres" class="col-sm-2 control-label">First Names:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="nombres" name="nombres"  placeholder="Nombres Estudiante" required maxlength="25" value="<?php //echo $nombres;?>">
+										<input type="text" class="form-control1" id="nombres" name="nombres"  placeholder="Student First Names" required maxlength="25" value="<?php //echo $nombres;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="tDocumento" class="col-sm-2 control-label">Tipo Documento:<span class="req">*</span></label>
+									<label for="tDocumento" class="col-sm-2 control-label">Document Type:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="tDocumento" name="tDocumento" class="form-control1">
 											<!--<option value="<?php //echo $idtd; ?>"><?php //echo $tipo_documento; ?></option>-->
-				                		 	<option value="2">REGISTRO CIVIL</option>
-							                <option value="1">TARJETA DE IDENTIDAD</option>
-						                 	<option value="3">CEDULA</option>
-							                <option value="4">PASAPORTE</option>
-							                <option value="5">PERMISO DE PERMANENCIA TEMPORAL</option>
-							                <option value="6">PERMISO POR PROTECCIÓN TEMPORAL</option>
-				              			</select>
-									</div>
-								</div>
-									
-								<div class="form-group">
-									<label for="genero" class="col-sm-2 control-label">Genero:<span class="req">*</span></label>
-									<div class="col-sm-8">
-										<select id="genero" name="genero" class="form-control1">
-											<!--<option value="<?php //echo $genero; ?>"><?php //echo $genero; ?></option>-->
-					                		<option value="MASCULINO">MASCULINO</option>
-				               			 	<option value="FEMENINO">FEMENINO</option>
+				                		 	<option value="2">CIVIL REGISTRY</option>
+							                <option value="1">IDENTITY CARD</option>
+						                 	<option value="3">ID CARD</option>
+							                <option value="4">PASSPORT</option>
+							                <option value="5">TEMPORARY STAY PERMIT</option>
+							                <option value="6">TEMPORARY PROTECTION PERMIT</option>
 				              			</select>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="fecha_nacimiento" class="col-sm-2 control-label">Fecha Nacimiento:<span class="req">*</span></label>
+									<label for="genero" class="col-sm-2 control-label">Gender:<span class="req">*</span></label>
+									<div class="col-sm-8">
+										<select id="genero" name="genero" class="form-control1">
+											<!--<option value="<?php //echo $genero; ?>"><?php //echo $genero; ?></option>-->
+					                		<option value="MASCULINO">MALE</option>
+				               			 	<option value="FEMENINO">FEMALE</option>
+				              			</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="fecha_nacimiento" class="col-sm-2 control-label">Date of Birth:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<input type="date" class="form-control1" id="fecha_nacimiento" name="fecha_nacimiento" required value="<?PHP  //echo date('Y-m-d',strtotime($fecha_nacimiento)); ?>" >
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="expedicion" class="col-sm-2 control-label">Expedición:<span class="req">*</span></label>
+									<label for="expedicion" class="col-sm-2 control-label">Expedition:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="expedicion" name="expedicion" placeholder="Lugar Expedición Documento" required maxlength="25" value="<?php //echo $expedicion; ?>">
+										<input type="text" class="form-control1" id="expedicion" name="expedicion" placeholder="Document Expedition Place" required maxlength="25" value="<?php //echo $expedicion; ?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="ciudad" class="col-sm-2 control-label">Ciudad:<span class="req">*</span></label>
+									<label for="ciudad" class="col-sm-2 control-label">City:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="ciudad" name="ciudad" placeholder="Ciudad Origen" required maxlength="25" value="<?php //echo $ciudad;?>">
+										<input type="text" class="form-control1" id="ciudad" name="ciudad" placeholder="City of Origin" required maxlength="25" value="<?php //echo $ciudad;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="direccion" class="col-sm-2 control-label">Dirección:<span class="req">*</span></label>
+									<label for="direccion" class="col-sm-2 control-label">Address:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="direccion_est" name="direccion_est" placeholder="Dirección Residencia" required maxlength="100" value="<?php //echo $direccion_estudiante;?>">
+										<input type="text" class="form-control1" id="direccion_est" name="direccion_est" placeholder="Home Address" required maxlength="100" value="<?php //echo $direccion_estudiante;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="email_institucional" class="col-sm-2 control-label">Correo Institucional:<span class="req">*</span></label>
+									<label for="email_institucional" class="col-sm-2 control-label">Institutional Email:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="email" class="form-control1" id="email_institucional" name="email_institucional" placeholder="Email Institucional" required maxlength="50" value="<?php //echo $email_institucional;?>">
+										<input type="email" class="form-control1" id="email_institucional" name="email_institucional" placeholder="Institutional Email" required maxlength="50" value="<?php //echo $email_institucional;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="actividad_extra" class="col-sm-2 control-label">Acvidiad Extra:</label>
+									<label for="actividad_extra" class="col-sm-2 control-label">Extra Activity:</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="actividad_extra" name="actividad_extra" placeholder="Deporte que Realiza"  maxlength="50" value="<?php //echo $actividad_extra;?>">
+										<input type="text" class="form-control1" id="actividad_extra" name="actividad_extra" placeholder="Sport Practiced"  maxlength="50" value="<?php //echo $actividad_extra;?>">
 									</div>
 								</div>
 
 								<div class='form-group'>
-									<label for='focusedinput' class='col-sm-2 control-label'>Estado:<span class="req">*</span></label>
+									<label for='focusedinput' class='col-sm-2 control-label'>Status:<span class="req">*</span></label>
 									<div class='col-sm-8'>
 										<select id='estado' name='estado' class='form-control1' required>
 											<option value="<?php echo $estado; ?>"><?php echo $estado; ?></option>
@@ -343,120 +343,120 @@
 								</div>
 
 								<div class="form-group">
-									<label for="actividad_extra" class="col-sm-2 control-label">Mensaje Personalizado:
+									<label for="actividad_extra" class="col-sm-2 control-label">Custom Message:
 									</label>
 									<div class="col-sm-8">
-										<textarea class="form-control1" maxlength="512" placeholder="en este campo podra crear un mensaje personalizado para cada uno de los estudiantes" name="mensaje" id="mensaje" title="máximo 512 caracteres"><?php //echo $mensaje; ?></textarea>
+										<textarea class="form-control1" maxlength="512" placeholder="Enter a custom message for each student" name="mensaje" id="mensaje" title="maximum 512 characters"><?php //echo $mensaje; ?></textarea>
 									</div>
 								</div>
 
                                 <div class='form-group'>
-									<label for='password' class='col-sm-2 control-label'>Contraseña:</label>
+									<label for='password' class='col-sm-2 control-label'>Password:</label>
 									<div class='col-sm-8'>
-										<input type='text' class='form-control1' id='password' name='password' placeholder='Ingrese la contraseña nueva'  maxlength='15' value="<?php //echo $password;?>">
+										<input type='text' class='form-control1' id='password' name='password' placeholder='Enter new password'  maxlength='15' value="<?php //echo $password;?>">
 									</div>
 								</div>
-								
+
 								<div class='form-group'>
 									<label for='rh' class='col-sm-2 control-label'>RH:</label>
 									<div class='col-sm-8'>
-										<input type='text' class='form-control1' id='rh' name='rh' placeholder='Ingrese RH'  maxlength='15' value="<?php //echo $rh;?>">
+										<input type='text' class='form-control1' id='rh' name='rh' placeholder='Enter RH'  maxlength='15' value="<?php //echo $rh;?>">
 									</div>
 								</div>
 
 								<div class="form-title">
-									<h4>Información acuediente principal</h4>
+									<h4>Primary Guardian Information</h4>
 								</div><br>
 
 								<div class="form-group">
-									<label for="email_acudiente_1" class="col-sm-2 control-label">Correo:</label>
+									<label for="email_acudiente_1" class="col-sm-2 control-label">Email:</label>
 									<div class="col-sm-8">
 										<input type="email" class="form-control1" id="email_acudiente_1" name="email_acudiente_1" placeholder="Email" maxlength="50" value="<?php //echo $email_acudiente_1;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="acudiente_1" class="col-sm-2 control-label">Nombre:<span class="req">*</span></label>
+									<label for="acudiente_1" class="col-sm-2 control-label">Name:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="acudiente_1" name="acudiente_1" placeholder="Nombre"  maxlength="50" value="<?php //echo $acudiente_1;?>">
+										<input type="text" class="form-control1" id="acudiente_1" name="acudiente_1" placeholder="Name"  maxlength="50" value="<?php //echo $acudiente_1;?>">
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-    								<label for="documento_acu" class="col-sm-2 control-label">Documento:<span class="req">*</span></label>
+    								<label for="documento_acu" class="col-sm-2 control-label">Document:<span class="req">*</span></label>
     								<div class="col-sm-8">
-    									<input type="text" class="form-control1" id="documento_acu" name="documento_acu" placeholder="Documento"  maxlength="50" value="<?php //echo $documento_acu;?>">
+    									<input type="text" class="form-control1" id="documento_acu" name="documento_acu" placeholder="Document"  maxlength="50" value="<?php //echo $documento_acu;?>">
     								</div>
     							</div>
 
 								<div class="form-group">
-									<label for="telefono_acudiente_1" class="col-sm-2 control-label">Teléfono:<span class="req">*</span></label>
+									<label for="telefono_acudiente_1" class="col-sm-2 control-label">Phone:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="telefono_acudiente_1" name="telefono_acudiente_1" placeholder="Teléfono" maxlength="15" value="<?php //echo $telefono_acudiente_1;?>">
+										<input type="text" class="form-control1" id="telefono_acudiente_1" name="telefono_acudiente_1" placeholder="Phone" maxlength="15" value="<?php //echo $telefono_acudiente_1;?>">
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-    								<label for="direccion" class="col-sm-2 control-label">Dirección de residencia:<span class="req">*</span></label>
+    								<label for="direccion" class="col-sm-2 control-label">Home Address:<span class="req">*</span></label>
     								<div class="col-sm-8">
-    									<input type="text" class="form-control1" id="direccion" name="direccion" placeholder="Dirección Residencia" required maxlength="100" value="<?php //echo $direccion;?>">
+    									<input type="text" class="form-control1" id="direccion" name="direccion" placeholder="Home Address" required maxlength="100" value="<?php //echo $direccion;?>">
     								</div>
     							</div>
-    							
+
     							<div class="form-group">
-									<label for="tDocumento" class="col-sm-2 control-label">Parentesco:<span class="req">*</span></label>
+									<label for="tDocumento" class="col-sm-2 control-label">Relationship:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="parentesco_acudiente_1" name="parentesco_acudiente_1" class="form-control1">
 											<!--<option value="<?php //echo $parentesco_acudiente_1; ?>"><?php //echo $parentesco_acudiente_1; ?></option>-->
-				                		 	<option value="NA">SELECCIONE PARENTESCO</option>
-											<option value="MADRE">MADRE</option>
-							                <option value="PADRE">PADRE</option>
-						                 	<option value="ABUELA">ABUELA</option>
-							                <option value="ABUELO">ABUELO</option>
-							                <option value="HERMANA">HERMANA</option>
-							                <option value="HERMANO">HERMANO</option>
-											<option value="TIA">TIA</option>
-							                <option value="TIO">TIO</option>
-							                <option value="PRIMA">PRIMA</option>
-							                <option value="PRIMO">PRIMO</option>
-							                <option value="OTRO">OTRO</option>
+				                		 	<option value="NA">SELECT RELATIONSHIP</option>
+											<option value="MADRE">MOTHER</option>
+							                <option value="PADRE">FATHER</option>
+						                 	<option value="ABUELA">GRANDMOTHER</option>
+							                <option value="ABUELO">GRANDFATHER</option>
+							                <option value="HERMANA">SISTER</option>
+							                <option value="HERMANO">BROTHER</option>
+											<option value="TIA">AUNT</option>
+							                <option value="TIO">UNCLE</option>
+							                <option value="PRIMA">FEMALE COUSIN</option>
+							                <option value="PRIMO">MALE COUSIN</option>
+							                <option value="OTRO">OTHER</option>
 				              			</select>
 									</div>
 								</div>
 
 								<div class="form-title">
-									<h4>Información acuediente secundario (<strong>opcional</strong>)</h4>
+									<h4>Secondary Guardian Information (<strong>optional</strong>)</h4>
 								</div><br>
 
 								<div class="form-group">
-									<label for="email_acudiente_2" class="col-sm-2 control-label">Correo:</label>
+									<label for="email_acudiente_2" class="col-sm-2 control-label">Email:</label>
 									<div class="col-sm-8">
 										<input type="email" class="form-control1" id="email_acudiente_2" name="email_acudiente_2" placeholder="Email" maxlength="50" value="<?php //echo $email_acudiente_2;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="acudiente_2" class="col-sm-2 control-label">Nombre:</label>
+									<label for="acudiente_2" class="col-sm-2 control-label">Name:</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="acudiente_2" name="acudiente_2" placeholder="Nombre"  maxlength="50" value="<?php //echo $acudiente_2;?>">
+										<input type="text" class="form-control1" id="acudiente_2" name="acudiente_2" placeholder="Name"  maxlength="50" value="<?php //echo $acudiente_2;?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="telefono_acudiente_2" class="col-sm-2 control-label">Teléfono:</label>
+									<label for="telefono_acudiente_2" class="col-sm-2 control-label">Phone:</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="telefono_acudiente_2" name="telefono_acudiente_2" placeholder="Teléfono" maxlength="15" value="<?php //echo $telefono_acudiente_2;?>">
+										<input type="text" class="form-control1" id="telefono_acudiente_2" name="telefono_acudiente_2" placeholder="Phone" maxlength="15" value="<?php //echo $telefono_acudiente_2;?>">
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-									<label for="tDocumento" class="col-sm-2 control-label">Parentesco:</label>
+									<label for="tDocumento" class="col-sm-2 control-label">Relationship:</label>
 									<div class="col-sm-8">
 										<select id="parentesco_acudiente_2" name="parentesco_acudiente_2" class="form-control1">
 											<?php
 												if($parentesco_acudiente_2 == "NA") {
 											?>
-													<!--<option value="<?php //echo $parentesco_acudiente_2; ?>">SELECCIONE PARENTESCO</option>-->
+													<!--<option value="<?php //echo $parentesco_acudiente_2; ?>">SELECT RELATIONSHIP</option>-->
 											<?php
 												}
 												else {
@@ -465,35 +465,35 @@
 											<?php
 												}
 											?>
-				                		 	<option value="NA">SELECCIONE PARENTESCO</option>
-											<option value="MADRE">MADRE</option>
-							                <option value="PADRE">PADRE</option>
-						                 	<option value="ABUELA">ABUELA</option>
-							                <option value="ABUELO">ABUELO</option>
-							                <option value="HERMANA">HERMANA</option>
-							                <option value="HERMANO">HERMANO</option>
-											<option value="TIA">TIA</option>
-							                <option value="TIO">TIO</option>
-							                <option value="PRIMA">PRIMA</option>
-							                <option value="PRIMO">PRIMO</option>
-							                <option value="OTRO">OTRO</option>
+				                		 	<option value="NA">SELECT RELATIONSHIP</option>
+											<option value="MADRE">MOTHER</option>
+							                <option value="PADRE">FATHER</option>
+						                 	<option value="ABUELA">GRANDMOTHER</option>
+							                <option value="ABUELO">GRANDFATHER</option>
+							                <option value="HERMANA">SISTER</option>
+							                <option value="HERMANO">BROTHER</option>
+											<option value="TIA">AUNT</option>
+							                <option value="TIO">UNCLE</option>
+							                <option value="PRIMA">FEMALE COUSIN</option>
+							                <option value="PRIMO">MALE COUSIN</option>
+							                <option value="OTRO">OTHER</option>
 				              			</select>
 									</div>
 								</div>
-								
+
 								<input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
 
 								<hr>
 
 							    <button type="submit" class="btn btn-primary" id="submit" >
-							      <span class="fa fa-save"></span> Guardar Cambios
+							      <span class="fa fa-save"></span> Save Changes
 							    </button>
 
 							    <!--<button type="button" class="btn btn-primary">
-							      <span class="fa fa-download"></span> Descargar
+							      <span class="fa fa-download"></span> Download
 							    </button>-->
 
-							    <a href="lista-estudiantes.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="lista-estudiantes.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 							</form> 
 						</div>
 					</div>

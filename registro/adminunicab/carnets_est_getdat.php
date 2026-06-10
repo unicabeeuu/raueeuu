@@ -34,7 +34,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro AcadÃ©mico</title>
+<title>Unicab Academic Record</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -92,10 +92,10 @@ if (isset($_SESSION['unisuper'])) {
             $("#search").hide();
             $("#idest").val("0");
             $("#submit1").hide("");
-            
+
             let gra = $("#selgra1").val();
-    		$("#lblgra").html("Grado = " + gra);
-            
+    		$("#lblgra").html("Grade = " + gra);
+
     		if(gra == "NA") {
     			$("#submit").hide("");
     			$("#idest").hide("");
@@ -107,7 +107,7 @@ if (isset($_SESSION['unisuper'])) {
     		    $("#periodo").show("");
     		}
     	});
-    	
+
     	$("#selgra2").change(function() {
             $("#divtabla").empty();
             $("#search").hide();
@@ -115,10 +115,10 @@ if (isset($_SESSION['unisuper'])) {
             $("#submit").hide("");
             $("#idest").hide("");
             $("#periodo").hide("");
-            
+
             let gra = $("#selgra2").val();
-    		$("#lblgra1").html("Grado = " + gra);
-            
+    		$("#lblgra1").html("Grade = " + gra);
+
     		if(gra == "NA") {
     			$("#submit1").hide("");
     		}
@@ -126,7 +126,7 @@ if (isset($_SESSION['unisuper'])) {
     		    $("#submit1").show("");
     		}
     	});
-    	
+
     	$("#search").keyup(function(){
         _this = this;
         // Show only matching TR, hide rest of them
@@ -138,13 +138,13 @@ if (isset($_SESSION['unisuper'])) {
                 $(this).show();
         });
     });
-    	
+
     });
-    
+
     function consultar_carnet() {
         let idgra = $("#selgra2").val();
         let anio = $("#idanio").val();
-        
+
         //alert (idgra);
         $.ajax({
     		type:"POST",
@@ -172,38 +172,38 @@ if (isset($_SESSION['unisuper'])) {
 		    }
 		?>
 		<!--left-fixed -navigation-->
-		
+
 		<!-- header-starts -->
 		<?php require 'header.php';  ?>
 		<!-- //header-ends -->
-		
+
 		<!-- modal -->
 		<section>
 			<?php require 'modal.php';  ?>
 		</section>
 		<!-- modal -->
-		
+
 		<!-- main content start-->
         <section>
            <div id="page-wrapper">
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
-						
+
 						<!---------------------------------------------->
                         <div id="cont">
-                			
+
                 			<!--***********************************************************************************************-->
                 			<div id="div1">
                 				<fieldset>
-                				<legend><h3 style="color: #FC0D8C;">GENERAR CARNET ESTUDIANTIL</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERATE STUDENT CARD</h3></legend>
                 				    <form class="form-horizontal" action="../docenteunicab/carnet_mpdf.php"  method="POST" target="_blank" onsubmit="return validacion()">
                 					<ul class="mprincipal">
-                						<li><h3>GENRAR CARNET POR<span style="color: white;">.....</span>
+                						<li><h3>GENERATE CARD BY<span style="color: white;">.....</span>
                 						</h3></li>
                 							<ul class="msecund" style="background-color: #222a75;">
                 								<li style="background-color: #222a75;">
 													<select id="selgra1" name="selgra1" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -215,26 +215,26 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<!--<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 													<label style="color: white;">...</label>-->
-													<button id="submit" class="btn" style="display: none;  background-color: #ff9805; color: white;" >Generar</button>
+													<button id="submit" class="btn" style="display: none;  background-color: #ff9805; color: white;" >Generate</button>
 												</li>
                 							</ul>
                 							<input type="hidden" id="tipo_carnet" name="tipo_carnet" value="EST"/>
                 					</ul>
                 					</form>
                 				</fieldset>
-                
+
                 			</div>
                 			<div id="div2">
                 				<fieldset>
-                				<legend><h3 style="color: #FC0D8C;">CONSULTAR CARNET ESTUDIANTIL</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">CONSULT STUDENT CARD</h3></legend>
                 				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                 					<ul class="mprincipal">
-                						<li><h3>LISTADO DE CARNETS POR<span style="color: white;">.....</span>
+                						<li><h3>CARD LIST BY<span style="color: white;">.....</span>
                 						</h3></li>
                 							<ul class="msecund" style="background-color: #222a75;">
                 								<li style="background-color: #222a75;">
 													<select id="selgra2" name="selgra2" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado1->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -242,32 +242,32 @@ if (isset($_SESSION['unisuper'])) {
 													    ?>
 													</select>
 													<label style="color: white;">...</label>
-													<input type="text" id="idanio" name="idanio" placeholder="a09o" style="width: 50px;" value="2021"/>
+													<input type="text" id="idanio" name="idanio" placeholder="year" style="width: 50px;" value="2021"/>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn" style="display: none;  background-color: #ff9805; color: white;" onclick="consultar_carnet()">Buscar</button>
+													<button id="submit1" class="btn" style="display: none;  background-color: #ff9805; color: white;" onclick="consultar_carnet()">Search</button>
 												</li>
                 							</ul>
                 					</ul>
                 					<!--</form>-->
                 				</fieldset>
-                
+
                 			</div>
                 		</div></br>
 						<div id="resul_bus">
-						    
+
 						</div>
 						<?php
             				$mysqli1->close();
             			?>
 						<!---------------------------------------------->
-						<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
+						<input type='search' placeholder='Enter search text' id='search' name='search' style="display: none;"><br/><br/>
 						<div id="divtabla">
-						    
+
 						</div>
 						<div id="divcontrol" style="display: none;">
 						    <label id="lblgra"></label><label id="lblgra1"></label>
 						</div>
-						
+
 					</div>
            		</div>
       		</div>
@@ -283,14 +283,14 @@ if (isset($_SESSION['unisuper'])) {
 			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
-				
+
 			showLeftPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
 				disableOther( 'showLeftPush' );
 			};
-			
+
 
 			function disableOther( button ) {
 				if( button !== 'showLeftPush' ) {
@@ -304,19 +304,19 @@ if (isset($_SESSION['unisuper'])) {
     let valorCambiado =$(this).val();
     if((valorCambiado == 'Estudio')){
        $('#select_periodo').hide();
-       
+
      }
      if (valorCambiado=='Notas') {
      	$('#select_periodo').show();
      }
 });
 	</script>
-		
+
 	<!--scrolling js-->
 	<script src="../js/jquery.nicescroll.js"></script>
 	<script src="../js/scripts.js"></script>
 	<!--//scrolling js-->
-	
+
 	<!-- side nav js -->
 	<script src='../js/SidebarNav.min.js' type='text/javascript'></script>
 	<script>
@@ -331,7 +331,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesiÃ³n');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

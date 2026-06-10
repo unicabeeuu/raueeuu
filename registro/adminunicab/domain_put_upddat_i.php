@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -158,7 +158,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	
 	function cargaropciones() {
 		$("#selop").html("");
-		$("#selop").append('<option value="NA" selected>Seleccione opción</option>');
+		$("#selop").append('<option value="NA" selected>Select option</option>');
 		$("#selop").append('<option value="N">Ingresar nueva pregunta</option>');
 		$("#selop").append('<option value="E">Editar pregunta</option>');
 	}
@@ -545,6 +545,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	#divprincipal, #divformulas, #divtipopreg {
 		display: flex;
 		justify-content: space-around;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 	#divopciones {
 		margin-left: 40px;
@@ -556,7 +558,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		margin-left: 40px;
 	}
 	#fl1 {
-		width: 500px;
+		max-width: 500px;
+		width: 100%;
 	}
 	.grisclaro {
 		background: lightgray;
@@ -583,10 +586,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		background: lightblue;
 	}
 	#div1 {
-		width: 400px;
+		max-width: 400px;
+		width: 100%;
 		height: 200px;
-		overflow-x: scroll;
-		overflow-y: scroll;
+		overflow: auto;
 	}
 	.blanco {
 		background: white;
@@ -627,16 +630,16 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									<!--***********************************************************************************************-->
 									<div id="div2">
 										<div class="form-title">
-											<h4>BANCO DE PALABRAS <i class="fa fa-arrow-right "></i> DOMAN KIDS (INGLÉS)</h4>
+											<h4>WORD BANK <i class="fa fa-arrow-right "></i> DOMAN KIDS (ENGLISH)</h4>
 										</div><br>
 										<table id="tblcontroles">
 											<tbody>
 												<tr>
 													<td>
 														<select id="selop" class="form-control">
-															<option value="NA" selected>Seleccione opción</option>
-															<option value="N">Ingresar nueva palabra</option>
-															<option value="E">Ver palabras</option>
+															<option value="NA" selected>Select option</option>
+															<option value="N">Enter new word</option>
+															<option value="E">View words</option>
 														</select>
 													</td>
 													<td width="30"></td>
@@ -688,22 +691,22 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">NUEVA PALABRA</h5>
+                <h5 class="modal-title" id="exampleModalLabel">NEW WORD</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <label>* Palabra </label>
+                <label>* Word </label>
                 <input type="text" id="txtpalabra" name="txtpalabra" class="form-control" />
                 
-                <label>Imagen <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtretro" value="1"/> (300 Kb)</label>
+                <label>Image <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtretro" value="1"/> (300 Kb)</label>
                 <input type="file" id="adjunto" name="adjunto" accept=".jpg,.jpeg,.png" class="btn btn-lg btn-info">
               </div>
               <div class="modal-footer">
                   <label id="lblmsg"></label><img id="imgnp" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" onclick="guardar()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" onclick="guardar()">Save</button>
                 
               </div>
             </div>
@@ -715,18 +718,18 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">EDITAR PALABRA</h5>
+                <h5 class="modal-title" id="exampleModalLabel">EDIT WORD</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <label>* Palabra </label>
+                <label>* Word </label>
                 <input type="text" id="txtupdpalabra" name="txtupdpalabra" class="form-control" required/>
                 
                 <div class="row">
                     <div class="col-lg-8">
-                        <label>Imagen <input type="text" class="controlcampo" style="width: 20px" id="ctr_updadjunto" value="1"/> (300 Kb)</label>
+                        <label>Image <input type="text" class="controlcampo" style="width: 20px" id="ctr_updadjunto" value="1"/> (300 Kb)</label>
                         <input type="file" id="updadjunto" name="updadjunto" accept=".jpg,.jpeg,.png" class="btn btn-lg btn-info">
                     </div>
                     <div class="col-lg-4">
@@ -739,8 +742,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
               <div class="modal-footer">
                 <label id="lblupdmsg"></label><img id="imgep" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
                 <input type="hidden" id="idpalabra" style="width: 20px;" readonly/>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btneditar" data-dismiss="modal" onclick="modificar()">Modificar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btneditar" data-dismiss="modal" onclick="modificar()">Modify</button>
                 
               </div>
             </div>

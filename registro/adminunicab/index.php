@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Record</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -63,6 +63,39 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 #chartdiv {
   width: 100%;
   height: 295px;
+}
+
+/* index.php — page-specific responsive overrides */
+/* Uses .index-section to avoid touching shared CSS rules */
+
+.index-section div#page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-section .charts {
+    width: 100%;
+}
+
+.index-section .charts-grids {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 767px) {
+    .index-section div#page-wrapper {
+        min-height: auto;
+        padding-bottom: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .index-section div#page-wrapper {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
 }
 </style>
 <script type="text/javascript">
@@ -115,22 +148,22 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		<!-- main content start-->
 		
-        <section>
+        <section class="index-section">
             <div id="page-wrapper">
                <?php //echo $sql; ?>
-                <div class="charts">		
-               		 <div class="mid-content-top charts-grids">	
-                    	<div class="middle-content">                    	
-        			    <div class="embed-responsive embed-responsive-16by9">
-                          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GYodXGpqmp8"></iframe>
+                <div class="charts">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <div class="mid-content-top charts-grids">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GYodXGpqmp8"></iframe>
+                                </div>
+                            </div>
                         </div>
-                   		</div>
-              		 </div>
-            	</div>
-           		
-           </div>
-           
-		</section>
+                    </div>
+                </div>
+            </div>
+        </section>
 	<!--footer-->
 	<?php require 'footer.php'; ?>
     <!--//footer-->

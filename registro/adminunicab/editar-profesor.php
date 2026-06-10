@@ -53,7 +53,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -135,44 +135,44 @@ if (isset($_SESSION['unisuper'])) {
 			<div class="forms">
 				<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 					<div class="form-title">
-						<h4>Información Empleado: <?php echo $nombres." ".$apellidos; ?></h4>
+						<h4>Employee Information: <?php echo $nombres." ".$apellidos; ?></h4>
 					</div>
 
 					<div class="form-body">
 						<form class="form-horizontal" action='php/update-profesores-admin.php' method="POST">
 							<div class='form-group'>
-								<label for='apellidos' class='col-sm-2 control-label'>Apellidos:<span class="req">*</span></label>
+								<label for='apellidos' class='col-sm-2 control-label'>Last Names:<span class="req">*</span></label>
 								<div class='col-sm-8'>
-									<input type='text' class='form-control1' id='apellidos' name='apellidos' placeholder='Apellidos Estudiante' required value="<?php echo $apellidos;?>">
+									<input type='text' class='form-control1' id='apellidos' name='apellidos' placeholder='Employee Last Names' required value="<?php echo $apellidos;?>">
 								</div>
 							</div>
 
 							<div class='form-group'>
-								<label for='nombres' class='col-sm-2 control-label'>Nombres:<span class="req">*</span></label>
+								<label for='nombres' class='col-sm-2 control-label'>First Names:<span class="req">*</span></label>
 								<div class='col-sm-8'>
-									<input type='text' class='form-control1' id='nombres' name='nombres'  placeholder='Nombres Estudiante' required value="<?php echo $nombres;?>">
+									<input type='text' class='form-control1' id='nombres' name='nombres'  placeholder='Employee First Names' required value="<?php echo $nombres;?>">
 								</div>
 							</div>
 
 							<div class='form-group'>
-								<label for='email_institucional' class='col-sm-2 control-label'>Correo Institucional:<span class="req">*</span></label>
+								<label for='email_institucional' class='col-sm-2 control-label'>Institutional Email:<span class="req">*</span></label>
 								<div class='col-sm-8'>
-									<input type='email' class='form-control1' id='email' name='email' placeholder='Correo' required value="<?php echo $email_inst;?>">
+									<input type='email' class='form-control1' id='email' name='email' placeholder='Email' required value="<?php echo $email_inst;?>">
 								</div>
 							</div>
 
 							<div class='form-group'>
-								<label for='n_documento' class='col-sm-2 control-label'>Identificación:<span class="req">*</span></label>
+								<label for='n_documento' class='col-sm-2 control-label'>Identification:<span class="req">*</span></label>
 								<div class='col-sm-8'>
-									<input type='text' class='form-control1' id='n_documento' name='n_documento' placeholder='Número Documento' required value="<?php echo $n_documento;?>">
+									<input type='text' class='form-control1' id='n_documento' name='n_documento' placeholder='Document Number' required value="<?php echo $n_documento;?>">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="pensamiento" class="col-sm-2 control-label">Dependencia:<span class="req">*</span></label>
+								<label for="pensamiento" class="col-sm-2 control-label">Department:<span class="req">*</span></label>
 								<div class="col-sm-8">
 									<select id="dependencia" name="dependencia" class="form-control1">
-						                <option value="NA" selected>SELECCIONE DEPENDENCIA</option>
+						                <option value="NA" selected>SELECT DEPARTMENT</option>
 						                <?php 
 									        while($rowd = $resul_depen->fetch_assoc()){
 									            echo "<option value='".$rowd['id']."'>".$rowd['dependencia']."</option>";
@@ -189,16 +189,16 @@ if (isset($_SESSION['unisuper'])) {
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="focusedinput" class="col-sm-2 control-label">Celular:<span class="req">*</span></label>
+								<label for="focusedinput" class="col-sm-2 control-label">Mobile:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="celular" name="celular" required placeholder="Celular" value="<?php echo $celular;?>">
+									<input type="text" class="form-control1" id="celular" name="celular" required placeholder="Mobile" value="<?php echo $celular;?>">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="pensamiento" class="col-sm-2 control-label">Cargo:<span class="req">*</span></label>
+								<label for="pensamiento" class="col-sm-2 control-label">Position:<span class="req">*</span></label>
 								<div class="col-sm-8">
 									<select id="cargo" name="cargo" class="form-control1">
-						                <option value="NA" selected>SELECCIONE CARGO</option>
+						                <option value="NA" selected>SELECT POSITION</option>
 						                <?php 
 									        while($rowc = $resul_cargo->fetch_assoc()){
 									            echo "<option value='".$rowc['id']."'>".$rowc['cargo']."</option>";
@@ -209,21 +209,21 @@ if (isset($_SESSION['unisuper'])) {
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="focusedinput" class="col-sm-2 control-label">Profesión:<span class="req">*</span></label>
+								<label for="focusedinput" class="col-sm-2 control-label">Profession:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="profesion" name="profesion" required placeholder="Profesión" value="<?php echo $profesion;?>">
+									<input type="text" class="form-control1" id="profesion" name="profesion" required placeholder="Profession" value="<?php echo $profesion;?>">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="focusedinput" class="col-sm-2 control-label">Descripción:</label>
+								<label for="focusedinput" class="col-sm-2 control-label">Description:</label>
 								<div class="col-sm-8">
-									<textarea class="form-control1xxx" id="descripcion" name="descripcion" required placeholder="Descripción" rows="6" cols="82"><?php echo $desc;?></textarea>
+									<textarea class="form-control1xxx" id="descripcion" name="descripcion" required placeholder="Description" rows="6" cols="82"><?php echo $desc;?></textarea>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="focusedinput" class="col-sm-2 control-label">Nombre corto:<span class="req">*</span></label>
+								<label for="focusedinput" class="col-sm-2 control-label">Short Name:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="nombrec" name="nombrec" required placeholder="Primer nombre y primer apellido" value="<?php echo $nombrec;?>">
+									<input type="text" class="form-control1" id="nombrec" name="nombrec" required placeholder="First name and last name" value="<?php echo $nombrec;?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -237,10 +237,10 @@ if (isset($_SESSION['unisuper'])) {
 							<hr>
 
 						    <button type="submit" class="btn btn-primary">
-						      <span class="fa fa-save"></span> Guardar Cambios
+						      <span class="fa fa-save"></span> Save Changes
 						    </button>
-						    
-						    <a href="lista-profesores.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+
+						    <a href="lista-profesores.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 						</form> 
 				 	</div>
 				</div>

@@ -31,7 +31,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Record</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -89,6 +89,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 #cont {
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 .fld1 {
 	background-color:white;
@@ -243,140 +245,139 @@ legend {
                         			</div>-->
                         			<div id="div2">
                         				<fieldset>
-                        				<legend><h3 style="color: #FC0D8C;">BUSCAR EN BASE DE DATOS</h3></legend>
-                        				    <form class="form-horizontal" action="../docenteunicab/updreg/estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
-                        					<ul class="mprincipal">
-                        						<li><h3>BUSCAR POR NOMBRE O APELLIDO <span style="color: blue;">ACTIVO</span></h3></li>
-                        							<ul class="msecund">
-                        								<li>
-															<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
-															<label style="color: white;">...</label>
-															<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: black;">
-															<input type="hidden" id="estado" name="estado" value="activo" required/>
-														</li>
-                        							</ul>
-                        					</ul>
-                        					</form>
-                        					<form class="form-horizontal" action="../docenteunicab/updreg/estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
-                            					<ul class="mprincipal">
-                            						<li><h3>BUSCAR POR NOMBRE O APELLIDO <span style="color: red;">INACTIVO</span></h3></li>
-                            							<ul class="msecund">
-                            								<li>
-																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
-																<label style="color: white;">...</label>
-																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: black;">
-																<input type="hidden" id="estado" name="estado" value="inactivo" required/>
-															</li>
-                            							</ul>
-                            					</ul>
-                            				</form>
-                        					<form class="form-horizontal" action="../docenteunicab/updreg/estudianteg_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
-                        					<ul class="mprincipal">
-                        						<li><h3>BUSCAR POR GRADO ACTIVO<span style="color: white;">.....</span>
-                        						<input type="checkbox" class="chk" id="chkper" name="chkper"/> <span style="color: red;">Perdiendo</span>
-                        						<select id="selper" name="selper">
-                        						    <option value="0">Sel. periodo</option>
-                        						    <option value="1">1</option>
-                        						    <option value="2">2</option>
-                        						    <option value="3">3</option>
-                        						    <option value="4">4</option>
-                        						</select>
-                        						</h3></li>
-                        							<ul class="msecund">
-                        								<li>
-															<select id="selgra1" name="selgra1" required>
-															    <option value="NA">Seleccione grado</option>
-															    <?php 
-															        while($row = $resultado1->fetch_assoc()){
-															            echo "<option value='".$row['id_category']."'>".$row['name']."</option>";
-															        }
-															    ?>
-															</select>
-															<label style="color: white;">...</label>
-															<select id="selgrupo" name="selgrupo" required>
-															    <option value="NA" selected>Grupo</option>
-															    <option value="A">A</option>
-															    <option value="B">B</option>
-															    <option value="C">C</option>
-															    <option value="D">D</option>
-															</select>
-															<label style="color: white;">...</label>
-															<!--<a href="estudianteg_getdat.php" >Buscar</a>-->
-															<input type="submit" class="btn " value="Buscar" style="background-color: #ff9805; color: black;">
-															<input type="hidden" id="estadog" name="estadog" value="activo" required/>
-														</li>
-                        							</ul>
-                        					</ul>
-                        					</form>
-                        					<?php
-                        					    if($perfil == "SU" || $perfil == "AR" || $perfil == "AR_AW") {
-                        					?>
-                            					<form class="form-horizontal" action="../docenteunicab/updreg/observaciones_putdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
-                                					<ul class="mprincipal">
-                                						<li><h3>OBSERVACIONES ESTUDIANTE</h3></li>
-                                							<ul class="msecund">
-                                								<li>
-    																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
-    																<label style="color: white;">...</label>
-    																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-    																<input type="submit" class="btn " value="Asignar" style="background-color: #ff9805; color: black;">
-    															</li>
-                                							</ul>
-                                					</ul>
-                                				</form>
-                            				<?php
-                                                }
-                        					?>
-                            				<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_getdat.php"  method="POST" target="_blank">
-                            					<ul class="mprincipal">
-                            						<li><h3>EXPORTAR BASE DE DATOS</h3></li>
-                            							<ul class="msecund">
-                            								<li>
-																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
-															</li>
-                            							</ul>
-                            					</ul>
-                            				</form>
-                            				<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_ret_getdat.php"  method="POST" target="_blank">
-                            					<ul class="mprincipal">
-                            						<li><h3>EXPORTAR RETIRADOS</h3></li>
-                            							<ul class="msecund">
-                            								<li>
-																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
-															</li>
-                            							</ul>
-                            					</ul>
-                            				</form>
-                            				<?php
-                        					    if($perfil == "SU" || $perfil == "AR" || $perfil == "AR_AW") {
-                        					?>
-                                				<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_act_extra.php"  method="POST" target="_blank">
-                                					<ul class="mprincipal">
-                                						<li><h3>LISTADO DE ACTIVIDADES EXTRA</h3></li>
-                                							<ul class="msecund">
-                                								<li>
-    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
-    															</li>
-                                							</ul>
-                                					</ul>
-                                				</form>
-												<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_eval_admision.php"  method="POST" target="_blank">
-                                					<ul class="mprincipal">
-                                						<li><h3>LISTADO DE EVALUACIONES DE ADMISIÓN</h3></li>
-                                							<ul class="msecund">
-                                								<li>
-    																<input type="submit" class="btn " value="Exportar" style="background-color: #ff9805; color: black;" >
-    															</li>
-                                							</ul>
-                                					</ul>
-                                				</form>
-                            				<?php
-                                                }
-                        					?>
-                        				</fieldset>
-                        
+                        				<legend><h3 style="color: #FC0D8C;">SEARCH IN DATABASE</h3></legend>
+                        				                        				    <form class="form-horizontal" action="../docenteunicab/updreg/estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
+                        				                        					<ul class="mprincipal">
+                        				                        						<li><h3>SEARCH BY NAME OR LAST NAME <span style="color: blue;">ACTIVE</span></h3></li>
+                        				                        							<ul class="msecund">
+                        				                        								<li>
+                        																			<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
+                        																			<label style="color: white;">...</label>
+                        																			<!--<a href="estudiante_getdat.php" >Search</a>-->
+                        																			<input type="submit" class="btn " value="Search" style="background-color: #ff9805; color: black;">
+                        																			<input type="hidden" id="estado" name="estado" value="activo" required/>
+                        																		</li>
+                        				                        							</ul>
+                        				                        					</ul>
+                        				                        					</form>
+                        				                        					<form class="form-horizontal" action="../docenteunicab/updreg/estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
+                        				                            					<ul class="mprincipal">
+                        				                            						<li><h3>SEARCH BY NAME OR LAST NAME <span style="color: red;">INACTIVE</span></h3></li>
+                        				                            							<ul class="msecund">
+                        				                            								<li>
+                        																				<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
+                        																				<label style="color: white;">...</label>
+                        																				<!--<a href="estudiante_getdat.php" >Search</a>-->
+                        																				<input type="submit" class="btn " value="Search" style="background-color: #ff9805; color: black;">
+                        																				<input type="hidden" id="estado" name="estado" value="inactivo" required/>
+                        																			</li>
+                        				                            							</ul>
+                        				                            					</ul>
+                        				                            				</form>
+                        				                        					<form class="form-horizontal" action="../docenteunicab/updreg/estudianteg_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
+                        				                        					<ul class="mprincipal">
+                        				                        						<li><h3>SEARCH BY GRADE ACTIVE<span style="color: white;">.....</span>
+                        				                        						<input type="checkbox" class="chk" id="chkper" name="chkper"/> <span style="color: red;">Failing</span>
+                        				                        						<select id="selper" name="selper">
+                        				                        						    <option value="0">Sel. period</option>
+                        				                        						    <option value="1">1</option>
+                        				                        						    <option value="2">2</option>
+                        				                        						    <option value="3">3</option>
+                        				                        						    <option value="4">4</option>
+                        				                        						</select>
+                        				                        						</h3></li>
+                        				                        							<ul class="msecund">
+                        				                        								<li>
+                        																			<select id="selgra1" name="selgra1" required>
+                        																			    <option value="NA">Select grade</option>
+                        																			    <?php 
+                        																			        while($row = $resultado1->fetch_assoc()){
+                        																			            echo "<option value='".$row['id_category']."'>".$row['name']."</option>";
+                        																			        }
+                        																			    ?>
+                        																			</select>
+                        																			<label style="color: white;">...</label>
+                        																			<select id="selgrupo" name="selgrupo" required>
+                        																			    <option value="NA" selected>Group</option>
+                        																			    <option value="A">A</option>
+                        																			    <option value="B">B</option>
+                        																			    <option value="C">C</option>
+                        																			    <option value="D">D</option>
+                        																			</select>
+                        																			<label style="color: white;">...</label>
+                        																			<!--<a href="estudianteg_getdat.php" >Search</a>-->
+                        																			<input type="submit" class="btn " value="Search" style="background-color: #ff9805; color: black;">
+                        																			<input type="hidden" id="estadog" name="estadog" value="activo" required/>
+                        																		</li>
+                        				                        							</ul>
+                        				                        					</ul>
+                        				                        					</form>
+                        				                        					<?php
+                        				                        					    if($perfil == "SU" || $perfil == "AR" || $perfil == "AR_AW") {
+                        				                        					?>
+                        				                            					<form class="form-horizontal" action="../docenteunicab/updreg/observaciones_putdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
+                        				                                					<ul class="mprincipal">
+                        				                                						<li><h3>STUDENT OBSERVATIONS</h3></li>
+                        				                                							<ul class="msecund">
+                        				                                								<li>
+                        				    																<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
+                        				    																<label style="color: white;">...</label>
+                        				    																<!--<a href="estudiante_getdat.php" >Search</a>-->
+                        				    																<input type="submit" class="btn " value="Assign" style="background-color: #ff9805; color: black;">
+                        				    															</li>
+                        				                                							</ul>
+                        				                                					</ul>
+                        				                                				</form>
+                        				                            				<?php
+                        				                                                }
+                        				                        					?>
+                        				                            				<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_getdat.php"  method="POST" target="_blank">
+                        				                            					<ul class="mprincipal">
+                        				                            						<li><h3>EXPORT DATABASE</h3></li>
+                        				                            							<ul class="msecund">
+                        				                            								<li>
+                        																				<input type="submit" class="btn " value="Export" style="background-color: #ff9805; color: black;" >
+                        																			</li>
+                        				                            							</ul>
+                        				                            					</ul>
+                        				                            				</form>
+                        				                            				<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_ret_getdat.php"  method="POST" target="_blank">
+                        				                            					<ul class="mprincipal">
+                        				                            						<li><h3>EXPORT RETIRED</h3></li>
+                        				                            							<ul class="msecund">
+                        				                            								<li>
+                        																				<input type="submit" class="btn " value="Export" style="background-color: #ff9805; color: black;" >
+                        																			</li>
+                        				                            							</ul>
+                        				                            					</ul>
+                        				                            				</form>
+                        				                            				<?php
+                        				                        					    if($perfil == "SU" || $perfil == "AR" || $perfil == "AR_AW") {
+                        				                        					?>
+                        				                                				<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_act_extra.php"  method="POST" target="_blank">
+                        				                                					<ul class="mprincipal">
+                        				                                						<li><h3>LIST OF EXTRA ACTIVITIES</h3></li>
+                        				                                							<ul class="msecund">
+                        				                                								<li>
+                        				    																<input type="submit" class="btn " value="Export" style="background-color: #ff9805; color: black;" >
+                        				    															</li>
+                        				                                							</ul>
+                        				                                					</ul>
+                        				                                				</form>
+                        																<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_eval_admision.php"  method="POST" target="_blank">
+                        				                                					<ul class="mprincipal">
+                        				                                						<li><h3>LIST OF ADMISSION EVALUATIONS</h3></li>
+                        				                                							<ul class="msecund">
+                        				                                								<li>
+                        				    																<input type="submit" class="btn " value="Export" style="background-color: #ff9805; color: black;" >
+                        				    															</li>
+                        				                                							</ul>
+                        				                                					</ul>
+                        				                                				</form>
+                        				                            				<?php
+                        				                                                }
+                        				                        					?>
+                        				                        				</fieldset>                        
                         			</div>
                         		</div>
 								<div id="resul_bus"></div>

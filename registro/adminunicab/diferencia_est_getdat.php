@@ -50,7 +50,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head><meta http-equiv="Content-Type" content="text/html; charset=big5">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -105,30 +105,33 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     #divtabla {
-        overflow:scroll;
+        overflow-x: auto;
         height:300px;
-        width:800px;
+        width:100%;
     }
     #divtabla table {
-        width:800px
+        min-width:800px;
+        width:100%;
     }
-    
+
     #tblmoodle {
-        overflow:scroll;
+        overflow-x: auto;
         height:300px;
-        width:500px;
+        width:100%;
     }
     #tblmoodle table {
-        width:500px
+        min-width:500px;
+        width:100%;
     }
-    
+
     #tblregistro {
-        overflow:scroll;
+        overflow-x: auto;
         height:300px;
-        width:500px;
+        width:100%;
     }
     #tblregistro table {
-        width:500px
+        min-width:500px;
+        width:100%;
     }
     .form-controlxx {
         background-color: lightgray;

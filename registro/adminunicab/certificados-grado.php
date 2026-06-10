@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -129,9 +129,9 @@ $resultado1 = mysqli_query($conexion, $peticion);
                     			<div class="form-body">
                     			<form  method="post">
                     				<div class="form-group">
-										<label for="n_documento" class="col-sm-2 control-label">Número Documento:<span class="req">*</span></label>
+										<label for="n_documento" class="col-sm-2 control-label">Document Number:<span class="req">*</span></label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Número Documento" required maxlength="15" autofocus="">
+											<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Document Number" required maxlength="15" autofocus="">
 											</div>
 									</div>
 								  	<button type="submit" class="btn" style="background-color: #222a75;"><span style="color: white" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -160,14 +160,14 @@ $resultado1 = mysqli_query($conexion, $peticion);
 									<div class="form-group">
 										<form class="form-horizontal" action="certificado-final-grados.php" method="POST">
 											<div class="form-group">				
-												<label for="apellidos" class="col-sm-2 control-label">Apellidos</label>
+												<label for="apellidos" class="col-sm-2 control-label">Last Names</label>
 												<div class="col-sm-8">
 													<input type="text" readonly="readonly" class="form-control1" id="apellidos" name="apellidos" value="<?php echo $apellidos;?>">
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="nombres" class="col-sm-2 control-label">Nombres</label>
+												<label for="nombres" class="col-sm-2 control-label">First Names</label>
 												<div class="col-sm-8">
 													<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $nombres;?>">
 												</div>
@@ -188,10 +188,10 @@ $resultado1 = mysqli_query($conexion, $peticion);
 										if ($total_historial>0) {
 											?>
 										<div class="form-group">
-											<label for="nombres" class="col-sm-2 control-label">Seleccione grado:</label>
+											<label for="nombres" class="col-sm-2 control-label">Select grade:</label>
 											<div class="col-sm-8">
 												<select id="id_matricula" name="id_matricula" class="form-control1" required >
-												<option value='0'>Seleccionar Grado</option>
+												<option value='0'>Select Grade</option>
 												<?php
 													while ($row=mysqli_fetch_array($exe_historial)) {
 														$id_grado=$row['id_grado'];
@@ -207,17 +207,17 @@ $resultado1 = mysqli_query($conexion, $peticion);
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="idioma" class="col-sm-2 control-label">Idioma:<span class="req">*</span></label>
+											<label for="idioma" class="col-sm-2 control-label">Language:<span class="req">*</span></label>
 											<div class="col-sm-8">
 												<select id="idioma" name="idioma" class="form-control1" required>
-									                <option value="espanol">Español</option>
-									                <option value="ingles">Ingles</option>
+									                <option value="espanol">Spanish</option>
+									                <option value="ingles">English</option>
 								              </select>
 											</div>
 										</div>
 								
 										<div class="form-group" style="display: none;">
-											<label for="firmas" class="col-sm-2 control-label">Firmas:<span class="req">*</span></label>
+											<label for="firmas" class="col-sm-2 control-label">Signatures:<span class="req">*</span></label>
 											<div class="col-sm-8">
 												<select id="firmas" name="firmas" class="form-control1" required>
 									                <option value="SI" selected>SI</option>
@@ -228,7 +228,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 										<input type="hidden" id="n_documentof" name="n_documentof" value="<?php echo $numero_documento; ?>"/>
 										
 										 <div class="form-group" style="visibility: hidden;">
-											<label for="id_grado" class="col-sm-2 control-label">Materia<span class="req">*</span></label>
+											<label for="id_grado" class="col-sm-2 control-label">Subject<span class="req">*</span></label>
 											<div class="col-sm-8">
 												<select id="id_grado" name="id_grado" class="form-control1" required>
 						              			</select>
@@ -238,7 +238,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 										
 
 										<div class="modal-footer">
-      										<input type="submit" class="btn btn-primary" value="Generar">
+      										<input type="submit" class="btn btn-primary" value="Generate">
 	      								</div>
 										</form>
 									</div>

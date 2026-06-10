@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -362,15 +362,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							<form action="crearBlog.php" method="POST" id="form" name="form" enctype="multipart/form-data">
 
 								<div class="form-group"> 
-									<label for="TituloA">Título</label> 
-									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Ingrese nombre del evento" autofocus onkeyup="mayus(this, 'TituloA', 'Título');">
+									<label for="TituloA">Title</label> 
+									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Enter event name" autofocus onkeyup="mayus(this, 'TituloA', 'Título');">
 									<input type="hidden" style="width: 20px" id="ctr_TituloA" value="1"/>
 								</div>
 								
 								<div class="form-group"> 
-									<label for="Categoria" id="lblcat">Categoría</label> 
+									<label for="Categoria" id="lblcat">Category</label> 
 									<select id="selcat" name="selcat" class="form-control">
-									    <option value="0">Seleccione categoría</option>
+									    <option value="0">Select category</option>
 									    <?php  
 									        $sqlcat = "SELECT * FROM tbl_categorias_blog";
 									        $rescat = mysqli_query($conexion,$sqlcat);
@@ -384,8 +384,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 
 								<div class="form-group"> 
-									<label for="DescripcionA">Descripción (1000 | <label class="maxl" id="lbldesc">0</label>)</label> 
-									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Descripción o información del evento" onkeyup="mayus(this, 'DescripcionA', 'Descripción');"></textarea>
+									<label for="DescripcionA">Description (1000 | <label class="maxl" id="lbldesc">0</label>)</label> 
+									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Description or event information" onkeyup="mayus(this, 'DescripcionA', 'Descripción');"></textarea>
 									<input type="hidden" style="width: 20px" id="ctr_DescripcionA" value="1"/>
 								</div>
 								
@@ -394,12 +394,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								    <ul style="margin-left: 50px;">
 									    <li>
 									        <div>
-									            <p>Nota: Si desea agregar más texto, imágenes, vídeos o vínculos externos (como por ejemplo formularios), envíe toda la información por 
-									            correo a <a href="mailto:webmasterunicab@unicab.org">webmasterunicab@unicab.org</a>, indicando el <mark style="background:yellow;">título</mark> del blog y el <mark style="background:yellow;">id</mark> que aparecerá al guardar la información ... y active la siguiente opción.</p><br>
+									            <p>Note: If you wish to add more text, images, videos or external links (such as forms), send all information by
+									            email to <a href="mailto:webmasterunicab@unicab.org">webmasterunicab@unicab.org</a>, indicating the <mark style="background:yellow;">title</mark> of the blog and the <mark style="background:yellow;">id</mark> that will appear when saving the information ... and enable the following option.</p><br>
 									            <table>
 									                <tbody>
 									                    <tr>
-									                        <td><label>Texto complementario, imágenes, vídeos o vínculos</label></td>
+									                        <td><label>Supplementary text, images, videos or links</label></td>
 									                        <td width="10"></td>
 									                        <td>
 									                            <div class="checkbox-GHF">
@@ -420,7 +420,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 
 								<div class="form-group"> 
-									<label for="ImagenA">Imagen (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenA">Image (Maximum size 1024 Kb)</label> 
 									<input type="file" class="form-control" id="ImagenA" name="ImagenA" required>
 									<input type="hidden" style="width: 20px" id="ctr_ImagenA" value="1"/>
 									<p id="texto"> </p><br/>   	
@@ -428,13 +428,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 
 								<div class="form-group"> 
-									<label for="Autor">Públicado por</label> 
+									<label for="Autor">Published by</label> 
 									<input type="text" class="form-control" id="Autor"  readonly="" value="<?php echo $apellidos.' '.$nombres; ?>">
 								</div>
 
 								<input type="hidden" class="form-control" name="IdEmp" value="<?php echo $id;?>" readonly>
 
-								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Guardar</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Save</button> 
 							</form>
 						</div>
 						

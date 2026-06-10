@@ -168,7 +168,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -330,7 +330,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Envío masivo de whatsapp pre-solicitudes:</h4>
+							<h4>Bulk WhatsApp send - enrollment pre-requests:</h4>
 						</div>
 						<div class="form-body" style="height: 500px; overflow: scroll;">
 							<?php

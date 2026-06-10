@@ -29,7 +29,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -195,10 +195,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					    	<table id="listaBlogs" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Título</th>
-						                <th>Descripción</th>
+						                <th>Title</th>
+						                <th>Description</th>
 						                <th>Creado por</th>
-						                <th>Comentarios diseño</th>
+						                <th>Design comments</th>
 	                                    <th>Revisar</th>
 						            </tr>
 						        </thead>

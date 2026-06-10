@@ -15,6 +15,31 @@
 <link href="css/custom.css" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 <!-- // CSS -->
+<style>
+    #page-wrapper { padding-top: 2em; }
+    .login-action-buttons {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 0.5em;
+    }
+    .login-action-buttons .btn {
+        min-width: 130px;
+    }
+    @media (max-width: 480px) {
+        .login-action-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-action-buttons .btn {
+            width: 70%;
+        }
+        .widget-shadow {
+            border-radius: 0 0 20px 20px !important;
+        }
+    }
+</style>
 <!-- scripy -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- // script -->
@@ -25,13 +50,17 @@
 		<div id="page-wrapper">
 			<div class="main-page login-page ">
 				<h2 class="title1">Sistema de Control y Registro Académico</h2>
-			<div class="widget-shadow">
+<!--                <img class="img-responsive" src="../assets/img/logo-unicab/logo_thrive_f1.png"-->
+<!--                style="height: 36%; width: 95%">-->
+			<div class="widget-shadow" style="border-radius: 0 0 50px 50px">
 				<div class="login-body" align="center">
                 
-                	<img class="img-responsive" width="50%" src="images/logo_horizontal.png"><br>
+                	<img class="img-responsive" width="50%" src="../assets/img/logo-unicab/logo_thrive_f1.png"><br>
                     <img class="img-responsive" width="40%" src="images/iconoProfesor.png"><br>
-                    <a href="../login_registro.php" class="btn btn-primary">Docentes</a>
-					<a href="estudianteunicab/login.php" class="btn btn-primary">Estudiantes</a>
+                    <div class="login-action-buttons">
+                        <a href="../login_registro.php" class="btn" style="background-color: #222a75; color: white;">Docentes</a>
+                        <a href="estudianteunicab/login.php" class="btn" style="background-color: #fc0d8c; color: white;">Estudiantes</a>
+                    </div>
 				</div>
 			</div>
 

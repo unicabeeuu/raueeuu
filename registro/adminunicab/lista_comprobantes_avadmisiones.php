@@ -96,7 +96,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -329,7 +329,7 @@ if (isset($_SESSION['unisuper'])) {
         		url:"act_grupo_upddat.php",
         		data:"idest=" + $("#txtid").val() + "&grupo=" + $("#txtgru").val(),
         		success:function(r) {
-        		    alert("Registro actualizado correctamente");
+        		    alert("Record updated successfully");
         		    $('#modal_list').modal('hide');
         		    
         		    location.reload();
@@ -377,7 +377,7 @@ if (isset($_SESSION['unisuper'])) {
 			})
 			.catch(err => {
 				console.log('Error:', err);
-				alert('No se pudo conectar con el servidor.');
+				alert('Could not connect to the server.');
 				element.checked = !element.checked;
 			})
 			.finally(() => {
@@ -408,10 +408,10 @@ if (isset($_SESSION['unisuper'])) {
 			console.log("Total checkbox " + checkboxes.length + " total validados " + checkedCount);
 			
 			if (checkedCount == checkboxes.length) {
-				alert("Está acción no está permitida si todos los documentos están validados.");
+				alert("This action is not allowed when all documents are validated.");
 			}
 			else if ($("#txtControlDocumentosInvalidos").val() == "1") {
-				alert("Está acción no está permitida porque ya se envío un mensaje de rechazo de documentos al acudiente.");
+				alert("This action is not allowed because a document rejection message was already sent to the guardian.");
 			}
 			else if (razon != "") {
 				// Desactivar el botón y mostrar carga btnRechazar
@@ -444,9 +444,9 @@ if (isset($_SESSION['unisuper'])) {
 				.then(data => {
 					console.log(data)
 					if (data.status == "success") {
-						alert("Correo de rechazo de documentos finales enviado con éxito");
+						alert("Final document rejection email sent successfully");
 					} else {
-						alert("Correo de rechazo de documentos finales no se puedo enviar");
+						alert("Final document rejection email could not be sent");
 					}
 					
 					submitBtn.prop('disabled', false); 
@@ -456,7 +456,7 @@ if (isset($_SESSION['unisuper'])) {
 					console.log('Error:', err);
 					submitBtn.prop('disabled', false); 
 					submitBtn.html('Rechazar');
-					alert('No se pudo conectar con el servidor.');
+					alert('Could not connect to the server.');
 				})
 				.finally(() => {
 					submitBtn.prop('disabled', false); 
@@ -464,7 +464,7 @@ if (isset($_SESSION['unisuper'])) {
 				});
 			}
 			else {
-				alert("Está acción no está permitida sin una razón detallada para el acudiente.");
+				alert("This action requires a detailed reason for the guardian.");
 			}
 		}
         
@@ -504,27 +504,25 @@ if (isset($_SESSION['unisuper'])) {
            	<div id="page-wrapper">
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
-						<div class="form-title">
-							<h4>Listado de estudiantes con documentos finales de matrícula enviados para validar:</h4>
+<div class="form-title">
+							<h4>List of students with final enrolment documents sent for validation:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listaDocumentos" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Año</th>
-										<th>Grado</th>
-										<th>Estado</th>
-						                <th>Acción</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Year</th>
+										<th>Grade</th>
+										<th>Status</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>
 						        	<?php 
 							        	while ($fila = mysqli_fetch_array($resultado0)){
-											//$isChecked = ($fila['validado'] == 1) ? 'checked' : '';
-											//$registroId = $fila['id'];
 											$nombre = $fila['apellidos']." ".$fila['nombres'];
 							        		
 							        		echo"<tr>
@@ -535,15 +533,15 @@ if (isset($_SESSION['unisuper'])) {
 											<td>".$fila['grado']."</td>";
 											
 											if($fila['ct'] == $fila['suma']) {
-												echo "<td>Aprobados</td>
-													<td><button class='btn btn-success glyphicon glyphicon-list-alt' title='Ver Documentos'
-                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> Ver Documentos</button></td>
+												echo "<td>Approved</td>
+													<td><button class='btn btn-success glyphicon glyphicon-list-alt' title='View Documents'
+                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> View Documents</button></td>
 													</tr>";
 											}
 											else {
-												echo "<td>No_Aprobados</td>
-													<td><button class='btn btn-warning glyphicon glyphicon-list-alt' title='Ver Documentos'
-                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> Ver Documentos</button></td>
+												echo "<td>Not_Approved</td>
+													<td><button class='btn btn-warning glyphicon glyphicon-list-alt' title='View Documents'
+                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> View Documents</button></td>
 													</tr>";
 											}
 							        	}
@@ -568,7 +566,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">LISTADO DE DOCUMENTOS DE <span id="nombre"></span></h5>
+            <h5 class="modal-title" id="exampleModalLabel">DOCUMENT LIST FOR <span id="nombre"></span></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -577,16 +575,15 @@ if (isset($_SESSION['unisuper'])) {
             <div id="div_listado">
             </div>
 			<div id="rechazo">
-				<textarea id="txtRechazo" placeholder="Detalle la razón de rechazo..." rows="5"></textarea><br>
-				<button id="btnRechazar" class="btn btn-primary" onclick="Rechazar();">Rechazar</button>
+				<textarea id="txtRechazo" placeholder="Detail the reason for rejection..." rows="5"></textarea><br>
+				<button id="btnRechazar" class="btn btn-primary" onclick="Rechazar();">Reject</button>
 			</div>
 			
 			<input type="hidden" id="documentoRechazo">
 			<input type="hidden" id="txtControlDocumentosInvalidos">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -597,7 +594,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">INFORMACION DEL ESTUDIANTE</h5>
+            <h5 class="modal-title" id="exampleModalLabel">STUDENT INFORMATION</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -606,21 +603,21 @@ if (isset($_SESSION['unisuper'])) {
             <div class="modal-body">
                 <label>Id_est</label>
                 <input type="text" id="txtid" class="form-control" readonly/>
-                <label>Nombres</label>
+                <label>First Names</label>
                 <input type="text" id="txtnom" class="form-control" readonly/>
-                <label>Apellidos</label>
+                <label>Last Names</label>
                 <input type="text" id="txtape" class="form-control" readonly/>
-                <label>Grado</label>
+                <label>Grade</label>
                 <input type="text" id="txtgra" class="form-control" readonly/>
-                <label>Grupo</label>
+                <label>Group</label>
                 <input type="text" id="txtgru" class="form-control" oninput="val_grupo()"/>
                 
                 <label id="lblgrupo"></label>
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updgru()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updgru()">Save</button>
           </div>
         </div>
       </div>

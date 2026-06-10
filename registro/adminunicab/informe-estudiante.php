@@ -80,7 +80,7 @@ include "../adminunicab/php/conexion.php";
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -349,7 +349,7 @@ include "../adminunicab/php/conexion.php";
 							</table>
 							
 							<br>
-							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 						    <br><br>
 								</div>
 							</div>

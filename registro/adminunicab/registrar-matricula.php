@@ -29,7 +29,7 @@ $peticion="SELECT a.*, g.grado
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -111,17 +111,17 @@ $peticion="SELECT a.*, g.grado
 					        <thead>
                             <br><br>
 					            <tr>
-					                <!-- <th>Grado</th> -->
-					                <th>Apellidos</th>
-					                <th>Nombres</th>
-					                <th>Identificación</th>
-					                <th>Celular</th>
-					                <th>Correo</th>
-					                <th>Estado</th>
-					                <th>Grado</th>
-									<th>PerIng</th>
-									<th>FSolicitud</th>
-					                <th>Acción</th>
+					                <!-- <th>Grade</th> -->
+					                <th>Last Names</th>
+					                <th>First Names</th>
+					                <th>Identification</th>
+					                <th>Phone</th>
+					                <th>Email</th>
+					                <th>Status</th>
+					                <th>Grade</th>
+									<th>Enr. Period</th>
+									<th>Request Date</th>
+					                <th>Action</th>
 					            </tr>
 					        </thead>
 					        <tbody>

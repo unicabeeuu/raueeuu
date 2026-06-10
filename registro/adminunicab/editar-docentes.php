@@ -6,7 +6,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -85,7 +85,7 @@ if (isset($_SESSION['unisuper'])) {
                     <?php echo "<h4><b>Está seguro que desea editar los datos de: </h4><h3>". $nombreCompleto ."?</b></h3>" ?>
                 </div>
                 <div class="col-md-4" align="center">
-                    <a href='#' class='btn btn-primary' data-toggle='modal' data-target='#myModal'  title='Editar profesor'>Confirmar</a>
+                    <a href='#' class='btn btn-primary' data-toggle='modal' data-target='#myModal'  title='Edit teacher'>Confirm</a>
                 </div>
             </div>
         </div>
@@ -95,12 +95,12 @@ if (isset($_SESSION['unisuper'])) {
                             
 					            <tr>
 					                <!-- <th>Grado</th> -->
-					                <th>Apellidos</th>
-					                <th>Nombres</th>
-                                    <th>Correo</th>
-					                <th>Identificación</th>
-                                    <th>Contraseña</th>
-					                <th>acciones</th>
+					                <th>Last Names</th>
+					                <th>First Names</th>
+                                    <th>Email</th>
+					                <th>Identification</th>
+                                    <th>Password</th>
+					                <th>Actions</th>
 					            </tr>
 					        </thead>
 					        <tbody>
@@ -150,41 +150,41 @@ if (isset($_SESSION['unisuper'])) {
    				 			<div class="modal-content">
    				 				<div class="modal-header">
    				 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-   				 					<h4 class="modal-title">Editar Docente:</h4>
+   				 					<h4 class="modal-title">Edit Teacher:</h4>
 			 					</div>
 			 					<div class="modal-body">
 								<!-- formulario -->
 								<div class="form-body">
 									<form class="form-horizontal" action='php/update-profesores-admin.php' method="POST">
 										<div class='form-group'>
-											<label for='apellidos' class='col-sm-2 control-label'>Apellidos:<span class="req">*</span></label>
+											<label for='apellidos' class='col-sm-2 control-label'>Last Names:<span class="req">*</span></label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' id='apellidos' name='apellidos' placeholder='Apellidos Estudiante' required maxlength='25' value="<?php echo $apellidos;?>">
+												<input type='text' class='form-control1' id='apellidos' name='apellidos' placeholder='Student Last Names' required maxlength='25' value="<?php echo $apellidos;?>">
 											</div>
 										</div>
 
 										<div class='form-group'>
-											<label for='nombres' class='col-sm-2 control-label'>Nombres:<span class="req">*</span></label>
+											<label for='nombres' class='col-sm-2 control-label'>First Names:<span class="req">*</span></label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' id='nombres' name='nombres'  placeholder='Nombres Estudiante' required maxlength='25' value="<?php echo $nombres;?>">
+												<input type='text' class='form-control1' id='nombres' name='nombres'  placeholder='Student First Names' required maxlength='25' value="<?php echo $nombres;?>">
 											</div>
 										</div>
 
 										<div class='form-group'>
-											<label for='n_documento' class='col-sm-2 control-label'>Identificación:<span class="req">*</span></label>
+											<label for='n_documento' class='col-sm-2 control-label'>Identification:<span class="req">*</span></label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' id='n_documento' name='n_documento' placeholder='Número Documento' required maxlength='15' value="<?php echo $n_documento;?>">
+												<input type='text' class='form-control1' id='n_documento' name='n_documento' placeholder='Document Number' required maxlength='15' value="<?php echo $n_documento;?>">
 											</div>
 										</div>
 
 										<div class='form-group'>
-											<label for='email_institucional' class='col-sm-2 control-label'>Correo Institucional:<span class="req">*</span></label>
+											<label for='email_institucional' class='col-sm-2 control-label'>Institutional Email:<span class="req">*</span></label>
 											<div class='col-sm-8'>
 												<input type='email' class='form-control1' id='email_institucional' name='email_institucional' placeholder='Email Institucional' required maxlength='50' value="<?php echo $email_institucional;?>">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="pensamiento" class="col-sm-2 control-label">Genero:<span class="req">*</span></label>
+											<label for="pensamiento" class="col-sm-2 control-label">Thought Area:<span class="req">*</span></label>
 											<div class="col-sm-8">
 												<select id="pensamiento" name="pensamiento" class="form-control1">
 													<option value="<?php echo $d_pensamiento; ?>"><?php echo $d_pensamiento; ?></option>
@@ -195,14 +195,14 @@ if (isset($_SESSION['unisuper'])) {
 											</div>
 										</div>
 										 <div class='form-group'>
-											<label for='password' class='col-sm-2 control-label'>Contraseña:<span class="req">*</span></label>
+											<label for='password' class='col-sm-2 control-label'>Password:<span class="req">*</span></label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' id='password' name='password' placeholder='Ingrese la contraseña nueva' required  maxlength='15' value="<?php echo $password;?>">
+												<input type='text' class='form-control1' id='password' name='password' placeholder='Enter new password' required  maxlength='15' value="<?php echo $password;?>">
 											</div>
 										</div>
 										<input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
 										<div class="modal-footer">
-	      									<input type="submit" class="btn btn-primary" value="Guardar Cambios">
+	      									<input type="submit" class="btn btn-primary" value="Save Changes">
 	      								</div>
       								</form> 
    							 	</div>

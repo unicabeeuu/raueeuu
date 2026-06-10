@@ -29,7 +29,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -192,7 +192,7 @@ if (isset($_SESSION['unisuper'])) {
 		if (checkedCount > 8) {
 			//$(this).prop('checked', false);
 			element.checked = false;
-			alert('Máximo 8 opciones permitidas');
+			alert('Maximum 8 options allowed');
 			return;
 		}
 		
@@ -283,14 +283,14 @@ if (isset($_SESSION['unisuper'])) {
 							?>
                 			<div id="div1" style="width: 50%">
                 				<fieldset>
-                				<legend><h3 style="color: #FC0D8C;">GENERAR STICKERS CORRESPONDENCIA</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERATE CORRESPONDENCE STICKERS</h3></legend>
                 				    <ul class="mprincipal">
-                						<li><h3>GENRAR STICKER POR<span style="color: white;">.....</span>
+                						<li><h3>GENERATE STICKER BY<span style="color: white;">.....</span>
                 						</h3></li>
                 							<ul class="msecund" style="background-color: #222a75;">
                 								<li style="background-color: #222a75;">
 													<select id="selgra1" name="selgra1" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado->fetch_assoc()){
 													            echo "<option value='".$row['id_grado']."'>".$row['grado']."</option>";
@@ -300,9 +300,9 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<!--<input type="text" id="idest" name="idest" placeholder="idest" style="width: 50px; display: none;" value="0" onchange="idest_.value = this.value"/>
 													<label style="color: white;">...</label>-->
-													<input type="text" id="periodo" name="periodo" placeholder="año" style="width: 50px;" value="2025" onchange="a_.value = this.value"/>
+													<input type="text" id="periodo" name="periodo" placeholder="year" style="width: 50px;" value="2025" onchange="a_.value = this.value"/>
 													<label style="color: white;">...</label>
-													<button id="btnbuscar" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_estudiantes()">Buscar</button>
+													<button id="btnbuscar" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_estudiantes()">Search</button>
 												</li>
                 							</ul>
                 							
@@ -317,11 +317,11 @@ if (isset($_SESSION['unisuper'])) {
             						    <input type="hidden" id="idest_" name="idest_">
             						    <input type="hidden" id="a_" name="a_" value="2025">
             						    <div>
-                						    <label>Ids de estudiantes:</label>
+                						    <label>Student IDs:</label>
                 						    <textarea id="txtidest" name="txtidest" readonly style="width: 100%; background: #222a75" height="50px"></textarea>
                 						</div>
             						    <!--<input type="submit" id="submit" class="btn btn-primary" style="display: none;" value="Generar">-->
-										<button id="submit" class="btn btn-primary" style="display: none;" onclick="generar_stickers();">Generar</button>
+										<button id="submit" class="btn btn-primary" style="display: none;" onclick="generar_stickers();">Generate</button>
                 					<!--</form>-->
                 				</fieldset>
                 
@@ -339,7 +339,7 @@ if (isset($_SESSION['unisuper'])) {
             				$mysqli1->close();
             			?>
 						<!---------------------------------------------->
-						<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
+						<input type='search' placeholder='Enter search text' id='search' name='search' style="display: none;"><br/><br/>
 						<div id="divtabla">
 						    
 						</div>

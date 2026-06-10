@@ -10,7 +10,7 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila0['apellidos'];
 		$nombres = $fila0['nombres'];
 		$email_institucional = $fila0['email'];
-		$director=$fila0['d_pensamiento'];
+		$director=$fila0['dependencia'];
 		$n_documento = $fila0['n_documento'];
 		$password = $fila0['pc'];
 		$perfil = $fila0['perfil'];
@@ -19,7 +19,7 @@ if (isset($_SESSION['unisuper'])) {
 	/*$peticion = "SELECT *,estudiantes.nombres 
 	FROM matricula INNER JOIN estudiantes ON estudiantes.id=matricula.id_estudiante INNER JOIN grados ON grados.id=matricula.id_grado WHERE idMatricula =".$_GET['id']." LIMIT 1";*/
 $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_institucional   
-	FROM tbl_matriculas m INNER JOIN tbl_estudiantes e ON e.id = m.id_estudiante INNER JOIN tbl_grados g ON g.id = m.id_grado WHERE m.idMatricula = ".$_GET['id']." LIMIT 1";
+	FROM tbl_matriculas m INNER JOIN tbl_estudiantes e ON e.id = m.id_estudiante INNER JOIN tbl_grados g ON g.id = m.id_grado WHERE m.id = ".$_GET['id']." LIMIT 1";
 	$resultado2 = mysqli_query($conexion, $peticion);
 						
 	while ($fila = mysqli_fetch_array($resultado2)){
@@ -38,7 +38,7 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -148,48 +148,48 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Matrícula Número #: <?php echo $n_matricula; ?></h4>
+							<h4>Enrollment Number #: <?php echo $n_matricula; ?></h4>
 						</div>
 						<div class="form-body">
 							<form class="form-horizontal" action="php/update-matricula.php" method="POST">
 								<div class="form-group">
-									<label for="apellidos" class="col-sm-2 control-label">Estudiante:</label>
+									<label for="apellidos" class="col-sm-2 control-label">Student:</label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control1" id="apellidos" value="<?php echo $nombreE; ?>" readonly="">
 									</div>
 								</div>
 								<hr>
 								<div class="form-group">
-									<label for="n_matricula" class="col-sm-2 control-label">Número Matricula:<span class="req">*</span></label>
+									<label for="n_matricula" class="col-sm-2 control-label">Enrollment Number:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control1" id="n_matricula" name="n_matricula" placeholder="001-2018-1G" required maxlength="25" readonly value="<?php echo $n_matricula ?>">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="fecha_ingreso" class="col-sm-2 control-label">Fecha Ingreso:<span class="req">*</span></label>
+									<label for="fecha_ingreso" class="col-sm-2 control-label">Enrollment Date:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<input type="date" class="form-control1 editar" id="fecha_ingreso" name="fecha_ingreso" required maxlength="25" autofocus value="<?php echo $fecha_ingreso ?>">
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-									<label for="grado" class="col-sm-2 control-label">Grado:<span class="req">*</span></label>
+									<label for="grado" class="col-sm-2 control-label">Grade:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control1" id="grado" name="grado" required maxlength="25" readonly value="<?php echo $grado ?>">
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-									<label for="email_est" class="col-sm-2 control-label">Email institucional:<span class="req">*</span></label>
+									<label for="email_est" class="col-sm-2 control-label">Institutional Email:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1 editar" id="email_est" name="email_est" required maxlength="50" value="<?php echo $email_est ?>" onkeyup="validar_email('email_est', 'Email institucional');">
+										<input type="text" class="form-control1 editar" id="email_est" name="email_est" required maxlength="50" value="<?php echo $email_est ?>" onkeyup="validar_email('email_est', 'Institutional Email');">
 										<label id="msgemail"></label>
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-									<label for="est_actual" class="col-sm-2 control-label">Estado actual:<span class="req">*</span></label>
+									<label for="est_actual" class="col-sm-2 control-label">Current Status:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control1" id="est_actual" name="est_actual" required maxlength="25" readonly value="<?php echo $estado ?>">
 									</div>
@@ -200,11 +200,11 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 								<input type="hidden" value="<?php echo $id_matricula; ?>" id="id_matricula" name="id_matricula">
 
 								<!--<div class="form-group">
-									<label for="id_grado" class="col-sm-2 control-label">Grado a cursar:<span class="req">*</span></label>
+									<label for="id_grado" class="col-sm-2 control-label">Grade to Attend:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<select id="id_grado" name="id_grado" class="form-control1" required="">
 												<option value="<?php echo $id_grado; ?>"><?php echo $grado; ?></option>
-											<?php 
+											<?php
 												$sqlgrado="SELECT id, grado FROM grados";
 												$repeticiongrado=mysqli_query($conexion,$sqlgrado);
 												while ($fila=mysqli_fetch_array($repeticiongrado)){
@@ -215,10 +215,10 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 										</div>
 								</div>-->
 								<div class="form-group">
-									<label for="sel_estado" class="col-sm-2 control-label">Nuevo estado:<span class="req">*</span></label>
+									<label for="sel_estado" class="col-sm-2 control-label">New Status:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<select id="sel_estado" name="sel_estado" class="form-control1 editar" required="">
-											    <option value='NA' selected>Seleccione estado</option>
+											    <option value='NA' selected>Select status</option>
 										        <option value='activo'>activo</option>
 										        <option value='inactivo'>inactivo</option>
 										        <option value='retirado'>retirado</option>
@@ -228,10 +228,10 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 								<hr>
 
 							    <button type="submit" class="btn btn-primary" id="btnsubmit">
-							      <span class="fa fa-save"></span> Guardar Cambios
+							      <span class="fa fa-save"></span> Save Changes
 							    </button>
-							    
-							    <a href="lista-matricula.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+
+							    <a href="lista-matricula.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 							</form> 
 					 	</div>
   					</div>

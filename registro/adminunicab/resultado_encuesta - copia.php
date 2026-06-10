@@ -28,7 +28,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -116,13 +116,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Grado</th>
-	                                    <th>Documento</th>						                
-						                <th>Nombre</th>
-										<th>Tipo Pregunta</th>
-						                <th>Pregunta</th>
-						                <th>Resultado</th>
-										<th>Año</th>
+						                <th>Grade</th>
+	                                    <th>Document</th>						                
+						                <th>Name</th>
+										<th>Question Type</th>
+						                <th>Question</th>
+						                <th>Result</th>
+										<th>Year</th>
 						            </tr>
 						        </thead>
 						        <tbody>

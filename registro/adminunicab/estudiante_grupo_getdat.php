@@ -68,7 +68,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -213,7 +213,7 @@ if (isset($_SESSION['unisuper'])) {
         		url:"act_grupo_upddat.php",
         		data:"idest=" + $("#txtid").val() + "&grupo=" + $("#txtgru").val(),
         		success:function(r) {
-        		    alert("Registro actualizado correctamente");
+        		    alert("Record updated successfully");
         		    $('#modal_list').modal('hide');
         		    
         		    location.reload();
@@ -266,13 +266,13 @@ if (isset($_SESSION['unisuper'])) {
                         			
                         			<!--***********************************************************************************************-->
                         			<div id="div1">
-                        			    <h3>SOLICITUDES POR GRADO </h3>
+                        			    <h3>REQUESTS BY GRADE</h3>
                         			    <div id="divtabla1">
             								<table>
             								    <thead>
             								        <tr>
-            								            <td width="100px">Cantidad</td>
-            								            <td width="100px">Grado</td>
+            								            <td width="100px">Count</td>
+            								            <td width="100px">Grade</td>
             								            <td></td>
             								        </tr>
             								    </thead>
@@ -291,13 +291,13 @@ if (isset($_SESSION['unisuper'])) {
             								<label>Total solicitudes: <?php echo $tot_sol; ?></label>
             							</div>
             							<hr>
-            							<h3>MATRICULAS POR CIUDAD </h3>
+            							<h3>ENROLLMENTS BY CITY</h3>
                         			    <div id="divtablaCiudad">
             								<table>
             								    <thead>
             								        <tr>
-            								            <td width="100px">Cantidad</td>
-            								            <td width="100px">Ciudad</td>
+            								            <td width="100px">Count</td>
+            								            <td width="100px">City</td>
             								            <td></td>
             								        </tr>
             								    </thead>
@@ -317,14 +317,14 @@ if (isset($_SESSION['unisuper'])) {
             							</div>
                         			</div>
                         			<div id="div2">
-                        			    <h3>MATRICULAS POR GRADO Y GRUPO </h3>
+                        			    <h3>ENROLLMENTS BY GRADE AND GROUP</h3>
                         			    <div id="divtabla">
             								<table>
             								    <thead>
             								        <tr>
-            								            <td width="100px">Cantidad</td>
-            								            <td width="100px">Grado</td>
-            								            <td width="100px">Grupo</td>
+            								            <td width="100px">Count</td>
+            								            <td width="100px">Grade</td>
+            								            <td width="100px">Group</td>
             								            <td></td>
             								            <td></td>
             								        </tr>
@@ -366,7 +366,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">LISTADO DE ESTUDIANTES</h5>
+            <h5 class="modal-title" id="exampleModalLabel">STUDENT LIST</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -376,7 +376,7 @@ if (isset($_SESSION['unisuper'])) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
           </div>
         </div>
@@ -388,7 +388,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">INFORMACION DEL ESTUDIANTE</h5>
+            <h5 class="modal-title" id="exampleModalLabel">STUDENT INFORMATION</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -397,21 +397,21 @@ if (isset($_SESSION['unisuper'])) {
             <div class="modal-body">
                 <label>Id_est</label>
                 <input type="text" id="txtid" class="form-control" readonly/>
-                <label>Nombres</label>
+                <label>First Names</label>
                 <input type="text" id="txtnom" class="form-control" readonly/>
-                <label>Apellidos</label>
+                <label>Last Names</label>
                 <input type="text" id="txtape" class="form-control" readonly/>
-                <label>Grado</label>
+                <label>Grade</label>
                 <input type="text" id="txtgra" class="form-control" readonly/>
-                <label>Grupo</label>
+                <label>Group</label>
                 <input type="text" id="txtgru" class="form-control" oninput="val_grupo()"/>
                 
                 <label id="lblgrupo"></label>
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updgru()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updgru()">Save</button>
           </div>
         </div>
       </div>

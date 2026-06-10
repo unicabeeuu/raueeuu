@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -121,7 +121,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
                         <div class="alert alert-info" role="alert">Listado: <?php echo $gradoActual; ?></div>
                     		<div class="form-group"> 
                     			<form  method="post" action="certificados-periodo.php">
-									<label for="smallinput" class="col-sm-2 control-label label-input-sm">Seleccione grado:</label>
+									<label for="smallinput" class="col-sm-2 control-label label-input-sm">Select grade:</label>
 									<div class="col-sm-8">
 										<select id="id_grado" name="id_grado" class="form-control1" required>
 											<?php 
@@ -133,18 +133,18 @@ $resultado1 = mysqli_query($conexion, $peticion);
 						              	</select>
 									</div>
 								  	<button type="submit" class="btn" style="background-color: #222a75;"><span style="color: white" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                    <a href="certificados-periodo.php" class="btn" style="background-color: #ff9805; color: white;">Todo</a>
+                                    <a href="certificados-periodo.php" class="btn" style="background-color: #ff9805; color: white;">All</a>
                     			</form>
 							</div>
 							<hr>
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 					    		<thead>
 						           <tr>
-						               <th align="center">Grado</th>
-						               <th align="center">Apellidos</th>
-						               <th align="center">Nombres</th>
-						               <th align="center">Identificación</th>
-	                                   <th align="center">Acción</th>
+						               <th align="center">Grade</th>
+						               <th align="center">Last Names</th>
+						               <th align="center">First Names</th>
+						               <th align="center">Identification</th>
+	                                   <th align="center">Action</th>
 						           </tr>
        							</thead>
 							   <tbody>

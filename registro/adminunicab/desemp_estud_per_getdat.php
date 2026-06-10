@@ -34,7 +34,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Acad¨¦mico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -569,15 +569,15 @@ if (isset($_SESSION['unisuper'])) {
                         			<!--***********************************************************************************************-->
                         			<div id="div2">
                         			    <fieldset>
-                        				<legend><h3 style="color: #FC0D8C;">RESULTADOS DE ESTUDIANTES</h3></legend>
+                        				<legend><h3 style="color: #FC0D8C;">STUDENT RESULTS</h3></legend>
                         				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                         					<ul class="mprincipal">
-                        						<li><h3>LISTADO POR<span style="color: white;">.....</span>
+                        						<li><h3>LIST BY<span style="color: white;">.....</span>
                         						</h3></li>
                         							<ul class="msecund" style="background-color: #222a75;">
                         								<li style="background-color: #222a75;">
 															<select id="selgra1" name="selgra1" required>
-															    <option value="NA" selected>Seleccione grado</option>
+															    <option value="NA" selected>Select grade</option>
 															    <?php 
 															        while($row = $resultado->fetch_assoc()){
 															            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -586,7 +586,7 @@ if (isset($_SESSION['unisuper'])) {
 															</select>
 															<label style="color: white;">...</label>
 															<select id="selper1" name="selper1" required>
-															    <option value="0" selected>Seleccione periodo</option>
+															    <option value="0" selected>Select period</option>
 															    <option value="1">1</option>
 															    <option value="2">2</option>
 															    <option value="3">3</option>
@@ -594,7 +594,7 @@ if (isset($_SESSION['unisuper'])) {
 															</select>
 															<label style="color: white;">...</label>
 															<select id="selgrupo" name="selgrupo" required>
-															    <option value="NA" selected>Grupo</option>
+															    <option value="NA" selected>Group</option>
 															    <option value="A">A</option>
 															    <option value="B">B</option>
 															    <option value="C">C</option>
@@ -603,7 +603,7 @@ if (isset($_SESSION['unisuper'])) {
 															<label style="color: white;">...</label>
 															<!--<a href="estudianteg_getdat.php" >Buscar</a>
 															<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
-															<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_desemp()">Cargar</button>
+															<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_desemp()">Load</button>
 														</li>
                         							</ul>
                         					</ul>
@@ -614,70 +614,70 @@ if (isset($_SESSION['unisuper'])) {
 								<div id="resul_bus" style="display: none;">
 								    <div class="accordion-titulo1" style="background: #088A4B; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon1" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van pasando todos los pensamientos.
+									    List of students passing all subjects.
 									</div>
 									<div class="accordion-content1" style="display: none;"><!--********************-->
         								<div id="divtabla">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo2" style="background: #084B8A; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon2" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 1 pensamiento.
+									    List of students failing 1 subject.
 									</div>
 									<div class="accordion-content2" style="display: none;"><!--********************-->
         								<div id="divtabla1">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo3" style="background: #088A85; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon3" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 2 pensamientos.
+									    List of students failing 2 subjects.
 									</div>
 									<div class="accordion-content3" style="display: none;"><!--********************-->
         								<div id="divtabla2">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo4" style="background: #D7DF01; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon4" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 3 pensamientos.
+									    List of students failing 3 subjects.
 									</div>
 									<div class="accordion-content4" style="display: none;"><!--********************-->
         								<div id="divtabla3">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo5" style="background: #DF7401; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon5" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 4 pensamientos.
+									    List of students failing 4 subjects.
 									</div>
 									<div class="accordion-content5" style="display: none;"><!--********************-->
         								<div id="divtabla4">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo6" style="background: #B43104; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon6" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 5 pensamientos.
+									    List of students failing 5 subjects.
 									</div>
 									<div class="accordion-content6" style="display: none;"><!--********************-->
         								<div id="divtabla5">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo7" style="background: #B40404; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon7" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 6 pensamientos.
+									    List of students failing 6 subjects.
 									</div>
 									<div class="accordion-content7" style="display: none;"><!--********************-->
         								<div id="divtabla6">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo8" style="background: #8A0829; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon8" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 7 pensamientos.
+									    List of students failing 7 subjects.
 									</div>
 									<div class="accordion-content8" style="display: none;"><!--********************-->
         								<div id="divtabla7">
@@ -711,9 +711,9 @@ if (isset($_SESSION['unisuper'])) {
               <div class="modal-body">
                 <label>Id_est</label>
                 <input type="text" id="txtidest" class="form-control" readonly/>
-                <label>Nombres</label>
+                <label>First Names</label>
                 <input type="text" id="txtnom" class="form-control" readonly/>
-                <label>Calificaciones</label>
+                <label>Grades</label>
                 <div>
                     <label>BIO</label>
                     <input type="text" id="txtbio" style="width: 30px;" readonly/>
@@ -731,17 +731,17 @@ if (isset($_SESSION['unisuper'])) {
                     <label>TEC</label>
                     <input type="text" id="txttec" style="width: 30px;" readonly/>
                 </div>
-                <label>Acudiente 1</label>
+                <label>Guardian 1</label>
                 <input type="text" id="txtacu1" class="form-control" readonly/>
-                <label>Cel. Acudiente 1</label>
+                <label>Guardian 1 Phone</label>
                 <input type="text" id="txtcel1" class="form-control" readonly/>
-                <label>Acudiente 2</label>
+                <label>Guardian 2</label>
                 <input type="text" id="txtacu2" class="form-control" readonly/>
-                <label>Cel. Acudiente 2</label>
+                <label>Guardian 2 Phone</label>
                 <input type="text" id="txtcel2" class="form-control" readonly/>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
               </div>
             </div>

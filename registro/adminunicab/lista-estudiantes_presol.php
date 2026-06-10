@@ -30,7 +30,7 @@ $peticion="SELECT e.*, m.estado estado_m, m.n_matricula
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -99,20 +99,20 @@ $peticion="SELECT e.*, m.estado estado_m, m.n_matricula
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Lista de estudiantes registrados:</h4>
+							<h4>List of registered students:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Correo</th>
-						                <th>Teléfono</th>
-						                <th>Estado</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Email</th>
+						                <th>Phone</th>
+						                <th>Status</th>
 	                                    <th>RH</th>
-						                <th>Acción</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>

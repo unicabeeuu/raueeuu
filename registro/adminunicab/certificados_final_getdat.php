@@ -34,7 +34,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -221,7 +221,7 @@ if (isset($_SESSION['unisuper'])) {
                 							<ul class="msecund">
                 								<li>
 													<select id="selgra1" name="selgra1" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -243,15 +243,15 @@ if (isset($_SESSION['unisuper'])) {
                 			</div>-->
                 			<div id="div2" style="padding: 3rem;">
                 				<fieldset>
-                				<legend><h3 style="color: #FC0D8C;">CONSULTAR CERTIFICADOS FINALES DE NOTAS</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">CONSULT FINAL GRADE CERTIFICATES</h3></legend>
                 				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                 					<ul class="mprincipal">
-                						<li><h3>LISTADO DE CERTIFICADOS POR<span style="color: white;">.....</span>
+                						<li><h3>CERTIFICATE LIST BY<span style="color: white;">.....</span>
                 						</h3></li>
                 							<ul class="msecund" style="background-color: #222a75;">
                 								<li style="background-color: #222a75;">
 													<select id="selgra2" name="selgra2" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado1->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -260,7 +260,7 @@ if (isset($_SESSION['unisuper'])) {
 													</select>
 													<label style="color: white;">...</label>
 													<select id="sela" name="sela" required>
-													    <option value="NA" selected>Seleccione periodo lectivo</option>
+													    <option value="NA" selected>Select academic period</option>
 													    <option value="2020">2020</option>
 													    <option value="2021">2021</option>
 													    <option value="2022">2022</option>
@@ -271,7 +271,7 @@ if (isset($_SESSION['unisuper'])) {
 														<option value="2027">2027</option>
 													</select>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn btn-primary" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_cert()">Buscar</button>
+													<button id="submit1" class="btn btn-primary" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_cert()">Search</button>
 												</li>
                 							</ul>
                 					</ul>

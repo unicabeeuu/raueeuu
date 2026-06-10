@@ -15,7 +15,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Matricula</title>
+<title>Unicab Employee Registration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -85,40 +85,40 @@ if (isset($_SESSION['unisuper'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Registro Empleado:</h4>
+							<h4>Employee Registration:</h4>
 						</div>
 						<div class="form-body">
 							<form class="form-horizontal" action="php/registroProfesores.php" method="POST">
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Apellidos:<span class="req">*</span></label>
+									<label for="focusedinput" class="col-sm-2 control-label">Last Names:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Apellidos" required autofocus="">
+										<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Last Names" required autofocus="">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Nombres:<span class="req">*</span></label>
+									<label for="focusedinput" class="col-sm-2 control-label">First Names:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="nombres" name="nombres" required placeholder="Nombres">
+										<input type="text" class="form-control1" id="nombres" name="nombres" required placeholder="First Names">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Correo Institucional:<span class="req">*</span></label>
+									<label for="focusedinput" class="col-sm-2 control-label">Institutional Email:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="email" class="form-control1" id="email" name="email" required placeholder="Correo">
+										<input type="email" class="form-control1" id="email" name="email" required placeholder="Email">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Identificación:<span class="req">*</span></label>
+									<label for="focusedinput" class="col-sm-2 control-label">Identification:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="n_documento" name="n_documento" required placeholder="No. documento">
+										<input type="text" class="form-control1" id="n_documento" name="n_documento" required placeholder="Document No.">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="pensamiento" class="col-sm-2 control-label">Dependencia:<span class="req">*</span></label>
+									<label for="pensamiento" class="col-sm-2 control-label">Department:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="dependencia" name="dependencia" class="form-control1">
-							                <option value="NA" selected>SELECCIONE DEPENDENCIA</option>
+							                <option value="NA" selected>SELECT DEPARTMENT</option>
 							                <?php 
 										        while($rowd = $resul_depen->fetch_assoc()){
 										            echo "<option value='".$rowd['id']."'>".$rowd['dependencia']."</option>";
@@ -135,16 +135,16 @@ if (isset($_SESSION['unisuper'])) {
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Celular:<span class="req">*</span></label>
+									<label for="focusedinput" class="col-sm-2 control-label">Mobile:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="celular" name="celular" required placeholder="Celular">
+										<input type="text" class="form-control1" id="celular" name="celular" required placeholder="Mobile">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="pensamiento" class="col-sm-2 control-label">Cargo:<span class="req">*</span></label>
+									<label for="pensamiento" class="col-sm-2 control-label">Position:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="cargo" name="cargo" class="form-control1">
-							                <option value="NA" selected>SELECCIONE CARGO</option>
+							                <option value="NA" selected>SELECT POSITION</option>
 							                <?php 
 										        while($rowc = $resul_cargo->fetch_assoc()){
 										            echo "<option value='".$rowc['id']."'>".$rowc['cargo']."</option>";
@@ -155,21 +155,21 @@ if (isset($_SESSION['unisuper'])) {
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Profesión:<span class="req">*</span></label>
+									<label for="focusedinput" class="col-sm-2 control-label">Profession:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="profesion" name="profesion" required placeholder="Profesión">
+										<input type="text" class="form-control1" id="profesion" name="profesion" required placeholder="Profession">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Descripción:</label>
+									<label for="focusedinput" class="col-sm-2 control-label">Description:</label>
 									<div class="col-sm-8">
-										<textarea class="form-control1xxx" id="descripcion" name="descripcion" required placeholder="Descripción" rows="6" cols="82"></textarea>
+										<textarea class="form-control1xxx" id="descripcion" name="descripcion" required placeholder="Description" rows="6" cols="82"></textarea>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Nombre corto:<span class="req">*</span></label>
+									<label for="focusedinput" class="col-sm-2 control-label">Short Name:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="nombrec" name="nombrec" required placeholder="Primer nombre y primer apellido">
+										<input type="text" class="form-control1" id="nombrec" name="nombrec" required placeholder="First name and last name">
 									</div>
 								</div>
 								<div class="form-group">
@@ -180,7 +180,7 @@ if (isset($_SESSION['unisuper'])) {
 								</div>
 								<hr>
 								<button type="submit" class="btn btn-primary">
-						      		<span class="fa fa-save"></span> Guardar Información
+						      		<span class="fa fa-save"></span> Save Information
 						    	</button>
 							</form> 
 						</div>

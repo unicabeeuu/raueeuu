@@ -57,7 +57,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -481,7 +481,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             return false;
         }else {
             if(noValido.test(nombre)){ // se chequea el regex de que el string no tenga espacio
-                alert ("El nombre del archivo no puede contener espacios en blanco"); 
+                alert ("File name cannot contain blank spaces");
                 $("#ImagenW").val("");
                 return false; 
             }
@@ -695,29 +695,29 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 else if(envio == 3) {
                     
                     if(tipo == 0) {
-                        alert("Debe seleccionar un tipo de video");
+                        alert("You must select a video type");
                         control = 1;
                     }
                     else if(tipo == 1) {
                         if(imgloc == "") {
-                            alert("Debe seleccionar un vídeo local");
+                            alert("You must select a local video");
                             control = 1;
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto del vídeo");
+                                alert("You must enter the video caption");
                                 control = 1;
                             }
                         }
                     }
                     else if(tipo == 2) {
                         if(vidser == 0) {
-                            alert("Debe seleccionar un vídeo del servidor");
+                            alert("You must select a video from the server");
                             control = 1;
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto del vídeo");
+                                alert("You must enter the video caption");
                                 control = 1;
                             }
                         }
@@ -725,30 +725,30 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 }
 				else if(envio == 4) {                    
                     if(pdf == "") {
-						alert("Debe seleccionar un pdf");
+						alert("You must select a PDF");
 						control = 1;
 					}
 					else {
 						if(texto_pdf == "") {
-							alert("Debe ingresar el texto del pdf");
+							alert("You must enter the PDF caption");
 							control = 1;
 						}
 					}
                 }
             }
             else {
-                alert("Debe seleccionar un tipo de envío");
+                alert("You must select a send type");
                 control = 1;
             }
         }
-        
+
         if(control == 0) {
             //alert("Validación correcta");
             if(idmat != 0) {
                 $("#btnguardar").show();
             }
             else {
-                alert("Debe seleccionar matrículas efectivas");
+                alert("You must select effective enrollments");
             }
         }
         else {
@@ -884,14 +884,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Envío masivo de whatsapp matrículas efectivas o con envío de papeles:</h4>
+							<h4>Bulk WhatsApp send - effective enrollments or with document submission:</h4>
 						</div>
 						<div class="form-body">
 							<form action="envio_whatsapp_matriculas_putdat1.php" method="POST" id="form" name="form" enctype="multipart/form-data" target="_blank">
 
 								<div class="form-group"> 
 								    <select id="selusuario" name="selusuario" class="form-control" >
-								        <option value="0">Seleccione usuario</option>
+								        <option value="0">Select user</option>
 								        <?php
 								            $filas = 1;
 								            while ($fila_what = mysqli_fetch_array($res_what)){
@@ -902,7 +902,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								        ?>
 								    </select><br>
 								    
-								    <label for="idInstancia" class="col-lg-1 col-sm-1">Instancia</label> 
+								    <label for="idInstancia" class="col-lg-1 col-sm-1">Instance</label>
 									<input type="text" class="col-lg-2 col-sm-2 readonly" id="idInstancia" name="idInstancia" readonly>
 									
 									<label for="token" class="col-lg-1 col-sm-1">Token</label> 
@@ -915,9 +915,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selenvio" name="selenvio" class="form-control" >
-								        <option value="0">Seleccione tipo de envío</option>
-								        <option value="1">Imagen</option>
-								        <option value="2">Texto</option>
+								        <option value="0">Select send type</option>
+								        <option value="1">Image</option>
+								        <option value="2">Text</option>
 								        <option value="3">Video</option>
 										<option value="4">Pdf</option>
 								    </select>
@@ -925,15 +925,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="seltipoimg" name="seltipoimg" class="form-control" >
-								        <option value="0">Seleccione tipo de recurso</option>
+								        <option value="0">Select resource type</option>
 								        <option value="1">Local</option>
-								        <option value="2">Servidor</option>
+								        <option value="2">Server</option>
 								    </select>
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selimg" name="selimg" class="form-control" >
-								        <option value="0">Seleccione imagen del servidor</option>
+								        <option value="0">Select image from server</option>
 								        <?php
 								            //Se cargan las imágenes del servidor
 								            $archivos = [];
@@ -959,7 +959,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selvid" name="selvid" class="form-control" >
-								        <option value="0">Seleccione video del servidor</option>
+								        <option value="0">Select video from server</option>
 								        <?php
 								            //Se cargan los vídeos del servidor
 								            $archivos = [];
@@ -984,8 +984,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
-								    <label for="textoW" id="lbltextoW">Texto del mensaje</label> 
-									<input type="text" class="form-control" id="textoW" name="textoW" placeholder="Ingrese texto del mensaje">
+								    <label for="textoW" id="lbltextoW">Message text</label>
+									<input type="text" class="form-control" id="textoW" name="textoW" placeholder="Enter message text">
 									<input type="hidden" style="width: 20px" id="ctr_textoW" value="1"/>
 								</div>
 								
@@ -998,7 +998,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								<hr style="border-color: red;">
 
 								<div class="form-group ghf" id="imglocal"> 
-									<label for="ImagenW" id="lblImagenW">Imagen (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenW" id="lblImagenW">Image (Maximum size 1024 Kb)</label>
 									<input type="file" class="form-control" id="ImagenW" name="ImagenW">
 									<input type="hidden" style="width: 20px" id="ctr_ImagenW" value="1"/>
 								</div>
@@ -1009,14 +1009,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group ghf"> 
-									<label for="textoI" id="lbltextoI">Texto de la imagen</label> 
-									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Ingrese texto de la imagen">
+									<label for="textoI" id="lbltextoI">Image caption</label>
+									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Enter image caption">
 									<input type="hidden" style="width: 20px" id="ctr_textoI" value="1"/>
 								</div>
 								
 								<div class="form-group ghf"> 
-									<label for="textoPdf" id="lbltextoPdf">Texto del Pdf</label> 
-									<input type="text" class="form-control" id="textoPdf" name="textoPdf" placeholder="Ingrese texto del pdf">
+									<label for="textoPdf" id="lbltextoPdf">PDF caption</label>
+									<input type="text" class="form-control" id="textoPdf" name="textoPdf" placeholder="Enter PDF caption">
 									<input type="hidden" style="width: 20px" id="ctr_textoPdf" value="1"/>
 								</div>
 
@@ -1025,14 +1025,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								<hr style="border-color: red;">
 								
 								<div class="form-group"> 
-									<label for="textoI" id="lbltextoI">Matrículas efectivas o con envío de papeles en el periodo actual</label> 
+									<label for="textoI" id="lbltextoI">Effective enrollments or with document submission in the current period</label>
 									<table border="1px" style="text-align: center;">
 									    <thead>
 									        <tr>
 									            <td width="50px">Id</td>
-									            <td width="150px">Grado</td>
-									            <td width="100px">Cantidad</td>
-									            <td width="150px">Enviar whatsapp</td>
+									            <td width="150px">Grade</td>
+									            <td width="100px">Count</td>
+									            <td width="150px">Send WhatsApp</td>
 									        </tr>
 									    </thead>
 									    <tbody>
@@ -1065,9 +1065,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								<input type="hidden" id="txtidmat" name="txtidmat" value="0"/>
 								
-								<input type="button" id="btnvalidar" class="btn btn-secondary" value="Validar y Continuar" onclick="validar_datos();"/>
+								<input type="button" id="btnvalidar" class="btn btn-secondary" value="Validate and Continue" onclick="validar_datos();"/>
 
-								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Enviar Mensaje</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Send Message</button>
 							</form>
 						</div>
 						

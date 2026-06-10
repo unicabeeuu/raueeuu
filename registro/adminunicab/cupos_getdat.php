@@ -46,7 +46,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -200,13 +200,13 @@ if (isset($_SESSION['unisuper'])) {
                                 <div id="cont">
                         			<!--***********************************************************************************************-->
                         			<div id="div2">
-                        			    <h3>CUPOS APARTADOS 2023 POR GRADO </h3>
+                        			    <h3>RESERVED SPOTS 2023 BY GRADE</h3>
                         			    <div id="divtabla">
             								<table>
             								    <thead>
             								        <tr>
-            								            <td width="100px">Cantidad</td>
-            								            <td width="100px">Grado</td>
+            								            <td width="100px">Count</td>
+            								            <td width="100px">Grade</td>
             								            <td></td>
             								        </tr>
             								    </thead>
@@ -246,7 +246,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog modal-lg" role="document" style="min-width: 90%;">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">DETALLE DE LOS CUPOS</h5>
+            <h5 class="modal-title" id="exampleModalLabel">RESERVED SPOTS DETAIL</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -256,7 +256,7 @@ if (isset($_SESSION['unisuper'])) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
           </div>
         </div>

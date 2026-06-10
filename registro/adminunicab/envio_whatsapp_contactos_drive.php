@@ -38,7 +38,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -588,7 +588,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 }
             }
             else {
-                alert("Debe seleccionar un tipo de envío");
+                alert("You must select a send type");
                 control = 1;
             }
         }
@@ -734,14 +734,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Envío masivo de whatsapp contactos drive:</h4>
+							<h4>Bulk WhatsApp send - drive contacts:</h4>
 						</div>
 						<div class="form-body">
 							<form action="envio_whatsapp_contactos_drive1.php" method="POST" id="form" name="form" enctype="multipart/form-data" target="_blank">
 
 								<div class="form-group"> 
 								    <select id="selusuario" name="selusuario" class="form-control" >
-								        <option value="0">Seleccione usuario</option>
+								        <option value="0">Select user</option>
 								        <?php
 								            $filas = 1;
 								            while ($fila_what = mysqli_fetch_array($res_what)){
@@ -752,7 +752,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								        ?>
 								    </select><br>
 								    
-								    <label for="idInstancia" class="col-lg-1 col-sm-1">Instancia</label> 
+								    <label for="idInstancia" class="col-lg-1 col-sm-1">Instance</label> 
 									<input type="text" class="col-lg-2 col-sm-2 readonly" id="idInstancia" name="idInstancia" readonly>
 									
 									<label for="token" class="col-lg-1 col-sm-1">Token</label> 
@@ -765,24 +765,24 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selenvio" name="selenvio" class="form-control" >
-								        <option value="0">Seleccione tipo de envío</option>
-								        <option value="1">Imagen</option>
-								        <option value="2">Texto</option>
+								        <option value="0">Select send type</option>
+								        <option value="1">Image</option>
+								        <option value="2">Text</option>
 										<option value="3">Pdf</option>
 								    </select>
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="seltipoimg" name="seltipoimg" class="form-control" >
-								        <option value="0">Seleccione tipo de imagen</option>
+								        <option value="0">Select image type</option>
 								        <option value="1">Local</option>
-								        <option value="2">Servidor</option>
+								        <option value="2">Server</option>
 								    </select>
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selimg" name="selimg" class="form-control" >
-								        <option value="0">Seleccione imagen del servidor</option>
+								        <option value="0">Select image from server</option>
 								        <?php
 								            //Se cargan las imágenes del servidor
 								            $archivos = [];
@@ -807,8 +807,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
-								    <label for="textoW" id="lbltextoW">Texto del mensaje</label> 
-									<input type="text" class="form-control" id="textoW" name="textoW" placeholder="Ingrese texto del mensaje">
+								    <label for="textoW" id="lbltextoW">Message text</label> 
+									<input type="text" class="form-control" id="textoW" name="textoW" placeholder="Enter message text">
 									<input type="hidden" style="width: 20px" id="ctr_textoW" value="1"/>
 								</div>
 
@@ -821,7 +821,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								<hr style="border-color: red;">
 
 								<div class="form-group ghf" id="imglocal"> 
-									<label for="ImagenW" id="lblImagenW">Imagen (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenW" id="lblImagenW">Image (Maximum size 1024 Kb)</label> 
 									<input type="file" class="form-control" id="ImagenW" name="ImagenW">
 									<input type="hidden" style="width: 20px" id="ctr_ImagenW" value="1"/>
 								</div>
@@ -832,14 +832,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group ghf"> 
-									<label for="textoI" id="lbltextoI">Texto de la imagen</label> 
-									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Ingrese texto de la imagen">
+									<label for="textoI" id="lbltextoI">Image text</label> 
+									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Enter image text">
 									<input type="hidden" style="width: 20px" id="ctr_textoI" value="1"/>
 								</div>
 
 								<div class="form-group ghf"> 
-									<label for="textoPdf" id="lbltextoPdf">Texto del Pdf</label> 
-									<input type="text" class="form-control" id="textoPdf" name="textoPdf" placeholder="Ingrese texto del pdf">
+									<label for="textoPdf" id="lbltextoPdf">PDF text</label> 
+									<input type="text" class="form-control" id="textoPdf" name="textoPdf" placeholder="Enter PDF text">
 									<input type="hidden" style="width: 20px" id="ctr_textoPdf" value="1"/>
 								</div>
 
@@ -848,15 +848,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								<hr style="border-color: red;">
 								
 								<div class="form-group"> 
-									<label for="textoI" id="lbltextoI">Contactos drive</label> 
+									<label for="textoI" id="lbltextoI">Drive contacts</label> 
 									<table border="1px" style="text-align: center;">
 									    <thead>
 									        <tr>
 									            <td width="50px">Id</td>
 									            <!--<td width="150px">Descripción</td>-->
-									            <td width="100px">Grado</td>
-									            <td width="100px">Cantidad</td>
-												<td width="150px">Enviar whatsapp</td>
+									            <td width="100px">Grade</td>
+									            <td width="100px">Count</td>
+												<td width="150px">Send WhatsApp</td>
 									        </tr>
 									    </thead>
 									    <tbody>
@@ -879,9 +879,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								<input type="hidden" id="txtident" name="txtident" value="0"/>
 								<input type="hidden" id="txtidgra" name="txtidgra" value="0"/>
 								
-								<input type="button" id="btnvalidar" class="btn btn-secondary" value="Validar y Continuar" onclick="validar_datos();"/>
+								<input type="button" id="btnvalidar" class="btn btn-secondary" value="Validate and Continue" onclick="validar_datos();"/>
 
-								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Enviar Mensaje</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Send Message</button> 
 							</form>
 						</div>
 						

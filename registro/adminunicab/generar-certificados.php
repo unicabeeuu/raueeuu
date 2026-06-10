@@ -26,7 +26,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -92,15 +92,15 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Certificado Estudiantil</h4>
+							<h4>Student Certificate</h4>
 						</div>
 						<div class="form-body">
 							<form class="form-horizontal" action="certificado-final.php" method="POST">
 								<div class="form-group">
-									<label for="tipo_certificado" class="col-sm-2 control-label">Certificado:<span class="req">*</span></label>
+									<label for="tipo_certificado" class="col-sm-2 control-label">Certificate:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="tipo_certificado" name="tipo_certificado" class="form-control1" required>
-											<option value="Estudio">Estudio</option>
+											<option value="Estudio">Study</option>
 											<!--<option value="Notas">Notas</option>-->
 									  </select>
 									</div>
@@ -111,7 +111,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 										?>
 										<div id="select_periodo" style="display: none">
 											<div class="form-group">
-												<label for="periodo" class="col-sm-2 control-label">Periodo:<span class="req">*</span></label>
+												<label for="periodo" class="col-sm-2 control-label">Period:<span class="req">*</span></label>
 												<div class="col-sm-8">
 													<select id="periodo" name="periodo" class="form-control1" required>
 														<option value="1">1</option>
@@ -125,7 +125,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 										?>
 										<div id="select_periodo" style="display: none">
 										<div class="form-group">
-											<label for="periodo" class="col-sm-2 control-label">Periodo:<span class="req">*</span></label>
+											<label for="periodo" class="col-sm-2 control-label">Period:<span class="req">*</span></label>
 											<div class="col-sm-8">
 												<select id="periodo" name="periodo" class="form-control1" required>
 													<option value="1">1</option>
@@ -141,17 +141,17 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 								}
 								?>
 								<div class="form-group">
-									<label for="idioma" class="col-sm-2 control-label">Idioma:<span class="req">*</span></label>
+									<label for="idioma" class="col-sm-2 control-label">Language:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="idioma" name="idioma" class="form-control1" required>
-											<option value="espanol">Español</option>
-											<option value="ingles">Ingles</option>
+											<option value="espanol">Spanish</option>
+											<option value="ingles">English</option>
 									  </select>
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label for="firmas" class="col-sm-2 control-label">Firmas:<span class="req">*</span></label>
+									<label for="firmas" class="col-sm-2 control-label">Signatures:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="firmas" name="firmas" class="form-control1" required>
 											<option value="SI">SI</option>
@@ -161,7 +161,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 								</div>
 
 								<input type="hidden" value="<?php echo $id_estudiante?>" id="id_estudiante" name="id_estudiante">
-								<button type="submit" class="btn btn-primary">Generar</button>
+								<button type="submit" class="btn btn-primary">Generate</button>
 							</form> 
 						</div>
 					</div>

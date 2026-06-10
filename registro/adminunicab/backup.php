@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -99,10 +99,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     	<div class="well">
            <div class="row">
                <div class="col-md-8" id="redesFinal">
-               		<strong>¡Advertencia!</strong> Realice una copia de seguridad de todo el sitio periódicamente.
+               		<strong>Warning!</strong> Make a backup of the entire site periodically.
                </div>
                <div class="col-md-4">
-                   <a class="btn btn-lg btn-default btn-block" href="../copiabd/myphp-backup.php"><i class="fa fa-download" aria-hidden="true"></i> Descargar</a>
+                   <a class="btn btn-lg btn-default btn-block" href="../copiabd/myphp-backup.php"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
                </div>
            </div>
        </div>                    	

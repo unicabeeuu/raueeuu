@@ -52,7 +52,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -128,26 +128,26 @@
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Información Estudiante: <?php echo $nombres." ".$apellidos; ?></h4>
+							<h4>Student Information: <?php echo $nombres." ".$apellidos; ?></h4>
 						</div>
 						<div class="form-body">
 							<form class="form-horizontal" action="php/update-estudiante-presol.php" method="POST">
 								<div class="form-group">
-									<label for="apellidos" class="col-sm-2 control-label">Apellidos:<span class="req">*</span></label>
+									<label for="apellidos" class="col-sm-2 control-label">Last Names:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Apellidos Estudiante" required maxlength="25" value="<?php echo $apellidos;?>" readonly>
+										<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Student Last Names" required maxlength="25" value="<?php echo $apellidos;?>" readonly>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="nombres" class="col-sm-2 control-label">Nombres:<span class="req">*</span></label>
+									<label for="nombres" class="col-sm-2 control-label">First Names:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="nombres" name="nombres"  placeholder="Nombres Estudiante" required maxlength="25" value="<?php echo $nombres;?>" readonly>
+										<input type="text" class="form-control1" id="nombres" name="nombres"  placeholder="Student First Names" required maxlength="25" value="<?php echo $nombres;?>" readonly>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="tDocumento" class="col-sm-2 control-label">Tipo Documento:<span class="req">*</span></label>
+									<label for="tDocumento" class="col-sm-2 control-label">Document Type:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="tDocumento" name="tDocumento" class="form-control1" disabled>
 											<option value="<?php echo $idtd; ?>"><?php echo $tipo_documento; ?></option>
@@ -161,14 +161,14 @@
 								</div>
 									
 								<div class="form-group">
-									<label for="n_documento" class="col-sm-2 control-label">Identificación:<span class="req">*</span></label>
+									<label for="n_documento" class="col-sm-2 control-label">Identification:<span class="req">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Número Documento" required maxlength="15" value="<?php echo $n_documento;?>" readonly>
+										<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Document Number" required maxlength="15" value="<?php echo $n_documento;?>" readonly>
 									</div>
 								</div>
 
 								<div class='form-group'>
-									<label for='focusedinput' class='col-sm-2 control-label'>Estado:<span class="req">*</span></label>
+									<label for='focusedinput' class='col-sm-2 control-label'>Status:<span class="req">*</span></label>
 									<div class='col-sm-8'>
 										<select id='estado' name='estado' class='form-control1' required>
 											<option value="<?php echo $estado; ?>"><?php echo $estado; ?></option>
@@ -182,14 +182,14 @@
 								<hr>
 
 							    <button type="submit" class="btn btn-primary">
-							      <span class="fa fa-save"></span> Guardar Cambios
+							      <span class="fa fa-save"></span> Save Changes
 							    </button>
 
 							    <!--<button type="button" class="btn btn-primary">
 							      <span class="fa fa-download"></span> Descargar
 							    </button>-->
 
-							    <a href="lista-estudiantes.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="lista-estudiantes.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 							</form> 
 						</div>
 					</div>

@@ -39,14 +39,14 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Menu Navegable</li>
+              <li class="header">Navigation Menu</li>
               <?php  
                     if($id_administrador == 18 || $id_administrador == 40) {
               ?>
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-database"></i>
-                <span>Cambiar sistema</span>
+                <span>Change System</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -61,7 +61,7 @@
               ?>
               <li class="treeview">
                 <a href="index.php">
-                <i class="fa fa-home"></i> <span>Inicio</span>
+                <i class="fa fa-home"></i> <span>Home</span>
                 </a>
               </li>
               <?php  
@@ -72,7 +72,7 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-wrench"></i>
-                <span>Herramientas</span>
+                <span>Tools</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -143,7 +143,7 @@
 	</div>
   <script type="text/javascript">
     function cierre(){
-      let evalua=confirm("Las modificaciones en esta sección son irreversibles\n¿Desea continuar?");
+      let evalua=confirm("Changes in this section are irreversible\nDo you wish to continue?");
       if (evalua==true) {
         location.href='cierre-academico.php';
       }else{

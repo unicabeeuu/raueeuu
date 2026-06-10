@@ -33,7 +33,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -213,15 +213,15 @@ if (isset($_SESSION['unisuper'])) {
                         			<!--***********************************************************************************************-->
                         			<div id="div2">
                         			    <fieldset>
-                        				<legend><h3 style="color: #FC0D8C;">RANKING ESTUDIANTES </h3></legend>
+                        				<legend><h3 style="color: #FC0D8C;">STUDENT RANKING</h3></legend>
                         				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                         					<ul class="mprincipal">
-                        						<li><h3>LISTADO POR<span style="color: white;">.....</span>
+                        						<li><h3>LIST BY<span style="color: white;">.....</span>
                         						</h3></li>
                         							<ul class="msecund" style="background-color: #222a75;">
                         								<li style="background-color: #222a75;">
 															<select id="selgra1" name="selgra1" required>
-															    <option value="NA">Seleccione grado</option>
+															    <option value="NA">Select grade</option>
 															    <?php 
 															        while($row = $resultado1->fetch_assoc()){
 															            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -271,9 +271,9 @@ if (isset($_SESSION['unisuper'])) {
               <div class="modal-body">
                 <label>Id_est</label>
                 <input type="text" id="txtidest" class="form-control" readonly/>
-                <label>Nombres</label>
+                <label>First Names</label>
                 <input type="text" id="txtnom" class="form-control" readonly/>
-                <label>Calificaciones</label>
+                <label>Grades</label>
                 <div>
                     <label>BIO</label>
                     <input type="text" id="txtbio" style="width: 30px;" readonly/>
@@ -291,17 +291,17 @@ if (isset($_SESSION['unisuper'])) {
                     <label>TEC</label>
                     <input type="text" id="txttec" style="width: 30px;" readonly/>
                 </div>
-                <label>Acudiente 1</label>
+                <label>Guardian 1</label>
                 <input type="text" id="txtacu1" class="form-control" readonly/>
-                <label>Cel. Acudiente 1</label>
+                <label>Guardian 1 Phone</label>
                 <input type="text" id="txtcel1" class="form-control" readonly/>
-                <label>Acudiente 2</label>
+                <label>Guardian 2</label>
                 <input type="text" id="txtacu2" class="form-control" readonly/>
-                <label>Cel. Acudiente 2</label>
+                <label>Guardian 2 Phone</label>
                 <input type="text" id="txtcel2" class="form-control" readonly/>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
               </div>
             </div>

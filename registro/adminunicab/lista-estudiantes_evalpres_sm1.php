@@ -570,7 +570,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -763,10 +763,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					
 						<div id="divenc2">
 						    <div id="divenc2_1">
-						        <p>Evaluación de Admisión</p>
-						        <p>Nombres y Apellidos: <strong><?php echo $nombre_completo; ?></strong></p>
-						        <p>Documento: <strong><?php echo $documento; ?></strong></p>
-						        <p>Grado: <strong><?php echo $grado_ra; ?></strong></p>
+						        <p>Admission Evaluation</p>
+						        <p>Full Name: <strong><?php echo $nombre_completo; ?></strong></p>
+						        <p>Document: <strong><?php echo $documento; ?></strong></p>
+						        <p>Grade: <strong><?php echo $grado_ra; ?></strong></p>
 						    </div>
 						    <div id="divenc2_2">
 						        <p style="font-family: 'Poppins'; font-size: 24px; font-style: italic; color: #093A5F">GLOBAL</p>
@@ -896,15 +896,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                     </table>
                                 </div>
                                 
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe Global</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Global Report</div>
                                 <div style="width: 100%; background: #F1F1F2; text-align: center; font-size: 20px; font-family: 'Poppins-medium';">
-                                    <br><p>A continuación se relacionan los puntajes obtenidos en cada uno de los pensamientos evaluados en la evaluación de admisión:</p><br>
+                                    <br><p>The scores obtained in each of the evaluated areas of the admission test are listed below:</p><br>
                                 </div>
                                 <div class="row" id="divglobal">
                                     
                                     <table id="tblglobal" style="text-align: center;">
                                         <thead style="font-family: 'PT Sans Narrow';">
-                                            <tr style="background: #45A872; color: #F1F1F2; font-size: 20px; font-weight: bold; border: 2px;"><td colspan="9">Pensamientos</td></tr>
+                                            <tr style="background: #45A872; color: #F1F1F2; font-size: 20px; font-weight: bold; border: 2px;"><td colspan="9">Areas</td></tr>
                                             <tr>
                                                 <td colspan="2" width="200px" style="background: #FA4D59; color: #F1F1F2; font-size: 20px; font-weight: bold; border: 2px solid black;">Global</td>
                                                 <!--<td width="100px">Global</td>-->
@@ -949,7 +949,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                     </table>
                                 </div>
                                 
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe por Pensamientos</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Report by Areas</div>
                                 <!--<div class="row">
                                     <p><strong style="color: #064C86;">Detalle por Pensamiento:</strong></p>
                                     <p><strong style="color: #064C86;">Convenciones:</strong> Contestadas bien <img src="../images/checked_1.jpg" height="25px"/>, 
