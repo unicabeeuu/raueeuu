@@ -70,22 +70,22 @@
 						<tr>
 							<td>
 								<fieldset>
-									<legend style="color: #FC0D8C;">PENSAMIENTOS Y GRADOS A CARGAR</legend>
+									<legend style="color: #FC0D8C;">SUBJECTS AND GRADES TO LOAD</legend>
 									<div>
 									    <?php
-										echo '<label>Total Registros &#9658; '.$sel_upd.' ---------------> Registros '.$ini1.' al '.$fin.'</label>';
+										echo '<label>Total Records &#9658; '.$sel_upd.' ---------------> Records '.$ini1.' to '.$fin.'</label>';
 										?>
 										<table border="1px" class="tr">
 											<thead>
 											<tr>
-												<td><b>Pensamiento</b></td>
-												<td><b>Grados</b></td>
-												<td><b>Actualizado</b></td>
-												<td><b>Seleccionados</b></td>
-												<td><b>Insertados temp</b></td>
-												<td><b>Actualizados</b></td>
-												<td><b>Nuevos</b></td>
-												<td><b>Procesar</b></td>
+												<td><b>Subject</b></td>
+												<td><b>Grades</b></td>
+												<td><b>Updated</b></td>
+												<td><b>Selected</b></td>
+												<td><b>Temp Inserted</b></td>
+												<td><b>Updated</b></td>
+												<td><b>New</b></td>
+												<td><b>Process</b></td>
 												<td><b>No RA (*)</b></td>
 												<!--<td><b></b></td>-->
 												<td><b></b></td>
@@ -121,7 +121,7 @@
 												<td><?php echo $row['procesar'];?></td>
 												<td><?php echo $row['est_nue_no_reg'];?></td>
 												<!--<td><?php echo '<a href="pen_gra_upddat1.php?idq='.$row['id'].'"><button type="button" class="btn1">Programar</button></a>';?></td>-->
-												<td><?php echo '<a href="pen_gra_upddat2.php?idq='.$row['id'].'" target="_blank"><button type="button" class="btn2">Ver registros a procesar</button></a>';?></td>
+												<td><?php echo '<a href="pen_gra_upddat2.php?idq='.$row['id'].'" target="_blank"><button type="button" class="btn2">View records to process</button></a>';?></td>
 											</tr>
 											<?php }
 												$resultado->close();
@@ -130,12 +130,12 @@
 											</tbody>
 										</table>
 									</div>
-									<label class="msg">* No RA: Registros no insertados por pertenecer a estudiantes que no están en registro</label>
+									<label class="msg">* No RA: Records not inserted because they belong to students who are not in the registry</label>
 								</fieldset>
 								<nav aria-label="...">
 								  <ul class="pagination">
 									<li class="page-item <?php echo $_GET['p']<=1 ? 'disabled' : '' ?>">
-										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']-1 ?>">&#9668; Anterior</a>
+										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']-1 ?>">&#9668; Previous</a>
 									</li>
 									<?php for($i=0; $i<$pag;$i++): ?>
 									<li class="page-item <?php echo $_GET['p']==$i+1 ? 'active' : '' ?>">
@@ -146,7 +146,7 @@
 									  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
 									</li>-->
 									<li class="page-item <?php echo $_GET['p']>=$pag ? 'disabled' : '' ?>">
-										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']+1 ?>">Siguiente &#9658;</a>
+										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']+1 ?>">Next &#9658;</a>
 									</li>
 								  </ul>
 								</nav>

@@ -95,7 +95,7 @@
                 </a>
                 <ul class="treeview-menu">
                   <li><a href="../docenteunicab/updreg/pen_gra_upddat.php" target="_blank"><i class="fa fa-line-chart"></i> Update Grades</a></li>
-                  <li><a href="carga_academica.php"><i class="fa fa-battery-three-quarters "></i> Teacher Load</a></li>
+                  <li><a href="carga_academica.php"><i class="fa fa-battery-three-quarters "></i> Teacher Count</a></li>
                   <li><a href="cierre-academico.php"><i class="fa fa-power-off"></i> Academic Closing</a></li>
                   <!-- <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Register Enrolment</a></li> -->
                   <li><a href="lista-matricula.php"><i class="fa fa-edit"></i> Edit Enrolment</a></li>
