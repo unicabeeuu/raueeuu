@@ -65,13 +65,13 @@
     	if (emailRegex.test(usuario)) {
   			$('#alert').html('').slideUp(300);	
     	} else {
-      		$('#alert').html('<center><strong>Advertencia</strong> El correo no tiene el formato correcto</center>').slideDown(500);
+      		$('#alert').html('<center><strong>Warning</strong> The email format is not correct</center>').slideDown(500);
 			$('#usuario').focus();
   			return false;
     	}
 
 	    if (usuario=="") {
-	    	$('#alert').html('<center><strong>Advertencia</strong> Campo Obligatorio</center>').slideDown(500);
+	    	$('#alert').html('<center><strong>Warning</strong> Required field</center>').slideDown(500);
 	      	$('#usuario').focus();
 	      	return false;
 	    }else{
@@ -79,7 +79,7 @@
 	    }
 
 	    if (contrasena=="") {
-	    	$('#alert').html('<center><strong>Advertencia</strong> Campo Obligatorio</center>').slideDown(500);
+	    	$('#alert').html('<center><strong>Warning</strong> Required field</center>').slideDown(500);
 	    	$('#contrasena').focus();
 	      	return false;
 	    }else{

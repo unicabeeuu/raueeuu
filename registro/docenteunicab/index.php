@@ -22,7 +22,7 @@ if (isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -169,7 +169,7 @@ if (isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

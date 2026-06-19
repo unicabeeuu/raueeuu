@@ -160,7 +160,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$("#selop").html("");
 		$("#selop").append('<option value="NA" selected>Select option</option>');
 		$("#selop").append('<option value="N">Ingresar nueva pregunta</option>');
-		$("#selop").append('<option value="E">Editar pregunta</option>');
+		$("#selop").append('<option value="E">Edit question</option>');
 	}
 	
 	function validar_texto1(id, desc) {
@@ -630,7 +630,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									<!--***********************************************************************************************-->
 									<div id="div2">
 										<div class="form-title">
-											<h4>BANCO DE PALABRAS <i class="fa fa-arrow-right "></i> DOMAN KIDS</h4>
+											<h4>WORD BANK <i class="fa fa-arrow-right "></i> DOMAN KIDS</h4>
 										</div><br>
 										<table id="tblcontroles">
 											<tbody>
@@ -804,7 +804,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

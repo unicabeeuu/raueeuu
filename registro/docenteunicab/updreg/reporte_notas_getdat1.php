@@ -163,7 +163,7 @@
     	$content .= '</style>';
     	$content .= '</head><body>';
     	$content .= '<h1>Ejemplo generaci&oacute;n PDF</h1>';
-    	$content .= '<a href="reporte_notas_getdat1.php?pdf=1">Generar documento PDF</a>';
+    	$content .= '<a href="reporte_notas_getdat1.php?pdf=1">Generate PDF document</a>';
     	$content .= '</body></html>';
     	echo $content;
     	exit;

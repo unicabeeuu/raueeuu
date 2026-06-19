@@ -19,7 +19,7 @@ include "../adminunicab/php/conexion.php";
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -146,9 +146,9 @@ include "../adminunicab/php/conexion.php";
 								<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 									<thead > 
 										<tr bordercolor="#e0e0e0">
-											<TH COLSPAN=1><center><strong>MATERIA: <?php echo $materiab.' - GRADO: '.strtoupper($gradob);  ?></strong></center>
+											<TH COLSPAN=1><center><strong>SUBJECT: <?php echo $materiab.' - GRADO: '.strtoupper($gradob);  ?></strong></center>
 											</TH>
-											<TH COLSPAN=<?php echo $totalPeriodos; ?>><center><strong>NOTAS DEFINITIVAS POR PERIODO</strong></center>
+											<TH COLSPAN=<?php echo $totalPeriodos; ?>><center><strong>FINAL GRADES BY PERIOD</strong></center>
 											</TH>
 										</tr>
 										<tr>
@@ -450,17 +450,17 @@ include "../adminunicab/php/conexion.php";
 							      <span class="fa fa-save"></span> Guardar Notas
 							    </button>
 
-							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 							';
 							// echo '<button type="submit" class="btn btn-primary">Guardar Notas</button>';
 						}
 						else if ($pensa=="HUMANÍSTICO" && $idg<=12) {
 							echo '
-							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 							';
 						}else if ($pensa=="BIOETICO" && $idg<=12) {
 							echo '
-							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 							';
 						}else{
 							echo '
@@ -468,7 +468,7 @@ include "../adminunicab/php/conexion.php";
 							      <span class="fa fa-save"></span> Guardar Notas
 							    </button>
 
-							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="calificaciones.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 							';
 							// echo '<button type="submit" class="btn btn-primary">Guardar Notas</button>';
 						}
@@ -530,7 +530,7 @@ include "../adminunicab/php/conexion.php";
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

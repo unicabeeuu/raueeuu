@@ -110,13 +110,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
            		<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Enrollment list:</h4>
+							<h4>Tuition list:</h4>
 						</div>
 						<div class="form-body">  
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Enrollment number</th>
+						                <th>Tuition number</th>
 						                <th>Date</th>
 						                <th>Status</th>
 						                <th>Student</th>

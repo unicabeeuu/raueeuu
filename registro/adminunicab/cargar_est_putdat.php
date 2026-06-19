@@ -134,11 +134,11 @@ if (isset($_SESSION['unisuper'])) {
 										//echo $query2;
 										if($insertados > 0) {
 											echo "<label  class='col-sm-8 control-label'>Cargue exitoso de estudiantes de Moodle. Registros: ".$insertados."</label></br></br>";
-											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Volver</button></a>';
+											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 										}
 										else {
-											echo "<label  class='col-sm-8 control-label' style='color: red;'>No hay estudiantes nuevos de Moodle</label></br></br>";
-											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Volver</button></a>';
+											echo "<label  class='col-sm-8 control-label' style='color: red;'>There are no new students from Moodle</label></br></br>";
+											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 										}
 									?>
 								
@@ -206,7 +206,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

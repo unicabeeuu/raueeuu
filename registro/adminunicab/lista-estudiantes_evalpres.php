@@ -111,7 +111,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						                <th>Email</th>
 						                <th>Grade</th>
 										<th>Student Type</th>
-						                <!--<th>Estado</th>
+						                <!--<th>Status</th>
 										<th>DSA</th>
 										<th>DA</th>-->
 										<th>DM</th>
@@ -136,7 +136,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 											<td style='color: red;'>".$fila['DB']."</td>";
 
 							        		echo "<td><center>
-							        		<a href='lista-estudiantes_evalpres1.php?idest=".$fila['id']."&a=".$fila['a']."' class='btn btn-primary'><i class='fa fa-file-text'></i> Ver resultado</a></center></td></tr>";
+							        		<a href='lista-estudiantes_evalpres1.php?idest=".$fila['id']."&a=".$fila['a']."' class='btn btn-primary'><i class='fa fa-file-text'></i> View result</a></center></td></tr>";
 							        	}
 						        	?>
 						        </tbody>
@@ -202,7 +202,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

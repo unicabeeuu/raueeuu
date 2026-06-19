@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require "php/conexion.php";
-	if (isset($_SESSION['unisuper'])) {
+	if (isset($_SESSION['unisuper']) || isset($_SESSION['admin_unicab'])) {
 	    $sql="SELECT * FROM tbl_empleados WHERE email='".$_SESSION['uniprofe']."' OR email='".$_SESSION['unisuper']."'";
     	$res=mysqli_query($conexion,$sql);
     
@@ -45,7 +45,7 @@
 			$telefono_acudiente_2 = $fila['telefono_acudiente_2'];
 			$parentesco_acudiente_1 = $fila['parentesco_acudiente_1'];
 			$parentesco_acudiente_2 = $fila['parentesco_acudiente_2'];
-			$rh = $fila['estado'];
+			$rh = $fila['rh'];
 			$estado = $fila['estado_m'];
 			$password = $fila['password'];
 			$mensaje=$fila['mensaje'];
@@ -166,14 +166,13 @@
 	
 	function buscar() {
 			let doc = $("#n_documento").val();
-			
 			$.ajax({
         		type:"POST",
         		url:"buscar_estudiante_getdat.php",
         		data:"doc=" + doc,
         		success:function(r) {
         		    let res = JSON.parse(r);
-        			//alert(res.idgenero);
+        			// console.log(res);
 					$("#apellidos").val(res.apellidos);
 					$("#nombres").val(res.nombres);
 					$("#tDocumento").val(res.tipo_documento).change();
@@ -546,7 +545,7 @@
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

@@ -139,7 +139,7 @@ $peticion="SELECT e.*, m.estado estado_m, m.n_matricula
 							        		}
 							        		echo "<td>".$fila['estado']."</td>
 							        		<td><center>
-							        		<a href='editar-estudiantes_presol.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Estudiante'><i class='fa fa-pencil'></i> Editar</a></center></td></tr>";
+							        		<a href='editar-estudiantes_presol.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Estudiante'><i class='fa fa-pencil'></i> Edit</a></center></td></tr>";
 							        	}
 						        	?>
 						        </tbody>
@@ -205,7 +205,7 @@ $peticion="SELECT e.*, m.estado estado_m, m.n_matricula
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

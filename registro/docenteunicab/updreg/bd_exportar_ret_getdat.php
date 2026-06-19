@@ -36,21 +36,21 @@
 				<table border="1px" class="table" id="tblest">
 					<thead>
 					<tr>
-						<td class="tdlargo"><b>NOMBRE</b></td>
+						<td class="tdlargo"><b>NAME</b></td>
 						<td class="tdcorto"><b>ID</b></td>
-						<td class="tdmedia"><b>TIPO DOCUMENTO</b></td>
-						<td class="tdnormal"><b>No. DOCUMENTO</b></td>
+						<td class="tdmedia"><b>DOCUMENT TYPE</b></td>
+						<td class="tdnormal"><b>DOCUMENT No.</b></td>
 						<td class="tdmediol"><b>EXPEDICION</b></td>
-						<td class="tdnormal"><b>FECHA NACIMIENTO</b></td>
+						<td class="tdnormal"><b>BIRTH DATE</b></td>
 						<td class="tdlargo"><b>EMAIL INST</b></td>
-						<td class="tdmedia"><b>CIUDAD</b></td>
-						<td class="tdmediol"><b>DIRECCION.</b></td>
+						<td class="tdmedia"><b>CITY</b></td>
+						<td class="tdmediol"><b>ADDRESS.</b></td>
 						<td class="tdlargo"><b>ACUDIENTE 1</b></td>
 						<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-						<td class="tdmediol1"><b>TELEFONO ACUDIENTE 1</b></td>
+						<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
 						<td class="tdlargo"><b>ACUDIENTE 2</b></td>
 						<td class="tdlargo"><b>EMAIL ACUDIENTE 2</b></td>
-						<td class="tdmediol1"><b>TELEFONO ACUDIENTE 2</b></td>
+						<td class="tdmediol1"><b>GUARDIAN 2 PHONE</b></td>
 						<td class="tdmediol"><b>ACTIVIDAD EXTRA</b></td>
 					</tr>
 					</thead>

@@ -23,15 +23,15 @@
     $cadena = $cadena."<table id='tblact' class='table' border='1px'>
 	                        <thead>
 	                        <tr>
-	                            <td>Estudiante</td>
-	                            <td>Documento</td>
-	                            <td>Acudiente</td>
-	                            <td>Tel. Acud</td>
-	                            <td>Email Acud</td>
-	                            <td>Respuesta</td>
-	                            <td>Grado Sistema</td>
-	                            <td>Grado Solicitado</td>
-	                            <td>Grado Actual/Ultimo</td>
+	                            <td>Student</td>
+	                            <td>Document</td>
+	                            <td>Guardian</td>
+	                            <td>Guardian Phone</td>
+	                            <td>Guardian Email</td>
+	                            <td>Answer</td>
+	                            <td>System Grade</td>
+	                            <td>Requested Grade</td>
+	                            <td>Current/Last Grade</td>
 	                        </tr></thead><tbody>";
 	                        
     $resultado1 = $mysqli1->query($query);

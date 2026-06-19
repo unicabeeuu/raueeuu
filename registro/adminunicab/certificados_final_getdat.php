@@ -152,7 +152,7 @@ if (isset($_SESSION['unisuper'])) {
         let control = 0;
         
         if (anio == "NA") {
-            alert("Seleccione un periodo lectivo");
+            alert("Select a school period");
             $("#divtabla").empty();
             $("#search").hide();
             control = 1;
@@ -213,10 +213,10 @@ if (isset($_SESSION['unisuper'])) {
                 			<!--***********************************************************************************************-->
                 			<!--<div id="div1">
                 				<fieldset>
-                				<legend><h3>GENERAR CERTIFICADOS DE NOTAS</h3></legend>
+                				<legend><h3>GENERATE GRADE CERTIFICATES</h3></legend>
                 				    <form class="form-horizontal" action="../docenteunicab/updreg/reporte_notas_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                 					<ul class="mprincipal">
-                						<li><h3>GENRAR CERTIFICADOS POR<span style="color: white;">.....</span>
+                						<li><h3>GENERATE CERTIFICATES BY<span style="color: white;">.....</span>
                 						</h3></li>
                 							<ul class="msecund">
                 								<li>
@@ -233,7 +233,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 																<label style="color: white;">...</label>
-													<button id="submit" class="btn btn-primary" style="display: none;" >Generar</button>
+													<button id="submit" class="btn btn-primary" style="display: none;" >Generate</button>
 												</li>
                 							</ul>
                 					</ul>
@@ -358,7 +358,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

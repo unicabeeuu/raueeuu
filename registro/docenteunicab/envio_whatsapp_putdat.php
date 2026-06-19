@@ -44,7 +44,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -462,7 +462,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
             
         }
         else {
-            alert("Debe seleccionar un usuario");
+            alert("You must select a user");
             control = 1;
         }
         
@@ -471,29 +471,29 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
                 if(envio == 1) {
                     
                     if(tipo == 0) {
-                        alert("Debe seleccionar un tipo de imagen");
+                        alert("You must select an image type");
                         control = 1;
                     }
                     else if(tipo == 1) {
                         if(imgloc == "") {
-                            alert("Debe seleccionar una imagen local");
+                            alert("You must select a local image");
                             control = 1;
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
                     }
                     else if(tipo == 2) {
                         if(imgser == 0) {
-                            alert("Debe seleccionar una imagen del servidor");
+                            alert("You must select a server image");
                             control = 1;
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
@@ -501,13 +501,13 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
                 }
                 else if(envio == 2) {
                     if(texto_msg == "") {
-                        alert("Debe ingresar el texto del mensaje");
+                        alert("You must enter the message text");
                         control = 1;
                     }
                 }
             }
             else {
-                alert("Debe seleccionar un tipo de envío");
+                alert("You must select a send type");
                 control = 1;
             }
         }
@@ -518,7 +518,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
                 $("#btnguardar").show();
             }
             else {
-                alert("Debe seleccionar un grado");
+                alert("You must select a grade");
             }
         }
         
@@ -645,14 +645,14 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Envío masivo de whatsapp:</h4>
+							<h4>Bulk WhatsApp send:</h4>
 						</div>
 						<div class="form-body">
 							<form action="envio_whatsapp_putdat1.php" method="POST" id="form" name="form" enctype="multipart/form-data" target="_blank">
 
 								<div class="form-group"> 
 								    <select id="selusuario" name="selusuario" class="form-control" >
-								        <option value="0">Seleccione usuario</option>
+								        <option value="0">Select user</option>
 								        <?php
 								            $filas = 1;
 								            while ($fila_what = mysqli_fetch_array($res_what)){
@@ -676,7 +676,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selenvio" name="selenvio" class="form-control" >
-								        <option value="0">Seleccione tipo de envío</option>
+								        <option value="0">Select send type</option>
 								        <option value="1">Imagen</option>
 								        <option value="2">Texto</option>
 								    </select>
@@ -684,7 +684,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="seltipoimg" name="seltipoimg" class="form-control" >
-								        <option value="0">Seleccione tipo de imagen</option>
+								        <option value="0">Select image type</option>
 								        <option value="1">Local</option>
 								        <option value="2">Servidor</option>
 								    </select>
@@ -692,7 +692,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selimg" name="selimg" class="form-control" >
-								        <option value="0">Seleccione imagen del servidor</option>
+								        <option value="0">Select server image</option>
 								        <?php
 								            //Se cargan las imágenes del servidor
 								            $archivos = [];
@@ -725,7 +725,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 								<hr style="border-color: red;">
 
 								<div class="form-group ghf" id="imglocal"> 
-									<label for="ImagenW" id="lblImagenW">Imagen (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenW" id="lblImagenW">Image (Max size 1024 Kb)</label> 
 									<input type="file" class="form-control" id="ImagenW" name="ImagenW">
 									<input type="hidden" style="width: 20px" id="ctr_ImagenW" value="1"/>
 								</div>
@@ -736,8 +736,8 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 								</div>
 								
 								<div class="form-group ghf"> 
-									<label for="textoI" id="lbltextoI">Texto de la imagen</label> 
-									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Ingrese texto de la imagen">
+									<label for="textoI" id="lbltextoI">Image text</label> 
+									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Enter image text">
 									<input type="hidden" style="width: 20px" id="ctr_textoI" value="1"/>
 								</div>
 
@@ -746,14 +746,14 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 								<hr style="border-color: red;">
 								
 								<div class="form-group"> 
-									<label for="textoI" id="lbltextoI">Cantidad de estudidantes antiguos sin matricular por grado</label> 
+									<label for="textoI" id="lbltextoI">Number of old unenrolled students by grade</label> 
 									<table border="1px" style="text-align: center;">
 									    <thead>
 									        <tr>
 									            <td width="50px">Id</td>
-									            <td width="150px">Grado</td>
+									            <td width="150px">Grade</td>
 									            <td width="100px">Cantidad</td>
-									            <td width="150px">Enviar whatsapp</td>
+									            <td width="150px">Send WhatsApp</td>
 									        </tr>
 									    </thead>
 									    <tbody>
@@ -777,7 +777,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 								
 								<input type="button" id="btnvalidar" class="btn btn-secondary" value="Validar y Continuar" onclick="validar_datos();"/>
 
-								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Enviar Mensaje</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Send Message</button> 
 							</form>
 						</div>
 						
@@ -846,7 +846,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

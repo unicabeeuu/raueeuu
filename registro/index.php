@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- // capchat -->
@@ -49,7 +49,7 @@
 
 		<div id="page-wrapper">
 			<div class="main-page login-page ">
-				<h2 class="title1">Sistema de Control y Registro Académico</h2>
+				<h2 class="title1">Academic Control and Registry System</h2>
 <!--                <img class="img-responsive" src="../assets/img/logo-unicab/logo_thrive_f1.png"-->
 <!--                style="height: 36%; width: 95%">-->
 			<div class="widget-shadow" style="border-radius: 0 0 50px 50px">
@@ -58,8 +58,8 @@
                 	<img class="img-responsive" width="50%" src="../assets/img/logo-unicab/logo_thrive_f1.png"><br>
                     <img class="img-responsive" width="40%" src="images/iconoProfesor.png"><br>
                     <div class="login-action-buttons">
-                        <a href="../login_registro.php" class="btn" style="background-color: #222a75; color: white;">Docentes</a>
-                        <a href="estudianteunicab/login.php" class="btn" style="background-color: #fc0d8c; color: white;">Estudiantes</a>
+                        <a href="../login_registro.php" class="btn" style="background-color: #222a75; color: white;">Teachers</a>
+                        <a href="estudianteunicab/login.php" class="btn" style="background-color: #fc0d8c; color: white;">Students</a>
                     </div>
 				</div>
 			</div>

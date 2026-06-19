@@ -28,19 +28,19 @@
     $cadena = $cadena."<table id='tblact' class='table' border='1px'>
 	                        <thead>
 	                        <tr>
-							    <TH COLSPAN=10><center><strong>CUPO APARTADO</strong></center></TH>
+							    <TH COLSPAN=10><center><strong>RESERVED SPOT</strong></center></TH>
 							</tr>
 	                        <tr>
-	                            <th>Estudiante</th>
-	                            <th>Documento</th>
-	                            <th>Acudiente</th>
-	                            <th>Tel. Acud</th>
-	                            <th>Email Acud</th>
-	                            <th>Respuesta</th>
-	                            <th>Grado Sistema</th>
-	                            <th>Grado Solicitado</th>
-	                            <th>Grado Actual/Ultimo</th>
-	                            <th>Año Cupo</td>
+	                            <th>Student</th>
+	                            <th>Document</th>
+	                            <th>Guardian</th>
+	                            <th>Guardian Phone</th>
+	                            <th>Guardian Email</th>
+	                            <th>Answer</th>
+	                            <th>System Grade</th>
+	                            <th>Requested Grade</th>
+	                            <th>Current/Last Grade</th>
+	                            <th>Spot Year</td>
 	                        </tr></thead><tbody>";
 	                        
     //$resultado1 = $mysqli1->query($query);
@@ -77,7 +77,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Unicab Registro Académico</title>
+    <title>Unicab Academic Registry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      <!-- Favicon -->

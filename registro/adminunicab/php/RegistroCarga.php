@@ -19,7 +19,7 @@ $buscar="SELECT * FROM `carga_profesor` WHERE id_grado=".$id_grado." and id_mate
 $exe=mysqli_query($conexion,$buscar);
 $total_busqueda=mysqli_num_rows($exe);
 if ($total_busqueda>=1) {
-	echo '<script language="javascript" type="text/javascript" > alert("¡Advertencia! \nLa asignatura de este grado ya fue asignada a otro docente"); </script>  ';
+	echo '<script language="javascript" type="text/javascript" > alert("Warning! \nThe subject for this grade has already been assigned to another teacher"); </script>  ';
 }else{
 	$sql="INSERT INTO `carga_profesor`(`id_profesor`, `id_grado`, `id_materia`) VALUES ('".$id_profesor."','".$id_grado."','".$id_materia."')";
 $rec=mysqli_query($conexion,$sql);

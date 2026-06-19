@@ -95,10 +95,10 @@
                 </a>
                 <ul class="treeview-menu">
                   <li><a href="../docenteunicab/updreg/pen_gra_upddat.php" target="_blank"><i class="fa fa-line-chart"></i> Update Grades</a></li>
-                  <li><a href="carga_academica.php"><i class="fa fa-battery-three-quarters "></i> Teacher Count</a></li>
+                  <li><a href="carga_academica.php"><i class="fa fa-battery-three-quarters "></i> Teacher Workload</a></li>
                   <li><a href="cierre-academico.php"><i class="fa fa-power-off"></i> Academic Closing</a></li>
                   <!-- <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Register Enrolment</a></li> -->
-                  <li><a href="lista-matricula.php"><i class="fa fa-edit"></i> Edit Enrolment</a></li>
+                  <li><a href="lista-matricula.php"><i class="fa fa-edit"></i> Edit Tuition</a></li>
                   
                   <li class="treeview">
                     <a href="#">
@@ -216,7 +216,7 @@
                 ?>
                     <!--<li><a href="adm1.php"><i class="fa fa-users"></i> Database</a></li>-->
 					<!-- <li><a href="backup.php"><i class="fa fa-database"></i> Backup</a></li> -->
-					<li><a href="lista_comprobantes_avadmisiones.php"><i class="fa fa-check-circle"></i> Validate enrolment documents</a></li>
+					<li><a href="lista_comprobantes_avadmisiones.php"><i class="fa fa-check-circle"></i> Validate tuition documents</a></li>
 					<li><a href="stickers_correspondencia.php"><i class="fa fa-file-text"></i> Correspondence stickers</a></li>
                 </ul>
               </li>

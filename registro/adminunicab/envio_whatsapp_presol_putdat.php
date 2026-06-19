@@ -357,7 +357,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(extensionValida < 0) {
             //$('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
-            alert("La extensión no es válida Su fichero tiene de extensión: ." + extension + ": ");
+            alert("The extension is not valid. Your file has extension: ." + extension + ": ");
             $("#ImagenW").val("");
             
             return false;
@@ -383,7 +383,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		    
 		    if(pesoFichero > pesoPermitido) {
 		        //$('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: ' + pesoFichero +' KBs');
-		        alert("El peso maximo permitido del fichero es: " + pesoPermitido + " KBs Su fichero tiene: " + pesoFichero + " KBs");
+		        alert("The maximum allowed file size is: " + pesoPermitido + " KBs Your file is: " + pesoFichero + " KBs");
                 $("#ImagenW").val("");
                 
 		        return false;
@@ -513,11 +513,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         let control = 0;
         //alert("usuario: " + usu);
         //alert("envio: " + envio);
-        //alert("texto mensaje: " + texto_msg);
+        //alert("message text: " + texto_msg);
         //alert("imagen local: " + imgloc);
         //alert("texto imagen: " + texto_img);
         //alert("imagen servidor: " + imgser);
-        //alert("registro: " + ident);
+        //alert("record: " + ident);
         
         if(usu != 0) {
             
@@ -532,7 +532,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 if(envio == 1) {
                     
                     if(tipo == 0) {
-                        alert("Debe seleccionar un tipo de imagen");
+                        alert("You must select an image type");
                         control = 1;
                     }
                     else if(tipo == 1) {
@@ -542,7 +542,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
@@ -554,7 +554,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
@@ -562,7 +562,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 }
                 else if(envio == 2) {
                     if(texto_msg == "") {
-                        alert("Debe ingresar el texto del mensaje");
+                        alert("You must enter the message text");
                         control = 1;
                     }
                 }
@@ -573,7 +573,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					}
 					else {
 						if(texto_pdf == "") {
-							alert("Debe ingresar el texto del pdf");
+							alert("You must enter the pdf text");
 							control = 1;
 						}
 					}
@@ -586,7 +586,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
 
         if(control == 0) {
-            //alert("Validación correcta");
+            //alert("Validation successful");
             if(idpre != 0) {
                 $("#btnguardar").show();
             }
@@ -854,7 +854,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									            while($row_pre = $res_pre->fetch_assoc()) {
                                             	    $cadena = $cadena."<tr>
                                                         <td>1</td>
-                                                        <td>Pre solicitudes de matrícula</td>
+                                                        <td>Enrollment pre-requests</td>
                                                         <td>".$row_pre['ct']."</td>
                                                         <td style='text-align: center;'><input type='radio' id='rd1' name='rdpre' class='chk' value='1' onchange='marcaridpre(this.value);'></td>
                                                         </tr>";
@@ -938,7 +938,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

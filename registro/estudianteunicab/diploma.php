@@ -78,7 +78,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -154,7 +154,7 @@
     								    <TH COLSPAN=3><center><strong>DIPLOMA</strong></center></TH>
     								</tr>
     								<tr>
-    								    <th width="200"><center>Acción</center></th>
+    								    <th width="200"><center>Action</center></th>
     								</tr> 
 								</thead> 
 								<tbody>
@@ -170,7 +170,7 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Descargar</a>
+							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Download</a>
 							                </center>
 							            </td>
 							        </tr>
@@ -186,7 +186,7 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <p>Este diploma sólo se puede descargar cuando se encuentre académica y financieramente a paz y salvo.</p>
+							                <p>This diploma can only be downloaded when you are academically and financially cleared.</p>
 							                </center>
 							            </td>
 							        </tr>

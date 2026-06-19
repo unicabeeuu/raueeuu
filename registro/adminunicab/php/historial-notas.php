@@ -17,7 +17,7 @@
 	$minutos = date("i",$fecha);
     
     // buscar numero matricula
-    $sql_matricula="SELECT * FROM `matricula` WHERE `id_estudiante`=".$id_estudiante." and estado='activo'";
+    $sql_matricula="SELECT * FROM `tbl_matriculas` WHERE `id_estudiante`=".$id_estudiante." and estado='activo'";
     
     $exe_matricula=mysqli_query($conexion,$sql_matricula);
     while ($rowM = mysqli_fetch_array($exe_matricula)) {

@@ -46,7 +46,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -118,10 +118,10 @@
 							<table class="table table-hover" border="1" bordercolor="#e0e0e0" width="500">
 								<thead > 
     								<tr>
-    								    <TH COLSPAN=3><center><strong>CARNET ESTUDIANTIL</strong></center></TH>
+    								    <TH COLSPAN=3><center><strong>STUDENT ID CARD</strong></center></TH>
     								</tr>
     								<tr>
-    								    <th width="200"><center>Acción</center></th>
+    								    <th width="200"><center>Action</center></th>
     								</tr> 
 								</thead> 
 								<tbody>
@@ -134,13 +134,13 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Descargar</a>
+							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Download</a>
 							                </center>
 							            </td>
 							        </tr>
 							        <tr>
 							            <td><center>
-							                <p><strong>NOTA:</strong> Imprimir, pegar foto, recortar y plastificar. Se recomienda imprimir en impresora láser para mayor nitidez.</p>
+							                <p><strong>NOTE:</strong> Print, paste photo, cut out and laminate. Printing on a laser printer is recommended for better sharpness.</p>
 							                </center>
 							            </td>
 							        </tr>
@@ -156,7 +156,7 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <p>Este carnet está en proceso. Cuando esté disponible aparecerá un botón para descargarlo.</p>
+							                <p>This ID card is being processed. When it is available, a button to download it will appear.</p>
 							                </center>
 							            </td>
 							        </tr>

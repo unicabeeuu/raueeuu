@@ -51,7 +51,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Unicab Registro Académico</title>
+    <title>Unicab Academic Registry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      <!-- Favicon -->
@@ -106,7 +106,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta1").val();
 			    
 			if(encuesta1p1 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta1").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta1');
 				$("#link").get(0).click();
@@ -121,7 +121,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta2").val();
                 
 			if(encuesta1p2 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta2").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta2');
 				$("#link").get(0).click();
@@ -136,7 +136,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta3").val();
                 
 			if(encuesta1p3 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta3").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta3');
 				$("#link").get(0).click();
@@ -151,7 +151,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta4").val();
                 
 			if(encuesta1p4 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta4").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta4');
 				$("#link").get(0).click();
@@ -166,7 +166,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta5").val();
                 
 			if(encuesta1p5 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta5").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta5');
 				$("#link").get(0).click();
@@ -181,7 +181,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta6").val();
                 
 			if(encuesta1p6 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta6").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta6');
 				$("#link").get(0).click();
@@ -196,7 +196,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta7").val();
                 
 			if(encuesta1p7 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta7").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta7');
 				$("#link").get(0).click();
@@ -211,7 +211,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta8").val();
                 
 			if(encuesta1p8 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta8").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta8');
 				$("#link").get(0).click();
@@ -226,7 +226,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta9").val();
                 
 			if(encuesta1p9 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta9").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta9');
 				$("#link").get(0).click();
@@ -241,7 +241,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta10").val();
                 
 			if(encuesta1p10 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta10").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta10');
 				$("#link").get(0).click();
@@ -256,7 +256,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta11").val();
                 
 			if(encuesta1p11 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta11").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta11');
 				$("#link").get(0).click();
@@ -271,7 +271,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta12").val();
                 
 			if(encuesta1p12 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta12").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta12');
 				$("#link").get(0).click();
@@ -287,7 +287,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta13").val();
                 
 			if(encuesta1p13 == undefined || encuesta1p13 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta13").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta13');
 				$("#link").get(0).click();
@@ -302,7 +302,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta14").val();
                 
 			if(encuesta1p14 == undefined || encuesta1p14 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta14").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta14');
 				$("#link").get(0).click();
@@ -317,7 +317,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta15").val();
                 
 			if(encuesta1p15 == undefined || encuesta1p15 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta15").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta15');
 				$("#link").get(0).click();
@@ -332,7 +332,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta16").val();
                 
 			if(encuesta1p16 == undefined || encuesta1p16 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta16").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta16');
 				$("#link").get(0).click();
@@ -347,7 +347,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta17").val();
                 
 			if(encuesta1p17 == undefined || encuesta1p17 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta17").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta17');
 				$("#link").get(0).click();
@@ -362,7 +362,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta18").val();
                 
 			if(encuesta1p18 == undefined || encuesta1p18 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta18").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta18');
 				$("#link").get(0).click();
@@ -377,7 +377,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta19").val();
                 
 			if(encuesta1p19 == undefined || encuesta1p19 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta19").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta19');
 				$("#link").get(0).click();
@@ -392,7 +392,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta20").val();
                 
 			if(encuesta1p20 == undefined || encuesta1p20 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta20").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta20');
 				$("#link").get(0).click();
@@ -407,7 +407,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 			let pregunta = $("#preguntaencuesta1pregunta21").val();
                 
 			if(encuesta1p21 == undefined || encuesta1p21 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta21").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta21');
 				$("#link").get(0).click();
@@ -476,10 +476,10 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 						<div class="panel-body widget-shadow">
 							<div class="panel-group" id="accordion">
 								<?php //echo $sql_encuesta; ?>
-								<center><h2>Para descargar el boletin de calificaciones es necesario responder la siguiente encuesta:</h2></center><br>
+								<center><h2>To download the report card you must answer the following survey:</h2></center><br>
 								<div class="panel panel-default" style="border: 1px solid blue;">
 									<div style="background-color: lightblue;">
-										<p style="font-size: 1.5em"><strong>Preguntas de selección múltiple, para que podamos contrastar y nos facilite más la construcción del instrumento final.</strong></p>
+										<p style="font-size: 1.5em"><strong>Multiple-choice questions, so we can compare and make it easier to build the final instrument.</strong></p>
 									</div>
 									<?php
 										//echo "id_grado ".$id_grado;
@@ -531,7 +531,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 								
 								<div class="panel panel-default" style="border: 1px solid green;">
 									<div style="background-color: lightgreen;">
-										<p style="font-size: 1.5em"><strong>Algunas preguntas abiertas que permiten a los padres expresar sus opiniones y percepciones detalladamente.</strong></p>
+										<p style="font-size: 1.5em"><strong>Some open questions that allow parents to express their opinions and perceptions in detail.</strong></p>
 									</div>
 									<?php
 										if (!isset($n_documento)) {
@@ -569,7 +569,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 							<input type="hidden" id="txtEncuestasPreguntasSM" value="<?php echo $encuestaPreguntas; ?>"/>
 							<input type="hidden" id="txtEncuestasPreguntasRT" value="<?php echo $encuestaPreguntasRT; ?>"/>
 							<a href="" id="link"></a>
-							<button class="btn btn-primary" onclick="guardar_encuesta();">Guardar Encuesta</button>
+							<button class="btn btn-primary" onclick="guardar_encuesta();">Save Survey</button>
 						</div>
 					</div>
 				</div>

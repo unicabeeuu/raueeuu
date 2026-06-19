@@ -43,22 +43,22 @@ include "conexion.php";
 	`n_documento`='".$n_documento."',`fecha_nacimiento`='".$fecha_nacimiento."', `expedicion`='".$expedicion."', `ciudad`='".$ciudad."',`direccion_estudiante`='".$direccion_est."', 
 	`email_institucional`='".$email_institucional."',`actividad_extra`='".$actividad_extra."',`email_acudiente_1`='".$email_acudiente_1."', 
 	`email_acudiente_2`='".$email_acudiente_2."',`acudiente_1`='".$acudiente_1."',`acudiente_2`='".$acudiente_2."',`telefono_acudiente_1`='".$telefono_acudiente_1."', 
-	`telefono_acudiente_2`='".$telefono_acudiente_2."',`estado`='".$rh."',`password`='".$password."', mensaje='".$mensaje."', documento_responsable='".$documento_acu."', direccion='".$direccion."', 
+	`telefono_acudiente_2`='".$telefono_acudiente_2."',`rh`='".$rh."',`password`='".$password."', mensaje='".$mensaje."', documento_responsable='".$documento_acu."', direccion='".$direccion."', 
 	`parentesco_acudiente_1`='".$parentesco_acudiente_1."',`parentesco_acudiente_2`='".$parentesco_acudiente_2."' 
 	WHERE id='".$id."'";
 	$rec = mysqli_query($conexion, $sql);
 	//echo $sql;
 	
 	//Se busca el idMatricula
-	$sql_idmat = "SELECT MAX(idMatricula) idMatricula FROM matricula WHERE id_estudiante = $id";
+	$sql_idmat = "SELECT MAX(id) idMatricula FROM tbl_matriculas WHERE id_estudiante = $id";
 	$exe_idmat = mysqli_query($conexion, $sql_idmat);
 	while($row_idmat = mysqli_fetch_array($exe_idmat)) {
 	    $idmat = $row_idmat['idMatricula'];
 	}
 	
 	//Se actualza la tabla de matricula cuando el estado es Retirado o activod
-	$sql1 = "UPDATE matricula SET estado = '$estado' WHERE id_estudiante = $id 
-	AND idMatricula = $idmat";
+	$sql1 = "UPDATE tbl_matriculas SET estado = '$estado' WHERE id_estudiante = $id 
+	AND id = $idmat";
 	//echo $sql1;
 	$rec1 = mysqli_query($conexion, $sql1);
 	//MENSAJE DE ENVIO

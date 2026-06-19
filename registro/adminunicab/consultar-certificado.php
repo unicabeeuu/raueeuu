@@ -133,7 +133,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 							<?php
 							if (!isset($_POST['n_certificado'])) {
 								echo ' <div class="alert alert-danger" role="alert">
-  									<strong>¡Advertencia!</strong> Debe ingresar un número de certificado para realizar la búsqueda.
+  									<strong>Warning!</strong> You must enter a certificate number to search.
 								</div>';
 							}else{
 								$numero_certificado=strtoupper($_POST['n_certificado']);
@@ -209,7 +209,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 								}else{
 									echo ' 
 									<div class="alert alert-danger" role="alert">
-  										<strong>¡Advertencia!</strong> no se han encontrado resultados.
+  										<strong>Warning!</strong> no results found.
 									</div>
 									<center><img src="../images/denegado.png"></center>
 									';

@@ -54,8 +54,8 @@
 	                        <tr class='GridViewScrollHeader'>
 	                            <td>Id</td>
 	                            <td>Palabra</td>
-	                            <td>Fecha</td>
-	                            <td>Estado</td>
+	                            <td>Date</td>
+	                            <td>Status</td>
 	                            <td>...</td>
 	                        </tr></thead><tbody>";
 	                        

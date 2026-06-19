@@ -111,7 +111,7 @@ if (isset($_SESSION['uniprofe'])) {
 												<tr>
 													<td>
 														<fieldset>
-															<legend>PENSAMIENTOS Y GRADOS A CARGAR</legend>
+															<legend>SUBJECTS AND GRADES TO LOAD</legend>
 															<div>
 															    <table border="1px" class="tr">
 																	<thead>
@@ -153,7 +153,7 @@ if (isset($_SESSION['uniprofe'])) {
 																	</tbody>
 																</table>
 															</div>
-															<label class="msg">* No RA: Registros no insertados por pertenecer a estudiantes que no están en registro</label>
+															<label class="msg">* No RA: Records not inserted because they belong to students who are not in the registry</label>
 														</fieldset>							
 													</td>
 												</tr>
@@ -222,7 +222,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);

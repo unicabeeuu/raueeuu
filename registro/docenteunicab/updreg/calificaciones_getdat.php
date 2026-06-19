@@ -31,21 +31,21 @@ ORDER BY cc.name, u.lastname, u.firstname, c.shortname, Periodo";
 		<div id="enc">
 			<img src="img/enc1.png" alt="enc1" />
 		</div>
-		<h1>Listado de calificaciones Moodle</h1></center>
-		<!--<a href="categorias_form.php">Nueva Categoría</a><br/><br/>-->
+		<h1>List of Moodle grades</h1></center>
+		<!--<a href="categorias_form.php">New Category</a><br/><br/>-->
 		<table border="1px">
 			<thead>
 			<tr>
-				<td><b>Categoría</b></td>
-				<td><b>Id Grado</b></td>
+				<td><b>Category</b></td>
+				<td><b>Grade Id</b></td>
 				<td><b>Curso</b></td>
-				<td><b>Id Materia</b></td>
+				<td><b>Subject Id</b></td>
 				<td><b>Id</b></td>
 				<td><b>Nombres</b></td>
 				<td><b>Apellidos</b></td>
-				<td><b>Periodo</b></td>
-				<td><b>Id Periodo</b></td>
-				<td><b>Calificación</b></td>
+				<td><b>Period</b></td>
+				<td><b>Period Id</b></td>
+				<td><b>Grade</b></td>
 			</tr>
 			</thead>
 			<tbody>

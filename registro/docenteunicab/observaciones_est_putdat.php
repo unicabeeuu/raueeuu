@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -373,7 +373,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Observaciones estudiante:</h4>
+							<h4>Student observations:</h4>
 						</div>                        
 					</div>
            		</div>
@@ -381,12 +381,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-body">
 							<div class="form-group col-lg-12 text-left"> 
-                                <label>Buscar estudiante:</label> 
+                                <label>Search student:</label> 
 								<form class="form-horizontal" action="../../registro/docenteunicab/updreg/observaciones_est_tut_putdat.php"  method="POST" target="_blank" >
-                					<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre o documento" style="width: 300px;" required/>
+                					<input type="text" id="buscar" name="buscar" placeholder="Enter name or document" style="width: 300px;" required/>
 									<label style="color: white;">...</label>
-									<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-									<input type="submit" class="btn btn-primary" value="Buscar" >
+									<!--<a href="estudiante_getdat.php" >Search</a>-->
+									<input type="submit" class="btn btn-primary" value="Search" >
                 				</form>
 							</div> 
 						</div>
@@ -475,7 +475,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

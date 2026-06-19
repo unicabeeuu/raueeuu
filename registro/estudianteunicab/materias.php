@@ -38,7 +38,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Unicab Registro Académico</title>
+    <title>Unicab Academic Registry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      <!-- Favicon -->
@@ -160,7 +160,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 								
 								if (!isset($id_grado)) {
 									echo '<div class="alert alert-danger" role="alert">
-  										<strong>¡Alerta!</strong> El estudiante no se encuentra matriculado.
+  										<strong>Alert!</strong> The student is not enrolled.
 									</div>';
 								}else{
 									$sql_no="SELECT DISTINCT tbl_estudiantes.id as id_estudiante, materias.materia, materias.pensamiento, grados.id as id_grado, grados.grado, notas.nota, periodos.id as id_periodo 
@@ -175,13 +175,13 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
     								echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 											<thead > 
 												<tr>
-												<TH COLSPAN=2><center><strong>ASIGNATURAS INSCRITAS GRADO '.$nombre_grado.'</strong></center></TH>
-												<TH COLSPAN=4><center><strong>NOTAS DEFINITIVAS POR PERIODOS</strong></center></TH>
+												<TH COLSPAN=2><center><strong>ENROLLED SUBJECTS GRADE '.$nombre_grado.'</strong></center></TH>
+												<TH COLSPAN=4><center><strong>FINAL GRADES BY PERIOD</strong></center></TH>
 												</tr>';
     								if ($id_grado>=17	) {
     									echo '<tr>
-    										<th><center>Materia</center></th>
-    										<th><center>Pesamiento</center></th>
+    										<th><center>Subject</center></th>
+    										<th><center>Area</center></th>
     										<th><center>Nº 1</center></th>
     										<th><center>Nº 2</center></th>
     										</tr> 
@@ -190,8 +190,8 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
     									';
     								}else{
     									echo '<tr>
-    										<th><center>Materia</center></th>
-    										<th><center>Pesamiento</center></th>
+    										<th><center>Subject</center></th>
+    										<th><center>Area</center></th>
     										<th><center>Nº 1</center></th>
     										<th><center>Nº 2</center></th>
     										<th><center>Nº 3</center></th>
@@ -283,9 +283,9 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 								}
 							?>
 						</div><br/>
-						<button id="btnupd" onclick="ver_cal_mood();" class="btn btn-primary" style="display: none;">Actualizar Calificaciones</button>
-						<label id="lblupd"><span style="color: red;">NOTA: </span>Estas calificaciones no se actualizan automáticamente. Las calificaciones se actualizan en cada cierre de periodo. 
-						O puedes dirigirte al tutor encargado del pensamiento para solicitarle que actualice tus calificaciones en registro.</label>
+						<button id="btnupd" onclick="ver_cal_mood();" class="btn btn-primary" style="display: none;">Update Grades</button>
+						<label id="lblupd"><span style="color: red;">NOTE: </span>These grades are not updated automatically. Grades are updated at each period closing. 
+						Or you can contact the tutor in charge of the subject area to request that they update your grades in the system.</label>
 						<input type="hidden" id="txtidest" value="<?php echo $id; ?>"/><input type="hidden" id="txtidgra" value="<?php echo $id_grado; ?>"/>
 					</div>
 				</div>
@@ -350,7 +350,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 }else if(isset($_SESSION['uniprofe'])) {
 	echo "<script>location.href='../docenteunicab/index.php'</script>";
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='login.php'</script>";
 }
 ?>

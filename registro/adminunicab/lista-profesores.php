@@ -90,7 +90,7 @@ if (isset($_SESSION['unisuper'])) {
 							        		<td>".$fila['n_documento']."</td>
 							        		<td>
 							        			<center>
-							        				<a href='editar-profesor.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Profesor'><i class='fa fa-pencil'></i> Editar</a>
+							        				<a href='editar-profesor.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Profesor'><i class='fa fa-pencil'></i> Edit</a>
 						        				</center>
 						        			</td>
 					        			</tr>";
@@ -159,7 +159,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

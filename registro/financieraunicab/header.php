@@ -32,7 +32,7 @@
 							</a>
 							<ul class="dropdown-menu drp-mnu">
 								<li> <a href="#" data-toggle="modal" data-target="#myModal" title="Editar Datos Personales Usuario"><i class="fa fa-user"></i> Datos Personales</a> </li> 
-								<li> <a href="../docenteunicab/updreg/logout-profesor.php" title="Salir del Sistema"><i class="fa fa-sign-out"></i> Cerrar Sesión</a> </li>
+								<li> <a href="../docenteunicab/updreg/logout-profesor.php" title="Salir del Sistema"><i class="fa fa-sign-out"></i> Log Out</a> </li>
 							</ul>
 						</li>
 					</ul>

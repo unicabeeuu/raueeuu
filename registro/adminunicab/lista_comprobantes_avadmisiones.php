@@ -265,7 +265,7 @@ if (isset($_SESSION['unisuper'])) {
 			$("#documentoRechazo").val(documento);
 			$("#txtRechazo").val("");
 			$("#txtControlDocumentosInvalidos").val(control_documentos_invalidos);
-            //alert("función");
+            //alert("function");
             
             $.ajax({
         		type:"POST",
@@ -371,7 +371,7 @@ if (isset($_SESSION['unisuper'])) {
 						location.reload();
 					}
 				} else {
-					alert('Error al actualizar: ' + (data.mensaje || 'Respuesta inválida'));
+					alert('Error updating: ' + (data.mensaje || 'Invalid response'));
 					element.checked = !element.checked; // Revertir si falla
 				}
 			})
@@ -701,7 +701,7 @@ if (isset($_SESSION['unisuper'])) {
 			function validacion() {
 				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);

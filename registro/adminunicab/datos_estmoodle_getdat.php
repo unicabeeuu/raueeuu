@@ -30,8 +30,8 @@
 	                            <td>USUARIO</td>
 	                            <td>NOMBRES</td>
 	                            <td>APELLIDOS</td>
-	                            <td>GRADO</td>
-	                            <td>CORREO</td>
+	                            <td>GRADE</td>
+	                            <td>EMAIL</td>
 	                        </tr></thead><tbody>";
 	//echo $cadena;                      
 	

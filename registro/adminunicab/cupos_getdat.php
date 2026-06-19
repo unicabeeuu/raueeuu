@@ -217,7 +217,7 @@ if (isset($_SESSION['unisuper'])) {
             								                        <td>'.$fila['ct'].'</td>
             								                        <td>'.$fila['grado'].'</td>
             								                        <td><button class="btn btn-secundary glyphicon glyphicon-list-alt" title="Ver listado"
-                                                                    onclick="enviardat('.$fila['id_grado_solicitado'].')"> Ver listado</button></td>
+                                                                    onclick="enviardat('.$fila['id_grado_solicitado'].')"> View list</button></td>
             								                    </tr>';
             								                $tot_mat += $fila['ct'];
             								            }
@@ -257,7 +257,7 @@ if (isset($_SESSION['unisuper'])) {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+            <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Save</button>-->
           </div>
         </div>
       </div>
@@ -314,7 +314,7 @@ if (isset($_SESSION['unisuper'])) {
 			function validacion() {
 				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);

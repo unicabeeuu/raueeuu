@@ -76,21 +76,21 @@
 											<thead>
 											<tr>
 												<td><b>ID</b></td>
-												<td><b>GRADO</b></td>
-												<td><b>MATRICULA</b></td>
+												<td><b>GRADE</b></td>
+												<td><b>ENROLLMENT</b></td>
 												<td><b>USUARIO</b></td>
-												<td><b>NOMBRE</b></td>
-												<td><b>DOCUMENTO No.</b></td>
-												<td><b>FECHA NACIMIENTO</b></td>
+												<td><b>NAME</b></td>
+												<td><b>DOCUMENT No.</b></td>
+												<td><b>BIRTH DATE</b></td>
 												<td><b>EMAIL INST</b></td>
-												<td><b>ACUDIENTE 1</b></td>
-												<td><b>EMAIL ACUDIENTE 1</b></td>
-												<td><b>TELEFONO ACUDIENTE 1</b></td>
-												<td><b>ACUDIENTE 2</b></td>
-												<td><b>EMAIL ACUDIENTE 2</b></td>
-												<td><b>TELEFONO ACUDIENTE 2</b></td>
+												<td><b>GUARDIAN 1</b></td>
+												<td><b>GUARDIAN 1 EMAIL</b></td>
+												<td><b>GUARDIAN 1 PHONE</b></td>
+												<td><b>GUARDIAN 2</b></td>
+												<td><b>GUARDIAN 2 EMAIL</b></td>
+												<td><b>GUARDIAN 2 PHONE</b></td>
 												<td><b>DIRECCION</b></td>
-												<td><b>CIUDAD</b></td>
+												<td><b>CITY</b></td>
 												<td><b>ACTIVIDAD EXTRA</b></td>
 											</tr>
 											</thead>

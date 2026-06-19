@@ -293,7 +293,7 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

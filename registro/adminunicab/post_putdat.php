@@ -356,7 +356,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Crear nuevo blog:</h4>
+							<h4>Create new blog:</h4>
 						</div>
 						<div class="form-body">
 							<form action="crearBlog.php" method="POST" id="form" name="form" enctype="multipart/form-data">
@@ -412,7 +412,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									            </table>
 									            
 									            <!--<p>&lt;iframe width="560" height="315" src="<mark style="background: yellow;">https://www.youtube.com/embed/Rq9vLVmB9BU</mark>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;</p><br>
-									            <p>Lo único que se debe cambiar es lo que está resaltado.</p>-->
+									            <p>The only thing to change is what is highlighted.</p>-->
 									        </div>
 									    </li>
 									</ul>
@@ -503,7 +503,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

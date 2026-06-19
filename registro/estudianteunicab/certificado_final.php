@@ -81,7 +81,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -154,12 +154,12 @@
 							<table class="table table-hover" border="1" bordercolor="#e0e0e0" width="500">
 								<thead > 
     								<tr>
-    								    <TH COLSPAN=3><center><strong>CERTIFICADO FINAL</strong></center></TH>
+    								    <TH COLSPAN=3><center><strong>FINAL CERTIFICATE</strong></center></TH>
     								</tr>
     								<tr>
-    								    <th width="200"><center>Fecha de expedición</center></th>
-        								<th width="100"><center>Número</center></th>
-        								<th width="200"><center>Acción</center></th>
+    								    <th width="200"><center>Issue Date</center></th>
+        								<th width="100"><center>Number</center></th>
+        								<th width="200"><center>Action</center></th>
     								</tr> 
 								</thead> 
 								<tbody>
@@ -180,7 +180,7 @@
             					        		
             							?>
             							    <td><center>
-    							                <a href='<?php echo $buscar['ruta']."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Descargar</a>
+    							                <a href='<?php echo $buscar['ruta']."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Download</a>
     							                </center>
     							            </td>
     							        <?php  
@@ -188,7 +188,7 @@
             	                            else {
             							?>
             							    <td><center>
-    							                <p>Este documento sólo se puede descargar cuando se encuentre académica y financieramente a paz y salvo.</p>
+    							                <p>This document can only be downloaded when you are academically and financially cleared.</p>
     							                </center>
     							            </td>
     							        <?php  

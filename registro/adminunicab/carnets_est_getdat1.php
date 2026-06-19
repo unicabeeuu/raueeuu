@@ -34,10 +34,10 @@
 	                        <thead>
 	                        <tr>
 	                            <td>ID_EST</td>
-	                            <td>GRADO</td>
-	                            <td>NOMBRE</td>
-	                            <td>CARNET</td>
-	                            <td>MSG CORREO</td>
+	                            <td>GRADE</td>
+	                            <td>NAME</td>
+	                            <td>ID CARD</td>
+	                            <td>EMAIL MSG</td>
 	                        </tr></thead><tbody>";
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()) {

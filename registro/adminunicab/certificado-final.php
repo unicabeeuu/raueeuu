@@ -432,7 +432,7 @@ text-align : justify;
 						<input type="hidden" name="id_estudiante" value="<?php echo $id_estudiante;?>">
 						<input type="hidden" name="id_grado" value="<?php echo $id_grado;?>">
 						<h6>Certificado N°: CS<?php echo $certicado_total; ?></h6>
-						<button type="submit" id="hide" class="btn btn-danger" >Certificado</button>
+						<button type="submit" id="hide" class="btn btn-danger" >Certificate</button>
 					</form>
 				  <!--   <script>
 	      				$(function(){
@@ -602,7 +602,7 @@ text-align : justify;
 				<input type="hidden" name="id_estudiante" value="<?php echo $id_estudiante;?>">
 				<input type="hidden" name="id_grado" value="<?php echo $id_grado;?>">
 				<h6>Certificado N°: CS<?php echo $certicado_total; ?></h6>
-				<button type="submit" id="hide" class="btn btn-danger" >Certificado</button>
+				<button type="submit" id="hide" class="btn btn-danger" >Certificate</button>
 			</form>
  		</div>
  		<!-- CERTIFICADO -->
@@ -755,7 +755,7 @@ text-align : justify;
 					<input type="hidden" name="id_estudiante" value="<?php echo $id_estudiante;?>">
 					<input type="hidden" name="id_grado" value="<?php echo $id_grado;?>">
 					<h6>Certificado N°: CS<?php echo $certicado_total; ?></h6>
-					<button type="submit" id="hide" class="btn btn-danger" >Certificado</button>
+					<button type="submit" id="hide" class="btn btn-danger" >Certificate</button>
 				</form>
 	 		</div>
 	 		<!-- CERTIFICADO -->
@@ -920,7 +920,7 @@ text-align : justify;
 					<input type="text" name="id_estudiante" value="<?php echo $id_estudiante;?>">
 					<input type="text" name="id_grado" value="<?php echo $id_grado;?>">
 					<h6>Certificado N°: CS<?php echo $certicado_total; ?></h6>
-					<button type="submit" id="hide" class="btn btn-danger" >Certificado</button>
+					<button type="submit" id="hide" class="btn btn-danger" >Certificate</button>
 				</form>
 	 		</div>
 	 		<!-- CERTIFICADO -->
@@ -988,7 +988,7 @@ text-align : justify;
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

@@ -484,9 +484,9 @@ if (isset($_SESSION['uniprofe'])) {
             
             function cargaropciones() {
                 $("#selop").html("");
-                $("#selop").append('<option value="NA" selected>Seleccione opción</option>');
-                $("#selop").append('<option value="N">Ingresar nueva pregunta</option>');
-                $("#selop").append('<option value="E">Editar pregunta</option>');
+                $("#selop").append('<option value="NA" selected>Select option</option>');
+                $("#selop").append('<option value="N">Enter new question</option>');
+                $("#selop").append('<option value="E">Edit question</option>');
             }
             
             function validar_texto1(id, desc) {
@@ -1216,7 +1216,7 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             				<fieldset id="fl1">
-                            				    <legend><h3>BANCO DE PREGUNTAS <i class="fa fa-arrow-right "></i> PREGUNTA DE RESPUESTA CORTA</h3>
+                            				    <legend><h3>QUESTION BANK <i class="fa fa-arrow-right "></i> SHORT ANSWER QUESTION</h3>
                             				        <img id="imgt" src="../../images/preguntas/rc_1.png" width="87"/>
                             				    </legend>
                             				    <table id="tblcontroles">
@@ -1224,7 +1224,7 @@ if (isset($_SESSION['uniprofe'])) {
                             				            <tr>
                             				                <td>
                             				                    <select id="selgrap" name="selgrap" required>
-        														    <option value="NA" selected>Seleccione grado</option>
+        														    <option value="NA" selected>Select grade</option>
         														    <?php 
         														        while($row = $resultado1->fetch_assoc()){
         														            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -1235,7 +1235,7 @@ if (isset($_SESSION['uniprofe'])) {
                             				                <td width="30"></td>
                             				                <td>
                             				                    <select id="selpenp" name="selpenp" required>
-																    <!--<option value="NA" selected>Seleccione pensamiento</option>-->
+																    <!--<option value="NA" selected>Select area</option>-->
 																    <?php 
         														        /*($row3 = $resultado3->fetch_assoc()){
         														            echo "<option value='".$row3['id']."'>".$row3['pensamiento']."</option>";
@@ -1254,9 +1254,9 @@ if (isset($_SESSION['uniprofe'])) {
                             				            <tr>
                             				                <td>
                             				                    <select id="selop">
-                                    					            <option value="NA" selected>Seleccione opción</option>
-                                    					            <option value="N">Ingresar nueva pregunta</option>
-                                    					            <option value="E">Editar pregunta</option>
+                                    					            <option value="NA" selected>Select option</option>
+                                    					            <option value="N">Enter new question</option>
+                                    					            <option value="E">Edit question</option>
                                     					        </select>
                             				                </td>
                             				                <td width="30"></td>
@@ -1274,7 +1274,7 @@ if (isset($_SESSION['uniprofe'])) {
                             				            <!--<tr>
                             				                <td>
                             				                    <select id="seltp" name="seltp" style="display: none;" required>
-        														    <option value="1" selected>Seleccione tipo pregunta</option>
+        														    <option value="1" selected>Select question type</option>
         														    <?php 
         														        while($row2 = $resultado2->fetch_assoc()){
         														            echo "<option value='".$row2['id']."'>".$row2['tipo_pregunta']."</option>";
@@ -1298,7 +1298,7 @@ if (isset($_SESSION['uniprofe'])) {
                             			    </div>
                             			</div>
                             		</div></br>
-                            		<p><label>Id pregunta creada... </label><label id="idpreg"></label></p>
+                            		<p><label>Created question Id... </label><label id="idpreg"></label></p>
 									<div id="resul_bus">
 									    
 									</div>
@@ -1329,7 +1329,7 @@ if (isset($_SESSION['uniprofe'])) {
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">NUEVA PREGUNTA DE RESPUESTA CORTA</h5>
+                <h5 class="modal-title" id="exampleModalLabel">NEW SHORT ANSWER QUESTION</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -1340,7 +1340,7 @@ if (isset($_SESSION['uniprofe'])) {
                         <h5><label>Idgra</label></h5>
                     </div>
                     <div class="col-lg-3">
-                        <h5><label>Grado</label></h5>
+                        <h5><label>Grade</label></h5>
                     </div>
                     <div class="col-lg-1">
                         <h5><label>Idpen</label></h5>
@@ -1352,7 +1352,7 @@ if (isset($_SESSION['uniprofe'])) {
                         <h5><label>Idtipp</label></h5>
                     </div>
                     <div class="col-lg-3">
-                        <h5><label>Tipo pregunta</label></h5>
+                        <h5><label>Question type</label></h5>
                     </div>
                 </div>
                 <div class="row">
@@ -1378,7 +1378,7 @@ if (isset($_SESSION['uniprofe'])) {
                 <label>* Tema <input type="text" class="controlcampo" style="width: 20px" id="ctr_seltema" value="1"/></label>
                 <!--<input type="text" id="txtidpen" class="form-control" readonly/>-->
                 <select id="seltema" name="seltema" class="form-control">
-                    <!--<option value="-1" selected>SELECCIONE TEMA</option>
+                    <!--<option value="-1" selected>SELECT TOPIC</option>
                     <option value="0">OTRO</option>-->
                 </select>
                 
@@ -1392,16 +1392,16 @@ if (isset($_SESSION['uniprofe'])) {
                     </div>
                 </div>
                 
-                <label>* Ingrese pregunta <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtpreg" value="1"/> (1000 | </label>
+                <label>* Enter question <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtpreg" value="1"/> (1000 | </label>
                 <label id="lblpreg">0</label><label>)</label>
                 <!--<input type="text" id="txtpreg" class="form-control" oninput="validapor()"/>-->
                 <textarea id="txtpreg" name="txtpreg" class="form-control" onkeyup="mayus(this, 'txtpreg', 'Pregunta');" maxlength="1000" required></textarea>
                 
-                <label>* Ingrese respuesta <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtresp" value="1"/> (600 | </label>
+                <label>* Enter answer <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtresp" value="1"/> (600 | </label>
                 <label id="lblresp">0</label><label>)</label>
                 <input type="text" id="txtresp" name="txtresp" class="form-control" onkeyup="mayus(this, 'txtresp', 'Respuesta');" maxlength="600" required/>
                 
-                <label>* Ingrese comentarios por error <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtretro" value="1"/> (200 |</label>
+                <label>* Enter comments for error <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtretro" value="1"/> (200 |</label>
                 <label id="lblretro">0</label><label>)</label>
                 <textarea id="txtretro" name="txtretro" class="form-control" onkeyup="mayus(this, 'txtretro', 'Comentarios error');" required></textarea>
                 
@@ -1410,8 +1410,8 @@ if (isset($_SESSION['uniprofe'])) {
               </div>
               <div class="modal-footer">
                   <label id="lblmsg"></label><img id="imgnp" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" style="display: none;" onclick="guardar()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" style="display: none;" onclick="guardar()">Save</button>
                 
               </div>
             </div>
@@ -1423,7 +1423,7 @@ if (isset($_SESSION['uniprofe'])) {
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">EDITAR PREGUNTA DE RESPUESTA CORTA</h5>
+                <h5 class="modal-title" id="exampleModalLabel">EDIT SHORT ANSWER QUESTION</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -1434,7 +1434,7 @@ if (isset($_SESSION['uniprofe'])) {
                         <h5><label>Idgra</label></h5>
                     </div>
                     <div class="col-lg-3">
-                        <h5><label>Grado</label></h5>
+                        <h5><label>Grade</label></h5>
                     </div>
                     <div class="col-lg-1">
                         <h5><label>Idpen</label></h5>
@@ -1446,7 +1446,7 @@ if (isset($_SESSION['uniprofe'])) {
                         <h5><label>Idtipp</label></h5>
                     </div>
                     <div class="col-lg-3">
-                        <h5><label>Tipo pregunta</label></h5>
+                        <h5><label>Question type</label></h5>
                     </div>
                 </div>
                 <div class="row">
@@ -1472,7 +1472,7 @@ if (isset($_SESSION['uniprofe'])) {
                 <label>* Tema <input type="text" class="controlcampo" style="width: 20px" id="ctr_selupdtema" value="1"/></label>
                 <!--<input type="text" id="txtidpen" class="form-control" readonly/>-->
                 <select id="selupdtema" name="selupdtema" class="form-control">
-                    <!--<option value="-1" selected>SELECCIONE TEMA</option>
+                    <!--<option value="-1" selected>SELECT TOPIC</option>
                     <option value="0">OTRO</option>-->
                 </select>
                 
@@ -1486,16 +1486,16 @@ if (isset($_SESSION['uniprofe'])) {
                     </div>
                 </div>
                 
-                <label>* Pregunta <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtupdpreg" value="1"  maxlength="1000"/> (1000 | </label>
+                <label>* Question <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtupdpreg" value="1"  maxlength="1000"/> (1000 | </label>
                 <label id="lblupdpreg">0</label><label>)</label>
                 <!--<input type="text" id="txtpreg" class="form-control" oninput="validapor()"/>-->
                 <textarea id="txtupdpreg" name="txtupdpreg" class="form-control" onkeyup="mayus(this, 'txtupdpreg', 'Pregunta');" maxlength="1000" required></textarea>
                 
-                <label>* Respuesta <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtupdresp" value="1"/> (600 | </label>
+                <label>* Answer <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtupdresp" value="1"/> (600 | </label>
                 <label id="lblupdresp">0</label><label>)</label>
                 <input type="text" id="txtupdresp" name="txtupdresp" class="form-control" onkeyup="mayus(this, 'txtupdresp', 'Respuesta');" maxlength="600" required/>
                 
-                <label>* Comentarios por error <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtupdretro" value="1"/> (200 |</label>
+                <label>* Comments for error <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtupdretro" value="1"/> (200 |</label>
                 <label id="lblupdretro">0</label><label>)</label>
                 <textarea id="txtupdretro" name="txtupdretro" class="form-control" onkeyup="mayus(this, 'txtupdretro', 'Comentarios error');" required></textarea>
                 
@@ -1514,7 +1514,7 @@ if (isset($_SESSION['uniprofe'])) {
               <div class="modal-footer">
                 <label id="lblupdmsg"></label><img id="imgep" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
                 <input type="hidden" id="idpregunta" style="width: 20px;" readonly/>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-warning" id="btneditar" data-dismiss="modal" style="display: none;" onclick="modificar()">Modificar</button>
                 
               </div>
@@ -1573,7 +1573,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);

@@ -278,7 +278,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         	                            <td>NOMBRES_M</td>
                         	                            <td>APELLIDOS_M</td>
                         	                            <td>ID_M</td>
-                        	                            <td>GRADO</td>
+                        	                            <td>GRADE</td>
                         	                            <td>USUARIO</td>
                         	                            <td>EMAIL</td>
                         	                            <td>...</td>
@@ -315,7 +315,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                                                 <td><?php echo $row['usuario']; ?></td>
                                                                 <td><?php echo $row['email_inst']; ?></td>
                                                                 <td><button class='btn btn-warning glyphicon glyphicon-edit' data-toggle='modal' data-target='#modal_registro' 
-                                                                    onclick='ver_datos_registro("<?php echo str_replace(" ","_",$row['nombres']); ?>","<?php echo str_replace(" ","_",$row['apellidos']); ?>",<?php echo $row['id']; ?>)'> Ver Datos Registro</button>
+                                                                    onclick='ver_datos_registro("<?php echo str_replace(" ","_",$row['nombres']); ?>","<?php echo str_replace(" ","_",$row['apellidos']); ?>",<?php echo $row['id']; ?>)'> View Record Data</button>
                                                                 </td>
                                                             </tr>
                                                 <?php  
@@ -359,8 +359,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <!--<button type="button" class="btn btn-warning" id="btnupdcarga" data-dismiss="modal" onclick="updcarga()">Guardar</button>-->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-warning" id="btnupdcarga" data-dismiss="modal" onclick="updcarga()">Save</button>-->
           </div>
         </div>
       </div>
@@ -370,7 +370,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">DATOS EN REGISTRO</h5>
+            <h5 class="modal-title" id="exampleModalLabel">DATA IN RECORD</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -382,14 +382,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             <input type="text" id="txtape_m" class="form-control" readonly/>
             <label>ID_M</label>
             <input type="text" id="txtid_m" class="form-control" readonly/>
-            <label>DATOS REGISTRO</label>
+            <label>RECORD DATA</label>
             <div id="tblregistro">
                 
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <!--<button type="button" class="btn btn-warning" id="btnputcarga" data-dismiss="modal" onclick="putcarga()">Guardar</button>-->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-warning" id="btnputcarga" data-dismiss="modal" onclick="putcarga()">Save</button>-->
           </div>
         </div>
       </div>
@@ -450,7 +450,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

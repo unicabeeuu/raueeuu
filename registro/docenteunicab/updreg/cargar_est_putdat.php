@@ -54,7 +54,7 @@ if (isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Favicon -->
@@ -176,11 +176,11 @@ if (isset($_SESSION['uniprofe'])) {
 										if($insertados > 0) {
 										    //echo $query;
 											echo "<label  class='col-sm-8 control-label'>Cargue exitoso de estudiantes de Moodle. Registros: ".$insertados."</label></br></br>";
-											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Volver</button></a>';
+											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 										}
 										else {
-											echo "<label  class='col-sm-8 control-label' style='color: red;'>No hay estudiantes nuevos de Moodle</label></br></br>";
-											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Volver</button></a>';
+											echo "<label  class='col-sm-8 control-label' style='color: red;'>There are no new students from Moodle</label></br></br>";
+											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 											//echo '<p>'.$query.'</p>';
 											//echo '<p>'.$query1.'</p>';
 										}
@@ -252,7 +252,7 @@ if (isset($_SESSION['uniprofe'])) {
 		function validacion() {
 			var grado=document.getElementById('id_grado').value;
 			if (grado==0) {
-				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
 				return false;
 			}else{
 				$('#alert').html('').slideUp(300);
@@ -264,7 +264,7 @@ if (isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../../login_registro.php'</script>";
 }
 ?>

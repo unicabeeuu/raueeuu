@@ -119,8 +119,8 @@
 	                        <tr class='GridViewScrollHeader'>
 	                            <td>Ranking</td>
 	                            <td>Promedio Total</td>
-	                            <td>Id Estudiante</td>
-	                            <td>Nombre</td>
+	                            <td>Student Id</td>
+	                            <td>Name</td>
 	                        </tr></thead><tbody>";
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()) {

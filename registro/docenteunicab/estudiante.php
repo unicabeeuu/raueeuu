@@ -20,7 +20,7 @@ if (isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Favicon -->
@@ -90,10 +90,10 @@ if (isset($_SESSION['uniprofe'])) {
                     			<div class="form-body">
                     			<form class="form-horizontal" action="estudiante.php"  method="POST" onsubmit="return validacion()">
 									<div class="form-group">
-										<label  class="col-sm-2 control-label">Grado<span class="req">*</span></label>
+										<label  class="col-sm-2 control-label">Grade<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<select id="id_grado" name="grado" class="form-control1" required>
-												<option value='0'>Seleccionar Grado</option>
+												<option value='0'>Select Grade</option>
 												<?php 
 													$sql="SELECT * FROM grados";
 													$consulta=mysqli_query($conexion,$sql);
@@ -106,7 +106,7 @@ if (isset($_SESSION['uniprofe'])) {
 									</div>
                             
 									<div class="modal-footer">
-										<input type="submit" class="btn btn-primary" value="Buscar Estudiante" title="Buscar Estudiante">
+										<input type="submit" class="btn btn-primary" value="Search Student" title="Search Student">
 									</div>
 									<div class="alert alert-danger" role="alert" id="alert" style="display:none; margin-top: 20px;"></div>
 								</form>
@@ -135,7 +135,7 @@ if (isset($_SESSION['uniprofe'])) {
 										<tr>
 											<th><center>Apellidos</center></th>
 											<th><center>Nombres</center></th>
-											<th><center>Acción</center></th>
+											<th><center>Action</center></th>
 										</tr> 
 										</thead> 
 										<tbody>';
@@ -144,7 +144,7 @@ if (isset($_SESSION['uniprofe'])) {
 												echo'<tr>
 					         						<td scope="row">'.$row['apellidos'].'</td>
 					         						<td scope="row">'.$row['nombres'].'</td>
-					         						<td scope="row"><center><a href="informe-estudiante.php?id_estudiante='.$row['id'].'" class="btn btn-primary" "title="Informe Estudiante"><i class="fa fa-eye"></i> Informe</a></center></td>
+					         						<td scope="row"><center><a href="informe-estudiante.php?id_estudiante='.$row['id'].'" class="btn btn-primary" "title="Student Report"><i class="fa fa-eye"></i> Report</a></center></td>
 
 				         						</tr>';											
 											}
@@ -152,7 +152,7 @@ if (isset($_SESSION['uniprofe'])) {
 								</table>';	
 									}else{
 										echo '<div class="alert alert-danger" role="alert">
-  										<strong>¡Alerta!</strong> No se encontro resultados para este grado
+  										<strong>Alert!</strong> No se encontro resultados para este grado
 										</div>';
 									}
 								}
@@ -220,7 +220,7 @@ if (isset($_SESSION['uniprofe'])) {
 			function validacion() {
 				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);
@@ -231,7 +231,7 @@ if (isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

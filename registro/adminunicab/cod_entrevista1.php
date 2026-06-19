@@ -82,15 +82,15 @@ if (isset($_SESSION['unisuper'])) {
                     			    <?php
 										//echo $query;
 										if($rescod > 0) {
-											echo "<label  class='col-sm-2 control-label'>Cargue exitoso del código de entrevista</label></br></br>";
+											echo "<label  class='col-sm-2 control-label'>Interview code uploaded successfully</label></br></br>";
 											echo "<label  class='col-sm-2 control-label'>Identificación: ".$identif."</label></br>";
 											echo "<label  class='col-sm-2 control-label'>Año: ".$periodo."</label></br>";
 											echo "<label  class='col-sm-2 control-label'>Código: ".$codigo."</label></br>";
-											echo '<a href="cod_entrevista.php" ><button type="button" class="btn btn-primary">Generear nuevo código para entrevista</button></a>';
+											echo '<a href="cod_entrevista.php" ><button type="button" class="btn btn-primary">Generate new interview code</button></a>';
 										}
 										else {
-											echo "<label  class='col-sm-8 control-label' style='color: red;'>Este número de identificación en este año ya tiene código asignado.</label></br></br>";
-											echo '<a href="cod_entrevista.php" ><button type="button" class="btn btn-primary">Generear nuevo código para entrevista</button></a>';
+											echo "<label  class='col-sm-8 control-label' style='color: red;'>This identification number already has a code assigned for this year.</label></br></br>";
+											echo '<a href="cod_entrevista.php" ><button type="button" class="btn btn-primary">Generate new interview code</button></a>';
 										}
 									?>
 								
@@ -158,7 +158,7 @@ if (isset($_SESSION['unisuper'])) {
 		function validacion() {
 			let grado=document.getElementById('id_grado').value;
 			if (grado==0) {
-				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+				$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 				return false;
 			}else{
 				$('#alert').html('').slideUp(300);
@@ -171,7 +171,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

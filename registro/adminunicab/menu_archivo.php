@@ -80,7 +80,7 @@
                     if($v_param == 1) {
                         echo "<li class='treeview'>";
                         echo "<a href='adm1.php'>";
-                        echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+                        echo "<i class='fa fa-users'></i> <span>Database</span>";
                         echo "</a>";
                         echo "</li>";
 						echo '<li><a href="pazsalvo_est_getdat.php"><i class="fa fa-check-circle"></i> Paz y salvos</a></li>';
@@ -96,43 +96,43 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Periodo</a></li>
-                  <li><a href="certificados-grado.php"><i class="fa fa-angle-right"></i> Grado</a></li>
-                  <li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consultar</a></li>
+                  <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Period</a></li>
+                  <li><a href="certificados-grado.php"><i class="fa fa-angle-right"></i> Grade</a></li>
+                  <li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consult</a></li>
                 </ul>
               </li>
               <li class="treeview">
                 <a href="estudiante.php">
-                <i class="fa fa-user"></i> <span>Informe Estudiante</span>
+                <i class="fa fa-user"></i> <span>Student Report</span>
                 </a>
               </li>
               <li class="treeview">
                 <a onclick="cierre()" href="#">
-                <i class="fa fa-power-off"></i> <span>Cierre Académico</span>
+                <i class="fa fa-power-off"></i> <span>Academic Closing</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="backup.php">
-                <i class="fa fa-database"></i> <span>Copia de Seguridad</span>
+                <i class="fa fa-database"></i> <span>Backup</span>
                 </a>
               </li>-->
               <!--<li class="treeview">
                 <a href="cod_entrevista.php">
-                <i class="fa fa-key"></i> <span>Código entrevista</span>
+                <i class="fa fa-key"></i> <span>Interview Code</span>
                 </a>
               </li>-->
               <?php
                   /*if($v_param == 1) {
                       echo "<li class='treeview'>";
     					  echo "<a href='adm1.php'>";
-    					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+    					  echo "<i class='fa fa-users'></i> <span>Database</span>";
     					  echo "</a>";
     				    echo "</li>";
                   }*/
     		  ?>  
              <!--  <li class="treeview">
                 <a href="#">
-                <i class="fa fa-table"></i> <span>Informes</span>
+                <i class="fa fa-table"></i> <span>Reports</span>
                 </a>
               </li> -->
             </ul>

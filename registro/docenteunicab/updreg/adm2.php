@@ -104,16 +104,16 @@ if (isset($_SESSION['uniprofe'])) {
                                     <div id="cont">
                             			<div id="div2">
                             				<fieldset>
-                            				<legend><h3>BUSCAR EN BASE DE DATOS</h3></legend>
+                            				<legend><h3>SEARCH IN DATABASE</h3></legend>
                             				    <form class="form-horizontal" action="estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>BUSCAR POR NOMBRE O APELLIDO <span style="color: blue;">ACTIVO</span></h3></li>
+                            						<li><h3>SEARCH BY FIRST OR LAST NAME <span style="color: blue;">ACTIVE</span></h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
+																<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
 																<label style="color: white;">...</label>
-																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudiante_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 																<input type="hidden" id="estado" name="estado" value="activo" required/>
 															</li>
                             							</ul>
@@ -121,13 +121,13 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             					<form class="form-horizontal" action="estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>BUSCAR POR NOMBRE O APELLIDO <span style="color: red;">INACTIVO</span></h3></li>
+                            						<li><h3>SEARCH BY FIRST OR LAST NAME <span style="color: red;">INACTIVE</span></h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
+																<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
 																<label style="color: white;">...</label>
-																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudiante_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 																<input type="hidden" id="estado" name="estado" value="inactivo" required/>
 															</li>
                             							</ul>
@@ -135,10 +135,10 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             					<form class="form-horizontal" action="estudianteg_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>BUSCAR POR GRADO ACTIVO<span style="color: white;">.....</span>
+                            						<li><h3>SEARCH BY ACTIVE GRADE<span style="color: white;">.....</span>
                             						<input type="checkbox" class="chk" id="chkper" name="chkper"/> <span style="color: red;">Perdiendo</span>
                             						<select id="selper" name="selper">
-                            						    <option value="0">Sel. periodo</option>
+                            						    <option value="0">Sel. period</option>
                             						    <option value="1">1</option>
                             						    <option value="2">2</option>
                             						    <option value="3">3</option>
@@ -148,7 +148,7 @@ if (isset($_SESSION['uniprofe'])) {
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra1" name="selgra1" required>
-																    <option value="NA">Seleccione grado</option>
+																    <option value="NA">Select grade</option>
 																    <?php 
 																        while($row = $resultado1->fetch_assoc()){
 																            echo "<option value='".$row['id_category']."'>".$row['name']."</option>";
@@ -157,15 +157,15 @@ if (isset($_SESSION['uniprofe'])) {
 																</select>
 																<label style="color: white;">...</label>
 																<select id="selgrupo" name="selgrupo" required>
-																    <option value="NA" selected>Grupo</option>
+																    <option value="NA" selected>Group</option>
 																    <option value="A">A</option>
 																    <option value="B">B</option>
 																    <option value="C">C</option>
 																    <option value="D">D</option>
 																</select>
 																<label style="color: white;">...</label>
-																<!--<a href="estudianteg_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudianteg_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 																<input type="hidden" id="estadog" name="estadog" value="activo" required/>
 															</li>
                             							</ul>
@@ -173,7 +173,7 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             					<form class="form-horizontal" action="bd_exportar_getdat.php"  method="POST" target="_blank">
                                 					<ul class="mprincipal">
-                                						<li><h3>EXPORTAR BASE DE DATOS</h3></li>
+                                						<li><h3>EXPORT DATABASE</h3></li>
                                 							<ul class="msecund">
                                 								<li>
     																<input type="submit" class="btn btn-primary" value="Exportar" >
@@ -251,7 +251,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);
@@ -263,7 +263,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 	?>

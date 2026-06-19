@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -373,21 +373,21 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Crear nuevo blog:</h4>
+							<h4>Create new blog:</h4>
 						</div>
 						<div class="form-body">
 							<form action="crearBlog.php" method="POST" id="form" name="form" enctype="multipart/form-data" >
 
 								<div class="form-group"> 
-									<label for="TituloA">Título</label> 
-									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Ingrese nombre del evento" autofocus onkeyup="mayus(this, 'TituloA', 'Título');">
+									<label for="TituloA">Title</label> 
+									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Enter event name" autofocus onkeyup="mayus(this, 'TituloA', 'Título');">
 									<input type="hidden" style="width: 20px" id="ctr_TituloA" value="1"/>
 								</div>
 								
 								<div class="form-group"> 
-									<label for="Categoria" id="lblcat">Categoría</label> 
+									<label for="Categoria" id="lblcat">Category</label> 
 									<select id="selcat" name="selcat" class="form-control">
-									    <option value="0">Seleccione categoría</option>
+									    <option value="0">Select category</option>
 									    <?php  
 									        $sqlcat = "SELECT * FROM tbl_categorias_blog";
 									        $rescat = mysqli_query($conexion,$sqlcat);
@@ -402,12 +402,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 								<div class="form-group"> 
 									<label for="DescripcionA">Texto inicial (10000 | <label class="maxl" id="lbldesc">0</label>)</label> 
-									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Descripción o información del evento" onkeyup="mayus(this, 'DescripcionA', 'Descripción');"></textarea>
+									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Event description or information" onkeyup="mayus(this, 'DescripcionA', 'Descripción');"></textarea>
 									<input type="hidden" style="width: 20px" id="ctr_DescripcionA" value="1"/>
 								</div>
 								
 								<div class="form-group"> 
-									<label for="ImagenA">Imagen principal (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenA">Main image (Max size 1024 Kb)</label> 
 									<input type="file" class="form-control" id="ImagenA" name="ImagenA" required>
 									<input type="hidden" style="width: 20px" id="ctr_ImagenA" value="1"/>
 									<p id="texto"> </p><br/>   	
@@ -415,7 +415,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group"> 
-									<label for="editor">Información complementaria </label> 
+									<label for="editor">Additional information </label> 
 									<div id="editor-container">
 									</div>
 									<textarea name="editor" id="editor" class="form-control" style="display: none;" readonly>										
@@ -424,14 +424,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 
 								<div class="form-group"> 
-									<label for="Autor">Públicado por</label> 
+									<label for="Autor">Published by</label> 
 									<input type="text" class="form-control" id="Autor"  readonly="" value="<?php echo $apellidos.' '.$nombres; ?>">
 								</div>
 
 								<input type="hidden" class="form-control" name="IdEmp" value="<?php echo $id;?>" readonly>
 
-								<button type="button" id="btnvalidar" class="btn btn-primary" onclick="AsignarEditor();" style="display: none;">Validar información complementaria</button> 
-								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Guardar</button>
+								<button type="button" id="btnvalidar" class="btn btn-primary" onclick="AsignarEditor();" style="display: none;">Validate additional information</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Save</button>
 							</form>
 						</div>
 						
@@ -525,7 +525,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

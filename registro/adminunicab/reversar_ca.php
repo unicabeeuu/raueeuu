@@ -97,13 +97,13 @@ $resultado1 = mysqli_query($conexion, $peticion);
            		<div class="charts">		
                		 <div class="mid-content-top charts-grids">	
                     	<div class="middle-content">
-                        <div class="alert alert-info" role="alert">Proceso de reversar cierre</div>
+                        <div class="alert alert-info" role="alert">Closing reversal process</div>
                     		<hr>
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 					        <thead>
                             <br><br>
 					            <tr>
-					                <th>Grado</th>
+					                <th>Grade</th>
 					                <th>Apellidos</th>
 					                <th>Nombres</th>
 					                <th>Identification</th>
@@ -114,7 +114,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 					        	<?php 
 					        	while ($fila = mysqli_fetch_array($resultado1)){
 									$id_estudiante=$fila['id'];
-					        		echo"<tr><td>".$fila['tbl_grados']."</td><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['n_documento']."</td><td><a class='btn btn-danger' href='reversar_hn.php?id=".$fila['id']."' title='Cierre académico' >CIERRE ACADÉMICO</a></td></tr>";
+					        		echo"<tr><td>".$fila['tbl_grados']."</td><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['n_documento']."</td><td><a class='btn btn-danger' href='reversar_hn.php?id=".$fila['id']."' title='Cierre académico' >ACADEMIC CLOSING</a></td></tr>";
 					        	}
 					        	?>
 					        </tbody>
@@ -186,7 +186,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

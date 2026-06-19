@@ -51,7 +51,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Unicab Registro Académico</title>
+    <title>Unicab Academic Registry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      <!-- Favicon -->
@@ -170,14 +170,14 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 											echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 													<thead > 
 														<tr style="background-color: lightgreen">
-															<th COLSPAN=2><center><strong>VALORACIÓN INICIAL</strong></center></th>
-															<th COLSPAN=2><center><strong>Solicitada por: '.$solicita.'</strong></center></th>
+															<th COLSPAN=2><center><strong>INITIAL ASSESSMENT</strong></center></th>
+															<th COLSPAN=2><center><strong>Requested by: '.$solicita.'</strong></center></th>
 														</tr>';
 											echo '<tr>
-													<th><center>Motivo</center></th>
-													<th><center>Personalidad</center></th>
-													<th><center>Observaciones</center></th>
-													<th><center>Fecha</center></th>
+													<th><center>Reason</center></th>
+													<th><center>Personality</center></th>
+													<th><center>Observations</center></th>
+													<th><center>Date</center></th>
 													</tr> 
 													</thead> 
 													<tbody>
@@ -209,16 +209,16 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 											echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 													<thead > 
 														<tr style="background-color: lightblue;">
-															<th COLSPAN=7><center><strong>SEGUIMIENTOS</strong></center></th>
+															<th COLSPAN=7><center><strong>FOLLOW-UPS</strong></center></th>
 														</tr>';
 											echo '<tr>
-													<th><center>Objetivo</center></th>
-													<th><center>Avances</center></th>
-													<th><center>Acciones Est</center></th>
-													<th><center>Acciones Acu</center></th>
-													<th><center>Compromisos</center></th>
-													<th><center>Fecha</center></th>
-													<th><center>Estado</center></th>
+													<th><center>Objective</center></th>
+													<th><center>Progress</center></th>
+													<th><center>Student Actions</center></th>
+													<th><center>Guardian Actions</center></th>
+													<th><center>Commitments</center></th>
+													<th><center>Date</center></th>
+													<th><center>Status</center></th>
 													</tr> 
 													</thead> 
 													<tbody>
@@ -251,12 +251,12 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 											echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 													<thead > 
 														<tr style="background-color: lightyellow;">
-															<th COLSPAN=7><center><strong>OBSERVACIONES TUTORES</strong></center></th>
+															<th COLSPAN=7><center><strong>TUTOR OBSERVATIONS</strong></center></th>
 														</tr>';
 											echo '<tr>
-													<th><center>Observación</center></th>
+													<th><center>Observation</center></th>
 													<th><center>Tutor</center></th>
-													<th><center>Fecha</center></th>
+													<th><center>Date</center></th>
 													</tr> 
 													</thead> 
 													<tbody>

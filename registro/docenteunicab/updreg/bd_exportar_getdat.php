@@ -178,31 +178,31 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<table border="1px" class="table" id="tblest">
 					<thead>
 					<tr>
-						<td class="tdlargo"><b>NOMBRE</b></td>
+						<td class="tdlargo"><b>NAME</b></td>
 						<td class="tdcorto"><b>ID</b></td>
-						<td class="tdmedia"><b>ID GRADO</b></td>
-						<td class="tdnormal"><b>GRADO</b></td>
-						<td class="tdnormal"><b>GRUPO</b></td>
-						<td class="tdmediol"><b>MATRICULA</b></td>
+						<td class="tdmedia"><b>GRADE ID</b></td>
+						<td class="tdnormal"><b>GRADE</b></td>
+						<td class="tdnormal"><b>GROUP</b></td>
+						<td class="tdmediol"><b>ENROLLMENT</b></td>
 						<td class="tdnormal"><b>ID MAT.</b></td>
 						<td class="tdmedia"><b>USUARIO</b></td>
-						<td class="tdmediol"><b>DOCUMENTO No.</b></td>
-						<td class="tdmediol"><b>TIPO DOCUMENTO</b></td>
+						<td class="tdmediol"><b>DOCUMENT No.</b></td>
+						<td class="tdmediol"><b>DOCUMENT TYPE</b></td>
 						<td class="tdmediol1"><b>EXPEDICION</b></td>
-						<td class="tdmediol"><b>FECHA NACIMIENTO</b></td>
+						<td class="tdmediol"><b>BIRTH DATE</b></td>
 						<td class="tdlargo"><b>EMAIL INST</b></td>
 						<td class="tdlargo"><b>ACUDIENTE 1</b></td>
 						<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-						<td class="tdmediol1"><b>TELEFONO ACUDIENTE 1</b></td>
+						<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
 						<td class="tdlargo"><b>ACUDIENTE 2</b></td>
 						<td class="tdlargo"><b>EMAIL ACUDIENTE 2</b></td>
-						<td class="tdmediol1"><b>TELEFONO ACUDIENTE 2</b></td>
-						<td class="tdelargo"><b>DIRECCION</b></td>
-						<td class="tdmediol1"><b>CIUDAD</b></td>
+						<td class="tdmediol1"><b>GUARDIAN 2 PHONE</b></td>
+						<td class="tdelargo"><b>ADDRESS</b></td>
+						<td class="tdmediol1"><b>CITY</b></td>
 						<td class="tdmediol"><b>ACTIVIDAD EXTRA</b></td>
 						<td class="tdmediol"><b>OBSERVACIONES</b></td>
 						<td class="tdmediol"><b>GENERO</b></td>
-						<td class="tdmediol"><b>ESTADO</b></td>
+						<td class="tdmediol"><b>STATUS</b></td>
 					</tr>
 					</thead>
 					<tbody>
@@ -249,7 +249,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 	?>

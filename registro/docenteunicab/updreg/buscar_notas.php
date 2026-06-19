@@ -319,7 +319,7 @@
 	//https://unicab.org/registro/docenteunicab/updreg/buscar_notas.php
 	
 /*}else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../login.php'</script>";
 }*/
 

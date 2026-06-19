@@ -246,15 +246,15 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             				<fieldset>
-                            				<legend><h3>ACTUALIZAR CALCULO DE CALIFICACIONES MOODLE</h3></legend>
+                            				<legend><h3>UPDATE MOODLE GRADE CALCULATION</h3></legend>
                             				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                             					<ul class="mprincipal">
-                            						<li><h3>CALIFICACIONES POR<span style="color: white;">.....</span>
+                            						<li><h3>GRADES BY<span style="color: white;">.....</span>
                             						</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra1" name="selgra1" required>
-																    <option value="NA">Seleccione grado</option>
+																    <option value="NA">Select grade</option>
 																    <?php 
 																        while($row = $resultado1->fetch_assoc()){
 																            echo "<option value='".$row['id_category']."'>".$row['name']."</option>";
@@ -266,7 +266,7 @@ if (isset($_SESSION['uniprofe'])) {
 																    
 																</select>
 																<label style="color: white;">...</label>
-																<!--<a href="estudianteg_getdat.php" >Buscar</a>
+																<!--<a href="estudianteg_getdat.php" >Search</a>
 																<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
 																<button id="submit" class="btn btn-primary" style="display: none;" onclick="actualizar_cal_mood()">Actualizar</button>
 																<button id="btnverf" class="btn btn-primary" style="display: none;" onclick="ver_tabla()">Ver registros</button>
@@ -286,7 +286,7 @@ if (isset($_SESSION['uniprofe'])) {
     								    <!--<table id="tblformula">
     								        <thead>
     								            <tr class='GridViewScrollHeader'>
-                    	                            <td>Grado</td>
+                    	                            <td>Grade</td>
                     	                            <td>Id_gra</td>
                     	                            <td>Pensamiento</td>
                     	                            <td>Id_pen</td>
@@ -386,7 +386,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);
@@ -398,7 +398,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 	?>

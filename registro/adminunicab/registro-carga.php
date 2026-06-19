@@ -79,7 +79,7 @@ if (isset($_SESSION['unisuper'])) {
 
 											echo "
 												<div class='col-md-8' id='redesFinal'>
-								                    <h4><b>Asignar carga academica al profesor: </h4>
+								                    <h4><b>Assign academic load to teacher: </h4>
 								                    <h3>". $nombreCompleto ."?</b></h3>
 								                </div>
 								                <div class='col-md-4' align='center'>
@@ -88,7 +88,7 @@ if (isset($_SESSION['unisuper'])) {
 								                ";
 										}else{
 											echo "
-												<string>Seleccioné un profesor para asignar carga académica</string>
+												<string>Select a teacher to assign academic load</string>
 							                ";
 											}
 					            	?>
@@ -109,7 +109,7 @@ if (isset($_SESSION['unisuper'])) {
 						        	while ($fila = mysqli_fetch_array($resultado)){
 										
 						        		echo"<tr><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['email_institucional']."</td>
-						        		<td><a href='registro-carga.php?id=".$fila['id']."' class='btn btn-primary' title='Asignación Carga'><i class='fa fa-pencil'></i> Editar</a></td>
+						        		<td><a href='registro-carga.php?id=".$fila['id']."' class='btn btn-primary' title='Asignación Carga'><i class='fa fa-pencil'></i> Edit</a></td>
 
 						        		</tr>";
 						        	}
@@ -279,7 +279,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

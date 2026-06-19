@@ -96,7 +96,7 @@
               ?>
               <li class="treeview">
                 <a href="../docenteunicab/asignacion.php">
-                <i class="fa fa-male"></i> <span>Asignación</span>
+                <i class="fa fa-male"></i> <span>Assignment</span>
                 </a>
               </li>
               <?php 
@@ -116,7 +116,7 @@
                   ?>
                 <!--<li class="treeview">
                     <a href="../direccion.php">
-                    <i class="fa fa-clipboard"></i> <span>Dirección Pensamiento</span>
+                    <i class="fa fa-clipboard"></i> <span>Area Direction</span>
                     </a>
                   </li>--> 
                 <?php
@@ -133,7 +133,7 @@
               ?>
               <li class="treeview">
                 <a href="../docenteunicab/estudiante.php">
-                <i class="fa fa-user"></i> <span>Informe Estudiante</span>
+                <i class="fa fa-user"></i> <span>Student Report</span>
                 </a>
               </li>
 			  <!--Aquí iria el nuevo menú para actualizar registro-->
@@ -143,7 +143,7 @@
 				//if($id == 10) {
 					echo "<li class='treeview'>";
 					  echo "<a href='../docenteunicab/updreg/adm.php'>";
-					  echo "<i class='fa fa-cloud-upload'></i> <span>Actualizar registro</span>";
+					  echo "<i class='fa fa-cloud-upload'></i> <span>Update Record</span>";
 					  echo "</a>";
 				    echo "</li>";
 				}
@@ -151,14 +151,14 @@
 				    if($v_param == 1) {
 				        echo "<li class='treeview'>";
 					      echo "<a href='../docenteunicab/updreg/pen_gra_upddat_tutor.php'>";
-    					  echo "<i class='fa fa-cloud-upload'></i> <span>Actualizar registro</span>";
+    					  echo "<i class='fa fa-cloud-upload'></i> <span>Update Record</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
 				    if($v_param1 == 1) {
 				        echo "<li class='treeview'>";
     					  echo "<a href='../docenteunicab/updreg/adm2.php'>";
-    					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+    					  echo "<i class='fa fa-users'></i> <span>Database</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -180,12 +180,12 @@
 				if($id == 18) {
 					echo "<li class='treeview'>";
 					  echo "<a href='../docenteunicab/updreg/cod_entrevista.php'>";
-					  echo "<i class='fa fa-key'></i> <span>Código entrevista</span>";
+					  echo "<i class='fa fa-key'></i> <span>Interview Code</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='../docenteunicab/updreg/adm1.php'>";
-					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+					  echo "<i class='fa fa-users'></i> <span>Database</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
@@ -200,7 +200,7 @@
 				    echo "</li>";
 				    /*echo "<li class='treeview'>";
 					  echo "<a href='desemp_estud_per_getdat.php'>";
-					  echo "<i class='fa fa-bar-chart '></i> <span>Desempeño estudiantes</span>";
+					  echo "<i class='fa fa-bar-chart '></i> <span>Student Performance</span>";
 					  echo "</a>";
 				    echo "</li>";*/
 				    echo "<li class='treeview'>";
@@ -210,12 +210,12 @@
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='ordenes_getdat.php'>";
-					  echo "<i class='fa fa-usd'></i> <span>Ordenes de pago</span>";
+					  echo "<i class='fa fa-usd'></i> <span>Payment Orders</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='../docenteunicab/updreg/preguntas_put_upddat.php'>";
-					  echo "<i class='fa fa-university'></i> <span>Banco de preguntas</span>";
+					  echo "<i class='fa fa-university'></i> <span>Question Bank</span>";
 					  echo "</a>";
 				    echo "</li>";
 				}
@@ -223,7 +223,7 @@
 				    if($v_param1 == 1) {
 				        echo "<li class='treeview'>";
     					  echo "<a href='../docenteunicab/updreg/adm2.php'>";
-    					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+    					  echo "<i class='fa fa-users'></i> <span>Database</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -238,7 +238,7 @@
 			  ?>
 			  <li class="treeview">
                 <a href='../docenteunicab/updreg/desemp_estud_per_getdat.php'>
-                <i class='fa fa-bar-chart '></i> <span>Desempeño estudiantes</span>
+                <i class='fa fa-bar-chart '></i> <span>Student Performance</span>
                 </a>
               </li>
               <!--<li class="treeview">

@@ -220,27 +220,27 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div1">
                             				<fieldset>
-                            				<legend><h3>GENERAR RECIBOS DE PAGO</h3></legend>
+                            				<legend><h3>GENERATE PAYMENT RECEIPTS</h3></legend>
                             				    <form class="form-horizontal" action="orden_pago.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>GENRAR RECIBOS POR<span style="color: white;">.....</span>
+                            						<li><h3>GENERATE RECEIPTS BY<span style="color: white;">.....</span>
                             						</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra1" name="selgra1" required>
-																    <option value="NA" selected>Seleccione grado</option>
+																    <option value="NA" selected>Select grade</option>
 																    <?php 
 																        while($row = $resultado->fetch_assoc()){
 																            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
 																        }
 																    ?>
 																</select><br>
-																<label>Documento estudiante</label>
-																<input type="text" id="idest" name="idest" placeholder="documento estudiante" style="width: 150px; display: none;" value="0"/>
+																<label>Student document</label>
+																<input type="text" id="idest" name="idest" placeholder="student document" style="width: 150px; display: none;" value="0"/>
 																<label style="color: white;">...</label>
 																<!--<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 																<label style="color: white;">...</label>-->
-																<button id="submit" class="btn btn-primary" style="display: none;" >Generar</button>
+																<button id="submit" class="btn btn-primary" style="display: none;" >Generate</button>
 															</li>
                             							</ul>
                             					</ul>
@@ -250,15 +250,15 @@ if (isset($_SESSION['uniprofe'])) {
                             			</div>
                             			<div id="div2">
                             				<fieldset>
-                            				<legend><h3>CONSULTAR RECIBOS DE PAGO</h3></legend>
+                            				<legend><h3>CHECK PAYMENT RECEIPTS</h3></legend>
                             				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                             					<ul class="mprincipal">
-                            						<li><h3>LISTADO DE RECIBOS POR<span style="color: white;">.....</span>
+                            						<li><h3>RECEIPTS LIST BY<span style="color: white;">.....</span>
                             						</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra2" name="selgra2" required>
-																    <option value="NA" selected>Seleccione grado</option>
+																    <option value="NA" selected>Select grade</option>
 																    <?php 
 																        while($row = $resultado1->fetch_assoc()){
 																            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -266,7 +266,7 @@ if (isset($_SESSION['uniprofe'])) {
 																    ?>
 																</select>
 																<label style="color: white;">...</label>
-																<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_op()">Buscar</button>
+																<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_op()">Search</button>
 															</li>
                             							</ul>
                             					</ul>
@@ -352,7 +352,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);
@@ -364,7 +364,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../login_registro.php'</script>";
 	}
 	?>

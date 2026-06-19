@@ -475,7 +475,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(extensionValida < 0) {
             //$('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
-            alert("La extensión no es válida. Su fichero tiene de extensión: ." + extension + " - Las extensiones permitidas son: " + extensionesValidas);
+            alert("The extension is not valid. Your file has extension: ." + extension + " - Allowed extensions are: " + extensionesValidas);
             $("#ImagenW").val("");
             
             return false;
@@ -508,7 +508,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		    
 		    if(pesoFichero > pesoPermitido) {
 		        //$('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: ' + pesoFichero +' KBs');
-		        alert("El peso maximo permitido del fichero es: " + pesoPermitido + " KBs Su fichero tiene: " + pesoFichero + " KBs");
+		        alert("The maximum allowed file size is: " + pesoPermitido + " KBs Your file is: " + pesoFichero + " KBs");
                 $("#ImagenW").val("");
                 
 		        return false;
@@ -639,11 +639,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         let control = 0;
         //alert("usuario: " + usu);
         //alert("envio: " + envio);
-        //alert("texto mensaje: " + texto_msg);
+        //alert("message text: " + texto_msg);
         //alert("imagen local: " + imgloc);
         //alert("texto imagen: " + texto_img);
         //alert("imagen servidor: " + imgser);
-        //alert("registro: " + ident);
+        //alert("record: " + ident);
         
         if(usu != 0) {
             
@@ -658,7 +658,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 if(envio == 1) {
                     
                     if(tipo == 0) {
-                        alert("Debe seleccionar un tipo de imagen");
+                        alert("You must select an image type");
                         control = 1;
                     }
                     else if(tipo == 1) {
@@ -668,7 +668,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
@@ -680,7 +680,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
@@ -688,7 +688,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 }
                 else if(envio == 2) {
                     if(texto_msg == "") {
-                        alert("Debe ingresar el texto del mensaje");
+                        alert("You must enter the message text");
                         control = 1;
                     }
                 }
@@ -743,7 +743,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
 
         if(control == 0) {
-            //alert("Validación correcta");
+            //alert("Validation successful");
             if(idmat != 0) {
                 $("#btnguardar").show();
             }
@@ -1042,7 +1042,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									                if($row_mat['estado'] == "activo") {
 									                    $cadena = $cadena."<tr>
                                                             <td>".$row_mat['id']."</td>
-                                                            <!--<td>Matrículas efectivas</td>-->
+                                                            <!--<td>Effective enrollments</td>-->
 															<td>".$row_mat['grado']."</td>
                                                             <td>".$row_mat['ct']."</td>
                                                             <td style='text-align: center;'><input type='radio' id='rd1' name='rdmat' class='chk' value='".$row_mat['id']."' onchange='marcaridmat(this.value);'></td>
@@ -1051,7 +1051,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									                else if($row_mat['estado'] == "solicitud") {
 									                    $cadena = $cadena."<tr>
                                                             <td>2</td>
-                                                            <td>Matrículas con envío de papeles</td>
+                                                            <td>Enrollments with document submission</td>
                                                             <td>".$row_mat['ct']."</td>
                                                             <td style='text-align: center;'><input type='radio' id='rd1' name='rdmat' class='chk' value='2' onchange='marcaridmat(this.value);'></td>
                                                             </tr>";
@@ -1136,7 +1136,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

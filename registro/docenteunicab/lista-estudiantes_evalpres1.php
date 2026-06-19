@@ -613,7 +613,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -806,14 +806,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					
 						<div id="divenc2">
 						    <div id="divenc2_1">
-						        <p>Evaluación de Admisión</p>
+						        <p>Admission Evaluation</p>
 						        <p>Nombres y Apellidos: <strong><?php echo $nombre_completo; ?></strong></p>
-						        <p>Documento: <strong><?php echo $documento; ?></strong></p>
-						        <p>Grado: <strong><?php echo $grado_ra; ?></strong></p>
+						        <p>Document: <strong><?php echo $documento; ?></strong></p>
+						        <p>Grade: <strong><?php echo $grado_ra; ?></strong></p>
 						    </div>
 						    <div id="divenc2_2">
 						        <p style="font-family: 'Poppins'; font-size: 24px; font-style: italic; color: #093A5F">GLOBAL</p>
-						        <p style="font-family: 'Poppins-medium'; font-size: 18px; color: #093A5F; padding: 0 5px;">De <?php echo $total_todos; ?> puntos posibles, su puntaje global es de <?php echo $total_todos_ok; ?>.</p>
+						        <p style="font-family: 'Poppins-medium'; font-size: 18px; color: #093A5F; padding: 0 5px;">De <?php echo $total_todos; ?> possible points, your overall score is <?php echo $total_todos_ok; ?>.</p>
 						    </div>
 						</div><br>
                         <?php //echo $sql_n; ?>  
@@ -939,9 +939,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                     </table>
                                 </div>
                                 
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe Global</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Global Report</div>
                                 <div style="width: 100%; background: #F1F1F2; text-align: center; font-size: 20px; font-family: 'Poppins-medium';">
-                                    <br><p>A continuación se relacionan los puntajes obtenidos en cada uno de los pensamientos evaluados en la evaluación de admisión:</p><br>
+                                    <br><p>Below are the scores obtained in each of the areas assessed in the admission evaluation:</p><br>
                                 </div>
                                 <div class="row" id="divglobal">
                                     
@@ -976,7 +976,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                             echo $linea;
                                             
                                             $linea = '<tr>';
-                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Desempeño</td>';
+                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Performance</td>';
                                             $linea .= '<td style="color: '.$colglo.'; border: 2px solid black; font-weight: bold;">'.$nivglo.'</td>';
                                             $linea .= '<td style="color: '.$colbio.'; border: 2px solid black; font-weight: bold;">'.$nivbio.'</td>';
                                             $linea .= '<td style="color: '.$colesp.'; border: 2px solid black; font-weight: bold;">'.$nivesp.'</td>';
@@ -985,16 +985,16 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                             $linea .= '<td style="color: '.$colsoc.'; border: 2px solid black; font-weight: bold;">'.$nivsoc.'</td>';
                                             $linea .= '<td style="color: '.$coltec.'; border: 2px solid black; font-weight: bold;">'.$nivtec.'</td>';
                                             $linea .= '<td style="color: '.$colfis.'; border: 2px solid black; font-weight: bold;">'.$nivfis.'</td>';
-                                            $linea .= '</tr><tr><td colspan="9" style="border: 2px solid #F1F1F2; color: #F1F1F2">Fila vacía</td></tr>';
+                                            $linea .= '</tr><tr><td colspan="9" style="border: 2px solid #F1F1F2; color: #F1F1F2">Empty row</td></tr>';
                                             echo $linea;
                                         ?>
                                         </tbody>
                                     </table>
                                 </div>
                                 
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe por Pensamientos</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Report by Areas</div>
                                 <!--<div class="row">
-                                    <p><strong style="color: #064C86;">Detalle por Pensamiento:</strong></p>
+                                    <p><strong style="color: #064C86;">Detail by Area:</strong></p>
                                     <p><strong style="color: #064C86;">Convenciones:</strong> Contestadas bien <img src="../images/checked_1.jpg" height="25px"/>, 
                                     Contestadas incorrectas <img src="../images/unchecked_1.jpg" width="25px"/>, No contestadas <img src="../images/na_1.jpg" width="25px"/></p><br>
                                     
@@ -1019,8 +1019,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							        		    $img_resul = "https://unicab.org/registro/images/respuesta_no2.jpg";
 							        		}
 							        	    $img_pregunta = "https://unicab.org/registro/".$fila['ruta'];
-							        	    $tbl_pregunta = '<table id="tblres" class="table" style="width:100%;"><tbody><tr><td style="color: #F1F1F2; width: 100px;">Pregunta</td><td style="width: 800px;">'.$fila['pregunta'].'</td><td style="text-align: center;"><img src="'.$img_pregunta.'" width="50%" alt=""/></td></tr>';
-							        	    $tbl_pregunta .= '<tr style="background: #1d2b2e; color: #F1F1F2;"><td style="color: #1d2b2e; width: 100px;">Respuesta</td><td style="vertical-align: middle;">Tu respuesta: '.$fila['respuesta'].'</td><td style="text-align: center;"><img src="'.$img_resul.'" width="100px"/></td></tr>';
+							        	    $tbl_pregunta = '<table id="tblres" class="table" style="width:100%;"><tbody><tr><td style="color: #F1F1F2; width: 100px;">Question</td><td style="width: 800px;">'.$fila['pregunta'].'</td><td style="text-align: center;"><img src="'.$img_pregunta.'" width="50%" alt=""/></td></tr>';
+							        	    $tbl_pregunta .= '<tr style="background: #1d2b2e; color: #F1F1F2;"><td style="color: #1d2b2e; width: 100px;">Answer</td><td style="vertical-align: middle;">Tu respuesta: '.$fila['respuesta'].'</td><td style="text-align: center;"><img src="'.$img_resul.'" width="100px"/></td></tr>';
 							        	    $tbl_pregunta .= '</tbody></table><br>';
 							        	    echo $tbl_pregunta;
 							        	}
@@ -1039,8 +1039,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     	<input type="hidden" id="txtcttec" value="<?php echo $ct_tec; ?>"/>
                     	<input type="hidden" id="txtctfis" value="<?php echo $ct_fis; ?>"/>
                         
-                        <!--<h3><span class="badge badge-success">Ruta sugerida para reforzar conceptos </span></h3>
-                        <p><span style="color: #064C86; font-size: 16px; font-weight: bold;">Ruta sugerida para reforzar conceptos: </span></p>
+                        <!--<h3><span class="badge badge-success">Suggested path to reinforce concepts </span></h3>
+                        <p><span style="color: #064C86; font-size: 16px; font-weight: bold;">Suggested path to reinforce concepts: </span></p>
                         <br>-->
                         <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Ruta sugerida para reforzar conceptos:
                         </div>
@@ -1052,7 +1052,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 $filas = mysqli_num_rows($exe_retro_bio);
                                 //echo "filas ".$filas;
                                 if($filas > 0) {
-                                    echo '<h4 style="color: #5ac48c;">Pensamiento: BIOÉTICO</h4>';
+                                    echo '<h4 style="color: #5ac48c;">Area: BIOÉTICO</h4>';
                                     echo '<ul class="list-group">';
                                     while($row_retro_bio = mysqli_fetch_array($exe_retro_bio)) {
                                         echo '<li class="list-group-item">'.$row_retro_bio['retroalimentacion'].'</li>';
@@ -1064,7 +1064,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 $filas = mysqli_num_rows($exe_retro_esp);
                                 //echo "filas ".$filas;
                                 if($filas > 0) {
-                                    echo '<h4 style="color: #5ac48c;">Pensamiento: HUMANÍSTICO ESPAÑOL</h4>';
+                                    echo '<h4 style="color: #5ac48c;">Area: HUMANÍSTICO ESPAÑOL</h4>';
                                     echo '<ul class="list-group">';
                                     while($row_retro_esp = mysqli_fetch_array($exe_retro_esp)) {
                                         echo '<li class="list-group-item">'.$row_retro_esp['retroalimentacion'].'</li>';
@@ -1075,7 +1075,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 $exe_retro_ing = mysqli_query($conexion,$sql_retro_ing);
                                 $filas = mysqli_num_rows($exe_retro_ing);
                                 if($filas > 0) {
-                                    echo '<h4 style="color: #5ac48c;">Pensamiento: HUMANÍSTICO INGLÉS</h4>';
+                                    echo '<h4 style="color: #5ac48c;">Area: HUMANÍSTICO INGLÉS</h4>';
                                     echo '<ul class="list-group">';
                                     while($row_retro_ing = mysqli_fetch_array($exe_retro_ing)) {
                                         echo '<li class="list-group-item">'.$row_retro_ing['retroalimentacion'].'</li>';
@@ -1086,7 +1086,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 $exe_retro_num = mysqli_query($conexion,$sql_retro_num);
                                 $filas = mysqli_num_rows($exe_retro_num);
                                 if($filas > 0) {
-                                    echo '<h4 style="color: #5ac48c;">Pensamiento: NUMÉRICO</h4>';
+                                    echo '<h4 style="color: #5ac48c;">Area: NUMÉRICO</h4>';
                                     echo '<ul class="list-group">';
                                     while($row_retro_num = mysqli_fetch_array($exe_retro_num)) {
                                         echo '<li class="list-group-item">'.$row_retro_num['retroalimentacion'].'</li>';
@@ -1097,7 +1097,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 $exe_retro_soc = mysqli_query($conexion,$sql_retro_soc);
                                 $filas = mysqli_num_rows($exe_retro_soc);
                                 if($filas > 0) {
-                                    echo '<h4 style="color: #5ac48c;">Pensamiento: SOCIAL</h4>';
+                                    echo '<h4 style="color: #5ac48c;">Area: SOCIAL</h4>';
                                     echo '<ul class="list-group">';
                                     while($row_retro_soc = mysqli_fetch_array($exe_retro_soc)) {
                                         echo '<li class="list-group-item">'.$row_retro_soc['retroalimentacion'].'</li>';
@@ -1108,7 +1108,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 $exe_retro_tec = mysqli_query($conexion,$sql_retro_tec);
                                 $filas = mysqli_num_rows($exe_retro_tec);
                                 if($filas > 0) {
-                                    echo '<h4 style="color: #5ac48c;">Pensamiento: TECNOLÓGICO</h4>';
+                                    echo '<h4 style="color: #5ac48c;">Area: TECNOLÓGICO</h4>';
                                     echo '<ul class="list-group">';
                                     while($row_retro_tec = mysqli_fetch_array($exe_retro_tec)) {
                                         echo '<li class="list-group-item">'.$row_retro_tec['retroalimentacion'].'</li>';
@@ -1119,7 +1119,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 $exe_retro_fis = mysqli_query($conexion,$sql_retro_fis);
                                 $filas = mysqli_num_rows($exe_retro_fis);
                                 if($filas > 0) {
-                                    echo '<h4 style="color: #5ac48c;">Pensamiento: BIOÉTICO (FÍSICA)</h4>';
+                                    echo '<h4 style="color: #5ac48c;">Area: BIOÉTICO (FÍSICA)</h4>';
                                     echo '<ul class="list-group">';
                                     while($row_retro_fis = mysqli_fetch_array($exe_retro_fis)) {
                                         echo '<li class="list-group-item">'.$row_retro_fis['retroalimentacion'].'</li>';
@@ -1192,7 +1192,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

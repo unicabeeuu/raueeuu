@@ -229,7 +229,7 @@ if (isset($_SESSION['unisuper'])) {
 															    ?>
 															</select>
 															<label style="color: white;">...</label>
-															<!--<a href="estudianteg_getdat.php" >Buscar</a>
+															<!--<a href="estudianteg_getdat.php" >Search</a>
 															<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
 															<button id="submit" class="btn" style="display: none;  background-color: #ff9805; color: white;" onclick="consultar_ranking()">TOP 10</button>
 															<label style="color: white;">...</label>
@@ -302,7 +302,7 @@ if (isset($_SESSION['unisuper'])) {
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Save</button>-->
               </div>
             </div>
           </div>
@@ -359,7 +359,7 @@ if (isset($_SESSION['unisuper'])) {
 			function validacion() {
 				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);

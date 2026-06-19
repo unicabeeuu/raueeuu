@@ -12,7 +12,7 @@
 	//echo $tutor;
 	
 	//Se actuliza la carga
-	$query = "UPDATE carga_profesor SET id_empleado = $tutor WHERE id_grado = $idgra AND id_materia = $idpen";
+	$query = "UPDATE tbl_carga_profesor SET id_empleado = $tutor WHERE id_grado = $idgra AND id_materia = $idpen";
 	//echo $query;
 	$resultado2=$mysqli1->query($query);
 	$sel = $mysqli1->affected_rows;

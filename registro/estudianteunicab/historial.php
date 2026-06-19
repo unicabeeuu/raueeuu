@@ -17,7 +17,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -79,15 +79,15 @@
 							<table class="table table-bordered">
 								<tbody>
 								    <tr>
-								      <th scope="row">Número Documento</th>
+								      <th scope="row">Document Number</th>
 								      <td><?php echo $n_documento; ?></td>
 								    </tr>
 								    <tr>
 								    <tr>
-								      <th scope="row">Correo Institucional</th>
+								      <th scope="row">Institutional Email</th>
 								      <td><?php echo $email_institucional; ?></td>
 								    </tr>
-								      <th scope="row">Nombre Estudiante</th>
+								      <th scope="row">Student Name</th>
 								      <td><?php echo $nombres." ".$apellidos; ?></td>
 								    </tr>
 						  		</tbody>
@@ -113,12 +113,12 @@ $sql_historial="SELECT DISTINCT  promedio, tbl_estudiantes.id, tbl_estudiantes.n
 								echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 								 	<thead > 
 								 		<tr bordercolor="#e0e0e0">
-											<TH COLSPAN=4><center><strong>Grado '.$row['grado'].'</strong></center></TH>
+											<TH COLSPAN=4><center><strong>Grade '.$row['grado'].'</strong></center></TH>
 								 		</tr>
 								 		<tr>
-								 			<th>Nombre Asignatura</th>
-								 			<th>Pensamiento</th>
-											<th>Promedio</th>  
+								 			<th>Subject Name</th>
+								 			<th>Area</th>
+											<th>Average</th>  
 										</tr> 
 								 	</thead> 
 									<tbody>';
@@ -137,7 +137,7 @@ $sql_historial="SELECT DISTINCT  promedio, tbl_estudiantes.id, tbl_estudiantes.n
 								</table>';
 							}
 							}else{
-								echo '<div class="alert alert-success" role="alert">El estudiante <strong>NO</strong> cuenta con un historial de notas';
+								echo '<div class="alert alert-success" role="alert">The student does <strong>NOT</strong> have a grade history';
 							}
 							?>
 						</div>

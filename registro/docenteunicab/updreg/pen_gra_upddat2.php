@@ -157,29 +157,29 @@
 						echo '<script type="text/javascript">','add_resumen("Limpiando tablas temporales");','</script>';
 						$resultado_r01=$mysqli1->query($queryr2);
 						if($resultado_r01 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_upd limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_upd cleared successfully");','</script>';
 						}
 						$resultado_r02=$mysqli1->query($queryr3);
 						if($resultado_r02 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_ins limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_ins cleared successfully");','</script>';
 						}
 						$resultado_r03=$mysqli1->query($queryr4);
 						if($resultado_r03 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_no_ra limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_no_ra cleared successfully");','</script>';
 						}
 						$resultado_r1=$mysqli1->query($queryr0);
 						if($resultado_r1 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_mood_temp limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_mood_temp cleared successfully");','</script>';
 							$control = 11;
 						}
 						$resultado_r2=$mysqli1->query($queryr1);
 						if($resultado_r2 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp cleared successfully");','</script>';
 							//$control = 1;
 						}
 						$resultado_upd_control=$mysqli1->query($query_upd_control);
 						if($resultado_upd_control > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla control_upd limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table control_upd cleared successfully");','</script>';
 							$control = 1;
 						}
 						
@@ -221,7 +221,7 @@
 							}
 							//echo $query2;
 							echo '<script type="text/javascript">','add_resumen("Registros insertados para '.$pensamiento.' grados '.$grados.': '.$seleccionados_m.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_mood_temp cargada");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_mood_temp cargada");','</script>';
 							$control = 21;
 							$insertados = 0;
 						}
@@ -265,7 +265,7 @@
 								}
 							}
 							echo '<script type="text/javascript">','add_resumen("Registros insertados para '.$pensamiento.' grados '.$grados.': '.$insertados.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp cargada");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp cargada");','</script>';
 							$control = 22;
 						}
 						if($control == 22) {
@@ -327,7 +327,7 @@
 								}
 							}
 							//echo $query_tupd1;
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_upd ->sel: '.$sel_tupd.' ->ins: '.$ins_tupd.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_upd ->sel: '.$sel_tupd.' ->ins: '.$ins_tupd.'");','</script>';
 							$control = 23;
 						}
 						if($control == 23) {
@@ -400,7 +400,7 @@
 								}
 							}
 							//echo $query_tins1;
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_ins ->sel: '.$sel_tins.' ->ins: '.$ins_tins.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_ins ->sel: '.$sel_tins.' ->ins: '.$ins_tins.'");','</script>';
 							echo '<script type="text/javascript">','add_resumen("***************************");','</script>';
 							$control = 4;
 						}
@@ -450,7 +450,7 @@
     						}
 							
 							
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_no_ra ->ins: '.$en.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_no_ra ->ins: '.$en.'");','</script>';
 						}
 						$seleccionados = 0;
 						$seleccionados_m = 0;

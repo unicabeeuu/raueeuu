@@ -453,6 +453,6 @@
         
     </head>
     <body>
-        <a href="<?php echo $ruta; ?>" target="_blank">ABRIR STICKERS PARA IMPRIMIR</a>
+        <a href="<?php echo $ruta; ?>" target="_blank">OPEN STICKERS TO PRINT</a>
     </body>
 </html>

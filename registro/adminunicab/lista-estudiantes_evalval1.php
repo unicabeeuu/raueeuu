@@ -487,9 +487,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                     <table id="tblres" border="1px" class="table" style="width:100%">
                                         <thead>                    
         						            <tr class="GridViewScrollHeader">
-        						                <td class="tdmedio">Materia</td>
+        						                <td class="tdmedio">Subject</td>
         						                <td>Pregunta</td>
-        						                <td class="tdcorto">Resultado</td>
+        						                <td class="tdcorto">Result</td>
         						            </tr>
         						        </thead>
         						        <tbody>
@@ -606,7 +606,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

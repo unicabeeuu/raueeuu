@@ -454,7 +454,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -659,22 +659,22 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					    
 					    <div id="divenc2">
 						    <div id="divenc2_1">
-						        <p>Evaluación de Admisión</p>
+						        <p>Admission Evaluation</p>
 						        <p>Nombres y Apellidos: <strong><?php echo $nombre_completo; ?></strong></p>
-						        <p>Documento: <strong><?php echo $documento; ?></strong></p>
-						        <p>Grado: <strong><?php echo $grado_ra; ?></strong></p>
+						        <p>Document: <strong><?php echo $documento; ?></strong></p>
+						        <p>Grade: <strong><?php echo $grado_ra; ?></strong></p>
 						    </div>
 						    <div id="divenc2_2">
 						        <p style="font-family: 'Poppins'; font-size: 24px; font-style: italic; color: #093A5F">GLOBAL</p>
-						        <p style="font-family: 'Poppins-medium'; font-size: 18px; color: #093A5F; padding: 0 5px;">De <?php echo $total_todos; ?> puntos posibles, su puntaje global es de <?php echo $total_todos_ok; ?>.</p>
+						        <p style="font-family: 'Poppins-medium'; font-size: 18px; color: #093A5F; padding: 0 5px;">De <?php echo $total_todos; ?> possible points, your overall score is <?php echo $total_todos_ok; ?>.</p>
 						    </div>
 						</div><br>
                                                 
                         <div class="register-form" id="divform">
                             <!--<form name="formulario" id="formulario" method="post" action="" enctype="multipart/form-data">-->
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe Global</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Global Report</div>
                                 <div style="width: 100%; background: #F1F1F2; text-align: center; font-size: 20px; font-family: 'Poppins-medium';">
-                                    <br><p>A continuación se relacionan los puntajes obtenidos en cada uno de los pensamientos evaluados en la evaluación de admisión:</p><br>
+                                    <br><p>Below are the scores obtained in each of the areas assessed in the admission evaluation:</p><br>
                                 </div>
                                 
                                 <div class="row" id="divglobal">
@@ -709,7 +709,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                             echo $linea;
                                             
                                             $linea = '<tr>';
-                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Desempeño</td>';
+                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Performance</td>';
                                             $linea .= '<td style="color: '.$colglo.'; border: 2px solid black; font-weight: bold;">'.$nivglo.'</td>';
                                             $linea .= '<td style="color: '.$colbio.'; border: 2px solid black; font-weight: bold;">'.$nivbio.'</td>';
                                             $linea .= '<td style="color: '.$colesp.'; border: 2px solid black; font-weight: bold;">'.$nivesp.'</td>';
@@ -718,7 +718,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                             $linea .= '<td style="color: '.$colsoc.'; border: 2px solid black; font-weight: bold;">'.$nivsoc.'</td>';
                                             $linea .= '<td style="color: '.$coltec.'; border: 2px solid black; font-weight: bold;">'.$nivtec.'</td>';
                                             $linea .= '<td style="color: '.$colfis.'; border: 2px solid black; font-weight: bold;">'.$nivfis.'</td>';
-                                            $linea .= '</tr><tr><td colspan="9" style="border: 2px solid #F1F1F2; color: #F1F1F2">Fila vacía</td></tr>';
+                                            $linea .= '</tr><tr><td colspan="9" style="border: 2px solid #F1F1F2; color: #F1F1F2">Empty row</td></tr>';
                                             echo $linea;
                                         ?>
                                         </tbody>
@@ -726,18 +726,18 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 </div>
                                 
                                 <div>
-                                    <p><i class="fa fa-chevron-right"></i> <strong>Se envío una copia de ésta evaluación al correo del acudiente.</strong></p>
+                                    <p><i class="fa fa-chevron-right"></i> <strong>A copy of this evaluation was sent to the guardian's email.</strong></p>
                                     <p><i class="fa fa-chevron-right"></i> <strong>Convenciones:</strong> Contestadas bien <img src="../images/checked_1.jpg" height="25px"/>,  Contestadas incorrectas <img src="../images/unchecked_1.jpg" width="25px"/>, No contestadas <img src="../images/na_1.jpg" width="25px"/></p>
                                 </div><br>
                                 
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe por Materias</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Report by Subjects</div>
                                 <div class="form-group">
                                     <table id="tblres" border="1px" class="table" style="width:100%">
                                         <thead>                    
         						            <tr class="GridViewScrollHeader">
-        						                <td class="tdmedio">Materia</td>
-        						                <td>Pregunta</td>
-        						                <td class="tdcorto">Resultado</td>
+        						                <td class="tdmedio">Subject</td>
+        						                <td>Question</td>
+        						                <td class="tdcorto">Result</td>
         						            </tr>
         						        </thead>
         						        <tbody>
@@ -781,14 +781,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         <?php
                             if($porc >= 70) {
                         ?>
-                                <p><h3><span class="badge badge-success">El resultado de la evaluación de validación es: <?php echo $porc;?>%. Validación aprobada</span></h3></p><br>
-                                <p><h3><span class="badge badge-secondary">Puede empezar proceso de matrícula <a href="https://unicab.org/pre_admisiones.php" id="al">AQUI</a></span></h3></p>
+                                <p><h3><span class="badge badge-success">The validation evaluation result is: <?php echo $porc;?>%. Validation passed</span></h3></p><br>
+                                <p><h3><span class="badge badge-secondary">You can start the enrollment process <a href="https://unicab.org/pre_admisiones.php" id="al">AQUI</a></span></h3></p>
                         <?php
                             }
                             else {
                         ?>
-                                <p><h3><span class="badge badge-danger">El resultado de la evaluación de validación es: <?php echo $porc;?>%. Validación no aprobada</span></h3></p><br>
-                                <p><h5><span class="badge badge-warning">Por favor ponte en contacto con el Coordinador Académico al número 318 400 4412</span></h5></p>
+                                <p><h3><span class="badge badge-danger">The validation evaluation result is: <?php echo $porc;?>%. Validation not passed</span></h3></p><br>
+                                <p><h5><span class="badge badge-warning">Please contact the Academic Coordinator at number 318 400 4412</span></h5></p>
                         <?php
                             }
                         ?>
@@ -854,7 +854,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

@@ -149,22 +149,22 @@
 									    <table border="1px" class="table" id="tblest">
 											<thead>
 											<tr class="GridViewScrollHeader">
-												<td class="tdlargo"><b>NOMBRE</b></td>
+												<td class="tdlargo"><b>NAME</b></td>
 												<td class="tdcorto"><b>ID</b></td>
-												<td class="tdnormal"><b>GRADO</b></td>
-												<td class="tdmediol"><b>MATRICULA</b></td>
+												<td class="tdnormal"><b>GRADE</b></td>
+												<td class="tdmediol"><b>ENROLLMENT</b></td>
 												<td class="tdmedia"><b>USUARIO</b></td>
-												<td class="tdmediol"><b>DOCUMENTO No.</b></td>
-												<td class="tdmediol"><b>FECHA NACIMIENTO</b></td>
+												<td class="tdmediol"><b>DOCUMENT No.</b></td>
+												<td class="tdmediol"><b>BIRTH DATE</b></td>
 												<td class="tdlargo"><b>EMAIL INST</b></td>
-												<td class="tdlargo"><b>ACUDIENTE 1</b></td>
-												<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-												<td class="tdmediol1"><b>TELEFONO ACUDIENTE 1</b></td>
-												<td class="tdlargo"><b>ACUDIENTE 2</b></td>
-												<td class="tdlargo"><b>EMAIL ACUDIENTE 2</b></td>
-												<td class="tdmediol1"><b>TELEFONO ACUDIENTE 2</b></td>
+												<td class="tdlargo"><b>GUARDIAN 1</b></td>
+												<td class="tdlargo"><b>GUARDIAN 1 EMAIL</b></td>
+												<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
+												<td class="tdlargo"><b>GUARDIAN 2</b></td>
+												<td class="tdlargo"><b>GUARDIAN 2 EMAIL</b></td>
+												<td class="tdmediol1"><b>GUARDIAN 2 PHONE</b></td>
 												<td class="tdelargo"><b>DIRECCION</b></td>
-												<td class="tdmediol1"><b>CIUDAD</b></td>
+												<td class="tdmediol1"><b>CITY</b></td>
 												<td class="tdmediol"><b>ACTIVIDAD EXTRA</b></td>
 											</tr>
 											</thead>

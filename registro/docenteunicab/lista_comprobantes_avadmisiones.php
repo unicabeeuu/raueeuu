@@ -37,7 +37,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -103,13 +103,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					celdaValidado.textContent = nuevoValor;
 				}
 			} else {
-				alert('Error al actualizar: ' + (data.mensaje || 'Respuesta inválida'));
+				alert('Error updating: ' + (data.mensaje || 'Invalid response'));
 				element.checked = !element.checked; // Revertir si falla
 			}
 		})
 		.catch(err => {
 			console.log('Error:', err);
-			alert('No se pudo conectar con el servidor.');
+			alert('Could not connect to the server.');
 			element.checked = !element.checked;
 		})
 		.finally(() => {
@@ -212,7 +212,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Listado de comprobantes de deuda y matrícula:</h4>
+							<h4>List of debt and enrollment vouchers:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
@@ -220,12 +220,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						            <tr>
 						                <th>Apellidos</th>
 						                <th>Nombres</th>
-						                <th>Identificación</th>
+						                <th>Identification</th>
 						                <th>Tipo</th>
-										<th>Año</th>
+										<th>Year</th>
 						                <th>Ruta</th>
 						                <th>Validado</th>
-						                <th>Acción</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -243,7 +243,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							        		<td>".$fila['validado']."</td>";
 
 							        		echo "<td><center>
-							        		<!--<a href='lista-estudiantes_evalval1.php?documento=".$fila['documento_est']."&idgra=".$fila['id_grado_val']."' class='btn btn-primary'><i class='fa fa-file-text'></i> Ver resultado</a></center></td></tr>-->
+							        		<!--<a href='lista-estudiantes_evalval1.php?documento=".$fila['documento_est']."&idgra=".$fila['id_grado_val']."' class='btn btn-primary'><i class='fa fa-file-text'></i> View result</a></center></td></tr>-->
 											<div class='switch-wrapper'><label class='custom-switch-v3'><input type='checkbox' ".$isChecked." onclick='toggleValidacion(".$registroId.", this)'><span class='custom-slider-v3'></span></label></div></center></td></tr>";
 							        	}
 						        	?>
@@ -321,7 +321,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

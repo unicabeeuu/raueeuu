@@ -26,7 +26,7 @@
 	    WHERE e.id = cp.id_empleado AND g.id = cp.id_grado AND m.id = cp.id_materia AND g.id='".$id_grado."' and e.id='".$id."'";
 
 	$rec = mysqli_query($conexion, $sql);
-	$html= "<option value='1'>Seleccionar Materia</option>";
+	$html= "<option value='1'>Select Subject</option>";
 
 	while ($fila=mysqli_fetch_array($rec)){
 	 	$html.='<option value="'.$fila['id_grado'].'">'.$fila['materia'].'</option>';
@@ -34,7 +34,7 @@
 	
 	 echo $html;
 	}else{
-		echo"<script>alert('El usuario no ha iniciado sesion')</script>";
+		echo"<script>alert('The user has not logged in')</script>";
 		echo "<script>location.href='../../login_registro.php'</script>";
 	}
 ?>

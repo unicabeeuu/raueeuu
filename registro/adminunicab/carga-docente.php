@@ -97,13 +97,13 @@ if (isset($_SESSION['unisuper'])) {
 					      						echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 												<thead > 
 												<tr>
-												<TH COLSPAN=4><center>CARGA ASIGNADA</center></TH>
+												<TH COLSPAN=4><center>ASSIGNED LOAD</center></TH>
 												</tr>
 												<tr>
-													<th><center>MATERIA</center></th>
+													<th><center>SUBJECT</center></th>
 													<th><center>PENSAMIENTO</center></th>
-													<th><center>PROFESOR</center></th>  
-													<th><center>ACCIÓN</center></th>  
+													<th><center>TEACHER</center></th>  
+													<th><center>ACTION</center></th>  
 												</tr>  
 												</thead> 
 												<tbody>'; 
@@ -111,7 +111,7 @@ if (isset($_SESSION['unisuper'])) {
 													echo"<tr>
 					        						<td scope='row'>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['apellidos'].' '.$row['nombres']."</td>
 					        						<td>
-					        							<center><a href='php/update-carga.php?id=".$row['id_carga']."' class='btn btn-danger' title='Eliminar Carga'><i class='fa fa-trash'></i> Eliminar</a></center>
+					        							<center><a href='php/update-carga.php?id=".$row['id_carga']."' class='btn btn-danger' title='Eliminar Carga'><i class='fa fa-trash'></i> Delete</a></center>
 					        						</td>";						        		
 					        					}
 												echo '</tr> 
@@ -177,7 +177,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

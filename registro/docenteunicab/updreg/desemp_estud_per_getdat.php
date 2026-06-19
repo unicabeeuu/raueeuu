@@ -550,15 +550,15 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             			    <fieldset>
-                            				<legend><h3>RESULTADOS DE ESTUDIANTES</h3></legend>
+                            				<legend><h3>STUDENT RESULTS</h3></legend>
                             				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                             					<ul class="mprincipal">
-                            						<li><h3>LISTADO POR<span style="color: white;">.....</span>
+                            						<li><h3>LIST BY<span style="color: white;">.....</span>
                             						</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra1" name="selgra1" required>
-																    <option value="NA" selected>Seleccione grado</option>
+																    <option value="NA" selected>Select grade</option>
 																    <?php 
 																        while($row = $resultado->fetch_assoc()){
 																            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -567,7 +567,7 @@ if (isset($_SESSION['uniprofe'])) {
 																</select>
 																<label style="color: white;">...</label>
 																<select id="selper1" name="selper1" required>
-																    <option value="0" selected>Seleccione periodo</option>
+																    <option value="0" selected>Select period</option>
 																    <option value="1">1</option>
 																    <option value="2">2</option>
 																    <option value="3">3</option>
@@ -575,16 +575,16 @@ if (isset($_SESSION['uniprofe'])) {
 																</select>
 																<label style="color: white;">...</label>
 																<select id="selgrupo" name="selgrupo" required>
-																    <option value="NA" selected>Grupo</option>
+																    <option value="NA" selected>Group</option>
 																    <option value="A">A</option>
 																    <option value="B">B</option>
 																    <option value="C">C</option>
 																    <option value="D">D</option>
 																</select>
 																<label style="color: white;">...</label>
-																<!--<a href="estudianteg_getdat.php" >Buscar</a>
+																<!--<a href="estudianteg_getdat.php" >Search</a>
 																<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
-																<button id="submit" class="btn btn-primary" style="display: none;" onclick="consultar_desemp()">Cargar</button>
+																<button id="submit" class="btn btn-primary" style="display: none;" onclick="consultar_desemp()">Load</button>
 															</li>
                             							</ul>
                             					</ul>
@@ -721,8 +721,8 @@ if (isset($_SESSION['uniprofe'])) {
                 <input type="text" id="txtcel2" class="form-control" readonly/>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Save</button>-->
               </div>
             </div>
           </div>
@@ -777,7 +777,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 	?>

@@ -244,7 +244,7 @@ if (isset($_SESSION['uniestudiante'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -390,14 +390,14 @@ if (isset($_SESSION['uniestudiante'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 					
-						<h3><span class="badge badge-success">Evaluación de Presaberes de: </span> <?php echo $nombre_completo; ?></h3>
+						<h3><span class="badge badge-success">Prior Knowledge Evaluation of: </span> <?php echo $nombre_completo; ?></h3>
                                                 
                         <div class="register-form" id="divform">
                             <!--<form name="formulario" id="formulario" method="post" action="" enctype="multipart/form-data">-->
                                 
                                 <div>
-                                    <p><i class="fa fa-hand-o-right "></i> <strong>Este es el resultado de tu evaluación de presaberes para grado <?php echo $grado_ra; ?>.</strong></p>
-                                    <p><i class="fa fa-hand-o-right "></i> <strong>Resumen:</strong> (cantidad de preguntas bien contestadas, mal contestadas y no contestadas por pensamiento)</p>
+                                    <p><i class="fa fa-hand-o-right "></i> <strong>This is the result of your prior knowledge evaluation for grade <?php echo $grado_ra; ?>.</strong></p>
+                                    <p><i class="fa fa-hand-o-right "></i> <strong>Summary:</strong> (number of questions answered correctly, incorrectly, and not answered by area)</p>
                                 </div>
                                 
                                 <div class="row">
@@ -409,7 +409,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                                 if($obj_json_decode['bio']['ctok'] + $obj_json_decode['bio']['ctno'] + $obj_json_decode['bio']['ctna'] > 0) {
                                                     $linea = '<tr>';
                                                     $linea .= '<td width="50px"></td>';
-                                                    $linea .= '<td>BIOETICO</td>';
+                                                    $linea .= '<td>BIOETHICAL</td>';
                                                     $linea .= '<td width="50px"></td>';
                                                     $linea .= '<td class="fondoblanco"><input type="text" class="txtct" value="'.$obj_json_decode['bio']['ctok'].'"/> <img src="../images/checked_1.jpg" height="25px"/></td>';
                                                     $linea .= '<td width="50px"></td>';
@@ -435,7 +435,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                                 if($obj_json_decode['num']['ctok'] + $obj_json_decode['num']['ctno'] + $obj_json_decode['num']['ctna'] > 0) {
                                                     $linea = '<tr>';
                                                     $linea .= '<td width="50px"></td>';
-                                                    $linea .= '<td>NUMERICO</td>';
+                                                    $linea .= '<td>NUMERIC</td>';
                                                     $linea .= '<td width="50px"></td>';
                                                     $linea .= '<td class="fondoblanco"><input type="text" class="txtct" value="'.$obj_json_decode['num']['ctok'].'"/> <img src="../images/checked_1.jpg" height="25px"/></td>';
                                                     $linea .= '<td width="50px"></td>';
@@ -512,13 +512,13 @@ if (isset($_SESSION['uniestudiante'])) {
                                 </div>
                                 
                                 <div class="form-group">
-                                    <p><i class="fa fa-hand-o-right "></i> <strong>Detalle:</strong></p>
+                                    <p><i class="fa fa-hand-o-right "></i> <strong>Detail:</strong></p>
                                     <table id="tblres" border="1px" class="table" style="width:100%">
                                         <thead>                    
         						            <tr class="GridViewScrollHeader">
-        						                <td class="tdmedio">Materia</td>
-        						                <td>Pregunta</td>
-        						                <td class="tdcorto">Resultado</td>
+        						                <td class="tdmedio">Subject</td>
+        						                <td>Question</td>
+        						                <td class="tdcorto">Result</td>
         						            </tr>
         						        </thead>
         						        <tbody>
@@ -559,11 +559,11 @@ if (isset($_SESSION['uniestudiante'])) {
                     	<input type="hidden" id="txtcttec" value="<?php echo $ct_tec; ?>"/>
                     	<input type="hidden" id="txtctfis" value="<?php echo $ct_fis; ?>"/>
                         
-                        <h3><span class="badge badge-success">Hoja de ruta sugerida para reforzar conceptos </span></h3>
+                        <h3><span class="badge badge-success">Suggested roadmap to reinforce concepts </span></h3>
                         <br>
                         <div class="row">
                             <div id="divnum" class="col-6 col-sm-6">
-                                <h4>Numérico</h4>
+                                <h4>Numeric</h4>
                                 <ul class="list-group">
                                     <?php
                                         $exe_retro_num = mysqli_query($conexion,$sql_retro_num);
@@ -574,7 +574,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                 </ul><br>
                             </div>
                             <div id="divtec" class="col-6 col-sm-6">
-                                <h4>Tecnológico</h4>
+                                <h4>Technological</h4>
                                 <ul class="list-group">
                                     <?php
                                         $exe_retro_tec = mysqli_query($conexion,$sql_retro_tec);
@@ -587,7 +587,7 @@ if (isset($_SESSION['uniestudiante'])) {
                         </div>
                         <div class="row">
                             <div id="diving" class="col-6 col-sm-6">
-                                <h4>Inglés</h4>
+                                <h4>English</h4>
                                 <ul class="list-group">
                                     <?php
                                         $exe_retro_ing = mysqli_query($conexion,$sql_retro_ing);
@@ -598,7 +598,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                 </ul><br>
                             </div>
                             <div id="divesp" class="col-6 col-sm-6">
-                                <h4>Español</h4>
+                                <h4>Spanish</h4>
                                 <ul class="list-group">
                                     <?php
                                         $exe_retro_esp = mysqli_query($conexion,$sql_retro_esp);
@@ -611,7 +611,7 @@ if (isset($_SESSION['uniestudiante'])) {
                         </div>
                         <div class="row">
                             <div id="divbio" class="col-6 col-sm-6">
-                                <h4>Bioético</h4>
+                                <h4>Bioethical</h4>
                                 <ul class="list-group">
                                     <?php
                                         $exe_retro_bio = mysqli_query($conexion,$sql_retro_bio);
@@ -622,7 +622,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                 </ul><br>
                             </div>
                             <div id="divfis" class="col-6 col-sm-6">
-                                <h4>Física</h4>
+                                <h4>Physical</h4>
                                 <ul class="list-group">
                                     <?php
                                         $exe_retro_fis = mysqli_query($conexion,$sql_retro_fis);

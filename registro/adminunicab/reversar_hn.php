@@ -53,7 +53,7 @@ while ($row=mysqli_fetch_array($ejecutar)) {
 
 }
 	if ($contVacio===0 && $contNota===0) {
-		echo"<script>alert('El estudiante NO cuenta con notas para este grado')</script>";
+		echo"<script>alert('The student has NO grades for this grade')</script>";
 		//echo "<script>location.href='../cierre-academico.php'</script>";
 	}if ($contVacio>0) {
 		echo"<script>alert('El estudiante le faltan ".$contVacio." notas')</script>";
@@ -88,7 +88,7 @@ while ($row=mysqli_fetch_array($ejecutar)) {
 				//echo $sql_historial;
 				$exe_historial=mysqli_query($conexion,$sql_historial);
 
-				//echo"<script>alert('El cierre académico del estudiante fue exitoso')</script>";
+				//echo"<script>alert('The student academic closing was successful')</script>";
 				//echo "<script>location.href='../cierre-academico.php'</script>";
 			}
 				if ($materiasReprobadas>=1) {
@@ -106,10 +106,10 @@ while ($row=mysqli_fetch_array($ejecutar)) {
 				//eliminar notas estudiante
 				$elimnar_notas="DELETE FROM `notas` WHERE `id_estudiante`=".$id_estudiante."";
 				$exe_notas=mysqli_query($conexion,$elimnar_notas);
-				echo"<script>alert('El cierre académico del estudiante fue exitoso')</script>";
+				echo"<script>alert('The student academic closing was successful')</script>";
 				echo "<script>location.href='adm1.php'</script>";
 		}else{
-			echo"<script>alert('Este proceso no se pudo realizar')</script>";
+			echo"<script>alert('This process could not be completed')</script>";
 			//echo "<script>location.href='../index.php'</script>";
 		}
 	}

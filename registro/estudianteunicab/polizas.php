@@ -45,7 +45,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -118,10 +118,10 @@
 							<table class="table table-hover" border="1" bordercolor="#e0e0e0" width="500">
 								<thead > 
     								<tr>
-    								    <TH COLSPAN=3><center><strong>POLIZA DE ACCIDENTES ESCOLARES</strong></center></TH>
+    								    <TH COLSPAN=3><center><strong>SCHOOL ACCIDENT INSURANCE POLICY</strong></center></TH>
     								</tr>
     								<tr>
-    								    <th width="200"><center>Acción</center></th>
+    								    <th width="200"><center>Action</center></th>
     								</tr> 
 								</thead> 
 								<tbody>
@@ -136,7 +136,7 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Descargar</a>
+							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Download</a>
 							                </center>
 							            </td>
 							        </tr>
@@ -146,7 +146,7 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <p>Esta póliza está en proceso. Cuando esté disponible aparecerá un botón para descargarla.</p>
+							                <p>This insurance policy is being processed. When it is available, a button to download it will appear.</p>
 							                </center>
 							            </td>
 							        </tr>

@@ -42,7 +42,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Unicab Registro Académico</title>
+        <title>Unicab Academic Registry</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         
@@ -122,7 +122,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
     	        
             								if (!isset($id_grado)) {
             									echo '<div class="alert alert-danger" role="alert">
-              										<strong>¡Alerta!</strong> El estudiante no se encuentra matriculado.
+              										<strong>Alert!</strong> El estudiante no se encuentra matriculado.
             									</div>';
             								}else{
             									/*$sql_no="SELECT DISTINCT estudiantes.id as id_estudiante, materias.materia, materias.pensamiento, materias.id, 
@@ -166,16 +166,16 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
                 								echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
             											<thead > 
             												<tr>
-            													<TH COLSPAN=6><center><strong>NOMBRE ESTUDIANTE: '.$nombeCompleto.'</strong></center></TH>
+            													<TH COLSPAN=6><center><strong>STUDENT NAME: '.$nombeCompleto.'</strong></center></TH>
             												</tr>
             												<tr>
-            												<TH COLSPAN=2><center><strong>ASIGNATURAS INSCRITAS GRADO '.$nombre_grado.'</strong></center></TH>
-            												<TH COLSPAN=4><center><strong>NOTAS DEFINITIVAS POR PERIODOS</strong></center></TH>
+            												<TH COLSPAN=2><center><strong>ENROLLED SUBJECTS GRADE '.$nombre_grado.'</strong></center></TH>
+            												<TH COLSPAN=4><center><strong>FINAL GRADES BY PERIOD</strong></center></TH>
             												</tr>';
             									if ($id_grado>=17) {
             										echo '<tr>
-            											<th><center>Materia</center></th>
-            											<th><center>Pesamiento</center></th>
+            											<th><center>Subject</center></th>
+            											<th><center>Area</center></th>
             											<th><center>P 1</center></th>
             											<th><center>P 2</center></th>
             											</tr> 
@@ -183,8 +183,8 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
             											<tbody>';
             									}else{
             										echo '<tr>
-            											<th><center>Materia</center></th>
-            											<th><center>Pesamiento</center></th>
+            											<th><center>Subject</center></th>
+            											<th><center>Area</center></th>
             											<th><center>P 1</center></th>
             											<th><center>P 2</center></th>
             											<th><center>P 3</center></th>
@@ -198,26 +198,26 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
             											echo "<tr><td>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
             											//esta validación es para las asignaturas de bioético y humanístico
             											if($row['id_materia'] == 10) {
-            												echo "<tr><td>EDUCACIÓN ÉTICA Y EN VALORES</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
-            												echo "<tr><td>EDUCACIÓN FÍSICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+            												echo "<tr><td>ETHICS AND VALUES EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+            												echo "<tr><td>PHYSICAL EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
             											}
             											else if($row['id_materia'] == 15) {
-            												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
-            												echo "<tr><td>FILOSOFÍA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+            												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+            												echo "<tr><td>PHILOSOPHY</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
             											}
             										}else{
             											echo "<tr><td>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
             											//esta validación es para las asignaturas de bioético y humanístico
             											if($row['id_materia'] == 10 || $row['id_materia'] == 1) {
-            												echo "<tr><td>EDUCACIÓN ÉTICA Y EN VALORES</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
-            												echo "<tr><td>EDUCACIÓN FÍSICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+            												echo "<tr><td>ETHICS AND VALUES EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+            												echo "<tr><td>PHYSICAL EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
             											}
             											else if($row['id_materia'] == 15) {
-            												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
-            												echo "<tr><td>FILOSOFÍA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+            												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+            												echo "<tr><td>PHILOSOPHY</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
             											}
             											else if($row['id_materia'] == 6) {
-            												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+            												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
             											}
             										}	
             									}
@@ -227,7 +227,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
                 								
             							?>
             							<br>
-            							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+            							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
             						    <br><br>
             						</div>
         						<!--****-->
@@ -288,7 +288,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado
     </body>
     <?php 
     }else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
     ?>

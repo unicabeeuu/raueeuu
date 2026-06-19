@@ -143,7 +143,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 										<tr>
 											<th><center>Apellidos</center></th>
 											<th><center>Nombres</center></th>
-											<th><center>Acción</center></th>
+											<th><center>Action</center></th>
 										</tr> 
 										</thead> 
 										<tbody>';
@@ -153,7 +153,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					         						<td scope="row">'.$row['apellidos'].'</td>
 					         						<td scope="row">'.$row['nombres'].'</td>
 					         						<td scope="row">
-					         						<center><a href="informe-estudiante.php?id_estudiante='.$row['id'].'" class="btn btn-primary"  "title="Informe Estudiante"><i class="fa fa-eye"></i> Informe</a></center></td>
+					         						<center><a href="informe-estudiante.php?id_estudiante='.$row['id'].'" class="btn btn-primary"  "title="Student Report"><i class="fa fa-eye"></i> Report</a></center></td>
 
 				         						</tr>';											
 											}
@@ -161,7 +161,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</table>';	
 									}else{
 										echo '<div class="alert alert-danger" role="alert">
-  										<strong>¡Alerta!</strong> No se encontro resultados para este grado
+  										<strong>Alert!</strong> No se encontro resultados para este grado
 										</div>';
 									}
 								}
@@ -229,7 +229,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 			function validacion() {
 				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);
@@ -240,7 +240,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

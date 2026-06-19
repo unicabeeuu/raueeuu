@@ -28,15 +28,15 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Menu Navegable</li>
+              <li class="header">Navigation Menu</li>
               <li class="treeview">
                 <a href="index.php">
-                <i class="fa fa-home"></i> <span>Inicio</span>
+                <i class="fa fa-home"></i> <span>Home</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="asignacion.php">
-                <i class="fa fa-male"></i> <span>Asignación</span>
+                <i class="fa fa-male"></i> <span>Assignment</span>
                 </a>
               </li>
               <?php 
@@ -56,7 +56,7 @@
                   ?>
                 <li class="treeview">
                     <a href="direccion.php">
-                    <i class="fa fa-clipboard"></i> <span>Dirección Pensamiento</span>
+                    <i class="fa fa-clipboard"></i> <span>Area Direction</span>
                     </a>
                   </li> 
                 <?php
@@ -73,7 +73,7 @@
               ?>
               <li class="treeview">
                 <a href="estudiante.php">
-                <i class="fa fa-user"></i> <span>Informe Estudiante</span>
+                <i class="fa fa-user"></i> <span>Student Report</span>
                 </a>
               </li>
             </ul>

@@ -34,7 +34,7 @@
 	                        <tr>
 	                            <td>ID_EST</td>
 	                            <td>ID_GRA</td>
-	                            <td>ORDENES DE PAGO</td>
+	                            <td>PAYMENT ORDERS</td>
 	                        </tr></thead><tbody>";
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()) {

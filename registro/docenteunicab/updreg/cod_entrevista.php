@@ -37,7 +37,7 @@ if (isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Favicon -->
@@ -125,31 +125,31 @@ if (isset($_SESSION['uniprofe'])) {
                     			    <?php //echo $_SESSION['uniprofe']; ?>
                     				<form class="form-horizontal" action="cod_entrevista1.php"  method="POST" onsubmit="return validacion()">
                     					<div class="form-group">
-                    						<label  class="col-sm-2 control-label">Identificación<span class="req">*</span></label>
+                    						<label  class="col-sm-2 control-label">Identification<span class="req">*</span></label>
                     						<div class="col-sm-8">
-                    							<input type="text" id="identif" name="identif" placeholder="Ingrese identificación" required/>
+                    							<input type="text" id="identif" name="identif" placeholder="Enter identification" required/>
                     						</div>
                     					</div>
                     					<div class="form-group">
-                    						<label  class="col-sm-2 control-label">Año<span class="req">*</span></label>
+                    						<label  class="col-sm-2 control-label">Year<span class="req">*</span></label>
                     						<div class="col-sm-8">
                     							<input type="text" id="periodo" name="periodo" value="<?php echo $a; ?>" required/>
                     						</div>
                     					</div>
                     					<div class="form-group">
-                    						<label  class="col-sm-2 control-label">Codigo<span class="req">*</span></label>
+                    						<label  class="col-sm-2 control-label">Code<span class="req">*</span></label>
                     						<div class="col-sm-8">
                     							<input type="text" id="codigo" name="codigo" value="<?php echo $codigo; ?>" style="background: lightgreen;" readonly/>
                     						</div>
                     					</div>
                     					<div class="modal-footer">
-                    						<input type="submit" class="btn btn-primary" value="Generar codigo" >
+                    						<input type="submit" class="btn btn-primary" value="Generate code" >
                     					</div>
                     				</form>
                     			</div>
                                 <div class="form-body">
                                     <!--Este código muestra la opción de mostrar buscar códgigo ... hasta antes del form -->
-                                    <span class="temp" style="background: #355A84; color: #fff; font-size: 18px;">*** Buscar código ***</span>
+                                    <span class="temp" style="background: #355A84; color: #fff; font-size: 18px;">*** Search code ***</span>
 									<a href="#" id="mostrarmod" class="temp" style="text-decoration: none; display: inline-block; border-radius: 50%;"> 
                                 	<span style="color: #355A84; transform: translate(-50%, -50%); font-size: 40px; font-weight: 600;">+</span> </a>
         							<form class="form-horizontal" method="POST" id="modal" style="display: none; transition: all .5s;">
@@ -159,13 +159,13 @@ if (isset($_SESSION['uniprofe'])) {
                                 			<span style="color: #355A84; position: absolute; left: 100%; transform: translate(-50%, -50%); font-size: 24px; font-weight: 600;">X</span> 
                                 		</a>
         								<div class="form-group">
-        									<label  class="col-sm-2 control-label">Buscar<span class="req"></span></label>
+        									<label  class="col-sm-2 control-label">Search<span class="req"></span></label>
         									<div class="col-sm-8">
-        										<input type="text" id="buscar" name="buscar" placeholder="Ingrese identificación" />
+        										<input type="text" id="buscar" name="buscar" placeholder="Enter identification" />
         									</div>
         								</div>
         								<div class="modal-footer">
-        									<button type="button" class="btn btn-primary" onclick="buscar_codigo()">Buscar</button>
+        									<button type="button" class="btn btn-primary" onclick="buscar_codigo()">Search</button>
         								</div>
         								<div id="divresul"></div>
         							</form>
@@ -233,7 +233,7 @@ if (isset($_SESSION['uniprofe'])) {
 		function validacion() {
 			var grado=document.getElementById('id_grado').value;
 			if (grado==0) {
-				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
 				return false;
 			}else{
 				$('#alert').html('').slideUp(300);
@@ -245,7 +245,7 @@ if (isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../../login_registro.php'</script>";
 }
 ?>

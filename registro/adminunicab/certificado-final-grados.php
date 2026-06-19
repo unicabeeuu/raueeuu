@@ -710,7 +710,7 @@
 					    }
 					?>
 					<h6>Certificado N°: CFF<?php echo $certicado_total; ?></h6>
-					<button type="submit" id="hide" class="btn btn-danger">Certificado</button>
+					<button type="submit" id="hide" class="btn btn-danger">Certificate</button>
 				</form>
  			</div>
  		</div>
@@ -972,7 +972,7 @@
 <?php 
     }
     else{
-    	echo "<script>alert('Debes iniciar sesión');</script>";
+    	echo "<script>alert('You must log in');</script>";
     	echo "<script>location.href='../../login_registro.php'</script>";
     }
 ?>

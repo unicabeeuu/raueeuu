@@ -117,7 +117,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						        		<td>".$fila['estado']."</td>
 						        		<td>".$fila['apellidos']." ".$fila['nombres']."</td>
 						        		<td>".$fila['grado']."</td>
-						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Editar</a></td>
+						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Edit</a></td>
 
 						        		</tr>";
 						        	}
@@ -185,7 +185,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

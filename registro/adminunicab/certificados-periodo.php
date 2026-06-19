@@ -118,7 +118,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
            		<div class="charts">		
                		 <div class="mid-content-top charts-grids">	
                     	<div class="middle-content">
-                        <div class="alert alert-info" role="alert">Listado: <?php echo $gradoActual; ?></div>
+                        <div class="alert alert-info" role="alert">List: <?php echo $gradoActual; ?></div>
                     		<div class="form-group"> 
                     			<form  method="post" action="certificados-periodo.php">
 									<label for="smallinput" class="col-sm-2 control-label label-input-sm">Select grade:</label>
@@ -153,7 +153,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 
 								echo"<tr><td>".$fila['grado']."</td><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['n_documento']."</td>
 								<td align='center'>
-								<a class='btn btn-primary' href='generar-certificados.php?id=".$fila['id']."' title='Generar certificado'>Certificado</a></td></tr>
+								<a class='btn btn-primary' href='generar-certificados.php?id=".$fila['id']."' title='Generate certificate'>Certificate</a></td></tr>
 								
 
 								";
@@ -232,7 +232,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

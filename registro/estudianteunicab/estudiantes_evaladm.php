@@ -552,7 +552,7 @@ if (isset($_SESSION['uniestudiante'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -739,14 +739,14 @@ if (isset($_SESSION['uniestudiante'])) {
 					    
 					    <div id="divenc2">
 						    <div id="divenc2_1">
-						        <p>Evaluación de Admisión</p>
-						        <p>Nombres y Apellidos: <strong><?php echo $nombre_completo; ?></strong></p>
-						        <p>Documento: <strong><?php echo $documento; ?></strong></p>
-						        <p>Grado: <strong><?php echo $grado_ra; ?></strong></p>
+						        <p>Admission Evaluation</p>
+						        <p>Full Name: <strong><?php echo $nombre_completo; ?></strong></p>
+						        <p>Document: <strong><?php echo $documento; ?></strong></p>
+						        <p>Grade: <strong><?php echo $grado_ra; ?></strong></p>
 						    </div>
 						    <div id="divenc2_2">
 						        <p style="font-family: 'Poppins'; font-size: 24px; font-style: italic; color: #093A5F">GLOBAL</p>
-						        <p style="font-family: 'Poppins-medium'; font-size: 18px; color: #093A5F; padding: 0 5px;">De <?php echo $total_todos; ?> puntos posibles, su puntaje global es de <?php echo $total_todos_ok; ?>.</p>
+						        <p style="font-family: 'Poppins-medium'; font-size: 18px; color: #093A5F; padding: 0 5px;">Out of <?php echo $total_todos; ?> possible points, your overall score is <?php echo $total_todos_ok; ?>.</p>
 						    </div>
 						</div><br>
                                                 
@@ -762,7 +762,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                                 if($obj_json_decode['bio']['ctok'] + $obj_json_decode['bio']['ctno'] + $obj_json_decode['bio']['ctna'] > 0) {
                                                     $linea = '<tr>';
                                                     $linea .= '<td width="50px"></td>';
-                                                    $linea .= '<td>BIOETICO</td>';
+                                                    $linea .= '<td>BIOETHICAL</td>';
                                                     $linea .= '<td width="50px"></td>';
                                                     $linea .= '<td class="fondoblanco"><input type="text" class="txtct" value="'.$obj_json_decode['bio']['ctok'].'"/> <img src="../images/checked_1.jpg" height="25px"/></td>';
                                                     $linea .= '<td width="50px"></td>';
@@ -788,7 +788,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                                 if($obj_json_decode['num']['ctok'] + $obj_json_decode['num']['ctno'] + $obj_json_decode['num']['ctna'] > 0) {
                                                     $linea = '<tr>';
                                                     $linea .= '<td width="50px"></td>';
-                                                    $linea .= '<td>NUMERICO</td>';
+                                                    $linea .= '<td>NUMERIC</td>';
                                                     $linea .= '<td width="50px"></td>';
                                                     $linea .= '<td class="fondoblanco"><input type="text" class="txtct" value="'.$obj_json_decode['num']['ctok'].'"/> <img src="../images/checked_1.jpg" height="25px"/></td>';
                                                     $linea .= '<td width="50px"></td>';
@@ -864,15 +864,15 @@ if (isset($_SESSION['uniestudiante'])) {
                                     </table>
                                 </div>
                                 
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe Global</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Global Report</div>
                                 <div style="width: 100%; background: #F1F1F2; text-align: center; font-size: 20px; font-family: 'Poppins-medium';">
-                                    <br><p>A continuación se relacionan los puntajes obtenidos en cada uno de los pensamientos evaluados en la evaluación de admisión:</p><br>
+                                    <br><p>Below are the scores obtained in each of the areas assessed in the admission evaluation:</p><br>
                                 </div>
                                 <div class="row" id="divglobal">
                                     
                                     <table id="tblglobal" style="text-align: center;">
                                         <thead style="font-family: 'PT Sans Narrow';">
-                                            <tr style="background: #45A872; color: #F1F1F2; font-size: 20px; font-weight: bold; border: 2px;"><td colspan="9">Pensamientos</td></tr>
+                                            <tr style="background: #45A872; color: #F1F1F2; font-size: 20px; font-weight: bold; border: 2px;"><td colspan="9">Areas</td></tr>
                                             <tr>
                                                 <td colspan="2" width="200px" style="background: #FA4D59; color: #F1F1F2; font-size: 20px; font-weight: bold; border: 2px solid black;">Global</td>
                                                 <!--<td width="100px">Global</td>-->
@@ -888,7 +888,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                         <tbody style="font-family: 'PT Sans Narrow';">
                                         <?php
                                             $linea = '<tr>';
-                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Puntaje</td>';
+                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Score</td>';
                                             $linea .= '<td style="border: 2px solid black; color: #093A5F; font-weight: bold;">'.$total_todos_ok.' / '.$total_todos.'</td>';
                                             $linea .= '<td style="border: 2px solid black; color: #093A5F; font-weight: bold;">'.$obj_json_decode['bio']['ctok'].' / '.$obj_json_decode['bio']['ctpen'].'</td>';
                                             $linea .= '<td style="border: 2px solid black; color: #093A5F; font-weight: bold;">'.$obj_json_decode['esp']['ctok'].' / '.$obj_json_decode['esp']['ctpen'].'</td>';
@@ -901,7 +901,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                             echo $linea;
                                             
                                             $linea = '<tr>';
-                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Desempeño</td>';
+                                            $linea .= '<td style="color: #064C86; border: 2px solid black;">Performance</td>';
                                             $linea .= '<td style="color: '.$colglo.'; border: 2px solid black; font-weight: bold;">'.$nivglo.'</td>';
                                             $linea .= '<td style="color: '.$colbio.'; border: 2px solid black; font-weight: bold;">'.$nivbio.'</td>';
                                             $linea .= '<td style="color: '.$colesp.'; border: 2px solid black; font-weight: bold;">'.$nivesp.'</td>';
@@ -910,7 +910,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                             $linea .= '<td style="color: '.$colsoc.'; border: 2px solid black; font-weight: bold;">'.$nivsoc.'</td>';
                                             $linea .= '<td style="color: '.$coltec.'; border: 2px solid black; font-weight: bold;">'.$nivtec.'</td>';
                                             $linea .= '<td style="color: '.$colfis.'; border: 2px solid black; font-weight: bold;">'.$nivfis.'</td>';
-                                            $linea .= '</tr><tr><td colspan="9" style="border: 2px solid #F1F1F2; color: #F1F1F2">Fila vacía</td></tr>';
+                                            $linea .= '</tr><tr><td colspan="9" style="border: 2px solid #F1F1F2; color: #F1F1F2">Empty row</td></tr>';
                                             echo $linea;
                                         ?>
                                         
@@ -918,7 +918,7 @@ if (isset($_SESSION['uniestudiante'])) {
                                     </table>
                                 </div>
                                 
-                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Informe por Pensamientos</div>
+                                <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Report by Areas</div>
                                 
                                 <!--<div class="row">
                                     <p><strong style="color: #064C86;">Detalle por Pensamiento:</strong></p>
@@ -947,8 +947,8 @@ if (isset($_SESSION['uniestudiante'])) {
 							        		    $img_resul = "https://unicab.org/registro/images/respuesta_no2.jpg";
 							        		}
 							        	    $img_pregunta = "https://unicab.org/registro/".$fila['ruta'];
-							        	    $tbl_pregunta = '<table id="tblres" class="table" style="width:100%;"><tbody><tr><td style="color: #F1F1F2; width: 100px;">Pregunta</td><td style="width: 800px;">'.$fila['pregunta'].'</td><td style="text-align: center;"><img src="'.$img_pregunta.'" width="50%" alt=""/></td></tr>';
-							        	    $tbl_pregunta .= '<tr style="background: #1d2b2e; color: #F1F1F2;"><td style="color: #1d2b2e; width: 100px;">Respuesta</td><td style="vertical-align: middle;">Tu respuesta: '.$fila['respuesta'].'</td><td style="text-align: center;"><img src="'.$img_resul.'" width="100px"/></td></tr>';
+							        	    $tbl_pregunta = '<table id="tblres" class="table" style="width:100%;"><tbody><tr><td style="color: #F1F1F2; width: 100px;">Question</td><td style="width: 800px;">'.$fila['pregunta'].'</td><td style="text-align: center;"><img src="'.$img_pregunta.'" width="50%" alt=""/></td></tr>';
+							        	    $tbl_pregunta .= '<tr style="background: #1d2b2e; color: #F1F1F2;"><td style="color: #1d2b2e; width: 100px;">Answer</td><td style="vertical-align: middle;">Your answer: '.$fila['respuesta'].'</td><td style="text-align: center;"><img src="'.$img_resul.'" width="100px"/></td></tr>';
 							        	    $tbl_pregunta .= '</tbody></table><br>';
 							        	    echo $tbl_pregunta;
 							        	}
@@ -965,9 +965,9 @@ if (isset($_SESSION['uniestudiante'])) {
                     	<input type="hidden" id="txtcttec" value="<?php echo $ct_tec; ?>"/>
                     	<input type="hidden" id="txtctfis" value="<?php echo $ct_fis; ?>"/>
                         
-                        <!--<p><span style="color: #064C86; font-size: 16px; font-weight: bold;">Ruta sugerida para reforzar conceptos: </span></p>
+                        <!--<p><span style="color: #064C86; font-size: 16px; font-weight: bold;">Suggested path to reinforce concepts: </span></p>
                         <br>-->
-                        <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Ruta sugerida para reforzar conceptos:
+                        <div style="width: 100%; background: #093A5F; color: #F1F1F2; text-align: center; font-size: 20px; font-weight: bold; font-family: 'PT Sans Narrow';">Suggested path to reinforce concepts:
                         </div>
                         
                         <div class="row" style="background: #F1F1F2;">

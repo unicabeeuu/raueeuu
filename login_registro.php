@@ -50,7 +50,7 @@
 							<div class="g-recaptcha" data-sitekey="6LdSPVAUAAAAABvNpNPP72W9gxoOlafWF9c17utJ"></div>
 						</div> -->
 						
-						<input type="submit" value="Iniciar Sesión">
+						<input type="submit" value="Login">
 
 						<div class="alert alert-danger" role="alert" id="alert" style="margin-top: 30px;">
 						</div>

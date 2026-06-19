@@ -142,7 +142,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 							<?php
 							if (!isset($_POST['n_documento'])) {
 								echo ' <div class="alert alert-danger" role="alert">
-  									<strong>¡Advertencia!</strong> Debe ingresar un número de documento para realizar la búsqueda.
+  									<strong>Warning!</strong> Debe ingresar un número de documento para realizar la búsqueda.
 								</div>';
 							}else{
 								$numero_documento=$_POST['n_documento'];
@@ -245,12 +245,12 @@ $resultado1 = mysqli_query($conexion, $peticion);
 										<?php
 										}else{
 											echo ' <div class="alert alert-danger" role="alert">
-	  											<strong>¡Advertencia!</strong> El estudiante no cuenta con historial en algún grado.
+	  											<strong>Warning!</strong> El estudiante no cuenta con historial en algún grado.
 											</div>';
 										}
 									}else{
 										echo ' <div class="alert alert-danger" role="alert">
-	  										<strong>¡Advertencia!</strong> no se han encontrado resultados.
+	  										<strong>Warning!</strong> no se han encontrado resultados.
 										</div>';
 									}
 							}	
@@ -332,7 +332,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

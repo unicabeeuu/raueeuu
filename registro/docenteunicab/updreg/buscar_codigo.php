@@ -14,10 +14,10 @@
 	    $cadena = $cadena."<table class='table table-hover' border='1' bordercolor='#e0e0e0'>
     							<thead > 
     							<tr>
-    								<th><center>Identificación</center></th>
-    								<th><center>Periodo lectivo</center></th>
-    								<th><center>Código</center></th>
-    								<th><center>Estado</center></th>
+    								<th><center>Identification</center></th>
+    								<th><center>School period</center></th>
+    								<th><center>Code</center></th>
+    								<th><center>Status</center></th>
     							</tr> 
     							</thead> 
     							<tbody>";

@@ -202,7 +202,7 @@ legend {
                                 <div id="cont">
                         			<!--<div id="div1">
                         				<fieldset>
-                        				<legend><h3>BASE DE DATOS DE ESTUDIANTES</h3></legend>
+                        				<legend><h3>STUDENT DATABASE</h3></legend>
                         				    <form class="form-horizontal" action="cargar_est_putdat.php"  method="POST" onsubmit="return validacion()">
                         				    <ul class="mprincipal">
                         						<li><h3>CARGAR INFORMACION MOODLE TOTAL</h3></li>
@@ -213,7 +213,7 @@ legend {
                         					</form>
                         				</fieldset><br />
                         				<fieldset>
-                        				<legend><h3>REVERSAR PROCESO DE CIERRE</h3></legend>
+                        				<legend><h3>REVERSE CLOSING PROCESS</h3></legend>
                         				    <form class="form-horizontal" action="../docenteunicab/updreg/buscar_notas_mood_est1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                         					<ul class="mprincipal">
                         						<li><h3>CARGAR NOTAS MOODLE</h3></li>
@@ -230,7 +230,7 @@ legend {
                         					</form>
                             					<form class="form-horizontal" action="reversar_ca.php"  method="POST" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>NUEVO CIERRE ACADEMICO</h3></li>
+                            						<li><h3>NEW ACADEMIC CLOSING</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <input type="text" id="idest_ra01" name="idest_ra01" placeholder="idest" style="width: 50px;" oninput="change_idest1()"/>
@@ -447,7 +447,7 @@ legend {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

@@ -62,10 +62,10 @@
 	                        <thead>
 	                        <tr>
 	                            <td>ID_EST</td>
-	                            <td>GRADO</td>
-	                            <td>NOMBRE</td>
-	                            <td>ESTADO</td>
-	                            <td>ACTIVAR PAZ Y SALVO</td>
+	                            <td>GRADE</td>
+	                            <td>NAME</td>
+	                            <td>STATUS</td>
+	                            <td>ACTIVATE CLEARANCE</td>
 	                        </tr></thead><tbody>";
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()) {

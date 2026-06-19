@@ -585,12 +585,12 @@
         <?php
             if($tipo_c == "EST") {
         ?>
-                <h3 style="color: red">Estudiante(s) registrado(s) que no se le(s) generó carnet por falta de información</h3>
+                <h3 style="color: red">Registered student(s) for whom no ID card was generated due to missing information</h3>
         <?php
             }
             else {
         ?>
-                <h3>Empleado(s) registrado(s) que no se le(s) generó carnet por falta de información</h3>
+                <h3>Registered employee(s) for whom no ID card was generated due to missing information</h3>
         <?php
             }
         ?>
@@ -603,7 +603,7 @@
                         <tr>
                             <td>ID_EMP_EST</td>
                             <td>ID_GRADO</td>
-                            <td>NOMBRE</td>
+                            <td>NAME</td>
                         </tr>
                 <?php
                     }
@@ -611,7 +611,7 @@
                 ?>
                         <tr>
                             <td>ID_EMP_EST</td>
-                            <td>NOMBRE</td>
+                            <td>NAME</td>
                         </tr>
                 <?php
                     }
@@ -652,12 +652,12 @@
             //echo $sql_sin_carnet_getdat;
             if($tipo_c == "EST") {
         ?>
-                <h3>Estudiante(s) con carnet</h3>
+                <h3>Student(s) with ID card</h3>
         <?php
             }
             else {
         ?>
-                <h3>Empleado(s) con carnet</h3>
+                <h3>Employee(s) with ID card</h3>
         <?php
             }
         ?>
@@ -666,9 +666,9 @@
                 <tr>
                     <td>ID_EMP_EST</td>
                     <td>ID_GRADO</td>
-                    <td>TIPO</td>
-                    <td>RUTA</td>
-                    <td>AÑO</td>
+                    <td>TYPE</td>
+                    <td>PATH</td>
+                    <td>YEAR</td>
                     <td>MSG</td>
                 </tr>
             </thead>

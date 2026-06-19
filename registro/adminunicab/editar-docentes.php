@@ -82,7 +82,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="well">
             <div class="row">
                 <div class="col-md-8" id="redesFinal">
-                    <?php echo "<h4><b>Está seguro que desea editar los datos de: </h4><h3>". $nombreCompleto ."?</b></h3>" ?>
+                    <?php echo "<h4><b>Are you sure you want to edit the data of: </h4><h3>". $nombreCompleto ."?</b></h3>" ?>
                 </div>
                 <div class="col-md-4" align="center">
                     <a href='#' class='btn btn-primary' data-toggle='modal' data-target='#myModal'  title='Edit teacher'>Confirm</a>
@@ -270,7 +270,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

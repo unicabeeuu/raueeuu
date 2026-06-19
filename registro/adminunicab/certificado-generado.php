@@ -199,7 +199,7 @@ www.unicab.org
 
 <!--CERTIFICADO-->
 <div align="center">
- <a class="btn btn-danger" href="javascript:window.print()">Certificado</a>
+ <a class="btn btn-danger" href="javascript:window.print()">Certificate</a>
  </div>
    </div>
    </div>
@@ -266,7 +266,7 @@ www.unicab.org
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

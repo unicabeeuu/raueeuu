@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -299,13 +299,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Subir imagen para blog:</h4>
+							<h4>Upload image for blog:</h4>
 						</div>
 						<div class="form-body">
 							<form action="../../uniconecta/imagen_putdat1.php" method="POST" id="form" name="form" enctype="multipart/form-data">
 
 								<div class="form-group"> 
-									<label for="ImagenA">Imagen (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenA">Image (Max size 1024 Kb)</label> 
 									<input type="file" class="form-control" id="ImagenA" name="ImagenA" required>
 									<input type="hidden" style="width: 20px" id="ctr_ImagenA" value="1"/>
 									<p id="texto"> </p><br/>   	
@@ -383,7 +383,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>
