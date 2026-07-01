@@ -25,7 +25,7 @@ $peticion = "SELECT m.*, e.nombres, e.apellidos, g.grado, g.id, e.email_instituc
 	while ($fila = mysqli_fetch_array($resultado2)){
   		
   		$nombreE=$fila['apellidos']." ".$fila['nombres'];
-	  	$id_matricula = $fila['idMatricula'];
+	  	$id_matricula = $fila['id'];
 		$n_matricula = $fila['n_matricula'];
 		$fecha_ingreso = $fila['fecha_ingreso'];
 		$estado = $fila['estado'];

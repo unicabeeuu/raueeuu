@@ -123,29 +123,29 @@
 	if($estado == 'activo') {
 	    if($grupo == "NA") {
 	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra, m.grupo, td.tipo_documento 
-    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
     		(SELECT em.*, ee.id_registro 
-    		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+    		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND e.tipo_documento = td.id 
-    		AND m.estado = '$estado'  AND e.estado != 'Retirado'";
+    		AND m.estado = '$estado'  AND e.rh != 'Retirado'";
 	    }
 	    else {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra, m.grupo, td.tipo_documento 
-    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
     		(SELECT em.*, ee.id_registro 
-    		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+    		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND e.tipo_documento = td.id 
-    		AND m.estado = '$estado'  AND e.estado != 'Retirado' 
+    		AND m.estado = '$estado'  AND e.rh != 'Retirado' 
     		AND m.grupo = '$grupo'";
 	    }
 	    
@@ -153,26 +153,26 @@
 	else if($estado == 'inactivo') {
 	    if($grupo == "NA") {
 	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra, m.grupo, td.tipo_documento 
-    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
     		(SELECT em.*, ee.id_registro 
-    		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+    		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND m.id_grado = eg.id_grado_ra AND e.tipo_documento = td.id 
     		AND m.estado = '$estado'";
 	    }
 	    else {
 	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra, m.grupo, td.tipo_documento 
-    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
     		(SELECT em.*, ee.id_registro 
-    		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+    		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND m.id_grado = eg.id_grado_ra AND e.tipo_documento = td.id 
     		AND m.estado = '$estado' 
@@ -192,9 +192,9 @@
 	    /*$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
-		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
 		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
 		ORDER BY a.grado, nombre";*/
@@ -209,9 +209,9 @@
 	    /*$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
+		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
-		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
 		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
 		AND a.grado = '".$gra1."'  
