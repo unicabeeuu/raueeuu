@@ -2,10 +2,17 @@
 session_start();
 require "php/conexion.php";
 if (isset($_SESSION['unisuper'])) {
-    $idest = $_POST["idest_ra01"];
-	$idgra = $_POST["idgra_ra01"];
-	//echo $idest;
-	//echo $idgra;
+    $idest = isset($_POST["idest_ra01"]) ? trim($_POST["idest_ra01"]) : "";
+    $idgra = isset($_POST["idgra_ra01"]) ? trim($_POST["idgra_ra01"]) : "";
+
+    if ($idest === "" || $idgra === "") {
+        echo "<script>alert('Debe indicar el estudiante y el grado antes de continuar.');</script>";
+        echo "<script>location.href='adm1.php'</script>";
+        exit;
+    }
+
+    $idest = intval($idest);
+    $idgra = intval($idgra);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -55,11 +62,11 @@ if (isset($_SESSION['unisuper'])) {
 }
 </style>
 <?php require 'php/conexion.php';
-$sql="SELECT * FROM tbl_gradoss";
+$sql="SELECT * FROM tbl_grados";
 	$tbl_gradosActual="No se encontraron tbl_estudiantes tbl_matriculasdos";
-	$peticion='SELECT tbl_estudiantes.apellidos,tbl_estudiantes.id,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_gradoss.tbl_grados 
-	    FROM tbl_gradoss INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_gradoss.id= tbl_matriculas.id_tbl_grados 
-	    WHERE tbl_gradoss.id='.$idgra.' AND tbl_matriculas.estado="activo" AND tbl_estudiantes.id = '.$idest;
+	$peticion="SELECT tbl_estudiantes.apellidos, tbl_estudiantes.id, tbl_estudiantes.nombres, tbl_estudiantes.genero, tbl_estudiantes.n_documento, tbl_estudiantes.email_institucional, tbl_grados.grado AS tbl_grados
+	    FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id = tbl_matriculas.id_grado
+	    WHERE tbl_grados.id = {$idgra} AND tbl_matriculas.estado = 'activo' AND tbl_estudiantes.id = {$idest}";
     //echo $tbl_gradosActual;
     //echo "ig_tbl_grados: ".$_POST["id_tbl_grados"];
 	/*if (!isset($_POST["id_tbl_grados"])) {

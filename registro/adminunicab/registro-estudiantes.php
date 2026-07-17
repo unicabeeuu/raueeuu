@@ -26,7 +26,7 @@
     	$res_g=mysqli_query($conexion,$sql_g);
     	
     	//Se cargan los grados
-    	$sql_gra = "SELECT * FROM tbl_grados";
+    	$sql_gra = "SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
     	$res_gra=mysqli_query($conexion,$sql_gra);
 	    
 ?>

@@ -30,7 +30,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	//$resultado = mysqli_query($conexion, $peticion);
 	$resultado = $mysqli1->query($peticion);
 	
-	$query = "SELECT * FROM tbl_grados WHERE id > 1 AND id < 19";
+	$query = "SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 	//$grados = mysqli_query($conexion, $query);
 	$grados = $mysqli1->query($query);
 	

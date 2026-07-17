@@ -67,7 +67,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </style>
 <?php require 'php/conexion.php';
 
-    $sql="SELECT * FROM tbl_grados";
+    $sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 	$gradoActual="No se encontraron estudiantes matriculados";
     // '".$_POST["id_grado"]."'
 	if (!isset($_POST["id_grado"])) {
@@ -82,7 +82,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	where tbl_grados.id=".$_POST['id_grado']."  and tbl_matriculas.estado='activo' ORDER BY tbl_grados.grado";
  	}
 	// var_dump($peticion);
-	echo $peticion;
+	# echo $peticion;
 	
 	$res=mysqli_query($conexion,$peticion);
 	
@@ -176,11 +176,11 @@ $resultado1 = mysqli_query($conexion, $peticion);
 
 											<?php
 										$sql_historial="SELECT tbl_estudiantes.id AS id_estudiante, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_estudiantes.n_documento, 
-										tbl_matriculas.estado, tbl_matriculas.idMatricula, tbl_matriculas.EstadoGrado, tbl_grados.id AS id_grado, tbl_grados.grado 
+										tbl_matriculas.estado, tbl_matriculas.id, tbl_matriculas.estado_grado, tbl_grados.id AS id_grado, tbl_grados.grado 
 										FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) 
 										ON tbl_grados.id = tbl_matriculas.id_grado 
 										where tbl_estudiantes.n_documento='".$numero_documento."' and tbl_matriculas.estado IN ('activo', 'retirado', 'aprobado', 'reprobado') 
-										ORDER By tbl_matriculas.idMatricula ASC";
+										ORDER By tbl_matriculas.id ASC";
 										//echo $sql_historial;
 										
 										$exe_historial=mysqli_query($conexion,$sql_historial);
@@ -195,10 +195,10 @@ $resultado1 = mysqli_query($conexion, $peticion);
 												<?php
 													while ($row=mysqli_fetch_array($exe_historial)) {
 														$id_grado=$row['id_grado'];
-														if ($row['EstadoGrado']=="reprobado") {
-															echo '<option value="'.$row['idMatricula'].'" style="color:red;">'.$row['grado'].'</option>';
+														if ($row['estado_grado']=="reprobado") {
+															echo '<option value="'.$row['id'].'" style="color:red;">'.$row['grado'].'</option>';
 														}else{
-															echo '<option value="'.$row['idMatricula'].'">'.$row['grado'].'</option>';
+															echo '<option value="'.$row['id'].'">'.$row['grado'].'</option>';
 														}
 														
 								 					}

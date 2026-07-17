@@ -2374,25 +2374,29 @@ CREATE TABLE tbl_grados (
   grado varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO tbl_grados (grado) VALUES
-('Sin grado'),
-('Primero'),
-('Segundo'),
-('Tercero'),
-('Cuarto'),
-('Quinto'),
-('Sexto'),
-('Séptimo'),
-('Octavo'),
-('Noveno'),
-('Décimo'),
-('UnDécimo'),
-('Ciclo I'),
-('Ciclo II'),
-('Ciclo III'),
-('Ciclo IV'),
-('Ciclo V'),
-('Ciclo VI')
+/* NO_AUTO_VALUE_ON_ZERO permite insertar la fila con id = 0 sin que AUTO_INCREMENT la reemplace */
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+
+INSERT INTO tbl_grados (id, grado) VALUES
+(0, 'No degree'),
+(1, '1st grade'),
+(2, '2nd grade'),
+(3, '3rd grade'),
+(4, '4th grade'),
+(5, '5th grade'),
+(6, '6th grade'),
+(7, '7th grade'),
+(8, '8th grade'),
+(9, '9th grade'),
+(10, '10th grade'),
+(11, '11th grade'),
+(12, '12th grade'),
+(13, 'Cycle I'),
+(14, 'Cycle II'),
+(15, 'Cycle III'),
+(16, 'Cycle IV'),
+(17, 'Cycle V'),
+(18, 'Cycle VI')
 ;
 
 /*######################################################################################################*/
