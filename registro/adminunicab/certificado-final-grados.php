@@ -33,13 +33,13 @@
             FROM estudiantes e INNER JOIN matricula m ON e.id = m.id_estudiante 
             INNER JOIN grados g ON m.id_grado=g.id 
             WHERE m.id_estudiante=".$id_estudiante." and m.idMatricula=".$id_matriculaActual."";*/
-        $peticion= "SELECT e.nombres, e.apellidos, e.genero, td.tipo_documento, e.n_documento, e.expedicion, e.ciudad, g.grado, g.id, 
-            m.estado, g.id, m.idMatricula, m.fecha_ingreso, m.n_matricula 
-            FROM estudiantes e INNER JOIN 
-            (SELECT * FROM matricula WHERE idMatricula = 
-            (SELECT MAX(idMatricula) maxid FROM matricula WHERE id_estudiante = ".$id_estudiante." AND estado IN ('aprobado', 'reprobado', 'activo'))) m ON e.id = m.id_estudiante 
-            INNER JOIN grados g ON m.id_grado=g.id INNER JOIN tbl_tipos_documento td ON e.tipo_documento = td.id 
-            WHERE m.id_estudiante=".$id_estudiante." and m.idMatricula=".$id_matriculaActual."";
+        $peticion= "SELECT e.nombres, e.apellidos, e.genero, td.tipo_documento, e.n_documento, e.expedicion, e.ciudad, g.grado, g.id,
+            m.estado, g.id, m.id AS idMatricula, m.fecha_ingreso, m.n_matricula
+            FROM tbl_estudiantes e INNER JOIN
+            (SELECT * FROM tbl_matriculas WHERE id =
+            (SELECT MAX(id) maxid FROM tbl_matriculas WHERE id_estudiante = ".$id_estudiante." AND estado IN ('aprobado', 'reprobado', 'activo'))) m ON e.id = m.id_estudiante
+            INNER JOIN tbl_grados g ON m.id_grado=g.id INNER JOIN tbl_tipos_documento td ON e.tipo_documento = td.id
+            WHERE m.id_estudiante=".$id_estudiante." and m.id=".$id_matriculaActual."";
         //echo $peticion;
         
         $resultado = mysqli_query($conexion, $peticion);
@@ -82,48 +82,13 @@
         
         if ($estado == "reprobado") {
     		$mensaje_promovido="Reprobó grado ".$grado;
-    		$mensaje_promovidoIngles="Failes grade ".$grado;
+    		$mensaje_promovidoIngles="Failed grade ".$grado;
     	}
     	else{
-    	    if($id_grado == 2) {
-    	        $mensaje_promovido="Promovido(a) a grado 2°";
-        		$mensaje_promovidoIngles="Promoted to grade 2°";
-    	    }
-    	    else if($id_grado == 3) {
-    	        $mensaje_promovido="Promovido(a) a grado 3°";
-        		$mensaje_promovidoIngles="Promoted to grade 3°";
-    	    }
-    	    else if($id_grado == 4) {
-    	        $mensaje_promovido="Promovido(a) a grado 4°";
-        		$mensaje_promovidoIngles="Promoted to grade 4°";
-    	    }
-    	    else if($id_grado == 5) {
-    	        $mensaje_promovido="Promovido(a) a grado 5°";
-        		$mensaje_promovidoIngles="Promoted to grade 5°";
-    	    }
-    	    else if($id_grado == 6) {
-    	        $mensaje_promovido="Promovido(a) a grado 6°";
-        		$mensaje_promovidoIngles="Promoted to grade 6°";
-    	    }
-    	    else if($id_grado == 7) {
-    	        $mensaje_promovido="Promovido(a) a grado 7°";
-        		$mensaje_promovidoIngles="Promoted to grade 7°";
-    	    }
-    	    else if($id_grado == 8) {
-    	        $mensaje_promovido="Promovido(a) a grado 8°";
-        		$mensaje_promovidoIngles="Promoted to grade 8°";
-    	    }
-    	    else if($id_grado == 9) {
-    	        $mensaje_promovido="Promovido(a) a grado 9°";
-        		$mensaje_promovidoIngles="Promoted to grade 9°";
-    	    }
-    	    else if($id_grado == 10) {
-    	        $mensaje_promovido="Promovido(a) a grado 10°";
-        		$mensaje_promovidoIngles="Promoted to grade 10°";
-    	    }
-    	    else if($id_grado == 11) {
-    	        $mensaje_promovido="Promovido(a) a grado 11°";
-        		$mensaje_promovidoIngles="Promoted to grade 11°";
+    	    /* id = grado US: el estudiante del grado N se promueve al grado N+1; el 12 finaliza */
+    	    if($id_grado >= 1 && $id_grado <= 11) {
+    	        $mensaje_promovido="Promovido(a) a grado ".($id_grado + 1)."°";
+        		$mensaje_promovidoIngles="Promoted to grade ".($id_grado + 1);
     	    }
     	    else if($id_grado == 12) {
     	        $mensaje_promovido="Estudiante finalizó académicamente";
@@ -150,8 +115,8 @@
     			$mensaje_promovidoIngles="Promoted to Cycle VI";
     	    }
     	    else if($id_grado == 18) {
-    	        $mensaje_promovido="Estudiante Finalizo académicamente por Ciclos";
-    			$mensaje_promovidoIngles="Student I finish academically by Cycles";
+    	        $mensaje_promovido="Estudiante finalizó académicamente por Ciclos";
+    			$mensaje_promovidoIngles="Student finished academically by Cycles";
     	    }
     	}
     	//echo $mensaje_promovido;
@@ -175,13 +140,13 @@
         if($idioma == "espanol") {
             /*$sql_validacion = "SELECT COUNT(1) ct, numero, numero1 FROM certificado WHERE id_estudiante = $id_estudiante AND numero like '$parame' AND numero1 > $numero1 
             GROUP BY numero, numero1";*/
-			$sql_validacion = "SELECT COUNT(1) ct, numero, numero1 FROM certificado WHERE id_estudiante = $id_estudiante AND numero like '$parame' AND id_grado = $id_gradoActual 
+			$sql_validacion = "SELECT COUNT(1) ct, numero, numero1 FROM tbl_certificados WHERE id_estudiante = $id_estudiante AND numero like '$parame' AND id_grado = $id_gradoActual
             GROUP BY numero, numero1";
         }
         else if($idioma == "ingles") {
             /*$sql_validacion = "SELECT COUNT(1) ct, numero, numero1 FROM certificado WHERE id_estudiante = $id_estudiante AND numero like '$parami' AND numero1 > $numero1 
             GROUP BY numero, numero1";*/
-			$sql_validacion = "SELECT COUNT(1) ct, numero, numero1 FROM certificado WHERE id_estudiante = $id_estudiante AND numero like '$parami' AND id_grado = $id_gradoActual 
+			$sql_validacion = "SELECT COUNT(1) ct, numero, numero1 FROM tbl_certificados WHERE id_estudiante = $id_estudiante AND numero like '$parami' AND id_grado = $id_gradoActual
             GROUP BY numero, numero1";
         }
         //echo $sql_validacion;
@@ -194,7 +159,7 @@
         //echo $certicado_total;
         
         if($ct == 0) {
-            $sql_certificado="SELECT MAX(id) id FROM `certificado`";
+            $sql_certificado="SELECT MAX(id) id FROM `tbl_certificados`";
             $exe_certificado=mysqli_query($conexion,$sql_certificado);
             //$certicado_total=mysqli_num_rows($exe_certificado);
             while ($filamax = mysqli_fetch_array($exe_certificado)){
@@ -329,10 +294,10 @@
       <div class="mid-content-top charts-grids">	
         <div class="middle-content">
 <?php
-	$tabla = "notas";
-	
+	$tabla = "tbl_notas";
+
 	//Se valida si hay notas en la tabla de notas
-	$sql_ct_notas = "SELECT COUNT(1) ct FROM notas WHERE id_estudiante = $id_estudiante AND id_grado = ".$id_gradoActual;
+	$sql_ct_notas = "SELECT COUNT(1) ct FROM tbl_notas WHERE id_estudiante = $id_estudiante AND id_grado = ".$id_gradoActual;
 	//echo $sql_ct_notas;
 	$res_ct_notas = mysqli_query($conexion, $sql_ct_notas);
     while ($ct_notas = mysqli_fetch_array($res_ct_notas)){
@@ -346,11 +311,11 @@
                 p1.nota P1, p2.nota P2, cast((p1.nota + p2.nota)/2 as decimal(10,1)) as promedio 
                 FROM 
                 (SELECT DISTINCT e.id id_estudiante, m.materia, m.materiaingles, m.pensamiento, m.pensamientoingles, m.id, g.id id_grado, g.grado, n.nota 
-                FROM $tabla n, estudiantes e, materias m, grados g, periodos p 
+                FROM $tabla n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
                 WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 AND e.id = $id_estudiante AND g.id = $id_gradoActual AND p.id = 1) p1, 
                 (SELECT DISTINCT e.id id_estudiante, m.materia, m.materiaingles, m.pensamiento, m.pensamientoingles, m.id, g.id id_grado, g.grado, n.nota 
-                FROM $tabla n, estudiantes e, materias m, grados g, periodos p 
+                FROM $tabla n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
                 WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 AND e.id = $id_estudiante AND g.id = $id_gradoActual AND p.id = 2) p2 
                 WHERE p1.id_estudiante = p2.id_estudiante  
@@ -363,19 +328,19 @@
                 p1.nota P1, p2.nota P2, p3.nota P3, p4.nota P4, cast((p1.nota + p2.nota + p3.nota + p4.nota)/4 as decimal(10,1)) as promedio 
                 FROM 
                 (SELECT DISTINCT e.id id_estudiante, m.materia, m.materiaingles, m.pensamiento, m.pensamientoingles, m.id, g.id id_grado, g.grado, n.nota 
-                FROM $tabla n, estudiantes e, materias m, grados g, periodos p 
+                FROM $tabla n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
                 WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 AND e.id = $id_estudiante AND g.id = $id_gradoActual AND p.id = 1) p1, 
                 (SELECT DISTINCT e.id id_estudiante, m.materia, m.materiaingles, m.pensamiento, m.pensamientoingles, m.id, g.id id_grado, g.grado, n.nota 
-                FROM $tabla n, estudiantes e, materias m, grados g, periodos p 
+                FROM $tabla n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
                 WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 AND e.id = $id_estudiante AND g.id = $id_gradoActual AND p.id = 2) p2,
                 (SELECT DISTINCT e.id id_estudiante, m.materia, m.materiaingles, m.pensamiento, m.pensamientoingles, m.id, g.id id_grado, g.grado, n.nota 
-                FROM $tabla n, estudiantes e, materias m, grados g, periodos p 
+                FROM $tabla n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
                 WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 AND e.id = $id_estudiante AND g.id = $id_gradoActual AND p.id = 3) p3,
                 (SELECT DISTINCT e.id id_estudiante, m.materia, m.materiaingles, m.pensamiento, m.pensamientoingles, m.id, g.id id_grado, g.grado, n.nota 
-                FROM $tabla n, estudiantes e, materias m, grados g, periodos p 
+                FROM $tabla n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
                 WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 AND e.id = $id_estudiante AND g.id = $id_gradoActual AND p.id = 4) p4 
                 WHERE p1.id_estudiante = p2.id_estudiante AND p1.id_estudiante = p3.id_estudiante AND p1.id_estudiante = p4.id_estudiante 
@@ -432,7 +397,7 @@
 		$mensaje="cursó y reprobó";
 		$mensajeIngles="studied and failed";
 		$mensaje_promovido="Reprobó grado ".$grado;
-    	$mensaje_promovidoIngles="Failes grade ".$grado;
+    	$mensaje_promovidoIngles="Failed grade ".$grado;
 	}else{
 		$mensaje="cursó y aprobó";
 		$mensajeIngles="studied and approved";
@@ -448,74 +413,79 @@
 	//echo $grado;
 	//certificado español
 	if ($idioma=="espanol") {
-		if (strpos($grado, "Transición") !== false){
+		if (strpos($grado, "Kindergarten") !== false || strpos($grado, "No degree") !== false)
+		{
 			$nivelEducativo="Educación Preescolar";
 		}
-		if (strpos($grado, "Primero") !== false)
+		if (strpos($grado, "1st grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Segundo") !== false)
+		if (strpos($grado, "2nd grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Tercero") !== false)
+		if (strpos($grado, "3rd grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Cuarto") !== false)
+		if (strpos($grado, "4th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Quinto") !== false)
+		if (strpos($grado, "5th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Sexto") !== false)
+		if (strpos($grado, "6th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Séptimo") !== false)
+		if (strpos($grado, "7th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Octavo") !== false)
+		if (strpos($grado, "8th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Noveno") !== false)
+		if (strpos($grado, "9th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Décimo") !== false)
+		if (strpos($grado, "10th grade") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
-		if (strpos($grado, "Undécimo") !== false)
+		if (strpos($grado, "11th grade") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
-		if (strpos($grado, "Ciclo I") !== false)
-		{
-			$nivelEducativo="Educación Básica Primaria";
-		}
-		if (strpos($grado, "Ciclo II") !== false)
-		{
-			$nivelEducativo="Educación Básica Primaria";
-		}
-		if (strpos($grado, "Ciclo III") !== false)
-		{
-			$nivelEducativo="Educación Básica Secundaria";
-		}
-		if (strpos($grado, "Ciclo IV") !== false)
-		{
-			$nivelEducativo="Educación Básica Secundaria";
-		}
-		if (strpos($grado, "Ciclo V") !== false)
+		if (strpos($grado, "12th grade") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
-		if (strpos($grado, "Ciclo VI") !== false)
+		if (strpos($grado, "Cycle I") !== false)
+		{
+			$nivelEducativo="Educación Básica Primaria";
+		}
+		if (strpos($grado, "Cycle II") !== false)
+		{
+			$nivelEducativo="Educación Básica Primaria";
+		}
+		if (strpos($grado, "Cycle III") !== false)
+		{
+			$nivelEducativo="Educación Básica Secundaria";
+		}
+		if (strpos($grado, "Cycle IV") !== false)
+		{
+			$nivelEducativo="Educación Básica Secundaria";
+		}
+		if (strpos($grado, "Cycle V") !== false)
+		{
+			$nivelEducativo="Educación Media Académica";
+		}
+		if (strpos($grado, "Cycle VI") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
@@ -611,7 +581,7 @@
                                     $json_id_mat = $promedios->{'id_mat'};
                                     $json_nfinal = $promedios->{'nfinal'};
                                     //Se busca el pensamiento y la materia
-                                    $sql_materia = "SELECT * FROM materias WHERE id = ".$json_id_mat;
+                                    $sql_materia = "SELECT * FROM tbl_materias WHERE id = ".$json_id_mat;
                                     $exe_materia=mysqli_query($conexion,$sql_materia);
                                 	while ($fila_materia = mysqli_fetch_array($exe_materia)) {
                                 	    $pensamiento = $fila_materia['pensamiento'];
@@ -735,77 +705,81 @@
 		}
 
 		switch ($grado) {
-		    case "Transición":
-		        $grado="Transition";
-				$nivelEducativo="Preschool Education";
+			case "No degree":
+		        $grado="No degree";
+				$nivelEducativo="Kindergarten";
 		        break;
-		    case "Primero":
-		         $grado="1<sup>st</sup> grade";
-				 $nivelEducativo="Elementary Education";
+			case "1st grade":
+		        $grado="1<sup>st</sup> grade";
+				$nivelEducativo="Elementary School";
 		        break;
-		    case "Segundo":
-		       $grado="2<sup>nd</sup> grade";
-				$nivelEducativo="Elementary Education";
+			case "2nd grade":
+		        $grado="2<sup>nd</sup> grade";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Tercero":
+			case "3rd grade":
 		        $grado="3<sup>rd</sup> grade";
-				$nivelEducativo="Elementary Education";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Cuarto":
+			case "4th grade":
 		        $grado="4<sup>th</sup> grade";
-				$nivelEducativo="Elementary Education";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Quinto":
+			case "5th grade":
 		        $grado="5<sup>th</sup> grade";
-				$nivelEducativo="Elementary Education";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Sexto":
+			case "6th grade":
 		        $grado="6<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="Middle School";
 		        break;
-			case "Séptimo":
+			case "7th grade":
 		        $grado="7<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="Middle School";
 		        break;
-			case "Octavo":
+			case "8th grade":
 		        $grado="8<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="Middle School";
 		        break;
-			case "Noveno":
+			case "9th grade":
 		        $grado="9<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="High School";
 		        break;
-			case "Décimo":
+			case "10th grade":
 		        $grado="10<sup>th</sup> grade";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
-			case "UnDécimo":
+			case "11th grade":
 		        $grado="11<sup>th</sup> grade";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
-			case "Ciclo I":
+			case "12th grade":
+		        $grado="12<sup>th</sup> grade";
+				$nivelEducativo="High School";
+		        break;
+			case "Cycle I":
 		        $grado="Cycle I";
 				$nivelEducativo="Elementary Education";
 		        break;
-			case "Ciclo II":
+			case "Cycle II":
 		        $grado="Cycle II";
 				$nivelEducativo="Elementary Education";
 		        break;
-			case "Ciclo III":
+			case "Cycle III":
 		        $grado="Cycle III";
 				$nivelEducativo="Secondary Education";
 		        break;
-			case "Ciclo IV":
+			case "Cycle IV":
 		        $grado="Cycle IV";
 				$nivelEducativo="Secondary Education";
 		        break;
-			case "Ciclo V":
+			case "Cycle V":
 		        $grado="Cycle V";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
-			case "Ciclo VI":
+			case "Cycle VI":
 		        $grado="Cycle VI";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
 			default:
 			 	$grado="Undefined";

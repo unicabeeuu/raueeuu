@@ -69,23 +69,23 @@ CREATE TABLE tbl_equivalence_idgra (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO `tbl_equivalence_idgra` (`id_category`, `name`, `id_grado_ra`, `grado_ra`) VALUES
-(4, 'Primero 1°', 2, 'Primero'),
-(5, 'Segundo 2°', 3, 'Segundo'),
-(6, 'Tercero 3°', 4, 'Tercero'),
-(8, 'Cuarto 4°', 5, 'Cuarto'),
-(9, 'Quinto 5°', 6, 'Quinto'),
-(12, 'Sexto 6 °', 7, 'Sexto'),
-(13, 'Séptimo 7°', 8, 'Septimo'),
-(14, 'Octavo 8°', 9, 'Octavo'),
-(15, 'Noveno 9°', 10, 'Noveno'),
-(16, 'Décimo 10°', 11, 'Decimo'),
-(17, 'Once 11°', 12, 'Once'),
-(19, 'Ciclo III', 15, 'Ciclo III'),
-(20, 'Ciclo IV', 16, 'Ciclo IV'),
-(22, 'Ciclo V', 17, 'Ciclo V'),
-(23, 'Ciclo VI', 18, 'Ciclo VI'),
-(28, 'Ciclo I', 13, 'Ciclo I'),
-(30, 'Ciclo II', 14, 'Ciclo II');
+(4, '2nd grade', 2, '2nd grade'),
+(5, '3rd grade', 3, '3rd grade'),
+(6, '4th grade', 4, '4th grade'),
+(8, '5th grade', 5, '5th grade'),
+(9, '6th grade', 6, '6th grade'),
+(12, '7th grade', 7, '7th grade'),
+(13, '8th grade', 8, '8th grade'),
+(14, '9th grade', 9, '9th grade'),
+(15, '10th grade', 10, '10th grade'),
+(16, '11th grade', 11, '11th grade'),
+(17, '12th grade', 12, '12th grade'),
+(19, 'Cycle III', 15, 'Cycle III'),
+(20, 'Cycle IV', 16, 'Cycle IV'),
+(22, 'Cycle V', 17, 'Cycle V'),
+(23, 'Cycle VI', 18, 'Cycle VI'),
+(28, 'Cycle I', 13, 'Cycle I'),
+(30, 'Cycle II', 14, 'Cycle II');
 
 
 

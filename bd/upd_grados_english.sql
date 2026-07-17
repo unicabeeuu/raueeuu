@@ -32,3 +32,13 @@ UPDATE tbl_grados SET grado = 'Cycle VI'   WHERE id = 18; /* antes: Ciclo VI  */
 INSERT INTO tbl_grados (id, grado)
 SELECT 0, 'No degree'
 WHERE NOT EXISTS (SELECT 1 FROM tbl_grados WHERE id = 0);
+
+/* ----------------------------------------------------------------------------
+   tbl_equivalence_idgra: sincroniza name y grado_ra con los nombres nuevos
+   de tbl_grados (dropdowns de admisiones, carnets, certificados, Moodle).
+   Idempotente: puede ejecutarse varias veces.
+   ---------------------------------------------------------------------------- */
+
+UPDATE tbl_equivalence_idgra eg
+JOIN tbl_grados g ON eg.id_grado_ra = g.id
+SET eg.name = g.grado, eg.grado_ra = g.grado;

@@ -171,11 +171,11 @@ text-align : justify;
 				INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante
 				INNER JOIN grados ON matricula.id_grado=grados.id
 				WHERE estudiantes.id=".$id_estudiante."";*/
-	$peticion= "SELECT e.*, td.tipo_documento tipdoc, g.grado, m.estado, m.id_grado 
-				FROM estudiantes e
-				INNER JOIN matricula m ON e.id = m.id_estudiante
-				INNER JOIN grados g ON m.id_grado = g.id 
-				INNER JOIN tbl_tipos_documento td ON e.tipo_documento = td.id 
+	$peticion= "SELECT e.*, td.tipo_documento tipdoc, g.grado, m.estado, m.id_grado
+				FROM tbl_estudiantes e
+				INNER JOIN tbl_matriculas m ON e.id = m.id_estudiante
+				INNER JOIN tbl_grados g ON m.id_grado = g.id
+				INNER JOIN tbl_tipos_documento td ON e.tipo_documento = td.id
 				WHERE e.id=".$id_estudiante;
 	$resultado = mysqli_query($conexion, $peticion);
 	while ($fila = mysqli_fetch_array($resultado)){
@@ -201,7 +201,7 @@ text-align : justify;
 		$variableCuatro="activa";
 	}
 	// matricula
-	$sql_matricula="SELECT * FROM `matricula` WHERE `id_estudiante`=".$id_estudiante."";
+	$sql_matricula="SELECT * FROM `tbl_matriculas` WHERE `id_estudiante`=".$id_estudiante."";
 	$exe_matricula=mysqli_query($conexion,$sql_matricula);
 	while ($rowM=mysqli_fetch_array($exe_matricula)) {
 		$anio=$rowM['fecha_ingreso'];
@@ -209,12 +209,12 @@ text-align : justify;
 	// matricula
 
 	// numero certificado
-	$sql_certificado="SELECT * FROM `certificado`";
+	$sql_certificado="SELECT * FROM `tbl_certificados`";
 	$exe_certificado=mysqli_query($conexion,$sql_certificado);
 	$certicado_total=mysqli_num_rows($exe_certificado);
 	// numero certificado
 	
-	$tabla = "notas";
+	$tabla = "tbl_notas";
 
 	/*$sql_notas="SELECT estudiantes.id AS id_estudiantes, estudiantes.apellidos, estudiantes.nombres, estudiantes.n_documento, estudiantes.ciudad, 
 	grados.id as id_grado, grados.grado, materias.materia, materias.materiaIngles, materias.pensamiento, materias.pensamientoingles, periodos.id, notas.nota 
@@ -233,7 +233,7 @@ text-align : justify;
 			p1.nota
 			FROM 
 			(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-			FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+			FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 			WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 			AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1 
 			ORDER BY 2";
@@ -243,11 +243,11 @@ text-align : justify;
 			(p1.nota + p2.nota)/2 nota 
 			FROM 
 			(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-			FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+			FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 			WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 			AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1, 
 			(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-			FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+			FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 			WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 			AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2 
 			WHERE p1.id_estudiante = p2.id_estudiante  
@@ -260,15 +260,15 @@ text-align : justify;
 			(p1.nota + p2.nota + p3.nota)/3 nota 
 			FROM 
 			(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-			FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+			FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 			WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 			AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1, 
 			(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-			FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+			FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 			WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 			AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2, 
 			(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-			FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+			FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 			WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 			AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 3) p3 
 			WHERE p1.id_estudiante = p2.id_estudiante AND p1.id_estudiante = p3.id_estudiante  
@@ -281,19 +281,19 @@ text-align : justify;
 		(p1.nota + p2.nota + p3.nota + p4.nota)/4 nota 
 		FROM 
 		(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-		FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+		FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 		AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1, 
 		(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-		FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+		FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 		AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2, 
 		(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-		FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+		FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 		AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 3) p3, 
 		(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-		FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+		FROM ".$tabla." n, tbl_estudiantes e, tbl_materias m, tbl_grados g, tbl_periodos p
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
 		AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 4) p4 
 		WHERE p1.id_estudiante = p2.id_estudiante AND p1.id_estudiante = p3.id_estudiante AND p1.id_estudiante = p4.id_estudiante 
@@ -306,74 +306,79 @@ text-align : justify;
 	
 	//certificado español
 	if ($idioma=="espanol") {
-		if (strpos($grado, "Transición") !== false){
+		if (strpos($grado, "Kindergarten") !== false || strpos($grado, "No degree") !== false)
+		{
 			$nivelEducativo="Educación Preescolar";
 		}
-		if (strpos($grado, "Primero") !== false)
+		if (strpos($grado, "1st grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Segundo") !== false)
+		if (strpos($grado, "2nd grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Tercero") !== false)
+		if (strpos($grado, "3rd grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Cuarto") !== false)
+		if (strpos($grado, "4th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Quinto") !== false)
+		if (strpos($grado, "5th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Primaria";
 		}
-		if (strpos($grado, "Sexto") !== false)
+		if (strpos($grado, "6th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Séptimo") !== false)
+		if (strpos($grado, "7th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Octavo") !== false)
+		if (strpos($grado, "8th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Noveno") !== false)
+		if (strpos($grado, "9th grade") !== false)
 		{
 			$nivelEducativo="Educación Básica Secundaria";
 		}
-		if (strpos($grado, "Décimo") !== false)
+		if (strpos($grado, "10th grade") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
-		if (strpos($grado, "Undécimo") !== false)
+		if (strpos($grado, "11th grade") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
-		if (strpos($grado, "Ciclo I") !== false)
-		{
-			$nivelEducativo="Educación Básica Primaria";
-		}
-		if (strpos($grado, "Ciclo II") !== false)
-		{
-			$nivelEducativo="Educación Básica Primaria";
-		}
-		if (strpos($grado, "Ciclo III") !== false)
-		{
-			$nivelEducativo="Educación Básica Secundaria";
-		}
-		if (strpos($grado, "Ciclo IV") !== false)
-		{
-			$nivelEducativo="Educación Básica Secundaria";
-		}
-		if (strpos($grado, "Ciclo V") !== false)
+		if (strpos($grado, "12th grade") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
-		if (strpos($grado, "Ciclo VI") !== false)
+		if (strpos($grado, "Cycle I") !== false)
+		{
+			$nivelEducativo="Educación Básica Primaria";
+		}
+		if (strpos($grado, "Cycle II") !== false)
+		{
+			$nivelEducativo="Educación Básica Primaria";
+		}
+		if (strpos($grado, "Cycle III") !== false)
+		{
+			$nivelEducativo="Educación Básica Secundaria";
+		}
+		if (strpos($grado, "Cycle IV") !== false)
+		{
+			$nivelEducativo="Educación Básica Secundaria";
+		}
+		if (strpos($grado, "Cycle V") !== false)
+		{
+			$nivelEducativo="Educación Media Académica";
+		}
+		if (strpos($grado, "Cycle VI") !== false)
 		{
 			$nivelEducativo="Educación Media Académica";
 		}
@@ -627,77 +632,81 @@ text-align : justify;
 		}
 
 		switch ($grado) {
-		    case "Transición":
-		        $grado="Transition";
-				$nivelEducativo="Preschool Education";
+			case "No degree":
+		        $grado="No degree";
+				$nivelEducativo="Kindergarten";
 		        break;
-		    case "Primero":
-		         $grado="1<sup>st</sup> grade";
-				 $nivelEducativo="Elementary Education";
+			case "1st grade":
+		        $grado="1<sup>st</sup> grade";
+				$nivelEducativo="Elementary School";
 		        break;
-		    case "Segundo":
-		       $grado="2<sup>nd</sup> grade";
-				$nivelEducativo="Elementary Education";
+			case "2nd grade":
+		        $grado="2<sup>nd</sup> grade";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Tercero":
+			case "3rd grade":
 		        $grado="3<sup>rd</sup> grade";
-				$nivelEducativo="Elementary Education";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Cuarto":
+			case "4th grade":
 		        $grado="4<sup>th</sup> grade";
-				$nivelEducativo="Elementary Education";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Quinto":
+			case "5th grade":
 		        $grado="5<sup>th</sup> grade";
-				$nivelEducativo="Elementary Education";
+				$nivelEducativo="Elementary School";
 		        break;
-			case "Sexto":
+			case "6th grade":
 		        $grado="6<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="Middle School";
 		        break;
-			case "Séptimo":
+			case "7th grade":
 		        $grado="7<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="Middle School";
 		        break;
-			case "Octavo":
+			case "8th grade":
 		        $grado="8<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="Middle School";
 		        break;
-			case "Noveno":
+			case "9th grade":
 		        $grado="9<sup>th</sup> grade";
-				$nivelEducativo="Secondary Education";
+				$nivelEducativo="High School";
 		        break;
-			case "Décimo":
+			case "10th grade":
 		        $grado="10<sup>th</sup> grade";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
-			case "UnDécimo":
+			case "11th grade":
 		        $grado="11<sup>th</sup> grade";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
-			case "Ciclo I":
+			case "12th grade":
+		        $grado="12<sup>th</sup> grade";
+				$nivelEducativo="High School";
+		        break;
+			case "Cycle I":
 		        $grado="Cycle I";
 				$nivelEducativo="Elementary Education";
 		        break;
-			case "Ciclo II":
+			case "Cycle II":
 		        $grado="Cycle II";
 				$nivelEducativo="Elementary Education";
 		        break;
-			case "Ciclo III":
+			case "Cycle III":
 		        $grado="Cycle III";
 				$nivelEducativo="Secondary Education";
 		        break;
-			case "Ciclo IV":
+			case "Cycle IV":
 		        $grado="Cycle IV";
 				$nivelEducativo="Secondary Education";
 		        break;
-			case "Ciclo V":
+			case "Cycle V":
 		        $grado="Cycle V";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
-			case "Ciclo VI":
+			case "Cycle VI":
 		        $grado="Cycle VI";
-				$nivelEducativo="high School";
+				$nivelEducativo="High School";
 		        break;
 			default:
 			 	$grado="Undefined";
