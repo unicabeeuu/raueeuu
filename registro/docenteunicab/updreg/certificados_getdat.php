@@ -24,7 +24,7 @@ if (isset($_SESSION['uniprofe'])) {
     }
     
     if($id == 18 || $id == 3) {
-        $query = "SELECT * FROM tbl_equivalence_idgra";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     }
     else {
         //$query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id";
@@ -39,7 +39,8 @@ if (isset($_SESSION['uniprofe'])) {
         FROM tbl_equivalence_idgra eg, tbl_dir_c dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
         UNION ALL 
         SELECT DISTINCT eg.* 
-        FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id) a ";
+        FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id) a
+        WHERE a.id_grado_ra = 0 OR (a.id_grado_ra BETWEEN 9 AND 12) ORDER BY a.id_grado_ra";
     }
     
     $resultado=$mysqli1->query($query);

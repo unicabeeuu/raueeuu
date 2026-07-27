@@ -76,7 +76,7 @@ if (isset($_SESSION['unisuper'])) {
                     		<div class="panel-group" id="accordion">
 					    <!-- <div class="embed-responsive embed-responsive-16by9"> -->
 					    	<?php 
-					    	$sql_grado="SELECT * FROM grados";
+					    	$sql_grado="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 							$consulta=mysqli_query($conexion,$sql_grado);	
 					    	while ($fila = mysqli_fetch_array($consulta)){
 					    		echo '  

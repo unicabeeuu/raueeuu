@@ -26,7 +26,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 	$total_matricula=mysqli_num_rows($exe_matricula);
 	//buscar ultima matricula
 
-	$sql="SELECT * FROM grados";
+	$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 	$resultado = mysqli_query($conexion, $sql);
 
 ?>

@@ -174,7 +174,7 @@ if (isset($_SESSION['unisuper'])) {
 												<div class="col-sm-8">
 													<select id="id_grado" name="id_grado" class="form-control1" required>
 												<?php 
-													$sql="SELECT * FROM grados";
+													$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 													$sqlgrado = mysqli_query($conexion, $sql);
 													while ($fila=mysqli_fetch_array($sqlgrado)){
 														echo '<option value="'.$fila['id'].'">'.$fila['grado'].'</option>';

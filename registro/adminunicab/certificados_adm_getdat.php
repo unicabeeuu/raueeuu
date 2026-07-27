@@ -20,11 +20,12 @@ if (isset($_SESSION['unisuper'])) {
 		$perfil = $fila['perfil'];
     }
     
+    /* Grados activos del high school: 0 (Kindergarten) y 9 a 12 */
     if($id == 18 || $id == 3 || $id == 43) {
-        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_category > 0 AND id_category < 32";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     }
     else {
-        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id";
+        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ORDER BY eg.id_grado_ra";
     }
     
     $resultado=$mysqli1->query($query);

@@ -23,7 +23,7 @@ if (isset($_SESSION['uniprofe'])) {
 		
     }
     
-    $query = "SELECT * FROM tbl_equivalence_idgra";
+    $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);

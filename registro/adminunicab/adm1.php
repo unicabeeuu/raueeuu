@@ -277,14 +277,15 @@ legend {
                         				                        					<form class="form-horizontal" action="../docenteunicab/updreg/estudianteg_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                         				                        					<ul class="mprincipal">
                         				                        						<li><h3>SEARCH BY GRADE ACTIVE<span style="color: white;">.....</span>
-                        				                        						<input type="checkbox" class="chk" id="chkper" name="chkper"/> <span style="color: red;">Failing</span>
+                        				                        						<!--<input type="checkbox" class="chk" id="chkper" name="chkper"/> 
+																						<span style="color: red;">Failing</span>
                         				                        						<select id="selper" name="selper">
                         				                        						    <option value="0">Sel. period</option>
                         				                        						    <option value="1">1</option>
                         				                        						    <option value="2">2</option>
                         				                        						    <option value="3">3</option>
                         				                        						    <option value="4">4</option>
-                        				                        						</select>
+                        				                        						</select>  -->
                         				                        						</h3></li>
                         				                        							<ul class="msecund">
                         				                        								<li>
@@ -364,7 +365,7 @@ legend {
                         				                                							</ul>
                         				                                					</ul>
                         				                                				</form>
-                        																<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_eval_admision.php"  method="POST" target="_blank">
+                        																<!--<form class="form-horizontal" action="../docenteunicab/updreg/bd_exportar_eval_admision.php"  method="POST" target="_blank">
                         				                                					<ul class="mprincipal">
                         				                                						<li><h3>LIST OF ADMISSION EVALUATIONS</h3></li>
                         				                                							<ul class="msecund">
@@ -373,7 +374,7 @@ legend {
                         				    															</li>
                         				                                							</ul>
                         				                                					</ul>
-                        				                                				</form>
+                        				                                				</form>-->
                         				                            				<?php
                         				                                                }
                         				                        					?>

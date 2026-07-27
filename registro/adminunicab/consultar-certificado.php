@@ -67,7 +67,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </style>
 <?php require 'php/conexion.php';
 
-$sql="SELECT * FROM grados";
+$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 	$gradoActual="No se encontraron estudiantes matriculados";
 // '".$_POST["id_grado"]."'
 	if (!isset($_POST["id_grado"])) {

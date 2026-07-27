@@ -61,7 +61,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
 		tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
-		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
 		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
 		AND m.estado IN ('activo', 'aprobado', 'reprobado') AND m.n_matricula like '%-".$fanio."-%' 
@@ -78,7 +78,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
 		tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
-		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
 		ON em.id = ee.id_moodle ) a, carga_profesor cp 
 		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
 		AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
@@ -93,7 +93,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
         tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
-        FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+        FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_direccion_grado dg 
         WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
@@ -108,7 +108,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
         tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
-        FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+        FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_dir_b db 
         WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = db.id_grado AND db.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
@@ -123,7 +123,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
         tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
-        FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+        FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_dir_c dc 
         WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = dc.id_grado AND dc.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
@@ -138,7 +138,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
         tbl_matriculas m, tbl_equivalence_idgra eg, 
         (SELECT em.*, ee.id_registro 
-        FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+        FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
         ON em.id = ee.id_moodle ) a, tbl_dir_d dd 
         WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = dd.id_grado AND dd.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 

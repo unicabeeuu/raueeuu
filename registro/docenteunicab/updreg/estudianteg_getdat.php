@@ -12,8 +12,10 @@
 	$fila = 0;
 	
 	$gra = strtoupper($_REQUEST['selgra1']);
-	$perdiendo = $_REQUEST['chkper'];
-	$per1 = $_REQUEST['selper'];
+	// $perdiendo = $_REQUEST['chkper'];
+	$perdiendo = false;
+	// $per1 = $_REQUEST['selper'];
+	$per1 = 0;
 	$grupo = $_REQUEST['selgrupo'];
 	//echo $gra;
 	//echo "perdiendo".$perdiendo;
@@ -74,7 +76,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota), id_estudiante, id_materia 
-                FROM `notas` 
+                FROM `tbl_notas` 
                 WHERE id_grado = ".$idgra." AND id_periodo = 1 
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota) <= 3.5) a";
@@ -83,7 +85,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota)/2, id_estudiante, id_materia 
-                FROM `notas` 
+                FROM `tbl_notas` 
                 WHERE id_grado = ".$idgra." AND id_periodo IN (1,2) 
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota)/2 <= 3.5) a";
@@ -92,7 +94,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota)/3, id_estudiante, id_materia 
-                FROM `notas` 
+                FROM `tbl_notas` 
                 WHERE id_grado = ".$idgra." AND id_periodo IN (1,2,3) 
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota)/3 <= 3.5) a";
@@ -101,7 +103,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota)/4, id_estudiante, id_materia 
-                FROM `notas` 
+                FROM `tbl_notas` 
                 WHERE id_grado = ".$idgra."
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota)/4 <= 3.5) a";

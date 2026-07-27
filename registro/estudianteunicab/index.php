@@ -2,7 +2,7 @@
 session_start();
 include "../adminunicab/php/conexion.php";
 if (isset($_SESSION['uniestudiante'])) {
-	$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+	$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 	$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){

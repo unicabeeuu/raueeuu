@@ -48,7 +48,7 @@
 	$cadena = "<table class='table' border='1px'><thead><tr><td>Grado</td><td>Id_gra</td><td>Idnumber</td>
 	    <td>BIO</td><td>FIS</td><td>SOC</td><td>NUM</td><td>ESP</td><td>ING</td><td>TEC</td></tr></thead><tbody>";
 	
-	$query1 = "SELECT id_grado_ra, grado_ra FROM tbl_equivalence_idgra WHERE id_grado_ra != 0 ORDER BY id_grado_ra";
+	$query1 = "SELECT id_grado_ra, grado_ra FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
 	//echo $query1;
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()){

@@ -62,7 +62,7 @@ if (isset($_SESSION['unisuper'])) {
 }
 </style>
 <?php require 'php/conexion.php';
-$sql="SELECT * FROM tbl_grados";
+$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 	$tbl_gradosActual="No se encontraron tbl_estudiantes tbl_matriculasdos";
 	$peticion="SELECT tbl_estudiantes.apellidos, tbl_estudiantes.id, tbl_estudiantes.nombres, tbl_estudiantes.genero, tbl_estudiantes.n_documento, tbl_estudiantes.email_institucional, tbl_grados.grado AS tbl_grados
 	    FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id = tbl_matriculas.id_grado
