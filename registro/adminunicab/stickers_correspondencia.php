@@ -19,12 +19,15 @@ if (isset($_SESSION['unisuper'])) {
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
     }
-    
-    $query = "SELECT DISTINCT dv.grado id_grado, g.grado FROM tbl_stickers_virtuales dv, tbl_grados g WHERE dv.grado = g.id";
+
+    date_default_timezone_set('America/Bogota');
+    $fanio = date("Y");
+
+    /* Grados activos del high school: 0 (Kindergarten) y 9 a 12 */
+    $query = "SELECT DISTINCT dv.grado id_grado, g.grado FROM tbl_stickers_virtuales dv, tbl_grados g WHERE dv.grado = g.id AND (g.id = 0 OR g.id BETWEEN 9 AND 12) ORDER BY id_grado";
     
     $resultado=$mysqli1->query($query);
-    $resultado1=$mysqli1->query($query);
-    
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -86,8 +89,7 @@ if (isset($_SESSION['unisuper'])) {
             $("#divtabla").empty();
             $("#search").hide();
             $("#idest").val("0");
-            $("#submit1").hide("");
-            
+
             $("#resul_est").html("");
             
             let gra = $("#selgra1").val();
@@ -108,27 +110,6 @@ if (isset($_SESSION['unisuper'])) {
     		}
     	});
     	
-    	$("#selgra2").change(function() {
-            $("#divtabla").empty();
-            $("#resul_est").empty();
-            $("#txtidest").val("");
-            $("#search").hide();
-            $("#idest").val("0");
-            $("#submit").hide("");
-            $("#idest").hide("");
-            $("#periodo").hide("");
-            
-            let gra = $("#selgra2").val();
-    		$("#lblgra1").html("Grado = " + gra);
-            
-    		if(gra == "NA") {
-    			$("#submit1").hide("");
-    		}
-    		else {
-    		    $("#submit1").show("");
-    		}
-    	});
-    	
     	$("#search").keyup(function(){
             _this = this;
             // Show only matching TR, hide rest of them
@@ -142,23 +123,6 @@ if (isset($_SESSION['unisuper'])) {
     	});
     	
     });
-    
-    function consultar_pazsalvo() {
-        let idgra = $("#selgra2").val();
-        let anio = $("#idanio").val();
-        
-        //alert (anio);
-        $.ajax({
-    		type:"POST",
-    		url:"pazsalvo_est_getdat1.php",
-    		data:"idgra=" + $("#selgra2").val() + "&anio=" + anio,
-    		success:function(r) {
-    		    $("#search").show();
-    		    $("#divtabla").html(r);
-    			//$("#tbodyact").html(r);
-    		}
-    	});
-    }
     
     function consultar_estudiantes() {
         let idgra = $("#selgra1").val();
@@ -300,7 +264,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<!--<input type="text" id="idest" name="idest" placeholder="idest" style="width: 50px; display: none;" value="0" onchange="idest_.value = this.value"/>
 													<label style="color: white;">...</label>-->
-													<input type="text" id="periodo" name="periodo" placeholder="year" style="width: 50px;" value="2025" onchange="a_.value = this.value"/>
+													<input type="text" id="periodo" name="periodo" placeholder="year" style="width: 50px;" value="<?php echo $fanio; ?>" onchange="a_.value = this.value"/>
 													<label style="color: white;">...</label>
 													<button id="btnbuscar" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_estudiantes()">Search</button>
 												</li>
@@ -315,7 +279,7 @@ if (isset($_SESSION['unisuper'])) {
             						<form class="form-horizontal" action="stickers_correspondencia2.php"  method="POST" target="_blank"> -->
             						    <input type="hidden" id="selgra1_" name="selgra1_">
             						    <input type="hidden" id="idest_" name="idest_">
-            						    <input type="hidden" id="a_" name="a_" value="2025">
+            						    <input type="hidden" id="a_" name="a_" value="<?php echo $fanio; ?>">
             						    <div>
                 						    <label>Student IDs:</label>
                 						    <textarea id="txtidest" name="txtidest" readonly style="width: 100%; background: #222a75" height="50px"></textarea>
@@ -344,7 +308,7 @@ if (isset($_SESSION['unisuper'])) {
 						    
 						</div>
 						<div id="divcontrol" style="display: none;">
-						    <label id="lblgra"></label><label id="lblgra1"></label>
+						    <label id="lblgra"></label>
 						</div>
 						
 					</div>
