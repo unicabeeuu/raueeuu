@@ -89,7 +89,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	where tbl_grados.id=".$_POST['id_grado']."  and tbl_matriculas.estado='activo' ORDER BY tbl_grados.grado";
  	}
 	// var_dump($peticion);
-	echo $peticion;
+	// echo $peticion;
 	
 	$res=mysqli_query($conexion,$peticion);
 	
@@ -186,12 +186,12 @@ $resultado1 = mysqli_query($conexion, $peticion);
 
 											<?php
 										$sql_historial="SELECT tbl_estudiantes.id AS id_estudiante, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_estudiantes.n_documento, 
-										tbl_matriculas.estado, tbl_matriculas.idMatricula, tbl_matriculas.EstadoGrado, tbl_grados.id AS id_grado, tbl_grados.grado, tbl_matriculas.fecha_ingreso 
-										FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) 
-										ON tbl_grados.id = tbl_matriculas.id_grado 
-										WHERE tbl_estudiantes.n_documento='".$numero_documento."' and tbl_matriculas.estado IN ('activo', 'retirado', 'aprobado', 'reprobado') 
-										AND date_format(tbl_matriculas.fecha_ingreso, '%Y') = $aant 
-										ORDER By tbl_matriculas.idMatricula ASC";
+										tbl_matriculas.estado, tbl_matriculas.id AS idMatricula, tbl_matriculas.estado_grado AS EstadoGrado, tbl_grados.id AS id_grado, tbl_grados.grado, tbl_matriculas.fecha_ingreso
+										FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante)
+										ON tbl_grados.id = tbl_matriculas.id_grado
+										WHERE tbl_estudiantes.n_documento='".$numero_documento."' and tbl_matriculas.estado IN ('activo', 'retirado', 'aprobado', 'reprobado')
+										AND date_format(tbl_matriculas.fecha_ingreso, '%Y') = $aant
+										ORDER By tbl_matriculas.id ASC";
 										//echo $sql_historial;
 										
 										$exe_historial=mysqli_query($conexion,$sql_historial);

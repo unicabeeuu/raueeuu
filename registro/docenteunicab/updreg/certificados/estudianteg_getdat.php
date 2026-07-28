@@ -116,8 +116,8 @@
 	//Se valida el estado
 	if($estado == 'activo') {
 	    if($grupo == "NA") {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 
@@ -128,8 +128,8 @@
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND m.estado = '$estado'  AND e.estado != 'Retirado'";
 	    }
 	    else {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 
@@ -144,8 +144,8 @@
 	}
 	else if($estado == 'inactivo') {
 	    if($grupo == "NA") {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 
@@ -156,8 +156,8 @@
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND m.id_grado = eg.id_grado_ra AND m.estado = '$estado'";
 	    }
 	    else {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 

@@ -19,9 +19,9 @@ if (isset($_SESSION['unisuper'])) {
     
 	$id_estudiante=$_GET['id'];
 	//buscar ultima matricula
-$sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id as 'id_grado', tbl_grados.grado, tbl_matriculas.EstadoGrado 
-	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante 
-	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";
+$sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id as 'id_grado', tbl_grados.grado, tbl_matriculas.estado_grado AS EstadoGrado
+	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante
+	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY tbl_matriculas.id DESC LIMIT 1 ";
 	$exe_matricula=mysqli_query($conexion,$sql_matricula);
 	$total_matricula=mysqli_num_rows($exe_matricula);
 	//buscar ultima matricula
@@ -141,7 +141,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 																echo '<option value="'.$filaE['id_grado'].'">'.$filaE['grado'].'</option>';
 															}else{
 																$actualizar_grado++;
-																$buscar_grado="SELECT * FROM `grados` WHERE `id`=".$actualizar_grado."";
+																$buscar_grado="SELECT * FROM `tbl_grados` WHERE `id`=".$actualizar_grado."";
 																$exe_buscar=mysqli_query($conexion,$buscar_grado);
 																while ($rowGrado = mysqli_fetch_array($exe_buscar)) {
 																	echo '<option value="'.$rowGrado['id'].'">'.$rowGrado['grado'].'</option>';	
@@ -154,7 +154,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 																echo '<option value="'.$filaE['id_grado'].'">'.$filaE['grado'].'</option>';
 															}else{
 																$actualizar_grado++;
-																$buscar_grado="SELECT * FROM `grados` WHERE `id`=".$actualizar_grado."";
+																$buscar_grado="SELECT * FROM `tbl_grados` WHERE `id`=".$actualizar_grado."";
 																echo $buscar_grado;
 																$exe_buscar1=mysqli_query($conexion,$buscar_grado);
 																while ($rowGrado = mysqli_fetch_array($exe_buscar1)) {

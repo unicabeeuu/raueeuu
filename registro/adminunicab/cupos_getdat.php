@@ -30,8 +30,8 @@ if (isset($_SESSION['unisuper'])) {
 	$a = date("Y",$fecha);
     
     $query = "SELECT COUNT(1) ct, c.id_grado_solicitado, g.grado 
-    FROM tbl_cupos c, grados g 
-    WHERE c.id_grado_solicitado = g.id AND c.n_documento != '9397454' 
+    FROM tbl_cupos c, tbl_grados g
+    WHERE c.id_grado_solicitado = g.id AND c.n_documento != '9397454'
     GROUP BY id_grado_solicitado, g.grado";
     //echo $query;
     $resultado1 = $mysqli1->query($query);

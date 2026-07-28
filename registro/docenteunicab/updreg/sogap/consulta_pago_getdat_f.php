@@ -32,8 +32,8 @@
 	$concepto1 = "";
 	
 	//Se consulta el grado del estudiante
-	$query00 = "SELECT id_grado FROM matricula 
-	WHERE idMatricula = (SELECT MAX(idMatricula) idmax FROM matricula WHERE id_estudiante = (SELECT id FROM estudiantes WHERE n_documento = '$ndoc'))";
+	$query00 = "SELECT id_grado FROM tbl_matriculas
+	WHERE id = (SELECT MAX(id) idmax FROM tbl_matriculas WHERE id_estudiante = (SELECT id FROM tbl_estudiantes WHERE n_documento = '$ndoc'))";
 	//echo $query00;
 	$resultado0=$mysqli1->query($query00);
 	while($row0 = $resultado0->fetch_assoc()){

@@ -19,13 +19,13 @@ if (isset($_SESSION['unisuper'])) {
     
 	$id_estudiante=$_GET['id'];
 	//buscar ultima matricula
-	/*$sql_matricula="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.id as 'id_grado', grados.grado, matricula.EstadoGrado 
-	FROM estudiantes INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante 
-	INNER JOIN grados ON matricula.id_grado=grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";*/
+	/*$sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id as 'id_grado', tbl_grados.grado, tbl_matriculas.estado_grado AS EstadoGrado
+	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante
+	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY tbl_matriculas.id DESC LIMIT 1 ";*/
 $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_estudiantes.n_documento, tbl_estudiantes.email_institucional, 
-	tbl_grados.id id_grado, tbl_grados.grado, tbl_matriculas.EstadoGrado, tbl_matriculas.n_matricula, tbl_matriculas.fecha_ingreso  
-	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante 
-	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";
+	tbl_grados.id id_grado, tbl_grados.grado, tbl_matriculas.estado_grado AS EstadoGrado, tbl_matriculas.n_matricula, tbl_matriculas.fecha_ingreso
+	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante
+	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY tbl_matriculas.id DESC LIMIT 1 ";
 	$exe_matricula=mysqli_query($conexion,$sql_matricula);
 	$total_matricula=mysqli_num_rows($exe_matricula);
 	
@@ -51,7 +51,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 	$a = date("Y",$fecha);
 	
 	//Se consulta la cantidad de estudiantes por grupo
-	$sql_grupoA = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'A' 
+	$sql_grupoA = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'A' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoA = mysqli_query($conexion,$sql_grupoA);
@@ -59,7 +59,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 	    $ctA = $rowA['ct'];
 	}
 	
-	$sql_grupoB = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'B' 
+	$sql_grupoB = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'B' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoB = mysqli_query($conexion,$sql_grupoB);
@@ -67,7 +67,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 	    $ctB = $rowB['ct'];
 	}
 	
-	$sql_grupoC = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'C' 
+	$sql_grupoC = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'C' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoC = mysqli_query($conexion,$sql_grupoC);
@@ -75,7 +75,7 @@ $sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudi
 	    $ctC = $rowC['ct'];
 	}
 	
-	$sql_grupoD = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'D' 
+	$sql_grupoD = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'D' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoD = mysqli_query($conexion,$sql_grupoD);

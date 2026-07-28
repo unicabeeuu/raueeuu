@@ -51,7 +51,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		ORDER BY a.grado, nombre";*/
 		
 	if ($id == 2  || $id == 3 || $id == 18 || $id == 5 || $id == 6 || $id == 7 || $id == 42 || $id == 43) {
-	    $query = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	    $query = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
 	    e.tipo_documento1, e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, e.observacion, e.genero, m.estado 
@@ -68,7 +68,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		ORDER BY eg.id_grado_ra, nombre";
 	}
 	else {
-	    $query = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	    $query = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
 	    e.tipo_documento1, e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, e.observacion, e.genero, m.estado 
@@ -79,15 +79,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		tbl_matriculas m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
-		ON em.id = ee.id_moodle ) a, carga_profesor cp 
-		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
-		AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
+		ON em.id = ee.id_moodle ) a, tbl_carga_profesor cp
+		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name
+		AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%'
 		UNION ALL 
-        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
         e.tipo_documento1, e.expedicion, e.fecha_nacimiento, e.email_institucional, 
         e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
-        e.actividad_extra, e.observacion, e.genero 
-        FROM (SELECT est.*, ep.observacion, 
+        e.actividad_extra, e.observacion, e.genero, m.estado
+        FROM (SELECT est.*, ep.observacion,
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
@@ -98,11 +98,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
         UNION ALL 
-        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
         e.tipo_documento1, e.expedicion, e.fecha_nacimiento, e.email_institucional, 
         e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
-        e.actividad_extra, e.observacion, e.genero 
-        FROM (SELECT est.*, ep.observacion, 
+        e.actividad_extra, e.observacion, e.genero, m.estado
+        FROM (SELECT est.*, ep.observacion,
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
@@ -113,11 +113,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = db.id_grado AND db.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
         UNION ALL 
-        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
         e.tipo_documento1, e.expedicion, e.fecha_nacimiento, e.email_institucional, 
         e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
-        e.actividad_extra, e.observacion, e.genero 
-        FROM (SELECT est.*, ep.observacion, 
+        e.actividad_extra, e.observacion, e.genero, m.estado
+        FROM (SELECT est.*, ep.observacion,
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
@@ -128,11 +128,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name 
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = dc.id_grado AND dc.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
         UNION ALL 
-        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+        SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
         e.tipo_documento1, e.expedicion, e.fecha_nacimiento, e.email_institucional, 
         e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
-        e.actividad_extra, e.observacion, e.genero 
-        FROM (SELECT est.*, ep.observacion, 
+        e.actividad_extra, e.observacion, e.genero, m.estado
+        FROM (SELECT est.*, ep.observacion,
 		CASE est.tipo_documento WHEN 1 THEN 'TARJETA DE IDENTIDAD' WHEN 2 THEN 'REGISTRO CIVIL' WHEN 3 THEN 'CEDULA' 
 		WHEN 4 THEN 'PASAPORTE' WHEN 5 THEN 'PERMISO DE PERMANENCIA TEMPORAL' WHEN 6 THEN 'PERMISO POR PROTECCIÓN TEMPORAL' END tipo_documento1 
 		FROM tbl_estudiantes est LEFT JOIN tbl_estudiantes_param ep ON est.id = ep.id_estudiante ) e, 
@@ -144,7 +144,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         AND m.estado IN ('activo', 'aprobado', 'reprobado') AND eg.id_grado_ra = dd.id_grado AND dd.id_empleado = $id AND m.n_matricula like '%-".$fanio."-%' 
 		ORDER BY 2, nombre";
 	}
-	/*$query = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	/*$query = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.grupo, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
 	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, e.observacion, e.genero 

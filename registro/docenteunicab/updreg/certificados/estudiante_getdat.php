@@ -58,8 +58,8 @@
 		ORDER BY a.grado, nombre";*/
 	//Se valida el estado
 	if($estado == 'activo') {
-	   //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-	   $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	   //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+	   $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
 	   e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
@@ -72,8 +72,8 @@
 		ORDER BY a.grado, nombre"; 
 	}
 	else if($estado == 'inactivo') {
-	    //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	    //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
 	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 

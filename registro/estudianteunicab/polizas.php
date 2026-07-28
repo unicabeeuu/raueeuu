@@ -15,8 +15,17 @@
 		WHERE e.id = m.id_estudiante AND e.email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
+		//Si el estudiante no tiene matrícula, esta consulta no devuelve filas
+		$id = "";
+		$apellidos = "";
+		$nombres = "";
+		$n_documento = "";
+		$email_institucional = "";
+		$password = "";
+		$idgra = "";
+
     	while ($fila = mysqli_fetch_array($res)){
-                          
+
     	  	$id = $fila['id'];
     		$apellidos = $fila['apellidos'];
     		$nombres = $fila['nombres'];
@@ -25,10 +34,13 @@
     		$password = $fila['password'];
     		$idgra = $fila['id_grado'];
     	}
-    	
-    	$buscar_poliza = "SELECT * FROM tbl_polizas WHERE n_documento = '".$_SESSION['identifest']."' AND a = '$fanio' AND id_grado = $idgra";
-    	$exe_buscar=mysqli_query($conexion,$buscar_poliza);
-    	//echo $buscar_poliza;
+
+    	$exe_buscar = false;
+    	if ($idgra != "") {
+	    	$buscar_poliza = "SELECT * FROM tbl_polizas WHERE n_documento = '".$_SESSION['identifest']."' AND a = '$fanio' AND id_grado = $idgra";
+	    	$exe_buscar=mysqli_query($conexion,$buscar_poliza);
+	    	//echo $buscar_poliza;
+    	}
     	
     	$codigo = "";
     	$sa1 = ["q","a","1","z","x","2","s","w","3","p","l","4","m","k","5","o","e","6",
@@ -126,7 +138,7 @@
 								</thead> 
 								<tbody>
 							<?php
-								while ($buscar=mysqli_fetch_array($exe_buscar)) {
+								while ($exe_buscar && $buscar=mysqli_fetch_array($exe_buscar)) {
 								    //$ruta = substr($buscar['ruta'],2,strlen($buscar['ruta']));
 								    $ruta = $buscar['ruta'];
 								    //echo $ruta;

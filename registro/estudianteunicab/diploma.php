@@ -24,8 +24,17 @@
 		$res = mysqli_query($conexion,$sql_estudiante);
 		//echo $sql_estudiante;
 
+		//Si el estudiante no tiene matrícula que cumpla el filtro, esta consulta no devuelve filas
+		$id = "";
+		$apellidos = "";
+		$nombres = "";
+		$n_documento = "";
+		$email_institucional = "";
+		$password = "";
+		$idgra = "";
+
     	while ($fila = mysqli_fetch_array($res)){
-                          
+
     	  	$id = $fila['id'];
     		$apellidos = $fila['apellidos'];
     		$nombres = $fila['nombres'];
@@ -34,10 +43,13 @@
     		$password = $fila['password'];
     		$idgra = $fila['id_grado'];
     	}
-    	
-    	$buscar_diploma = "SELECT * FROM tbl_diplomas_virtuales WHERE documento = '".$n_documento."' AND id_grado = $idgra";
-    	//echo $buscar_diploma;
-    	$exe_buscar = mysqli_query($conexion,$buscar_diploma);
+
+    	$exe_buscar = false;
+    	if ($n_documento != "" && $idgra != "") {
+	    	$buscar_diploma = "SELECT * FROM tbl_diplomas_virtuales WHERE documento = '".$n_documento."' AND id_grado = $idgra";
+	    	//echo $buscar_diploma;
+	    	$exe_buscar = mysqli_query($conexion,$buscar_diploma);
+    	}
     	
     	$codigo = "";
     	$sa1 = ["q","a","1","z","x","2","s","w","3","p","l","4","m","k","5","o","e","6",
@@ -52,26 +64,30 @@
     	
     	//Se valida el estado del estudiante
     	$ct = 0;
-    	/*$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
-    	$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') 
-		AND id_estudiante = $id";
-		//echo $qry_estado;
-    	
-    	$res_estado = mysqli_query($conexion,$qry_estado);
+    	if ($id != "") {
+	    	/*$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
+	    	$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado')
+			AND id_estudiante = $id";
+			//echo $qry_estado;
 
-    	while ($fila_estado = mysqli_fetch_array($res_estado)){
-    	  	$ct = $fila_estado['ct'];
+	    	$res_estado = mysqli_query($conexion,$qry_estado);
+
+	    	while ($fila_estado = mysqli_fetch_array($res_estado)){
+	    	  	$ct = $fila_estado['ct'];
+	    	}
     	}
-		
+
 		//Se valida si el estudiante está habilitado financieramente para descargar el paz y SALVO
 		$ct_control = 0;
-		$qry_control = "SELECT Count(1) ct FROM tbl_estudiantes_bloqueados WHERE n_documento = $n_documento";
-    	
-    	$res_control = mysqli_query($conexion,$qry_control);
+		if ($n_documento != "") {
+			$qry_control = "SELECT Count(1) ct FROM tbl_estudiantes_bloqueados WHERE n_documento = '".$n_documento."'";
 
-    	while ($fila_control = mysqli_fetch_array($res_control)){
-    	  	$ct_control = $fila_control['ct'];
-    	}
+	    	$res_control = mysqli_query($conexion,$qry_control);
+
+	    	while ($fila_control = mysqli_fetch_array($res_control)){
+	    	  	$ct_control = $fila_control['ct'];
+	    	}
+		}
 		
 	
 ?>
@@ -159,7 +175,7 @@
 								</thead> 
 								<tbody>
 							<?php
-								while ($buscar=mysqli_fetch_array($exe_buscar)) {
+								while ($exe_buscar && $buscar=mysqli_fetch_array($exe_buscar)) {
 								    $ruta = $buscar['ruta'];
 								}
 								//echo $ruta." ".$ct." ".$ct_control;
