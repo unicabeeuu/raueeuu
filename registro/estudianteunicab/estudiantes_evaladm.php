@@ -4,7 +4,8 @@ require "../adminunicab/php/conexion.php";
 require "../docenteunicab/updreg/1cc3s4db.php";
 if (isset($_SESSION['uniestudiante'])) {
     
-    $idest = $_REQUEST['idest'];
+    //El menú siempre envía idest, pero la página puede abrirse por URL directa sin él
+    $idest = isset($_REQUEST['idest']) ? intval($_REQUEST['idest']) : 0;
     
 	date_default_timezone_set('America/Bogota');
     $dia=date("d");
@@ -29,6 +30,21 @@ if (isset($_SESSION['uniestudiante'])) {
 	//echo $sql_n;
 	
 	$exe_n = mysqli_query($conexion,$sql_n);
+
+	$nombre_completo = "";
+	$documento = "";
+	$grado_ra = "";
+	$idgrado = "";
+
+	//$id nunca se asigna en esta página (viene de un copiado de las páginas de empleado);
+	//se inicializa para conservar el comportamiento actual: if($id == 18) siempre es falso.
+	$id = "";
+
+	//Contadores del resumen general, usados más abajo en el marcado
+	$ct_ok = 0;
+	$ct_no = 0;
+	$ct_na = 0;
+
 	while ($row_n = mysqli_fetch_array($exe_n)) {
 	    $nombre_completo = $row_n['nombres']." ".$row_n['apellidos'];
 	    $documento = $row_n['n_documento'];
@@ -45,6 +61,8 @@ if (isset($_SESSION['uniestudiante'])) {
 	}
 	else {
 	    $array_materias_final = $array_materias;
+	    //Sin física: $array_materias_final solo tiene los índices 0..5
+	    $con_fisica = "NO";
 	}
     
     //Se consulta el resultado de las preguntas
@@ -158,13 +176,18 @@ if (isset($_SESSION['uniestudiante'])) {
         $ct_fis = $row_retro_fis_ct['ct'];
     }
     //echo $ct_fis;
-	$sql_retro_fis = "SELECT DISTINCT p.retroalimentacion 
-    FROM tbl_respuestas r, tbl_preguntas p 
-    WHERE r.id_pregunta = p.id 
-    AND r.resultado = 'NO' AND r.identificacion ='$documento' AND r.a = $fanio AND r.id_materia = $array_materias_final[11]";
-    
+	//Física es la 7ª materia del arreglo -> índice 6 (cuyo valor es 11). Antes se usaba
+	//[11], que es el id de la materia, no su posición dentro del arreglo.
+	$sql_retro_fis = "";
+	if($con_fisica == "SI") {
+		$sql_retro_fis = "SELECT DISTINCT p.retroalimentacion
+	    FROM tbl_respuestas r, tbl_preguntas p
+	    WHERE r.id_pregunta = p.id
+	    AND r.resultado = 'NO' AND r.identificacion ='$documento' AND r.a = $fanio AND r.id_materia = $array_materias_final[6]";
+	}
+
     //Se hacen los conteos generales
-    $conteos = array(ctok=>0, ctno=>0, ctna=>0, ctpen=>0);
+    $conteos = array('ctok'=>0, 'ctno'=>0, 'ctna'=>0, 'ctpen'=>0);
     $resumen = new stdClass();
     $resumen->bio = $conteos;
     $resumen->soc = $conteos;
@@ -370,15 +393,15 @@ if (isset($_SESSION['uniestudiante'])) {
     
     $total_todos = $totbio + $totsoc + $totnum + $totesp + $toting + $tottec + $totfis;
     
-    if($obj_json_decode['bio']['ctok'] / $totbio > 0.75) {
+    if($totbio > 0 && $obj_json_decode['bio']['ctok'] / $totbio > 0.75) {
         $nivbio = "SUPER ALTO";
         $colbio = "#138726";
     }
-    else if($obj_json_decode['bio']['ctok'] / $totbio > 0.5) {
+    else if($totbio > 0 && $obj_json_decode['bio']['ctok'] / $totbio > 0.5) {
         $nivbio = "ALTO";
         $colbio = "#4b9db9";
     }
-    else if($obj_json_decode['bio']['ctok'] / $totbio > 0.25) {
+    else if($totbio > 0 && $obj_json_decode['bio']['ctok'] / $totbio > 0.25) {
         $nivbio = "MEDIO";
         $colbio = "#FFC300";
     }
@@ -393,15 +416,15 @@ if (isset($_SESSION['uniestudiante'])) {
         }
     }
     
-    if($obj_json_decode['soc']['ctok'] / $totsoc > 0.75) {
+    if($totsoc > 0 && $obj_json_decode['soc']['ctok'] / $totsoc > 0.75) {
         $nivsoc = "SUPER ALTO";
         $colsoc = "#138726";
     }
-    else if($obj_json_decode['soc']['ctok'] / $totsoc > 0.5) {
+    else if($totsoc > 0 && $obj_json_decode['soc']['ctok'] / $totsoc > 0.5) {
         $nivsoc = "ALTO";
         $colsoc = "#4b9db9";
     }
-    else if($obj_json_decode['soc']['ctok'] / $totsoc > 0.25) {
+    else if($totsoc > 0 && $obj_json_decode['soc']['ctok'] / $totsoc > 0.25) {
         $nivsoc = "MEDIO";
         $colsoc = "#FFC300";
     }
@@ -416,15 +439,15 @@ if (isset($_SESSION['uniestudiante'])) {
         }
     }
     
-    if($obj_json_decode['num']['ctok'] / $totnum > 0.75) {
+    if($totnum > 0 && $obj_json_decode['num']['ctok'] / $totnum > 0.75) {
         $nivnum = "SUPER ALTO";
         $colnum = "#138726";
     }
-    else if($obj_json_decode['num']['ctok'] / $totnum > 0.5) {
+    else if($totnum > 0 && $obj_json_decode['num']['ctok'] / $totnum > 0.5) {
         $nivnum = "ALTO";
         $colnum = "#4b9db9";
     }
-    else if($obj_json_decode['num']['ctok'] / $totnum > 0.25) {
+    else if($totnum > 0 && $obj_json_decode['num']['ctok'] / $totnum > 0.25) {
         $nivnum = "MEDIO";
         $colnum = "#FFC300";
     }
@@ -439,15 +462,15 @@ if (isset($_SESSION['uniestudiante'])) {
         }
     }
     
-    if($obj_json_decode['esp']['ctok'] / $totesp > 0.75) {
+    if($totesp > 0 && $obj_json_decode['esp']['ctok'] / $totesp > 0.75) {
         $nivesp = "SUPER ALTO";
         $colesp = "#138726";
     }
-    else if($obj_json_decode['esp']['ctok'] / $totesp > 0.5) {
+    else if($totesp > 0 && $obj_json_decode['esp']['ctok'] / $totesp > 0.5) {
         $nivesp = "ALTO";
         $colesp = "#4b9db9";
     }
-    else if($obj_json_decode['esp']['ctok'] / $totesp > 0.25) {
+    else if($totesp > 0 && $obj_json_decode['esp']['ctok'] / $totesp > 0.25) {
         $nivesp = "MEDIO";
         $colesp = "#FFC300";
     }
@@ -462,15 +485,15 @@ if (isset($_SESSION['uniestudiante'])) {
         }
     }
     
-    if($obj_json_decode['ing']['ctok'] / $toting > 0.75) {
+    if($toting > 0 && $obj_json_decode['ing']['ctok'] / $toting > 0.75) {
         $niving = "SUPER ALTO";
         $coling = "#138726";
     }
-    else if($obj_json_decode['ing']['ctok'] / $toting > 0.5) {
+    else if($toting > 0 && $obj_json_decode['ing']['ctok'] / $toting > 0.5) {
         $niving = "ALTO";
         $coling = "#4b9db9";
     }
-    else if($obj_json_decode['ing']['ctok'] / $toting > 0.25) {
+    else if($toting > 0 && $obj_json_decode['ing']['ctok'] / $toting > 0.25) {
         $niving = "MEDIO";
         $coling = "#FFC300";
     }
@@ -485,15 +508,15 @@ if (isset($_SESSION['uniestudiante'])) {
         }
     }
     
-    if($obj_json_decode['tec']['ctok'] / $tottec > 0.75) {
+    if($tottec > 0 && $obj_json_decode['tec']['ctok'] / $tottec > 0.75) {
         $nivtec = "SUPER ALTO";
         $coltec = "#138726";
     }
-    else if($obj_json_decode['tec']['ctok'] / $tottec > 0.5) {
+    else if($tottec > 0 && $obj_json_decode['tec']['ctok'] / $tottec > 0.5) {
         $nivtec = "ALTO";
         $coltec = "#4b9db9";
     }
-    else if($obj_json_decode['tec']['ctok'] / $tottec > 0.25) {
+    else if($tottec > 0 && $obj_json_decode['tec']['ctok'] / $tottec > 0.25) {
         $nivtec = "MEDIO";
         $coltec = "#FFC300";
     }
@@ -508,15 +531,15 @@ if (isset($_SESSION['uniestudiante'])) {
         }
     }
     
-    if($obj_json_decode['fis']['ctok'] / $totfis > 0.75) {
+    if($totfis > 0 && $obj_json_decode['fis']['ctok'] / $totfis > 0.75) {
         $nivfis = "SUPER ALTO";
         $colfis = "#138726";
     }
-    else if($obj_json_decode['fis']['ctok'] / $totfis > 0.5) {
+    else if($totfis > 0 && $obj_json_decode['fis']['ctok'] / $totfis > 0.5) {
         $nivfis = "ALTO";
         $colfis = "#4b9db9";
     }
-    else if($obj_json_decode['fis']['ctok'] / $totfis > 0.25) {
+    else if($totfis > 0 && $obj_json_decode['fis']['ctok'] / $totfis > 0.25) {
         $nivfis = "MEDIO";
         $colfis = "#FFC300";
     }
@@ -531,15 +554,15 @@ if (isset($_SESSION['uniestudiante'])) {
         }
     }
     
-    if($total_todos_ok / $total_todos > 0.75) {
+    if($total_todos > 0 && $total_todos_ok / $total_todos > 0.75) {
         $nivglo = "SUPER ALTO";
         $colglo = "#138726";
     }
-    else if($total_todos_ok / $total_todos > 0.5) {
+    else if($total_todos > 0 && $total_todos_ok / $total_todos > 0.5) {
         $nivglo = "ALTO";
         $colglo = "#4b9db9";
     }
-    else if($total_todos_ok / $total_todos > 0.25) {
+    else if($total_todos > 0 && $total_todos_ok / $total_todos > 0.25) {
         $nivglo = "MEDIO";
         $colglo = "#FFC300";
     }
@@ -1041,8 +1064,8 @@ if (isset($_SESSION['uniestudiante'])) {
                                     echo '</ul>';
                                 }
                                                        
-                                $exe_retro_fis = mysqli_query($conexion,$sql_retro_fis);
-                                $filas = mysqli_num_rows($exe_retro_fis);
+                                $exe_retro_fis = $sql_retro_fis != "" ? mysqli_query($conexion,$sql_retro_fis) : false;
+                                $filas = $exe_retro_fis ? mysqli_num_rows($exe_retro_fis) : 0;
                                 if($filas > 0) {
                                     echo '<h4 style="color: #5ac48c;">Pensamiento: BIOÉTICO (FÍSICA)</h4>';
                                     echo '<ul class="list-group">';

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    # session_start(); Session is already started in index.php, no need to start it again here
 	Include "../adminunicab/php/conexion.php";
 	
 	date_default_timezone_set('America/Bogota');

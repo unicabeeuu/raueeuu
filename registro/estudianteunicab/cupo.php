@@ -5,8 +5,15 @@
 		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
+	$id = "";
+	$apellidos = "";
+	$nombres = "";
+	$n_documento = "";
+	$email_institucional = "";
+	$password = "";
+
 	while ($fila = mysqli_fetch_array($res)){
-                      
+
 	  	$id = $fila['id'];
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
@@ -25,6 +32,7 @@
         ORDER BY m.id";
     //echo $query;
     
+    $cadena = "";
     $cadena = $cadena."<table id='tblact' class='table' border='1px'>
 	                        <thead>
 	                        <tr>
@@ -58,7 +66,10 @@
                 <td>".$row['gradoactual']."</td></tr>";
         $i++;
     }*/
+    $id_grado = "";
+
     while ($filar = mysqli_fetch_array($resultado1)){
+        $id_grado = $filar['id_grado'];
         $cadena = $cadena."<tr>
                 <td>".$filar['estudiante']."</td>
                 <td>".$filar['n_documento']."</td>

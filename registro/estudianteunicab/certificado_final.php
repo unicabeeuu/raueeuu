@@ -8,8 +8,15 @@
 		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
+	$id = "";
+	$apellidos = "";
+	$nombres = "";
+	$n_documento = "";
+	$email_institucional = "";
+	$password = "";
+
 	while ($fila = mysqli_fetch_array($res)){
-                      
+
 	  	$id = $fila['id'];
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
@@ -36,8 +43,11 @@
 	$res = mysqli_query($conexion,$sql_estudiante);
 	//echo $sql_estudiante;
 
+	//Si el estudiante no tiene matrícula aprobada/reprobada/retirada, esta consulta no devuelve filas
+	$idgra = "";
+
 	while ($fila = mysqli_fetch_array($res)){
-                      
+
 	  	$id = $fila['id'];
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
@@ -46,7 +56,7 @@
 		$password = $fila['password'];
 		$idgra = $fila['id_grado'];
 	}
-	
+
 	$buscar_cert="SELECT * FROM tbl_certificados WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 3) = 'CFF'";
 	//echo $buscar_cert;
 	$exe_buscar=mysqli_query($conexion,$buscar_cert);
@@ -60,21 +70,26 @@
 		$codigo = $codigo.$sa1[$ale-1];
 	}
 	
-	$buscar_pazysalvo = "SELECT * FROM tbl_pazysalvos WHERE id_estudiante = '".$id."' AND a = '$fanioPazSalvo' AND id_grado = $idgra AND firma = 'SI'";
-	//echo $buscar_pazysalvo;
-	$exe_buscar_ps = mysqli_query($conexion,$buscar_pazysalvo);
-	
+	$exe_buscar_ps = false;
+	if ($id != "" && $idgra != "") {
+		$buscar_pazysalvo = "SELECT * FROM tbl_pazysalvos WHERE id_estudiante = '".$id."' AND a = '$fanioPazSalvo' AND id_grado = $idgra AND firma = 'SI'";
+		//echo $buscar_pazysalvo;
+		$exe_buscar_ps = mysqli_query($conexion,$buscar_pazysalvo);
+	}
+
 	$ruta_ps = "";
-    	
+
 	//Se valida el estado del estudiante
 	$ct = 0;
-	/*$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
-	$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";
-	
-	$res_estado = mysqli_query($conexion,$qry_estado);
+	if ($id != "") {
+		/*$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
+		$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";
 
-	while ($fila_estado = mysqli_fetch_array($res_estado)){
-	  	$ct = $fila_estado['ct'];
+		$res_estado = mysqli_query($conexion,$qry_estado);
+
+		while ($fila_estado = mysqli_fetch_array($res_estado)){
+		  	$ct = $fila_estado['ct'];
+		}
 	}
 	
 ?>
@@ -172,8 +187,10 @@
 							            <td><center><?php echo $buscar['numero']; ?></center></td>
 							            
 							            <?php
-            								while ($buscarps = mysqli_fetch_array($exe_buscar_ps)) {
-            								    $ruta_ps = $buscarps['ruta'];
+            								if ($exe_buscar_ps) {
+            								    while ($buscarps = mysqli_fetch_array($exe_buscar_ps)) {
+            								        $ruta_ps = $buscarps['ruta'];
+            								    }
             								}
 											//echo $ruta_ps."<br>".$ct;
             								if ($ruta_ps != "" && $ct > 0) {
