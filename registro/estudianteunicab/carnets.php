@@ -10,9 +10,9 @@
     $fanio=date("Y");
 	
 	if (isset($_SESSION['uniestudiante'])) {
-		//$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
-		$sql="SELECT e.*, m.id_grado 
-		FROM estudiantes e, matricula m 
+		//$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT e.*, m.id_grado
+		FROM tbl_estudiantes e, tbl_matriculas m
 		WHERE e.id = m.id_estudiante AND e.email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 

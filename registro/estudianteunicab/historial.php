@@ -94,20 +94,20 @@
 							</table>
 							<?php 
 							$auto=0;
-$sql_grado="SELECT DISTINCT tbl_grados.id, tbl_grados.grado, tbl_matriculas.idMatricula 
-							    FROM tbl_grados INNER JOIN tbl_matriculas ON tbl_grados.id = tbl_matriculas.id_grado 
+$sql_grado="SELECT DISTINCT tbl_grados.id, tbl_grados.grado, tbl_matriculas.id AS idMatricula
+							    FROM tbl_grados INNER JOIN tbl_matriculas ON tbl_grados.id = tbl_matriculas.id_grado
 							    WHERE tbl_matriculas.id_estudiante=".$id." and tbl_matriculas.estado='activo'";
 							$exe_grado=mysqli_query($conexion,$sql_grado);
 							if (mysqli_num_rows($exe_grado)) {
 								while ($row=mysqli_fetch_array($exe_grado)) {
-$sql_historial="SELECT DISTINCT  promedio, tbl_estudiantes.id, tbl_estudiantes.nombres, materias.materia, materias.pensamiento, 
-									tbl_grados.id as id_grado, tbl_grados.grado, tbl_matriculas.idMatricula, tbl_matriculas.estado, tbl_matriculas.EstadoGrado 
-									FROM ((((historial_notas INNER JOIN tbl_estudiantes ON historial_notas.id_estudiante=tbl_estudiantes.id) 
-									INNER JOIN materias ON historial_notas.id_materia=materias.Id) 
-									INNER JOIN tbl_matriculas ON tbl_matriculas.idMatricula=historial_notas.id_matricula) 
-									INNER JOIN tbl_grados ON historial_notas.id_grado=tbl_grados.id) 
-									WHERE tbl_estudiantes.id=".$id." and tbl_matriculas.estado='inactivo' and tbl_grados.id=".$row['id']." 
-									and tbl_matriculas.idMatricula=".$row['idMatricula']." ORDER BY materias.pensamiento";
+$sql_historial="SELECT DISTINCT  promedio, tbl_estudiantes.id, tbl_estudiantes.nombres, tbl_materias.materia, tbl_materias.pensamiento,
+									tbl_grados.id as id_grado, tbl_grados.grado, tbl_matriculas.id AS idMatricula, tbl_matriculas.estado, tbl_matriculas.estado_grado
+									FROM ((((historial_notas INNER JOIN tbl_estudiantes ON historial_notas.id_estudiante=tbl_estudiantes.id)
+									INNER JOIN tbl_materias ON historial_notas.id_materia=tbl_materias.Id)
+									INNER JOIN tbl_matriculas ON tbl_matriculas.id=historial_notas.id_matricula)
+									INNER JOIN tbl_grados ON historial_notas.id_grado=tbl_grados.id)
+									WHERE tbl_estudiantes.id=".$id." and tbl_matriculas.estado='inactivo' and tbl_grados.id=".$row['id']."
+									and tbl_matriculas.id=".$row['idMatricula']." ORDER BY tbl_materias.pensamiento";
 									$exe_historial=mysqli_query($conexion,$sql_historial);
 								
 								echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">

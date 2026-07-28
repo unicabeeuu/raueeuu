@@ -20,10 +20,10 @@ if (isset($_SESSION['uniestudiante'])) {
     
     //Se consulta nombres, apellidos, documento y grado del estudiante
     $sql_n = "SELECT DISTINCT e.id, e.nombres, e.apellidos, e.n_documento, g.grado, g.id id_grado 
-    FROM estudiantes e, 
-    (SELECT MAX(idMatricula), id_grado, id_estudiante FROM matricula 
-    WHERE id_estudiante = $idest AND estado IN ('pre_solicitud', 'solicitud', 'activo') 
-    GROUP BY id_grado, id_estudiante) m, grados g, tbl_respuestas r 
+    FROM tbl_estudiantes e,
+    (SELECT MAX(id), id_grado, id_estudiante FROM tbl_matriculas
+    WHERE id_estudiante = $idest AND estado IN ('pre_solicitud', 'solicitud', 'activo')
+    GROUP BY id_grado, id_estudiante) m, tbl_grados g, tbl_respuestas r
     WHERE e.id = m.id_estudiante AND m.id_grado = g.id  AND e.n_documento = r.identificacion 
     AND e.id = $idest  AND r.a = $fanio";
 	//echo $sql_n;
@@ -51,7 +51,7 @@ if (isset($_SESSION['uniestudiante'])) {
     $sql_resultado = "SELECT m.materia, m.pensamiento, p.pregunta, r.respuesta, r.resultado, 
     case r.resultado when 'OK' then 'MUY BIEN' else p.retroalimentacion end comentarios, 
     substring(p.imagen, 7) ruta 
-    FROM tbl_respuestas r, tbl_preguntas p, materias m 
+    FROM tbl_respuestas r, tbl_preguntas p, tbl_materias m
     WHERE r.id_pregunta = p.id AND r.id_materia = m.id 
     AND r.a = $fanio AND r.identificacion = '$documento' 
     ORDER BY m.pensamiento";

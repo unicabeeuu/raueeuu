@@ -2,7 +2,7 @@
 	session_start();
 	Include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -16,13 +16,13 @@
 	}
 	
 	$query = "SELECT CONCAT(c.nombres, ' ', c.apellidos) estudiante, c.n_documento, c.acudiente, c.telefono_acudiente, c.email_acudiente, c.año, c.id_grado_sistema, g1.grado grado_sistema, 
-        c.id_grado_solicitado, g2.grado grado_solicitado, c.respuesta_pregunta, c.fecha_solicitud, m.estado, m.fecha_ingreso, m.idMatricula, m.id_grado, g3.grado gradoactual  
-        FROM tbl_cupos c, estudiantes e, matricula m, grados g1, grados g2, grados g3, 
-        (SELECT max(idMatricula) idMatricula, id_estudiante FROM `matricula` GROUP BY id_estudiante) m1 
-        WHERE c.n_documento = e.n_documento AND e.id = m.id_estudiante 
-        AND m.idMatricula = m1.idMatricula AND c.id_grado_sistema = g1.id AND c.id_grado_solicitado = g2.id AND m.id_grado = g3.id 
-        AND c.n_documento = '$n_documento' 
-        ORDER BY m.idMatricula";
+        c.id_grado_solicitado, g2.grado grado_solicitado, c.respuesta_pregunta, c.fecha_solicitud, m.estado, m.fecha_ingreso, m.id idMatricula, m.id_grado, g3.grado gradoactual
+        FROM tbl_cupos c, tbl_estudiantes e, tbl_matriculas m, tbl_grados g1, tbl_grados g2, tbl_grados g3,
+        (SELECT max(id) idMatricula, id_estudiante FROM `tbl_matriculas` GROUP BY id_estudiante) m1
+        WHERE c.n_documento = e.n_documento AND e.id = m.id_estudiante
+        AND m.id = m1.idMatricula AND c.id_grado_sistema = g1.id AND c.id_grado_solicitado = g2.id AND m.id_grado = g3.id
+        AND c.n_documento = '$n_documento'
+        ORDER BY m.id";
     //echo $query;
     
     $cadena = $cadena."<table id='tblact' class='table' border='1px'>

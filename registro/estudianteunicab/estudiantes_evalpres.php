@@ -15,10 +15,10 @@ if (isset($_SESSION['uniestudiante'])) {
     
     //Se consulta nombres, apellidos, documento y grado del estudiante
     $sql_n = "SELECT e.id, e.nombres, e.apellidos, e.n_documento, g.grado 
-    FROM estudiantes e, 
-    (SELECT MAX(idMatricula), id_grado, id_estudiante FROM matricula 
-    WHERE id_estudiante = $idest AND substring(fecha_ingreso,1,4) = '$fanio' AND estado IN ('pre_solicitud', 'solicitud', 'activo') 
-    GROUP BY id_grado, id_estudiante) m, grados g 
+    FROM tbl_estudiantes e,
+    (SELECT MAX(id), id_grado, id_estudiante FROM tbl_matriculas
+    WHERE id_estudiante = $idest AND substring(fecha_ingreso,1,4) = '$fanio' AND estado IN ('pre_solicitud', 'solicitud', 'activo')
+    GROUP BY id_grado, id_estudiante) m, tbl_grados g
     WHERE e.id = m.id_estudiante AND m.id_grado = g.id AND e.id = $idest";
 	//echo $sql_n;
 	$exe_n = mysqli_query($conexion,$sql_n);
@@ -33,7 +33,7 @@ if (isset($_SESSION['uniestudiante'])) {
     //Se consulta el resultado de las preguntas
     $sql = "SELECT m.materia, p.pregunta, r.respuesta, r.resultado, 
     case r.resultado when 'OK' then 'MUY BIEN' else p.retroalimentacion end comentarios
-    FROM tbl_respuestas r, tbl_preguntas p, materias m 
+    FROM tbl_respuestas r, tbl_preguntas p, tbl_materias m
     WHERE r.id_pregunta = p.id AND r.id_materia = m.id 
     AND r.a = $fanio AND r.identificacion = '$documento'";
 	//echo $sql;

@@ -9,7 +9,7 @@
     $fanio=date("Y");
 	
     //Se captura el id y grado del estudiante
-    $sql = "SELECT e.id, m.id_grado FROM estudiantes e, matricula m 
+    $sql = "SELECT e.id, m.id_grado FROM tbl_estudiantes e, tbl_matriculas m
 	WHERE e.id = m.id_estudiante AND e.n_documento = '".$_SESSION['identifest']."' AND m.n_matricula like '%$fanio%'";
     $res=mysqli_query($conexion,$sql);
 

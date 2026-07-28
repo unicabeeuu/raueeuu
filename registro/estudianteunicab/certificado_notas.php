@@ -5,7 +5,7 @@
 	//https://unicab.org/registro/estudianteunicab/certificado_notas.php
 	
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -18,7 +18,7 @@
 		$password = $fila['password'];
 	}
 	
-	$buscar_cert="SELECT * FROM certificado WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 2) = 'CN'";
+	$buscar_cert="SELECT * FROM tbl_certificados WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 2) = 'CN'";
 	//echo $buscar_cert;
 	$exe_buscar=mysqli_query($conexion,$buscar_cert);
 	

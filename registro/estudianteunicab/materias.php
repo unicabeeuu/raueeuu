@@ -2,7 +2,7 @@
 	session_start();
 	Include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM tbl_tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -21,18 +21,18 @@
 	$nota_cuatro=0;
 $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tbl_matriculas
     INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id 
-    INNER JOIN tbl_tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_tbl_estudiantes.id where tbl_tbl_estudiantes.id=".$id." and tbl_matriculas.estado='activo'";
+    INNER JOIN tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_estudiantes.id where tbl_estudiantes.id=".$id." and tbl_matriculas.estado='activo'";
 	$exe_buscar=mysqli_query($conexion,$buscar_grado);
 	while ($buscar=mysqli_fetch_array($exe_buscar)) {
 		$id_grado=$buscar['id_grado'];
 		$nombre_grado=strtoupper($buscar['grado']);
 	}
-	/*$sqlNotas="SELECT DISTINCT grados.grado, materias.materia, materias.pensamiento, profesores.apellidos, profesores.nombres, tbl_estudiantes.id, matricula.estado 
-	FROM materias INNER JOIN ((grados INNER JOIN (tbl_estudiantes INNER JOIN matricula ON tbl_estudiantes.id = matricula.id_estudiante) 
-	ON grados.id = matricula.id_grado) INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
-	ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia 
-	WHERE tbl_estudiantes.id='".$id."' and matricula.estado='activo' 
-	ORDER BY materias.pensamiento asc";
+	/*$sqlNotas="SELECT DISTINCT tbl_grados.grado, tbl_materias.materia, tbl_materias.pensamiento, tbl_empleados.apellidos, tbl_empleados.nombres, tbl_estudiantes.id, tbl_matriculas.estado
+	FROM tbl_materias INNER JOIN ((tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante)
+	ON tbl_grados.id = tbl_matriculas.id_grado) INNER JOIN (tbl_empleados INNER JOIN tbl_carga_profesor ON tbl_empleados.id = tbl_carga_profesor.id_profesor)
+	ON tbl_grados.id = tbl_carga_profesor.id_grado) ON tbl_materias.Id = tbl_carga_profesor.id_materia
+	WHERE tbl_estudiantes.id='".$id."' and tbl_matriculas.estado='activo'
+	ORDER BY tbl_materias.pensamiento asc";
 	$consultaNotas=mysqli_query($conexion,$sqlNotas);*/
 ?>
 <!DOCTYPE HTML>
@@ -163,11 +163,11 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
   										<strong>Alert!</strong> The student is not enrolled.
 									</div>';
 								}else{
-									$sql_no="SELECT DISTINCT tbl_estudiantes.id as id_estudiante, materias.materia, materias.pensamiento, grados.id as id_grado, grados.grado, notas.nota, periodos.id as id_periodo 
-									FROM ((((notas INNER JOIN tbl_estudiantes on notas.id_estudiante=tbl_estudiantes.id) INNER JOIN materias on notas.id_materia=materias.Id) 
-									INNER JOIN grados on notas.id_grado=grados.id) INNER JOIN periodos on notas.id_periodo=periodos.id) 
-									WHERE tbl_estudiantes.id=".$id." and grados.id=".$id_grado." 
-									ORDER BY materias.materia ASC, periodos.id ASC";
+									$sql_no="SELECT DISTINCT tbl_estudiantes.id as id_estudiante, tbl_materias.materia, tbl_materias.pensamiento, tbl_grados.id as id_grado, tbl_grados.grado, tbl_notas.nota, tbl_periodos.id as id_periodo
+									FROM ((((tbl_notas INNER JOIN tbl_estudiantes on tbl_notas.id_estudiante=tbl_estudiantes.id) INNER JOIN tbl_materias on tbl_notas.id_materia=tbl_materias.Id)
+									INNER JOIN tbl_grados on tbl_notas.id_grado=tbl_grados.id) INNER JOIN tbl_periodos on tbl_notas.id_periodo=tbl_periodos.id)
+									WHERE tbl_estudiantes.id=".$id." and tbl_grados.id=".$id_grado."
+									ORDER BY tbl_materias.materia ASC, tbl_periodos.id ASC";
 									//echo $sql_no;
     								$exe_no=mysqli_query($conexion,$sql_no);
     								$tot_notas=mysqli_num_rows($exe_no);

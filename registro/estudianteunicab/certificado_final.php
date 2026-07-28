@@ -5,7 +5,7 @@
 	//https://unicab.org/registro/estudianteunicab/certificado_notas.php
 	
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -28,9 +28,9 @@
     $fanioPazSalvo = $fanio;
     
     $sql_estudiante="SELECT e.*, m.id_grado 
-	FROM estudiantes e, 
-	(SELECT max(id_grado) id_grado, id_estudiante FROM matricula WHERE estado IN ('aprobado', 'reprobado', 'retirado') 
-	AND id_estudiante = (SELECT id FROM estudiantes WHERE email_institucional = '".$_SESSION['uniestudiante']."') 
+	FROM tbl_estudiantes e,
+	(SELECT max(id_grado) id_grado, id_estudiante FROM tbl_matriculas WHERE estado IN ('aprobado', 'reprobado', 'retirado')
+	AND id_estudiante = (SELECT id FROM tbl_estudiantes WHERE email_institucional = '".$_SESSION['uniestudiante']."')
 	GROUP BY id_estudiante) m 
 	WHERE e.id = m.id_estudiante AND e.email_institucional='".$_SESSION['uniestudiante']."'";
 	$res = mysqli_query($conexion,$sql_estudiante);
@@ -47,7 +47,7 @@
 		$idgra = $fila['id_grado'];
 	}
 	
-	$buscar_cert="SELECT * FROM certificado WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 3) = 'CFF'";
+	$buscar_cert="SELECT * FROM tbl_certificados WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 3) = 'CFF'";
 	//echo $buscar_cert;
 	$exe_buscar=mysqli_query($conexion,$buscar_cert);
 	
@@ -68,8 +68,8 @@
     	
 	//Se valida el estado del estudiante
 	$ct = 0;
-	/*$qry_estado = "SELECT Count(1) ct FROM matricula WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
-	$qry_estado = "SELECT Count(1) ct FROM matricula WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";
+	/*$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
+	$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";
 	
 	$res_estado = mysqli_query($conexion,$qry_estado);
 
