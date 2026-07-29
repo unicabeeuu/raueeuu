@@ -23,11 +23,12 @@
         }
         //echo $id;
         if($id == 18 || $id == 3 || $id == 2 || $id == 4 || $id == 5 || $id == 30 || $id == 42 || $id == 53) {
-            $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra > 0 AND id_grado_ra <= 18";
+            /* Grados activos del high school: 0 (Kindergarten) y 9 a 12 */
+            $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
         }
         else {
-            $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id 
-			AND id_grado_ra > 0 AND id_grado_ra <= 18";
+            $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ORDER BY eg.id_grado_ra";
         }
         //echo $query;
         $resultado = $mysqli1->query($query);

@@ -34,7 +34,8 @@
 	$hora = date("H",$fecha);
 	$minutos = date("i",$fecha);
 	
-	$query = "SELECT * FROM tbl_equivalence_idgra";
+	/* Grados activos del high school: 0 (Kindergarten) y 9 a 12 */
+	$query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     $res_query = mysqli_query($conexion, $query);
     
     $querym = "SELECT * FROM tbl_medios_llegada";

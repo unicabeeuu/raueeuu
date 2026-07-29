@@ -240,7 +240,7 @@
 	$grado_matricula = substr($partes_matricula[2], 0, 1);
 	
 	//Se busca el último grado matrícula
-	$sql_grado_matricula = "SELECT grado FROM grados WHERE id = $grado_matricula";
+	$sql_grado_matricula = "SELECT grado FROM tbl_grados WHERE id = $grado_matricula";
 	$exe_grado_matricula = mysqli_query($conexion, $sql_grado_matricula);
     while ($fila_grado_matricula = mysqli_fetch_array($exe_grado_matricula)) {
         $ultimo_grado_matricula = $fila_grado_matricula['grado'];

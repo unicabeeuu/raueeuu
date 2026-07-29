@@ -12,10 +12,6 @@ if (isset($_SESSION['admin_unicab'])) {
 		$Apellidos=$rowAdmin['Apellido'];
 		$Nombres=$rowAdmin['Nombre'];
 	}*/
-	
-	$query = "SELECT * FROM tbl_equivalence_idgra";
-    $resultado=$mysqli1->query($query);
-    $resultado1=$mysqli1->query($query);
 ?>
 
 <!DOCTYPE HTML>
