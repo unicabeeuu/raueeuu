@@ -20,7 +20,6 @@ if (isset($_SESSION['unisuper'])) {
 		$perfil = $fila['perfil'];
     }
 
-    date_default_timezone_set('America/Bogota');
     $fanio = date("Y");
 
     /* Grados activos del high school: 0 (Kindergarten) y 9 a 12 */
