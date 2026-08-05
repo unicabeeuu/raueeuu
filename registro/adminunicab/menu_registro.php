@@ -35,18 +35,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.php"><img src="../images/logo_horizontal_blanco.png" width="80%" /></a></h1>
+            <div><a class="navbar-brand" href="index.php"><img src="../../assets/img/logo-unicab/logo_thrive_f2.png" width="70%" /></a></div>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Menu Navegable</li>
+              <li class="header">Navigation Menu</li>
               <?php  
                     if($id_administrador == 18) {
               ?>
 					  <li class="treeview">
 						<a href="#">
 						<i class="fa fa-database"></i>
-						<span>Cambiar sistema</span>
+						<span>Change System</span>
 						<i class="fa fa-angle-left pull-right"></i>
 						</a>
 						<ul class="treeview-menu">
@@ -61,7 +61,7 @@
               ?>
 					  <li class="treeview">
 						<a href="index.php">
-						<i class="fa fa-home"></i> <span>Inicio</span>
+						<i class="fa fa-home"></i> <span>Home</span>
 						</a>
 					  </li>
               <?php  
@@ -72,46 +72,46 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cubes"></i>
-                <span>Tablas de parámetros</span>
+                <span>Parameter Tables</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="adm_tbl_param.php?tabla=tbl_cargos"><i class="fa fa-angle-right"></i> Cargos</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=tbl_dependencias"><i class="fa fa-angle-right"></i> Dependencias</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=tbl_empleados"><i class="fa fa-angle-right"></i> Empleados</a></li>
-                  <!--<li><a href="adm_tbl_param.php?tabla=estudiantes&estado=activo"><i class="fa fa-angle-right"></i> Estudiantes activos</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=estudiantes&estado=inactivo"><i class="fa fa-angle-right"></i> Estudiantes inactivos</a></li>-->
-                  <li><a href="registro-estudiantes.php"><i class="fa fa-angle-right"></i> Registrar Estudiante</a></li>
-                  <li><a href="lista-estudiantes.php"><i class="fa fa-angle-right"></i> Editar Estudiante</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=tbl_profesiones"><i class="fa fa-angle-right"></i> Profesiones</a></li>
-                  <li><a href="adm_tbl_param.php?tabla=tbl_tipos_documento"><i class="fa fa-angle-right"></i> Tipos Documento</a></li>
+                  <!-- <li><a href="adm_tbl_param.php?tabla=tbl_cargos"><i class="fa fa-angle-right"></i> Positions</a></li>
+                  <li><a href="adm_tbl_param.php?tabla=tbl_dependencias"><i class="fa fa-angle-right"></i> Departments</a></li> -->
+                  <li><a href="adm_tbl_param.php?tabla=tbl_empleados"><i class="fa fa-angle-right"></i> Employees</a></li>
+                  <!--<li><a href="adm_tbl_param.php?tabla=estudiantes&estado=activo"><i class="fa fa-angle-right"></i> Active Students</a></li>
+                  <li><a href="adm_tbl_param.php?tabla=estudiantes&estado=inactivo"><i class="fa fa-angle-right"></i> Inactive Students</a></li>-->
+                  <!-- <li><a href="registro-estudiantes.php"><i class="fa fa-angle-right"></i> Register Student</a></li> -->
+                  <li><a href="lista-estudiantes.php"><i class="fa fa-angle-right"></i> Edit Student</a></li>
+                  <!-- <li><a href="adm_tbl_param.php?tabla=tbl_profesiones"><i class="fa fa-angle-right"></i> Professions</a></li>
+                  <li><a href="adm_tbl_param.php?tabla=tbl_tipos_documento"><i class="fa fa-angle-right"></i> Document Types</a></li> -->
                 </ul>
               </li>
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
-                <span>Procesos</span>
+                <span>Processes</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="../docenteunicab/updreg/pen_gra_upddat.php" target="_blank"><i class="fa fa-line-chart"></i> Actualizar Calificaciones</a></li>
-                  <li><a href="carga_academica.php"><i class="fa fa-battery-three-quarters "></i> Carga Docente</a></li>
-                  <li><a href="cierre-academico.php"><i class="fa fa-power-off"></i> Cierre Académico</a></li>
-                  <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Registrar Matrícula</a></li>
-                  <li><a href="lista-matricula.php"><i class="fa fa-edit"></i> Editar Matrícula</a></li>
+                  <li><a href="../docenteunicab/updreg/pen_gra_upddat.php" target="_blank"><i class="fa fa-line-chart"></i> Update Grades</a></li>
+                  <li><a href="carga_academica.php"><i class="fa fa-battery-three-quarters "></i> Teacher Workload</a></li>
+                  <li><a href="cierre-academico.php"><i class="fa fa-power-off"></i> Academic Closing</a></li>
+                  <!-- <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Register Enrolment</a></li> -->
+                  <li><a href="lista-matricula.php"><i class="fa fa-edit"></i> Edit Tuition</a></li>
                   
                   <li class="treeview">
                     <a href="#">
                     <i class="fa fa-angle-right"></i>
-                    <span>Generar carnets</span>
+                    <span>Generate ID Cards</span>
                     <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                      <li><a href="carnets_emp_getdat.php"><i class="fa fa-file-text"></i> Empleados</a></li>
+                      <li><a href="carnets_emp_getdat.php"><i class="fa fa-file-text"></i> Employees</a></li>
                       <?php  
                             //if($id_administrador == 18) {
                       ?>
-                      <li><a href="carnets_est_getdat.php"><i class="fa fa-file-text-o"></i> Estudiantes</a></li>
+                      <li><a href="carnets_est_getdat.php"><i class="fa fa-file-text-o"></i> Students</a></li>
                       <?php  
                             //}
                       ?>
@@ -121,9 +121,9 @@
                   <?php  
                       if($id_administrador == 18 || $id_administrador == 3 || $id_administrador == 2) {
                   ?>
-						<li><a href="pazsalvo_est_getdat.php"><i class="fa fa-check-circle"></i> Paz y salvos</a></li>
-						<li><a href="domain_put_upddat.php"><i class="fa fa-share-square "></i> Método Doman</a></li>
-						<li><a href="domain_put_upddat_i.php"><i class="fa fa-share-square "></i> Método Doman I</a></li>
+						<li><a href="pazsalvo_est_getdat.php"><i class="fa fa-check-circle"></i> Clearances</a></li>
+						<!-- <li><a href="domain_put_upddat.php"><i class="fa fa-share-square "></i> Doman Method</a></li>
+						<li><a href="domain_put_upddat_i.php"><i class="fa fa-share-square "></i> Doman Method I</a></li>
                   <?php  
                       }
                   ?>
@@ -136,72 +136,72 @@
                       </ul>
                   </li>
                   
-                  <li><a href="lista-estudiantes_presol.php"><i class="fa fa-upload"></i> Pre_solicitud a Solicitud</a></li>
+                  <li><a href="lista-estudiantes_presol.php"><i class="fa fa-upload"></i> Pre_solicitud a Solicitud</a></li> -->
                   
                 </ul>
               </li>
                <li class="treeview">
                 <a href="#">
                 <i class="fa fa-line-chart "></i>
-                <span>Informes</span>
+                <span>Reports</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                   <li class="treeview">
                   <a href="#">  
                   <i class="fa fa-file-pdf-o"></i>
-                  <span>Certificados</span>
+                  <span>Certificates</span>
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Matrícula</a></li>
-                    <li><a href="certificados-grado.php"><i class="fa fa-angle-right"></i> Grado</a></li>
+                    <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Enrolment</a></li>
+                    <li><a href="certificados-grado.php"><i class="fa fa-angle-right"></i> Degree</a></li>
                     <?php
                         if($id_administrador == 18 || $id_administrador == 3) {
                     ?>
-                        <li><a href="certificados-grado_aanterior.php"><i class="fa fa-angle-right"></i> Grado año anterior</a></li>
+                        <li><a href="certificados-grado_aanterior.php"><i class="fa fa-angle-right"></i> Previous Year Degree</a></li>
                     <?php
                         }
                     ?>
-                    <li><a href="certificados_final_getdat.php"><i class="fa fa-angle-right"></i> Consultar</a></li>
-                    <!--<li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consultar</a></li>-->
-                    <li><a href="certificados_adm_getdat.php"><i class="fa fa-file-pdf-o"></i> Generar</a></li>
+                    <li><a href="certificados_final_getdat.php"><i class="fa fa-angle-right"></i> Consult</a></li>
+                    <!--<li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consult</a></li>-->
+                    <li><a href="certificados_adm_getdat.php"><i class="fa fa-file-pdf-o"></i> Generate</a></li>
                   </ul>
                   </li>
-                  <li><a href="cupos_getdat.php"><i class="fa fa-check-circle"></i> Cupos apartados</a></li>
-                  <li><a href="estudiante.php"><i class="fa fa-user"></i> Estudiante</a></li>
-                  <li><a href="diferencia_est_getdat.php?q=rnom"><i class="fa fa-user-secret"></i> Estudiantes en R y no en M</a></li>
-                  <li><a href="diferencia_est_getdat.php?q=mnor"><i class="fa fa-user-times"></i> Estudiantes en M y no en R</a></li>
-                  <li><a href="desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Desempeño estudiantes</a></li>
+                  <!-- <li><a href="cupos_getdat.php"><i class="fa fa-check-circle"></i> Reserved spots</a></li> -->
+                  <!-- <li><a href="estudiante.php"><i class="fa fa-user"></i> Student</a></li> -->
+                  <!-- <li><a href="diferencia_est_getdat.php?q=rnom"><i class="fa fa-user-secret"></i> Students in R and not in M</a></li>
+                  <li><a href="diferencia_est_getdat.php?q=mnor"><i class="fa fa-user-times"></i> Students in M and not in R</a></li> -->
+                  <li><a href="desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Student Performance</a></li>
                   <li><a href="ranking_getdat.php"><i class="fa fa-sort-amount-desc"></i> Ranking</a></li>
-                  <li><a href="estudiante_grupo_getdat.php"><i class="fa fa-user-plus"></i> Estudiantes grupo</a></li>
-                  <li><a href="lista-est_ant_sinmat.php"><i class="fa fa-user-plus"></i> Estudiantes Ant. SinMat.</a></li>				  
+                  <li><a href="estudiante_grupo_getdat.php"><i class="fa fa-user-plus"></i> Group Students</a></li>
+                  <!-- <li><a href="lista-est_ant_sinmat.php"><i class="fa fa-user-plus"></i> Old Students Without Enrol.</a></li>	-->			  
                   <?php
                     if($v_param1 == 1) {
                   ?>                        
 						<li class='treeview'>
-							<a href='#'><i class='fa fa-file-text'></i>Resultados Eval<i class='fa fa-angle-left pull-right'></i></a>
+							<a href='#'><i class='fa fa-file-text'></i>Eval Results<i class='fa fa-angle-left pull-right'></i></a>
 							<ul class='treeview-menu'>
-								<li><a href="lista-estudiantes_evalpres.php"><i class="fa fa-file-text "></i> Admisión</a></li>
-								<li><a href="lista-estudiantes_evalpres_sm.php"><i class="fa fa-file-text "></i> Admisión Sin Matrícula</a></li>
-								<li><a href="lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validación</a></li>
+								<li><a href="lista-estudiantes_evalpres.php"><i class="fa fa-file-text "></i> Admission</a></li>
+								<li><a href="lista-estudiantes_evalpres_sm.php"><i class="fa fa-file-text "></i> Admission Without Enrol.</a></li>
+								<!-- <li><a href="lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validation</a></li> -->
 							</ul>
 						</li>
                   <?php
                     }
                   ?>
-				  <li class='treeview'>
-					  <a href='#'><i class='fa fa-file-text'></i>Resultados Encuestas<i class='fa fa-angle-left pull-right'></i></a>
+				 <!-- <li class='treeview'>
+					  <a href='#'><i class='fa fa-file-text'></i>Survey Results<i class='fa fa-angle-left pull-right'></i></a>
 					  <ul class='treeview-menu'>
-						  <li><a href="resultado_encuesta.php"><i class="fa fa-file-text "></i> Encuesta Bimestre 1</a></li>
+						  <li><a href="resultado_encuesta.php"><i class="fa fa-file-text "></i> Bimester 1 Survey</a></li>
 					  </ul>
-				  </li>
+				  </li> -->
                 </ul>
               </li>
              <li class="treeview">
                 <a href="#">
                 <i class="fa fa-wrench"></i>
-                <span>Herramientas</span>
+                <span>Tools</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -209,74 +209,74 @@
                     if($v_param == 1) {
                         echo "<li class='treeview'>";
                         echo "<a href='adm1.php'>";
-                        echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+                        echo "<i class='fa fa-users'></i> <span>Database</span>";
                         echo "</a>";
                         echo "</li>";
                     }
                 ?>
-                    <!--<li><a href="adm1.php"><i class="fa fa-users"></i> Base de datos</a></li>-->
-					<li><a href="backup.php"><i class="fa fa-database"></i> Copia de seguridad</a></li>
-					<li><a href="lista_comprobantes_avadmisiones.php"><i class="fa fa-check-circle"></i> Validar documentos matrícula</a></li>
-					<li><a href="stickers_correspondencia.php"><i class="fa fa-file-text"></i> Stickers correspondencia</a></li>
+                    <!--<li><a href="adm1.php"><i class="fa fa-users"></i> Database</a></li>-->
+					<!-- <li><a href="backup.php"><i class="fa fa-database"></i> Backup</a></li> -->
+					<li><a href="lista_comprobantes_avadmisiones.php"><i class="fa fa-check-circle"></i> Validate tuition documents</a></li>
+					<li><a href="stickers_correspondencia.php"><i class="fa fa-file-text"></i> Correspondence stickers</a></li>
                 </ul>
               </li>
               
-              <li class='treeview'>
-                  <a href='#'><i class='fa fa-phone-square'></i>Envíos Whatsapp<i class='fa fa-angle-left pull-right'></i></a>
+              <!-- <li class='treeview'>
+                  <a href='#'><i class='fa fa-phone-square'></i>Whatsapp Sends<i class='fa fa-angle-left pull-right'></i></a>
                   <ul class='treeview-menu'>
-                      <li><a href="envio_whatsapp_putdat.php"><i class="fa fa-user"></i> Est. Ant. Sin Mat.</a></li>
-                      <li><a href="envio_whatsapp_ent_sinmat_putdat.php"><i class="fa fa-user"></i> Entrevistas Sin Mat.</a></li>
-                      <li><a href="envio_whatsapp_presol_putdat.php"><i class="fa fa-user"></i> Pre-Solicitudes Sin Mat.</a></li>
-                      <li><a href="envio_whatsapp_matriculas_putdat.php"><i class="fa fa-user"></i> Matrículas efectivas</a></li>
-					  <li><a href="envio_whatsapp_contactos_drive.php"><i class="fa fa-user"></i> Contactos Drive.</a></li>
+                      <li><a href="envio_whatsapp_putdat.php"><i class="fa fa-user"></i> Old Est. Without Enrol.</a></li>
+                      <li><a href="envio_whatsapp_ent_sinmat_putdat.php"><i class="fa fa-user"></i> Interviews Without Enrol.</a></li>
+                      <li><a href="envio_whatsapp_presol_putdat.php"><i class="fa fa-user"></i> Pre-Requests Without Enrol.</a></li>
+                      <li><a href="envio_whatsapp_matriculas_putdat.php"><i class="fa fa-user"></i> Effective Enrolments</a></li>
+					  <li><a href="envio_whatsapp_contactos_drive.php"><i class="fa fa-user"></i> Drive Contacts.</a></li>
                   </ul>
-              </li>
+              </li> -->
                   
               <!--  -->
               <!--<li class="treeview">
                 <a href="#">
                 <i class="fa fa-file-pdf-o"></i>
-                <span>Certificados</span>
+                <span>Certificates</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Periodo</a></li>
-                  <li><a href="certificados-grado.php"><i class="fa fa-angle-right"></i> Grado</a></li>
-                  <li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consultar</a></li>
+                  <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Period</a></li>
+                  <li><a href="certificados-grado.php"><i class="fa fa-angle-right"></i> Degree</a></li>
+                  <li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consult</a></li>
                 </ul>
               </li>
               <li class="treeview">
                 <a href="estudiante.php">
-                <i class="fa fa-user"></i> <span>Informe Estudiante</span>
+                <i class="fa fa-user"></i> <span>Student Report</span>
                 </a>
               </li>
               <li class="treeview">
                 <a onclick="cierre()" href="#">
-                <i class="fa fa-power-off"></i> <span>Cierre Académico</span>
+                <i class="fa fa-power-off"></i> <span>Academic Closing</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="backup.php">
-                <i class="fa fa-database"></i> <span>Copia de Seguridad</span>
+                <i class="fa fa-database"></i> <span>Backup Copy</span>
                 </a>
               </li>-->
               <!--<li class="treeview">
                 <a href="cod_entrevista.php">
-                <i class="fa fa-key"></i> <span>Código entrevista</span>
+                <i class="fa fa-key"></i> <span>Interview Code</span>
                 </a>
               </li>-->
               <?php
                   /*if($v_param == 1) {
                       echo "<li class='treeview'>";
     					  echo "<a href='adm1.php'>";
-    					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+    					  echo "<i class='fa fa-users'></i> <span>Database</span>";
     					  echo "</a>";
     				    echo "</li>";
                   }*/
     		  ?>  
              <!--  <li class="treeview">
                 <a href="#">
-                <i class="fa fa-table"></i> <span>Informes</span>
+                <i class="fa fa-table"></i> <span>Reports</span>
                 </a>
               </li> -->
             </ul>
@@ -287,7 +287,7 @@
 	</div>
   <script type="text/javascript">
     function cierre(){
-      var evalua=confirm("Las modificaciones en esta sección son irreversibles\n¿Desea continuar?");
+      let evalua=confirm("Modifications in this section are irreversible\nDo you want to continue?");
       if (evalua==true) {
         location.href='cierre-academico.php';
       }else{

@@ -59,7 +59,7 @@
         
     //Esta es la nueva consulta que depende de la configuración de calificaciones en registro
     $query1 = "SELECT COUNT(1) ct, eg.name, ao.id_grado, em.shortname, ao.id_pensamiento   
-        FROM tbl_config_act_ok ao, equivalence_idmat em, equivalence_idgra eg 
+        FROM tbl_config_act_ok ao, equivalence_idmat em, tbl_equivalence_idgra eg 
         WHERE ao.id_pensamiento = em.id_course AND ao.id_grado = eg.id_category  
         AND ao.id_act IN (SELECT id_act FROM tbl_config_act_ok 
         WHERE computar_en IN (SELECT id_act FROM tbl_config_act_ok WHERE idnumber IN $in))

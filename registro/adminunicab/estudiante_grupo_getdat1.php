@@ -28,9 +28,9 @@
 	                            <td>Id_est</td>
 	                            <td>Apellidos</td>
 	                            <td>Nombres</td>
-	                            <td>Ciudad</td>
-	                            <td>Grado</td>
-	                            <td>Grupo</td>
+	                            <td>City</td>
+	                            <td>Grade</td>
+	                            <td>Group</td>
 	                            <td></td>
 	                        </tr></thead><tbody>";
 	                        
@@ -44,7 +44,7 @@
                 <td>".$row['ciudad']."</td>
                 <td>".$row['grado']."</td>
                 <td>".$row['grupo']."</td>
-                <td><button class='btn btn-warning glyphicon glyphicon-pencil' title='Editar' onclick='enviardat1(".$row['id'].",\"".$row['grupo']."\")'> Editar</button></td></tr>";
+                <td><button class='btn btn-warning glyphicon glyphicon-pencil' title='Editar' onclick='enviardat1(".$row['id'].",\"".$row['grupo']."\")'> Edit</button></td></tr>";
         $i++;
     }
     $cadena = $cadena."</tbody></table>";

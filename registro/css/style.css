@@ -1040,6 +1040,7 @@ h4.title {
     box-shadow: 0 -1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
 	-webkit-box-shadow: 0 -1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
 	-moz-box-shadow: 0 -1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+    height: 34rem;
 }
 /*--statistics--*/
 .stats-info.widget {
@@ -1495,11 +1496,11 @@ section#tables  p {
 /*--forms--*/
 .forms h4 {
     font-size: 1.3em;
-    color: #6F6F6F;
+    color: white;
 }
 .form-title {
     padding: 1em 2em;
-    background-color: #f5f5f5;
+    background-color: #222a75;
     border-bottom: 1px solid #ddd;
 }
 .form-body {
@@ -1727,8 +1728,8 @@ form.search-form {
 }
 /*--login-page--*/
 .login-page {
-    width: 40%;
-    margin: 1em auto 0;
+    width: 32%;
+    margin: 0 auto 0;
 }
 .signup-page {
     width: 40%;
@@ -1737,10 +1738,11 @@ form.search-form {
 .login-page h2.title1,.signup-page h2.title1{
     text-align: center;
     padding: 1em;
-    background: #4278B6;
+    background: #222a75;
     margin: 0;
-	color: #fff;
+    color: #fff;
     font-size: 1.6em;
+    border-radius: 50px 50px 0 0;
 }
 .login-top {
     padding: 1.5em;
@@ -6557,7 +6559,7 @@ h4.asd label {
 		padding: 2em 2em;
 	}
 	.login-page {
-		width: 52%;
+		width: 40%;
 	}
 	.chrt-page-grids canvas#line {
 		height: 282px !important;
@@ -8517,4 +8519,84 @@ h4.asd label {
 /*--//responsive-design---*/
 
 
+/*---Nuevos Estilos ---*/
+.alert-tbl-param {
+    background-color: #222a75;
+    color: white;
+}
 
+.btn-lst-est {
+    background-color: #ff9805;
+    color: white;
+    padding: 5px;
+}
+
+.alert.alert-info {
+    background-color: #222a75;
+    color: white;
+}
+
+.table.table-fixed thead tr td {
+    background-color: #222a75;
+    color: white;
+}
+
+/* ---- Sticky header — flexbox restructure ---- */
+/*
+ * Usa .sticky-header.header-section (especificidad 0,2,0 en el padre y 0,3,0 en hijos)
+ * para anular float/width de todos los breakpoints existentes (especificidad 0,1,0)
+ * sin tocar esas reglas. Los margin-left de los breakpoints se mantienen
+ * porque controlan el offset del sidebar.
+ */
+.sticky-header.header-section {
+    display: flex;
+    align-items: center;
+}
+.sticky-header.header-section .header-left {
+    flex: 1 1 auto;
+    min-width: 0;
+    float: none;
+    width: auto;
+}
+.sticky-header.header-section .header-right {
+    flex: 0 0 auto;
+    float: none;
+}
+/* En móvil (≤414px) el header ya apila verticalmente por el CSS existente;
+   con flex hay que declararlo explícitamente */
+@media (max-width: 414px) {
+    .sticky-header.header-section {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .sticky-header.header-section .header-left {
+        flex: 0 0 100%;
+        margin-left: 0;
+    }
+    .sticky-header.header-section .header-right {
+        flex: 0 0 100%;
+    }
+}
+
+/* ---- Header stats bar — replaces inline style="margin-left:100px" ---- */
+.header-stats {
+    margin-left: 100px;
+    overflow: hidden;
+}
+@media (max-width: 1080px) {
+    .header-stats {
+        font-size: 0.85em;
+        margin-left: 55px;
+    }
+}
+@media (max-width: 900px) {
+    .header-stats {
+        font-size: 0.8em;
+        margin-left: 50px;
+    }
+}
+@media (max-width: 768px) {
+    .header-stats {
+        display: none;
+    }
+}

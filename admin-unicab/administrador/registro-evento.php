@@ -148,7 +148,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -179,8 +179,8 @@
    <!-- validar formulario -->
    <script type="text/javascript">
    		function Validar(){
-			var nombre=document.getElementById('NombreE').value;
-			var descripcion=document.getElementById('DescripcionE').value;
+			let nombre=document.getElementById('NombreE').value;
+			let descripcion=document.getElementById('DescripcionE').value;
 			
 			if (nombre=="") {
  				$('#alert').html('<center><strong>Advertencia</strong> El nombre del evento es Obligatorio</center>').slideDown(500);
@@ -203,8 +203,8 @@
    	<script type="text/javascript">
 
    		$(document).ready(function(){
-   			var extensionesValidas = ".png, .gif, .jpeg, .jpg";
-     		var pesoPermitido = 1024;
+   			let extensionesValidas = ".png, .gif, .jpeg, .jpg";
+     		let pesoPermitido = 1024;
 
      		// Cuando cambie #fichero
      		$("#ImagenE").change(function () {
@@ -221,9 +221,9 @@
 		    // Validacion de extensiones permitidas
 		    function validarExtension(datos) {
 
-				var ruta = datos.value;
-				var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-				var extensionValida = extensionesValidas.indexOf(extension);
+				let ruta = datos.value;
+				let extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
+				let extensionValida = extensionesValidas.indexOf(extension);
 
 				if(extensionValida < 0) {
 		            $('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
@@ -238,7 +238,7 @@
 
 		        if (datos.files && datos.files[0]) {
 
-				    var pesoFichero = datos.files[0].size/1024;
+				    let pesoFichero = datos.files[0].size/1024;
 
 				    if(pesoFichero > pesoPermitido) {
 				        $('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: '+ pesoFichero +' KBs');
@@ -252,7 +252,7 @@
 		  	// Vista preliminar de la imagen.
 		  	function verImagen(datos) {
 			    if (datos.files && datos.files[0]) {
-			        var reader = new FileReader();
+			        let reader = new FileReader();
 		         	reader.onload = function (e) {
 		         		$('#img').attr('src', e.target.result);
 		          	};

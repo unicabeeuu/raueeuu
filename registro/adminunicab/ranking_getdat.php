@@ -14,17 +14,17 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
     }
     //echo $id;
     if($id == 18 || $id == 3 || $id == 2 || $id == 4 || $id == 43) {
-        $query = "SELECT * FROM equivalence_idgra";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     }
     else {
-        $query = "SELECT DISTINCT eg.* FROM equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id";
+        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ORDER BY eg.id_grado_ra";
     }
     //echo $query;
     $resultado1 = $mysqli1->query($query);
@@ -33,7 +33,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -123,7 +123,7 @@ if (isset($_SESSION['unisuper'])) {
                     $("#divtabla").empty();
                     //$("#tbodyact").empty();
                     
-                    var gra = $("#selgra1").val();
+                    let gra = $("#selgra1").val();
             		$("#lblgra").html("Grado = " + gra);
                     
             		if(gra == "NA") {
@@ -141,7 +141,7 @@ if (isset($_SESSION['unisuper'])) {
             function consultar_ranking() {
                 $("#divtabla").empty();
                 
-                var gra = $("#selgra1").val();
+                let gra = $("#selgra1").val();
                 //alert(gra);
                 $.ajax({
             		type:"POST",
@@ -157,7 +157,7 @@ if (isset($_SESSION['unisuper'])) {
             function consultar_ranking1() {
                 $("#divtabla").empty();
                 
-                var gra = $("#selgra1").val();
+                let gra = $("#selgra1").val();
                 //alert(gra);
                 $.ajax({
             		type:"POST",
@@ -213,15 +213,15 @@ if (isset($_SESSION['unisuper'])) {
                         			<!--***********************************************************************************************-->
                         			<div id="div2">
                         			    <fieldset>
-                        				<legend><h3>RANKING ESTUDIANTES </h3></legend>
+                        				<legend><h3 style="color: #FC0D8C;">STUDENT RANKING</h3></legend>
                         				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                         					<ul class="mprincipal">
-                        						<li><h3>LISTADO POR<span style="color: white;">.....</span>
+                        						<li><h3>LIST BY<span style="color: white;">.....</span>
                         						</h3></li>
-                        							<ul class="msecund">
-                        								<li>
+                        							<ul class="msecund" style="background-color: #222a75;">
+                        								<li style="background-color: #222a75;">
 															<select id="selgra1" name="selgra1" required>
-															    <option value="NA">Seleccione grado</option>
+															    <option value="NA">Select grade</option>
 															    <?php 
 															        while($row = $resultado1->fetch_assoc()){
 															            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -229,11 +229,11 @@ if (isset($_SESSION['unisuper'])) {
 															    ?>
 															</select>
 															<label style="color: white;">...</label>
-															<!--<a href="estudianteg_getdat.php" >Buscar</a>
+															<!--<a href="estudianteg_getdat.php" >Search</a>
 															<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
-															<button id="submit" class="btn btn-primary" style="display: none;" onclick="consultar_ranking()">TOP 10</button>
+															<button id="submit" class="btn" style="display: none;  background-color: #ff9805; color: white;" onclick="consultar_ranking()">TOP 10</button>
 															<label style="color: white;">...</label>
-															<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_ranking1()">TOTAL</button>
+															<button id="submit1" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_ranking1()">TOTAL</button>
 																
 														</li>
                         							</ul>
@@ -271,9 +271,9 @@ if (isset($_SESSION['unisuper'])) {
               <div class="modal-body">
                 <label>Id_est</label>
                 <input type="text" id="txtidest" class="form-control" readonly/>
-                <label>Nombres</label>
+                <label>First Names</label>
                 <input type="text" id="txtnom" class="form-control" readonly/>
-                <label>Calificaciones</label>
+                <label>Grades</label>
                 <div>
                     <label>BIO</label>
                     <input type="text" id="txtbio" style="width: 30px;" readonly/>
@@ -291,18 +291,18 @@ if (isset($_SESSION['unisuper'])) {
                     <label>TEC</label>
                     <input type="text" id="txttec" style="width: 30px;" readonly/>
                 </div>
-                <label>Acudiente 1</label>
+                <label>Guardian 1</label>
                 <input type="text" id="txtacu1" class="form-control" readonly/>
-                <label>Cel. Acudiente 1</label>
+                <label>Guardian 1 Phone</label>
                 <input type="text" id="txtcel1" class="form-control" readonly/>
-                <label>Acudiente 2</label>
+                <label>Guardian 2</label>
                 <input type="text" id="txtacu2" class="form-control" readonly/>
-                <label>Cel. Acudiente 2</label>
+                <label>Guardian 2 Phone</label>
                 <input type="text" id="txtcel2" class="form-control" readonly/>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Save</button>-->
               </div>
             </div>
           </div>
@@ -311,7 +311,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -357,9 +357,9 @@ if (isset($_SESSION['unisuper'])) {
    		<!-- validar combo periodo -->
 		<script type="text/javascript">
 			function validacion() {
-				var grado=document.getElementById('id_grado').value;
+				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);

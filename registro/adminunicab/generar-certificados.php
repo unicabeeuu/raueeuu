@@ -11,22 +11,22 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 	}
     
         
 $id_estudiante=$_GET['id'];
-$buscar_grado="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.id as id_grado, grados.grado 
-FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id = matricula.id_grado 
-WHERE estudiantes.id=".$id_estudiante."";
+$buscar_grado="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id as id_grado, tbl_grados.grado 
+FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id = tbl_matriculas.id_grado 
+WHERE tbl_estudiantes.id=".$id_estudiante."";
 $exe_buscar=mysqli_query($conexion,$buscar_grado);
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -92,15 +92,15 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Certificado Estudiantil</h4>
+							<h4>Student Certificate</h4>
 						</div>
 						<div class="form-body">
 							<form class="form-horizontal" action="certificado-final.php" method="POST">
 								<div class="form-group">
-									<label for="tipo_certificado" class="col-sm-2 control-label">Certificado:<span class="req">*</span></label>
+									<label for="tipo_certificado" class="col-sm-2 control-label">Certificate:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="tipo_certificado" name="tipo_certificado" class="form-control1" required>
-											<option value="Estudio">Estudio</option>
+											<option value="Estudio">Study</option>
 											<!--<option value="Notas">Notas</option>-->
 									  </select>
 									</div>
@@ -111,7 +111,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 										?>
 										<div id="select_periodo" style="display: none">
 											<div class="form-group">
-												<label for="periodo" class="col-sm-2 control-label">Periodo:<span class="req">*</span></label>
+												<label for="periodo" class="col-sm-2 control-label">Period:<span class="req">*</span></label>
 												<div class="col-sm-8">
 													<select id="periodo" name="periodo" class="form-control1" required>
 														<option value="1">1</option>
@@ -125,7 +125,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 										?>
 										<div id="select_periodo" style="display: none">
 										<div class="form-group">
-											<label for="periodo" class="col-sm-2 control-label">Periodo:<span class="req">*</span></label>
+											<label for="periodo" class="col-sm-2 control-label">Period:<span class="req">*</span></label>
 											<div class="col-sm-8">
 												<select id="periodo" name="periodo" class="form-control1" required>
 													<option value="1">1</option>
@@ -141,17 +141,17 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 								}
 								?>
 								<div class="form-group">
-									<label for="idioma" class="col-sm-2 control-label">Idioma:<span class="req">*</span></label>
+									<label for="idioma" class="col-sm-2 control-label">Language:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="idioma" name="idioma" class="form-control1" required>
-											<option value="espanol">Español</option>
-											<option value="ingles">Ingles</option>
+											<option value="espanol">Spanish</option>
+											<option value="ingles">English</option>
 									  </select>
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label for="firmas" class="col-sm-2 control-label">Firmas:<span class="req">*</span></label>
+									<label for="firmas" class="col-sm-2 control-label">Signatures:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="firmas" name="firmas" class="form-control1" required>
 											<option value="SI">SI</option>
@@ -161,7 +161,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 								</div>
 
 								<input type="hidden" value="<?php echo $id_estudiante?>" id="id_estudiante" name="id_estudiante">
-								<button type="submit" class="btn btn-primary">Generar</button>
+								<button type="submit" class="btn btn-primary">Generate</button>
 							</form> 
 						</div>
 					</div>
@@ -176,7 +176,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -197,7 +197,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 	<script type="text/javascript">
 		$('#tipo_certificado').change(function(){
-    var valorCambiado =$(this).val();
+    let valorCambiado =$(this).val();
     if((valorCambiado == 'Estudio')){
        $('#select_periodo').hide();
        
@@ -227,7 +227,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

@@ -58,12 +58,12 @@
 	
 	if($grupo == "NA") {
 	    $query1 = "SELECT DISTINCT CONCAT(e.nombres, ' ', e.apellidos) nombre, e.id 
-    	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra 
+    	FROM tbl_estudiantes e, tbl_matriculas m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra 
     	ORDER BY 1";
 	}
 	else {
 	    $query1 = "SELECT DISTINCT CONCAT(e.nombres, ' ', e.apellidos) nombre, e.id 
-    	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra AND m.grupo = '$grupo' 
+    	FROM tbl_estudiantes e, tbl_matriculas m WHERE e.id = m.id_estudiante AND m.estado = 'activo' AND m.id_grado = $idgra AND m.grupo = '$grupo' 
     	ORDER BY 1";
 	}
 	
@@ -72,10 +72,10 @@
 	//$sel = $mysqli1->affected_rows;
 	
 	if($idgra == 110 || $idgra == 120 || $idgra == 170 || $idgra == 180) {
-	    $cadena = "<table class='table' border='1px'><thead><tr><td>Nombre</td><td>BIO</td><td>SOC</td><td>NUM</td><td>FIS</td><td>ESP</td><td>ING</td><td>TEC</td><td></td></tr></thead><tbody>";
+	    $cadena = "<table class='table' border='1px'><thead><tr><td>Name</td><td>BIO</td><td>SOC</td><td>NUM</td><td>FIS</td><td>ESP</td><td>ING</td><td>TEC</td><td></td></tr></thead><tbody>";
 	}
 	else {
-	    $cadena = "<table class='table' border='1px'><thead><tr><td>Nombre</td><td>BIO</td><td>SOC</td><td>NUM</td><td>ESP</td><td>ING</td><td>TEC</td><td></td></tr></thead><tbody>";
+	    $cadena = "<table class='table' border='1px'><thead><tr><td>Name</td><td>BIO</td><td>SOC</td><td>NUM</td><td>ESP</td><td>ING</td><td>TEC</td><td></td></tr></thead><tbody>";
 	}
 	
 	while($row = $resultado->fetch_assoc()){

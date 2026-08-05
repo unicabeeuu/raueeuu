@@ -100,16 +100,16 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
             function ver_cal_mood(id_est, id_gra) {
                 //alert("id_est:" + id_est + ", id_gra:" + id_gra);
                 var cadena = "";
-                cadena = cadena + "<fieldset id='ftm'><legend>NOTAS EN MOODLE</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
+                cadena = cadena + "<fieldset id='ftm'><legend>MOODLE GRADES</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
                                     "<tr>" +
-                                    "<td><b>ID ESTUDIANTE</b></td>" +
+                                    "<td><b>STUDENT ID</b></td>" +
                                     "<td><b>APELLIDOS</b></td>" +
                                     "<td><b>NOMBRES</b></td>" +
                                     "<td><b>PENSAMIENTO</b></td>" +
                                     "<td><b>PENSAMIENTO RA</b></td>" +
-                                    "<td><b>ID PERIODO MOODLE</b></td>" +
-                                    "<td><b>PERIODO RA</b></td>" +
-                                    "<td><b>CALIFICACION</b></td></tr></thead><tbody>";
+                                    "<td><b>MOODLE PERIOD ID</b></td>" +
+                                    "<td><b>RA PERIOD</b></td>" +
+                                    "<td><b>GRADE</b></td></tr></thead><tbody>";
     			//alert(cadena);
     			
             	$.ajax({
@@ -168,7 +168,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
 			</div>
 			<div id="divlbl">
 			    <label id="lbl"></label><label style="color: white;">....</label>
-			    <!--<a href="estado_mat_upddat.php" id="btnupdmat"><input type="button" value="ACTUALIZAR ESTADO MATRICULA"/></a>-->
+			    <!--<a href="estado_mat_upddat.php" id="btnupdmat"><input type="button" value="UPDATE ENROLLMENT STATUS"/></a>-->
 			</div>
 		</center>
 	</body>

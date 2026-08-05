@@ -37,14 +37,14 @@ class OAuth
     /**
      * An instance of the League OAuth Client Provider.
      *
-     * @var AbstractProvider
+     * @let AbstractProvider
      */
     protected $provider;
 
     /**
      * The current OAuth access token.
      *
-     * @var AccessToken
+     * @let AccessToken
      */
     protected $oauthToken;
 
@@ -52,28 +52,28 @@ class OAuth
      * The user's email address, usually used as the login ID
      * and also the from address when sending email.
      *
-     * @var string
+     * @let string
      */
     protected $oauthUserEmail = '';
 
     /**
      * The client secret, generated in the app definition of the service you're connecting to.
      *
-     * @var string
+     * @let string
      */
     protected $oauthClientSecret = '';
 
     /**
      * The client ID, generated in the app definition of the service you're connecting to.
      *
-     * @var string
+     * @let string
      */
     protected $oauthClientId = '';
 
     /**
      * The refresh token, used to obtain new AccessTokens.
      *
-     * @var string
+     * @let string
      */
     protected $oauthRefreshToken = '';
 

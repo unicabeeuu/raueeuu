@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -32,7 +32,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -186,27 +186,27 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Crear nuevo blog: Resultado</h4>
+							<h4>Create new blog: Result</h4>
 						</div>
 						<div class="form-body">
-						    <h4>Blog creado con éxito.</h4><br>
-						    <h4>Título: <?php echo $tit; ?></h4><br>
+						    <h4>Blog created successfully.</h4><br>
+						    <h4>Title: <?php echo $tit; ?></h4><br>
 						    <h4>Id del blog creado: <?php echo $id_blog; ?></h4><br>
 						    
-						    <p>El blog será publicado después de la revisión del texto, imagen y elementos complementarios.</p><br>
-						    <p>Recuerde que si marco la opción de: Texto complementario, imágenes, vídeos o vínculos; debe envíar esa información al correo 
-						    <a href="mailto:webmasterunicab@unicab.org">webmasterunicab@unicab.org</a>, teniendo en cuenta los siguientes items (si aplica):</p><br>
+						    <p>The blog will be published after review of the text, image and supplementary elements.</p><br>
+						    <p>Remember that if you checked the option: Supplementary text, images, videos or links; you must send that information to
+						    <a href="mailto:webmasterunicab@unicab.org">webmasterunicab@unicab.org</a>, taking into account the following items (if applicable):</p><br>
 						    
 						    <ul>
-						        <li>Título</li>
+						        <li>Title</li>
 						        <li>Id</li>
-						        <li>Texto complentario</li>
-						        <li>Imágenes complementarias</li>
-						        <li>Vídeos complementarios</li>
-						        <li>Vínculos complementarios</li>
+						        <li>Supplementary text</li>
+						        <li>Supplementary images</li>
+						        <li>Supplementary videos</li>
+						        <li>Supplementary links</li>
 						    </ul>
 						    
-							<br><p>En el correo se debe indicar claramente el orden en que se deben mostrar los elementos complementarios.</p>
+							<br><p>The email must clearly indicate the order in which the supplementary elements should be displayed.</p>
 						</div>
                         
 					</div>
@@ -221,7 +221,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			

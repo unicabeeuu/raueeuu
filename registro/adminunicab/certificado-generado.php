@@ -6,7 +6,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Sistema de Registro Académico - Unicab Virtual</title>
+<title>Academic Registry System - Unicab Virtual</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -51,11 +51,11 @@ if (isset($_SESSION['unisuper'])) {
 
 <?php require 'php/conexion.php';
 
-	$peticion= "SELECT * 
-				FROM estudiantes 
-				INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante
-				INNER JOIN grados ON matricula.id_grado=grados.id
-				WHERE estudiantes.id=".$_GET['id'];
+	$peticion= "SELECT *
+				FROM tbl_estudiantes
+				INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante
+				INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id
+				WHERE tbl_estudiantes.id=".$_GET['id'];
 	$resultado = mysqli_query($conexion, $peticion);
 	while ($fila = mysqli_fetch_array($resultado)){
 		$nombreCompleto=$fila['nombres']." ".$fila['apellidos'];
@@ -64,75 +64,79 @@ if (isset($_SESSION['unisuper'])) {
 		$grado=$fila['grado'];
 		$estado=$fila['estado'];
 	}
-	if (strpos($grado, "Transición") !== false)
+	if (strpos($grado, "Kindergarten") !== false || strpos($grado, "No degree") !== false)
 	{
 		$nivelEducativo="Educación Preescolar";
 	}
-	if (strpos($grado, "Primero") !== false)
+	if (strpos($grado, "1st grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Primaria";
 	}
-	if (strpos($grado, "Segundo") !== false)
+	if (strpos($grado, "2nd grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Primaria";
 	}
-	if (strpos($grado, "Tercero") !== false)
+	if (strpos($grado, "3rd grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Primaria";
 	}
-	if (strpos($grado, "Cuarto") !== false)
+	if (strpos($grado, "4th grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Primaria";
 	}
-	if (strpos($grado, "Quinto") !== false)
+	if (strpos($grado, "5th grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Primaria";
 	}
-	if (strpos($grado, "Sexto") !== false)
+	if (strpos($grado, "6th grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Secundaria";
 	}
-	if (strpos($grado, "Séptimo") !== false)
+	if (strpos($grado, "7th grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Secundaria";
 	}
-	if (strpos($grado, "Octavo") !== false)
+	if (strpos($grado, "8th grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Secundaria";
 	}
-	if (strpos($grado, "Noveno") !== false)
+	if (strpos($grado, "9th grade") !== false)
 	{
 		$nivelEducativo="Educación Básica Secundaria";
 	}
-	if (strpos($grado, "Décimo") !== false)
+	if (strpos($grado, "10th grade") !== false)
 	{
 		$nivelEducativo="Educación Media Académica";
 	}
-	if (strpos($grado, "Undécimo") !== false)
+	if (strpos($grado, "11th grade") !== false)
 	{
 		$nivelEducativo="Educación Media Académica";
 	}
-	if (strpos($grado, "Ciclo I") !== false)
-	{
-		$nivelEducativo="Educación Básica Primaria";
-	}
-	if (strpos($grado, "Ciclo II") !== false)
-	{
-		$nivelEducativo="Educación Básica Primaria";
-	}
-	if (strpos($grado, "Ciclo III") !== false)
-	{
-		$nivelEducativo="Educación Básica Secundaria";
-	}
-	if (strpos($grado, "Ciclo IV") !== false)
-	{
-		$nivelEducativo="Educación Básica Secundaria";
-	}
-	if (strpos($grado, "Ciclo V") !== false)
+	if (strpos($grado, "12th grade") !== false)
 	{
 		$nivelEducativo="Educación Media Académica";
 	}
-	if (strpos($grado, "Ciclo VI") !== false)
+	if (strpos($grado, "Cycle I") !== false)
+	{
+		$nivelEducativo="Educación Básica Primaria";
+	}
+	if (strpos($grado, "Cycle II") !== false)
+	{
+		$nivelEducativo="Educación Básica Primaria";
+	}
+	if (strpos($grado, "Cycle III") !== false)
+	{
+		$nivelEducativo="Educación Básica Secundaria";
+	}
+	if (strpos($grado, "Cycle IV") !== false)
+	{
+		$nivelEducativo="Educación Básica Secundaria";
+	}
+	if (strpos($grado, "Cycle V") !== false)
+	{
+		$nivelEducativo="Educación Media Académica";
+	}
+	if (strpos($grado, "Cycle VI") !== false)
 	{
 		$nivelEducativo="Educación Media Académica";
 	}
@@ -199,7 +203,7 @@ www.unicab.org
 
 <!--CERTIFICADO-->
 <div align="center">
- <a class="btn btn-danger" href="javascript:window.print()">Certificado</a>
+ <a class="btn btn-danger" href="javascript:window.print()">Certificate</a>
  </div>
    </div>
    </div>
@@ -216,7 +220,7 @@ www.unicab.org
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -266,7 +270,7 @@ www.unicab.org
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

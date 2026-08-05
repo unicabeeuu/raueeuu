@@ -26,14 +26,14 @@
         SELECT CONCAT(e.nombres, ' ', e.apellidos) nombre_est, s.documento_est, s.fecha, s.hora, e.acudiente_1, e.telefono_acudiente_1, e.email_acudiente_1, 'seguimiento' fuente
         FROM tbl_seguimientos s, estudiantes e WHERE s.documento_est = e.n_documento AND s.id_psicologo = $psicologo";*/
         $sql = "SELECT DISTINCT e.nombre_est, e.documento_est, e.fecha, e.hora, 
-		pm.acudiente_1 nombre_a, pm.telefono_acudiente_1 celular_a, pm. email_acudiente_1 email_a, 'entrevista' fuente 
-        FROM tbl_entrevistas e LEFT JOIN estudiantes pm ON e.documento_est = pm.n_documento WHERE e.id_psicologo = $psicologo AND e.fecha > '2023-06-01' 
+		pm.acudiente_1 nombre_a, pm.telefono_acudiente_1 celular_a, pm.email_acudiente_1 email_a, 'entrevista' fuente 
+        FROM tbl_entrevistas e LEFT JOIN tbl_estudiantes pm ON e.documento_est = pm.n_documento WHERE e.id_psicologo = $psicologo AND e.fecha > '2023-06-01' 
         UNION ALL 
         SELECT CONCAT(e.nombres, ' ', e.apellidos) nombre_est, s.documento_est, s.fecha, s.hora, e.acudiente_1, e.telefono_acudiente_1, e.email_acudiente_1, 'seguimiento' fuente
-        FROM tbl_seguimientos s, estudiantes e WHERE s.documento_est = e.n_documento AND s.id_psicologo = $psicologo 
+        FROM tbl_seguimientos s, tbl_estudiantes e WHERE s.documento_est = e.n_documento AND s.id_psicologo = $psicologo 
         UNION ALL 
         SELECT CONCAT(e.nombres, ' ', e.apellidos) nombre_est, e.n_documento, s.fecha, s.hora, e.acudiente_1, e.telefono_acudiente_1, e.email_acudiente_1, 'seguimiento' fuente
-        FROM tbl_seg_psi s, tbl_seg_psi_val v, estudiantes e WHERE s.id_valoracion = v.id AND v.n_documento = e.n_documento AND s.id_psicologo = $psicologo 
+        FROM tbl_seg_psi s, tbl_seg_psi_val v, tbl_estudiantes e WHERE s.id_valoracion = v.id AND v.n_documento = e.n_documento AND s.id_psicologo = $psicologo 
         UNION ALL 
         SELECT a.descripcion nombre_est, '--' documento, a.fecha, a.hora, '--' nombre_a, '--' cel_a, '--' email_a, ta.tipo_agenda fuente 
         FROM tbl_agendamientos a, tbl_tipos_agenda ta WHERE a.id_tipo_agenda = ta.id AND a.id_empleado = $psicologo AND a.fecha > '2023-06-01'";
@@ -83,15 +83,15 @@
     <script>
         
         document.addEventListener('DOMContentLoaded', function() {
-            var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-            var initialLocaleCode = 'es';
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+            let initialLocaleCode = 'es';
+            let calendarEl = document.getElementById('calendar');
+            let calendar = new FullCalendar.Calendar(calendarEl, {
                 //initialView: 'dayGridMonth'
                 initialView: 'timeGridWeek',
                 nowIndicator: true,
                 eventClick: function(info) {
-                    var eventObj = info.event;
+                    let eventObj = info.event;
                     $("#fecha_ent").val("");
                     $("#hora_ent").val("");
                     alert(eventObj.title);
@@ -163,12 +163,12 @@
                     }
                 ],
                 dateClick: function(info) {
-                    var dia = info.dateStr.substring(0,10);
-                    var hora = info.dateStr.substring(11,13);
-                    var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+                    let dia = info.dateStr.substring(0,10);
+                    let hora = info.dateStr.substring(11,13);
+                    let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
                     
-                    var parts = dia.split('-');
-                    var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+                    let parts = dia.split('-');
+                    let mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
                     //alert(mydate.toDateString());
                     ////alert(diasSemana[mydate.getDay()]);
                     
@@ -217,7 +217,7 @@
             $("#emaila_1").val("");
             
             //Se valida si el documento corresponde al código de pre-matrícula
-            var buscar = $("#buscar").val();
+            let buscar = $("#buscar").val();
             $("#documento_est").val(buscar);
             
             $.ajax({
@@ -225,8 +225,8 @@
         		url:"informacion_premat_getdat.php",
         		data:"buscar=" + buscar + "&tipo=DOC",
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var r_est = res.estado;
+        		    let res = JSON.parse(r);
+        		    let r_est = res.estado;
         		    //alert(r_est);
         		    //$("#estado").val(r_est);
         		    
@@ -257,15 +257,15 @@
         }
         
         function mostrar_submit() {
-            var control = 0;
-            var nombre = $("#nombree").val();
+            let control = 0;
+            let nombre = $("#nombree").val();
             if(nombre == "") {
                 $("#btnsubmit").hide();
                 control = 1;
             }
             
             if(control == 0) {
-                var grado = $("#gradoe").val();
+                let grado = $("#gradoe").val();
                 if(grado == "") {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -273,7 +273,7 @@
             }
             
             if(control == 0) {
-                var fecha = $("#fecha_ent").val();
+                let fecha = $("#fecha_ent").val();
                 if(fecha == "") {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -281,7 +281,7 @@
             }
             
             if(control == 0) {
-                var hora = $("#hora_ent").val();
+                let hora = $("#hora_ent").val();
                 if(hora == "") {
                     $("#btnsubmit").hide();
                     control = 1;

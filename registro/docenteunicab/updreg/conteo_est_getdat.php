@@ -1,6 +1,6 @@
 <?php 
     //session_start();
-    include "../../adminunicab/php/conexion.php";
+    include __DIR__ . "/../../adminunicab/php/conexion.php";
 	//https://unicab.org/registro/docenteunicab/updreg/conteo_est_getdat.php
     
     date_default_timezone_set('America/Bogota');
@@ -40,7 +40,7 @@
     AND m.fecha_ingreso >= '2021/12/01' AND e.n_documento != '999999'";*/
     
     $sql_est_r = "SELECT COUNT(*) as total_usuarios 
-    FROM estudiantes e, matricula m 
+    FROM tbl_estudiantes e, tbl_matriculas m 
     WHERE e.id = m.id_estudiante AND m.estado IN ('activo') 
     AND m.n_matricula like '%$a1%' AND e.n_documento NOT IN ('999999', '9397454', '46376709')";
     
@@ -55,11 +55,11 @@
     /*$sql_solicitud = "SELECT COUNT(*) as total_usuarios 
     FROM matricula  
     WHERE substring(fecha_ingreso,1,4) = '$a' AND estado IN ('pre_solicitud', 'solicitud') 
-    AND id_estudiante IN (SELECT id FROM estudiantes WHERE id <= 1885 AND id != 1040)";*/
+    AND id_estudiante IN (SELECT id FROM tbl_estudiantes WHERE id <= 1885 AND id != 1040)";*/
     $sql_solicitud = "SELECT COUNT(*) as total_usuarios 
-    FROM matricula  
+    FROM tbl_matriculas  
     WHERE n_matricula like '%$a1%' AND estado IN ('pre_solicitud', 'antiguo_pre_solicitud') 
-    AND id_estudiante IN (SELECT id FROM estudiantes WHERE id <= 3148 AND id NOT IN (1040, 1155))";
+    AND id_estudiante IN (SELECT id FROM tbl_estudiantes WHERE id <= 3148 AND id NOT IN (1040, 1155))";
     $exe_solicitud=mysqli_query($conexion,$sql_solicitud);
     while ($rowES = mysqli_fetch_array($exe_solicitud)) {
         $total_usuarios_s=$rowES['total_usuarios'];
@@ -69,9 +69,9 @@
     
     // número de estudiantes en pre_solicitud nuevos
     $sql_solicitud1 = "SELECT COUNT(*) as total_usuarios 
-    FROM matricula  
+    FROM tbl_matriculas  
     WHERE n_matricula like '%$a1%' AND estado IN ('pre_solicitud', 'nuevo_pre_solicitud') 
-    AND id_estudiante IN (SELECT id FROM estudiantes WHERE id > 3148)";
+    AND id_estudiante IN (SELECT id FROM tbl_estudiantes WHERE id > 3148)";
     $exe_solicitud1=mysqli_query($conexion,$sql_solicitud1);
     while ($rowES1 = mysqli_fetch_array($exe_solicitud1)) {
         $total_usuarios_s1=$rowES1['total_usuarios'];
@@ -84,9 +84,9 @@
     WHERE substring(fecha_ingreso,1,4) = '$a' AND estado IN ('pre_solicitud', 'solicitud') 
     AND id_estudiante IN (SELECT id FROM estudiantes WHERE id > 1885)";*/
     $sql_solicitud = "SELECT COUNT(*) as total_usuarios 
-    FROM matricula  
+    FROM tbl_matriculas  
     WHERE n_matricula like '%$a1%' AND estado IN ('solicitud', 'antiguo_solicitud') 
-    AND id_estudiante IN (SELECT id FROM estudiantes WHERE id <= 3148 AND id NOT IN (1040, 1155, 2191))";
+    AND id_estudiante IN (SELECT id FROM tbl_estudiantes WHERE id <= 3148 AND id NOT IN (1040, 1155, 2191))";
     $exe_solicitud=mysqli_query($conexion,$sql_solicitud);
     while ($rowES = mysqli_fetch_array($exe_solicitud)) {
         $total_usuarios_sn=$rowES['total_usuarios'];
@@ -95,9 +95,9 @@
     
     // número de estudiantes en solicitud nuevos
     $sql_solicitud1 = "SELECT COUNT(*) as total_usuarios 
-    FROM matricula  
+    FROM tbl_matriculas  
     WHERE n_matricula like '%$a1%' AND estado IN ('solicitud', 'nuevo_solicitud') 
-    AND id_estudiante IN (SELECT id FROM estudiantes WHERE id > 3148)";
+    AND id_estudiante IN (SELECT id FROM tbl_estudiantes WHERE id > 3148)";
     $exe_solicitud1=mysqli_query($conexion,$sql_solicitud1);
     while ($rowES1 = mysqli_fetch_array($exe_solicitud1)) {
         $total_usuarios_sn1=$rowES1['total_usuarios'];

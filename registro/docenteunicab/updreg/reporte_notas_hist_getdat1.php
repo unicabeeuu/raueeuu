@@ -106,11 +106,11 @@
 	//echo $numero_documento;
 	
 	//Esto es para consultar el número de matrícula
-	$sql_peticion="SELECT e.nombres, e.apellidos, e.n_documento, m.n_matricula 
-        FROM estudiantes e INNER JOIN 
-        (SELECT * FROM matricula WHERE idMatricula = 
-        (SELECT MAX(idMatricula) maxid FROM matricula WHERE id_estudiante = ".$id." AND estado IN ('aprobado', 'reprobado', 'activo', 'retirado'))) m ON e.id = m.id_estudiante 
-        INNER JOIN grados g ON m.id_grado=g.id 
+	$sql_peticion="SELECT e.nombres, e.apellidos, e.n_documento, m.n_matricula
+        FROM tbl_estudiantes e INNER JOIN
+        (SELECT * FROM tbl_matriculas WHERE id =
+        (SELECT MAX(id) maxid FROM tbl_matriculas WHERE id_estudiante = ".$id." AND estado IN ('aprobado', 'reprobado', 'activo', 'retirado'))) m ON e.id = m.id_estudiante
+        INNER JOIN tbl_grados g ON m.id_grado=g.id
         WHERE m.id_estudiante=".$id;
 	//echo $sql_peticion;
 	
@@ -123,7 +123,7 @@
     if(!$id || $id == "0") {
         $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, e.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
@@ -133,7 +133,7 @@
     else {
         $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, e.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 

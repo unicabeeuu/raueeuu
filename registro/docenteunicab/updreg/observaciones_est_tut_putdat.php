@@ -16,7 +16,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 	}
@@ -27,7 +27,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 	
 	$query1 = "SELECT a.*, o.observacion, ifnull(o.id, -1) id_obs 
 	    FROM 
-	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM estudiantes e 
+	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM tbl_estudiantes e 
 	    WHERE e.nombres like '%$nom%' OR e.apellidos like '%$nom%' OR e.n_documento like '%$nom%') a 
 	    LEFT JOIN tbl_estudiantes_observ_tut o 
 	    ON a.n_documento = o.n_documento";
@@ -244,15 +244,15 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 									<?php
 										echo '<label>Total Registros &#9658; '.$sel.'</label>';
 									?>
-									<input type="search" placeholder="Ingrese texto a buscar" id="search" name="search">
+									<input type="search" placeholder="Enter text to search" id="search" name="search">
 									<div>
 										<table border="1px" class="table" id="tblest">
 											<thead>
 											<tr class="GridViewScrollHeader">
 											    <td class="tdcorto">&#9658;</td>
-												<td class="tdmediol1"><b>NOMBRE</b></td>
+												<td class="tdmediol1"><b>NAME</b></td>
 												<td class="tdmediol1"><b>APELLIDOS</b></td>
-												<td class="tdmedia1"><b>DOCUMENTO</b></td>
+												<td class="tdmedia1"><b>DOCUMENT</b></td>
 												<td class="tdmediol"><b>ACCIONES</b></td>
 												<td class="tdelargo"><b>OBSERVACION</b></td>
 												<td class="tdmedia"><b>ID EST</b></td>
@@ -269,11 +269,11 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 												<td class="tdmediol1"><?php echo $row['apellidos'];?></td>
 												<td class="tdmedia1"><?php echo $row['n_documento'];?></td>
 												<td class="tdmediol">
-													<button class="btn btn-warning fa fa-pencil-square-o" data-toggle="modal" data-target="#modal_observaciones" title="Editar"
+													<button class="btn btn-warning fa fa-pencil-square-o" data-toggle="modal" data-target="#modal_observaciones" title="Edit"
                                                     onclick="enviardat(<?php echo $row['id_est'];?>,'<?php echo $row['nombres'];?>','<?php echo $row['apellidos'];?>','<?php echo $row['observacion'];?>', '<?php echo $row['n_documento'];?>', '<?php echo $nombre;?>', '<?php echo $row['id_obs'];?>');">
 														Editar
 													</button>
-													<button class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modal_observaciones" title="Editar"
+													<button class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modal_observaciones" title="Edit"
                                                     onclick="enviardatCrear(<?php echo $row['id_est'];?>,'<?php echo $row['nombres'];?>','<?php echo $row['apellidos'];?>', '<?php echo $row['n_documento'];?>', '<?php echo $nombre;?>', '<?php echo $row['id_obs'];?>');">
 														Crear
 													</button>
@@ -328,8 +328,8 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 				<input type="hidden" id="txtidobs" class="form-control"/>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updobs()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updobs()">Save</button>
               </div>
             </div>
           </div>
@@ -339,7 +339,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper']) || isset($_SESS
 </html>
 <?php
     }else{
-    	echo "<script>alert('Debes iniciar sesión');</script>";
+    	echo "<script>alert('You must log in');</script>";
     	echo "<script>location.href='../../../login_registro.php'</script>";
     }
 ?>

@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['dependencia'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -20,7 +20,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	//$peticion="SELECT * from estudiantes WHERE estado != 'Retirado'";
 	$peticion="SELECT DISTINCT e.id, e.nombres, e.apellidos, e.n_documento, e.email_institucional, e.telefono_estudiante, r.id_grado, g.grado, r.estado, 
 	CASE WHEN e.id <= 2380 THEN 'Antiguo' ELSE 'Nuevo' END tipo_estudiante, d.DSA, d.DA, d.DM, d.DB 
-    FROM estudiantes e, tbl_respuestas r, grados g, tbl_desemp_pres d 
+    FROM tbl_estudiantes e, tbl_respuestas r, tbl_grados g, tbl_desemp_pres d 
     WHERE e.n_documento = r.identificacion AND r.id_grado = g.id AND e.n_documento = d.identificacion AND r.id_grado = d.id_grado 
     AND r.a = 2023 AND r.identificacion NOT IN (SELECT DISTINCT identificacion FROM `tbl_respuestas` WHERE estado = 'ABIERTA') 
     ORDER BY g.id, e.nombres";
@@ -149,7 +149,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			

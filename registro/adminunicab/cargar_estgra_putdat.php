@@ -26,7 +26,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -126,11 +126,11 @@ if (isset($_SESSION['unisuper'])) {
 										//echo $query2;
 										if($insertados > 0) {
 											echo "<label  class='col-sm-8 control-label'>Cargue exitoso de estudiantes de Moodle. Registros: ".$insertados."</label></br></br>";
-											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Volver</button></a>';
+											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 										}
 										else {
-											echo "<label  class='col-sm-8 control-label' style='color: red;'>No hay estudiantes nuevos de Moodle</label></br></br>";
-											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Volver</button></a>';
+											echo "<label  class='col-sm-8 control-label' style='color: red;'>There are no new students from Moodle</label></br></br>";
+											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 										}
 									?>
 								
@@ -149,7 +149,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -198,7 +198,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

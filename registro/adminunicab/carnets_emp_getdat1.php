@@ -33,8 +33,8 @@
 	                        <thead>
 	                        <tr>
 	                            <td>ID_EMP</td>
-	                            <td>NOMBRE</td>
-	                            <td>CARNET</td>
+	                            <td>NAME</td>
+	                            <td>ID CARD</td>
 	                        </tr></thead><tbody>";
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()) {

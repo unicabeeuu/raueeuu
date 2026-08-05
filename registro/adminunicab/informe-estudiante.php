@@ -11,7 +11,7 @@ include "../adminunicab/php/conexion.php";
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -23,10 +23,10 @@ include "../adminunicab/php/conexion.php";
 	$nota_tres=0;
 	$nota_cuatro=0;*/
 	$id_estudiante=$_GET['id_estudiante'];
-	$buscar_grado="SELECT DISTINCT matricula.id_grado, grados.grado 
-	    FROM matricula INNER JOIN grados ON matricula.id_grado=grados.id 
-	    INNER JOIN estudiantes on matricula.id_estudiante=estudiantes.id 
-	    where estudiantes.id=".$id_estudiante." and matricula.estado='activo'";
+	$buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado 
+	    FROM tbl_matriculas INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id 
+	    INNER JOIN tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_estudiantes.id 
+	    where tbl_estudiantes.id=".$id_estudiante." and tbl_matriculas.estado='activo'";
 	$exe_buscar=mysqli_query($conexion,$buscar_grado);
 	while ($buscar=mysqli_fetch_array($exe_buscar)) {
 		$id_grado=$buscar['id_grado'];
@@ -40,7 +40,7 @@ include "../adminunicab/php/conexion.php";
 	    WHERE estudiantes.id='".$id_estudiante."' and matricula.estado='activo' ORDER BY materias.pensamiento asc";
 	$consultaNotas=mysqli_query($conexion,$sqlNotas);*/
 
-	$sql_buscarEstudiante="SELECT * FROM `estudiantes` WHERE `id`=".$id_estudiante."";
+	$sql_buscarEstudiante="SELECT * FROM `tbl_estudiantes` WHERE `id`=".$id_estudiante."";
 	$exe_buscarEstuidante=mysqli_query($conexion,$sql_buscarEstudiante);
 
 	while ($rowEstudiante = mysqli_fetch_array($exe_buscarEstuidante)) {
@@ -80,7 +80,7 @@ include "../adminunicab/php/conexion.php";
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -171,7 +171,7 @@ include "../adminunicab/php/conexion.php";
 									$varialble_nota=0;
 									if (!isset($id_grado)) {
 										echo '<div class="alert alert-danger" role="alert">
-  											<strong>¡Alerta!</strong> El estudiante no se encuentra matriculado.
+  											<strong>Alert!</strong> El estudiante no se encuentra matriculado.
 										</div>';
 									}
 									else{
@@ -285,16 +285,16 @@ include "../adminunicab/php/conexion.php";
 										echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
     											<thead > 
     												<tr>
-    													<TH COLSPAN=6><center><strong>NOMBRE ESTUDIANTE: '.$nombeCompleto.'</strong></center></TH>
+    													<TH COLSPAN=6><center><strong>STUDENT NAME: '.$nombeCompleto.'</strong></center></TH>
     												</tr>
     												<tr>
-    												<TH COLSPAN=2><center><strong>ASIGNATURAS INSCRITAS GRADO '.$nombre_grado.'</strong></center></TH>
-    												<TH COLSPAN=4><center><strong>NOTAS DEFINITIVAS POR PERIODOS</strong></center></TH>
+    												<TH COLSPAN=2><center><strong>ENROLLED SUBJECTS GRADE '.$nombre_grado.'</strong></center></TH>
+    												<TH COLSPAN=4><center><strong>FINAL GRADES BY PERIOD</strong></center></TH>
     												</tr>';
     									if ($id_grado>=17) {
     										echo '<tr>
-    											<th><center>Materia</center></th>
-    											<th><center>Pesamiento</center></th>
+    											<th><center>Subject</center></th>
+    											<th><center>Area</center></th>
     											<th><center>P 1</center></th>
     											<th><center>P 2</center></th>
     											</tr> 
@@ -302,8 +302,8 @@ include "../adminunicab/php/conexion.php";
     											<tbody>';
     									}else{
     										echo '<tr>
-    											<th><center>Materia</center></th>
-    											<th><center>Pesamiento</center></th>
+    											<th><center>Subject</center></th>
+    											<th><center>Area</center></th>
     											<th><center>P 1</center></th>
     											<th><center>P 2</center></th>
     											<th><center>P 3</center></th>
@@ -317,26 +317,26 @@ include "../adminunicab/php/conexion.php";
     											echo "<tr><td>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
     											//esta validación es para las asignaturas de bioético y humanístico
     											if($row['id_materia'] == 10) {
-    												echo "<tr><td>EDUCACIÓN ÉTICA Y EN VALORES</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
-    												echo "<tr><td>EDUCACIÓN FÍSICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+    												echo "<tr><td>ETHICS AND VALUES EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+    												echo "<tr><td>PHYSICAL EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
     											}
     											else if($row['id_materia'] == 15) {
-    												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
-    												echo "<tr><td>FILOSOFÍA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+    												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+    												echo "<tr><td>PHILOSOPHY</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
     											}
     										}else{
     											echo "<tr><td>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
     											//esta validación es para las asignaturas de bioético y humanístico
     											if($row['id_materia'] == 10 || $row['id_materia'] == 1) {
-    												echo "<tr><td>EDUCACIÓN ÉTICA Y EN VALORES</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
-    												echo "<tr><td>EDUCACIÓN FÍSICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+    												echo "<tr><td>ETHICS AND VALUES EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+    												echo "<tr><td>PHYSICAL EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
     											}
     											else if($row['id_materia'] == 15) {
-    												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
-    												echo "<tr><td>FILOSOFÍA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+    												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+    												echo "<tr><td>PHILOSOPHY</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
     											}
     											else if($row['id_materia'] == 6) {
-    												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+    												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
     											}
     										}	
     									}
@@ -349,7 +349,7 @@ include "../adminunicab/php/conexion.php";
 							</table>
 							
 							<br>
-							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
 						    <br><br>
 								</div>
 							</div>
@@ -365,7 +365,7 @@ include "../adminunicab/php/conexion.php";
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -412,7 +412,7 @@ include "../adminunicab/php/conexion.php";
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

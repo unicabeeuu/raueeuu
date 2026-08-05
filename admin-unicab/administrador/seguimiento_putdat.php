@@ -71,15 +71,15 @@
     <script>
         
         document.addEventListener('DOMContentLoaded', function() {
-            var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-            var initialLocaleCode = 'es';
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+            let initialLocaleCode = 'es';
+            let calendarEl = document.getElementById('calendar');
+            let calendar = new FullCalendar.Calendar(calendarEl, {
                 //initialView: 'dayGridMonth'
                 initialView: 'timeGridWeek',
                 nowIndicator: true,
                 eventClick: function(info) {
-                    var eventObj = info.event;
+                    let eventObj = info.event;
                     $("#fecha_ent").val("");
                     $("#hora_ent").val("");
                     alert(eventObj.title);
@@ -141,12 +141,12 @@
                     }
                 ],
                 dateClick: function(info) {
-                    var dia = info.dateStr.substring(0,10);
-                    var hora = info.dateStr.substring(11,13);
-                    var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+                    let dia = info.dateStr.substring(0,10);
+                    let hora = info.dateStr.substring(11,13);
+                    let diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
                     
-                    var parts = dia.split('-');
-                    var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+                    let parts = dia.split('-');
+                    let mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
                     //alert(mydate.toDateString());
                     ////alert(diasSemana[mydate.getDay()]);
                     
@@ -194,7 +194,7 @@
             $("#emaila_1").val("");
             
             //Se valida si el documento corresponde al código de pre-matrícula
-            var buscar = $("#buscar").val();
+            let buscar = $("#buscar").val();
             $("#documento_est").val(buscar);
             
             $.ajax({
@@ -202,8 +202,8 @@
         		url:"informacion_seguimiento_getdat.php",
         		data:"buscar=" + buscar,
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var r_est = res.estado;
+        		    let res = JSON.parse(r);
+        		    let r_est = res.estado;
         		    //alert(r_est);
         		    //$("#estado").val(r_est);
         		    
@@ -220,15 +220,15 @@
         }
         
         function mostrar_submit() {
-            var control = 0;
-            var nombre = $("#nombree").val();
+            let control = 0;
+            let nombre = $("#nombree").val();
             if(nombre == "") {
                 $("#btnsubmit").hide();
                 control = 1;
             }
             
             if(control == 0) {
-                var grado = $("#gradoe").val();
+                let grado = $("#gradoe").val();
                 if(grado == "") {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -236,7 +236,7 @@
             }
             
             if(control == 0) {
-                var fecha = $("#fecha_ent").val();
+                let fecha = $("#fecha_ent").val();
                 if(fecha == "") {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -244,7 +244,7 @@
             }
             
             if(control == 0) {
-                var hora = $("#hora_ent").val();
+                let hora = $("#hora_ent").val();
                 if(hora == "") {
                     $("#btnsubmit").hide();
                     control = 1;

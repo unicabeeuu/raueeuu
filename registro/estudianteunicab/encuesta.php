@@ -2,7 +2,7 @@
 	session_start();
 	include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql = "SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql = "SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res = mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -20,9 +20,9 @@
 	$nota_tres=0;
 	$nota_cuatro=0;
 	
-	$buscar_grado="SELECT DISTINCT matricula.id_grado, grados.grado FROM matricula
-    INNER JOIN grados ON matricula.id_grado=grados.id 
-    INNER JOIN estudiantes on matricula.id_estudiante=estudiantes.id where estudiantes.id=".$id." and matricula.estado IN ('activo', 'aprobado')";
+$buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tbl_matriculas
+    INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id 
+    INNER JOIN tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_estudiantes.id where tbl_estudiantes.id=".$id." and tbl_matriculas.estado IN ('activo', 'aprobado')";
 	$exe_buscar = mysqli_query($conexion,$buscar_grado);
 	while ($buscar = mysqli_fetch_array($exe_buscar)) {
 		$id_grado = $buscar['id_grado'];
@@ -51,7 +51,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Unicab Registro Académico</title>
+    <title>Unicab Academic Registry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      <!-- Favicon -->
@@ -97,16 +97,16 @@
         });
 		
 		function guardar_encuesta() {
-			var idGrado = $("#txtidgra").val();
-			var documento = $("#txtdocumento").val();
+			let idGrado = $("#txtidgra").val();
+			let documento = $("#txtdocumento").val();
 			
 			//SELECCIÓN MÚLTIPLE
-			var encuesta1p1 = $('input:radio[name=encuesta1pregunta1]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta1").val();
-			var pregunta = $("#preguntaencuesta1pregunta1").val();
+			let encuesta1p1 = $('input:radio[name=encuesta1pregunta1]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta1").val();
+			let pregunta = $("#preguntaencuesta1pregunta1").val();
 			    
 			if(encuesta1p1 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta1").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta1');
 				$("#link").get(0).click();
@@ -116,12 +116,12 @@
 				$("#encuesta1pregunta1").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p2 = $('input:radio[name=encuesta1pregunta2]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta2").val();
-			var pregunta = $("#preguntaencuesta1pregunta2").val();
+			let encuesta1p2 = $('input:radio[name=encuesta1pregunta2]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta2").val();
+			let pregunta = $("#preguntaencuesta1pregunta2").val();
                 
 			if(encuesta1p2 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta2").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta2');
 				$("#link").get(0).click();
@@ -131,12 +131,12 @@
 				$("#encuesta1pregunta2").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p3 = $('input:radio[name=encuesta1pregunta3]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta3").val();
-			var pregunta = $("#preguntaencuesta1pregunta3").val();
+			let encuesta1p3 = $('input:radio[name=encuesta1pregunta3]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta3").val();
+			let pregunta = $("#preguntaencuesta1pregunta3").val();
                 
 			if(encuesta1p3 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta3").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta3');
 				$("#link").get(0).click();
@@ -146,12 +146,12 @@
 				$("#encuesta1pregunta3").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p4 = $('input:radio[name=encuesta1pregunta4]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta4").val();
-			var pregunta = $("#preguntaencuesta1pregunta4").val();
+			let encuesta1p4 = $('input:radio[name=encuesta1pregunta4]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta4").val();
+			let pregunta = $("#preguntaencuesta1pregunta4").val();
                 
 			if(encuesta1p4 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta4").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta4');
 				$("#link").get(0).click();
@@ -161,12 +161,12 @@
 				$("#encuesta1pregunta4").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p5 = $('input:radio[name=encuesta1pregunta5]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta5").val();
-			var pregunta = $("#preguntaencuesta1pregunta5").val();
+			let encuesta1p5 = $('input:radio[name=encuesta1pregunta5]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta5").val();
+			let pregunta = $("#preguntaencuesta1pregunta5").val();
                 
 			if(encuesta1p5 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta5").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta5');
 				$("#link").get(0).click();
@@ -176,12 +176,12 @@
 				$("#encuesta1pregunta5").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p6 = $('input:radio[name=encuesta1pregunta6]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta6").val();
-			var pregunta = $("#preguntaencuesta1pregunta6").val();
+			let encuesta1p6 = $('input:radio[name=encuesta1pregunta6]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta6").val();
+			let pregunta = $("#preguntaencuesta1pregunta6").val();
                 
 			if(encuesta1p6 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta6").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta6');
 				$("#link").get(0).click();
@@ -191,12 +191,12 @@
 				$("#encuesta1pregunta6").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p7 = $('input:radio[name=encuesta1pregunta7]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta7").val();
-			var pregunta = $("#preguntaencuesta1pregunta7").val();
+			let encuesta1p7 = $('input:radio[name=encuesta1pregunta7]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta7").val();
+			let pregunta = $("#preguntaencuesta1pregunta7").val();
                 
 			if(encuesta1p7 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta7").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta7');
 				$("#link").get(0).click();
@@ -206,12 +206,12 @@
 				$("#encuesta1pregunta7").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p8 = $('input:radio[name=encuesta1pregunta8]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta8").val();
-			var pregunta = $("#preguntaencuesta1pregunta8").val();
+			let encuesta1p8 = $('input:radio[name=encuesta1pregunta8]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta8").val();
+			let pregunta = $("#preguntaencuesta1pregunta8").val();
                 
 			if(encuesta1p8 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta8").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta8');
 				$("#link").get(0).click();
@@ -221,12 +221,12 @@
 				$("#encuesta1pregunta8").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p9 = $('input:radio[name=encuesta1pregunta9]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta9").val();
-			var pregunta = $("#preguntaencuesta1pregunta9").val();
+			let encuesta1p9 = $('input:radio[name=encuesta1pregunta9]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta9").val();
+			let pregunta = $("#preguntaencuesta1pregunta9").val();
                 
 			if(encuesta1p9 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta9").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta9');
 				$("#link").get(0).click();
@@ -236,12 +236,12 @@
 				$("#encuesta1pregunta9").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p10 = $('input:radio[name=encuesta1pregunta10]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta10").val();
-			var pregunta = $("#preguntaencuesta1pregunta10").val();
+			let encuesta1p10 = $('input:radio[name=encuesta1pregunta10]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta10").val();
+			let pregunta = $("#preguntaencuesta1pregunta10").val();
                 
 			if(encuesta1p10 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta10").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta10');
 				$("#link").get(0).click();
@@ -251,12 +251,12 @@
 				$("#encuesta1pregunta10").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p11 = $('input:radio[name=encuesta1pregunta11]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta11").val();
-			var pregunta = $("#preguntaencuesta1pregunta11").val();
+			let encuesta1p11 = $('input:radio[name=encuesta1pregunta11]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta11").val();
+			let pregunta = $("#preguntaencuesta1pregunta11").val();
                 
 			if(encuesta1p11 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta11").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta11');
 				$("#link").get(0).click();
@@ -266,12 +266,12 @@
 				$("#encuesta1pregunta11").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p12 = $('input:radio[name=encuesta1pregunta12]:checked').val();
-			var tipo = $("#tipoencuesta1pregunta12").val();
-			var pregunta = $("#preguntaencuesta1pregunta12").val();
+			let encuesta1p12 = $('input:radio[name=encuesta1pregunta12]:checked').val();
+			let tipo = $("#tipoencuesta1pregunta12").val();
+			let pregunta = $("#preguntaencuesta1pregunta12").val();
                 
 			if(encuesta1p12 == undefined) {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta12").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta12');
 				$("#link").get(0).click();
@@ -282,12 +282,12 @@
 			}
 			
 			//PREGUNTAS ABIERTAS
-			var encuesta1p13 = $('.encuesta1pregunta13').val();
-			var tipo = $("#tipoencuesta1pregunta13").val();
-			var pregunta = $("#preguntaencuesta1pregunta13").val();
+			let encuesta1p13 = $('.encuesta1pregunta13').val();
+			let tipo = $("#tipoencuesta1pregunta13").val();
+			let pregunta = $("#preguntaencuesta1pregunta13").val();
                 
 			if(encuesta1p13 == undefined || encuesta1p13 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta13").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta13');
 				$("#link").get(0).click();
@@ -297,12 +297,12 @@
 				$("#encuesta1pregunta13").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p14 = $('.encuesta1pregunta14').val();
-			var tipo = $("#tipoencuesta1pregunta14").val();
-			var pregunta = $("#preguntaencuesta1pregunta14").val();
+			let encuesta1p14 = $('.encuesta1pregunta14').val();
+			let tipo = $("#tipoencuesta1pregunta14").val();
+			let pregunta = $("#preguntaencuesta1pregunta14").val();
                 
 			if(encuesta1p14 == undefined || encuesta1p14 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta14").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta14');
 				$("#link").get(0).click();
@@ -312,12 +312,12 @@
 				$("#encuesta1pregunta14").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p15 = $('.encuesta1pregunta15').val();
-			var tipo = $("#tipoencuesta1pregunta15").val();
-			var pregunta = $("#preguntaencuesta1pregunta15").val();
+			let encuesta1p15 = $('.encuesta1pregunta15').val();
+			let tipo = $("#tipoencuesta1pregunta15").val();
+			let pregunta = $("#preguntaencuesta1pregunta15").val();
                 
 			if(encuesta1p15 == undefined || encuesta1p15 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta15").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta15');
 				$("#link").get(0).click();
@@ -327,12 +327,12 @@
 				$("#encuesta1pregunta15").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p16 = $('.encuesta1pregunta16').val();
-			var tipo = $("#tipoencuesta1pregunta16").val();
-			var pregunta = $("#preguntaencuesta1pregunta16").val();
+			let encuesta1p16 = $('.encuesta1pregunta16').val();
+			let tipo = $("#tipoencuesta1pregunta16").val();
+			let pregunta = $("#preguntaencuesta1pregunta16").val();
                 
 			if(encuesta1p16 == undefined || encuesta1p16 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta16").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta16');
 				$("#link").get(0).click();
@@ -342,12 +342,12 @@
 				$("#encuesta1pregunta16").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p17 = $('.encuesta1pregunta17').val();
-			var tipo = $("#tipoencuesta1pregunta17").val();
-			var pregunta = $("#preguntaencuesta1pregunta17").val();
+			let encuesta1p17 = $('.encuesta1pregunta17').val();
+			let tipo = $("#tipoencuesta1pregunta17").val();
+			let pregunta = $("#preguntaencuesta1pregunta17").val();
                 
 			if(encuesta1p17 == undefined || encuesta1p17 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta17").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta17');
 				$("#link").get(0).click();
@@ -357,12 +357,12 @@
 				$("#encuesta1pregunta17").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p18 = $('.encuesta1pregunta18').val();
-			var tipo = $("#tipoencuesta1pregunta18").val();
-			var pregunta = $("#preguntaencuesta1pregunta18").val();
+			let encuesta1p18 = $('.encuesta1pregunta18').val();
+			let tipo = $("#tipoencuesta1pregunta18").val();
+			let pregunta = $("#preguntaencuesta1pregunta18").val();
                 
 			if(encuesta1p18 == undefined || encuesta1p18 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta18").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta18');
 				$("#link").get(0).click();
@@ -372,12 +372,12 @@
 				$("#encuesta1pregunta18").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p19 = $('.encuesta1pregunta19').val();
-			var tipo = $("#tipoencuesta1pregunta19").val();
-			var pregunta = $("#preguntaencuesta1pregunta19").val();
+			let encuesta1p19 = $('.encuesta1pregunta19').val();
+			let tipo = $("#tipoencuesta1pregunta19").val();
+			let pregunta = $("#preguntaencuesta1pregunta19").val();
                 
 			if(encuesta1p19 == undefined || encuesta1p19 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta19").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta19');
 				$("#link").get(0).click();
@@ -387,12 +387,12 @@
 				$("#encuesta1pregunta19").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p20 = $('.encuesta1pregunta20').val();
-			var tipo = $("#tipoencuesta1pregunta20").val();
-			var pregunta = $("#preguntaencuesta1pregunta20").val();
+			let encuesta1p20 = $('.encuesta1pregunta20').val();
+			let tipo = $("#tipoencuesta1pregunta20").val();
+			let pregunta = $("#preguntaencuesta1pregunta20").val();
                 
 			if(encuesta1p20 == undefined || encuesta1p20 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta20").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta20');
 				$("#link").get(0).click();
@@ -402,12 +402,12 @@
 				$("#encuesta1pregunta20").removeClass('bordeRojo');
 			}
 			
-			var encuesta1p21 = $('.encuesta1pregunta21').val();
-			var tipo = $("#tipoencuesta1pregunta21").val();
-			var pregunta = $("#preguntaencuesta1pregunta21").val();
+			let encuesta1p21 = $('.encuesta1pregunta21').val();
+			let tipo = $("#tipoencuesta1pregunta21").val();
+			let pregunta = $("#preguntaencuesta1pregunta21").val();
                 
 			if(encuesta1p21 == undefined || encuesta1p21 == "") {
-				alert("Se debe seleccionar una opción para la pregunta de " + tipo + ": "  + pregunta);
+				alert("You must select an option for the question of " + tipo + ": "  + pregunta);
 				$("#encuesta1pregunta21").addClass('bordeRojo');
 				$("#link").attr('href','#encuesta1pregunta21');
 				$("#link").get(0).click();
@@ -417,7 +417,7 @@
 				$("#encuesta1pregunta21").removeClass('bordeRojo');
 			}
 			
-			var datos = "idGrado=" + idGrado + "&documento=" + documento + "&idEncuesta=" + 1 + 
+			let datos = "idGrado=" + idGrado + "&documento=" + documento + "&idEncuesta=" + 1 + 
 			"&encuesta1p1=" + encuesta1p1 + "&encuesta1p2=" + encuesta1p2 + "&encuesta1p3=" + encuesta1p3 + 
 			"&encuesta1p4=" + encuesta1p4 + "&encuesta1p5=" + encuesta1p5 + "&encuesta1p6=" + encuesta1p6 + 
 			"&encuesta1p7=" + encuesta1p7 + "&encuesta1p8=" + encuesta1p8 + "&encuesta1p9=" + encuesta1p9 + 
@@ -433,7 +433,7 @@
         		data:datos,
         		success:function(r) {
 					//alert(r);
-        		    var res = JSON.parse(r);
+        		    let res = JSON.parse(r);
 					console.log(res.insert);
 					if (res.insert == "OK") {
 						window.location.href = "certificado_notas.php";
@@ -476,10 +476,10 @@
 						<div class="panel-body widget-shadow">
 							<div class="panel-group" id="accordion">
 								<?php //echo $sql_encuesta; ?>
-								<center><h2>Para descargar el boletin de calificaciones es necesario responder la siguiente encuesta:</h2></center><br>
+								<center><h2>To download the report card you must answer the following survey:</h2></center><br>
 								<div class="panel panel-default" style="border: 1px solid blue;">
 									<div style="background-color: lightblue;">
-										<p style="font-size: 1.5em"><strong>Preguntas de selección múltiple, para que podamos contrastar y nos facilite más la construcción del instrumento final.</strong></p>
+										<p style="font-size: 1.5em"><strong>Multiple-choice questions, so we can compare and make it easier to build the final instrument.</strong></p>
 									</div>
 									<?php
 										//echo "id_grado ".$id_grado;
@@ -531,7 +531,7 @@
 								
 								<div class="panel panel-default" style="border: 1px solid green;">
 									<div style="background-color: lightgreen;">
-										<p style="font-size: 1.5em"><strong>Algunas preguntas abiertas que permiten a los padres expresar sus opiniones y percepciones detalladamente.</strong></p>
+										<p style="font-size: 1.5em"><strong>Some open questions that allow parents to express their opinions and perceptions in detail.</strong></p>
 									</div>
 									<?php
 										if (!isset($n_documento)) {
@@ -569,7 +569,7 @@
 							<input type="hidden" id="txtEncuestasPreguntasSM" value="<?php echo $encuestaPreguntas; ?>"/>
 							<input type="hidden" id="txtEncuestasPreguntasRT" value="<?php echo $encuestaPreguntasRT; ?>"/>
 							<a href="" id="link"></a>
-							<button class="btn btn-primary" onclick="guardar_encuesta();">Guardar Encuesta</button>
+							<button class="btn btn-primary" onclick="guardar_encuesta();">Save Survey</button>
 						</div>
 					</div>
 				</div>
@@ -582,7 +582,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

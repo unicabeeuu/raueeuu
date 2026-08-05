@@ -21,7 +21,7 @@
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
@@ -119,8 +119,8 @@
 	                        <tr class='GridViewScrollHeader'>
 	                            <td>Ranking</td>
 	                            <td>Promedio Total</td>
-	                            <td>Id Estudiante</td>
-	                            <td>Nombre</td>
+	                            <td>Student Id</td>
+	                            <td>Name</td>
 	                        </tr></thead><tbody>";
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()) {

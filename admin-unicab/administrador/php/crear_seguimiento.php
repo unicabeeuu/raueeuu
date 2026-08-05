@@ -11,7 +11,7 @@
 	</head>
 </html>
 <?php
-    //var desc = lineas[i].descripcion.replace("<br />",""); --> esto en javascript
+    //let desc = lineas[i].descripcion.replace("<br />",""); --> esto en javascript
 
 		$documento = $_REQUEST['buscar'];
 		//$psi = $_REQUEST['sel_psi'];

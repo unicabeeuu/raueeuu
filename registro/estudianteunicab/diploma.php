@@ -13,19 +13,28 @@
     $fanioPazSalvo = $fanio;
 	
 	if (isset($_SESSION['uniestudiante'])) {
-		//$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
-		$sql_estudiante="SELECT e.*, m.id_grado 
-		FROM estudiantes e, 
-		(SELECT max(id_grado) id_grado, id_estudiante FROM matricula WHERE estado IN ('aprobado', 'reprobado', 'retirado') 
-		AND id_estudiante = (SELECT id FROM estudiantes WHERE email_institucional = '".$_SESSION['uniestudiante']."') 
+		//$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql_estudiante="SELECT e.*, m.id_grado
+		FROM tbl_estudiantes e,
+		(SELECT max(id_grado) id_grado, id_estudiante FROM tbl_matriculas WHERE estado IN ('aprobado', 'reprobado', 'retirado')
+		AND id_estudiante = (SELECT id FROM tbl_estudiantes WHERE email_institucional = '".$_SESSION['uniestudiante']."')
 		AND n_matricula like '%2025%' 
 		GROUP BY id_estudiante) m 
 		WHERE e.id = m.id_estudiante AND e.email_institucional='".$_SESSION['uniestudiante']."'";
 		$res = mysqli_query($conexion,$sql_estudiante);
 		//echo $sql_estudiante;
 
+		//Si el estudiante no tiene matrícula que cumpla el filtro, esta consulta no devuelve filas
+		$id = "";
+		$apellidos = "";
+		$nombres = "";
+		$n_documento = "";
+		$email_institucional = "";
+		$password = "";
+		$idgra = "";
+
     	while ($fila = mysqli_fetch_array($res)){
-                          
+
     	  	$id = $fila['id'];
     		$apellidos = $fila['apellidos'];
     		$nombres = $fila['nombres'];
@@ -34,10 +43,13 @@
     		$password = $fila['password'];
     		$idgra = $fila['id_grado'];
     	}
-    	
-    	$buscar_diploma = "SELECT * FROM tbl_diplomas_virtuales WHERE documento = '".$n_documento."' AND id_grado = $idgra";
-    	//echo $buscar_diploma;
-    	$exe_buscar = mysqli_query($conexion,$buscar_diploma);
+
+    	$exe_buscar = false;
+    	if ($n_documento != "" && $idgra != "") {
+	    	$buscar_diploma = "SELECT * FROM tbl_diplomas_virtuales WHERE documento = '".$n_documento."' AND id_grado = $idgra";
+	    	//echo $buscar_diploma;
+	    	$exe_buscar = mysqli_query($conexion,$buscar_diploma);
+    	}
     	
     	$codigo = "";
     	$sa1 = ["q","a","1","z","x","2","s","w","3","p","l","4","m","k","5","o","e","6",
@@ -52,33 +64,37 @@
     	
     	//Se valida el estado del estudiante
     	$ct = 0;
-    	/*$qry_estado = "SELECT Count(1) ct FROM matricula WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
-    	$qry_estado = "SELECT Count(1) ct FROM matricula WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') 
-		AND id_estudiante = $id";
-		//echo $qry_estado;
-    	
-    	$res_estado = mysqli_query($conexion,$qry_estado);
+    	if ($id != "") {
+	    	/*$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
+	    	$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado')
+			AND id_estudiante = $id";
+			//echo $qry_estado;
 
-    	while ($fila_estado = mysqli_fetch_array($res_estado)){
-    	  	$ct = $fila_estado['ct'];
+	    	$res_estado = mysqli_query($conexion,$qry_estado);
+
+	    	while ($fila_estado = mysqli_fetch_array($res_estado)){
+	    	  	$ct = $fila_estado['ct'];
+	    	}
     	}
-		
+
 		//Se valida si el estudiante está habilitado financieramente para descargar el paz y SALVO
 		$ct_control = 0;
-		$qry_control = "SELECT Count(1) ct FROM tbl_estudiantes_bloqueados WHERE n_documento = $n_documento";
-    	
-    	$res_control = mysqli_query($conexion,$qry_control);
+		if ($n_documento != "") {
+			$qry_control = "SELECT Count(1) ct FROM tbl_estudiantes_bloqueados WHERE n_documento = '".$n_documento."'";
 
-    	while ($fila_control = mysqli_fetch_array($res_control)){
-    	  	$ct_control = $fila_control['ct'];
-    	}
+	    	$res_control = mysqli_query($conexion,$qry_control);
+
+	    	while ($fila_control = mysqli_fetch_array($res_control)){
+	    	  	$ct_control = $fila_control['ct'];
+	    	}
+		}
 		
 	
 ?>
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -154,12 +170,12 @@
     								    <TH COLSPAN=3><center><strong>DIPLOMA</strong></center></TH>
     								</tr>
     								<tr>
-    								    <th width="200"><center>Acción</center></th>
+    								    <th width="200"><center>Action</center></th>
     								</tr> 
 								</thead> 
 								<tbody>
 							<?php
-								while ($buscar=mysqli_fetch_array($exe_buscar)) {
+								while ($exe_buscar && $buscar=mysqli_fetch_array($exe_buscar)) {
 								    $ruta = $buscar['ruta'];
 								}
 								//echo $ruta." ".$ct." ".$ct_control;
@@ -170,7 +186,7 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Descargar</a>
+							                <a href='<?php echo $ruta."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Download</a>
 							                </center>
 							            </td>
 							        </tr>
@@ -186,7 +202,7 @@
 							?>
 							        <tr>
 							            <td><center>
-							                <p>Este diploma sólo se puede descargar cuando se encuentre académica y financieramente a paz y salvo.</p>
+							                <p>This diploma can only be downloaded when you are academically and financially cleared.</p>
 							                </center>
 							            </td>
 							        </tr>
@@ -208,7 +224,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

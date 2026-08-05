@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -28,7 +28,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -74,22 +74,22 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </style>
 <?php require 'php/conexion.php';
 
-    $sql="SELECT * FROM grados";
+    $sql="SELECT * FROM tbl_grados";
 	$gradoActual="No se encontraron estudiantes matriculados";
     // '".$_POST["id_grado"]."'
 	if (!isset($_POST["id_grado"])) {
-	$peticion="SELECT estudiantes.apellidos,estudiantes.id,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado 
-	FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado 
-	where matricula.estado='activo' ORDER BY grados.grado";
+	$peticion="SELECT tbl_estudiantes.apellidos,tbl_estudiantes.id,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_grados.grado 
+	FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id= tbl_matriculas.id_grado 
+	where tbl_matriculas.estado='activo' ORDER BY tbl_grados.grado";
 	$gradoActual="Completo";
 	}
  	if (isset($_POST["id_grado"])) {
-	$peticion="SELECT estudiantes.id, estudiantes.apellidos,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado 
-	FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado 
-	where grados.id=".$_POST['id_grado']."  and matricula.estado='activo' ORDER BY grados.grado";
+	$peticion="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_grados.grado 
+	FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id= tbl_matriculas.id_grado 
+	where tbl_grados.id=".$_POST['id_grado']."  and tbl_matriculas.estado='activo' ORDER BY tbl_grados.grado";
  	}
 	// var_dump($peticion);
-	echo $peticion;
+	// echo $peticion;
 	
 	$res=mysqli_query($conexion,$peticion);
 	
@@ -144,7 +144,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 											<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Número Documento" required maxlength="15" autofocus="">
 											</div>
 									</div>
-								  	<button type="submit" class="btn btn-default"><span style="color:#FFF" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+								  	<button type="submit" class="btn" style="background-color: #222a75;"><span style="color: white" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     			</form>
 								<hr>
 								</div>
@@ -156,7 +156,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 								</div>';
 							}else{
 								$numero_documento=$_POST['n_documento'];
-								$buscar="SELECT id, apellidos, nombres FROM estudiantes where n_documento='".$numero_documento."'";
+							$buscar="SELECT id, apellidos, nombres FROM tbl_estudiantes where n_documento='".$numero_documento."'";
 								$exe_buscar=mysqli_query($conexion,$buscar);
 								$total_buscar=mysqli_num_rows($exe_buscar);
 								if ($total_buscar>0) {
@@ -185,13 +185,13 @@ $resultado1 = mysqli_query($conexion, $peticion);
 											<input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
 
 											<?php
-										$sql_historial="SELECT estudiantes.id AS id_estudiante, estudiantes.apellidos, estudiantes.nombres, estudiantes.n_documento, 
-										matricula.estado, matricula.idMatricula, matricula.EstadoGrado, grados.id AS id_grado, grados.grado, matricula.fecha_ingreso 
-										FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) 
-										ON grados.id = matricula.id_grado 
-										WHERE estudiantes.n_documento='".$numero_documento."' and matricula.estado IN ('activo', 'retirado', 'aprobado', 'reprobado') 
-										AND date_format(matricula.fecha_ingreso, '%Y') = $aant 
-										ORDER By matricula.idMatricula ASC";
+										$sql_historial="SELECT tbl_estudiantes.id AS id_estudiante, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_estudiantes.n_documento, 
+										tbl_matriculas.estado, tbl_matriculas.id AS idMatricula, tbl_matriculas.estado_grado AS EstadoGrado, tbl_grados.id AS id_grado, tbl_grados.grado, tbl_matriculas.fecha_ingreso
+										FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante)
+										ON tbl_grados.id = tbl_matriculas.id_grado
+										WHERE tbl_estudiantes.n_documento='".$numero_documento."' and tbl_matriculas.estado IN ('activo', 'retirado', 'aprobado', 'reprobado')
+										AND date_format(tbl_matriculas.fecha_ingreso, '%Y') = $aant
+										ORDER By tbl_matriculas.id ASC";
 										//echo $sql_historial;
 										
 										$exe_historial=mysqli_query($conexion,$sql_historial);
@@ -286,7 +286,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

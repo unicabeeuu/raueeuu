@@ -16,7 +16,7 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
@@ -113,13 +113,13 @@ if (isset($_SESSION['uniprofe'])) {
 											<table border="1px" class="table table-hover" id="tblparam">
 												<thead>
 												<tr>
-													<td><b>Parámetro</b></td>
+													<td><b>Parameter</b></td>
 													<td><b>Valor 1</b></td>
 													<td><b>Valor 2</b></td>
 													<td><b>Texto 1</b></td>
 													<td><b>Texto 2</b></td>
-													<td><b>Fecha 1</b></td>
-													<td><b>Fecha 2</b></td>					
+													<td><b>Date 1</b></td>
+													<td><b>Date 2</b></td>					
 												</tr>
 												</thead>
 												<tbody>
@@ -148,7 +148,7 @@ if (isset($_SESSION['uniprofe'])) {
     										        <tr>
     										            <td>
     										                <select id="selpg" name="selpg">
-                    											<option value="0">Seleccione parámetro</option>
+                    											<option value="0">Select parameter</option>
                     											<?php
                     											    while($row1 = $resultado1->fetch_assoc()){
                     												//while($row1 = mysqli_fetch_array($resultado1)){
@@ -245,7 +245,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);
@@ -261,7 +261,7 @@ if (isset($_SESSION['uniprofe'])) {
 	}else if (isset($_SESSION['uniestudiante'])) {
 		echo "<script>location.href='../../estudianteunicab/index.php'</script>";
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../login.php'</script>";
 	}
 	?>

@@ -11,8 +11,8 @@
 		header("Location: pen_gra_upddat.php?p=1");
 	}
 	
-	//$query1 = "SELECT * FROM querys_ra WHERE campos2 != ''";
-	$query1 = "SELECT * FROM querys_ra WHERE id > 25 ORDER BY grados, pensamiento";
+	//$query1 = "SELECT * FROM tbl_querys_ra WHERE campos2 != ''";
+	$query1 = "SELECT * FROM tbl_querys_ra WHERE id > 25 ORDER BY grados, pensamiento";
 	$resultado=$mysqli1->query($query1);
 	$sel_upd = $mysqli1->affected_rows;
 	if($sel_upd > 0) {
@@ -70,22 +70,22 @@
 						<tr>
 							<td>
 								<fieldset>
-									<legend>PENSAMIENTOS Y GRADOS A CARGAR</legend>
+									<legend style="color: #FC0D8C;">SUBJECTS AND GRADES TO LOAD</legend>
 									<div>
 									    <?php
-										echo '<label>Total Registros &#9658; '.$sel_upd.' ---------------> Registros '.$ini1.' al '.$fin.'</label>';
+										echo '<label>Total Records &#9658; '.$sel_upd.' ---------------> Records '.$ini1.' to '.$fin.'</label>';
 										?>
 										<table border="1px" class="tr">
 											<thead>
 											<tr>
-												<td><b>Pensamiento</b></td>
-												<td><b>Grados</b></td>
-												<td><b>Actualizado</b></td>
-												<td><b>Seleccionados</b></td>
-												<td><b>Insertados temp</b></td>
-												<td><b>Actualizados</b></td>
-												<td><b>Nuevos</b></td>
-												<td><b>Procesar</b></td>
+												<td><b>Subject</b></td>
+												<td><b>Grades</b></td>
+												<td><b>Updated</b></td>
+												<td><b>Selected</b></td>
+												<td><b>Temp Inserted</b></td>
+												<td><b>Updated</b></td>
+												<td><b>New</b></td>
+												<td><b>Process</b></td>
 												<td><b>No RA (*)</b></td>
 												<!--<td><b></b></td>-->
 												<td><b></b></td>
@@ -95,12 +95,12 @@
 											<?php
 											    if($sel_upd > 0) {													
 													//$ini = ($_GET['p']-1)*$rxp;
-													//$query1_1 = "SELECT * FROM querys_ra WHERE id > 25 ORDER BY grados, pensamiento LIMIT ".$ini.",".$rxp;
+												//$query1_1 = "SELECT * FROM tbl_querys_ra WHERE id > 25 ORDER BY grados, pensamiento LIMIT ".$ini.",".$rxp;
 													$query1_1 = "SELECT a.*, 
 													CASE a.grados WHEN '1' THEN 1 WHEN '2' THEN 2 WHEN '3' THEN 3 WHEN '4' THEN 4 WHEN '5' THEN 5 WHEN '6' THEN 6 WHEN '7' THEN 7 
 													WHEN '8' THEN 8 WHEN '9' THEN 9 WHEN '10' THEN 10 WHEN '11' THEN 11 WHEN 'Ciclo I' THEN 12 WHEN 'Ciclo II' THEN 13 
 													WHEN 'Ciclo III' THEN 14 WHEN 'Ciclo IV' THEN 15 WHEN 'Ciclo V' THEN 16 WHEN 'Ciclo VI' THEN 17 END id_grado
-                                                    FROM querys_ra a WHERE a.id > 25  
+                                                    FROM tbl_querys_ra a WHERE a.id > 25  
                                                     ORDER BY 21, a.pensamiento LIMIT ".$ini.",".$rxp;
 													$resultado=$mysqli1->query($query1_1);
 												}
@@ -121,7 +121,7 @@
 												<td><?php echo $row['procesar'];?></td>
 												<td><?php echo $row['est_nue_no_reg'];?></td>
 												<!--<td><?php echo '<a href="pen_gra_upddat1.php?idq='.$row['id'].'"><button type="button" class="btn1">Programar</button></a>';?></td>-->
-												<td><?php echo '<a href="pen_gra_upddat2.php?idq='.$row['id'].'" target="_blank"><button type="button" class="btn2">Ver registros a procesar</button></a>';?></td>
+												<td><?php echo '<a href="pen_gra_upddat2.php?idq='.$row['id'].'" target="_blank"><button type="button" class="btn2">View records to process</button></a>';?></td>
 											</tr>
 											<?php }
 												$resultado->close();
@@ -130,12 +130,12 @@
 											</tbody>
 										</table>
 									</div>
-									<label class="msg">* No RA: Registros no insertados por pertenecer a estudiantes que no están en registro</label>
+									<label class="msg">* No RA: Records not inserted because they belong to students who are not in the registry</label>
 								</fieldset>
 								<nav aria-label="...">
 								  <ul class="pagination">
 									<li class="page-item <?php echo $_GET['p']<=1 ? 'disabled' : '' ?>">
-										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']-1 ?>">&#9668; Anterior</a>
+										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']-1 ?>">&#9668; Previous</a>
 									</li>
 									<?php for($i=0; $i<$pag;$i++): ?>
 									<li class="page-item <?php echo $_GET['p']==$i+1 ? 'active' : '' ?>">
@@ -146,7 +146,7 @@
 									  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
 									</li>-->
 									<li class="page-item <?php echo $_GET['p']>=$pag ? 'disabled' : '' ?>">
-										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']+1 ?>">Siguiente &#9658;</a>
+										<a class="page-link" href="pen_gra_upddat.php?p=<?php echo $_GET['p']+1 ?>">Next &#9658;</a>
 									</li>
 								  </ul>
 								</nav>

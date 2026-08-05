@@ -26,11 +26,11 @@
 	                            <td>ID</td>
 	                            <td>NOMBRES</td>
 	                            <td>APELLIDOS</td>
-	                            <td>ESTADO</td>
+	                            <td>STATUS</td>
 	                            <td>N_MATRICULA</td>
 	                            <td>ESTADO_MATRIC</td>
 	                            <td>ID_MATRIC</td>
-	                            <td>GRADO</td>
+	                            <td>GRADE</td>
 	                            <td>ESTADO_GRADO</td>
 	                        </tr></thead><tbody>";
 	//echo $cadena;                      

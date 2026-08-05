@@ -14,17 +14,18 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
     }
     
+    /* Grados activos del high school: 0 (Kindergarten) y 9 a 12 */
     if($id == 18 || $id == 3 || $id == 43) {
-        $query = "SELECT * FROM equivalence_idgra WHERE id_category > 0 AND id_category < 32";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     }
     else {
-        $query = "SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id";
+        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ORDER BY eg.id_grado_ra";
     }
     
     $resultado=$mysqli1->query($query);
@@ -34,7 +35,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -93,7 +94,7 @@ if (isset($_SESSION['unisuper'])) {
             $("#idest").val("0");
             $("#submit1").hide("");
             
-            var gra = $("#selgra1").val();
+            let gra = $("#selgra1").val();
     		$("#lblgra").html("Grado = " + gra);
             
     		if(gra == "NA") {
@@ -116,7 +117,7 @@ if (isset($_SESSION['unisuper'])) {
             $("#idest").hide("");
             $("#periodo").hide("");
             
-            var gra = $("#selgra2").val();
+            let gra = $("#selgra2").val();
     		$("#lblgra1").html("Grado = " + gra);
             
     		if(gra == "NA") {
@@ -142,8 +143,8 @@ if (isset($_SESSION['unisuper'])) {
     });
     
     function consultar_cert() {
-        var idgra = $("#selgra2").val();
-        var anio = $("#idanio").val();
+        let idgra = $("#selgra2").val();
+        let anio = $("#idanio").val();
         
         //alert (idgra);
         $.ajax({
@@ -198,15 +199,15 @@ if (isset($_SESSION['unisuper'])) {
                 			<!--***********************************************************************************************-->
                 			<div id="div1">
                 				<fieldset>
-                				<legend><h3>GENERAR CERTIFICADOS DE NOTAS</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">GENERATE GRADE CERTIFICATES</h3></legend>
                 				    <form class="form-horizontal" action="../docenteunicab/updreg/reporte_notas_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                 					<ul class="mprincipal">
-                						<li><h3>GENRAR CERTIFICADOS POR<span style="color: white;">.....</span>
+                						<li><h3>GENERATE CERTIFICATES BY<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<select id="selgra1" name="selgra1" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -218,7 +219,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 																<label style="color: white;">...</label>
-													<button id="submit" class="btn btn-primary" style="display: none;" >Generar</button>
+													<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" >Generate</button>
 												</li>
                 							</ul>
                 					</ul>
@@ -228,15 +229,15 @@ if (isset($_SESSION['unisuper'])) {
                 			</div>
                 			<div id="div2">
                 				<fieldset>
-                				<legend><h3>CONSULTAR CERTIFICADOS DE NOTAS</h3></legend>
+                				<legend><h3 style="color: #FC0D8C;">CONSULT GRADE CERTIFICATES</h3></legend>
                 				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                 					<ul class="mprincipal">
-                						<li><h3>LISTADO DE CERTIFICADOS POR<span style="color: white;">.....</span>
+                						<li><h3>CERTIFICATE LIST BY<span style="color: white;">.....</span>
                 						</h3></li>
-                							<ul class="msecund">
-                								<li>
+                							<ul class="msecund" style="background-color: #222a75;">
+                								<li style="background-color: #222a75;">
 													<select id="selgra2" name="selgra2" required>
-													    <option value="NA" selected>Seleccione grado</option>
+													    <option value="NA" selected>Select grade</option>
 													    <?php 
 													        while($row = $resultado1->fetch_assoc()){
 													            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -246,7 +247,7 @@ if (isset($_SESSION['unisuper'])) {
 													<label style="color: white;">...</label>
 													<input type="text" id="idanio" name="idanio" placeholder="año" style="width: 50px;" value="2021"/>
 													<label style="color: white;">...</label>
-													<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_cert()">Buscar</button>
+													<button id="submit1" class="btn btn-primary" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_cert()">Search</button>
 												</li>
                 							</ul>
                 					</ul>
@@ -262,7 +263,7 @@ if (isset($_SESSION['unisuper'])) {
             				$mysqli1->close();
             			?>
 						<!---------------------------------------------->
-						<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
+						<input type='search' placeholder='Enter search text' id='search' name='search' style="display: none;"><br/><br/>
 						<div id="divtabla">
 						    
 						</div>
@@ -282,7 +283,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -303,7 +304,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 	<script type="text/javascript">
 		$('#tipo_certificado').change(function(){
-    var valorCambiado =$(this).val();
+    let valorCambiado =$(this).val();
     if((valorCambiado == 'Estudio')){
        $('#select_periodo').hide();
        
