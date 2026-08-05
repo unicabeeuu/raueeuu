@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Administrador - Web Unicab</title>
+<title>Administrator - Web Thrive</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -14,7 +14,7 @@
 <!-- Bootstrap Core CSS -->
 <link href="admin-unicab/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="admin-unicab/css/style.css" rel='stylesheet' type='text/css' />
+<link href="admin-unicab/css/style_thrive.css" rel='stylesheet' type='text/css' />
 <!-- font-awesome icons CSS-->
 <link href="admin-unicab/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons CSS-->

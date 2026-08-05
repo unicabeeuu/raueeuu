@@ -35,7 +35,7 @@ $exe_buscar=mysqli_query($conexion,$buscar_grado);
 <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 
 <!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/style_thrive.css" rel='stylesheet' type='text/css' />
 
 <!-- font-awesome icons CSS -->
 <link href="../css/font-awesome.css" rel="stylesheet"> 

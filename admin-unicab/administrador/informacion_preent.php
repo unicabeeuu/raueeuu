@@ -55,7 +55,7 @@
 <!--<link rel="stylesheet" href="../../assets/vendor/bootstrap/css/bootstrap.min.css">-->
 
 <!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/style_thrive.css" rel='stylesheet' type='text/css' />
 
 <!-- font-awesome icons CSS -->
 <link href="../css/font-awesome.css" rel="stylesheet"> 

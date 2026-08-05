@@ -99,7 +99,7 @@ FROM tbl_matriculas INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.
 <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 
 <!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/style_thrive.css" rel='stylesheet' type='text/css' />
 
 <!-- font-awesome icons CSS -->
 <link href="../css/font-awesome.css" rel="stylesheet"> 

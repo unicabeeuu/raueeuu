@@ -781,13 +781,13 @@ if ( typeof Object.create !== "function" ) {
 			var	translate3D = "translate3d(0px, 0px, 0px)",
 				tempElem = document.createElement("div");
 
-			tempElem.style.cssText= "  -moz-transform:"    + translate3D +
+			tempElem.style_thrive.cssText= "  -moz-transform:"    + translate3D +
 								  "; -ms-transform:"     + translate3D +
 								  "; -o-transform:"      + translate3D +
 								  "; -webkit-transform:" + translate3D +
 								  "; transform:"         + translate3D;
 			var	regex = /translate3d\(0px, 0px, 0px\)/g,
-				asSupport = tempElem.style.cssText.match(regex),
+				asSupport = tempElem.style_thrive.cssText.match(regex),
 				support3d = (asSupport !== null && asSupport.length === 1);
 
 			var isTouch = "ontouchstart" in window || navigator.msMaxTouchPoints;

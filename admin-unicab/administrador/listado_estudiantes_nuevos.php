@@ -16,7 +16,7 @@
 <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 
 <!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/style_thrive.css" rel='stylesheet' type='text/css' />
 
 <!--css tabla 
 <link href="../css/jquery.dataTables.min.css" rel='stylesheet' type='text/css' />--> 

@@ -27,7 +27,7 @@
 <!-- Bootstrap Core CSS -->
 <link href="../../admin-unicab/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="../../admin-unicab/css/style.css" rel='stylesheet' type='text/css' />
+<link href="../../admin-unicab/css/style_thrive.css" rel='stylesheet' type='text/css' />
 <!-- font-awesome icons CSS-->
 <link href="../../admin-unicab/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons CSS-->

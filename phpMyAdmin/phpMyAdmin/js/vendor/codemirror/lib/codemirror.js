@@ -71,7 +71,7 @@
   function elt(tag, content, className, style) {
     var e = document.createElement(tag);
     if (className) { e.className = className; }
-    if (style) { e.style.cssText = style; }
+    if (style) { e.style_thrive.cssText = style; }
     if (typeof content == "string") { e.appendChild(document.createTextNode(content)); }
     else if (content) { for (var i = 0; i < content.length; ++i) { e.appendChild(content[i]); } }
     return e
@@ -4290,7 +4290,7 @@
       var className = ref.className;
       var style = ref.style;
       var gElt = gutters.appendChild(elt("div", null, "CodeMirror-gutter " + className));
-      if (style) { gElt.style.cssText = style; }
+      if (style) { gElt.style_thrive.cssText = style; }
       if (className == "CodeMirror-linenumbers") {
         display.lineGutter = gElt;
         gElt.style.width = (display.lineNumWidth || 1) + "px";
@@ -9536,10 +9536,10 @@
     if (reset && cm.doc.sel.contains(pos) == -1)
       { operation(cm, setSelection)(cm.doc, simpleSelection(pos), sel_dontScroll); }
 
-    var oldCSS = te.style.cssText, oldWrapperCSS = input.wrapper.style.cssText;
+    var oldCSS = te.style_thrive.cssText, oldWrapperCSS = input.wrapper.style_thrive.cssText;
     var wrapperBox = input.wrapper.offsetParent.getBoundingClientRect();
-    input.wrapper.style.cssText = "position: static";
-    te.style.cssText = "position: absolute; width: 30px; height: 30px;\n      top: " + (e.clientY - wrapperBox.top - 5) + "px; left: " + (e.clientX - wrapperBox.left - 5) + "px;\n      z-index: 1000; background: " + (ie ? "rgba(255, 255, 255, .05)" : "transparent") + ";\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);";
+    input.wrapper.style_thrive.cssText = "position: static";
+    te.style_thrive.cssText = "position: absolute; width: 30px; height: 30px;\n      top: " + (e.clientY - wrapperBox.top - 5) + "px; left: " + (e.clientX - wrapperBox.left - 5) + "px;\n      z-index: 1000; background: " + (ie ? "rgba(255, 255, 255, .05)" : "transparent") + ";\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);";
     var oldScrollY;
     if (webkit) { oldScrollY = window.scrollY; } // Work around Chrome issue (#2712)
     display.input.focus();
@@ -9570,8 +9570,8 @@
     function rehide() {
       if (input.contextMenuPending != rehide) { return }
       input.contextMenuPending = false;
-      input.wrapper.style.cssText = oldWrapperCSS;
-      te.style.cssText = oldCSS;
+      input.wrapper.style_thrive.cssText = oldWrapperCSS;
+      te.style_thrive.cssText = oldCSS;
       if (ie && ie_version < 9) { display.scrollbars.setScrollTop(display.scroller.scrollTop = scrollPos); }
 
       // Try to detect the user choosing select-all

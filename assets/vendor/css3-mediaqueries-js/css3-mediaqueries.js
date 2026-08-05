@@ -762,7 +762,7 @@ domReady(function enableCssMediaQueries() {
 
 	var createMeter = function () { // create measuring element
 		meter = document.createElement('div');
-		meter.style.cssText = 'position:absolute;top:-9999em;left:-9999em;' +
+		meter.style_thrive.cssText = 'position:absolute;top:-9999em;left:-9999em;' +
 			'margin:0;border:none;padding:0;width:1em;font-size:1em;'; // cssText is needed for IE, works for the others
 		document.body.appendChild(meter);
 		// meter must have browser default font size of 16px

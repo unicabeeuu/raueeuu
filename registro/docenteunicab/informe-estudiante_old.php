@@ -46,7 +46,7 @@ $buscar_grado="SELECT DISTINCT tbl_matriculas.id_grado, tbl_grados.grado FROM tb
 <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 
 <!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
+<link href="../css/style_thrive.css" rel='stylesheet' type='text/css' />
 
 <!-- font-awesome icons CSS -->
 <link href="../css/font-awesome.css" rel="stylesheet"> 

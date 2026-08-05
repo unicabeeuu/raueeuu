@@ -178,7 +178,7 @@
 
     // Detect CSS pointer-events support, for IE <= 10. From Modernizr.
     var style = document.createElement('a').style;
-    style.cssText = 'pointer-events:auto';
+    style_thrive.cssText = 'pointer-events:auto';
     if (style.pointerEvents !== 'auto') {
       $('html').addClass('no-csspointerevents');
     }

@@ -15117,7 +15117,7 @@ function createResizer(handler) {
 		'visibility:hidden;' +
 		'z-index:-1;';
 
-	resizer.style.cssText = style;
+	resizer.style_thrive.cssText = style;
 	resizer.className = cls;
 	resizer.innerHTML =
 		'<div class="' + cls + '-expand" style="' + style + '">' +

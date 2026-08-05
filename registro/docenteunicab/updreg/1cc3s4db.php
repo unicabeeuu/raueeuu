@@ -2,7 +2,8 @@
     // $mysqli1 = new mysqli("localhost","u756063299_s5p3r5s51r34","5n3c1b*V3r","u756063299_admin_unicab"); original
     // venm $mysqli = new mysqli("51.79.19.3","czWserunicab","Yknsd938u9h-pz7xrvw4","i517252_mood1");
     
-    $mysqli1 = new mysqli("localhost","root","","admin_unieeuu");
+    $mysqli1 = new mysqli("localhost","root","Root1234*","admin_unieeuu");
+    //$mysqli1 = new mysqli("localhost","u512774881_s5p3r5s5_Un325","s5p3r_5Ni2255*","u512774881_admin_unieeuu");
 	if(mysqli_connect_error()) {
          echo utf8_encode("Error al conectar con Registro:"),mysqli_connect_error();
          exit();

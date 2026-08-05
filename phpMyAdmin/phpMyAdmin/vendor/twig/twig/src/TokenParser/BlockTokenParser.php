@@ -23,7 +23,7 @@ use Twig\Token;
  * Marks a section of a template as being reusable.
  *
  *  {% block head %}
- *    <link rel="stylesheet" href="style.css" />
+ *    <link rel="stylesheet" href="style_thrive.css" />
  *    <title>{% block title %}{% endblock %} - My Webpage</title>
  *  {% endblock %}
  *
