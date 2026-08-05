@@ -14,5 +14,5 @@
 	//echo $query1;
 	$resultado=$mysqli1->query($query1);
 	
-	echo "Registro actualizado";
+	echo "Record updated";
 ?>

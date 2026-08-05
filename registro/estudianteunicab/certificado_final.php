@@ -5,11 +5,18 @@
 	//https://unicab.org/registro/estudianteunicab/certificado_notas.php
 	
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
+	$id = "";
+	$apellidos = "";
+	$nombres = "";
+	$n_documento = "";
+	$email_institucional = "";
+	$password = "";
+
 	while ($fila = mysqli_fetch_array($res)){
-                      
+
 	  	$id = $fila['id'];
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
@@ -28,16 +35,19 @@
     $fanioPazSalvo = $fanio;
     
     $sql_estudiante="SELECT e.*, m.id_grado 
-	FROM estudiantes e, 
-	(SELECT max(id_grado) id_grado, id_estudiante FROM matricula WHERE estado IN ('aprobado', 'reprobado', 'retirado') 
-	AND id_estudiante = (SELECT id FROM estudiantes WHERE email_institucional = '".$_SESSION['uniestudiante']."') 
+	FROM tbl_estudiantes e,
+	(SELECT max(id_grado) id_grado, id_estudiante FROM tbl_matriculas WHERE estado IN ('aprobado', 'reprobado', 'retirado')
+	AND id_estudiante = (SELECT id FROM tbl_estudiantes WHERE email_institucional = '".$_SESSION['uniestudiante']."')
 	GROUP BY id_estudiante) m 
 	WHERE e.id = m.id_estudiante AND e.email_institucional='".$_SESSION['uniestudiante']."'";
 	$res = mysqli_query($conexion,$sql_estudiante);
 	//echo $sql_estudiante;
 
+	//Si el estudiante no tiene matrícula aprobada/reprobada/retirada, esta consulta no devuelve filas
+	$idgra = "";
+
 	while ($fila = mysqli_fetch_array($res)){
-                      
+
 	  	$id = $fila['id'];
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
@@ -46,8 +56,8 @@
 		$password = $fila['password'];
 		$idgra = $fila['id_grado'];
 	}
-	
-	$buscar_cert="SELECT * FROM certificado WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 3) = 'CFF'";
+
+	$buscar_cert="SELECT * FROM tbl_certificados WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 3) = 'CFF'";
 	//echo $buscar_cert;
 	$exe_buscar=mysqli_query($conexion,$buscar_cert);
 	
@@ -60,28 +70,33 @@
 		$codigo = $codigo.$sa1[$ale-1];
 	}
 	
-	$buscar_pazysalvo = "SELECT * FROM tbl_pazysalvos WHERE id_estudiante = '".$id."' AND a = '$fanioPazSalvo' AND id_grado = $idgra AND firma = 'SI'";
-	//echo $buscar_pazysalvo;
-	$exe_buscar_ps = mysqli_query($conexion,$buscar_pazysalvo);
-	
+	$exe_buscar_ps = false;
+	if ($id != "" && $idgra != "") {
+		$buscar_pazysalvo = "SELECT * FROM tbl_pazysalvos WHERE id_estudiante = '".$id."' AND a = '$fanioPazSalvo' AND id_grado = $idgra AND firma = 'SI'";
+		//echo $buscar_pazysalvo;
+		$exe_buscar_ps = mysqli_query($conexion,$buscar_pazysalvo);
+	}
+
 	$ruta_ps = "";
-    	
+
 	//Se valida el estado del estudiante
 	$ct = 0;
-	/*$qry_estado = "SELECT Count(1) ct FROM matricula WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
-	$qry_estado = "SELECT Count(1) ct FROM matricula WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";
-	
-	$res_estado = mysqli_query($conexion,$qry_estado);
+	if ($id != "") {
+		/*$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE date_format(fecha_ingreso, '%Y') = $fanio AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";*/
+		$qry_estado = "SELECT Count(1) ct FROM tbl_matriculas WHERE fecha_ingreso BETWEEN '2024-11-01' AND '2025-12-01' AND estado IN ('aprobado', 'reprobado', 'retirado') AND id_estudiante = $id";
 
-	while ($fila_estado = mysqli_fetch_array($res_estado)){
-	  	$ct = $fila_estado['ct'];
+		$res_estado = mysqli_query($conexion,$qry_estado);
+
+		while ($fila_estado = mysqli_fetch_array($res_estado)){
+		  	$ct = $fila_estado['ct'];
+		}
 	}
 	
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -154,12 +169,12 @@
 							<table class="table table-hover" border="1" bordercolor="#e0e0e0" width="500">
 								<thead > 
     								<tr>
-    								    <TH COLSPAN=3><center><strong>CERTIFICADO FINAL</strong></center></TH>
+    								    <TH COLSPAN=3><center><strong>FINAL CERTIFICATE</strong></center></TH>
     								</tr>
     								<tr>
-    								    <th width="200"><center>Fecha de expedición</center></th>
-        								<th width="100"><center>Número</center></th>
-        								<th width="200"><center>Acción</center></th>
+    								    <th width="200"><center>Issue Date</center></th>
+        								<th width="100"><center>Number</center></th>
+        								<th width="200"><center>Action</center></th>
     								</tr> 
 								</thead> 
 								<tbody>
@@ -172,15 +187,17 @@
 							            <td><center><?php echo $buscar['numero']; ?></center></td>
 							            
 							            <?php
-            								while ($buscarps = mysqli_fetch_array($exe_buscar_ps)) {
-            								    $ruta_ps = $buscarps['ruta'];
+            								if ($exe_buscar_ps) {
+            								    while ($buscarps = mysqli_fetch_array($exe_buscar_ps)) {
+            								        $ruta_ps = $buscarps['ruta'];
+            								    }
             								}
 											//echo $ruta_ps."<br>".$ct;
             								if ($ruta_ps != "" && $ct > 0) {
             					        		
             							?>
             							    <td><center>
-    							                <a href='<?php echo $buscar['ruta']."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Descargar</a>
+    							                <a href='<?php echo $buscar['ruta']."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Download</a>
     							                </center>
     							            </td>
     							        <?php  
@@ -188,7 +205,7 @@
             	                            else {
             							?>
             							    <td><center>
-    							                <p>Este documento sólo se puede descargar cuando se encuentre académica y financieramente a paz y salvo.</p>
+    							                <p>This document can only be downloaded when you are academically and financially cleared.</p>
     							                </center>
     							            </td>
     							        <?php  
@@ -213,7 +230,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

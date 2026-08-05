@@ -4,3 +4,10 @@
 *.pdf
 
 *.mp4
+.idea
+# Gemini CLI Skills
+.gemini/
+.claude/
+
+# phpqrcode cache (archivos .dat generados)
+registro/financieraunicab/phpqrcode/cache/

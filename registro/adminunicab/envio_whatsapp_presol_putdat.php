@@ -37,7 +37,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -124,8 +124,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		});
 		
 		$("#selusuario").change(function() {
-		    var usu = $("#selusuario").val();
-		    var datos = usu.split(" | ");
+		    let usu = $("#selusuario").val();
+		    let datos = usu.split(" | ");
 		    
 		    $("#textoI").val("");
 	        $("#textoW").val("");
@@ -165,8 +165,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		        $("#idInstancia").val(datos[1]);
     		    $("#token").val(datos[2]);
     		    
-    		    //var url = "https://api.ultramsg.com/instance2169/messages/image";
-    		    var url = "https://api.ultramsg.com/" + datos[1] + "/messages/";
+    		    //let url = "https://api.ultramsg.com/instance2169/messages/image";
+    		    let url = "https://api.ultramsg.com/" + datos[1] + "/messages/";
     		    $("#url").val(url);
     		    $("#ctr_url").val(url);
     		    
@@ -178,8 +178,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     	});
     	
     	$("#selenvio").change(function() {
-		    var envio = $("#selenvio").val();
-		    var url = $("#ctr_url").val();
+		    let envio = $("#selenvio").val();
+		    let url = $("#ctr_url").val();
 		    
 		    $('#img').attr('src', '');
 		    $("#seltipoimg").val(0);
@@ -293,7 +293,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     	});
     	
     	$("#seltipoimg").change(function() {
-		    var tipo = $("#seltipoimg").val();
+		    let tipo = $("#seltipoimg").val();
 		    
 		    $('#img').attr('src', '');
 		    $("#ImagenW").val("");
@@ -327,7 +327,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     	});
     	
     	$("#selimg").change(function() {
-		    var archivo = $("#selimg").val();
+		    let archivo = $("#selimg").val();
 		    //alert(archivo);
 		    
 		    $('#img').attr('src', '');
@@ -346,18 +346,18 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
    	// Validacion de extensiones permitidas
     function validarExtension(datos) {
-        var extensionesValidas = ".png, .gif, .jpeg, .jpg";
-		var ruta = datos.value;
-		var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-		var extensionValida = extensionesValidas.indexOf(extension);
+        let extensionesValidas = ".png, .gif, .jpeg, .jpg";
+		let ruta = datos.value;
+		let extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
+		let extensionValida = extensionesValidas.indexOf(extension);
 		
-		var nombre = ruta.substring(ruta.lastIndexOf('\\') + 1).toLowerCase();
+		let nombre = ruta.substring(ruta.lastIndexOf('\\') + 1).toLowerCase();
         //alert(nombre);
-        var noValido = /\s/;
+        let noValido = /\s/;
 		
 		if(extensionValida < 0) {
             //$('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
-            alert("La extensión no es válida Su fichero tiene de extensión: ." + extension + ": ");
+            alert("The extension is not valid. Your file has extension: ." + extension + ": ");
             $("#ImagenW").val("");
             
             return false;
@@ -375,15 +375,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
    	// Validacion de peso del fichero en kbs
     function validarPeso(datos) {
-        var pesoPermitido = 1024;
+        let pesoPermitido = 1024;
         
         if (datos.files && datos.files[0]) {
 
-		    var pesoFichero = datos.files[0].size/1024;
+		    let pesoFichero = datos.files[0].size/1024;
 		    
 		    if(pesoFichero > pesoPermitido) {
 		        //$('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: ' + pesoFichero +' KBs');
-		        alert("El peso maximo permitido del fichero es: " + pesoPermitido + " KBs Su fichero tiene: " + pesoFichero + " KBs");
+		        alert("The maximum allowed file size is: " + pesoPermitido + " KBs Your file is: " + pesoFichero + " KBs");
                 $("#ImagenW").val("");
                 
 		        return false;
@@ -396,7 +396,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
   	// Vista preliminar de la imagen local.
   	function verImagen(datos) {
 	    if (datos.files && datos.files[0]) {
-	        var reader = new FileReader();
+	        let reader = new FileReader();
          	reader.onload = function (e) {
          		$('#img').attr('src', e.target.result);
           	};
@@ -424,13 +424,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     function validar_texto(id, desc) {
-        var control = 0;
-        var id_obj = "#" + id;
-        var ctr_obj = "#ctr_" + id;
-        var v_input = document.getElementById(id);
-        var v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
-        //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-        var val = String($(id_obj).val()).match(v_val);
+        let control = 0;
+        let id_obj = "#" + id;
+        let ctr_obj = "#ctr_" + id;
+        let v_input = document.getElementById(id);
+        let v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
+        //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+        let val = String($(id_obj).val()).match(v_val);
         
         if(val == null) {
             v_input.setCustomValidity("");
@@ -440,7 +440,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         else {
             v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-            var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+            let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
             texto += "- _ \' \" < > ~ ^ * $ # & = + | { } [ ] \\";
             //alert(texto);
             $("#lblmsg").html(texto).css("color","red");
@@ -451,7 +451,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 		    if($(id_obj).val() == "") {
-		        var texto = "El campo " + desc + " se debe llenar";
+		        let texto = "El campo " + desc + " se debe llenar";
 				$("#lblmsg").html(texto).css("color","red");
 				//$("#alert").show();
                 $(ctr_obj).val(1);
@@ -462,10 +462,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     function mostrar_submit(id) {
-        var control = 0;
+        let control = 0;
         
-        var id_obj = "#" + id;
-        var long = $(id_obj).val().length;
+        let id_obj = "#" + id;
+        let long = $(id_obj).val().length;
         //alert(long);
         
         //Se controla la longitud máxima
@@ -476,9 +476,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             }
         }
         
-        var a = parseInt($("#ctr_DescripcionA").val());
-        var b = parseInt($("#ctr_TituloA").val());
-        var c = parseInt($("#ctr_ImagenA").val());
+        let a = parseInt($("#ctr_DescripcionA").val());
+        let b = parseInt($("#ctr_TituloA").val());
+        let c = parseInt($("#ctr_ImagenA").val());
         //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
         
         control = parseInt($("#ctr_DescripcionA").val()) + parseInt($("#ctr_TituloA").val()) + parseInt($("#ctr_ImagenA").val());
@@ -499,25 +499,25 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     function validar_datos() {
         //alert("hola");
 		$("#btnguardar").hide();
-        var usu = $("#selusuario").val();
-        var envio = $("#selenvio").val();
-        var texto_msg = $("#textoW").val();
-        var tipo = $("#seltipoimg").val();
-        var imgloc = $("#ImagenW").val();
-        var texto_img = $("#textoI").val();
-        var imgser = $("#selimg").val();
-        var idpre = $("#txtidpre").val();
-		var pdf = $("#pdfW").val();
-		var texto_pdf = $("#textoPdf").val();
+        let usu = $("#selusuario").val();
+        let envio = $("#selenvio").val();
+        let texto_msg = $("#textoW").val();
+        let tipo = $("#seltipoimg").val();
+        let imgloc = $("#ImagenW").val();
+        let texto_img = $("#textoI").val();
+        let imgser = $("#selimg").val();
+        let idpre = $("#txtidpre").val();
+		let pdf = $("#pdfW").val();
+		let texto_pdf = $("#textoPdf").val();
         
-        var control = 0;
+        let control = 0;
         //alert("usuario: " + usu);
         //alert("envio: " + envio);
-        //alert("texto mensaje: " + texto_msg);
+        //alert("message text: " + texto_msg);
         //alert("imagen local: " + imgloc);
         //alert("texto imagen: " + texto_img);
         //alert("imagen servidor: " + imgser);
-        //alert("registro: " + ident);
+        //alert("record: " + ident);
         
         if(usu != 0) {
             
@@ -532,7 +532,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 if(envio == 1) {
                     
                     if(tipo == 0) {
-                        alert("Debe seleccionar un tipo de imagen");
+                        alert("You must select an image type");
                         control = 1;
                     }
                     else if(tipo == 1) {
@@ -542,7 +542,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
@@ -554,7 +554,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         }
                         else {
                             if(texto_img == "") {
-                                alert("Debe ingresar el texto de la imagen");
+                                alert("You must enter the image text");
                                 control = 1;
                             }
                         }
@@ -562,7 +562,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 }
                 else if(envio == 2) {
                     if(texto_msg == "") {
-                        alert("Debe ingresar el texto del mensaje");
+                        alert("You must enter the message text");
                         control = 1;
                     }
                 }
@@ -573,25 +573,25 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					}
 					else {
 						if(texto_pdf == "") {
-							alert("Debe ingresar el texto del pdf");
+							alert("You must enter the pdf text");
 							control = 1;
 						}
 					}
                 }
             }
             else {
-                alert("Debe seleccionar un tipo de envío");
+                alert("You must select a send type");
                 control = 1;
             }
         }
-        
+
         if(control == 0) {
-            //alert("Validación correcta");
+            //alert("Validation successful");
             if(idpre != 0) {
                 $("#btnguardar").show();
             }
             else {
-                alert("Debe seleccionar pre solicitudes de matrícula");
+                alert("You must select enrollment pre-requests");
             }
         }
         
@@ -724,14 +724,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Envío masivo de whatsapp pre-solicitudes:</h4>
+							<h4>Bulk WhatsApp send - enrollment pre-requests:</h4>
 						</div>
 						<div class="form-body">
 							<form action="envio_whatsapp_presol_putdat1.php" method="POST" id="form" name="form" enctype="multipart/form-data" target="_blank">
 
 								<div class="form-group"> 
 								    <select id="selusuario" name="selusuario" class="form-control" >
-								        <option value="0">Seleccione usuario</option>
+								        <option value="0">Select user</option>
 								        <?php
 								            $filas = 1;
 								            while ($fila_what = mysqli_fetch_array($res_what)){
@@ -742,7 +742,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								        ?>
 								    </select><br>
 								    
-								    <label for="idInstancia" class="col-lg-1 col-sm-1">Instancia</label> 
+								    <label for="idInstancia" class="col-lg-1 col-sm-1">Instance</label>
 									<input type="text" class="col-lg-2 col-sm-2 readonly" id="idInstancia" name="idInstancia" readonly>
 									
 									<label for="token" class="col-lg-1 col-sm-1">Token</label> 
@@ -755,24 +755,24 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selenvio" name="selenvio" class="form-control" >
-								        <option value="0">Seleccione tipo de envío</option>
-								        <option value="1">Imagen</option>
-								        <option value="2">Texto</option>
+								        <option value="0">Select send type</option>
+								        <option value="1">Image</option>
+								        <option value="2">Text</option>
 										<option value="3">Pdf</option>
 								    </select>
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="seltipoimg" name="seltipoimg" class="form-control" >
-								        <option value="0">Seleccione tipo de imagen</option>
+								        <option value="0">Select image type</option>
 								        <option value="1">Local</option>
-								        <option value="2">Servidor</option>
+								        <option value="2">Server</option>
 								    </select>
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
 								    <select id="selimg" name="selimg" class="form-control" >
-								        <option value="0">Seleccione imagen del servidor</option>
+								        <option value="0">Select image from server</option>
 								        <?php
 								            //Se cargan las imágenes del servidor
 								            $archivos = [];
@@ -797,8 +797,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group ghf" id="tipoenvio"> 
-								    <label for="textoW" id="lbltextoW">Texto del mensaje</label> 
-									<input type="text" class="form-control" id="textoW" name="textoW" placeholder="Ingrese texto del mensaje">
+								    <label for="textoW" id="lbltextoW">Message text</label>
+									<input type="text" class="form-control" id="textoW" name="textoW" placeholder="Enter message text">
 									<input type="hidden" style="width: 20px" id="ctr_textoW" value="1"/>
 								</div>
 								
@@ -811,7 +811,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								<hr style="border-color: red;">
 
 								<div class="form-group ghf" id="imglocal"> 
-									<label for="ImagenW" id="lblImagenW">Imagen (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenW" id="lblImagenW">Image (Maximum size 1024 Kb)</label>
 									<input type="file" class="form-control" id="ImagenW" name="ImagenW">
 									<input type="hidden" style="width: 20px" id="ctr_ImagenW" value="1"/>
 								</div>
@@ -822,14 +822,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group ghf"> 
-									<label for="textoI" id="lbltextoI">Texto de la imagen</label> 
-									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Ingrese texto de la imagen">
+									<label for="textoI" id="lbltextoI">Image caption</label>
+									<input type="text" class="form-control" id="textoI" name="textoI" placeholder="Enter image caption">
 									<input type="hidden" style="width: 20px" id="ctr_textoI" value="1"/>
 								</div>
 								
 								<div class="form-group ghf"> 
-									<label for="textoPdf" id="lbltextoPdf">Texto del Pdf</label> 
-									<input type="text" class="form-control" id="textoPdf" name="textoPdf" placeholder="Ingrese texto del pdf">
+									<label for="textoPdf" id="lbltextoPdf">PDF caption</label>
+									<input type="text" class="form-control" id="textoPdf" name="textoPdf" placeholder="Enter PDF caption">
 									<input type="hidden" style="width: 20px" id="ctr_textoPdf" value="1"/>
 								</div>
 
@@ -838,14 +838,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								<hr style="border-color: red;">
 								
 								<div class="form-group"> 
-									<label for="textoI" id="lbltextoI">Solicitudes de matrícula sin envío de papeles</label> 
+									<label for="textoI" id="lbltextoI">Enrollment requests without document submission</label>
 									<table border="1px" style="text-align: center;">
 									    <thead>
 									        <tr>
 									            <td width="50px">Id</td>
-									            <td width="150px">Descripción</td>
-									            <td width="100px">Cantidad</td>
-									            <td width="150px">Enviar whatsapp</td>
+									            <td width="150px">Description</td>
+									            <td width="100px">Count</td>
+									            <td width="150px">Send WhatsApp</td>
 									        </tr>
 									    </thead>
 									    <tbody>
@@ -854,7 +854,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									            while($row_pre = $res_pre->fetch_assoc()) {
                                             	    $cadena = $cadena."<tr>
                                                         <td>1</td>
-                                                        <td>Pre solicitudes de matrícula</td>
+                                                        <td>Enrollment pre-requests</td>
                                                         <td>".$row_pre['ct']."</td>
                                                         <td style='text-align: center;'><input type='radio' id='rd1' name='rdpre' class='chk' value='1' onchange='marcaridpre(this.value);'></td>
                                                         </tr>";
@@ -867,9 +867,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								<input type="hidden" id="txtidpre" name="txtidpre" value="0"/>
 								
-								<input type="button" id="btnvalidar" class="btn btn-secondary" value="Validar y Continuar" onclick="validar_datos();"/>
+								<input type="button" id="btnvalidar" class="btn btn-secondary" value="Validate and Continue" onclick="validar_datos();"/>
 
-								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Enviar Mensaje</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Send Message</button>
 							</form>
 						</div>
 						
@@ -890,7 +890,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -938,7 +938,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

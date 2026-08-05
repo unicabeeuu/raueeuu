@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -100,12 +100,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     			<div class="form-body">
                     			<form class="form-horizontal" action="estudiante.php"  method="POST" onsubmit="return validacion()">
 									<div class="form-group">
-										<label  class="col-sm-2 control-label">Grado<span class="req">*</span></label>
+										<label  class="col-sm-2 control-label">Grade<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<select id="id_grado" name="grado" class="form-control1" required>
-												<option value='0'>Seleccionar Grado</option>
+												<option value='0'>Select Grade</option>
 												<?php 
-													$sql="SELECT * FROM grados";
+													$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 													$consulta=mysqli_query($conexion,$sql);
 													while ($fila=mysqli_fetch_array($consulta)){
 														echo '<option value="'.$fila['id'].'">'.$fila['grado'].'</option>';
@@ -116,7 +116,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									</div>
                             
 									<div class="modal-footer">
-										<input type="submit" class="btn btn-primary" value="Buscar Estudiante" title="Buscar Estudiante">
+										<input type="submit" class="btn btn-primary" value="Search Student" title="Search Student">
 									</div>
 									<div class="alert alert-danger" role="alert" id="alert" style="display:none; margin-top: 20px;"></div>
 								</form>
@@ -125,7 +125,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 								}else{
 									$grado=$_POST['grado'];
-									$sql_estudiante="SELECT DISTINCT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.grado, matricula.estado FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id = matricula.id_grado WHERE grados.id=".$grado." and matricula.estado='activo' ORDER BY apellidos ASC";
+									$sql_estudiante="SELECT DISTINCT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.grado, tbl_matriculas.estado FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id = tbl_matriculas.id_grado WHERE tbl_grados.id=".$grado." and tbl_matriculas.estado='activo' ORDER BY apellidos ASC";
 									$exe_estudiante=mysqli_query($conexion,$sql_estudiante);
 									$buscar=mysqli_num_rows($exe_estudiante);
 									if ($buscar>0) {
@@ -143,7 +143,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 										<tr>
 											<th><center>Apellidos</center></th>
 											<th><center>Nombres</center></th>
-											<th><center>Acción</center></th>
+											<th><center>Action</center></th>
 										</tr> 
 										</thead> 
 										<tbody>';
@@ -153,7 +153,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					         						<td scope="row">'.$row['apellidos'].'</td>
 					         						<td scope="row">'.$row['nombres'].'</td>
 					         						<td scope="row">
-					         						<center><a href="informe-estudiante.php?id_estudiante='.$row['id'].'" class="btn btn-primary"  "title="Informe Estudiante"><i class="fa fa-eye"></i> Informe</a></center></td>
+					         						<center><a href="informe-estudiante.php?id_estudiante='.$row['id'].'" class="btn btn-primary"  "title="Student Report"><i class="fa fa-eye"></i> Report</a></center></td>
 
 				         						</tr>';											
 											}
@@ -161,7 +161,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</table>';	
 									}else{
 										echo '<div class="alert alert-danger" role="alert">
-  										<strong>¡Alerta!</strong> No se encontro resultados para este grado
+  										<strong>Alert!</strong> No se encontro resultados para este grado
 										</div>';
 									}
 								}
@@ -181,7 +181,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -227,9 +227,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
    		<!-- validar combo periodo -->
 		<script type="text/javascript">
 			function validacion() {
-				var grado=document.getElementById('id_grado').value;
+				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);
@@ -240,7 +240,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

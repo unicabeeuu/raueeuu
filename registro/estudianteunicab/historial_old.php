@@ -2,7 +2,7 @@
 	session_start();
 	Include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -94,11 +94,11 @@
 							</table>
 							<?php 
 							$auto=0;
-							$sql_grado="SELECT DISTINCT grados.id, grados.grado, matricula.idMatricula FROM grados INNER JOIN matricula ON grados.id = matricula.id_grado WHERE matricula.id_estudiante=".$id." and matricula.estado='inactivo'";
+							$sql_grado="SELECT DISTINCT tbl_grados.id, tbl_grados.grado, tbl_matriculas.idMatricula FROM tbl_grados INNER JOIN tbl_matriculas ON tbl_grados.id = tbl_matriculas.id_grado WHERE tbl_matriculas.id_estudiante=".$id." and tbl_matriculas.estado='inactivo'";
 							$exe_grado=mysqli_query($conexion,$sql_grado);
 							if (mysqli_num_rows($exe_grado)) {
 								while ($row=mysqli_fetch_array($exe_grado)) {
-								$sql_historial="SELECT DISTINCT  promedio, estudiantes.id, estudiantes.nombres, materias.materia, materias.pensamiento, grados.id as id_grado, grados.grado, matricula.idMatricula, matricula.estado, matricula.EstadoGrado from ((((historial_notas INNER JOIN estudiantes ON historial_notas.id_estudiante=estudiantes.id) INNER JOIN materias ON historial_notas.id_materia=materias.Id) INNER JOIN matricula ON matricula.idMatricula=historial_notas.id_matricula) INNER JOIN grados ON historial_notas.id_grado=grados.id) where estudiantes.id=".$id." and matricula.estado='inactivo' and grados.id=".$row['id']." and matricula.idMatricula=".$row['idMatricula']." ORDER BY materias.pensamiento";
+								$sql_historial="SELECT DISTINCT  promedio, tbl_estudiantes.id, tbl_estudiantes.nombres, materias.materia, materias.pensamiento, tbl_grados.id as id_grado, tbl_grados.grado, tbl_matriculas.idMatricula, tbl_matriculas.estado, tbl_matriculas.EstadoGrado from ((((historial_notas INNER JOIN tbl_estudiantes ON historial_notas.id_estudiante=tbl_estudiantes.id) INNER JOIN materias ON historial_notas.id_materia=materias.Id) INNER JOIN tbl_matriculas ON tbl_matriculas.idMatricula=historial_notas.id_matricula) INNER JOIN tbl_grados ON historial_notas.id_grado=tbl_grados.id) where tbl_estudiantes.id=".$id." and tbl_matriculas.estado='inactivo' and tbl_grados.id=".$row['id']." and tbl_matriculas.idMatricula=".$row['idMatricula']." ORDER BY materias.pensamiento";
 								$exe_historial=mysqli_query($conexion,$sql_historial);
 								
 								echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
@@ -143,7 +143,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

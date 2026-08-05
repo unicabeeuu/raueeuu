@@ -11,7 +11,7 @@ include "../adminunicab/php/conexion.php";
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email_institucional'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['password'];
 	}
@@ -19,7 +19,7 @@ include "../adminunicab/php/conexion.php";
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -90,10 +90,10 @@ include "../adminunicab/php/conexion.php";
   								<strong>Warning: </strong>Las notas que a continuación ingrese seran:
 							</div>							
 							<div class="form-group">
-								<label  class="col-sm-2 control-label">Grado<span class="req">*</span></label>
+								<label  class="col-sm-2 control-label">Grade<span class="req">*</span></label>
 								<div class="col-sm-8">
 									<select id="id_grado" name="id_grado" class="form-control1" required>
-										<option value='0'>Seleccionar Grado</option>
+										<option value='0'>Select Grade</option>
 										<?php 
 											$sql="SELECT distinct profesores.id, profesores.apellidos, profesores.nombres, grados.id, grados.grado FROM grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) ON grados.id = carga_profesor.id_grado where profesores.id=".$id." ORDER BY grados.id ASC";
 											$consulta=mysqli_query($conexion,$sql);
@@ -114,7 +114,7 @@ include "../adminunicab/php/conexion.php";
 								</div>
 							</div>
 							<div class="modal-footer">
-								<input type="submit" class="btn btn-primary" value="Buscar Grado" title="Buscar Grado">
+								<input type="submit" class="btn btn-primary" value="Search Grade" title="Search Grade">
 							</div>
 							<div class="alert alert-info" role="alert" id="alert" style="display:none; margin-top: 20px;"></div>
 						</form>
@@ -130,7 +130,7 @@ include "../adminunicab/php/conexion.php";
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -189,9 +189,9 @@ include "../adminunicab/php/conexion.php";
 <!-- validar combo periodo -->
 <script type="text/javascript">
 	function validacion() {
-		var grado=document.getElementById('id_grado').value;
+		let grado=document.getElementById('id_grado').value;
 		if (grado>=0 && grado<=1) {
-			$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+			$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
 			return false;
 		}else{
 			$('#alert').html('').slideUp(300);
@@ -202,7 +202,7 @@ include "../adminunicab/php/conexion.php";
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

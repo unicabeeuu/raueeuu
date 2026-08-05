@@ -11,21 +11,21 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
 	}
     
 	$peticion="SELECT pm.*, v.id_grado id_grado_val, g.grado, v.año 
-	FROM tbl_pre_matricula pm, tbl_validaciones v, grados g 
+	FROM tbl_pre_matriculas pm, tbl_validaciones v, grados g 
 	WHERE pm.documento_est = v.documento_est AND v.id_grado = g.id";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -90,20 +90,20 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Resultados Evaluación de Validación:</h4>
+							<h4>Validation Evaluation Results:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Grado</th>
-						                <th>Nombre Acud.</th>
-						                <th>Teléfono Acud.</th>
-										<th>Año</th>
-						                <th>Acción</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Grade</th>
+						                <th>Guardian Name</th>
+						                <th>Guardian Phone</th>
+										<th>Year</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -137,7 +137,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			

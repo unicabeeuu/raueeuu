@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -79,10 +79,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		});
 		
 		$("#selcat").change(function() {
-		    var cat = $("#selcat").val();
+		    let cat = $("#selcat").val();
 		    
 		    if(cat == 0) {
-		        var texto = "Debe seleccionar una categoria";
+		        let texto = "Debe seleccionar una categoria";
                 $("#lblmsg").html(texto).css("color","red");
                 $("#ctr_categoria").val(1);
 		    }
@@ -97,14 +97,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
    	// Validacion de extensiones permitidas
     function validarExtension(datos) {
-        var extensionesValidas = ".png, .gif, .jpeg, .jpg";
-		var ruta = datos.value;
-		var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-		var extensionValida = extensionesValidas.indexOf(extension);
+        let extensionesValidas = ".png, .gif, .jpeg, .jpg";
+		let ruta = datos.value;
+		let extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
+		let extensionValida = extensionesValidas.indexOf(extension);
 
 		if(extensionValida < 0) {
             //$('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
-            var texto = "La extensión no es válida Su fichero tiene de extensión: ." + extension + ": ";
+            let texto = "La extensión no es válida Su fichero tiene de extensión: ." + extension + ": ";
             $("#lblmsg").html(texto).css("color","red");
             $("#ctr_ImagenA").val(1);
             mostrar_submit("ImagenA");
@@ -120,15 +120,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
    	// Validacion de peso del fichero en kbs
     function validarPeso(datos) {
-        var pesoPermitido = 1024;
+        let pesoPermitido = 1024;
         
         if (datos.files && datos.files[0]) {
 
-		    var pesoFichero = datos.files[0].size/1024;
+		    let pesoFichero = datos.files[0].size/1024;
 
 		    if(pesoFichero > pesoPermitido) {
 		        //$('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: ' + pesoFichero +' KBs');
-		        var texto = "El peso maximo permitido del fichero es: " + pesoPermitido + " KBs Su fichero tiene: " + pesoFichero + " KBs";
+		        let texto = "El peso maximo permitido del fichero es: " + pesoPermitido + " KBs Su fichero tiene: " + pesoFichero + " KBs";
                 $("#lblmsg").html(texto).css("color","red");
                 $("#ctr_ImagenA").val(1);
                 mostrar_submit("ImagenA");
@@ -146,7 +146,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
   	// Vista preliminar de la imagen.
   	function verImagen(datos) {
 	    if (datos.files && datos.files[0]) {
-	        var reader = new FileReader();
+	        let reader = new FileReader();
          	reader.onload = function (e) {
          		$('#img').attr('src', e.target.result);
           	};
@@ -168,13 +168,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     function validar_texto(id, desc) {
-        var control = 0;
-        var id_obj = "#" + id;
-        var ctr_obj = "#ctr_" + id;
-        var v_input = document.getElementById(id);
-        var v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
-        //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-        var val = String($(id_obj).val()).match(v_val);
+        let control = 0;
+        let id_obj = "#" + id;
+        let ctr_obj = "#ctr_" + id;
+        let v_input = document.getElementById(id);
+        let v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
+        //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+        let val = String($(id_obj).val()).match(v_val);
         
         if(val == null) {
             v_input.setCustomValidity("");
@@ -184,7 +184,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         else {
             v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-            var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+            let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
             texto += "- _ \' \" < > ~ ^ * $ # & = + | { } [ ] \\";
             //alert(texto);
             $("#lblmsg").html(texto).css("color","red");
@@ -195,7 +195,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 		    if($(id_obj).val() == "") {
-		        var texto = "El campo " + desc + " se debe llenar";
+		        let texto = "El campo " + desc + " se debe llenar";
 				$("#lblmsg").html(texto).css("color","red");
 				//$("#alert").show();
                 $(ctr_obj).val(1);
@@ -206,11 +206,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     function mostrar_submit(id) {
-        var control = 0;
+        let control = 0;
 		$("#btnguardar").hide();
         
-        var id_obj = "#" + id;
-        var long = $(id_obj).val().length;
+        let id_obj = "#" + id;
+        let long = $(id_obj).val().length;
         //alert(long);
         
         //Se controla la longitud máxima
@@ -221,10 +221,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             }
         }
         
-        var a = parseInt($("#ctr_DescripcionA").val());
-        var b = parseInt($("#ctr_TituloA").val());
-        var c = parseInt($("#ctr_ImagenA").val());
-        var d = parseInt($("#ctr_categoria").val());
+        let a = parseInt($("#ctr_DescripcionA").val());
+        let b = parseInt($("#ctr_TituloA").val());
+        let c = parseInt($("#ctr_ImagenA").val());
+        let d = parseInt($("#ctr_categoria").val());
         //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
         
         control = parseInt($("#ctr_DescripcionA").val()) + parseInt($("#ctr_TituloA").val()) + parseInt($("#ctr_ImagenA").val()) + parseInt($("#ctr_categoria").val());
@@ -373,21 +373,21 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Crear nuevo blog:</h4>
+							<h4>Create new blog:</h4>
 						</div>
 						<div class="form-body">
 							<form action="prueba_editor_putdat.php" method="POST" id="form" name="form" enctype="multipart/form-data" target="_blank">
 
 								<div class="form-group"> 
-									<label for="TituloA">Título</label> 
-									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Ingrese nombre del evento" autofocus onkeyup="mayus(this, 'TituloA', 'Título');">
+									<label for="TituloA">Title</label> 
+									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Enter event name" autofocus onkeyup="mayus(this, 'TituloA', 'Título');">
 									<input type="hidden" style="width: 20px" id="ctr_TituloA" value="1"/>
 								</div>
 								
 								<div class="form-group"> 
-									<label for="Categoria" id="lblcat">Categoría</label> 
+									<label for="Categoria" id="lblcat">Category</label> 
 									<select id="selcat" name="selcat" class="form-control">
-									    <option value="0">Seleccione categoría</option>
+									    <option value="0">Select category</option>
 									    <?php  
 									        $sqlcat = "SELECT * FROM tbl_categorias_blog";
 									        $rescat = mysqli_query($conexion,$sqlcat);
@@ -402,12 +402,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 								<div class="form-group"> 
 									<label for="DescripcionA">Texto inicial (10000 | <label class="maxl" id="lbldesc">0</label>)</label> 
-									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Descripción o información del evento" onkeyup="mayus(this, 'DescripcionA', 'Descripción');"></textarea>
+									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Event description or information" onkeyup="mayus(this, 'DescripcionA', 'Descripción');"></textarea>
 									<input type="hidden" style="width: 20px" id="ctr_DescripcionA" value="1"/>
 								</div>
 								
 								<div class="form-group"> 
-									<label for="ImagenA">Imagen principal (Peso máximo 1024 Kb)</label> 
+									<label for="ImagenA">Main image (Max size 1024 Kb)</label> 
 									<input type="file" class="form-control" id="ImagenA" name="ImagenA" required>
 									<input type="hidden" style="width: 20px" id="ctr_ImagenA" value="1"/>
 									<p id="texto"> </p><br/>   	
@@ -415,7 +415,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 								
 								<div class="form-group"> 
-									<label for="editor">Información complementaria </label> 
+									<label for="editor">Additional information </label> 
 									<div id="editor-container">
 									</div>
 									<textarea name="editor" id="editor" class="form-control" style="display: none;" readonly>										
@@ -424,14 +424,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 
 								<div class="form-group"> 
-									<label for="Autor">Públicado por</label> 
+									<label for="Autor">Published by</label> 
 									<input type="text" class="form-control" id="Autor"  readonly="" value="<?php echo $apellidos.' '.$nombres; ?>">
 								</div>
 
 								<input type="hidden" class="form-control" name="IdEmp" value="<?php echo $id;?>" readonly>
 
-								<button type="button" id="btnvalidar" class="btn btn-primary" onclick="AsignarEditor();" style="display: none;">Validar información complementaria</button> 
-								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Guardar</button>
+								<button type="button" id="btnvalidar" class="btn btn-primary" onclick="AsignarEditor();" style="display: none;">Validate additional information</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" style="display: none;">Save</button>
 							</form>
 						</div>
 						
@@ -451,7 +451,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		<script>
 			//console.log(Quill.imports);
-			var quill = new Quill('#editor-container', {
+			let quill = new Quill('#editor-container', {
 				modules: {
 					toolbar: [
 						[{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -477,7 +477,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -525,7 +525,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

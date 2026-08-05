@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -67,7 +67,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		//alert("hola");
 		$("#selop").change(function() {
 			$("#divtabla").empty();
-			var op = $("#selop").val();
+			let op = $("#selop").val();
 			//alert(op);
 			
 			if(op == "N") {
@@ -86,15 +86,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		
 		$("#adjunto").change(function () {
-			var pesoimg = this.files[0].size/1024;
-			var img = this.files[0].name;
-			var path = "../../../assets/img/domain/";
-			var archivo = path + img;
+			let pesoimg = this.files[0].size/1024;
+			let img = this.files[0].name;
+			let path = "../../../assets/img/domain/";
+			let archivo = path + img;
 			//alert(pesoimg);
 			//alert(archivo);
 			if(pesoimg > 300) {
 				$("#ctr_adjunto").val(1);
-				var texto = "El peso permitido para la imagen es de 300 Kb ";
+				let texto = "El peso permitido para la imagen es de 300 Kb ";
 				$("#lblmsg").html(texto).css("color","red");
 				$("#adjunto").val(null);
 			}
@@ -108,11 +108,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				url:"../docenteunicab/updreg/buscar_img_domain.php",
 				data:"img=" + img,
 				success:function(r) {
-					var ct_img = r;
+					let ct_img = r;
 					//alert(ct_img);
 					if(ct_img == 1) {
 						$("#ctr_adjunto").val(1);
-						var texto = "Ya existe una imagen con el nombre " + img;
+						let texto = "Ya existe una imagen con el nombre " + img;
 						$("#lblmsg").html(texto).css("color","red");
 						$("#adjunto").val(null);
 					}
@@ -121,15 +121,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		});
 		
 		$("#updadjunto").change(function () {
-			var pesoimg = this.files[0].size/1024;
-			var img = this.files[0].name;
-			var path = "../../../assets/img/domain/";
-			var archivo = path + img;
+			let pesoimg = this.files[0].size/1024;
+			let img = this.files[0].name;
+			let path = "../../../assets/img/domain/";
+			let archivo = path + img;
 			//alert(pesoimg);
 			//alert(archivo);
 			if(pesoimg > 300) {
 				$("#ctr_updadjunto").val(1);
-				var texto = "El peso permitido para la imagen es de 300 Kb ";
+				let texto = "El peso permitido para la imagen es de 300 Kb ";
 				$("#lblupdmsg").html(texto).css("color","red");
 				$("#updadjunto").val(null);
 			}
@@ -143,11 +143,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				url:"../docenteunicab/updreg/buscar_img_domain.php",
 				data:"img=" + img,
 				success:function(r) {
-					var ct_img = r;
+					let ct_img = r;
 					//alert(ct_img);
 					if(ct_img == 1) {
 						$("#ctr_updadjunto").val(1);
-						var texto = "Ya existe una imagen con el nombre " + img;
+						let texto = "Ya existe una imagen con el nombre " + img;
 						$("#lblupdmsg").html(texto).css("color","red");
 						$("#updadjunto").val(null);
 					}
@@ -158,19 +158,19 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	
 	function cargaropciones() {
 		$("#selop").html("");
-		$("#selop").append('<option value="NA" selected>Seleccione opción</option>');
+		$("#selop").append('<option value="NA" selected>Select option</option>');
 		$("#selop").append('<option value="N">Ingresar nueva pregunta</option>');
-		$("#selop").append('<option value="E">Editar pregunta</option>');
+		$("#selop").append('<option value="E">Edit question</option>');
 	}
 	
 	function validar_texto1(id, desc) {
-		var control = 0;
-		var id_obj = "#" + id;
-		var ctr_obj = "#ctr_" + id;
-		//var input_desc = document.getElementById("desc");
-		var v_input = document.getElementById(id);
-		var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
-		var val = String($(id_obj).val()).match(v_val);
+		let control = 0;
+		let id_obj = "#" + id;
+		let ctr_obj = "#ctr_" + id;
+		//let input_desc = document.getElementById("desc");
+		let v_input = document.getElementById(id);
+		let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
+		let val = String($(id_obj).val()).match(v_val);
 		$("#imgnp").hide();
 		
 		if(val == null) {
@@ -180,7 +180,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		}
 		else {
 			v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-			var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+			let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
 			//texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + . , ; : ( ) { } [ ] \\";
 			$("#imgnp").show();
 			
@@ -192,7 +192,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 			if($(id_obj).val() == "") {
-				var texto = "El campo " + desc + " se debe llenar";
+				let texto = "El campo " + desc + " se debe llenar";
 				$("#lblmsg").html(texto).css("color","red");
 				$(ctr_obj).val(1);
 			}
@@ -202,13 +202,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	}
 	
 	function validar_texto1upd(id, desc) {
-		var control = 0;
-		var id_obj = "#" + id;
-		var ctr_obj = "#ctr_" + id;
-		//var input_desc = document.getElementById("desc");
-		var v_input = document.getElementById(id);
-		var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
-		var val = String($(id_obj).val()).match(v_val);
+		let control = 0;
+		let id_obj = "#" + id;
+		let ctr_obj = "#ctr_" + id;
+		//let input_desc = document.getElementById("desc");
+		let v_input = document.getElementById(id);
+		let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|.,;:\(\)\{\}\[\]\\]{1,}/;
+		let val = String($(id_obj).val()).match(v_val);
 		$("#imgep").hide();
 		
 		if(val == null) {
@@ -218,7 +218,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		}
 		else {
 			v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-			var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+			let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
 			//texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + . , ; : ( ) { } [ ] \\";
 			$("#imgep").show();
 			
@@ -230,7 +230,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 			if($(id_obj).val() == "") {
-				var texto = "El campo " + desc + " se debe llenar";
+				let texto = "El campo " + desc + " se debe llenar";
 				$("#lblupdmsg").html(texto).css("color","red");
 				$(ctr_obj).val(1);
 			}
@@ -240,13 +240,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	}
 	
 	function validar_texto(id, desc) {
-		var control = 0;
-		var id_obj = "#" + id;
-		var ctr_obj = "#ctr_" + id;
-		var v_input = document.getElementById(id);
-		//var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-		var v_val = /[_'"\~\$\#\&\|;\{\}\[\]\\]{1,}/;
-		var val = String($(id_obj).val()).match(v_val);
+		let control = 0;
+		let id_obj = "#" + id;
+		let ctr_obj = "#ctr_" + id;
+		let v_input = document.getElementById(id);
+		//let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+		let v_val = /[_'"\~\$\#\&\|;\{\}\[\]\\]{1,}/;
+		let val = String($(id_obj).val()).match(v_val);
 		$("#imgnp").hide();
 		
 		if(val == null) {
@@ -256,7 +256,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		}
 		else {
 			v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-			var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+			let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
 			texto += " _ \' \" ~ $ # & | ; { } [ ] \\";
 			//alert(texto);
 			$("#lblmsg").html(texto).css("color","red");
@@ -266,7 +266,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 			if($(id_obj).val() == "") {
-				var texto = "El campo " + desc + " se debe llenar";
+				let texto = "El campo " + desc + " se debe llenar";
 				$("#lblmsg").html(texto).css("color","red");
 				$(ctr_obj).val(1);
 			}
@@ -276,13 +276,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	}
 	
 	function validar_textoupd(id, desc) {
-		var control = 0;
-		var id_obj = "#" + id;
-		var ctr_obj = "#ctr_" + id;
-		var v_input = document.getElementById(id);
-		//var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-		var v_val = /[_'"\~\$\#\&\|;\{\}\[\]\\]{1,}/;
-		var val = String($(id_obj).val()).match(v_val);
+		let control = 0;
+		let id_obj = "#" + id;
+		let ctr_obj = "#ctr_" + id;
+		let v_input = document.getElementById(id);
+		//let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+		let v_val = /[_'"\~\$\#\&\|;\{\}\[\]\\]{1,}/;
+		let val = String($(id_obj).val()).match(v_val);
 		$("#imgep").hide();
 		
 		if(val == null) {
@@ -292,7 +292,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		}
 		else {
 			v_input.setCustomValidity("Ha ingresado caracteres inv¨¢lidos");
-			var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+			let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
 			texto += " _ \' \" ~ $ # & | ; { } [ ] \\";
 			//alert(texto);
 			$("#lblupdmsg").html(texto).css("color","red");
@@ -302,7 +302,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 			if($(id_obj).val() == "") {
-				var texto = "El campo " + desc + " se debe llenar";
+				let texto = "El campo " + desc + " se debe llenar";
 				$("#lblupdmsg").html(texto).css("color","red");
 				$(ctr_obj).val(1);
 			}
@@ -349,7 +349,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$("#txtpalabra").val("");
 		
 		$("#lblmsg").html("");
-		var seltp = $("#selop").val();
+		let seltp = $("#selop").val();
 		//alert(seltp);
 		
 		if (seltp == "NA") {
@@ -376,10 +376,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	}
 	
 	function guardar() {
-		var palabra = $("#txtpalabra").val();
+		let palabra = $("#txtpalabra").val();
 		
-		var formData = new FormData();
-		var files = $('#adjunto')[0].files[0];
+		let formData = new FormData();
+		let files = $('#adjunto')[0].files[0];
 		//alert(files);
 		
 		formData.append('pal',palabra);
@@ -418,11 +418,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	
 	function modificar() {
 		//alert("modificar");
-		var idpal = $("#idpalabra").val();
-		var palabra = $("#txtupdpalabra").val();
+		let idpal = $("#idpalabra").val();
+		let palabra = $("#txtupdpalabra").val();
 		 
-		var formData = new FormData();
-		var files = $('#updadjunto')[0].files[0];
+		let formData = new FormData();
+		let files = $('#updadjunto')[0].files[0];
 		//alert(files);
 		
 		formData.append('pal',palabra);
@@ -545,6 +545,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	#divprincipal, #divformulas, #divtipopreg {
 		display: flex;
 		justify-content: space-around;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 	#divopciones {
 		margin-left: 40px;
@@ -556,7 +558,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		margin-left: 40px;
 	}
 	#fl1 {
-		width: 500px;
+		max-width: 500px;
+		width: 100%;
 	}
 	.grisclaro {
 		background: lightgray;
@@ -583,10 +586,10 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		background: lightblue;
 	}
 	#div1 {
-		width: 400px;
+		max-width: 400px;
+		width: 100%;
 		height: 200px;
-		overflow-x: scroll;
-		overflow-y: scroll;
+		overflow: auto;
 	}
 	.blanco {
 		background: white;
@@ -627,16 +630,16 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 									<!--***********************************************************************************************-->
 									<div id="div2">
 										<div class="form-title">
-											<h4>BANCO DE PALABRAS <i class="fa fa-arrow-right "></i> DOMAN KIDS</h4>
+											<h4>WORD BANK <i class="fa fa-arrow-right "></i> DOMAN KIDS</h4>
 										</div><br>
 										<table id="tblcontroles">
 											<tbody>
 												<tr>
 													<td>
 														<select id="selop" class="form-control">
-															<option value="NA" selected>Seleccione opción</option>
-															<option value="N">Ingresar nueva palabra</option>
-															<option value="E">Ver palabras</option>
+															<option value="NA" selected>Select option</option>
+															<option value="N">Enter new word</option>
+															<option value="E">View words</option>
 														</select>
 													</td>
 													<td width="30"></td>
@@ -688,22 +691,22 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">NUEVA PALABRA</h5>
+                <h5 class="modal-title" id="exampleModalLabel">NEW WORD</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <label>* Palabra </label>
+                <label>* Word </label>
                 <input type="text" id="txtpalabra" name="txtpalabra" class="form-control" />
                 
-                <label>Imagen <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtretro" value="1"/> (300 Kb)</label>
+                <label>Image <input type="text" class="controlcampo" style="width: 20px" id="ctr_txtretro" value="1"/> (300 Kb)</label>
                 <input type="file" id="adjunto" name="adjunto" accept=".jpg,.jpeg,.png" class="btn btn-lg btn-info">
               </div>
               <div class="modal-footer">
                   <label id="lblmsg"></label><img id="imgnp" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" onclick="guardar()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" onclick="guardar()">Save</button>
                 
               </div>
             </div>
@@ -715,18 +718,18 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">EDITAR PALABRA</h5>
+                <h5 class="modal-title" id="exampleModalLabel">EDIT WORD</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <label>* Palabra </label>
+                <label>* Word </label>
                 <input type="text" id="txtupdpalabra" name="txtupdpalabra" class="form-control" required/>
                 
                 <div class="row">
                     <div class="col-lg-8">
-                        <label>Imagen <input type="text" class="controlcampo" style="width: 20px" id="ctr_updadjunto" value="1"/> (300 Kb)</label>
+                        <label>Image <input type="text" class="controlcampo" style="width: 20px" id="ctr_updadjunto" value="1"/> (300 Kb)</label>
                         <input type="file" id="updadjunto" name="updadjunto" accept=".jpg,.jpeg,.png" class="btn btn-lg btn-info">
                     </div>
                     <div class="col-lg-4">
@@ -739,8 +742,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
               <div class="modal-footer">
                 <label id="lblupdmsg"></label><img id="imgep" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
                 <input type="hidden" id="idpalabra" style="width: 20px;" readonly/>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btneditar" data-dismiss="modal" onclick="modificar()">Modificar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btneditar" data-dismiss="modal" onclick="modificar()">Modify</button>
                 
               </div>
             </div>
@@ -753,7 +756,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -801,7 +804,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

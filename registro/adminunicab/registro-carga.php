@@ -9,7 +9,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -79,7 +79,7 @@ if (isset($_SESSION['unisuper'])) {
 
 											echo "
 												<div class='col-md-8' id='redesFinal'>
-								                    <h4><b>Asignar carga academica al profesor: </h4>
+								                    <h4><b>Assign academic load to teacher: </h4>
 								                    <h3>". $nombreCompleto ."?</b></h3>
 								                </div>
 								                <div class='col-md-4' align='center'>
@@ -88,7 +88,7 @@ if (isset($_SESSION['unisuper'])) {
 								                ";
 										}else{
 											echo "
-												<string>Seleccioné un profesor para asignar carga académica</string>
+												<string>Select a teacher to assign academic load</string>
 							                ";
 											}
 					            	?>
@@ -98,10 +98,10 @@ if (isset($_SESSION['unisuper'])) {
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-	                                    <th>Correo</th>
-						                <th>acción</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+	                                    <th>Email</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 					        	<tbody>
@@ -109,7 +109,7 @@ if (isset($_SESSION['unisuper'])) {
 						        	while ($fila = mysqli_fetch_array($resultado)){
 										
 						        		echo"<tr><td>".$fila['apellidos']."</td><td>".$fila['nombres']."</td><td>".$fila['email_institucional']."</td>
-						        		<td><a href='registro-carga.php?id=".$fila['id']."' class='btn btn-primary' title='Asignación Carga'><i class='fa fa-pencil'></i> Editar</a></td>
+						        		<td><a href='registro-carga.php?id=".$fila['id']."' class='btn btn-primary' title='Asignación Carga'><i class='fa fa-pencil'></i> Edit</a></td>
 
 						        		</tr>";
 						        	}
@@ -149,32 +149,32 @@ if (isset($_SESSION['unisuper'])) {
 				 			<div class="modal-content">
 	   				 				<div class="modal-header">
 	   				 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-	   				 					<h4 class="modal-title">Asignar Carga a Docente:</h4>
+	   				 					<h4 class="modal-title">Assign Load to Teacher:</h4>
 				 					</div>
 			 					<div class="modal-body">
 									<!-- formulario -->
 									<div class="form-body">
 										<form class="form-horizontal" action='php/RegistroCarga.php' method="POST">
 											<div class='form-group'>
-												<label for='apellidos' class='col-sm-2 control-label'>Apellidos</label>
+												<label for='apellidos' class='col-sm-2 control-label'>Last Names</label>
 												<div class='col-sm-8'>
-													<input type='text' class='form-control1' id='apellidos' name='apellidos' readonly="readonly" placeholder='Apellidos Estudiante' required maxlength='25' value="<?php echo $apellidos;?>">
+													<input type='text' class='form-control1' id='apellidos' name='apellidos' readonly="readonly" placeholder='Student Last Names' required maxlength='25' value="<?php echo $apellidos;?>">
 												</div>
 											</div>
 
 											<div class='form-group'>
-												<label for='nombres' class='col-sm-2 control-label'>Nombres</label>
+												<label for='nombres' class='col-sm-2 control-label'>First Names</label>
 												<div class='col-sm-8'>
-													<input type='text' class='form-control1' id='nombres' name='nombres' readonly='readonly' placeholder='Nombres Estudiante' required maxlength='25' value="<?php echo $nombres;?>">
+													<input type='text' class='form-control1' id='nombres' name='nombres' readonly='readonly' placeholder='Student First Names' required maxlength='25' value="<?php echo $nombres;?>">
 												</div>
 											</div>
 
 			                                <div class="form-group">
-												<label for="id_grado" class="col-sm-2 control-label">Grado<span class="req">*</span></label>
+												<label for="id_grado" class="col-sm-2 control-label">Grade<span class="req">*</span></label>
 												<div class="col-sm-8">
 													<select id="id_grado" name="id_grado" class="form-control1" required>
 												<?php 
-													$sql="SELECT * FROM grados";
+													$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 													$sqlgrado = mysqli_query($conexion, $sql);
 													while ($fila=mysqli_fetch_array($sqlgrado)){
 														echo '<option value="'.$fila['id'].'">'.$fila['grado'].'</option>';
@@ -186,7 +186,7 @@ if (isset($_SESSION['unisuper'])) {
 											</div>
 
 			                                <div class="form-group">
-												<label for="id_materia" class="col-sm-2 control-label">Materia<span class="req">*</span></label>
+												<label for="id_materia" class="col-sm-2 control-label">Subject<span class="req">*</span></label>
 												<div class="col-sm-8">
 													<select id="id_materia" name="id_materia" class="form-control1" required>
 							              			</select>
@@ -196,7 +196,7 @@ if (isset($_SESSION['unisuper'])) {
 											<input type="hidden" name="id_profesor" id="id_profesor" value="<?php echo $id; ?>">
 
 											<div class="modal-footer">
-		      									<input type="submit" class="btn btn-primary" value="Guardar Cambios">
+		      									<input type="submit" class="btn btn-primary" value="Save Changes">
 		      								</div>
 	      								</form> 
 	   							 	</div>
@@ -215,7 +215,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -279,7 +279,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

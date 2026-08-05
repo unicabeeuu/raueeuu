@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -67,7 +67,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </style>
 <?php require 'php/conexion.php';
 
-$sql="SELECT * FROM grados";
+$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 	$gradoActual="No se encontraron estudiantes matriculados";
 // '".$_POST["id_grado"]."'
 	if (!isset($_POST["id_grado"])) {
@@ -120,9 +120,9 @@ $resultado1 = mysqli_query($conexion, $peticion);
                     			<div class="form-body">
                     			<form  method="POST">
                     				<div class="form-group">
-										<label for="n_certificado" class="col-sm-2 control-label">Número Certificado:<span class="req">*</span></label>
+										<label for="n_certificado" class="col-sm-2 control-label">Certificate Number:<span class="req">*</span></label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control1" id="n_certificado" name="n_certificado" placeholder="Ejemplo: CS123" required maxlength="15" autofocus="">
+											<input type="text" class="form-control1" id="n_certificado" name="n_certificado" placeholder="Example: CS123" required maxlength="15" autofocus="">
 											</div>
 									</div>
 								  	<button type="submit" class="btn btn-default"><span style="color:#FFF" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -133,7 +133,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 							<?php
 							if (!isset($_POST['n_certificado'])) {
 								echo ' <div class="alert alert-danger" role="alert">
-  									<strong>¡Advertencia!</strong> Debe ingresar un número de certificado para realizar la búsqueda.
+  									<strong>Warning!</strong> You must enter a certificate number to search.
 								</div>';
 							}else{
 								$numero_certificado=strtoupper($_POST['n_certificado']);
@@ -155,49 +155,49 @@ $resultado1 = mysqli_query($conexion, $peticion);
 									<div class="form-group">
 								<form class="form-horizontal">
 									<div class="form-group">				
-										<label for="apellidos" class="col-sm-2 control-label">Apellidos: </label>
+										<label for="apellidos" class="col-sm-2 control-label">Last Names: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="apellidos" name="apellidos" value="<?php echo $apellidos;?>">
 										</div>
 									</div>
 
 								<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Nombres: </label>
+										<label for="nombres" class="col-sm-2 control-label">First Names: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $nombres;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Documento: </label>
+										<label for="nombres" class="col-sm-2 control-label">Document: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $n_documento;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Grado: </label>
+										<label for="nombres" class="col-sm-2 control-label">Grade: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $grado;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Fecha Expedición: </label>
+										<label for="nombres" class="col-sm-2 control-label">Issue Date: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $fecha_expedicion;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Número Certificado: </label>
+										<label for="nombres" class="col-sm-2 control-label">Certificate Number: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $numero;?>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="nombres" class="col-sm-2 control-label">Tipo Certificado: </label>
+										<label for="nombres" class="col-sm-2 control-label">Certificate Type: </label>
 										<div class="col-sm-8">
 											<input type="text" readonly="readonly" class="form-control1" id="nombres" name="nombres" value="<?php echo $tipo_certificado;?>">
 										</div>
@@ -209,7 +209,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 								}else{
 									echo ' 
 									<div class="alert alert-danger" role="alert">
-  										<strong>¡Advertencia!</strong> no se han encontrado resultados.
+  										<strong>Warning!</strong> no results found.
 									</div>
 									<center><img src="../images/denegado.png"></center>
 									';
@@ -231,7 +231,7 @@ $resultado1 = mysqli_query($conexion, $peticion);
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

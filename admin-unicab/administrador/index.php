@@ -39,7 +39,7 @@
     //numero blog
 
     //numero entrevistas
-    $sql_entrevista="SELECT COUNT(*) as 'total_entrevistas' FROM `entrevistas`";
+    $sql_entrevista="SELECT COUNT(*) as 'total_entrevistas' FROM `tbl_entrevistas`";
     $exe_entrevista=mysqli_query($conexion,$sql_entrevista);
     while ($rowEntrevista = mysqli_fetch_array($exe_entrevista)) {
         $total_entrevistas=$rowEntrevista['total_entrevistas'];
@@ -221,7 +221,7 @@
 <!-- Classie --><!-- for toggle left push menu script -->
 <script src="../js/classie.js"></script>
 <script>
-	var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+	let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 		showLeftPush = document.getElementById( 'showLeftPush' ),
 		body = document.body;
 		

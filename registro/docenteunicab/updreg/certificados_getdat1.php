@@ -37,7 +37,7 @@
 	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";*/
 	
 	$query1 = "SELECT c.*, CONCAT(e.nombres,' ',e.apellidos) nombre 
-	FROM certificado c, estudiantes e 
+	FROM tbl_certificados c, tbl_estudiantes e 
 	WHERE c.id_estudiante = e.id AND c.numero1 is not null  
 	AND c.id_grado = $idgra AND Date_format(c.fecha_expedicion,'%Y') = '$anio' 
 	AND substring(c.numero, 1, 2) = 'CN' 

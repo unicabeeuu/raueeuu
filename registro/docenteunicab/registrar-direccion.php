@@ -2,7 +2,7 @@
 session_start();
 include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniprofe'])) {
-		$sql="SELECT * FROM profesores WHERE email_institucional='".$_SESSION['uniprofe']."'";
+		$sql="SELECT * FROM tbl_empleados WHERE email='".$_SESSION['uniprofe']."'";
 		$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -10,16 +10,16 @@ include "../adminunicab/php/conexion.php";
 	  	$id = $fila['id'];
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
-		$email_institucional = $fila['email_institucional'];
-		$director=$fila['d_pensamiento'];
+		$email_institucional = $fila['email'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
-		$password = $fila['password'];
+		$password = $fila['pc'];
 	}
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -92,13 +92,13 @@ include "../adminunicab/php/conexion.php";
 								$grado=$_POST['id_grado'];
 								$id_pensamiento=$_POST['pensamiento'];
 								$totalPeriodos=4;
-								$sqlgrado="SELECT * FROM grados WHERE id='".$grado."'";
+								$sqlgrado="SELECT * FROM tbl_grados WHERE id='".$grado."'";
 								$consultagrado=mysqli_query($conexion,$sqlgrado);
 								while ($fila = mysqli_fetch_array($consultagrado)){
 									$idg = $fila['id'];
 									$gradob = $fila['grado'];
 								}
-								$sqlmateria="SELECT materias.Id AS id_materias, materias.materia, materias.pensamiento, grados.id AS id_grados, grados.grado FROM materias INNER JOIN (grados INNER JOIN carga_profesor ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia where materias.pensamiento='".$id_pensamiento."' and grados.id=".$idg."";
+								$sqlmateria="SELECT tbl_materias.Id AS id_materias, tbl_materias.materia, tbl_materias.pensamiento, tbl_grados.id AS id_grados, tbl_grados.grado FROM tbl_materias INNER JOIN (tbl_grados INNER JOIN tbl_carga_profesor ON tbl_grados.id = tbl_carga_profesor.id_grado) ON tbl_materias.Id = tbl_carga_profesor.id_materia where tbl_materias.pensamiento='".$id_pensamiento."' and tbl_grados.id=".$idg."";
 								$consultamateria=mysqli_query($conexion,$sqlmateria);
 								$t_grados=0;
 									while ($fila = mysqli_fetch_array($consultamateria)){
@@ -119,7 +119,7 @@ include "../adminunicab/php/conexion.php";
 									<thead > 
 										<tr bordercolor="#e0e0e0">
 											<TH COLSPAN=1><center><strong>PENSAMIENTO: <?php echo $pensamiento.' - GRADO: '.mb_strtoupper($gradob);  ?></strong></center></TH>
-											<TH COLSPAN=<?php echo $totalPeriodos; ?>><center><strong>NOTAS DEFINITIVAS POR PERIODO</strong></center>
+											<TH COLSPAN=<?php echo $totalPeriodos; ?>><center><strong>FINAL GRADES BY PERIOD</strong></center>
 											</TH>
 										</tr>
 										<tr>
@@ -136,7 +136,7 @@ include "../adminunicab/php/conexion.php";
 									<tbody>
 										<?php
 											$auto=0;
-											$buscar_estudiantes="SELECT DISTINCT estudiantes.id as id_estudiante,estudiantes.apellidos, estudiantes.nombres, grados.id AS id_grados, grados.grado, materias.Id AS id_materias, materias.materia, materias.pensamiento, matricula.estado FROM (grados INNER JOIN (materias INNER JOIN carga_profesor ON materias.Id = carga_profesor.id_materia) ON grados.id = carga_profesor.id_grado) INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id = matricula.id_grado where grados.id=".$idg." and materias.materia='".$materia."' and matricula.estado='activo' ORDER BY apellidos ASC";
+											$buscar_estudiantes="SELECT DISTINCT tbl_estudiantes.id as id_estudiante,tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id AS id_grados, tbl_grados.grado, tbl_materias.Id AS id_materias, tbl_materias.materia, tbl_materias.pensamiento, tbl_matriculas.estado FROM (tbl_grados INNER JOIN (tbl_materias INNER JOIN tbl_carga_profesor ON tbl_materias.Id = tbl_carga_profesor.id_materia) ON tbl_grados.id = tbl_carga_profesor.id_grado) INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id = tbl_matriculas.id_grado where tbl_grados.id=".$idg." and tbl_materias.materia='".$materia."' and tbl_matriculas.estado='activo' ORDER BY apellidos ASC";
 											$exe_estudiante=mysqli_query($conexion,$buscar_estudiantes);
 											// echo $buscar_estudiantes;
 											while ($fila=mysqli_fetch_array($exe_estudiante)) {
@@ -150,7 +150,7 @@ include "../adminunicab/php/conexion.php";
 													for ($i=1; $i <=$totalPeriodos ; $i++) { 
 														$contador++;
 														$sql="sql_".$contador;
-														$sql="SELECT DISTINCT estudiantes.id AS id_estudiante, estudiantes.apellidos, estudiantes.nombres, grados.id AS id_grados, grados.grado, materias.Id AS id_materias, materias.materia, materias.pensamiento, notas.id AS id_notas, notas.nota, periodos.id, matricula.estado FROM materias INNER JOIN ((estudiantes INNER JOIN (grados INNER JOIN matricula ON grados.id = matricula.id_grado) ON estudiantes.id = matricula.id_estudiante) INNER JOIN (periodos INNER JOIN notas ON periodos.id = notas.id_periodo) ON estudiantes.id = notas.id_estudiante) ON materias.Id = notas.id_materia where estudiantes.id=".$fila['id_estudiante']." and grados.id=".$fila['id_grados']." and materias.Id=".$fila['id_materias']." and periodos.id=".$i." and matricula.estado='activo' ORDER BY apellidos ASC";
+														$sql="SELECT DISTINCT tbl_estudiantes.id AS id_estudiante, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id AS id_grados, tbl_grados.grado, tbl_materias.Id AS id_materias, tbl_materias.materia, tbl_materias.pensamiento, tbl_notas.id AS id_notas, tbl_notas.nota, tbl_periodos.id, tbl_matriculas.estado FROM tbl_materias INNER JOIN ((tbl_estudiantes INNER JOIN (tbl_grados INNER JOIN tbl_matriculas ON tbl_grados.id = tbl_matriculas.id_grado) ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) INNER JOIN (tbl_periodos INNER JOIN tbl_notas ON tbl_periodos.id = tbl_notas.id_periodo) ON tbl_estudiantes.id = tbl_notas.id_estudiante) ON tbl_materias.Id = tbl_notas.id_materia where tbl_estudiantes.id=".$fila['id_estudiante']." and tbl_grados.id=".$fila['id_grados']." and tbl_materias.Id=".$fila['id_materias']." and tbl_periodos.id=".$i." and tbl_matriculas.estado='activo' ORDER BY apellidos ASC";
 														$exe="exe_".$contador;
 														$exe=mysqli_query($conexion,$sql);
 														$cont="cont_".$contador;
@@ -281,7 +281,7 @@ include "../adminunicab/php/conexion.php";
 													for ($i=1; $i <=$totalPeriodos ; $i++) { 
 														$contador++;
 														$sql="sql_".$contador;
-														$sql="SELECT DISTINCT estudiantes.id AS id_estudiante, estudiantes.apellidos, estudiantes.nombres, grados.id AS id_grados, grados.grado, materias.Id AS id_materias, materias.materia, notas.id AS id_notas, notas.nota, periodos.id, matricula.idMatricula, matricula.estado FROM materias INNER JOIN ((estudiantes INNER JOIN (grados INNER JOIN matricula ON grados.id = matricula.id_grado) ON estudiantes.id = matricula.id_estudiante) INNER JOIN (periodos INNER JOIN notas ON periodos.id = notas.id_periodo) ON estudiantes.id = notas.id_estudiante) ON materias.Id = notas.id_materia where estudiantes.id=".$fila['id_estudiante']." and grados.id=".$fila['id_grado']." and materias.Id=".$fila['id_materia']." and periodos.id=".$i." and matricula.estado='activo' ORDER BY apellidos ASC";
+														$sql="SELECT DISTINCT tbl_estudiantes.id AS id_estudiante, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id AS id_grados, tbl_grados.grado, tbl_materias.Id AS id_materias, tbl_materias.materia, tbl_notas.id AS id_notas, tbl_notas.nota, tbl_periodos.id, tbl_matriculas.id AS idMatricula, tbl_matriculas.estado FROM tbl_materias INNER JOIN ((tbl_estudiantes INNER JOIN (tbl_grados INNER JOIN tbl_matriculas ON tbl_grados.id = tbl_matriculas.id_grado) ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) INNER JOIN (tbl_periodos INNER JOIN tbl_notas ON tbl_periodos.id = tbl_notas.id_periodo) ON tbl_estudiantes.id = tbl_notas.id_estudiante) ON tbl_materias.Id = tbl_notas.id_materia where tbl_estudiantes.id=".$fila['id_estudiante']." and tbl_grados.id=".$fila['id_grado']." and tbl_materias.Id=".$fila['id_materia']." and tbl_periodos.id=".$i." and tbl_matriculas.estado='activo' ORDER BY apellidos ASC";
 														$exe="exe_".$contador;
 														$exe=mysqli_query($conexion,$sql);
 														$cont="cont_".$contador;
@@ -417,7 +417,7 @@ include "../adminunicab/php/conexion.php";
 						</div>
 
 					</div>
-					<button type="submit" class="btn btn-primary">Guardar Notas</button>
+					<button type="submit" class="btn btn-primary">Save Grades</button>
 				</div>
 			</div>
 		</div>
@@ -429,7 +429,7 @@ include "../adminunicab/php/conexion.php";
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -475,7 +475,7 @@ include "../adminunicab/php/conexion.php";
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

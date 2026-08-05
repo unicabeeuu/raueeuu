@@ -14,7 +14,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		//$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -46,7 +46,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	$exe_observaciontes_tutores = mysqli_query($conexion, $sql_observaciones_tutores);
 	
 	//Se busca el nombre
-	$sql_nombre = "SELECT CONCAT(nombres, ' ', apellidos) nombre FROM estudiantes WHERE n_documento = '$n_documento'";
+	$sql_nombre = "SELECT CONCAT(nombres, ' ', apellidos) nombre FROM tbl_estudiantes WHERE n_documento = '$n_documento'";
 	$exe_nombre = mysqli_query($conexion, $sql_nombre);
 	while ($row_nombre = mysqli_fetch_array($exe_nombre)) {
 		$nombre_estudiante = $row_nombre['nombre'];
@@ -56,7 +56,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -137,7 +137,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					<div class="forms">
 						<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 							<div class="form-title">
-								<h4>Observador estudiante: <?php echo $nombre_estudiante; ?></h4>	
+								<h4>Student record: <?php echo $nombre_estudiante; ?></h4>	
 							</div>
 						</div>
 					</div>
@@ -152,20 +152,20 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 										
 										if (!isset($n_documento)) {
 											echo '<div class="alert alert-danger" role="alert">
-												<strong>¡Alerta!</strong> El estudiante no se encuentra matriculado.
+												<strong>Alert!</strong> El estudiante no se encuentra matriculado.
 											</div>';
 										}else{
 											echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 													<thead > 
 														<tr style="background-color: lightgreen">
-															<th COLSPAN=2><center><strong>VALORACIÓN INICIAL</strong></center></th>
+															<th COLSPAN=2><center><strong>INITIAL ASSESSMENT</strong></center></th>
 															<th COLSPAN=2><center><strong>Solicitada por: '.$solicita.'</strong></center></th>
 														</tr>';
 											echo '<tr>
-													<th><center>Motivo</center></th>
-													<th><center>Personalidad</center></th>
-													<th><center>Observaciones</center></th>
-													<th><center>Fecha</center></th>
+													<th><center>Reason</center></th>
+													<th><center>Personality</center></th>
+													<th><center>Observations</center></th>
+													<th><center>Date</center></th>
 													</tr> 
 													</thead> 
 													<tbody>
@@ -195,16 +195,16 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 											echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 													<thead > 
 														<tr style="background-color: lightblue;">
-															<th COLSPAN=7><center><strong>SEGUIMIENTOS</strong></center></th>
+															<th COLSPAN=7><center><strong>FOLLOW-UPS</strong></center></th>
 														</tr>';
 											echo '<tr>
-													<th><center>Objetivo</center></th>
-													<th><center>Avances</center></th>
-													<th><center>Acciones Est</center></th>
-													<th><center>Acciones Acu</center></th>
-													<th><center>Compromisos</center></th>
-													<th><center>Fecha</center></th>
-													<th><center>Estado</center></th>
+													<th><center>Objective</center></th>
+													<th><center>Progress</center></th>
+													<th><center>Student Actions</center></th>
+													<th><center>Guardian Actions</center></th>
+													<th><center>Commitments</center></th>
+													<th><center>Date</center></th>
+													<th><center>Status</center></th>
 													</tr> 
 													</thead> 
 													<tbody>
@@ -237,12 +237,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 											echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 													<thead > 
 														<tr style="background-color: lightyellow;">
-															<th COLSPAN=7><center><strong>OBSERVACIONES TUTORES Y PSICÓLOGOS</strong></center></th>
+															<th COLSPAN=7><center><strong>TUTOR AND PSYCHOLOGIST OBSERVATIONS</strong></center></th>
 														</tr>';
 											echo '<tr>
-													<th><center>Observación</center></th>
-													<th><center>Tutor - Psicólogo</center></th>
-													<th><center>Fecha</center></th>
+													<th><center>Observation</center></th>
+													<th><center>Tutor - Psychologist</center></th>
+													<th><center>Date</center></th>
 													</tr> 
 													</thead> 
 													<tbody>
@@ -279,7 +279,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -327,7 +327,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

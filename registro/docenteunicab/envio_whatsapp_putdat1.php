@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -37,13 +37,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	$curl = curl_init();
 	
 	//Se hace la consulta de los números de celular a enviar los whatsapp
-	$sql_num = "SELECT e.telefono_acudiente_1, e.telefono_acudiente_2, e.nombres, e.apellidos 
-    FROM (SELECT * FROM estudiantes WHERE id < 1855 AND id NOT IN (1040,1155)) e, matricula m, grados g 
+$sql_num = "SELECT e.telefono_acudiente_1, e.telefono_acudiente_2, e.nombres, e.apellidos 
+    FROM (SELECT * FROM tbl_estudiantes WHERE id < 1855 AND id NOT IN (1040,1155)) e, tbl_matriculas m, tbl_grados g 
     WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
     AND m.fecha_ingreso > '2020-11-30' AND m.fecha_ingreso < '2021-12-01' AND m.estado IN ('aprobado', 'reprobado') 
     AND e.id NOT IN (
     SELECT e.id 
-    FROM estudiantes e, matricula m 
+    FROM tbl_estudiantes e, tbl_matriculas m 
     WHERE e.id = m.id_estudiante 
     AND e.id < 1855 AND m.fecha_ingreso >= '2021-12-01') AND g.id = $idgra";
     
@@ -360,7 +360,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			

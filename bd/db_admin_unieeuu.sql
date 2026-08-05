@@ -68,6 +68,27 @@ CREATE TABLE tbl_equivalence_idgra (
   grado_ra varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+INSERT INTO `tbl_equivalence_idgra` (`id_category`, `name`, `id_grado_ra`, `grado_ra`) VALUES
+(4, '2nd grade', 2, '2nd grade'),
+(5, '3rd grade', 3, '3rd grade'),
+(6, '4th grade', 4, '4th grade'),
+(8, '5th grade', 5, '5th grade'),
+(9, '6th grade', 6, '6th grade'),
+(12, '7th grade', 7, '7th grade'),
+(13, '8th grade', 8, '8th grade'),
+(14, '9th grade', 9, '9th grade'),
+(15, '10th grade', 10, '10th grade'),
+(16, '11th grade', 11, '11th grade'),
+(17, '12th grade', 12, '12th grade'),
+(19, 'Cycle III', 15, 'Cycle III'),
+(20, 'Cycle IV', 16, 'Cycle IV'),
+(22, 'Cycle V', 17, 'Cycle V'),
+(23, 'Cycle VI', 18, 'Cycle VI'),
+(28, 'Cycle I', 13, 'Cycle I'),
+(30, 'Cycle II', 14, 'Cycle II');
+
+
+
 /*######################################################################################################*/
 
 DROP TABLE IF EXISTS tbl_equivalence_idmat;
@@ -2353,25 +2374,29 @@ CREATE TABLE tbl_grados (
   grado varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO tbl_grados (grado) VALUES
-('Sin grado'),
-('Primero'),
-('Segundo'),
-('Tercero'),
-('Cuarto'),
-('Quinto'),
-('Sexto'),
-('Séptimo'),
-('Octavo'),
-('Noveno'),
-('Décimo'),
-('UnDécimo'),
-('Ciclo I'),
-('Ciclo II'),
-('Ciclo III'),
-('Ciclo IV'),
-('Ciclo V'),
-('Ciclo VI')
+/* NO_AUTO_VALUE_ON_ZERO permite insertar la fila con id = 0 sin que AUTO_INCREMENT la reemplace */
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+
+INSERT INTO tbl_grados (id, grado) VALUES
+(0, 'No degree'),
+(1, '1st grade'),
+(2, '2nd grade'),
+(3, '3rd grade'),
+(4, '4th grade'),
+(5, '5th grade'),
+(6, '6th grade'),
+(7, '7th grade'),
+(8, '8th grade'),
+(9, '9th grade'),
+(10, '10th grade'),
+(11, '11th grade'),
+(12, '12th grade'),
+(13, 'Cycle I'),
+(14, 'Cycle II'),
+(15, 'Cycle III'),
+(16, 'Cycle IV'),
+(17, 'Cycle V'),
+(18, 'Cycle VI')
 ;
 
 /*######################################################################################################*/
@@ -2381,6 +2406,7 @@ DROP TABLE IF EXISTS tbl_pre_matriculas;
 CREATE TABLE tbl_pre_matriculas (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_grado int(11) DEFAULT NULL,
+  id_empleado INT NOT NULL DEFAULT 18,
   documento_est varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   nombres_est varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   apellidos_est varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
@@ -2400,11 +2426,11 @@ CREATE TABLE tbl_pre_matriculas (
   año int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-INSERT INTO tbl_pre_matriculas (id_grado, documento_est, nombres_est, apellidos_est, fecha, actividad_extra, nombre_a, celular_a, email_a, ciudad_a, observaciones, entrevista, observaciones_ent, admitido, eval, id_medio, interesado, año) VALUES
-(5, '93974544', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-12', 'PROG', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', 'PRUEBA', 0, 0, 3, NULL, 2026),
-(5, '93974545', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-17', 'NINGUNA', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', 'PRUEBA', 0, 0, 1, NULL, 2026),
-(5, '93974542', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-05', 'PROG', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', NULL, 0, 0, 1, NULL, 2026),
-(5, '93974541', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-05', 'PROG', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', NULL, 0, 0, 1, NULL, 2026)
+INSERT INTO tbl_pre_matriculas (id_grado, id_empleado, documento_est, nombres_est, apellidos_est, fecha, actividad_extra, nombre_a, celular_a, email_a, ciudad_a, observaciones, entrevista, observaciones_ent, admitido, eval, id_medio, interesado, año) VALUES
+(5, 18, '93974544', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-12', 'PROG', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', 'PRUEBA', 0, 0, 3, NULL, 2026),
+(5, 18, '93974545', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-17', 'NINGUNA', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', 'PRUEBA', 0, 0, 1, NULL, 2026),
+(5, 18, '93974542', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-05', 'PROG', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', NULL, 0, 0, 1, NULL, 2026),
+(5, 18, '93974541', 'GREGORY HERNANDO', 'FIGUEREDO GUEVARA', '2025-11-05', 'PROG', 'ANA ELVA GUEVARA', '3192997229', 'gregory.figueredo@unicab.org', '', NULL, 'NO', NULL, 0, 0, 1, NULL, 2026)
 ;
 
 /*######################################################################################################*/
@@ -2728,6 +2754,7 @@ INSERT INTO tbl_empleados (nombres, apellidos, email, pc, perfil, n_documento, d
 ('JOHN HENRY', 'RAMIREZ MALAVER', 'john.ramirez@unicab.org', 'h6q5c4AIcpnhfdN4IBEcWw==', 'TU', 1057586900, 'PENSAMIENTO SOCIAL', 'john.ramirez16', '310 463 9566', '310 463 9566', 'TUTOR MEDIADOR', 'MG EN DERECHOS HUMANOS', 'Soy un ser humano convencido que la educación es el camino para la transformación social y cultural de cualquier sociedad. Por ende, cada día me levanto con el compromiso constante de brindar lo mejor de mi profesión para acompañar los diferentes proyectos de vida de nuestros estudiantes. \r\n\r\nSer maestro mediador a través de las TIC´S me ha permitido encontrar un espacio para el encuentro de ideas y de saberes que se construyen entre los participantes, esto a su vez permite enriquecer las visiones y las experiencias de los que allí confluimos. \r\n', '../../../assets/img/equipo/John Henry Ramírez Malaver.png', 'John Ramirez', '../../../assets/img/equipo/info_john.jpg', 'A +', 'inactivo'),
 ('PAULA ALEJANDRA', 'CRISTANCHO GOMEZ', 'paulacristancho@unicab.org', 'PmD4Arj850uo+AyZEBMXZg==', 'TU', 1057593704, 'PENSAMIENTO HUMANISTICO INGLES', 'live:paucg_teacher', '311 649 6218', '311 649 6218', 'TUTOR MEDIADOR', 'LICENCIADA EN LENGUAS EXTRANJERAS INGLÉS - FRANCÉS', 'Soy tutora mediadora del Pensamiento Humanístico Inglés, amante de la enseñanza, los idiomas, las artes plásticas, la danza y la música. Soy una persona comprometida, curiosa por excelencia, perfeccionista, autocrítica, y nada tradicional en cuanto a enseñanza se refiere. Me gusta aprender, imaginar, crear, evolucionar, cuestionar y cuestionarme todos los días, para poder de esta manera avanzar y ver más allá. No me gusta conformarme con el presente y busco el futuro constantemente. Estoy convencida de que se puede transformar el mundo por medio de la educación y de que la educación virtual es el futuro, razón por la que quiero aportar y ser parte de este proceso, no sólo en mi país sino alrededor del mundo. Por eso siento la necesidad de aprender y conocer diferentes culturas e idiomas. Considero que al integrar cada idioma y cultura dentro de los procesos de aprendizaje, estoy ayudando a abrir los horizontes de mis estudiantes, además de aportar en el crecimiento personal, moral y académico de cada uno de ellos. Ser tutora mediadora me ha dado la posibilidad de aprender y reinventarme cada día, estoy agradecida con Dios de poder formar parte de un equipo que trabaja y se exige al máximo para transformar la educación, y para fortalecer los proyectos de vida de cada uno de sus estudiantes.\r\n«Todo lo que puedas imaginar, es real»\r\n«Everything you can imagine is real»\r\n«Tout ce que tu peux imaginer est réel»\r\n«Alles, was du dir vorstellen kannst, ist real»\r\n«당신이 상상할 수있는 모든 것이 진짜입니다»\r\n                                                                          	 - Pablo Picasso \r\n', '../../../assets/img/equipo/Paula Cristancho.png', 'Paula Cristancho', '../../../assets/img/equipo/info_paulacrist.png', 'O +', 'inactivo'),
 ('PAULA ALEJANDRA', 'ALMONACID CARRASQUILLA', 'paulaalmonacid@unicab.org', 'MmtJHzToNGGIjULR5R4t1g==', 'TU', 1057601005, 'PENSAMIENTO BIOETICO', 'paulaalmonacid23@gmail.com', '310 464 8838', '310 464 8838', 'TUTOR MEDIADOR', 'INGENIERA AMBIENTAL Y SANITARIA', 'Soy tutora mediadora del pensamiento bioético, totalmente convencida de que es un pensamiento muy completo que permite que los estudiantes comprendan los temas y los relacionen con su entorno, ya que nosotros estamos compuestos por la biología, por la química y el deber de todos es  cuidar nuestro cuerpo, tanto física como mentalmente siendo personas éticas he íntegras. Me gustan mucho los niños, que sean felices, que sientan apoyo y cariño siempre, pienso que una persona cuando es querida a si sea por una sola persona tiene la fuerza suficiente para salir adelante en la vida. Creo en las maravilla de Dios, por eso me esfuerzo por dar lo mejor de mi siempre, actuando con honestidad y responsabilidad. Me gusta mucho ver películas, leer y estar informada, el tiempo en familia, cocinar y hacer manualidades. ', '../../../assets/img/equipo/Paula_Almonacid.png', 'Paula Almonacid', 'https://unicab.org/assets/img/equipo/Paula.png', 'A +', 'activo'),
+('NA', 'NA', 'NA', 'NA', 'NA', 0, 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA'),
 ('YULY ANDREA', 'AFRICANO TORRES', 'english.secondary@unicab.org', 'AilEBIY0Le4saLJVPM9fkg==999', 'TU', 1057586870, 'PENSAMIENTO HUMANISTICO INGLES', 'humanistico3.unicab', '312 479 9815', '312 479 9815', 'TUTOR MEDIADOR', 'LICENCIADA EN IDIOMAS MODERNOS', 'Soy tutor mediador de Pensamiento Humanístico Inglés. Soy un ser humano comprometido con la educación de mi país, convencida que desde el aprendizaje y enseñanza de los idiomas es posible generar cambios sociales y crear oportunidades de intercambio cultural en Colombia y en el mundo.  \r\nDisfruto mucho el compartir e interactuar con las personas porque a partir de la interacción aprendo bastante, así que, me gusta viajar y conocer culturas, aprender idiomas; escuchar música, en especial góspel en inglés y francés, además cantar e interpretar la guitarra acústica. \r\nConsidero muy interesante e importante el ejercicio de investigar e indagar sobre las herramientas, metodologías, estrategias y experiencias en el campo del aprendizaje-enseñanza, ya que me permite reflexionar sobre mi quehacer pedagógico y realizar acciones de cambio.\r\nSer maestro mediador es un privilegio, ya que tengo la oportunidad de orientar los procesos de aprendizaje de una lengua extranjera en ambientes virtuales.\r\nSer parte de un equipo que trabaja en pos de los sueños y talentos de los jóvenes, niños y familias es una bendición y un proceso continuo de cambios y aprendizajes.\r\n', '../../../assets/img/equipo/Yuly_Andrea_Africano_Torres.png', 'Yuly Africano', '../../../assets/img/equipo/inf_yuly1.png', 'A +', 'retirado'),
 ('SERGIO ANDRES', 'CADENA BAUTISTA', 'sergio.cadena@unicab.org', 'YNzGICsrWUlkQZsv4pZrNw==', 'TU', 1052383274, 'PENSAMIENTO TECNOLOGICO', 'sergiocadenab', '322 308 2360', '322 308 2360', 'TUTOR MEDIADOR', 'MG EN AMBIENTES EDUCATIVOS MEDIADOS POR TIC', 'Licenciado en informática y Tecnología, aspirante a Magister en Ambientes Educativos Mediados por TIC. Investigador del grupo de investigación GUI UNICAB virtual, administrado Moodle y G Suite (gmail) del colegio UNICAB Virtual.\r\n\r\nEntusiasta de los conocimientos científicos que a lo largo de la historia como a la fecha, han propiciado el desarrollo de la tecnología. Dentro de los campos de la tecnología que domina se encuentra el diseño y la producción audiovisual, la programación y la electrónica, y trabajar por la generación del nuevo conocimiento que, a través de la investigación, la tecnología genera para favorecer la educación.\r\n', '../../../assets/img/equipo/Sergio_Andres_Cadena_Bautista.png', 'Sergio Cadena', 'https://unicab.org/assets/img/equipo/Sergio Andres.png', 'B +', 'activo'),
 ('KAREN MAGALY', 'TORRES GUERRERO', 'karen.torres@unicab.org', 'CLBmBuPypnl2yzQS+3NAmA==', 'TU', 1048847702, 'PENSAMIENTO NUMERICO', 'karentorres355', '310 464 9658', '310 464 9658', 'TUTOR MEDIADOR', 'ESP EN NECESIDADES DE APRENDIZAJE EN LECTURA, ESCRITURA Y MATEMÁTICAS', 'Este año orientó Pensamiento Numérico y Bioético, me gusta trabajar en Unicab pues me permite ser,  dinámica, creativa, propositiva, estoy comprometida con el aprendizaje y progreso de los estudiantes, transmisora de criterio, búsqueda continua para incentivar valores humanos, desarrollar habilidades básicas, me gusta la investigación, formación permanente en herramientas virtuales de aprendizaje. Especialista en Necesidades de Aprendizaje en Lectura, Escritura y Matemáticas, Licenciada en Educación Básica con énfasis en Matemáticas y Humanidades, doce años de experiencia laboral, tengo un hermoso hogar, del cual me siento orgullosa y  en lo que les pueda colaborar estaré dispuesta. ', '../../../assets/img/equipo/Karen_Torres_Guerrero.png', 'KAREN TORRES', '../../../assets/img/equipo/info_karen.jpg', 'B +', 'inactivo'),

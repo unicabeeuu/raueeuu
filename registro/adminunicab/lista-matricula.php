@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -20,15 +20,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	/*$peticion="SELECT * 
 	FROM matricula INNER JOIN estudiantes 
 	ON estudiantes.id=matricula.id_estudiante INNER JOIN grados ON grados.id=matricula.id_grado WHERE matricula.estado='activo'";*/
-	$peticion="SELECT m.idMatricula, m.n_matricula, m.fecha_ingreso, m.estado, e.nombres, e.apellidos, g.grado  
-	FROM matricula m INNER JOIN estudiantes e 
-	ON e.id = m.id_estudiante INNER JOIN grados g ON g.id = m.id_grado WHERE m.estado IN ('activo', 'inactivo', 'retirado')";
+	$peticion="SELECT m.id, m.n_matricula, m.fecha_ingreso, m.estado, e.nombres, e.apellidos, g.grado  
+	FROM tbl_matriculas m INNER JOIN tbl_estudiantes e 
+	ON e.id = m.id_estudiante INNER JOIN tbl_grados g ON g.id = m.id_grado WHERE m.estado IN ('activo', 'inactivo', 'retirado')";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -93,35 +93,35 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		    }
 		?>
 		<!--left-fixed -navigation-->
-		
+
 		<!-- header-starts -->
 		<?php require 'header.php';  ?>
 		<!-- //header-ends -->
-		
+
 		<!-- modal -->
 		<section>
 			<?php require 'modal.php';  ?>
 		</section>
 		<!-- modal -->
-		
+
 		<!-- main content start-->
         <section>
            	<div id="page-wrapper">
            		<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Lista de matrículas:</h4>
+							<h4>Tuition list:</h4>
 						</div>
 						<div class="form-body">  
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Número de matrícula</th>
-						                <th>Fecha</th>
-						                <th>Estado</th>
-						                <th>Estudiante</th>
-						                <th>Grado</th>
-	                                    <th>Acción</th>
+						                <th>Tuition number</th>
+						                <th>Date</th>
+						                <th>Status</th>
+						                <th>Student</th>
+						                <th>Grade</th>
+	                                    <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -133,7 +133,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td class='activo'>".$fila['estado']."</td>
     						        		<td>".$fila['apellidos']." ".$fila['nombres']."</td>
     						        		<td>".$fila['grado']."</td>
-    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Editar</a></td>
+    						        		<td><a href='editar-matricula.php?id=".$fila['id']."' class='btn' style='background-color: #ff9805; color:white;' title='Edit Enrollment ".$fila['id']."'><i class='fa fa-pencil'></i> Edit</a></td>
     						        		</tr>";
 										}
 						        		else if($fila['estado'] == 'inactivo') {
@@ -142,7 +142,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td class='inactivo'>".$fila['estado']."</td>
     						        		<td>".$fila['apellidos']." ".$fila['nombres']."</td>
     						        		<td>".$fila['grado']."</td>
-    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Editar</a></td>
+    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn' style='background-color: #ff9805; color:white;' title='Edit Enrollment ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Edit</a></td>
     						        		</tr>";
 										}
 										else if($fila['estado'] == 'retirado') {
@@ -151,7 +151,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td class='retirado'>".$fila['estado']."</td>
     						        		<td>".$fila['apellidos']." ".$fila['nombres']."</td>
     						        		<td>".$fila['grado']."</td>
-    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Editar Matricula ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Editar</a></td>
+    						        		<td><a href='editar-matricula.php?id=".$fila['idMatricula']."' class='btn btn-primary' title='Edit Enrollment ".$fila['idMatricula']."'><i class='fa fa-pencil'></i> Edit</a></td>
     						        		</tr>";
 										}
 						        	}
@@ -171,17 +171,17 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
-				
+
 			showLeftPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
 				disableOther( 'showLeftPush' );
 			};
-			
+
 
 			function disableOther( button ) {
 				if( button !== 'showLeftPush' ) {
@@ -190,19 +190,19 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 			}
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
-		
+
 	<!--scrolling js-->
 	<script src="../js/jquery.nicescroll.js"></script>
 	<script src="../js/scripts.js"></script>
 	<!--//scrolling js-->
-	
+
 	<!-- side nav js -->
 	<script src='../js/SidebarNav.min.js' type='text/javascript'></script>
 	<script>
       $('.sidebar-menu').SidebarNav()
     </script>
 	<!-- //side nav js -->
-    
+
     <!-- js tabla -->
 	<script src="../js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">
@@ -219,7 +219,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

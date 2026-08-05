@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -20,16 +20,16 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	//$peticion="SELECT * from estudiantes where estado='inactivo'";
 	/*$peticion="SELECT e.*, m.* 
 	FROM estudiantes e LEFT JOIN matricula m ON e.id = m.id_estudiante WHERE m.estado='solicitud'";*/
-	$peticion="SELECT a.*, g.grado 
-    	FROM (SELECT e.id, e.apellidos, e.nombres, e.n_documento, e.genero, e.email_institucional, e.telefono_acudiente_1, e.periodo_ing, m.* 
-    	FROM estudiantes e LEFT JOIN matricula m ON e.id = m.id_estudiante WHERE m.estado IN ('pre_solicitud', 'solicitud', 'nuevo_pre_solicitud', 'antiguo_pre_solicitud', 'nuevo_solicitud', 'antiguo_solicitud')) a, grados g 
+$peticion="SELECT a.*, g.grado 
+    	FROM (SELECT e.id, e.apellidos, e.nombres, e.n_documento, e.genero, e.email_institucional, e.telefono_acudiente_1, m.id_estudiante, m.id_grado, m.estado, m.fecha_ingreso 
+    	FROM tbl_estudiantes e LEFT JOIN tbl_matriculas m ON e.id = m.id_estudiante WHERE m.estado IN ('pre_solicitud', 'solicitud', 'nuevo_pre_solicitud', 'antiguo_pre_solicitud', 'nuevo_solicitud', 'antiguo_solicitud')) a, tbl_grados g 
     	WHERE a.id_grado = g.id";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -111,17 +111,17 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					        <thead>
                             <br><br>
 					            <tr>
-					                <!-- <th>Grado</th> -->
-					                <th>Apellidos</th>
-					                <th>Nombres</th>
-					                <th>Identificación</th>
-					                <th>Celular</th>
-					                <th>Correo</th>
-					                <th>Estado</th>
-					                <th>Grado</th>
-									<th>PerIng</th>
-									<th>FSolicitud</th>
-					                <th>Acción</th>
+					                <!-- <th>Grade</th> -->
+					                <th>Last Names</th>
+					                <th>First Names</th>
+					                <th>Identification</th>
+					                <th>Phone</th>
+					                <th>Email</th>
+					                <th>Status</th>
+					                <th>Grade</th>
+									<th>Enr. Period</th>
+									<th>Request Date</th>
+					                <th>Action</th>
 					            </tr>
 					        </thead>
 					        <tbody>
@@ -173,7 +173,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

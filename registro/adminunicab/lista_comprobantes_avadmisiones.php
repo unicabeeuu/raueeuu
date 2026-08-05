@@ -16,7 +16,7 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -38,7 +38,7 @@ if (isset($_SESSION['unisuper'])) {
     WHERE m.id_grado = g.id AND m.estado = 'activo' AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != '1155' 
     GROUP BY g.id, g.grado, m.grupo ORDER BY g.id";*/
     $query = "SELECT COUNT(1) ct, g.id, g.grado, m.grupo 
-    FROM matricula m, grados g 
+    FROM tbl_matriculas m, tbl_grados g 
     WHERE m.id_grado = g.id AND m.estado = 'activo' AND m.n_matricula like '%2025%' AND m.id_estudiante NOT IN (1155) 
     GROUP BY g.id, g.grado, m.grupo ORDER BY g.id";
     //echo $query;
@@ -49,7 +49,7 @@ if (isset($_SESSION['unisuper'])) {
     FROM matricula m, grados g 
     WHERE m.id_grado = g.id AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != 1155 GROUP BY m.id_grado";*/
     $query1 = "SELECT COUNT(1) ct, g.grado 
-    FROM matricula m, grados g 
+    FROM tbl_matriculas m, tbl_grados g 
     WHERE m.id_grado = g.id AND m.n_matricula like '%2025%' AND m.id_estudiante NOT IN (1155, 1040) AND m.estado IN ('pre_solicitud', 'solicitud') GROUP BY m.id_grado";
     //echo $query1;
     $resultado2 = $mysqli1->query($query1);
@@ -59,7 +59,7 @@ if (isset($_SESSION['unisuper'])) {
     FROM matricula m, estudiantes e 
     WHERE m.id_estudiante = e.id AND date_format(m.fecha_ingreso, '%Y') = $a AND m.id_estudiante != 1155 AND m.estado = 'activo' GROUP BY e.ciudad";*/
     $query2 = "SELECT COUNT(1) ct, e.ciudad 
-    FROM matricula m, estudiantes e 
+    FROM tbl_matriculas m, tbl_estudiantes e 
     WHERE m.id_estudiante = e.id AND m.n_matricula like '%2025%' AND m.id_estudiante != 1155 AND m.estado = 'activo' GROUP BY e.ciudad";
     //echo $query2;
     $resultado3 = $mysqli1->query($query2);
@@ -74,10 +74,10 @@ if (isset($_SESSION['unisuper'])) {
 	    $a++;
 	}
 	
-	$peticion = "SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, estudiantes e 
+	$peticion = "SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, tbl_estudiantes e 
 	WHERE cp.documento = e.n_documento AND cp.tipo = 'deuda' 
 	UNION ALL 
-	SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, estudiantes e 
+	SELECT cp.*, e.nombres, e.apellidos FROM tbl_asistente_virtual_comprobantes_pago cp, tbl_estudiantes e 
 	WHERE cp.documento = e.n_documento AND cp.tipo = 'matrícula' AND cp.a = $a";
 	//$resultado = mysqli_query($conexion, $peticion);
 	
@@ -86,7 +86,7 @@ if (isset($_SESSION['unisuper'])) {
     WHERE dm.documento = e.n_documento AND dm.documento = av.documento_estudiante AND av.id_grado = g.id 
     AND dm.a >= $a";*/
 	$peticion1 = "SELECT DISTINCT dm.documento, dm.a, e.apellidos, e.nombres, av.id_grado, g.grado, c.ct, c.suma, av.control_documentos_invalidos 
-	FROM tbl_documentos_matriculas dm, estudiantes e, tbl_asistente_virtual av, grados g, 
+	FROM tbl_documentos_matriculas dm, tbl_estudiantes e, tbl_asistente_virtual av, tbl_grados g, 
 	(SELECT COUNT(1) ct, SUM(validado) suma, documento FROM tbl_documentos_matriculas WHERE a >= $a GROUP BY documento) c 
 	WHERE dm.documento = e.n_documento AND dm.documento = av.documento_estudiante AND dm.documento = c.documento 
 	AND av.id_grado = g.id AND dm.a >= $a";
@@ -96,7 +96,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -245,6 +245,11 @@ if (isset($_SESSION['unisuper'])) {
 		.custom-switch-v3 input:checked + .custom-slider-v3:before {
 		  transform: translateX(25px) !important;
 		}
+
+		thead {
+			background-color: #222a75;
+			color: white;
+		}
     </style>
     <script>
         
@@ -260,7 +265,7 @@ if (isset($_SESSION['unisuper'])) {
 			$("#documentoRechazo").val(documento);
 			$("#txtRechazo").val("");
 			$("#txtControlDocumentosInvalidos").val(control_documentos_invalidos);
-            //alert("función");
+            //alert("function");
             
             $.ajax({
         		type:"POST",
@@ -301,7 +306,7 @@ if (isset($_SESSION['unisuper'])) {
         		url:"estudiante_grupo_getdat2.php",
         		data:"id_est=" + id_est + "&grupo=" + grupo,
         		success:function(r) {
-        			var res = JSON.parse(r);
+        			let res = JSON.parse(r);
         		    
         		    $("#txtid").val(res.id);
         		    $("#txtnom").val(res.nombres);
@@ -316,7 +321,7 @@ if (isset($_SESSION['unisuper'])) {
         }
         
         function updgru() {
-            var datos = "idest=" + $("#txtid").val() + "&grupo=" + $("#txtgru").val();
+            let datos = "idest=" + $("#txtid").val() + "&grupo=" + $("#txtgru").val();
         	//alert(datos);
         	
             $.ajax({
@@ -324,7 +329,7 @@ if (isset($_SESSION['unisuper'])) {
         		url:"act_grupo_upddat.php",
         		data:"idest=" + $("#txtid").val() + "&grupo=" + $("#txtgru").val(),
         		success:function(r) {
-        		    alert("Registro actualizado correctamente");
+        		    alert("Record updated successfully");
         		    $('#modal_list').modal('hide');
         		    
         		    location.reload();
@@ -366,13 +371,13 @@ if (isset($_SESSION['unisuper'])) {
 						location.reload();
 					}
 				} else {
-					alert('Error al actualizar: ' + (data.mensaje || 'Respuesta inválida'));
+					alert('Error updating: ' + (data.mensaje || 'Invalid response'));
 					element.checked = !element.checked; // Revertir si falla
 				}
 			})
 			.catch(err => {
 				console.log('Error:', err);
-				alert('No se pudo conectar con el servidor.');
+				alert('Could not connect to the server.');
 				element.checked = !element.checked;
 			})
 			.finally(() => {
@@ -403,10 +408,10 @@ if (isset($_SESSION['unisuper'])) {
 			console.log("Total checkbox " + checkboxes.length + " total validados " + checkedCount);
 			
 			if (checkedCount == checkboxes.length) {
-				alert("Está acción no está permitida si todos los documentos están validados.");
+				alert("This action is not allowed when all documents are validated.");
 			}
 			else if ($("#txtControlDocumentosInvalidos").val() == "1") {
-				alert("Está acción no está permitida porque ya se envío un mensaje de rechazo de documentos al acudiente.");
+				alert("This action is not allowed because a document rejection message was already sent to the guardian.");
 			}
 			else if (razon != "") {
 				// Desactivar el botón y mostrar carga btnRechazar
@@ -439,9 +444,9 @@ if (isset($_SESSION['unisuper'])) {
 				.then(data => {
 					console.log(data)
 					if (data.status == "success") {
-						alert("Correo de rechazo de documentos finales enviado con éxito");
+						alert("Final document rejection email sent successfully");
 					} else {
-						alert("Correo de rechazo de documentos finales no se puedo enviar");
+						alert("Final document rejection email could not be sent");
 					}
 					
 					submitBtn.prop('disabled', false); 
@@ -451,7 +456,7 @@ if (isset($_SESSION['unisuper'])) {
 					console.log('Error:', err);
 					submitBtn.prop('disabled', false); 
 					submitBtn.html('Rechazar');
-					alert('No se pudo conectar con el servidor.');
+					alert('Could not connect to the server.');
 				})
 				.finally(() => {
 					submitBtn.prop('disabled', false); 
@@ -459,7 +464,7 @@ if (isset($_SESSION['unisuper'])) {
 				});
 			}
 			else {
-				alert("Está acción no está permitida sin una razón detallada para el acudiente.");
+				alert("This action requires a detailed reason for the guardian.");
 			}
 		}
         
@@ -499,27 +504,25 @@ if (isset($_SESSION['unisuper'])) {
            	<div id="page-wrapper">
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
-						<div class="form-title">
-							<h4>Listado de estudiantes con documentos finales de matrícula enviados para validar:</h4>
+<div class="form-title">
+							<h4>List of students with final enrolment documents sent for validation:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listaDocumentos" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Año</th>
-										<th>Grado</th>
-										<th>Estado</th>
-						                <th>Acción</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Year</th>
+										<th>Grade</th>
+										<th>Status</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>
 						        	<?php 
 							        	while ($fila = mysqli_fetch_array($resultado0)){
-											//$isChecked = ($fila['validado'] == 1) ? 'checked' : '';
-											//$registroId = $fila['id'];
 											$nombre = $fila['apellidos']." ".$fila['nombres'];
 							        		
 							        		echo"<tr>
@@ -530,15 +533,15 @@ if (isset($_SESSION['unisuper'])) {
 											<td>".$fila['grado']."</td>";
 											
 											if($fila['ct'] == $fila['suma']) {
-												echo "<td>Aprobados</td>
-													<td><button class='btn btn-success glyphicon glyphicon-list-alt' title='Ver Documentos'
-                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> Ver Documentos</button></td>
+												echo "<td>Approved</td>
+													<td><button class='btn btn-success glyphicon glyphicon-list-alt' title='View Documents'
+                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> View Documents</button></td>
 													</tr>";
 											}
 											else {
-												echo "<td>No_Aprobados</td>
-													<td><button class='btn btn-warning glyphicon glyphicon-list-alt' title='Ver Documentos'
-                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> Ver Documentos</button></td>
+												echo "<td>Not_Approved</td>
+													<td><button class='btn btn-warning glyphicon glyphicon-list-alt' title='View Documents'
+                                                                    onclick='verDocumentos(".$fila['documento'].",".$fila['a'].",".$fila['control_documentos_invalidos'].",\"".$nombre."\")'> View Documents</button></td>
 													</tr>";
 											}
 							        	}
@@ -563,7 +566,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">LISTADO DE DOCUMENTOS DE <span id="nombre"></span></h5>
+            <h5 class="modal-title" id="exampleModalLabel">DOCUMENT LIST FOR <span id="nombre"></span></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -572,16 +575,15 @@ if (isset($_SESSION['unisuper'])) {
             <div id="div_listado">
             </div>
 			<div id="rechazo">
-				<textarea id="txtRechazo" placeholder="Detalle la razón de rechazo..." rows="5"></textarea><br>
-				<button id="btnRechazar" class="btn btn-primary" onclick="Rechazar();">Rechazar</button>
+				<textarea id="txtRechazo" placeholder="Detail the reason for rejection..." rows="5"></textarea><br>
+				<button id="btnRechazar" class="btn btn-primary" onclick="Rechazar();">Reject</button>
 			</div>
 			
 			<input type="hidden" id="documentoRechazo">
 			<input type="hidden" id="txtControlDocumentosInvalidos">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -592,7 +594,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">INFORMACION DEL ESTUDIANTE</h5>
+            <h5 class="modal-title" id="exampleModalLabel">STUDENT INFORMATION</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -601,21 +603,21 @@ if (isset($_SESSION['unisuper'])) {
             <div class="modal-body">
                 <label>Id_est</label>
                 <input type="text" id="txtid" class="form-control" readonly/>
-                <label>Nombres</label>
+                <label>First Names</label>
                 <input type="text" id="txtnom" class="form-control" readonly/>
-                <label>Apellidos</label>
+                <label>Last Names</label>
                 <input type="text" id="txtape" class="form-control" readonly/>
-                <label>Grado</label>
+                <label>Grade</label>
                 <input type="text" id="txtgra" class="form-control" readonly/>
-                <label>Grupo</label>
+                <label>Group</label>
                 <input type="text" id="txtgru" class="form-control" oninput="val_grupo()"/>
                 
                 <label id="lblgrupo"></label>
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updgru()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updgru()">Save</button>
           </div>
         </div>
       </div>
@@ -624,7 +626,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -697,9 +699,9 @@ if (isset($_SESSION['unisuper'])) {
    		<!-- validar combo periodo -->
 		<script type="text/javascript">
 			function validacion() {
-				var grado=document.getElementById('id_grado').value;
+				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);

@@ -39,14 +39,14 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Menu Navegable</li>
+              <li class="header">Navigation Menu</li>
               <?php  
                     if($id_administrador == 18) {
               ?>
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-database"></i>
-                <span>Cambiar sistema</span>
+                <span>Change System</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -61,7 +61,7 @@
               ?>
               <li class="treeview">
                 <a href="index.php">
-                <i class="fa fa-home"></i> <span>Inicio</span>
+                <i class="fa fa-home"></i> <span>Home</span>
                 </a>
               </li>
               <?php  
@@ -72,28 +72,28 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cubes"></i>
-                <span>Tablas de parámetros</span>
+                <span>Parameter Tables</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="registro-estudiantes.php"><i class="fa fa-angle-right"></i> Registrar Estudiante</a></li>
-                  <li><a href="lista-estudiantes.php"><i class="fa fa-angle-right"></i> Editar Estudiante</a></li>
+                  <li><a href="registro-estudiantes.php"><i class="fa fa-angle-right"></i> Register Student</a></li>
+                  <li><a href="lista-estudiantes.php"><i class="fa fa-angle-right"></i> Edit Student</a></li>
                 </ul>
               </li>
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
-                <span>Procesos</span>
+                <span>Processes</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="cierre-academico.php"><i class="fa fa-power-off"></i> Cierre Académico</a></li>
-                  <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Registrar Matrícula</a></li>
+                  <li><a href="cierre-academico.php"><i class="fa fa-power-off"></i> Academic Closing</a></li>
+                  <li><a href="registrar-matricula.php"><i class="fa fa-folder-open"></i> Register Enrolment</a></li>
                   
                   <?php  
                       if($id_administrador == 18 || $id_administrador == 3 || $id_administrador == 2 || $id_administrador == 43) {
                   ?>
-                  <li><a href="pazsalvo_est_getdat.php"><i class="fa fa-check-circle"></i> Paz y salvos</a></li>
+                  <li><a href="pazsalvo_est_getdat.php"><i class="fa fa-check-circle"></i> Clearances</a></li>
                   <?php  
                       }
                   ?>
@@ -102,34 +102,34 @@
                <li class="treeview">
                 <a href="#">
                 <i class="fa fa-line-chart "></i>
-                <span>Informes</span>
+                <span>Reports</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                   <li class="treeview">
                   <a href="#">  
                   <i class="fa fa-file-pdf-o"></i>
-                  <span>Certificados</span>
+                  <span>Certificates</span>
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Matrícula</a></li>
-                    <li><a href="certificados-grado_aanterior.php"><i class="fa fa-angle-right"></i> Grado año anterior</a></li>
-                    <li><a href="certificados_final_getdat.php"><i class="fa fa-angle-right"></i> Consultar</a></li>
-                    <!--<li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consultar</a></li>-->
-                    <li><a href="certificados_adm_getdat.php"><i class="fa fa-file-pdf-o"></i> Generar</a></li>
+                    <li><a href="certificados-periodo.php"><i class="fa fa-angle-right"></i> Enrolment</a></li>
+                    <li><a href="certificados-grado_aanterior.php"><i class="fa fa-angle-right"></i> Previous Year Degree</a></li>
+                    <li><a href="certificados_final_getdat.php"><i class="fa fa-angle-right"></i> Consult</a></li>
+                    <!--<li><a href="consultar-certificado.php"><i class="fa fa-angle-right"></i> Consult</a></li>-->
+                    <li><a href="certificados_adm_getdat.php"><i class="fa fa-file-pdf-o"></i> Generate</a></li>
                   </ul>
                   </li>
-                  <li><a href="desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Desempeño estudiantes</a></li>
+                  <li><a href="desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Student Performance</a></li>
                   <li><a href="ranking_getdat.php"><i class="fa fa-sort-amount-desc"></i> Ranking</a></li>
-                  <li><a href="estudiante_grupo_getdat.php"><i class="fa fa-user-plus"></i> Estudiantes grupo</a></li>
+                  <li><a href="estudiante_grupo_getdat.php"><i class="fa fa-user-plus"></i> Group Students</a></li>
                   
                 </ul>
               </li>
              <li class="treeview">
                 <a href="#">
                 <i class="fa fa-wrench"></i>
-                <span>Herramientas</span>
+                <span>Tools</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -137,7 +137,7 @@
                     if($v_param == 1) {
                         echo "<li class='treeview'>";
                         echo "<a href='adm1.php'>";
-                        echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+                        echo "<i class='fa fa-users'></i> <span>Database</span>";
                         echo "</a>";
                         echo "</li>";
                     }
@@ -152,7 +152,7 @@
 	</div>
   <script type="text/javascript">
     function cierre(){
-      var evalua=confirm("Las modificaciones en esta sección son irreversibles\n¿Desea continuar?");
+      let evalua=confirm("Modifications in this section are irreversible\nDo you want to continue?");
       if (evalua==true) {
         location.href='cierre-academico.php';
       }else{

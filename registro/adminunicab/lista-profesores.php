@@ -10,7 +10,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -67,17 +67,17 @@ if (isset($_SESSION['unisuper'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Lista de empleados:</h4>
+							<h4>Employee list:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
-						        <thead>                    
+						        <thead>
 						            <tr>
-						                <th>APELLIDOS</th>
-						                <th>NOMBRES</th>
-						                <th>CORREO</th>
-						                <th>IDENTIFICACION</th>
-						                <th>ACCION</th>
+						                <th>LAST NAMES</th>
+						                <th>FIRST NAMES</th>
+						                <th>EMAIL</th>
+						                <th>IDENTIFICATION</th>
+						                <th>ACTION</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -90,7 +90,7 @@ if (isset($_SESSION['unisuper'])) {
 							        		<td>".$fila['n_documento']."</td>
 							        		<td>
 							        			<center>
-							        				<a href='editar-profesor.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Profesor'><i class='fa fa-pencil'></i> Editar</a>
+							        				<a href='editar-profesor.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Profesor'><i class='fa fa-pencil'></i> Edit</a>
 						        				</center>
 						        			</td>
 					        			</tr>";
@@ -111,7 +111,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -159,7 +159,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesi贸n');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

@@ -19,17 +19,17 @@
 		<div id="enc">
 			<img src="img/enc1.png" alt="enc1" />
 		</div>
-		<h1>Listado de calificaciones en Registro</h1></center>
-		<!--<a href="categorias_form.php">Nueva Categoría</a><br/><br/>-->
+		<h1>List of grades in Record</h1></center>
+		<!--<a href="categorias_form.php">New Category</a><br/><br/>-->
 		<table border="1px">
 			<thead>
 			<tr>
 				<td><b>Id</b></td>
-				<td><b>Nota</b></td>
-				<td><b>Id Periodo</b></td>
-				<td><b>Id Materia</b></td>
-				<td><b>Id Grado</b></td>
-				<td><b>Id Estudiante</b></td>
+				<td><b>Grade</b></td>
+				<td><b>Period Id</b></td>
+				<td><b>Subject Id</b></td>
+				<td><b>Grade Id</b></td>
+				<td><b>Student Id</b></td>
 				<!--<td><b>Nombres</b></td>
 				<td><b>Apellidos</b></td>-->
 			</tr>

@@ -9,19 +9,19 @@
 	$cadena = "";
 	
 	$query1 = "SELECT g.grado, g.id id_gra, m.pensamiento, m.id id_pen, CONCAT(e.nombres, ' ', e.apellidos) tutor, e.id 
-        FROM grados g, materias m, tbl_empleados e, carga_profesor cp 
+        FROM tbl_grados g, tbl_materias m, tbl_empleados e, tbl_carga_profesor cp 
         WHERE cp.id_grado = g.id AND cp.id_materia = m.id AND cp.id_empleado = e.id 
         ORDER BY g.id, m.id";
 	//echo $cadena; 
 	
-	$cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px'>
+	$cadena = $cadena."<table id='tbldatos' class='table table-fixed' border='1px' style='width: 100%;'>
 	                        <thead>
 	                        <tr style='background-color: gray; color: white; text-weight: bold;'>
-	                            <td>GRADO</td>
+	                            <td>GRADE</td>
 	                            <td>ID_GRA</td>
-	                            <td>PENSAMIENTO</td>
+	                            <td>THOUGHT</td>
 	                            <td>ID_PEN</td>
-	                            <td>TUTOR</td>
+	                            <td>TEACHER</td>
 	                            <td>ID</td>
 	                            <td>...</td>
 	                        </tr></thead><tbody>";
@@ -41,9 +41,9 @@
             <td>".$row['id_pen']."</td>
             <td>".$row['tutor']."</td>
             <td>".$row['id']."</td>
-            <td><button class='btn btn-warning glyphicon glyphicon-edit' data-toggle='modal' data-target='#modal_carga' title='Modificar'
+            <td><button class='btn btn-warning glyphicon glyphicon-edit' data-toggle='modal' data-target='#modal_carga' title='Modify'
             onclick='enviardat_carga(\"".$row['grado']."\",".$row['id_gra'].",\"".$row['pensamiento'].
-            "\",".$row['id_pen'].",\"".$row['tutor']."\",".$row['id'].")'> Modificar</button></td></tr>";
+            "\",".$row['id_pen'].",\"".$row['tutor']."\",".$row['id'].")'> Modify</button></td></tr>";
 	    
 	}
 	$cadena = $cadena."</tbody></table>";

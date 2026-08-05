@@ -131,21 +131,21 @@
 	// numero certificado
     
     if(!$id || $id == "0") {
-        $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
+        $query1 = "SELECT DISTINCT a.grado, e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
-    		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+    		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a, tbl_tipos_documento td  
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND e.tipo_documento = td.id AND m.estado = 'Activo' AND eg.id_grado_ra = ".$idgra." 
     		ORDER BY a.grado, nombre";
     }
     else {
-        $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
+        $query1 = "SELECT DISTINCT a.grado, e.id, eg.id_grado_ra, eg.grado_ra grado, CONCAT(e.nombres,' ',e.apellidos) nombre, td.tipo_documento, e.n_documento, 
     	    e.expedicion, UPPER(e.genero) genero 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
-    		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+    		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
     		ON em.id = ee.id_moodle ) a, tbl_tipos_documento td  
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND e.tipo_documento = td.id AND m.estado IN ('Activo') AND eg.id_grado_ra = ".$idgra." 
     		AND e.id = $id
@@ -163,7 +163,7 @@
     	$content .= '</style>';
     	$content .= '</head><body>';
     	$content .= '<h1>Ejemplo generaci&oacute;n PDF</h1>';
-    	$content .= '<a href="reporte_notas_getdat1.php?pdf=1">Generar documento PDF</a>';
+    	$content .= '<a href="reporte_notas_getdat1.php?pdf=1">Generate PDF document</a>';
     	$content .= '</body></html>';
     	echo $content;
     	exit;
@@ -272,7 +272,7 @@
     			ROUND(ifnull(p1.nota, 0), 1) P1, ' ' P2, ' ' P3, ' ' P4, ROUND(ifnull(p1.nota, 0), 1) acumulado 
     			FROM 
     			(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota, m.materiaIngles, m.pensamientoingles 
-    			FROM notas n, estudiantes e, materias m, grados g, periodos p 
+    			FROM notas n, tbl_estudiantes e, materias m, grados g, periodos p 
     			WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
     			AND e.id = ".$idest." AND g.id = ".$idgra." AND p.id = 1) p1 
     			ORDER BY 3";
@@ -678,7 +678,8 @@
     }
     
     //Se modifica el consecutivo_cn
-    $sql_certificado1="UPDATE tbl_parametros SET v1 = ".$certicado_total." WHERE parametro = 'consecutivo_cn'";
+    $certicado_total_val = $certicado_total ? (int)$certicado_total : 0;
+    $sql_certificado1="UPDATE tbl_parametros SET v1 = ".$certicado_total_val." WHERE parametro = 'consecutivo_cn'";
 	$exe_certificado1=$mysqli1->query($sql_certificado1);
     
     /*$content .= '<div id="divmarca"><p>';
@@ -737,7 +738,7 @@
     $folder = __DIR__.'/certificados/2020/noveno/';
     PDF::saveDisk($nom_pdf,$content,$folder);*/
     
-    $query_tc = "SELECT *  FROM certificado WHERE numero1 >= $cert_num1 AND numero1 <= $cert_num AND tipo_certificado = 'Certificado de notas'";
+    $query_tc = "SELECT *  FROM tbl_certificados WHERE numero1 >= $cert_num1 AND numero1 <= $cert_num AND tipo_certificado = 'Certificado de notas'";
     $exe_query_tc=mysqli_query($conexion,$query_tc);
     //echo $query_tc;
     	

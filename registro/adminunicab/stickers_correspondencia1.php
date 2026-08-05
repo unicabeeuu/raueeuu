@@ -21,10 +21,10 @@
 	$cadena = $cadena."<table id='tblstickers' class='table' border='1px'>
 	                        <thead>
 	                        <tr>
-	                            <td>DOCUMENTO</td>
+	                            <td>DOCUMENT</td>
 	                            <td>NOMBRES</td>
 	                            <td>APELLIDOS</td>
-	                            <td>GENERAR STICKER</td>
+	                            <td>GENERATE STICKER</td>
 	                        </tr></thead><tbody>";
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()) {

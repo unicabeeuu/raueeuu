@@ -91,7 +91,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -121,9 +121,9 @@
 
    <script type="text/javascript">
    		function Validar(){
-			var nombre=document.getElementById('NombreU').value;
-			var apellido=document.getElementById('ApellidoU').value;
-			var correo=document.getElementById('CorreoU').value;
+			let nombre=document.getElementById('NombreU').value;
+			let apellido=document.getElementById('ApellidoU').value;
+			let correo=document.getElementById('CorreoU').value;
 
 			emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 			
@@ -214,7 +214,7 @@
 </html>
 <?php 
 }else{
-	echo "<script>alert('Debe iniciar sesi¨®n');</script>";
+	echo "<script>alert('Debe iniciar sesiï¿½ï¿½n');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

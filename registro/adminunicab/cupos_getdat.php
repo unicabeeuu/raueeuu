@@ -16,7 +16,7 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -30,8 +30,8 @@ if (isset($_SESSION['unisuper'])) {
 	$a = date("Y",$fecha);
     
     $query = "SELECT COUNT(1) ct, c.id_grado_solicitado, g.grado 
-    FROM tbl_cupos c, grados g 
-    WHERE c.id_grado_solicitado = g.id AND c.n_documento != '9397454' 
+    FROM tbl_cupos c, tbl_grados g
+    WHERE c.id_grado_solicitado = g.id AND c.n_documento != '9397454'
     GROUP BY id_grado_solicitado, g.grado";
     //echo $query;
     $resultado1 = $mysqli1->query($query);
@@ -46,7 +46,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -200,13 +200,13 @@ if (isset($_SESSION['unisuper'])) {
                                 <div id="cont">
                         			<!--***********************************************************************************************-->
                         			<div id="div2">
-                        			    <h3>CUPOS APARTADOS 2023 POR GRADO </h3>
+                        			    <h3>RESERVED SPOTS 2023 BY GRADE</h3>
                         			    <div id="divtabla">
             								<table>
             								    <thead>
             								        <tr>
-            								            <td width="100px">Cantidad</td>
-            								            <td width="100px">Grado</td>
+            								            <td width="100px">Count</td>
+            								            <td width="100px">Grade</td>
             								            <td></td>
             								        </tr>
             								    </thead>
@@ -217,7 +217,7 @@ if (isset($_SESSION['unisuper'])) {
             								                        <td>'.$fila['ct'].'</td>
             								                        <td>'.$fila['grado'].'</td>
             								                        <td><button class="btn btn-secundary glyphicon glyphicon-list-alt" title="Ver listado"
-                                                                    onclick="enviardat('.$fila['id_grado_solicitado'].')"> Ver listado</button></td>
+                                                                    onclick="enviardat('.$fila['id_grado_solicitado'].')"> View list</button></td>
             								                    </tr>';
             								                $tot_mat += $fila['ct'];
             								            }
@@ -246,7 +246,7 @@ if (isset($_SESSION['unisuper'])) {
       <div class="modal-dialog modal-lg" role="document" style="min-width: 90%;">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">DETALLE DE LOS CUPOS</h5>
+            <h5 class="modal-title" id="exampleModalLabel">RESERVED SPOTS DETAIL</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -256,8 +256,8 @@ if (isset($_SESSION['unisuper'])) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Save</button>-->
           </div>
         </div>
       </div>
@@ -266,7 +266,7 @@ if (isset($_SESSION['unisuper'])) {
     <!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -312,9 +312,9 @@ if (isset($_SESSION['unisuper'])) {
    		<!-- validar combo periodo -->
 		<script type="text/javascript">
 			function validacion() {
-				var grado=document.getElementById('id_grado').value;
+				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);

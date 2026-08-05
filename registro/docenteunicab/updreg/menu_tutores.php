@@ -82,10 +82,10 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Menu Navegable</li>
+              <li class="header">Navigation Menu</li>
               <li class="treeview">
                 <a href="../index.php">
-                <i class="fa fa-home"></i> <span>Inicio</span>
+                <i class="fa fa-home"></i> <span>Home</span>
                 </a>
               </li>
               <li class="treeview">
@@ -95,7 +95,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="../asignacion.php"><i class="fa fa-male"></i> <span>Asignación</span></a></li>
+                  <li><a href="../asignacion.php"><i class="fa fa-male"></i> <span>Assignment</span></a></li>
                   <?php
                       if($v_param3 == 999) {
     				    echo "<li class='treeview'>";
@@ -106,13 +106,13 @@
     				  }
     				  if($perfil != "PR") {
 				  ?>
-				  <li><a href='desemp_estud_per_getdat.php'><i class='fa fa-bar-chart '></i> <span>Desempeño estudiantes</span></a></li>
+				  <li><a href='desemp_estud_per_getdat.php'><i class='fa fa-bar-chart '></i> <span>Student Performance</span></a></li>
 				  <?php
     				  }
 				        if($v_param4 == 1) {
     				        echo "<li class='treeview'>";
         					  echo "<a href='../lista-estudiantes_evalpres.php'>";
-        					  echo "<i class='fa fa-file-text'></i> <span>Resultados Eval Admisión</span>";
+        					  echo "<i class='fa fa-file-text'></i> <span>Admission Eval Results</span>";
         					  echo "</a>";
         				    echo "</li>";
     				    }
@@ -135,19 +135,19 @@
                   <?php
                     if($v_param4 == 1 && $ct == 1) {
 				        echo "<li class='treeview'>";
-    					  echo "<a href='#'><i class='fa fa-university'></i>Banco de preguntas<i class='fa fa-angle-left pull-right'></i></a>";
+    					  echo "<a href='#'><i class='fa fa-university'></i>Question Bank<i class='fa fa-angle-left pull-right'></i></a>";
     					  echo "<ul class='treeview-menu'>";
-    					    echo "<li><a href='preguntas_put_upddat.php'><i class='fa fa-minus'></i> Respuesta corta</a></li>";
+    					    echo "<li><a href='preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short Answer</a></li>";
     					    echo "<li><a href='preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Sel. sencilla</a></li>";
-    					    echo "<li><a href='preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Sel. múltiple 2</a></li>";
-    					    echo "<li><a href='preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Sel. múltiple 3</a></li>";
+    					    echo "<li><a href='preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple Choice 2</a></li>";
+    					    echo "<li><a href='preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple Choice 3</a></li>";
     					  echo "</ul>";
     				    echo "</li>";
 				    }
                     if($v_param1 == 1 && $perfil != "PR") {
 				        echo "<li class='treeview'>";
     					  echo "<a href='adm2.php'>";
-    					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+    					  echo "<i class='fa fa-users'></i> <span>Database</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -173,12 +173,12 @@
 				    
 				    if($ctw == 1) {
                   ?>
-					<li><a href="../envio_whatsapp_putdat.php"><i class="fa fa-phone-square"></i> Envíos Whatsapp</a></li>
+					<li><a href="../envio_whatsapp_putdat.php"><i class="fa fa-phone-square"></i> WhatsApp Sends</a></li>
 					<?php
 						}
 					?>
 				  <li><a href="../observaciones_est_putdat.php"><i class="fa fa-pencil-square-o"></i> Observaciones estudiantes</a></li>
-				  <li><a href="../observador.php"><i class="fa fa-folder-open"></i> Observador estudiante</a></li>
+				  <li><a href="../observador.php"><i class="fa fa-folder-open"></i> Student Record</a></li>
                 </ul>
               </li>
               

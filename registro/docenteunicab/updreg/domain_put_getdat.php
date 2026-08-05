@@ -22,7 +22,7 @@
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
@@ -54,8 +54,8 @@
 	                        <tr class='GridViewScrollHeader'>
 	                            <td>Id</td>
 	                            <td>Palabra</td>
-	                            <td>Fecha</td>
-	                            <td>Estado</td>
+	                            <td>Date</td>
+	                            <td>Status</td>
 	                            <td>...</td>
 	                        </tr></thead><tbody>";
 	                        

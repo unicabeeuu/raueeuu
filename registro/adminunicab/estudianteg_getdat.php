@@ -10,10 +10,10 @@
 	//echo $gra;
 	
 	if($gra == "NA") {
-	    $query1 = "SELECT e.id, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
+		$query1 = "SELECT e.id, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, 
+		FROM tbl_estudiantes e, tbl_matriculas m, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -21,16 +21,16 @@
 		ORDER BY a.grado, nombre";
 	}
 	else {
-	    $query0 = "SELECT * FROM equivalence_idgra WHERE id_category = ".$gra;
+	    $query0 = "SELECT * FROM tbl_equivalence_idgra WHERE id_category = ".$gra;
     	$resultado0=$mysqli1->query($query0);
     	while($row0 = $resultado0->fetch_assoc()){
     	    $gra1 = $row0['name'];
     	}
 	
-	    $query1 = "SELECT e.id, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
+		$query1 = "SELECT e.id, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, 
+		FROM tbl_estudiantes e, tbl_matriculas m, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -76,21 +76,21 @@
 											<thead>
 											<tr>
 												<td><b>ID</b></td>
-												<td><b>GRADO</b></td>
-												<td><b>MATRICULA</b></td>
+												<td><b>GRADE</b></td>
+												<td><b>ENROLLMENT</b></td>
 												<td><b>USUARIO</b></td>
-												<td><b>NOMBRE</b></td>
-												<td><b>DOCUMENTO No.</b></td>
-												<td><b>FECHA NACIMIENTO</b></td>
+												<td><b>NAME</b></td>
+												<td><b>DOCUMENT No.</b></td>
+												<td><b>BIRTH DATE</b></td>
 												<td><b>EMAIL INST</b></td>
-												<td><b>ACUDIENTE 1</b></td>
-												<td><b>EMAIL ACUDIENTE 1</b></td>
-												<td><b>TELEFONO ACUDIENTE 1</b></td>
-												<td><b>ACUDIENTE 2</b></td>
-												<td><b>EMAIL ACUDIENTE 2</b></td>
-												<td><b>TELEFONO ACUDIENTE 2</b></td>
+												<td><b>GUARDIAN 1</b></td>
+												<td><b>GUARDIAN 1 EMAIL</b></td>
+												<td><b>GUARDIAN 1 PHONE</b></td>
+												<td><b>GUARDIAN 2</b></td>
+												<td><b>GUARDIAN 2 EMAIL</b></td>
+												<td><b>GUARDIAN 2 PHONE</b></td>
 												<td><b>DIRECCION</b></td>
-												<td><b>CIUDAD</b></td>
+												<td><b>CITY</b></td>
 												<td><b>ACTIVIDAD EXTRA</b></td>
 											</tr>
 											</thead>

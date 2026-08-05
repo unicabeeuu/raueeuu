@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -19,13 +19,13 @@ if (isset($_SESSION['unisuper'])) {
     
 	$id_estudiante=$_GET['id'];
 	//buscar ultima matricula
-	/*$sql_matricula="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, grados.id as 'id_grado', grados.grado, matricula.EstadoGrado 
-	FROM estudiantes INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante 
-	INNER JOIN grados ON matricula.id_grado=grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";*/
-	$sql_matricula="SELECT estudiantes.id, estudiantes.apellidos, estudiantes.nombres, estudiantes.n_documento, estudiantes.email_institucional, 
-	grados.id id_grado, grados.grado, matricula.EstadoGrado, matricula.n_matricula, matricula.fecha_ingreso  
-	FROM estudiantes INNER JOIN matricula ON estudiantes.id=matricula.id_estudiante 
-	INNER JOIN grados ON matricula.id_grado=grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY idMatricula DESC LIMIT 1 ";
+	/*$sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id as 'id_grado', tbl_grados.grado, tbl_matriculas.estado_grado AS EstadoGrado
+	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante
+	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY tbl_matriculas.id DESC LIMIT 1 ";*/
+$sql_matricula="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_estudiantes.n_documento, tbl_estudiantes.email_institucional, 
+	tbl_grados.id id_grado, tbl_grados.grado, tbl_matriculas.estado_grado AS EstadoGrado, tbl_matriculas.n_matricula, tbl_matriculas.fecha_ingreso
+	FROM tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id=tbl_matriculas.id_estudiante
+	INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id WHERE `id_estudiante`=".$id_estudiante." ORDER BY tbl_matriculas.id DESC LIMIT 1 ";
 	$exe_matricula=mysqli_query($conexion,$sql_matricula);
 	$total_matricula=mysqli_num_rows($exe_matricula);
 	
@@ -41,7 +41,7 @@ if (isset($_SESSION['unisuper'])) {
 	    $emailE = $filaE['email_institucional'];
 	}
 
-	$sql="SELECT * FROM grados";
+	$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 	$resultado = mysqli_query($conexion, $sql);
 	
 	date_default_timezone_set('America/Bogota');
@@ -51,7 +51,7 @@ if (isset($_SESSION['unisuper'])) {
 	$a = date("Y",$fecha);
 	
 	//Se consulta la cantidad de estudiantes por grupo
-	$sql_grupoA = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'A' 
+	$sql_grupoA = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'A' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoA = mysqli_query($conexion,$sql_grupoA);
@@ -59,7 +59,7 @@ if (isset($_SESSION['unisuper'])) {
 	    $ctA = $rowA['ct'];
 	}
 	
-	$sql_grupoB = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'B' 
+	$sql_grupoB = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'B' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoB = mysqli_query($conexion,$sql_grupoB);
@@ -67,7 +67,7 @@ if (isset($_SESSION['unisuper'])) {
 	    $ctB = $rowB['ct'];
 	}
 	
-	$sql_grupoC = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'C' 
+	$sql_grupoC = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'C' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoC = mysqli_query($conexion,$sql_grupoC);
@@ -75,7 +75,7 @@ if (isset($_SESSION['unisuper'])) {
 	    $ctC = $rowC['ct'];
 	}
 	
-	$sql_grupoD = "SELECT COUNT(1) ct FROM matricula WHERE id_grado = $idgradoE AND grupo = 'D' 
+	$sql_grupoD = "SELECT COUNT(1) ct FROM tbl_matriculas WHERE id_grado = $idgradoE AND grupo = 'D' 
     AND date_format(fecha_ingreso, '%Y') = $a";
     
     $exe_grupoD = mysqli_query($conexion,$sql_grupoD);
@@ -87,7 +87,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head><meta charset="gb18030">
-<title>Unicab Registro Matricula</title>
+<title>Unicab Enrollment Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -182,7 +182,7 @@ if (isset($_SESSION['unisuper'])) {
 					<div class="forms">
 						<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 							<div class="form-title">
-								<h4>Validar Matricula para: <?php echo $nombreE; ?></h4>
+								<h4>Validate Enrollment for: <?php echo $nombreE; ?></h4>
 								<p><span class="verde">Grupo A: <?php echo $ctA; ?></span><span class="azul"> || Grupo B: <?php echo $ctB; ?></span><span class="naranja"> || Grupo C: <?php echo $ctC; ?></span><span class="morado"> || Grupo D: <?php echo $ctD; ?></span></p>
 								<!--<p><?php echo $sql_grupoA; ?></p>-->
 							</div>
@@ -191,35 +191,35 @@ if (isset($_SESSION['unisuper'])) {
 								<form class="form-horizontal" action="php/registroMatricula_f.php" method="POST">
 									
 									<div class="form-group">
-										<label for="n_matricula" class="col-sm-2 control-label">No. Matricula:<span class="req">*</span></label>
+										<label for="n_matricula" class="col-sm-2 control-label">Enrollment No.:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control1" id="n_matricula" name="n_matricula" placeholder="001-2018-1G" required maxlength="25" value="<?php echo $n_matriculaE; ?>" readonly>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="fecha_ingreso" class="col-sm-2 control-label">Fecha Ingreso:<span class="req">*</span></label>
+										<label for="fecha_ingreso" class="col-sm-2 control-label">Entry Date:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<input type="date" class="form-control1 editar" id="fecha_ingreso" name="fecha_ingreso" required maxlength="25" value="<?php echo $fechaingE; ?>" autofocus>
 										</div>
 									</div>
 									
 									<div class="form-group">
-										<label for="identif" class="col-sm-2 control-label">Documento:<span class="req">*</span></label>
+										<label for="identif" class="col-sm-2 control-label">Document:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control1" id="identif" name="identif" required maxlength="25" value="<?php echo $identifE; ?>" readonly>
 										</div>
 									</div>
 									
 									<div class="form-group">
-										<label for="idest" class="col-sm-2 control-label">Id Estudiante:<span class="req">*</span></label>
+										<label for="idest" class="col-sm-2 control-label">Student Id:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control1" id="idest" name="idest" required maxlength="25" value="<?php echo $idestE; ?>" readonly>
 										</div>
 									</div>
 									
 									<div class="form-group">
-										<label for="grado" class="col-sm-2 control-label">Grado:<span class="req">*</span></label>
+										<label for="grado" class="col-sm-2 control-label">Grade:<span class="req">*</span></label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control1" id="grado" name="grado" required maxlength="25" value="<?php echo $gradoE; ?>" readonly>
 											<input type="hidden" class="form-control1" id="id_grado" name="id_grado" required value="<?php echo $idgradoE; ?>">
@@ -242,7 +242,7 @@ if (isset($_SESSION['unisuper'])) {
 
 									<input type="hidden" value="<?php echo $id_estudiante ?>" id="id" name="id">
 
-	                                <button type="submit" class="btn btn-primary">Guardar</button>
+	                                <button type="submit" class="btn btn-primary">Save</button>
 								</form> 
 							</div>
 						</div>
@@ -258,7 +258,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -297,7 +297,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>
