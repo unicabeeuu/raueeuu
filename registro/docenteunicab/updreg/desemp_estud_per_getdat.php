@@ -16,35 +16,35 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
     }
     //echo $id;
     if($id == 18 || $id == 3 || $id == 2 || $id == 4) {
-        $query = "SELECT * FROM equivalence_idgra WHERE id_grado_ra > 0 AND id_grado_ra <= 18";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     }
     else {
-        //$query = "SELECT DISTINCT eg.* FROM equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id";
+        //$query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id";
         $query = "SELECT DISTINCT a.* FROM 
-            (SELECT DISTINCT eg.* FROM equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id 
-			AND eg.id_grado_ra > 0 AND eg.id_grado_ra <= 18 
+            (SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
-            SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_apoyos_direccion ad WHERE eg.id_grado_ra = ad.id_grado AND ad.id_empleado = $id 
-			AND eg.id_grado_ra > 0 AND eg.id_grado_ra <= 18 
+            SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_apoyos_direccion ad WHERE eg.id_grado_ra = ad.id_grado AND ad.id_empleado = $id 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
-            SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
-			AND eg.id_grado_ra > 0 AND eg.id_grado_ra <= 18 
+            SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
-            SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_dir_b db WHERE eg.id_grado_ra = db.id_grado AND db.id_empleado = $id 
-			AND eg.id_grado_ra > 0 AND eg.id_grado_ra <= 18 
+            SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_dir_b db WHERE eg.id_grado_ra = db.id_grado AND db.id_empleado = $id 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
-            SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_dir_c dc WHERE eg.id_grado_ra = dc.id_grado AND dc.id_empleado = $id 
-			AND eg.id_grado_ra > 0 AND eg.id_grado_ra <= 18 
+            SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_dir_c dc WHERE eg.id_grado_ra = dc.id_grado AND dc.id_empleado = $id 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
-            SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_dir_d dd WHERE eg.id_grado_ra = dd.id_grado AND dd.id_empleado = $id 
-			AND eg.id_grado_ra > 0 AND eg.id_grado_ra <= 18 ) a";
+            SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_dir_d dd WHERE eg.id_grado_ra = dd.id_grado AND dd.id_empleado = $id 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ) a";
     }
     //echo $query;
     $resultado = $mysqli1->query($query);
@@ -550,15 +550,15 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             			    <fieldset>
-                            				<legend><h3>RESULTADOS DE ESTUDIANTES</h3></legend>
+                            				<legend><h3>STUDENT RESULTS</h3></legend>
                             				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                             					<ul class="mprincipal">
-                            						<li><h3>LISTADO POR<span style="color: white;">.....</span>
+                            						<li><h3>LIST BY<span style="color: white;">.....</span>
                             						</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra1" name="selgra1" required>
-																    <option value="NA" selected>Seleccione grado</option>
+																    <option value="NA" selected>Select grade</option>
 																    <?php 
 																        while($row = $resultado->fetch_assoc()){
 																            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -567,7 +567,7 @@ if (isset($_SESSION['uniprofe'])) {
 																</select>
 																<label style="color: white;">...</label>
 																<select id="selper1" name="selper1" required>
-																    <option value="0" selected>Seleccione periodo</option>
+																    <option value="0" selected>Select period</option>
 																    <option value="1">1</option>
 																    <option value="2">2</option>
 																    <option value="3">3</option>
@@ -575,16 +575,16 @@ if (isset($_SESSION['uniprofe'])) {
 																</select>
 																<label style="color: white;">...</label>
 																<select id="selgrupo" name="selgrupo" required>
-																    <option value="NA" selected>Grupo</option>
+																    <option value="NA" selected>Group</option>
 																    <option value="A">A</option>
 																    <option value="B">B</option>
 																    <option value="C">C</option>
 																    <option value="D">D</option>
 																</select>
 																<label style="color: white;">...</label>
-																<!--<a href="estudianteg_getdat.php" >Buscar</a>
+																<!--<a href="estudianteg_getdat.php" >Search</a>
 																<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
-																<button id="submit" class="btn btn-primary" style="display: none;" onclick="consultar_desemp()">Cargar</button>
+																<button id="submit" class="btn btn-primary" style="display: none;" onclick="consultar_desemp()">Load</button>
 															</li>
                             							</ul>
                             					</ul>
@@ -721,8 +721,8 @@ if (isset($_SESSION['uniprofe'])) {
                 <input type="text" id="txtcel2" class="form-control" readonly/>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Save</button>-->
               </div>
             </div>
           </div>
@@ -777,7 +777,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 	?>

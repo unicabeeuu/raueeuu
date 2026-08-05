@@ -16,7 +16,7 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['dependencia'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
@@ -109,29 +109,29 @@ if (isset($_SESSION['uniprofe'])) {
                             		<div id="cont">
                             			<div id="div1">
                             				<fieldset>
-                            				<legend><h3>OPCIONES DE ACTUALIZACION</h3></legend>
+                            				<legend><h3>UPDATE OPTIONS</h3></legend>
                             					<ul class="mprincipal">
                             						<!--<li><h3>Calificaciones Moodle</h3></li>
                             							<ul>
-                            								<li><a href="calificaciones_getdat.php" target="_blank">Cargar</a></li>
+                            								<li><a href="calificaciones_getdat.php" target="_blank">Load</a></li>
                             							</ul>
-                            						<li><h3>Calificaciones para cargar a Registro</h3></li>
+                            						<li><h3>Grades to load into Record</h3></li>
                             							<ul>
-                            								<li><a href="calificaciones1_getdat.php" target="_blank">Cargar</a></li>
+                            								<li><a href="calificaciones1_getdat.php" target="_blank">Load</a></li>
                             							</ul>
-                            						<li><h3>Calificaciones Registro</h3></li>
+                            						<li><h3>Record Grades</h3></li>
                             							<ul>
-                            								<li><a href="cal_reg_getdat.php" target="_blank">Cargar</a></li>
+                            								<li><a href="cal_reg_getdat.php" target="_blank">Load</a></li>
                             							</ul>
-                            						<li><h3>Calificaciones Registro Remoto</h3></li>
+                            						<li><h3>Remote Record Grades</h3></li>
                             							<ul>
-                            								<li><a href="cal_reg_rem_getdat.php" target="_blank">Cargar</a></li>
+                            								<li><a href="cal_reg_rem_getdat.php" target="_blank">Load</a></li>
                             							</ul>-->
-                            						<li><h3>PRUEBA DE CONEXION CON MOODLE</h3></li>
+                            						<li><h3>MOODLE CONNECTION TEST</h3></li>
                             							<ul class="msecund">
-                            								<li><a href="prueba_coneccion.php" target="_blank">Cargar</a></li>
+                            								<li><a href="prueba_coneccion.php" target="_blank">Load</a></li>
                             							</ul>
-                            						<li><h3>PENSAMIENTO Y GRADOS A CARGAR</h3></li>
+                            						<li><h3>AREA AND GRADES TO LOAD</h3></li>
                             							<ul class="msecund">
                             							    <?php
                             							        if($id == 18 || $id == 40) {
@@ -160,7 +160,7 @@ if (isset($_SESSION['uniprofe'])) {
                             					<ul class="mprincipal">
                             						<li><h3>CAMBIAR PARAMETROS</h3></li>
                             							<ul class="msecund">
-                            								<li><a href="param_upddat.php" >Cargar</a></li>
+                            								<li><a href="param_upddat.php" >Load</a></li>
                             							</ul>
                             					</ul>
                             					<?php
@@ -243,7 +243,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);
@@ -255,7 +255,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 	?>

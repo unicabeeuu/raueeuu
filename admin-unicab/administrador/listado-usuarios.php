@@ -78,7 +78,7 @@
 					        </thead>
 					        <tbody>
 					        	<?php 
-					        		$sql_administrador="SELECT * FROM `administrador` ORDER BY`Perfil` ASC";
+					        		$sql_administrador="SELECT * FROM `administrador` ORDER BY `Perfil` ASC";
 					        		$exe_administrador=mysqli_query($conexion,$sql_administrador);
 					        		while ($rowAdministrador=mysqli_fetch_array($exe_administrador)) {
 					        			echo "
@@ -127,7 +127,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -165,7 +165,7 @@
 </html>
 <?php 
 }else{
-	echo "<script>alert('Debe iniciar sesi¨®n');</script>";
+	echo "<script>alert('Debe iniciar sesiï¿½ï¿½n');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

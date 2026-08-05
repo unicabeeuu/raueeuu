@@ -11,7 +11,7 @@
 			$apellidos  = $fila['apellidos'];
 			$nombres = $fila['nombres'];
 			$email_institucional = $fila['email'];
-			$director=$fila['d_pensamiento'];
+			# $director=$fila['d_pensamiento'];
 			$n_documento = $fila['n_documento'];
 			$password = $fila['pc'];
 			$perfil = $fila['perfil'];
@@ -34,7 +34,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<title>Unicab Registro Académico</title>
+	<title>Unicab Academic Registry</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	 <!-- Favicon -->
@@ -94,12 +94,12 @@
 					<div class="forms">
 						<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 							<div class="form-title">
-								<h4>Subir imagen para blog:</h4>
+								<h4>Upload image for blog:</h4>
 							</div>
 							<div class="form-body">
-								<p>Copie el contenido siguiente en el lugar que corresponda dentro de la información complementaria del Blog.</p><br>
+								<p>Copy the following content into the appropriate place within the Blog's additional information.</p><br>
 								<span>&lt;img src="../../../assets/img/imgblog/<?php echo $imagen; ?>" width="600" class="img-fluid"/&gt;</span><br><br>
-								<a href="imagen_putdat.php">Cargar otra imagen</a>
+								<a href="imagen_putdat.php">Upload another image</a>
 							</div>
 							
 							<br>
@@ -122,7 +122,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -169,7 +169,7 @@
 	
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

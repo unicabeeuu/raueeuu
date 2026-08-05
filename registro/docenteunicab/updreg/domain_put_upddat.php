@@ -16,19 +16,19 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
     }
     
     /*if($id == 18) {
-        $query = "SELECT * FROM equivalence_idgra";
+        $query = "SELECT * FROM tbl_equivalence_idgra";
     }
     else {
-        $query = "SELECT DISTINCT eg.* FROM equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id";
+        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id";
     }*/
-    $query = "SELECT * FROM equivalence_idgra";
+    $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);
@@ -245,9 +245,9 @@ if (isset($_SESSION['uniprofe'])) {
             
             function cargaropciones() {
                 $("#selop").html("");
-                $("#selop").append('<option value="NA" selected>Seleccione opción</option>');
-                $("#selop").append('<option value="N">Ingresar nueva pregunta</option>');
-                $("#selop").append('<option value="E">Editar pregunta</option>');
+                $("#selop").append('<option value="NA" selected>Select option</option>');
+                $("#selop").append('<option value="N">Enter new question</option>');
+                $("#selop").append('<option value="E">Edit question</option>');
             }
             
             function validar_texto1(id, desc) {
@@ -594,7 +594,7 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             				<fieldset id="fl1">
-                            				    <legend><h3>BANCO DE PALABRAS <i class="fa fa-arrow-right "></i> DOMAN KIDS</h3>
+                            				    <legend><h3>WORD BANK <i class="fa fa-arrow-right "></i> DOMAN KIDS</h3>
                             				        <img id="imgt" src="../../images/preguntas/rc_1.png" width="87"/>
                             				    </legend>
                             				    <table id="tblcontroles">
@@ -602,7 +602,7 @@ if (isset($_SESSION['uniprofe'])) {
                             				            <tr>
                             				                <td>
                             				                    <select id="selop">
-                                    					            <option value="NA" selected>Seleccione opción</option>
+                                    					            <option value="NA" selected>Select option</option>
                                     					            <option value="N">Ingresar nueva palabra</option>
                                     					            <option value="E">Ver palabras</option>
                                     					        </select>
@@ -630,7 +630,7 @@ if (isset($_SESSION['uniprofe'])) {
                             			    </div>
                             			</div>
                             		</div></br>
-                            		<!--<p><label>Id pregunta creada... </label><label id="idpreg"></label></p>-->
+                            		<!--<p><label>Created question Id... </label><label id="idpreg"></label></p>-->
 									<div id="resul_bus">
 									    
 									</div>
@@ -675,8 +675,8 @@ if (isset($_SESSION['uniprofe'])) {
               </div>
               <div class="modal-footer">
                   <label id="lblmsg"></label><img id="imgnp" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" onclick="guardar()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" onclick="guardar()">Save</button>
                 
               </div>
             </div>
@@ -688,7 +688,7 @@ if (isset($_SESSION['uniprofe'])) {
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">EDITAR PALABRA</h5>
+                <h5 class="modal-title" id="exampleModalLabel">EDIT WORD</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -712,7 +712,7 @@ if (isset($_SESSION['uniprofe'])) {
               <div class="modal-footer">
                 <label id="lblupdmsg"></label><img id="imgep" src="../../images/caract_no_perm.png" style="display: none;" width="361" height="40">
                 <input type="hidden" id="idpalabra" style="width: 20px;" readonly/>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-warning" id="btneditar" data-dismiss="modal" onclick="modificar()">Modificar</button>
                 
               </div>
@@ -771,7 +771,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);

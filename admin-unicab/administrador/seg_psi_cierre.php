@@ -23,13 +23,13 @@
 		//$exe_emp = mysqli_query($conexion,$sql_emp);
 		
 		$sql_agenda = "SELECT e.nombre_est, e.documento_est, e.fecha, e.hora, pm.nombre_a, pm.celular_a, pm.email_a, 'entrevista' fuente 
-        FROM tbl_entrevistas e LEFT JOIN tbl_pre_matricula pm ON e.documento_est = pm.documento_est WHERE e.id_psicologo = $psicologo 
+        FROM tbl_entrevistas e LEFT JOIN tbl_pre_matriculas pm ON e.documento_est = pm.documento_est WHERE e.id_psicologo = $psicologo 
         UNION ALL 
         SELECT CONCAT(e.nombres, ' ', e.apellidos) nombre_est, s.documento_est, s.fecha, s.hora, e.acudiente_1, e.telefono_acudiente_1, e.email_acudiente_1, 'seguimiento' fuente
-        FROM tbl_seguimientos s, estudiantes e WHERE s.documento_est = e.n_documento AND s.id_psicologo = $psicologo 
+        FROM tbl_seguimientos s, tbl_estudiantes e WHERE s.documento_est = e.n_documento AND s.id_psicologo = $psicologo 
         UNION ALL 
         SELECT CONCAT(e.nombres, ' ', e.apellidos) nombre_est, e.n_documento, s.fecha, s.hora, e.acudiente_1, e.telefono_acudiente_1, e.email_acudiente_1, 'seguimiento' fuente
-        FROM tbl_seg_psi s, tbl_seg_psi_val v, estudiantes e WHERE s.id_valoracion = v.id AND v.n_documento = e.n_documento AND s.id_psicologo = $psicologo";
+        FROM tbl_seg_psi s, tbl_seg_psi_val v, tbl_estudiantes e WHERE s.id_valoracion = v.id AND v.n_documento = e.n_documento AND s.id_psicologo = $psicologo";
 		$exe_agenda = mysqli_query($conexion, $sql_agenda);
 		
 		//Se hace la consulta para los eventos agendados
@@ -79,24 +79,24 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var contenido=$(".ghf");
+            let contenido=$(".ghf");
             contenido.slideUp(250);
-            var contenido1=$(".ghf1");
+            let contenido1=$(".ghf1");
             contenido1.slideUp(250);
             
             $("#ctr_seguimientos").val("0");
             
             $("#sel_evento").change(function() {
-        		var evento = $("#sel_evento").val();
-        		var evento_txt = $("#sel_evento option:selected").text();
+        		let evento = $("#sel_evento").val();
+        		let evento_txt = $("#sel_evento option:selected").text();
         		$("#evento_text").val(evento_txt);
         		
-        		var control = 0;
+        		let control = 0;
         		//alert(td);
         		if(evento == 0) {
         			$("#btnguardar").hide();
         			$("#ctr_sel_evento").val(1);
-        			var texto = "Debe seleccionar evento agendado";
+        			let texto = "Debe seleccionar evento agendado";
                     $("#lblmsg").html(texto).css("color","red");
         		}
         		else {
@@ -110,7 +110,7 @@
             $(".accordion-titulo1").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content1");
+                let contenido=$(this).next(".accordion-content1");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -130,7 +130,7 @@
             $(".accordion-titulo2").click(function(e){
                     e.preventDefault();
                 
-                    var contenido=$(this).next(".accordion-content2");
+                    let contenido=$(this).next(".accordion-content2");
             
                     if(contenido.css("display")=="none"){ //open        
                       contenido.slideDown(250);         
@@ -150,7 +150,7 @@
             $(".accordion-titulo3").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content3");
+                let contenido=$(this).next(".accordion-content3");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -170,7 +170,7 @@
             $(".accordion-titulo4").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content4");
+                let contenido=$(this).next(".accordion-content4");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -190,7 +190,7 @@
             $(".accordion-titulo5").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content5");
+                let contenido=$(this).next(".accordion-content5");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -210,7 +210,7 @@
             $(".accordion-titulo6").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content6");
+                let contenido=$(this).next(".accordion-content6");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -230,7 +230,7 @@
             $(".accordion-titulo7").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content7");
+                let contenido=$(this).next(".accordion-content7");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -250,7 +250,7 @@
             $(".accordion-titulo8").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content8");
+                let contenido=$(this).next(".accordion-content8");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -270,7 +270,7 @@
             $(".accordion-titulo9").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content9");
+                let contenido=$(this).next(".accordion-content9");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -290,7 +290,7 @@
             $(".accordion-titulo10").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content10");
+                let contenido=$(this).next(".accordion-content10");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -310,7 +310,7 @@
             $(".accordion-titulo11").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content11");
+                let contenido=$(this).next(".accordion-content11");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -330,7 +330,7 @@
             $(".accordion-titulo12").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content12");
+                let contenido=$(this).next(".accordion-content12");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -350,7 +350,7 @@
             $(".accordion-titulo13").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content13");
+                let contenido=$(this).next(".accordion-content13");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -371,9 +371,9 @@
         
         function buscar_inf() {
             //alert("hola");
-            var contenido=$(".ghf");
+            let contenido=$(".ghf");
             contenido.slideUp(250);
-            var contenido1=$(".ghf1");
+            let contenido1=$(".ghf1");
             contenido1.slideUp(250);
             
             //Se limpian los controles
@@ -393,9 +393,9 @@
             $("#id_val").val("");
             $("#ctr_cierre").val("0");
             
-            var buscar = $("#buscar").val();
-            var patron = /^[0-9]{1,}$/;
-            var esCoincidente = patron.test($("#buscar").val());
+            let buscar = $("#buscar").val();
+            let patron = /^[0-9]{1,}$/;
+            let esCoincidente = patron.test($("#buscar").val());
             if(esCoincidente) {
                 $("#lblmsg").html("");
                 $("#ctr_buscar").val(0);
@@ -406,8 +406,8 @@
         		url:"informacion_precierre_getdat.php",
         		data:"buscar=" + buscar,
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var valoraciones= res.valoraciones;
+        		    let res = JSON.parse(r);
+        		    let valoraciones= res.valoraciones;
         		    //alert(r_est);
         		    
         		    if(res.estado == "CON_VALORACIONES") {
@@ -415,7 +415,7 @@
         		        $("#gradoe").val(res.grado);
         		    
         		        //Se ponen las valoraciones
-            		    var tabla = "<table id='tblact' class='table' border='1px'><thead>" +
+            		    let tabla = "<table id='tblact' class='table' border='1px'><thead>" +
                             "<tr class='GridViewScrollHeader'>" +
                                 "<td>Psicologo Valoró</td>" +
                                 "<td>Solicitó</td>" +
@@ -424,8 +424,8 @@
                                 "<td>...</td>" +
                             "</tr></thead><tbody>";
             		    for(obj of valoraciones) {
-            		        var solicito = obj.solicita;
-            		        var solicito1 = ""
+            		        let solicito = obj.solicita;
+            		        let solicito1 = ""
             		        if(solicito == "EMPLEADO") {
             		            solicito1 = obj.nombres_sol + " " + obj.apellidos_sol;
             		        }
@@ -477,13 +477,13 @@
         }
         
         function validar_texto(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var v_input = document.getElementById(id);
-            var v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
-            //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-            var val = String($(id_obj).val()).match(v_val);
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let v_input = document.getElementById(id);
+            let v_val = /[-_'"\<\>\~\^\*\$\#\%\&\=\+\|\{\}\[\]\\]{1,}/;
+            //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let val = String($(id_obj).val()).match(v_val);
             
             if(val == null) {
                 v_input.setCustomValidity("");
@@ -493,7 +493,7 @@
             }
             else {
                 v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-                var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                 texto += "- _ \' \" < > ~ ^ * $ # & = + | { } [ ] \\";
                 //alert(texto);
                 $("#lblmsg").html(texto).css("color","red");
@@ -504,7 +504,7 @@
 			
 			if(control == 0) {
 			    if($(id_obj).val() == "") {
-			        var texto = "El campo " + desc + " se debe llenar";
+			        let texto = "El campo " + desc + " se debe llenar";
     				$("#lblmsg").html(texto).css("color","red");
     				//$("#alert").show();
                     $(ctr_obj).val(1);
@@ -515,10 +515,10 @@
         }
         
         function mostrar_submit(id) {
-            var control = 0;
+            let control = 0;
             
-            var id_obj = "#" + id;
-            var long = $(id_obj).val().length;
+            let id_obj = "#" + id;
+            let long = $(id_obj).val().length;
             //alert(long);
             
             //Se controla la longitud máxima
@@ -553,14 +553,14 @@
                 }
             }
             
-            var doc = parseInt($("#ctr_buscar").val());
+            let doc = parseInt($("#ctr_buscar").val());
             
-            var a = parseInt($("#ctr_observaciones").val());
-            var b = parseInt($("#ctr_motivo").val());
-            var c = parseInt($("#ctr_recomendaciones").val());
-            var d = parseInt($("#ctr_remitido").val());
-            var e = parseInt($("#ctr_motivo_rem").val());
-            var f = parseInt($("#ctr_sel_evento").val());
+            let a = parseInt($("#ctr_observaciones").val());
+            let b = parseInt($("#ctr_motivo").val());
+            let c = parseInt($("#ctr_recomendaciones").val());
+            let d = parseInt($("#ctr_remitido").val());
+            let e = parseInt($("#ctr_motivo_rem").val());
+            let f = parseInt($("#ctr_sel_evento").val());
             //alert("a=" + a + " b=" + b + " c=" + c + " d=" + d);
             
             control = parseInt($("#ctr_observaciones").val()) + parseInt($("#ctr_motivo").val()) + parseInt($("#ctr_recomendaciones").val()) 
@@ -599,32 +599,32 @@
         }
         
         function validar_fecha(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var input_fecha = document.getElementById(id);
-            var patron = /^[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$/;
-            var esCoincidente = patron.test($(id_obj).val());
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let input_fecha = document.getElementById(id);
+            let patron = /^[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$/;
+            let esCoincidente = patron.test($(id_obj).val());
             if(esCoincidente) {
                 input_fecha.setCustomValidity("");
                 $("#lblmsg").html("");
                 $(ctr_obj).val(0);
                 
-                var fecha = $(id_obj).val();
-                var porciones = fecha.split("-");
-                var a = parseInt(porciones[0]);
-                var m = parseInt(porciones[1]);
-                var d = parseInt(porciones[2]);
+                let fecha = $(id_obj).val();
+                let porciones = fecha.split("-");
+                let a = parseInt(porciones[0]);
+                let m = parseInt(porciones[1]);
+                let d = parseInt(porciones[2]);
                 
                 if(a < 1850 || a > 2050) {
                     input_fecha.setCustomValidity("No es una fecha de nacimiento válida");
-                    var texto = "No es un patrón válido para " + desc;
+                    let texto = "No es un patrón válido para " + desc;
                     $("#lblmsg").html(texto).css("color","red");
                     $(ctr_obj).val(1);
                 }
                 if(m < 1 || m > 12) {
                     input_fecha.setCustomValidity("No es una fecha de nacimiento válida");
-                    var texto = "No es un patrón válido para " + desc;
+                    let texto = "No es un patrón válido para " + desc;
                     $("#lblmsg").html(texto).css("color","red");
                     $(ctr_obj).val(1);
                 }
@@ -632,7 +632,7 @@
                     if(m == 2) {
                        if(d < 1 || d > 29) {
                             input_fecha.setCustomValidity("No es una fecha de nacimiento válida");
-                            var texto = "No es un patrón válido para " + desc;
+                            let texto = "No es un patrón válido para " + desc;
                             $("#lblmsg").html(texto).css("color","red");
                             $(ctr_obj).val(1);
                         } 
@@ -640,7 +640,7 @@
                     else if(m == 4 || m == 6 || m == 9 || m == 11) {
                        if(d < 1 || d > 30) {
                             input_fecha.setCustomValidity("No es una fecha de nacimiento válida");
-                            var texto = "No es un patrón válido para " + desc;
+                            let texto = "No es un patrón válido para " + desc;
                             $("#lblmsg").html(texto).css("color","red");
                             $(ctr_obj).val(1);
                         } 
@@ -648,7 +648,7 @@
                     else {
                        if(d < 1 || d > 31) {
                             input_fecha.setCustomValidity("No es una fecha de nacimiento válida");
-                            var texto = "No es un patrón válido para " + desc;
+                            let texto = "No es un patrón válido para " + desc;
                             $("#lblmsg").html(texto).css("color","red");
                             $(ctr_obj).val(1);
                         } 
@@ -658,7 +658,7 @@
             }
             else {
                 input_fecha.setCustomValidity("No es una fecha de nacimiento válida");
-                var texto = "No es un patrón válido para " + desc;
+                let texto = "No es un patrón válido para " + desc;
                 //alert(texto);
                 $("#lblmsg").html(texto).css("color","red");
                 $(ctr_obj).val(1);
@@ -669,14 +669,14 @@
         }
         
         function validar_numero(id, desc) {
-            var contenido=$(".ghf");
+            let contenido=$(".ghf");
             contenido.slideUp(250);
-            var contenido1=$(".ghf1");
+            let contenido1=$(".ghf1");
             contenido1.slideUp(250);
             
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
             $(ctr_obj).val(1);
             
             //Se limpian los textarea y la fecha del primer seguimiento
@@ -702,12 +702,12 @@
             $("#id_val").val("");
             $("#ctr_cierre").val("0");
             
-            var buscar = $("#buscar").val();
+            let buscar = $("#buscar").val();
             
-            var v_input = document.getElementById(id);
-            var patron = /^[0-9]{1,}$/;
-            //var val = String($(id_obj).val()).match(v_val);
-            var esCoincidente = patron.test($(id_obj).val());
+            let v_input = document.getElementById(id);
+            let patron = /^[0-9]{1,}$/;
+            //let val = String($(id_obj).val()).match(v_val);
+            let esCoincidente = patron.test($(id_obj).val());
             //alert(esCoincidente);
             if(esCoincidente) {
                 v_input.setCustomValidity("");
@@ -716,7 +716,7 @@
             }
             else {
                 v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-                var texto = "Ingrese sólamente números para " + desc;
+                let texto = "Ingrese sólamente números para " + desc;
                 //alert(texto);
                 $("#lblmsg").html(texto).css("color","red");
                 $(ctr_obj).val(1);
@@ -752,11 +752,11 @@
         }
         
         function ver_seguimientos(id_val) {
-            var buscar = $("#buscar").val();
-            var ctr_seg = $("#ctr_seguimientos").val();
+            let buscar = $("#buscar").val();
+            let ctr_seg = $("#ctr_seguimientos").val();
             
             if(ctr_seg == "1") {
-                var contenido1=$(".ghf1");
+                let contenido1=$(".ghf1");
                 contenido1.slideUp(250);
                 $("#ctr_seguimientos").val("0");
             }
@@ -766,9 +766,9 @@
             		url:"informacion_precierre1_getdat.php",
             		data:"buscar=" + buscar + "&id_val=" + id_val,
             		success:function(r) {
-            		    var res = JSON.parse(r);
-            		    var r_est = res.estado;
-            		    var seguimientos = res.seguimientos;
+            		    let res = JSON.parse(r);
+            		    let r_est = res.estado;
+            		    let seguimientos = res.seguimientos;
             		    //alert(r_est);
             		    
             		    if(res.ct_cierre == 1) {
@@ -777,7 +777,7 @@
         		        }
         		        else {
         		            //Se ponen los seguimientos anreriores
-                		    var tabla = "<table id='tblact' class='table' border='1px'><thead>" +
+                		    let tabla = "<table id='tblact' class='table' border='1px'><thead>" +
     	                        "<tr class='GridViewScrollHeader'>" +
     	                            "<td>Psicologo</td>" +
     	                            "<td>Objetivo</td>" +
@@ -801,7 +801,7 @@
                 		    $("#divseguimientos").html(tabla);
                 		    $("#ctr_seguimientos").val("1");
                 		    
-                		    var contenido1=$(".ghf1");
+                		    let contenido1=$(".ghf1");
                             contenido1.slideDown(250);
         		        }
             		}
@@ -812,16 +812,16 @@
         
         function gestionar_cierre(id_val) {
             $("#id_val").val(id_val);
-            var buscar = $("#buscar").val();
-            var ctr_cierre = $("#ctr_cierre").val();
+            let buscar = $("#buscar").val();
+            let ctr_cierre = $("#ctr_cierre").val();
             
             if(ctr_cierre == "1") {
-                var contenido=$(".ghf");
+                let contenido=$(".ghf");
                 contenido.slideUp(250);
                 $("#ctr_cierre").val("0");
             }
             else {
-                var contenido=$(".ghf");
+                let contenido=$(".ghf");
                 contenido.slideDown(250);
                 $("#ctr_cierre").val("1");
             }

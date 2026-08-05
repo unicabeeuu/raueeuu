@@ -17,29 +17,30 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
     }
     
     if($id == 18 || $id == 3) {
-        $query = "SELECT * FROM equivalence_idgra";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     }
     else {
-        //$query = "SELECT DISTINCT eg.* FROM equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id";
+        //$query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id";
         $query = "SELECT DISTINCT a.* FROM 
         (SELECT DISTINCT eg.* 
-        FROM equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
+        FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
         UNION ALL 
         SELECT DISTINCT eg.* 
-        FROM equivalence_idgra eg, tbl_dir_b dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
+        FROM tbl_equivalence_idgra eg, tbl_dir_b dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
         UNION ALL 
         SELECT DISTINCT eg.* 
-        FROM equivalence_idgra eg, tbl_dir_c dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
+        FROM tbl_equivalence_idgra eg, tbl_dir_c dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
         UNION ALL 
         SELECT DISTINCT eg.* 
-        FROM equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id) a ";
+        FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id) a
+        WHERE a.id_grado_ra = 0 OR (a.id_grado_ra BETWEEN 9 AND 12) ORDER BY a.id_grado_ra";
     }
     
     $resultado=$mysqli1->query($query);
@@ -240,15 +241,15 @@ if (isset($_SESSION['uniprofe'])) {
                             			<!--***********************************************************************************************-->
                             			<div id="div1">
                             				<fieldset>
-                            				<legend><h3>GENERAR CERTIFICADOS DE NOTAS</h3></legend>
+                            				<legend><h3>GENERATE GRADE CERTIFICATES</h3></legend>
                             				    <form class="form-horizontal" action="reporte_notas_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>GENRAR CERTIFICADOS POR<span style="color: white;">.....</span>
+                            						<li><h3>GENERATE CERTIFICATES BY<span style="color: white;">.....</span>
                             						</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra1" name="selgra1" required>
-																    <option value="NA" selected>Seleccione grado</option>
+																    <option value="NA" selected>Select grade</option>
 																    <?php 
 																        while($row = $resultado->fetch_assoc()){
 																            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -260,7 +261,7 @@ if (isset($_SESSION['uniprofe'])) {
 																<label style="color: white;">...</label>
 																<input type="text" id="periodo" name="periodo" placeholder="per" style="width: 50px; display: none;" required/>
 																<label style="color: white;">...</label>
-																<button id="submit" class="btn btn-primary" style="display: none;" >Generar</button>
+																<button id="submit" class="btn btn-primary" style="display: none;" >Generate</button>
 															</li>
                             							</ul>
                             					</ul>
@@ -270,15 +271,15 @@ if (isset($_SESSION['uniprofe'])) {
                             			</div>
                             			<div id="div2">
                             				<fieldset>
-                            				<legend><h3>CONSULTAR CERTIFICADOS DE NOTAS</h3></legend>
+                            				<legend><h3>CHECK GRADE CERTIFICATES</h3></legend>
                             				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                             					<ul class="mprincipal">
-                            						<li><h3>LISTADO DE CERTIFICADOS POR<span style="color: white;">.....</span>
+                            						<li><h3>CERTIFICATES LIST BY<span style="color: white;">.....</span>
                             						</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra2" name="selgra2" required>
-																    <option value="NA" selected>Seleccione grado</option>
+																    <option value="NA" selected>Select grade</option>
 																    <?php 
 																        while($row = $resultado1->fetch_assoc()){
 																            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -288,7 +289,7 @@ if (isset($_SESSION['uniprofe'])) {
 																<label style="color: white;">...</label>
 																<input type="text" id="idanio" name="idanio" placeholder="a09o" style="width: 50px;" value="2020"/>
 																<label style="color: white;">...</label>
-																<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_cert()">Buscar</button>
+																<button id="submit1" class="btn btn-primary" style="display: none;" onclick="consultar_cert()">Search</button>
 															</li>
                             							</ul>
                             					</ul>
@@ -374,7 +375,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);

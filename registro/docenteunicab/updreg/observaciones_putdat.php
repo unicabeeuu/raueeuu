@@ -219,15 +219,15 @@
 										echo "unisuper".$_SESSION['unisuper'];
 										echo "admin".$_SESSION['admin_unicab'];*/
 									?>
-									<input type="search" placeholder="Ingrese texto a buscar" id="search" name="search">
+									<input type="search" placeholder="Enter text to search" id="search" name="search">
 									<div>
 										<table border="1px" class="table" id="tblest">
 											<thead>
 											<tr class="GridViewScrollHeader">
 											    <td class="tdcorto">&#9658;</td>
-												<td class="tdmediol1"><b>NOMBRE</b></td>
+												<td class="tdmediol1"><b>NAME</b></td>
 												<td class="tdmediol1"><b>APELLIDOS</b></td>
-												<td class="tdmedia1"><b>DOCUMENTO</b></td>
+												<td class="tdmedia1"><b>DOCUMENT</b></td>
 												<td class="tdelargo"><b>OBSERVACION</b></td>
 												<td class="tdmedia"><b>ACCIONES</b></td>
 												<td class="tdmedia"><b>ID EST</b></td>
@@ -244,8 +244,8 @@
 												<td class="tdmediol1"><?php echo $row['apellidos'];?></td>
 												<td class="tdmedia1"><?php echo $row['n_documento'];?></td>
 												<td class="tdelargo"><?php echo $row['observacion'];?></td>
-												<td class="tdmedia"><button class="btn btn-warning fa fa-pencil-square-o" data-toggle="modal" data-target="#modal_observaciones" title="Editar"
-                                                    onclick="enviardat(<?php echo $row['id_est'];?>,'<?php echo $row['nombres'];?>','<?php echo $row['apellidos'];?>','<?php echo $row['observacion'];?>');"> Editar</button></td>
+												<td class="tdmedia"><button class="btn btn-warning fa fa-pencil-square-o" data-toggle="modal" data-target="#modal_observaciones" title="Edit"
+                                                    onclick="enviardat(<?php echo $row['id_est'];?>,'<?php echo $row['nombres'];?>','<?php echo $row['apellidos'];?>','<?php echo $row['observacion'];?>');"> Edit</button></td>
 												<td class="tdmedia"><?php echo $row['id_est'];?></td>
 												<td>...</td>
 											</tr>
@@ -291,8 +291,8 @@
                 <label id="lblval"></label>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updobs()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updobs()">Save</button>
               </div>
             </div>
           </div>

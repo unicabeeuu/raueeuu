@@ -3,8 +3,9 @@
 	require "../php/conexion.php";
 	//errores de datos 1058354538
     //Para agendar entrevista 1029145024
-	
+
 	$psicologo = $_REQUEST['psicologo'];
+	# echo "<script>alert('REQUEST: " . json_encode($_REQUEST) . "');</script>";
 	
 	if (isset($_SESSION['admin_unicab']) || isset($_SESSION['uniprofe'])) {
 
@@ -67,7 +68,7 @@
         
         function buscar_inf() {
             //Se busca la información del estudiante
-            var buscar = $("#buscar").val();
+            let buscar = $("#buscar").val();
             $("#documento_est").val(buscar);
             
             $.ajax({
@@ -75,10 +76,10 @@
         		url:"informacion_premat_getdat.php",
         		data:"buscar=" + buscar + "&tipo=DOC",
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var r_est = res.estado;
-        		    var fecha = res.fecha_val;
-        		    var grado_val = res.grados_val;
+        		    let res = JSON.parse(r);
+        		    let r_est = res.estado;
+        		    let fecha = res.fecha_val;
+        		    let grado_val = res.grados_val;
         		    //alert(res.nom_a + res.email_a + res.cel_a);
         		    //$("#estado").val(r_est);
         		    
@@ -124,29 +125,29 @@
         }
         
         function mostrar_submit() {
-            var control = 0;
-            var documento = $("#buscar").val();
+            let control = 0;
+            let documento = $("#buscar").val();
             if(documento == "") {
                 $("#btnsubmit").hide();
                 control = 1;
             }
             
             if(control == 0) {
-                var fecha = $("#fecha_val").val();
+                let fecha = $("#fecha_val").val();
                 if(fecha == "") {
                     $("#btnsubmit").hide();
                     control = 1;
                 }
             }
             
-            var a = $("#ctr_fecha_val").val();
+            let a = $("#ctr_fecha_val").val();
             //alert(a);
             if(a == 1) {
                 control = 1;
             }
             (a == 1) ? $("#fecha_val").addClass("error") : $("#fecha_val").removeClass("error");
             
-            var registrado = $("#ctr_registrado").val();
+            let registrado = $("#ctr_registrado").val();
             if(registrado == 1) {
                 control = 1;
             }
@@ -162,34 +163,34 @@
         
         function validar_fecha(id, desc) {
             //alert("control");
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var input_email = document.getElementById(id);
-            var patron = /^[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$/;
-            var esCoincidente = patron.test($(id_obj).val());
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let input_email = document.getElementById(id);
+            let patron = /^[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$/;
+            let esCoincidente = patron.test($(id_obj).val());
             //alert(esCoincidente);
             if(esCoincidente) {
                 input_email.setCustomValidity("");
                 //$("#pdesc").html("");
                 $(ctr_obj).val(0);
                 
-                var fecha = $(id_obj).val();
+                let fecha = $(id_obj).val();
                 //alert(fecha);
-                var porciones = fecha.split("-");
-                var a = parseInt(porciones[0]);
-                var m = parseInt(porciones[1]);
-                var d = parseInt(porciones[2]);
+                let porciones = fecha.split("-");
+                let a = parseInt(porciones[0]);
+                let m = parseInt(porciones[1]);
+                let d = parseInt(porciones[2]);
                 
                 if(a < 1850 || a > 2050) {
                     input_email.setCustomValidity("No es una fecha de nacimiento válida");
-                    var texto = "No es un patrón válido para " + desc;
+                    let texto = "No es un patrón válido para " + desc;
                     //$("#pdesc").html(texto).css("color","red");
                     $(ctr_obj).val(1);
                 }
                 if(m < 1 || m > 12) {
                     input_email.setCustomValidity("No es una fecha de nacimiento válida");
-                    var texto = "No es un patrón válido para " + desc;
+                    let texto = "No es un patrón válido para " + desc;
                     //$("#pdesc").html(texto).css("color","red");
                     $(ctr_obj).val(1);
                 }
@@ -197,7 +198,7 @@
                     if(m == 2) {
                        if(d < 1 || d > 29) {
                             input_email.setCustomValidity("No es una fecha de nacimiento válida");
-                            var texto = "No es un patrón válido para " + desc;
+                            let texto = "No es un patrón válido para " + desc;
                             //$("#pdesc").html(texto).css("color","red");
                             $(ctr_obj).val(1);
                         } 
@@ -205,7 +206,7 @@
                     else if(m == 4 || m == 6 || m == 9 || m == 11) {
                        if(d < 1 || d > 30) {
                             input_email.setCustomValidity("No es una fecha de nacimiento válida");
-                            var texto = "No es un patrón válido para " + desc;
+                            let texto = "No es un patrón válido para " + desc;
                             //$("#pdesc").html(texto).css("color","red");
                             $(ctr_obj).val(1);
                         } 
@@ -213,7 +214,7 @@
                     else {
                        if(d < 1 || d > 31) {
                             input_email.setCustomValidity("No es una fecha de nacimiento válida");
-                            var texto = "No es un patrón válido para " + desc;
+                            let texto = "No es un patrón válido para " + desc;
                             //$("#pdesc").html(texto).css("color","red");
                             $(ctr_obj).val(1);
                         } 
@@ -223,7 +224,7 @@
             }
             else {
                 input_email.setCustomValidity("No es una fecha de nacimiento válida");
-                var texto = "No es un patrón válido para " + desc;
+                let texto = "No es un patrón válido para " + desc;
                 //alert(texto);
                 //$("#pdesc").html(texto).css("color","red");
                 $(ctr_obj).val(1);

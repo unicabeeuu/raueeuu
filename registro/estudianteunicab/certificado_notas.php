@@ -5,7 +5,7 @@
 	//https://unicab.org/registro/estudianteunicab/certificado_notas.php
 	
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -18,7 +18,7 @@
 		$password = $fila['password'];
 	}
 	
-	$buscar_cert="SELECT * FROM certificado WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 2) = 'CN'";
+	$buscar_cert="SELECT * FROM tbl_certificados WHERE identificacion = '".$_SESSION['identifest']."' AND substring(numero, 1, 2) = 'CN'";
 	//echo $buscar_cert;
 	$exe_buscar=mysqli_query($conexion,$buscar_cert);
 	
@@ -35,7 +35,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -108,12 +108,12 @@
 							<table class="table table-hover" border="1" bordercolor="#e0e0e0" width="500">
 								<thead > 
     								<tr>
-    								    <TH COLSPAN=3><center><strong>CERTIFICADOS DE NOTAS</strong></center></TH>
+    								    <TH COLSPAN=3><center><strong>GRADE CERTIFICATES</strong></center></TH>
     								</tr>
     								<tr>
-    								    <th width="200"><center>Fecha de expedición</center></th>
-        								<th width="100"><center>Número</center></th>
-        								<th width="200"><center>Acción</center></th>
+    								    <th width="200"><center>Issue Date</center></th>
+        								<th width="100"><center>Number</center></th>
+        								<th width="200"><center>Action</center></th>
     								</tr> 
 								</thead> 
 								<tbody>
@@ -125,7 +125,7 @@
 							            <td><center><?php echo $buscar['fecha_expedicion']; ?></center></td>
 							            <td><center><?php echo $buscar['numero']; ?></center></td>
 							            <td><center>
-							                <a href='<?php echo $buscar['ruta']."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Descargar</a>
+							                <a href='<?php echo $buscar['ruta']."?t=".$codigo; ?>' target='_blank' class='btn btn-dark glyphicon glyphicon-download-alt'> Download</a>
 							                </center>
 							            </td>
 							        </tr>
@@ -147,7 +147,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

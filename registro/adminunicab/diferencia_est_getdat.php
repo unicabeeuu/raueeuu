@@ -16,7 +16,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -31,7 +31,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         (SELECT e.nombres nombres_r, e.apellidos apellidos_r, e.id id_r, e.id_moodle, em.nombres nombres_m, em.apellidos apellidos_m, em.id id_m 
         FROM 
         (SELECT e.*, ee.id_registro, ee.id_moodle 
-        FROM estudiantes e, equivalence_idest ee, matricula m WHERE e.id = ee.id_registro AND e.id = m.id_estudiante AND m.estado = 'activo' 
+        FROM tbl_estudiantes e, tbl_equivalence_idest ee, tbl_matriculas m WHERE e.id = ee.id_registro AND e.id = m.id_estudiante AND m.estado = 'activo' 
         AND m.n_matricula like '%2022%') e LEFT JOIN tbl_estudiantes_mood em 
         ON e.id_moodle = em.id) a 
         WHERE a.id_m is null";
@@ -41,7 +41,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	    
 	    $sql1 = "SELECT em.* 
             FROM tbl_estudiantes_mood em 
-            WHERE id NOT IN (SELECT ee.id_moodle FROM equivalence_idest ee, estudiantes e, matricula m  
+            WHERE id NOT IN (SELECT ee.id_moodle FROM tbl_equivalence_idest ee, tbl_estudiantes e, tbl_matriculas m  
             WHERE ee.id_registro = e.id AND e.id = m.id_estudiante AND m.estado = 'activo' AND m.n_matricula like '%2022%') ";
 	}
 	$resultado=$mysqli1->query($sql1);
@@ -50,7 +50,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head><meta http-equiv="Content-Type" content="text/html; charset=big5">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -105,30 +105,33 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     #divtabla {
-        overflow:scroll;
+        overflow-x: auto;
         height:300px;
-        width:800px;
+        width:100%;
     }
     #divtabla table {
-        width:800px
+        min-width:800px;
+        width:100%;
     }
-    
+
     #tblmoodle {
-        overflow:scroll;
+        overflow-x: auto;
         height:300px;
-        width:500px;
+        width:100%;
     }
     #tblmoodle table {
-        width:500px
+        min-width:500px;
+        width:100%;
     }
-    
+
     #tblregistro {
-        overflow:scroll;
+        overflow-x: auto;
         height:300px;
-        width:500px;
+        width:100%;
     }
     #tblregistro table {
-        width:500px
+        min-width:500px;
+        width:100%;
     }
     .form-controlxx {
         background-color: lightgray;
@@ -164,7 +167,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         		    $("#search").show();
         		    $("#divtabla").html(r);
         			//$("#tbodyact").html(r);
-        			var oper = $("#seloper").val();
+        			let oper = $("#seloper").val();
         			if(oper == "MODIFICAR") {
         			    $("td:nth-child(7)").show();
         			}
@@ -275,7 +278,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                         	                            <td>NOMBRES_M</td>
                         	                            <td>APELLIDOS_M</td>
                         	                            <td>ID_M</td>
-                        	                            <td>GRADO</td>
+                        	                            <td>GRADE</td>
                         	                            <td>USUARIO</td>
                         	                            <td>EMAIL</td>
                         	                            <td>...</td>
@@ -312,7 +315,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                                                 <td><?php echo $row['usuario']; ?></td>
                                                                 <td><?php echo $row['email_inst']; ?></td>
                                                                 <td><button class='btn btn-warning glyphicon glyphicon-edit' data-toggle='modal' data-target='#modal_registro' 
-                                                                    onclick='ver_datos_registro("<?php echo str_replace(" ","_",$row['nombres']); ?>","<?php echo str_replace(" ","_",$row['apellidos']); ?>",<?php echo $row['id']; ?>)'> Ver Datos Registro</button>
+                                                                    onclick='ver_datos_registro("<?php echo str_replace(" ","_",$row['nombres']); ?>","<?php echo str_replace(" ","_",$row['apellidos']); ?>",<?php echo $row['id']; ?>)'> View Record Data</button>
                                                                 </td>
                                                             </tr>
                                                 <?php  
@@ -356,8 +359,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <!--<button type="button" class="btn btn-warning" id="btnupdcarga" data-dismiss="modal" onclick="updcarga()">Guardar</button>-->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-warning" id="btnupdcarga" data-dismiss="modal" onclick="updcarga()">Save</button>-->
           </div>
         </div>
       </div>
@@ -367,7 +370,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">DATOS EN REGISTRO</h5>
+            <h5 class="modal-title" id="exampleModalLabel">DATA IN RECORD</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -379,14 +382,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             <input type="text" id="txtape_m" class="form-control" readonly/>
             <label>ID_M</label>
             <input type="text" id="txtid_m" class="form-control" readonly/>
-            <label>DATOS REGISTRO</label>
+            <label>RECORD DATA</label>
             <div id="tblregistro">
                 
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <!--<button type="button" class="btn btn-warning" id="btnputcarga" data-dismiss="modal" onclick="putcarga()">Guardar</button>-->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-warning" id="btnputcarga" data-dismiss="modal" onclick="putcarga()">Save</button>-->
           </div>
         </div>
       </div>
@@ -396,7 +399,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -447,7 +450,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

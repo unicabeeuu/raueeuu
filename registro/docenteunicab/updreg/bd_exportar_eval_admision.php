@@ -42,9 +42,9 @@
 					<tr>
 						<td class="tdcorto"><b>APELLIDOS</b></td>
 						<td class="tdlargo"><b>NOMBRES</b></td>
-						<td class="tdlargo"><b>IDENTIFICACIÓN</b></td>
-						<td class="tdmedia"><b>GRADO</b></td>
-						<td class="tdnormal"><b>ESTADO</b></td>
+						<td class="tdlargo"><b>IDENTIFICATION</b></td>
+						<td class="tdmedia"><b>GRADE</b></td>
+						<td class="tdnormal"><b>STATUS</b></td>
 						<td class="tdnormal"><b>DSA</b></td>
 						<td class="tdnormal"><b>DA</b></td>
 						<td class="tdnormal"><b>DM</b></td>

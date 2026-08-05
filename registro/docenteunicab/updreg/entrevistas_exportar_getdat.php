@@ -41,19 +41,19 @@
 					<thead>
 					<tr>
 						<td class="tdcorto"><b>ID</b></td>
-						<td class="tdmedia"><b>DOCUMENTO</b></td>
-						<td class="tdnormal"><b>FECHA</b></td>
+						<td class="tdmedia"><b>DOCUMENT</b></td>
+						<td class="tdnormal"><b>DATE</b></td>
 						<td class="tdmediol"><b>PSICOLOGO</b></td>
 						<td class="tdnormal"><b>OBSERVACIONES</b></td>
-						<td class="tdmedia"><b>ID GRADO</b></td>
-						<td class="tdmediol"><b>ESTADO</b></td>
+						<td class="tdmedia"><b>GRADE ID</b></td>
+						<td class="tdmediol"><b>STATUS</b></td>
 						<td class="tdmediol1"><b>NOMBRES</b></td>
 						<td class="tdmediol"><b>APELLIDOS</b></td>
 						<td class="tdlargo"><b>ACT EXTRA</b></td>
 						<td class="tdlargo"><b>ACUDIENTE 1</b></td>
-						<td class="tdmediol1"><b>TELEFONO ACUDIENTE 1</b></td>
+						<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
 						<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-						<td class="tdmediol1"><b>CIUDAD</b></td>
+						<td class="tdmediol1"><b>CITY</b></td>
 					</tr>
 					</thead>
 					<tbody>

@@ -53,7 +53,7 @@
 	
 	$id_est_per = "(";
 	
-	$query0 = "SELECT * FROM equivalence_idgra WHERE id_category = ".$gra;
+	$query0 = "SELECT * FROM tbl_equivalence_idgra WHERE id_category = ".$gra;
 	$resultado0=$mysqli1->query($query0);
 	while($row0 = $resultado0->fetch_assoc()){
 	    $gra1 = $row0['name'];
@@ -116,24 +116,24 @@
 	//Se valida el estado
 	if($estado == 'activo') {
 	    if($grupo == "NA") {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND m.estado = '$estado'  AND e.estado != 'Retirado'";
 	    }
 	    else {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
@@ -144,24 +144,24 @@
 	}
 	else if($estado == 'inactivo') {
 	    if($grupo == "NA") {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
     		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND m.id_grado = eg.id_grado_ra AND m.estado = '$estado'";
 	    }
 	    else {
-	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
-    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
+	        //$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, 
+    	    $query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, eg.name grado, m.n_matricula, m.id idMatricula, a.usuario, CONCAT(e.apellidos,' ',e.nombres) nombre, e.n_documento, 
     	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
     		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
     		e.actividad_extra 
-    		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+    		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
     		(SELECT em.*, ee.id_registro 
     		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
     		ON em.id = ee.id_moodle ) a 
@@ -180,7 +180,7 @@
 	    /*$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -197,7 +197,7 @@
 	    /*$query1 = "SELECT DISTINCT e.id, eg.id_grado_ra, a.grado, m.n_matricula, a.usuario, CONCAT(e.nombres,' ',e.apellidos) nombre, e.n_documento, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra 
-		FROM estudiantes e, matricula m, equivalence_idgra eg, 
+		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, 
 		(SELECT em.*, ee.id_registro 
 		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
@@ -881,16 +881,16 @@
             function ver_cal_mood(id_est,id_gra) {
                 //alert(id_est + id_gra);
                 var cadena = "";
-                cadena = cadena + "<fieldset id='ftm'><legend>NOTAS EN MOODLE</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
+                cadena = cadena + "<fieldset id='ftm'><legend>MOODLE GRADES</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
                                     "<tr border='2'>" +
-                                    "<td><b>ID ESTUDIANTE</b></td>" +
+                                    "<td><b>STUDENT ID</b></td>" +
                                     "<td><b>APELLIDOS</b></td>" +
                                     "<td><b>NOMBRES</b></td>" +
                                     "<td><b>PENSAMIENTO</b></td>" +
                                     "<td><b>PENSAMIENTO RA</b></td>" +
-                                    "<td><b>ID PERIODO MOODLE</b></td>" +
-                                    "<td><b>PERIODO RA</b></td>" +
-                                    "<td><b>CALIFICACION</b></td></tr></thead><tbody>";
+                                    "<td><b>MOODLE PERIOD ID</b></td>" +
+                                    "<td><b>RA PERIOD</b></td>" +
+                                    "<td><b>GRADE</b></td></tr></thead><tbody>";
     			//alert(cadena);
     			
             	$.ajax({
@@ -945,7 +945,7 @@
 			<div id="enc" style="display: none;">
 				<img src="img/enc2.png" alt="enc2" />
 			</div>
-			<label>Calcular promedio para periodo</label>
+			<label>Calculate average for period</label>
 			<?php  
 			    //echo $per;
 			    if($per == "P1") {
@@ -1007,25 +1007,25 @@
 									    <table border="1px" class="table" id="tblest">
 											<thead>
 											<tr class="GridViewScrollHeader">
-												<td class="tdlargo"><b>NOMBRE</b></td>
+												<td class="tdlargo"><b>NAME</b></td>
 												<td class="tdcorto"><b>ID</b></td>
-												<td class="tdmedia"><b>ID GRADO</b></td>
-												<td class="tdnormal"><b>GRADO</b></td>
-												<td class="tdmediol"><b>MATRICULA</b></td>
+												<td class="tdmedia"><b>GRADE ID</b></td>
+												<td class="tdnormal"><b>GRADE</b></td>
+												<td class="tdmediol"><b>ENROLLMENT</b></td>
 												<td class="tdnormal"><b>ID MAT.</b></td>
 												<td class="tdmedia"><b>USUARIO</b></td>
-												<td class="tdmediol"><b>DOCUMENTO No.</b></td>
+												<td class="tdmediol"><b>DOCUMENT No.</b></td>
 												<td class="tdmediol1"><b>EXPEDICION</b></td>
-												<td class="tdmediol"><b>FECHA NACIMIENTO</b></td>
+												<td class="tdmediol"><b>BIRTH DATE</b></td>
 												<td class="tdlargo"><b>EMAIL INST</b></td>
 												<td class="tdlargo"><b>ACUDIENTE 1</b></td>
 												<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-												<td class="tdmediol1"><b>TELEFONO ACUDIENTE 1</b></td>
+												<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
 												<td class="tdlargo"><b>ACUDIENTE 2</b></td>
 												<td class="tdlargo"><b>EMAIL ACUDIENTE 2</b></td>
-												<td class="tdmediol1"><b>TELEFONO ACUDIENTE 2</b></td>
-												<td class="tdelargo"><b>DIRECCION</b></td>
-												<td class="tdmediol1"><b>CIUDAD</b></td>
+												<td class="tdmediol1"><b>GUARDIAN 2 PHONE</b></td>
+												<td class="tdelargo"><b>ADDRESS</b></td>
+												<td class="tdmediol1"><b>CITY</b></td>
 												<td class="tdmediol"><b>ACTIVIDAD EXTRA</b></td>
 											</tr>
 											</thead>
@@ -1067,9 +1067,9 @@
 								</fieldset>
 							</td>
 							<td>
-							    <label class="fa fa-pencil-square"> Observaciones estudiante</label>
+							    <label class="fa fa-pencil-square"> Student observations</label>
                                 <textarea id="txtobs" class="form-control" cols='21' rows='5' placeholder="..." readonly></textarea>
-                                <!--<br><button id="btnres_evalpres" class='btn btn-info glyphicon glyphicon-pencil'>Ver Evaluación Presaberes</button>-->
+                                <!--<br><button id="btnres_evalpres" class='btn btn-info glyphicon glyphicon-pencil'>View Prior Knowledge Evaluation</button>-->
 							</td>
 						</tr>
 					</tbody>
@@ -1083,7 +1083,7 @@
 			<div id="divresul"></div><br />
 			<div id="divdesemp" style="display: none;">
 			    <fieldset>
-			        <legend>DESEMPEÑO ACUMULADO</legend>
+			        <legend>ACCUMULATED PERFORMANCE</legend>
 			        <table width="100%">
     			        <tbody>
     			            <tr>

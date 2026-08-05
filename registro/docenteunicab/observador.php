@@ -12,7 +12,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -22,7 +22,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -102,7 +102,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Observador estudiante:</h4><?php //echo $sql; ?>	
+							<h4>Student record:</h4><?php //echo $sql; ?>	
 						</div>
 					</div>
 				</div>
@@ -111,11 +111,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						<form action="observador_getdat.php" method="POST" id="form" name="form" enctype="multipart/form-data" >
 						   
 							<div class="form-group col-lg-6 text-left">
-								<label id="lblbuscar">Buscar por identificación del estudiante:</label>
+								<label id="lblbuscar">Search by student identification:</label>
 							</div>
 							<div class="form-group col-lg-6 text-left">
 								<input type="text" class="" id="buscar" name="buscar" width="300px" required>
-								<button type="submit" id="btnsubmit" name="btnsubmit" class="btn btn-success" >Buscar</button>
+								<button type="submit" id="btnsubmit" name="btnsubmit" class="btn btn-success" >Search</button>
 							</div>
 						</form> 
 					</div>
@@ -131,7 +131,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -179,7 +179,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

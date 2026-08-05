@@ -12,7 +12,7 @@ include "../adminunicab/php/conexion.php";
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['dependencia'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 	}
@@ -23,25 +23,25 @@ include "../adminunicab/php/conexion.php";
 	$nota_cuatro=0;*/
 	$id_estudiante=$_GET['id_estudiante'];
 	
-	$buscar_grado="SELECT DISTINCT matricula.id_grado, grados.grado 
-	    FROM matricula INNER JOIN grados ON matricula.id_grado=grados.id 
-	    INNER JOIN estudiantes on matricula.id_estudiante=estudiantes.id 
-	    where estudiantes.id=".$id_estudiante." and matricula.estado='activo'";
+	$buscar_grado="SELECT DISTINCT matricula.id_grado, tbl_grados.grado 
+FROM tbl_matriculas INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.id
+	    INNER JOIN tbl_estudiantes on tbl_matriculas.id_estudiante=tbl_estudiantes.id 
+	    where tbl_estudiantes.id=".$id_estudiante." and tbl_matriculas.estado='activo'";
 	$exe_buscar=mysqli_query($conexion,$buscar_grado);
 	while ($buscar=mysqli_fetch_array($exe_buscar)) {
 		$id_grado=$buscar['id_grado'];
 		$nombre_grado=strtoupper($buscar['grado']);
 	}
 	
-	/*$sqlNotas="SELECT DISTINCT grados.grado, materias.materia, materias.pensamiento, profesores.apellidos, profesores.nombres, estudiantes.id, matricula.estado 
+	/*$sqlNotas="SELECT DISTINCTtbl_grados.grado, materias.materia, materias.pensamiento, profesores.apellidos, profesores.nombres, estudiantes.id, matricula.estado 
 	    FROM materias INNER JOIN ((grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) 
-	    ON grados.id = matricula.id_grado) INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
-	    ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia 
+	    ONtbl_grados.id = matricula.id_grado) INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
+	    ONtbl_grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia 
 	    WHERE estudiantes.id='".$id_estudiante."' and matricula.estado='activo' 
 	    ORDER BY materias.pensamiento asc";
 	$consultaNotas=mysqli_query($conexion,$sqlNotas);*/
 
-	$sql_buscarEstudiante="SELECT * FROM `estudiantes` WHERE `id`=".$id_estudiante."";
+	$sql_buscarEstudiante="SELECT * FROM `tbl_estudiantes` WHERE `id`=".$id_estudiante."";
 	$exe_buscarEstuidante=mysqli_query($conexion,$sql_buscarEstudiante);
 
 	while ($rowEstudiante = mysqli_fetch_array($exe_buscarEstuidante)) {
@@ -87,7 +87,7 @@ include "../adminunicab/php/conexion.php";
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -170,17 +170,17 @@ include "../adminunicab/php/conexion.php";
         								$varialble_nota=0;
         								if (!isset($id_grado)) {
         									echo '<div class="alert alert-danger" role="alert">
-          										<strong>¡Alerta!</strong> El estudiante no se encuentra matriculado.
+          										<strong>Alert!</strong> El estudiante no se encuentra matriculado.
         									</div>';
         								}
         								else{
         									/*$sql_no="SELECT DISTINCT estudiantes.id as id_estudiante, materias.materia, materias.pensamiento, materias.id, 
-        									grados.id as id_grado, grados.grado, notas.nota, periodos.id as id_periodo 
+        									grados.id as id_grado,tbl_grados.grado, notas.nota, periodos.id as id_periodo 
         									FROM ((((notas INNER JOIN estudiantes on notas.id_estudiante=estudiantes.id) 
         									INNER JOIN materias on notas.id_materia=materias.Id) 
-        									INNER JOIN grados on notas.id_grado=grados.id) 
+        									INNER JOIN tbl_grados on notas.id_grado=tbl_grados.id) 
         									INNER JOIN periodos on notas.id_periodo=periodos.id) 
-        									WHERE estudiantes.id=".$id_estudiante." and grados.id=".$id_grado." ORDER BY materias.materia ASC, periodos.id ASC";*/
+        									WHERE estudiantes.id=".$id_estudiante." and tbl_grados.id=".$id_grado." ORDER BY materias.materia ASC, periodos.id ASC";*/
         									
         									//$tabla = "tbl_notas_prueba";
                     						$tabla = "notas";
@@ -196,7 +196,7 @@ include "../adminunicab/php/conexion.php";
                 									p1.nota P1
                 									FROM 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1 
                 									ORDER BY 2";
@@ -206,11 +206,11 @@ include "../adminunicab/php/conexion.php";
                 									p1.nota P1, p2.nota P2 
                 									FROM 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1 LEFT JOIN 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2 
                 									ON p1.id_estudiante = p2.id_estudiante  
@@ -223,15 +223,15 @@ include "../adminunicab/php/conexion.php";
                 									p1.nota P1, p2.nota P2, p3.nota P3 
                 									FROM 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1, 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2, 
                 									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-                									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+                									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
                 									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
                 									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 3) p3 
                 									WHERE p1.id_estudiante = p2.id_estudiante AND p1.id_estudiante = p3.id_estudiante  
@@ -244,19 +244,19 @@ include "../adminunicab/php/conexion.php";
             									p1.nota P1, p2.nota P2, p3.nota P3, p4.nota P4 
             									FROM 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 1) p1, 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 2) p2, 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 3) p3, 
             									(SELECT DISTINCT e.id id_estudiante, m.materia, m.pensamiento, m.id, g.id id_grado, g.grado, n.nota 
-            									FROM ".$tabla." n, estudiantes e, materias m, grados g, periodos p 
+            									FROM ".$tabla." n, estudiantes e, materias m,tbl_grados g, periodos p 
             									WHERE n.id_estudiante = e.id AND n.id_materia = m.Id AND n.id_grado = g.id AND n.id_periodo = p.id 
             									AND e.id = ".$id_estudiante." AND g.id = ".$id_grado." AND p.id = 4) p4 
             									WHERE p1.id_estudiante = p2.id_estudiante AND p1.id_estudiante = p3.id_estudiante AND p1.id_estudiante = p4.id_estudiante 
@@ -272,16 +272,16 @@ include "../adminunicab/php/conexion.php";
             								echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
         											<thead > 
         												<tr>
-        													<TH COLSPAN=6><center><strong>NOMBRE ESTUDIANTE: '.$nombeCompleto.'</strong></center></TH>
+        													<TH COLSPAN=6><center><strong>STUDENT NAME: '.$nombeCompleto.'</strong></center></TH>
         												</tr>
         												<tr>
-        												<TH COLSPAN=2><center><strong>ASIGNATURAS INSCRITAS GRADO '.$nombre_grado.'</strong></center></TH>
-        												<TH COLSPAN=4><center><strong>NOTAS DEFINITIVAS POR PERIODOS</strong></center></TH>
+        												<TH COLSPAN=2><center><strong>ENROLLED SUBJECTS GRADE '.$nombre_grado.'</strong></center></TH>
+        												<TH COLSPAN=4><center><strong>FINAL GRADES BY PERIOD</strong></center></TH>
         												</tr>';
         									if ($id_grado>=17) {
         										echo '<tr>
-        											<th><center>Materia</center></th>
-        											<th><center>Pesamiento</center></th>
+        											<th><center>Subject</center></th>
+        											<th><center>Area</center></th>
         											<th><center>P 1</center></th>
         											<th><center>P 2</center></th>
         											</tr> 
@@ -289,8 +289,8 @@ include "../adminunicab/php/conexion.php";
         											<tbody>';
         									}else{
         										echo '<tr>
-        											<th><center>Materia</center></th>
-        											<th><center>Pesamiento</center></th>
+        											<th><center>Subject</center></th>
+        											<th><center>Area</center></th>
         											<th><center>P 1</center></th>
         											<th><center>P 2</center></th>
         											<th><center>P 3</center></th>
@@ -304,26 +304,26 @@ include "../adminunicab/php/conexion.php";
         											echo "<tr><td>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
         											//esta validación es para las asignaturas de bioético y humanístico
         											if($row['id_materia'] == 10) {
-        												echo "<tr><td>EDUCACIÓN ÉTICA Y EN VALORES</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
-        												echo "<tr><td>EDUCACIÓN FÍSICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+        												echo "<tr><td>ETHICS AND VALUES EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+        												echo "<tr><td>PHYSICAL EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
         											}
         											else if($row['id_materia'] == 15) {
-        												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
-        												echo "<tr><td>FILOSOFÍA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+        												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
+        												echo "<tr><td>PHILOSOPHY</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td></tr>";
         											}
         										}else{
         											echo "<tr><td>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
         											//esta validación es para las asignaturas de bioético y humanístico
         											if($row['id_materia'] == 10 || $row['id_materia'] == 1) {
-        												echo "<tr><td>EDUCACIÓN ÉTICA Y EN VALORES</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
-        												echo "<tr><td>EDUCACIÓN FÍSICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+        												echo "<tr><td>ETHICS AND VALUES EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+        												echo "<tr><td>PHYSICAL EDUCATION</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
         											}
         											else if($row['id_materia'] == 15) {
-        												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
-        												echo "<tr><td>FILOSOFÍA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+        												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+        												echo "<tr><td>PHILOSOPHY</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
         											}
         											else if($row['id_materia'] == 6) {
-        												echo "<tr><td>ARTISTICA</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
+        												echo "<tr><td>ARTS</td><td>".$row['pensamiento']."</td><td>".$row['P1']."</td><td>".$row['P2']."</td><td>".$row['P3']."</td><td>".$row['P4']."</td></tr>";
         											}
         										}	
         									}
@@ -333,7 +333,7 @@ include "../adminunicab/php/conexion.php";
         											
         							?>
         							<br>
-        							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Atrás</a>
+        							    <a href="estudiante.php" class="btn btn-primary"><span class="fa fa-rotate-left"></span> Back</a>
         						    <br><br>
     						    </div>
     						</div>
@@ -349,7 +349,7 @@ include "../adminunicab/php/conexion.php";
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -396,7 +396,7 @@ include "../adminunicab/php/conexion.php";
 </body>
 <?php 
     }else{
-    	echo "<script>alert('Debes iniciar sesión');</script>";
+    	echo "<script>alert('You must log in');</script>";
     	echo "<script>location.href='../../login_registro.php'</script>";
     }
 ?>

@@ -16,13 +16,13 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
     }
     
-    $query = "SELECT * FROM equivalence_idgra WHERE id_grado_ra NOT IN (150, 160, 170, 180, 130, 140, 0)";
+    $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);
 ?>
@@ -140,21 +140,21 @@ if (isset($_SESSION['uniprofe'])) {
                                     <div id="cont">
                             			<div id="div1">
                             				<fieldset>
-                            				<legend><h3>BASE DE DATOS DE ESTUDIANTES</h3></legend>
+                            				<legend><h3>STUDENT DATABASE</h3></legend>
                             				    <form class="form-horizontal" action="cargar_est_putdat.php"  method="POST" onsubmit="return validacion()">
                             				    <!--Se debe Cargar y luego Actualizar... después revisar manualmente en la tabla equivalence_idest_temp1 -->
                             				    <!--y por último UPD EQUI IDEST -->
                             				    <ul class="mprincipal">
-                            						<li><h3>CARGAR INFORMACION MOODLE TOTAL</h3></li>
+                            						<li><h3>LOAD TOTAL MOODLE INFORMATION</h3></li>
                             							<ul class="msecund">
-                            								<li><input type="submit" class="btn btn-primary" value="Cargar" ></li>
-                            								<li><a href="cargar_est_putdat_aanterior.php" class="btn btn-primary" target="_blank">Cargar Año Anterior</a></li>
+                            								<li><input type="submit" class="btn btn-primary" value="Load" ></li>
+                            								<li><a href="cargar_est_putdat_aanterior.php" class="btn btn-primary" target="_blank">Load Previous Year</a></li>
                             							</ul>
                             					</ul>
                             					</form>
                             					<form class="form-horizontal" action="base_datos_upddat.php"  method="POST" target="_blank">
                             					<ul class="mprincipal">
-                            						<li><h3>ACTUALIZAR BASE DE DATOS</h3></li>
+                            						<li><h3>UPDATE DATABASE</h3></li>
                             							<ul class="msecund">
                             								<li>
 																<input type="submit" class="btn btn-primary" value="Actualizar" >
@@ -165,29 +165,29 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             				</fieldset><br/>
                             				<fieldset>
-                            				<legend><h3>REVERSAR PROCESO DE CIERRE</h3></legend>
+                            				<legend><h3>REVERSE CLOSING PROCESS</h3></legend>
                             				    <form class="form-horizontal" action="buscar_notas_mood_est1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>CARGAR NOTAS MOODLE</h3></li>
+                            						<li><h3>LOAD MOODLE GRADES</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <input type="text" id="idest_ra0" name="idest_ra0" placeholder="idest" style="width: 50px;" oninput="change_idest()"/>
                             								    <input type="text" id="idgra_ra0" name="idgra_ra0" placeholder="idgra" style="width: 50px;" oninput="change_idgra()"/>
 																<label style="color: white;">...</label>
-																<input type="submit" class="btn btn-primary" value="Cargar" >
+																<input type="submit" class="btn btn-primary" value="Load" >
 															</li>
                             							</ul>
                             					</ul>
                             					</form>
                             					<form class="form-horizontal" action="ca_ghf.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>NUEVO CIERRE ACADEMICO</h3></li>
+                            						<li><h3>NEW ACADEMIC CLOSING</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <input type="text" id="idest_ra01" name="idest_ra01" placeholder="idest" style="width: 50px;" oninput="change_idest1()"/>
                             								    <input type="text" id="idgra_ra01" name="idgra_ra01" placeholder="idgra" style="width: 50px;" oninput="change_idgra1()"/>
 																<label style="color: white;">...</label>
-                            								    <input type="submit" class="btn btn-primary" value="Cargar" >
+                            								    <input type="submit" class="btn btn-primary" value="Load" >
 															</li>
                             							</ul>
                             					</ul>
@@ -197,13 +197,13 @@ if (isset($_SESSION['uniprofe'])) {
                             				<legend><h3>INFORMES</h3></legend>
                             				    <form class="form-horizontal" action="informe-estudiante1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>ESTUDIANTE</h3></li>
+                            						<li><h3>STUDENT</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <input type="text" id="idest_ra02" name="idest_ra02" placeholder="idest" style="width: 50px;"/>
                             								    <input type="text" id="idgra_ra02" name="idgra_ra02" placeholder="idgra" style="width: 50px;"/>
 																<label style="color: white;">...</label>
-																<input type="submit" class="btn btn-primary" value="Cargar" >
+																<input type="submit" class="btn btn-primary" value="Load" >
 															</li>
                             							</ul>
                             					</ul>
@@ -213,28 +213,28 @@ if (isset($_SESSION['uniprofe'])) {
                             				<legend><h3>CONFIGURAR ACTIVIDADES</h3></legend>
                             				    <form class="form-horizontal" action="act_moodle_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>CARGAR ACTIVIDADES MOODLE</h3></li>
+                            						<li><h3>LOAD MOODLE ACTIVITIES</h3></li>
                             							<ul class="msecund">
                             								<li>
-                            								    <input type="text" id="periodo" name="periodo" placeholder="periodo" style="width: 100px;"/>
-                            								    <input type="submit" class="btn btn-primary" value="Cargar" >
+                            								    <input type="text" id="periodo" name="periodo" placeholder="period" style="width: 100px;"/>
+                            								    <input type="submit" class="btn btn-primary" value="Load" >
 															</li>
                             							</ul>
                             					</form>
                             					<form class="form-horizontal" action="tot_act_curso_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>CARGAR TOT ACT POR PENSAM</h3></li>
+                            						<li><h3>LOAD TOTAL ACT BY AREA</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <label>tbl_tot_act_curso</label>
-                            								    <input type="submit" class="btn btn-primary" value="Cargar" >
+                            								    <input type="submit" class="btn btn-primary" value="Load" >
 															</li>
                             							</ul>
                             					</ul>
                             					</form>
                             				</fieldset>
                             				<fieldset>
-                            				<legend><h3>BASE DE DATOS BCS</h3></legend>
+                            				<legend><h3>BCS DATABASE</h3></legend>
                             				    <form class="form-horizontal" action="bd_bcs_getdat.php"  method="POST" target="_blank">
                             					<ul class="mprincipal">
                             						<li><h3>EXPORTAR BD BCS</h3></li>
@@ -260,22 +260,22 @@ if (isset($_SESSION['uniprofe'])) {
                             					</ul>
                             					</form>
                             				</fieldset>
-                            				<!--<a href="reporte_notas_getdat.php" target="_blank">Reporte notas</a>
-                            				<a href="reporte_notas_getdat1.php" target="_blank">Reporte notas</a>-->
+                            				<!--<a href="reporte_notas_getdat.php" target="_blank">Grade report</a>
+                            				<a href="reporte_notas_getdat1.php" target="_blank">Grade report</a>-->
                             			</div>
                             			<!--***********************************************************************************************-->
                             			<div id="div2">
                             				<fieldset>
-                            				<legend><h3>BUSCAR EN BASE DE DATOS</h3></legend>
+                            				<legend><h3>SEARCH IN DATABASE</h3></legend>
                             				    <form class="form-horizontal" action="estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>BUSCAR POR NOMBRE O APELLIDO <span style="color: blue;">ACTIVO</span></h3></li>
+                            						<li><h3>SEARCH BY FIRST OR LAST NAME <span style="color: blue;">ACTIVE</span></h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
+																<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
 																<label style="color: white;">...</label>
-																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudiante_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 																<input type="hidden" id="estado" name="estado" value="activo" required/>
 															</li>
                             							</ul>
@@ -283,13 +283,13 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             					<form class="form-horizontal" action="estudiante_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>BUSCAR POR NOMBRE O APELLIDO <span style="color: red;">INACTIVO</span></h3></li>
+                            						<li><h3>SEARCH BY FIRST OR LAST NAME <span style="color: red;">INACTIVE</span></h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
+																<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
 																<label style="color: white;">...</label>
-																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudiante_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 																<input type="hidden" id="estado" name="estado" value="inactivo" required/>
 															</li>
                             							</ul>
@@ -297,10 +297,10 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             					<form class="form-horizontal" action="estudianteg_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>BUSCAR POR GRADO ACTIVO<span style="color: white;">.....</span>
+                            						<li><h3>SEARCH BY ACTIVE GRADE<span style="color: white;">.....</span>
                             						<input type="checkbox" class="chk" id="chkper" name="chkper"/> <span style="color: red;">Perdiendo</span>
                             						<select id="selper" name="selper">
-                            						    <option value="0">Sel. periodo</option>
+                            						    <option value="0">Sel. period</option>
                             						    <option value="1">1</option>
                             						    <option value="2">2</option>
                             						    <option value="3">3</option>
@@ -310,7 +310,7 @@ if (isset($_SESSION['uniprofe'])) {
                             							<ul class="msecund">
                             								<li>
 																<select id="selgra1" name="selgra1" required>
-																    <option value="NA">Seleccione grado</option>
+																    <option value="NA">Select grade</option>
 																    <?php 
 																        while($row = $resultado1->fetch_assoc()){
 																            echo "<option value='".$row['id_category']."'>".$row['name']."</option>";
@@ -319,15 +319,15 @@ if (isset($_SESSION['uniprofe'])) {
 																</select>
 																<label style="color: white;">...</label>
 																<select id="selgrupo" name="selgrupo" required>
-																    <option value="NA" selected>Grupo</option>
+																    <option value="NA" selected>Group</option>
 																    <option value="A">A</option>
 																    <option value="B">B</option>
 																    <option value="C">C</option>
 																    <option value="D">D</option>
 																</select>
 																<label style="color: white;">...</label>
-																<!--<a href="estudianteg_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudianteg_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 																<input type="hidden" id="estadog" name="estadog" value="activo" required/>
 															</li>
                             							</ul>
@@ -335,12 +335,12 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             					<form class="form-horizontal" action="observaciones_putdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>OBSERVACIONES ESTUDIANTE</h3></li>
+                            						<li><h3>STUDENT OBSERVATIONS</h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="text" id="buscar" name="buscar" placeholder="Ingrese nombre" required/>
+																<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
 																<label style="color: white;">...</label>
-																<!--<a href="estudiante_getdat.php" >Buscar</a>-->
+																<!--<a href="estudiante_getdat.php" >Search</a>-->
 																<input type="submit" class="btn btn-primary" value="Asignar" >
 															</li>
                             							</ul>
@@ -348,7 +348,7 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             					<form class="form-horizontal" action="bd_exportar_getdat.php"  method="POST" target="_blank">
                                 					<ul class="mprincipal">
-                                						<li><h3>EXPORTAR BASE DE DATOS</h3></li>
+                                						<li><h3>EXPORT DATABASE</h3></li>
                                 							<ul class="msecund">
                                 								<li>
     																<input type="submit" class="btn btn-primary" value="Exportar" >
@@ -369,27 +369,27 @@ if (isset($_SESSION['uniprofe'])) {
                             					
                             					<form class="form-horizontal" action="desemp_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>PRUEBA DESEMPEÑO</h3></li>
+                            						<li><h3>PERFORMANCE TEST</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <input type="text" id="idest_ra" name="idest_ra"/>
 																<label style="color: white;">...</label>
-																<!--<a href="estudianteg_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudianteg_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 															</li>
                             							</ul>
                             					</ul>
                             					</form>
                             					<form class="form-horizontal" action="buscar_notas_mood.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>NOTAS MOODLE</h3></li>
+                            						<li><h3>MOODLE GRADES</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <input type="text" id="idest_ra1" name="idest_ra1" placeholder="idest" style="width: 50px;"/>
                             								    <input type="text" id="idgra_ra1" name="idgra_ra1" placeholder="idgra" style="width: 50px;"/>
 																<label style="color: white;">...</label>
-																<!--<a href="estudianteg_getdat.php" >Buscar</a>-->
-																<input type="submit" class="btn btn-primary" value="Buscar" >
+																<!--<a href="estudianteg_getdat.php" >Search</a>-->
+																<input type="submit" class="btn btn-primary" value="Search" >
 															</li>
                             							</ul>
                             					</ul>
@@ -402,7 +402,7 @@ if (isset($_SESSION['uniprofe'])) {
                             						<li><h3>ACTUALIZAR CONFIGURACION</h3></li>
                             							<ul class="msecund">
                             								<li>
-                            								    <input type="submit" class="btn btn-primary" value="Cargar" >
+                            								    <input type="submit" class="btn btn-primary" value="Load" >
 															</li>
                             							</ul>
                             					</ul>
@@ -477,7 +477,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);
@@ -489,7 +489,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 	<?php 
 	}else{
-		echo "<script>alert('Debes iniciar sesión');</script>";
+		echo "<script>alert('You must log in');</script>";
 		echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 	?>

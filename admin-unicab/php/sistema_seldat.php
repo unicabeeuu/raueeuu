@@ -1,5 +1,5 @@
-<?php  
-    if($_SESSION['perfil'] == "SU") {
+<?php
+    if(isset($_SESSION['perfil']) && $_SESSION['perfil'] == "SU") { // Añade isset para verificar si 'perfil' está definido
         /* establecer el limitador de caché a 'private' */
         session_cache_limiter('private');
         $cache_limiter = session_cache_limiter();
@@ -14,7 +14,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Administrador - Web Unicab</title>
+<title>Administrator - Unicab Web</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -123,14 +123,14 @@
 	<div id="page-wrapper" style="padding: 2em 2em 2.5em;">
 		<div class="main-page login-page ">
 			<h2 class="title1">
-				<img src="../../assets/img/footer_logo_blanco2025.png" width="30%">
+				<img src="../../assets/img/logo-unicab/logo_thrive_f4.png" width="50%">
 			</h2>
 			<div class="widget-shadow">
 				<div class="login-body">
 				    <center>
-				    <h3>Hola</h3>
+				    <h3>Hello</h3>
 				    <h3><?php echo $_SESSION['nombre']; ?></h3>
-				    <h3>tu perfil te permite acceder a:</h3><br/>
+				    <h3>your profile allows you to access:</h3><br/>
     				    <div id="divsistemas">
     				        <div id="div_admreg" style="display: inline;">
     				            <a href="../../registro/adminunicab/index.php"><img src="../images/adm_reg.png" width="99" height="80"></a>
@@ -139,7 +139,7 @@
     				            <a href="../../admin-unicab/administrador/index.php"><img src="../images/adm_web.png" width="88" height="80"></a>
     				            <?php
     				                if($_SESSION['perfil'] == "AR_AW") {
-    				                    echo '<label>Psicología</label>';
+    				                    echo '<label>Psychology</label>';
     				                }
     				            ?>
     				        </div>
@@ -172,13 +172,13 @@
 	</div>
 	<!--footer-->
 	<div class="footer">
-	   <p>&copy; 2020 Colegio Virtual <strong>Unicab</strong>.</p>	
+	   <p>&copy; 2020 Virtual School <strong>Unicab</strong>.</p>	
 	</div>
     <!--//footer-->
 </div>
 	<!--scrolling js-->
-	<script src="admin-unicab/js/jquery.nicescroll.js"></script>
-	<script src="admin-unicab/js/scripts.js"></script>
+	<script src="../js/jquery.nicescroll.js"></script>
+	<script src="../js/scripts.js"></script>
 	<!--//scrolling js-->
 	
 </body>

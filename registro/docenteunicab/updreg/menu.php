@@ -69,7 +69,7 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Menu Navegable</li>
+              <li class="header">Navigation Menu</li>
               <?php  
                     if($id_administrador == 18) {
               ?>
@@ -91,7 +91,7 @@
               ?>
               <li class="treeview">
                 <a href="../index.php">
-                <i class="fa fa-home"></i> <span>Inicio</span>
+                <i class="fa fa-home"></i> <span>Home</span>
                 </a>
               </li>
               <?php  
@@ -99,7 +99,7 @@
               ?>
               <li class="treeview">
                 <a href="../asignacion.php">
-                <i class="fa fa-male"></i> <span>Asignación</span>
+                <i class="fa fa-male"></i> <span>Assignment</span>
                 </a>
               </li>
               <?php 
@@ -119,7 +119,7 @@
                   ?>
                 <!--<li class="treeview">
                     <a href="../direccion.php">
-                    <i class="fa fa-clipboard"></i> <span>Dirección Pensamiento</span>
+                    <i class="fa fa-clipboard"></i> <span>Area Direction</span>
                     </a>
                   </li>--> 
                 <?php
@@ -146,7 +146,7 @@
 				//if($id == 10) {
 					echo "<li class='treeview'>";
 					  echo "<a href='adm.php'>";
-					  echo "<i class='fa fa-cloud-upload'></i> <span>Actualizar registro</span>";
+					  echo "<i class='fa fa-cloud-upload'></i> <span>Update Record</span>";
 					  echo "</a>";
 				    echo "</li>";
 				}
@@ -154,14 +154,14 @@
 				    if($v_param == 1) {
 				        echo "<li class='treeview'>";
 					      echo "<a href='pen_gra_upddat_tutor.php'>";
-    					  echo "<i class='fa fa-cloud-upload'></i> <span>Actualizar registro</span>";
+    					  echo "<i class='fa fa-cloud-upload'></i> <span>Update Record</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
 				    if($v_param1 == 1) {
 				        echo "<li class='treeview'>";
     					  echo "<a href='adm2.php'>";
-    					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+    					  echo "<i class='fa fa-users'></i> <span>Database</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -181,12 +181,12 @@
 				    }
 				    if($v_param4 == 1) {
 				        echo "<li class='treeview'>";
-    					  echo "<a href='#'><i class='fa fa-university'></i>Banco de preguntas<i class='fa fa-angle-left pull-right'></i></a>";
+    					  echo "<a href='#'><i class='fa fa-university'></i>Question Bank<i class='fa fa-angle-left pull-right'></i></a>";
     					  echo "<ul class='treeview-menu'>";
-    					    echo "<li><a href='preguntas_put_upddat.php'><i class='fa fa-minus'></i> Respuesta corta</a></li>";
+    					    echo "<li><a href='preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short Answer</a></li>";
     					    echo "<li><a href='preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Sel. sencilla</a></li>";
-    					    echo "<li><a href='preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Sel. múltiple 2</a></li>";
-    					    echo "<li><a href='preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Sel. múltiple 3</a></li>";
+    					    echo "<li><a href='preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple Choice 2</a></li>";
+    					    echo "<li><a href='preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple Choice 3</a></li>";
     					  echo "</ul>";
     				    echo "</li>";
     				    echo "<li class='treeview'>";
@@ -199,12 +199,12 @@
 				if($id == 18) {
 					echo "<li class='treeview'>";
 					  echo "<a href='cod_entrevista.php'>";
-					  echo "<i class='fa fa-key'></i> <span>Código entrevista</span>";
+					  echo "<i class='fa fa-key'></i> <span>Interview Code</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='adm1.php'>";
-					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+					  echo "<i class='fa fa-users'></i> <span>Database</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
@@ -224,14 +224,14 @@
 				      echo "<i class='fa fa-angle-left pull-right'></i>";
 				      echo "</a>";
 				      echo "<ul class='treeview-menu'>";
-				        echo "<li><a href='certificados_getdat.php'><i class='fa fa-angle-right'></i> Por periodo</a></li>";
+				        echo "<li><a href='certificados_getdat.php'><i class='fa fa-angle-right'></i> By period</a></li>";
 				        echo "<li><a href='certificados_finales_getdat.php'><i class='fa fa-angle-right'></i> Finales</a></li>";
 				      echo "</ul>";
 				    echo "</li>";
 				    
 				    /*echo "<li class='treeview'>";
 					  echo "<a href='desemp_estud_per_getdat.php'>";
-					  echo "<i class='fa fa-bar-chart '></i> <span>Desempeño estudiantes</span>";
+					  echo "<i class='fa fa-bar-chart '></i> <span>Student Performance</span>";
 					  echo "</a>";
 				    echo "</li>";*/
 				    echo "<li class='treeview'>";
@@ -241,12 +241,12 @@
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='../../financieraunicab/ordenes_getdat.php'>";
-					  echo "<i class='fa fa-usd'></i> <span>Ordenes de pago</span>";
+					  echo "<i class='fa fa-usd'></i> <span>Payment Orders</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='preguntas_put_upddat.php'>";
-					  echo "<i class='fa fa-university'></i> <span>Banco de preguntas</span>";
+					  echo "<i class='fa fa-university'></i> <span>Question Bank</span>";
 					  echo "</a>";
 				    echo "</li>";
 				}
@@ -254,7 +254,7 @@
 				    if($v_param1 == 1) {
 				        echo "<li class='treeview'>";
     					  echo "<a href='adm2.php'>";
-    					  echo "<i class='fa fa-users'></i> <span>Base de datos</span>";
+    					  echo "<i class='fa fa-users'></i> <span>Database</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -269,7 +269,7 @@
 			  ?>
 			  <li class="treeview">
                 <a href='desemp_estud_per_getdat.php'>
-                <i class='fa fa-bar-chart '></i> <span>Desempeño estudiantes</span>
+                <i class='fa fa-bar-chart '></i> <span>Student Performance</span>
                 </a>
               </li>
             </ul>

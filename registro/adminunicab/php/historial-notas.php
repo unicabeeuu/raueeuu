@@ -17,7 +17,7 @@
 	$minutos = date("i",$fecha);
     
     // buscar numero matricula
-    $sql_matricula="SELECT * FROM `matricula` WHERE `id_estudiante`=".$id_estudiante." and estado='activo'";
+    $sql_matricula="SELECT * FROM `tbl_matriculas` WHERE `id_estudiante`=".$id_estudiante." and estado='activo'";
     
     $exe_matricula=mysqli_query($conexion,$sql_matricula);
     while ($rowM = mysqli_fetch_array($exe_matricula)) {
@@ -37,13 +37,13 @@
     //$sel_conteo = "SELECT COUNT(1) ct FROM notas WHERE id_estudiante = $id_estudiante";
     if($id_estudiante == $id1) {
         $sql_conteo = "SELECT COUNT(1) ct, m.id_grado 
-        FROM ".$tabla." n, matricula m 
+        FROM ".$tabla." n, tbl_matriculas m 
         WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = $id_estudiante AND m.estado = 'activo'
         GROUP BY m.id_grado";
     }
     else {
         $sql_conteo = "SELECT COUNT(1) ct, m.id_grado 
-        FROM notas n, matricula m 
+        FROM tbl_notas n, tbl_matriculas m 
         WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = $id_estudiante AND m.estado = 'activo'
         GROUP BY m.id_grado";
     }

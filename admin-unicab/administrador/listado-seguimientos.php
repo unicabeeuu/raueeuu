@@ -83,11 +83,11 @@
 					        	<?php 
 					        		//$sql_evento="SELECT * FROM `entrevistas` order by 'id'";
 					        		$sql_evento="SELECT s.id, s.documento_est, s.fecha, s.hora, e.nombres, e.apellidos, em.nombres nombres_psi, em.apellidos apellidos_psi 
-                                        FROM tbl_seguimientos s, estudiantes e, tbl_empleados em 
+                                        FROM tbl_seguimientos s, tbl_estudiantes e, tbl_empleados em 
                                         WHERE s.documento_est = e.n_documento AND s.id_psicologo = em.id 
                                         UNION ALL 
                                         SELECT s.id, e.n_documento, s.fecha, s.hora, e.nombres, e.apellidos, em.nombres nombres_psi, em.apellidos apellidos_psi 
-                                        FROM tbl_seg_psi s, tbl_seg_psi_val v, estudiantes e, tbl_empleados em  
+                                        FROM tbl_seg_psi s, tbl_seg_psi_val v, tbl_estudiantes e, tbl_empleados em  
                                         WHERE s.id_valoracion = v.id AND v.n_documento = e.n_documento AND s.id_psicologo = em.id";
 					        		$exe_evento=mysqli_query($conexion,$sql_evento);
 					        		while ($rowEvento=mysqli_fetch_array($exe_evento)) {
@@ -147,7 +147,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

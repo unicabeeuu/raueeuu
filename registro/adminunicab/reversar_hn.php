@@ -2,17 +2,17 @@
 include "php/conexion.php";
 $id_estudiante=$_GET['id'];
 
-// buscar numero matricula
-$sql_matricula="SELECT * FROM `matricula` WHERE `id_estudiante`=".$id_estudiante." and estado='activo'";
+// buscar numero tbl_matriculas
+$sql_tbl_matriculas="SELECT * FROM `tbl_matriculas` WHERE `id_estudiante`=".$id_estudiante." and estado='activo'";
 
-$exe_matricula=mysqli_query($conexion,$sql_matricula);
-while ($rowM = mysqli_fetch_array($exe_matricula)) {
-	$numero_matricula=$rowM['n_matricula'];
-	$id_matricula=$rowM['idMatricula'];
+$exe_tbl_matriculas=mysqli_query($conexion,$sql_tbl_matriculas);
+while ($rowM = mysqli_fetch_array($exe_tbl_matriculas)) {
+	$numero_tbl_matriculas=$rowM['n_tbl_matriculas'];
+	$id_tbl_matriculas=$rowM['idMatricula'];
 }
-//echo $numero_matricula;
-// buscar numero matricula
-$sql_ejecutar="SELECT DISTINCT estudiantes.id AS id_estudiante, estudiantes.apellidos, estudiantes.nombres, grados.id AS id_grado, grados.grado, materias.Id AS id_materia, materias.materia FROM (grados INNER JOIN (materias INNER JOIN carga_profesor ON materias.Id = carga_profesor.id_materia) ON grados.id = carga_profesor.id_grado) INNER JOIN (estudiantes INNER JOIN notas ON estudiantes.id = notas.id_estudiante) ON grados.id = notas.id_grado where estudiantes.id=".$id_estudiante;
+//echo $numero_tbl_matriculas;
+// buscar numero tbl_matriculas
+$sql_ejecutar="SELECT DISTINCT tbl_estudiantes.id AS id_estudiante, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, tbl_grados.id AS id_grado, tbl_grados.grado, materias.Id AS id_materia, materias.materia FROM (tbl_grados INNER JOIN (materias INNER JOIN carga_profesor ON materias.Id = carga_profesor.id_materia) ON tbl_grados.id = carga_profesor.id_grado) INNER JOIN (tbl_estudiantes INNER JOIN notas ON tbl_estudiantes.id = notas.id_estudiante) ON tbl_grados.id = notas.id_grado where tbl_estudiantes.id=".$id_estudiante;
 // echo "h ".$sql_ejecutar."<br>";
 $ejecutar=mysqli_query($conexion,$sql_ejecutar);
 
@@ -33,7 +33,7 @@ while ($row=mysqli_fetch_array($ejecutar)) {
 	$gradooo=$row['id_grado'];
 	$auto++;
 	$sql_notas="sql".$auto;
-	$sql_notas="SELECT DISTINCT ROUND(sum(nota),2) AS suma, COUNT(nota) as num_notas, grados.id as id_grado, grados.grado, materias.Id as id_materia, materias.materia, materias.pensamiento, estudiantes.id as id_estudiante, estudiantes.apellidos, estudiantes.nombres, notas.id as id_notas, notas.nota as nota FROM materias INNER JOIN (grados INNER JOIN (estudiantes INNER JOIN notas ON estudiantes.id = notas.id_estudiante) ON grados.id = notas.id_grado) ON materias.Id = notas.id_materia where estudiantes.id=".$id_estudiante." and materias.Id=".$row['id_materia'];
+	$sql_notas="SELECT DISTINCT ROUND(sum(nota),2) AS suma, COUNT(nota) as num_notas, tbl_grados.id as id_grado, tbl_grados.grado, materias.Id as id_materia, materias.materia, materias.pensamiento, tbl_estudiantes.id as id_estudiante, tbl_estudiantes.apellidos, tbl_estudiantes.nombres, notas.id as id_notas, notas.nota as nota FROM materias INNER JOIN (tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN notas ON tbl_estudiantes.id = notas.id_estudiante) ON tbl_grados.id = notas.id_grado) ON materias.Id = notas.id_materia where tbl_estudiantes.id=".$id_estudiante." and materias.Id=".$row['id_materia'];
 
 	$exe_notas="exe".$auto;
 	$exe_notas=mysqli_query($conexion,$sql_notas);
@@ -53,7 +53,7 @@ while ($row=mysqli_fetch_array($ejecutar)) {
 
 }
 	if ($contVacio===0 && $contNota===0) {
-		echo"<script>alert('El estudiante NO cuenta con notas para este grado')</script>";
+		echo"<script>alert('The student has NO grades for this grade')</script>";
 		//echo "<script>location.href='../cierre-academico.php'</script>";
 	}if ($contVacio>0) {
 		echo"<script>alert('El estudiante le faltan ".$contVacio." notas')</script>";
@@ -84,11 +84,11 @@ while ($row=mysqli_fetch_array($ejecutar)) {
 					$materiasReprobadas++;
 				}
 
-				$sql_historial="INSERT INTO `historial_notas`(`promedio`, `id_estudiante`, `id_grado`, `id_materia`, `id_matricula`) VALUES (".ROUND($promedio,1).",".$id_estudiante.",".$id_grado.",".$value[1].",".$id_matricula.")";
+				$sql_historial="INSERT INTO `historial_notas`(`promedio`, `id_estudiante`, `id_grado`, `id_materia`, `id_tbl_matriculas`) VALUES (".ROUND($promedio,1).",".$id_estudiante.",".$id_grado.",".$value[1].",".$id_tbl_matriculas.")";
 				//echo $sql_historial;
 				$exe_historial=mysqli_query($conexion,$sql_historial);
 
-				//echo"<script>alert('El cierre académico del estudiante fue exitoso')</script>";
+				//echo"<script>alert('The student academic closing was successful')</script>";
 				//echo "<script>location.href='../cierre-academico.php'</script>";
 			}
 				if ($materiasReprobadas>=1) {
@@ -97,19 +97,19 @@ while ($row=mysqli_fetch_array($ejecutar)) {
 					$EstadoGrado="aprobado";
 				}
 				
-				$actualizar_matricula="UPDATE `matricula` SET `estado`='inactivo', `EstadoGrado`='".$EstadoGrado."' WHERE id_estudiante=".$id_estudiante." AND `n_matricula`='".$numero_matricula."'";
-				$exe_matricula=mysqli_query($conexion,$actualizar_matricula);
+				$actualizar_tbl_matriculas="UPDATE `tbl_matriculas` SET `estado`='inactivo', `EstadoGrado`='".$EstadoGrado."' WHERE id_estudiante=".$id_estudiante." AND `n_tbl_matriculas`='".$numero_tbl_matriculas."'";
+				$exe_tbl_matriculas=mysqli_query($conexion,$actualizar_tbl_matriculas);
 			
-				$actualizar_estudiante="UPDATE `estudiantes` SET `estado`='inactivo' WHERE id=".$id_estudiante."";
+				$actualizar_estudiante="UPDATE `tbl_estudiantes` SET `estado`='inactivo' WHERE id=".$id_estudiante."";
 				$exe_estudiante=mysqli_query($conexion,$actualizar_estudiante);	
 
 				//eliminar notas estudiante
 				$elimnar_notas="DELETE FROM `notas` WHERE `id_estudiante`=".$id_estudiante."";
 				$exe_notas=mysqli_query($conexion,$elimnar_notas);
-				echo"<script>alert('El cierre académico del estudiante fue exitoso')</script>";
+				echo"<script>alert('The student academic closing was successful')</script>";
 				echo "<script>location.href='adm1.php'</script>";
 		}else{
-			echo"<script>alert('Este proceso no se pudo realizar')</script>";
+			echo"<script>alert('This process could not be completed')</script>";
 			//echo "<script>location.href='../index.php'</script>";
 		}
 	}

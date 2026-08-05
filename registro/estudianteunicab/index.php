@@ -2,7 +2,7 @@
 session_start();
 include "../adminunicab/php/conexion.php";
 if (isset($_SESSION['uniestudiante'])) {
-	$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+	$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 	$res=mysqli_query($conexion,$sql);
 
 	while ($fila = mysqli_fetch_array($res)){
@@ -50,7 +50,7 @@ if (isset($_SESSION['uniestudiante'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <!-- Favicon -->
@@ -134,9 +134,9 @@ if (isset($_SESSION['uniestudiante'])) {
            		 	<div class="mid-content-top charts-grids">	
                     	<div class="middle-content">                    	
 						<?php
-						    echo '<div class="alert alert-info" role="alert" id="alert"><strong>Bienvenido: </strong>'.$apellidos.' '.$nombres.'</div>';
+						    echo '<div class="alert alert-info" role="alert" id="alert"><strong>Welcome: </strong>'.$apellidos.' '.$nombres.'</div>';
 							/*if ($mensaje=="") {
-								echo '<div class="alert alert-info" role="alert" id="alert"><strong>Bienvenido: </strong>'.$apellidos.' '.$nombres.'</div>';
+								echo '<div class="alert alert-info" role="alert" id="alert"><strong>Welcome: </strong>'.$apellidos.' '.$nombres.'</div>';
 							}else{
 								echo '
 								<div class="alert alert-info" role="alert" id="alert">'.$mensaje.'</div>
@@ -173,7 +173,7 @@ if (isset($_SESSION['uniestudiante'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

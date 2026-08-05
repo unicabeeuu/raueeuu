@@ -56,21 +56,20 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<body>
 		<center>
 			<fieldset>
-				<legend>Resultados Encuesta Bimestre 4 2024
-				</legend>
+				<legend>Survey Results Bimester 4 2024</legend>
 				<?php
-					echo '<label>Total Registros &#9658; '.$sel.'</label>';
+					echo '<label>Total Records &#9658; '.$sel.'</label>';
 				?>
 				<table border="1px" class="table" id="tblest">
 					<thead>
 					<tr>
-						<td class="tdlargo"><b>GRADO</b></td>
-						<td class="tdcorto"><b>DOCUMENTO</b></td>
-						<td class="tdmedia"><b>NOMBRE</b></td>
-						<td class="tdnormal"><b>TIPO PREGUNTA</b></td>
-						<td class="tdnormal"><b>PREGUNTA</b></td>
-						<td class="tdmediol"><b>RESULTADO</b></td>
-						<td class="tdnormal"><b>AÑO</b></td>
+						<td class="tdlargo"><b>GRADE</b></td>
+						<td class="tdcorto"><b>DOCUMENT</b></td>
+						<td class="tdmedia"><b>NAME</b></td>
+						<td class="tdnormal"><b>QUESTION TYPE</b></td>
+						<td class="tdnormal"><b>QUESTION</b></td>
+						<td class="tdmediol"><b>RESULT</b></td>
+						<td class="tdnormal"><b>YEAR</b></td>
 					</tr>
 					</thead>
 					<tbody>

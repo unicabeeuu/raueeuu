@@ -3,7 +3,7 @@ session_start();
 include "php/conexion.php";
 
     $tabla = $_REQUEST['tabla'];
-    $estado = $_REQUEST['estado'];
+    //$estado = $_REQUEST['estado'];
     
 if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     $sql="SELECT * FROM tbl_empleados WHERE email='".$_SESSION['uniprofe']."' OR email='".$_SESSION['unisuper']."'";
@@ -15,7 +15,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['dependencia'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -40,9 +40,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
 ?>
 <!DOCTYPE HTML>
-<html lang="es">
-<head><meta http-equiv="Content-Type" content="text/html; charset=big5">
-<title>Unicab Registro Académico</title>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Unicab Academic Record</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -97,13 +97,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     #divtabla {
-        overflow:scroll;
+        overflow-x: auto;
         height:200px;
-        width:800px;
+        width:100%;
     }
-    
+
     #divtabla table {
-        width:800px
+        min-width:800px;
+        width:100%;
     }
     .form-controlxx {
         background-color: lightgray;
@@ -113,7 +114,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     <script>
         $(function() {
             cargar_datos();
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             
             $("#seloper").change(function() {
                 //$("#search").val("");
@@ -130,7 +131,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 
                 $("#btnadd").hide();
                 
-                var oper = $("#seloper").val();
+                let oper = $("#seloper").val();
                 
         		if(oper == "NA") {
         			if(tabla == "tbl_empleados") {
@@ -280,8 +281,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         
         function cargar_datos() {
             //alert ("hola");
-            var tabla = $("#txttabla").val();
-            var estado = $("#txtestado").val();
+            let tabla = $("#txttabla").val();
+            let estado = $("#txtestado").val();
             $("#search").val("");
             
             $.ajax({
@@ -293,7 +294,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         		    $("#search").show();
         		    $("#divtabla").html(r);
         			//$("#tbodyact").html(r);
-        			var oper = $("#seloper").val();
+        			let oper = $("#seloper").val();
         			if(oper == "MODIFICAR") {
         			    //$("td:nth-child(3)").show();
         			    if(tabla == "tbl_empleados") {
@@ -384,8 +385,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updcargo() {
-            var datos = "id=" + $("#txtidupd").val() + "&cargo=" + $("#txtcargoupd").val();
-            var cargo = $("#txtcargoupd").val();
+            let datos = "id=" + $("#txtidupd").val() + "&cargo=" + $("#txtcargoupd").val();
+            let cargo = $("#txtcargoupd").val();
             cargo = cargo.replace(" ","_");
         	//alert(datos);
         	
@@ -408,8 +409,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putcargo() {
-            var datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
-            var cargo = $("#txtcargoput").val();
+            let datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
+            let cargo = $("#txtcargoput").val();
             cargo = cargo.replace(" ","_");
         	//alert(datos);
         	
@@ -432,8 +433,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function upddepen() {
-            var datos = "id=" + $("#txtid_d_upd").val() + "&depen=" + $("#txtdepenupd").val();
-            var depen = $("#txtdepenupd").val();
+            let datos = "id=" + $("#txtid_d_upd").val() + "&depen=" + $("#txtdepenupd").val();
+            let depen = $("#txtdepenupd").val();
             depen = depen.replace(" ","_");
         	//alert(datos);
         	
@@ -451,8 +452,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putdepen() {
-            var datos = "id=" + $("#txtid_d_put").val() + "&cargo=" + $("#txtdepenput").val();
-            var depen = $("#txtdepenput").val();
+            let datos = "id=" + $("#txtid_d_put").val() + "&cargo=" + $("#txtdepenput").val();
+            let depen = $("#txtdepenput").val();
             depen = depen.replace(" ","_");
         	//alert(datos);
         	
@@ -472,8 +473,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updprof() {
-            var datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
-            var prof = $("#txtprofupd").val();
+            let datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
+            let prof = $("#txtprofupd").val();
             prof = prof.replace(" ","_");
         	//alert(datos);
         	
@@ -491,8 +492,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putprof() {
-            var datos = "id=" + $("#txtid_p_put").val() + "&prof=" + $("#txtprofput").val();
-            var prof = $("#txtprofput").val();
+            let datos = "id=" + $("#txtid_p_put").val() + "&prof=" + $("#txtprofput").val();
+            let prof = $("#txtprofput").val();
             prof = prof.replace(" ","_");
         	//alert(datos);
         	
@@ -513,8 +514,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         
         function updtd() {
             //alert ("TD");
-            var datos = "id=" + $("#txtid_td_upd").val() + "&td=" + $("#txttdupd").val();
-            var td = $("#txttdupd").val();
+            let datos = "id=" + $("#txtid_td_upd").val() + "&td=" + $("#txttdupd").val();
+            let td = $("#txttdupd").val();
             td = td.replace(" ","_");
         	//alert(datos);
         	
@@ -532,8 +533,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function puttd() {
-            var datos = "id=" + $("#txtid_td_put").val() + "&td=" + $("#txttdput").val();
-            var td = $("#txttdput").val();
+            let datos = "id=" + $("#txtid_td_put").val() + "&td=" + $("#txttdput").val();
+            let td = $("#txttdput").val();
             td = td.replace(" ","_");
         	//alert(datos);
         	
@@ -553,25 +554,25 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updemp() {
-            var datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
-            var nom = $("#txtnomupd").val();
+            let datos = "id=" + $("#txtid_p_upd").val() + "&prof=" + $("#txtprofupd").val();
+            let nom = $("#txtnomupd").val();
             nom = nom.replace(" ","_");
-            var ape = $("#txtapeupd").val();
+            let ape = $("#txtapeupd").val();
             ape = ape.replace(" ","_");
-            var depen = $("#seldepenupd").val();
+            let depen = $("#seldepenupd").val();
             depen = depen.replace(" ","_");
-            var cargo = $("#selcargoupd").val();
+            let cargo = $("#selcargoupd").val();
             cargo = cargo.replace(" ","_");
-            var prof = $("#selprofupd").val();
+            let prof = $("#selprofupd").val();
             prof = prof.replace(" ","_");
-            var nomc = $("#txtnomcupd").val();
+            let nomc = $("#txtnomcupd").val();
             nomc = nomc.replace(" ","_");
-            var rh = $("#txtrhupd").val();
+            let rh = $("#txtrhupd").val();
             rh = rh.replace(" ","_");
             rh = rh.replace("+","zzz");
         	//alert(rh);
         	
-        	var dataf = "id=" + $("#txtid_emp_upd").val() + "&nom=" + nom + "&ape=" + ape + "&email=" + $("#txtemailupd").val() + "&pc=" + $("#txtpassupd").val() 
+        	let dataf = "id=" + $("#txtid_emp_upd").val() + "&nom=" + nom + "&ape=" + ape + "&email=" + $("#txtemailupd").val() + "&pc=" + $("#txtpassupd").val() 
         		+ "&pc1=" + $("#txtpcupd").val() + "&depen=" + $("#seldepenupd").val() + "&skype=" + $("#txtskypeupd").val() + "&cel=" + $("#txtcelupd").val() 
         		+ "&cargo=" + $("#selcargoupd").val() + "&prof=" + $("#selprofupd").val() + "&nomc=" + nomc + "&rh=" + rh;
         	//alert(dataf);
@@ -593,21 +594,21 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putemp() {
-            var datos = "id=" + $("#txtid_emp_put").val();
-            var nom = $("#txtnomput").val();
+            let datos = "id=" + $("#txtid_emp_put").val();
+            let nom = $("#txtnomput").val();
             nom = nom.replace(" ","_");
-            var ape = $("#txtapeput").val();
+            let ape = $("#txtapeput").val();
             ape = ape.replace(" ","_");
-            var depen = $("#seldepenput").val();
+            let depen = $("#seldepenput").val();
             depen = depen.replace(" ","_");
-            var cargo = $("#selcargoput").val();
+            let cargo = $("#selcargoput").val();
             cargo = cargo.replace(" ","_");
-            var prof = $("#selprofput").val();
+            let prof = $("#selprofput").val();
             prof = prof.replace(" ","_");
-            var nomc = $("#txtnomcput").val();
+            let nomc = $("#txtnomcput").val();
             nomc = nomc.replace(" ","_");
             ndoc = $("#txtndocput").val();
-            var rh = $("#txtrhput").val();
+            let rh = $("#txtrhput").val();
             rh = rh.replace(" ","_");
             rh = rh.replace("+","zzz");
         	//alert(rh);
@@ -645,14 +646,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_email(input) {
-            var input_email = document.getElementById(input);
-            var input_email_val = document.getElementById(input).value;
-            var control = input + "v";
+            let input_email = document.getElementById(input);
+            let input_email_val = document.getElementById(input).value;
+            let control = input + "v";
             //alert (input_email_val);
-            var patron = /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/;
-            //var esCoincidente = patron.test(document.getElementById("email2").value);
-            //var esCoincidente = patron.test($("#email").val());
-            var esCoincidente = patron.test(input_email_val);
+            let patron = /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/;
+            //let esCoincidente = patron.test(document.getElementById("email2").value);
+            //let esCoincidente = patron.test($("#email").val());
+            let esCoincidente = patron.test(input_email_val);
             if(esCoincidente) {
                 input_email.setCustomValidity("");
                 $(".alert-danger").html("");
@@ -660,46 +661,51 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 document.getElementById(control).value = 0;
             }
             else {
-                input_email.setCustomValidity("El email no tiene el formato correcto");
-                $(".alert-danger").html("El email no tiene el formato correcto").css("color","red");
+                input_email.setCustomValidity("The email format is incorrect");
+                $(".alert-danger").html("The email format is incorrect").css("color","red");
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_texto(input, campo) {
-            var input_texto = document.getElementById(input);
-            var input_texto_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[\w]{1,100}$/;
-            var esCoincidente = patron.test(input_texto_val);
-            
-            if(esCoincidente) {
+            let input_texto = document.getElementById(input);
+            let input_texto_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let esCoincidente = patron.test(input_texto_val);
+
+            let val = String(input_texto_val).match(patron);
+            if(val == null) {
                 input_texto.setCustomValidity("");
                 $(".alert-danger").html("");
                 $(".alert-danger").hide();
                 document.getElementById(control).value = 0;
             }
             else {
-                input_texto.setCustomValidity("El campo no tiene el formato correcto");
-                $(".alert-danger").html("El campo " + campo + " no tiene el formato correcto").css("color","red");
+                let texto = "You have entered one of the following invalid characters for " + campo + ": ";
+                texto += "- _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+
+                input_texto.setCustomValidity("The field format is incorrect");
+                $(".alert-danger").html(texto).css("color","red");
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_numero(input, campo) {
-            var input_numero = document.getElementById(input);
-            var input_numero_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[0-9]{1,15}$/;
-            var esCoincidente = patron.test(input_numero_val);
+            let input_numero = document.getElementById(input);
+            let input_numero_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /^[0-9]{1,15}$/;
+            let esCoincidente = patron.test(input_numero_val);
             
             if(esCoincidente) {
                 input_numero.setCustomValidity("");
@@ -708,46 +714,51 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 document.getElementById(control).value = 0;
             }
             else {
-                input_numero.setCustomValidity("El campo no tiene el formato correcto");
-                $(".alert-danger").html("El campo " + campo + " no tiene el formato correcto").css("color","red");
+                input_numero.setCustomValidity("The field format is incorrect");
+                $(".alert-danger").html("The field " + campo + " format is incorrect").css("color","red");
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_texto1(input, campo) {
-            var input_texto = document.getElementById(input);
-            var input_texto_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[_-\w. +]{1,100}$/;
-            var esCoincidente = patron.test(input_texto_val);
-            
-            if(esCoincidente) {
+            let input_texto = document.getElementById(input);
+            let input_texto_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /[_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let esCoincidente = patron.test(input_texto_val);
+
+            let val = String(input_texto_val).match(patron);
+            if(val == null) {
                 input_texto.setCustomValidity("");
                 $(".alert-danger").html("");
                 $(".alert-danger").hide();
                 document.getElementById(control).value = 0;
             }
             else {
-                input_texto.setCustomValidity("El campo no tiene el formato correcto");
-                $(".alert-danger").html("El campo " + campo + " no tiene el formato correcto").css("color","red");
+                let texto = "You have entered one of the following invalid characters for " + campo + ": ";
+                texto += " _ \' \" < > ~ ^ * $ ! ¡ # % & ¿ ? /= + , ; : ( ) { } [ ] \\";
+
+                input_texto.setCustomValidity("The field format is incorrect");
+                $(".alert-danger").html(texto).css("color","red");
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_celular(input, campo) {
-            var input_texto = document.getElementById(input);
-            var input_texto_val = document.getElementById(input).value;
-            var control = input + "v";
-            var patron = /^[0-9]{3}\s[0-9]{3}\s[0-9]{4}$/;
-            var esCoincidente = patron.test(input_texto_val);
+            let input_texto = document.getElementById(input);
+            let input_texto_val = document.getElementById(input).value;
+            let control = input + "v";
+            let patron = /^[0-9]{3}\s[0-9]{3}\s[0-9]{4}$/;
+            let esCoincidente = patron.test(input_texto_val);
             
             if(esCoincidente) {
                 input_texto.setCustomValidity("");
@@ -756,19 +767,19 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 document.getElementById(control).value = 0;
             }
             else {
-                input_texto.setCustomValidity("El campo no tiene el formato correcto");
-                $(".alert-danger").html("El campo " + campo + " no tiene el formato correcto").css("color","red");
+                input_texto.setCustomValidity("The field format is incorrect");
+                $(".alert-danger").html("The field " + campo + " format is incorrect").css("color","red");
                 $(".alert-danger").show();
                 document.getElementById(control).value = 1;
             }
-            var tabla = $("#txttabla").val();
+            let tabla = $("#txttabla").val();
             validar_campos_upd(tabla);
             validar_campos_put(tabla);
         }
         
         function validar_campos_upd(tabla) {
             if(tabla == "tbl_empleados") {
-                var suma = parseInt($("#txtnomupdv").val()) + parseInt($("#txtapeupdv").val()) + parseInt($("#txtemailupdv").val()) + parseInt($("#seldepenupdv").val()) +
+                let suma = parseInt($("#txtnomupdv").val()) + parseInt($("#txtapeupdv").val()) + parseInt($("#txtemailupdv").val()) + parseInt($("#seldepenupdv").val()) +
                     parseInt($("#txtskypeupdv").val()) + parseInt($("#txtcelupdv").val()) + parseInt($("#selcargoupdv").val()) +
                     parseInt($("#selprofupdv").val()) + parseInt($("#txtnomcupdv").val());
                 //alert (suma);
@@ -783,7 +794,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         
         function validar_campos_put(tabla) {
             if(tabla == "tbl_empleados") {
-                var suma = parseInt($("#txtnomputv").val()) + parseInt($("#txtapeputv").val()) + parseInt($("#txtemailputv").val()) + parseInt($("#seldepenputv").val()) +
+                let suma = parseInt($("#txtnomputv").val()) + parseInt($("#txtapeputv").val()) + parseInt($("#txtemailputv").val()) + parseInt($("#seldepenputv").val()) +
                     parseInt($("#txtskypeputv").val()) + parseInt($("#txtcelputv").val()) + parseInt($("#selcargoputv").val()) +
                     parseInt($("#selprofputv").val()) + parseInt($("#txtnomcputv").val()) + parseInt($("#txtndocputv").val());
                 if(suma > 0) {
@@ -829,21 +840,21 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     		<div class="form-group"> 
                     			<div class="form-body">
                     			    <fieldset>
-                    				<legend class="alert alert-info" role="alert"><h3>ADMINISTRACION DE <?php echo strtoupper($tabla); ?></h3></legend>
+                    				<legend class="alert alert-tbl-param" role="alert"><h3>ADMINISTRATION OF <?php echo strtoupper($tabla); ?></h3></legend>
                     				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                     					<select id="seloper" name="seloper" class="my-select" style="color: white;">
-                    					    <option selected="selected" data-img-src="../docenteunicab/updreg/img/sel.png" value="NA">SO</option>
+                    					    <option selected="selected" data-img-src="../docenteunicab/updreg/img/sel.png" value="NA">SELECT</option>
                                 			<option data-img-src="../docenteunicab/updreg/img/add.png" value="AGREGAR">ADD</option>
-                                			<option data-img-src="../docenteunicab/updreg/img/upd1.png" value="MODIFICAR">UPD</option>
+                                			<option data-img-src="../docenteunicab/updreg/img/upd1.png" value="MODIFICAR">UPDATE</option>
                                 		</select>
                                 		<!--<img src="../docenteunicab/updreg/img/agregar0.png"></img>-->
                     					<!--</form>-->
                     				</fieldset><br/>
-                    				<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
-                    			    <div id="divtabla">
+                    				<input type='search' placeholder='Enter text to search' id='search' name='search' style="display: none;"><br/><br/>
+                    			    <div id="divtabla" style="width: 100%;">
         							</div>
-        							<!--<button class="btn btn-primary" id="btnadd" style="display: none;">Agregar</button>
-                        			<button class="btn btn-warning" >Modificar</button>-->
+        							<!--<button class="btn btn-primary" id="btnadd" style="display: none;">Add</button>
+                        			<button class="btn btn-warning" >Modify</button>-->
 								</div>
 								<input type="hidden" id="txttabla" name="txttabla" value="<?php echo $tabla; ?>"/>
 								<input type="hidden" id="txtestado" name="txtestado" value="<?php echo $estado; ?>"/>
@@ -864,7 +875,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">MODIFICAR REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">MODIFY RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -872,14 +883,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtidupd" class="form-control" readonly/>
-            <label>CARGO</label>
+            <label>POSITION</label>
             <input type="text" id="txtcargoupd" class="form-control" />
             <!--<input type="text" id="txtcomputar" class="form-control" oninput="validacomputar()"/>
             <label id="lblval"></label>-->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdcargo" data-dismiss="modal" onclick="updcargo()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdcargo" data-dismiss="modal" onclick="updcargo()">Save</button>
           </div>
         </div>
       </div>
@@ -889,7 +900,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">NUEVO REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">NEW RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -897,14 +908,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtidput" class="form-control" readonly/>
-            <label>CARGO</label>
+            <label>POSITION</label>
             <input type="text" id="txtcargoput" class="form-control" />
             <!--<input type="text" id="txtcomputar" class="form-control" oninput="validacomputar()"/>
             <label id="lblval"></label>-->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btncartoput" data-dismiss="modal" onclick="putcargo()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btncartoput" data-dismiss="modal" onclick="putcargo()">Save</button>
           </div>
         </div>
       </div>
@@ -916,7 +927,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">MODIFICAR REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">MODIFY RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -924,12 +935,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtid_d_upd" class="form-control" readonly/>
-            <label>DEPENDENCIA</label>
+            <label>DEPARTMENT</label>
             <input type="text" id="txtdepenupd" class="form-control" />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupddepen" data-dismiss="modal" onclick="upddepen()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupddepen" data-dismiss="modal" onclick="upddepen()">Save</button>
           </div>
         </div>
       </div>
@@ -939,7 +950,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">NUEVO REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">NEW RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -947,12 +958,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtid_d_put" class="form-control" readonly/>
-            <label>DEPENDENCIA</label>
+            <label>DEPARTMENT</label>
             <input type="text" id="txtdepenput" class="form-control" />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnputdepen" data-dismiss="modal" onclick="putdepen()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnputdepen" data-dismiss="modal" onclick="putdepen()">Save</button>
           </div>
         </div>
       </div>
@@ -964,7 +975,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">MODIFICAR REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">MODIFY RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -972,12 +983,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtid_p_upd" class="form-control" readonly/>
-            <label>PROFESION</label>
+            <label>PROFESSION</label>
             <input type="text" id="txtprofupd" class="form-control"/>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdprof" data-dismiss="modal" onclick="updprof()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdprof" data-dismiss="modal" onclick="updprof()">Save</button>
           </div>
         </div>
       </div>
@@ -987,7 +998,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">NUEVO REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">NEW RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -995,12 +1006,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtid_p_put" class="form-control" readonly/>
-            <label>PROFESION</label>
+            <label>PROFESSION</label>
             <input type="text" id="txtprofput" class="form-control" />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnputprof" data-dismiss="modal" onclick="putprof()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnputprof" data-dismiss="modal" onclick="putprof()">Save</button>
           </div>
         </div>
       </div>
@@ -1012,7 +1023,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">MODIFICAR REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">MODIFY RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -1020,12 +1031,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtid_td_upd" class="form-control" readonly/>
-            <label>TIPO DOCUMENTO</label>
+            <label>DOCUMENT TYPE</label>
             <input type="text" id="txttdupd" class="form-control"/>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdtd" data-dismiss="modal" onclick="updtd()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdtd" data-dismiss="modal" onclick="updtd()">Save</button>
           </div>
         </div>
       </div>
@@ -1035,7 +1046,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">NUEVO REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">NEW RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -1043,12 +1054,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtid_td_put" class="form-control" readonly/>
-            <label>TIPO DOCUMENTO</label>
+            <label>DOCUMENT TYPE</label>
             <input type="text" id="txttdput" class="form-control" />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnputtd" data-dismiss="modal" onclick="puttd()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnputtd" data-dismiss="modal" onclick="puttd()">Save</button>
           </div>
         </div>
       </div>
@@ -1060,7 +1071,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">MODIFICAR REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">MODIFY RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -1068,19 +1079,19 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
               <label>ID</label>
               <input type="text" id="txtid_emp_upd" class="form-control" readonly/>
-              <label>NOMBRES</label><input type="hidden" id="txtnomupdv" value="1"/>
-              <input type="text" id="txtnomupd" class="form-control" oninput="validar_texto('txtnomupd','nombres')"/>
-              <label>APELLIDOS</label><input type="hidden" id="txtapeupdv" value="1"/>
-              <input type="text" id="txtapeupd" class="form-control" oninput="validar_texto('txtapeupd','apellidos')"/>
+              <label>FIRST NAMES</label><input type="hidden" id="txtnomupdv" value="1"/>
+              <input type="text" id="txtnomupd" class="form-control" oninput="validar_texto('txtnomupd','first names')"/>
+              <label>LAST NAMES</label><input type="hidden" id="txtapeupdv" value="1"/>
+              <input type="text" id="txtapeupd" class="form-control" oninput="validar_texto('txtapeupd','last names')"/>
               <label>EMAIL</label><input type="hidden" id="txtemailupdv" value="1"/>
               <input type="text" id="txtemailupd" class="form-control" oninput="validar_email('txtemailupd')"/>
               <label>PASSWORD</label>
               <input type="text" id="txtpassupd" class="form-control" />
-              <label>N_DOCUMENTO</label>
+              <label>ID NUMBER</label>
               <input type="text" id="txtndocupd" class="form-control" readonly/>
-              <label>DEPENDENCIA</label><input type="hidden" id="seldepenupdv" value="1"/>
+              <label>DEPARTMENT</label><input type="hidden" id="seldepenupdv" value="1"/>
               <select id="seldepenupd" class="form-control">
-                <option value="NA">Seleccione dependencia</option>
+                <option value="NA">Select department</option>
                 <?php  
                     while ($filad = mysqli_fetch_array($sel_d)){
                 ?>
@@ -1091,11 +1102,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
               </select>
               <label>SKYPE</label><input type="hidden" id="txtskypeupdv" value="1"/>
               <input type="text" id="txtskypeupd" class="form-control" oninput="validar_texto1('txtskypeupd','skype')"/>
-              <label>CELULAR</label><input type="hidden" id="txtcelupdv" value="1"/>
-              <input type="text" id="txtcelupd" class="form-control" oninput="validar_celular('txtcelupd','celular')" placeholder="### ### ####"/>
-              <label>CARGO</label><input type="hidden" id="selcargoupdv" value="1"/>
+              <label>CELL PHONE</label><input type="hidden" id="txtcelupdv" value="1"/>
+              <input type="text" id="txtcelupd" class="form-control" oninput="validar_celular('txtcelupd','cell phone')" placeholder="### ### ####"/>
+              <label>POSITION</label><input type="hidden" id="selcargoupdv" value="1"/>
               <select id="selcargoupd" class="form-control">
-                <option value="NA">Seleccione cargo</option>
+                <option value="NA">Select position</option>
                 <?php  
                     while ($filac = mysqli_fetch_array($sel_c)){
                 ?>
@@ -1104,9 +1115,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     }
                 ?>
               </select>
-              <label>PROFESION</label><input type="hidden" id="selprofupdv" value="1"/>
+              <label>PROFESSION</label><input type="hidden" id="selprofupdv" value="1"/>
               <select id="selprofupd" class="form-control">
-                <option value="NA">Seleccione profesion</option>
+                <option value="NA">Select profession</option>
                 <?php  
                     while ($filap = mysqli_fetch_array($sel_p)){
                 ?>
@@ -1115,16 +1126,16 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     }
                 ?>
               </select>
-              <label>NOMBRE CORTO</label><input type="hidden" id="txtnomcupdv" value="1"/>
-              <input type="text" id="txtnomcupd" class="form-control" oninput="validar_texto('txtnomcupd','nombre corto')"/>
-              <label>RH</label><input type="hidden" id="txtrhupdv" value="1"/>
+              <label>SHORT NAME</label><input type="hidden" id="txtnomcupdv" value="1"/>
+              <input type="text" id="txtnomcupd" class="form-control" oninput="validar_texto('txtnomcupd','short name')"/>
+              <label>BLOOD TYPE (RH)</label><input type="hidden" id="txtrhupdv" value="1"/>
               <input type="text" id="txtrhupd" class="form-control" oninput="validar_texto1('txtrhupd','RH')"/>
           </div>
           <input type="hidden" id="txtpcupd"/>
           <label id="alertempupd" class="alert alert-danger"></label>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdemp" data-dismiss="modal" onclick="updemp()" style="display: none;">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdemp" data-dismiss="modal" onclick="updemp()" style="display: none;">Save</button>
           </div>
         </div>
       </div>
@@ -1134,7 +1145,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">NUEVO REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">NEW RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -1142,19 +1153,19 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtid_emp_put" class="form-control" readonly/>
-            <label>NOMBRES</label><input type="hidden" id="txtnomputv" value="1"/>
-            <input type="text" id="txtnomput" class="form-control" oninput="validar_texto('txtnomput','nombres')"/>
-            <label>APELLIDOS</label><input type="hidden" id="txtapeputv" value="1"/>
-            <input type="text" id="txtapeput" class="form-control" oninput="validar_texto('txtapeput','apellidos')"/>
+            <label>FIRST NAMES</label><input type="hidden" id="txtnomputv" value="1"/>
+            <input type="text" id="txtnomput" class="form-control" oninput="validar_texto('txtnomput','first names')"/>
+            <label>LAST NAMES</label><input type="hidden" id="txtapeputv" value="1"/>
+            <input type="text" id="txtapeput" class="form-control" oninput="validar_texto('txtapeput','last names')"/>
             <label>EMAIL</label><input type="hidden" id="txtemailputv" value="0"/>
             <input type="text" id="txtemailput" class="form-control" oninput="validar_email('txtemailput')"/>
             <label>PASSWORD</label>
             <input type="text" id="txtpassput" class="form-control" />
-            <label>N_DOCUMENTO</label><input type="hidden" id="txtndocputv" value="1"/>
-            <input type="text" id="txtndocput" class="form-control" oninput="validar_numero('txtndocput','n_documento')"/>
-            <label>DEPENDENCIA</label><input type="hidden" id="seldepenputv" value="1"/>
+            <label>ID NUMBER</label><input type="hidden" id="txtndocputv" value="1"/>
+            <input type="text" id="txtndocput" class="form-control" oninput="validar_numero('txtndocput','id number')"/>
+            <label>DEPARTMENT</label><input type="hidden" id="seldepenputv" value="1"/>
             <select id="seldepenput" class="form-control">
-                <option value="NA">Seleccione dependencia</option>
+                <option value="NA">Select department</option>
                 <?php  
                     while ($filad1 = mysqli_fetch_array($sel_d1)){
                 ?>
@@ -1165,11 +1176,11 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             </select>
             <label>SKYPE</label><input type="hidden" id="txtskypeputv" value="1"/>
             <input type="text" id="txtskypeput" class="form-control" oninput="validar_texto1('txtskypeput','skype')"/>
-            <label>CELULAR</label><input type="hidden" id="txtcelputv" value="1"/>
-            <input type="text" id="txtcelput" class="form-control" oninput="validar_celular('txtcelput','celular')"/>
-            <label>CARGO</label><input type="hidden" id="selcargoputv" value="1"/>
+            <label>CELL PHONE</label><input type="hidden" id="txtcelputv" value="1"/>
+            <input type="text" id="txtcelput" class="form-control" oninput="validar_celular('txtcelput','cell phone')"/>
+            <label>POSITION</label><input type="hidden" id="selcargoputv" value="1"/>
             <select id="selcargoput" class="form-control">
-                <option value="NA">Seleccione cargo</option>
+                <option value="NA">Select position</option>
                 <?php  
                     while ($filac1 = mysqli_fetch_array($sel_c1)){
                 ?>
@@ -1178,9 +1189,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     }
                 ?>
             </select>
-            <label>PROFESION</label><input type="hidden" id="selprofputv" value="1"/>
+            <label>PROFESSION</label><input type="hidden" id="selprofputv" value="1"/>
             <select id="selprofput" class="form-control">
-                <option value="NA">Seleccione profesion</option>
+                <option value="NA">Select profession</option>
                 <?php  
                     while ($filap1 = mysqli_fetch_array($sel_p1)){
                 ?>
@@ -1189,15 +1200,15 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     }
                 ?>
             </select>
-            <label>NOMBRE CORTO</label><input type="hidden" id="txtnomcputv" value="1"/>
-            <input type="text" id="txtnomcput" class="form-control" oninput="validar_texto('txtnomcput','nombre corto')"/>
-            <label>RH</label><input type="hidden" id="txtrhputv" value="1"/>
+            <label>SHORT NAME</label><input type="hidden" id="txtnomcputv" value="1"/>
+            <input type="text" id="txtnomcput" class="form-control" oninput="validar_texto('txtnomcput','short name')"/>
+            <label>BLOOD TYPE (RH)</label><input type="hidden" id="txtrhputv" value="1"/>
             <input type="text" id="txtrhput" class="form-control" oninput="validar_texto1('txtrhput','RH')"/>
           </div>
           <label id="alertempput" class="alert alert-danger"></label>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnputemp" data-dismiss="modal" onclick="putemp()" style="display: none;">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnputemp" data-dismiss="modal" onclick="putemp()" style="display: none;">Save</button>
           </div>
         </div>
       </div>
@@ -1206,7 +1217,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -1257,7 +1268,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

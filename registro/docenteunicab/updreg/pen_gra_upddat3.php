@@ -125,16 +125,16 @@
 									<table border="1px" class="tr">
 										<thead>
 											<tr>
-												<td><b>Id estudiante</b></td>
+												<td><b>Student Id</b></td>
 												<td><b>Apellidos</b></td>
 												<td><b>Nombres</b></td>
-												<td><b>Grado</b></td>
-												<td><b>Materia</b></td>
-												<td><b>Periodo</b></td>
-												<td><b>Id materia</b></td>
-												<td><b>Id grado</b></td>
-												<td><b>Nota actual</b></td>
-												<td><b>Nota nueva</b></td>
+												<td><b>Grade</b></td>
+												<td><b>Subject</b></td>
+												<td><b>Period</b></td>
+												<td><b>Subject Id</b></td>
+												<td><b>Grade Id</b></td>
+												<td><b>Current grade</b></td>
+												<td><b>New grade</b></td>
 											</tr>
 										</thead>
 										<tbody>
@@ -206,16 +206,16 @@
 									<table border="1px" class="tr">
 										<thead>
 											<tr>
-												<td><b>Id estudiante</b></td>
+												<td><b>Student Id</b></td>
 												<td><b>Apellidos</b></td>
 												<td><b>Nombres</b></td>
-												<td><b>Grado</b></td>
-												<td><b>Materia</b></td>
-												<td><b>Periodo</b></td>
-												<td><b>Id materia</b></td>
-												<td><b>Id grado</b></td>
-												<td><b>Nota actual</b></td>
-												<td><b>Nota nueva</b></td>
+												<td><b>Grade</b></td>
+												<td><b>Subject</b></td>
+												<td><b>Period</b></td>
+												<td><b>Subject Id</b></td>
+												<td><b>Grade Id</b></td>
+												<td><b>Current grade</b></td>
+												<td><b>New grade</b></td>
 											</tr>
 										</thead>
 										<tbody>
@@ -281,23 +281,23 @@
 						<tr>
 							<td>
 								<fieldset>
-									<legend>REGISTROS NO INGRESADOS DE EST SIN RA</legend>
+									<legend>UNADDED RECORDS OF STUDENTS WITHOUT RA</legend>
 									<?php
 									echo '<label>Total Registros &#9658; '.$sel_tno_ra.'</label>';
 									?>
 									<table border="1px" class="tr">
 										<thead>
 											<tr>
-												<td><b>Id estudiante</b></td>
+												<td><b>Student Id</b></td>
 												<td><b>Apellidos</b></td>
 												<td><b>Nombres</b></td>
-												<td><b>Grado</b></td>
-												<td><b>Materia</b></td>
-												<td><b>Periodo</b></td>
-												<td><b>Id materia</b></td>
-												<td><b>Id grado</b></td>
-												<td><b>Nota actual</b></td>
-												<td><b>Nota nueva</b></td>
+												<td><b>Grade</b></td>
+												<td><b>Subject</b></td>
+												<td><b>Period</b></td>
+												<td><b>Subject Id</b></td>
+												<td><b>Grade Id</b></td>
+												<td><b>Current grade</b></td>
+												<td><b>New grade</b></td>
 											</tr>
 										</thead>
 										<tbody>
@@ -327,7 +327,7 @@
 				</table>
 			</div>
 			<div id="btncargue" style="display: none;">
-				<!--<a href="cal_reg_putdat1.php?id=<?php echo $id; ?>" target="_blank"><button type="button" class="btn">Actualizar información</button></a>-->
+				<!--<a href="cal_reg_putdat1.php?id=<?php echo $id; ?>" target="_blank"><button type="button" class="btn">Update information</button></a>-->
 				<!-- Button trigger modal -->
 				<?php
 				    if($id > 0) {
@@ -353,7 +353,7 @@
 			<div class="modal-content">
 			  <div class="modal-header">
 				<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-				<h4 class="modal-title" id="myModalLabel">Actualizar calificaciones en registro</h4>
+				<h4 class="modal-title" id="myModalLabel">Update grades in record</h4>
 			  </div>
 			  <div class="modal-body">
 				<label>Esta seguro de actualizar las calificaciones en Registro?

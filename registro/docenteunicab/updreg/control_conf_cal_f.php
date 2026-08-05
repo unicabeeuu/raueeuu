@@ -48,12 +48,12 @@
 	$cadena = "<table class='table' border='1px'><thead><tr><td>Grado</td><td>Id_gra</td><td>Idnumber</td>
 	    <td>BIO</td><td>FIS</td><td>SOC</td><td>NUM</td><td>ESP</td><td>ING</td><td>TEC</td></tr></thead><tbody>";
 	
-	$query1 = "SELECT id_grado_ra, grado_ra FROM equivalence_idgra WHERE id_grado_ra != 0 ORDER BY id_grado_ra";
+	$query1 = "SELECT id_grado_ra, grado_ra FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
 	//echo $query1;
 	$resultado=$mysqli1->query($query1);
 	while($row = $resultado->fetch_assoc()){
 		$query2 = "SELECT g.name, g.id_grado_ra, m.shortname, m.id_materia_ra, c.id_act, c.calculation1, c.idnumber 
-            FROM tbl_config_act_ok c, equivalence_idgra g, equivalence_idmat m 
+            FROM tbl_config_act_ok c, tbl_equivalence_idgra g, equivalence_idmat m 
             WHERE c.id_grado = g.id_category AND c.id_pensamiento = m.id_course AND c.calculation1 != '=' 
             AND c.idnumber IN $in AND g.id_grado_ra = ".$row['id_grado_ra']."
             ORDER BY c.idnumber, g.id_grado_ra, m.id_materia_ra";

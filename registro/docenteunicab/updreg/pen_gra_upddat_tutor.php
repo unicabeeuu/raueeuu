@@ -17,14 +17,14 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email_institucional'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['password'];		
     }
     //echo $id;
     
 	$query1 = "SELECT q.* 
-		FROM carga_profesor cp, querys_ra q, profesores p, equivalence_idgra eg, equivalence_idmat em 
+		FROM carga_profesor cp, querys_ra q, profesores p, tbl_equivalence_idgra eg, equivalence_idmat em 
 		WHERE cp.id_grado = eg.id_grado_ra AND eg.id_category = q.condicion2 AND cp.id_materia = em.id_materia_ra AND em.id_course = q.condicion4 
 		AND cp.id_profesor = p.id 
 		AND q.id > 25 AND p.email_institucional = '".$_SESSION['uniprofe']."' 
@@ -111,7 +111,7 @@ if (isset($_SESSION['uniprofe'])) {
 												<tr>
 													<td>
 														<fieldset>
-															<legend>PENSAMIENTOS Y GRADOS A CARGAR</legend>
+															<legend>SUBJECTS AND GRADES TO LOAD</legend>
 															<div>
 															    <table border="1px" class="tr">
 																	<thead>
@@ -153,7 +153,7 @@ if (isset($_SESSION['uniprofe'])) {
 																	</tbody>
 																</table>
 															</div>
-															<label class="msg">* No RA: Registros no insertados por pertenecer a estudiantes que no estÃ¡n en registro</label>
+															<label class="msg">* No RA: Records not inserted because they belong to students who are not in the registry</label>
 														</fieldset>							
 													</td>
 												</tr>
@@ -222,7 +222,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);
@@ -234,7 +234,7 @@ if (isset($_SESSION['uniprofe'])) {
 	</body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesi¨®n');</script>";
+	echo "<script>alert('Debes iniciar sesiï¿½ï¿½n');</script>";
 	echo "<script>location.href='../../../login_registro.php'</script>";
 }
 ?>

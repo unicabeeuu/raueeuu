@@ -171,7 +171,7 @@
 						}
 						if($control == 21) {
 							$query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra, ee.id_registro 
-								FROM notas_mood_temp a, equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
+								FROM notas_mood_temp a, tbl_equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course AND a.id_est = ee.id_moodle";
 							//echo $query1;
 							
@@ -261,7 +261,7 @@
 							$query_en1 = "INSERT INTO notas_temp_no_ra 
 							SELECT mt.id_est, mt.lastname, mt.firstname, g.name, m.shortname, mt.periodo_ra, m.id_materia_ra, g.id_grado_ra, 
 							0 nota_actual, mt.calificacion 
-							FROM notas_mood_temp mt, equivalence_idgra g, equivalence_idmat m 
+							FROM notas_mood_temp mt, tbl_equivalence_idgra g, equivalence_idmat m 
 							WHERE mt.id_grado = g.id_category AND mt.id = m.id_course AND mt.id_est NOT IN (SELECT id_moodle FROM equivalence_idest)";
 							
 							echo '<script type="text/javascript">','add_resumen("Cargando tabla notas_temp_no_ra para '.$pensamiento.' grados '.$grados.'");','</script>';

@@ -17,12 +17,11 @@
     if($mes >= 11) {
         $fanio = $fanio + 1;
     }
-	
-	$tablae = "estudiantes";
-	$tablam = "matricula";
+	$tablae = "tbl_estudiantes";
+	$tablam = "tbl_matriculas";
 	
 	//Se hace la consulta
-	$query0 = "SELECT e.*, m.*, CASE e.genero WHEN 'FEMENINO' THEN 1 WHEN 'MASCULINO' THEN 2 END idgenero, e.estado estadoe  
+	$query0 = "SELECT e.*, m.*, CASE e.genero WHEN 'FEMENINO' THEN 1 WHEN 'MASCULINO' THEN 2 END idgenero, e.rh estadoe  
 	FROM ".$tablae." e, ".$tablam." m WHERE e.id = m.id_estudiante AND e.n_documento = '$documento' AND fecha_ingreso like '%$fanio%'";
 	//echo $query0;
 	$resultado0 = $mysqli1->query($query0);

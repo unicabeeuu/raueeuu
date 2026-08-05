@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    # session_start(); Session is already started in index.php, no need to start it again here
 	Include "../adminunicab/php/conexion.php";
 	
 	date_default_timezone_set('America/Bogota');
@@ -9,7 +9,7 @@
     $fanio=date("Y");
 	
     //Se captura el id y grado del estudiante
-    $sql = "SELECT e.id, m.id_grado FROM estudiantes e, matricula m 
+    $sql = "SELECT e.id, m.id_grado FROM tbl_estudiantes e, tbl_matriculas m
 	WHERE e.id = m.id_estudiante AND e.n_documento = '".$_SESSION['identifest']."' AND m.n_matricula like '%$fanio%'";
     $res=mysqli_query($conexion,$sql);
 
@@ -36,10 +36,10 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Menu Navegable</li>
+              <li class="header">Navigation Menu</li>
               <li class="treeview">
                 <a href="index.php">
-                <i class="fa fa-home"></i> <span>Inicio</span>
+                <i class="fa fa-home"></i> <span>Home</span>
                 </a>
               </li>
               <!--<li class="treeview">
@@ -49,47 +49,47 @@
               </li>-->
               <li class="treeview">
                 <a href="materias.php">
-                <i class="fa fa-table"></i> <span>Materias Inscritas</span>
+                <i class="fa fa-table"></i> <span>Enrolled Subjects</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="encuesta.php">
-                <i class="fa fa-file-pdf-o"></i> <span>Certificado de Notas</span>
+                <i class="fa fa-file-pdf-o"></i> <span>Grade Certificate</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="estudiantes_evaladm.php?idest=<?php echo $idest; ?>">
-                <i class="fa fa-file-text"></i> <span>Evaluación Admisión</span>
+                <i class="fa fa-file-text"></i> <span>Admission Evaluation</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="carnets.php?idest=<?php echo $idest; ?>">
-                <i class="fa fa-file-pdf-o"></i> <span>Carnet Estudiantil</span>
+                <i class="fa fa-file-pdf-o"></i> <span>Student ID Card</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="polizas.php?idest=<?php echo $idest; ?>">
-                <i class="fa fa-file-pdf-o"></i> <span>Póliza</span>
+                <i class="fa fa-file-pdf-o"></i> <span>Insurance Policy</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="pazysalvo.php?idest=<?php echo $idest; ?>">
-                <i class="fa fa-check-circle"></i> <span>Paz y Salvo</span>
+                <i class="fa fa-check-circle"></i> <span>Clearance Certificate</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="certificado_final.php">
-                <i class="fa fa-file-pdf-o"></i> <span>Certificado Final</span>
+                <i class="fa fa-file-pdf-o"></i> <span>Final Certificate</span>
                 </a>
               </li>
               <li class="treeview">
                 <a href="cupo.php">
-                <i class="fa fa-share-square-o"></i> <span>Cupo Apartado</span>
+                <i class="fa fa-share-square-o"></i> <span>Reserved Spot</span>
                 </a>
               </li>
 			  <li class="treeview">
                 <a href="observador.php">
-                <i class="fa fa-folder-open"></i> <span>Observador Estudiante</span>
+                <i class="fa fa-folder-open"></i> <span>Student Record</span>
                 </a>
               </li>
 			  <?php
@@ -97,7 +97,7 @@
 			  ?>
 			  <li class="treeview">
                 <a href="diploma.php">
-                <i class="fa fa-graduation-cap"></i> <span>Diploma de Grado</span>
+                <i class="fa fa-graduation-cap"></i> <span>Degree Diploma</span>
                 </a>
               </li>
 			  <?php

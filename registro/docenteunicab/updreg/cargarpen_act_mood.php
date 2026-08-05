@@ -33,7 +33,7 @@
             (SELECT DISTINCT shortname, id_pensamiento id_pensamiento_original, 
 			case concat(id_grado,id_pensamiento) when 2273 then 73997 when 2376 then 76997 when 1647 then 47997 when 1752 then 52997 
 			else id_pensamiento end id_pensamiento, id_grado FROM tbl_config_act WHERE id_grado = $idgra) a, 
-            equivalence_idgra eg, 
+            tbl_equivalence_idgra eg, 
             (SELECT DISTINCT id_grado, id_materia FROM carga_profesor WHERE id_empleado = $id) cp, 
             equivalence_idmat em 
             WHERE a.id_grado = eg.id_category AND eg.id_grado_ra = cp.id_grado AND cp.id_materia = em.id_materia_ra 
@@ -43,7 +43,7 @@
             (SELECT DISTINCT shortname, id_pensamiento id_pensamiento_original, 
 			case concat(id_grado,id_pensamiento) when 2273 then 73997 when 2376 then 76997 when 1647 then 47997 when 1752 then 52997 
 			else id_pensamiento end id_pensamiento, id_grado FROM tbl_config_act WHERE id_grado = $idgra) a, 
-            equivalence_idgra eg, 
+            tbl_equivalence_idgra eg, 
             (SELECT DISTINCT id_grado, id_materia FROM carga_profesor WHERE id_empleado = $id) cp, 
             equivalence_idmat em 
             WHERE a.id_grado = eg.id_category AND eg.id_grado_ra = cp.id_grado AND cp.id_materia = em.id_materia_ra 
