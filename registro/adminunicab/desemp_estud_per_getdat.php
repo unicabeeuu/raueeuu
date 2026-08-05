@@ -14,18 +14,18 @@ if (isset($_SESSION['unisuper'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
     }
     //echo $id;
     if($id == 18 || $id == 3 || $id == 2 || $id == 43) {
-        $query = "SELECT * FROM equivalence_idgra WHERE id_grado_ra > 0 AND id_grado_ra <= 18";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
     }
     else {
-        $query = "SELECT DISTINCT eg.* FROM equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id 
-		AND id_grado_ra > 0 AND id_grado_ra <= 18";
+        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id
+		AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ORDER BY eg.id_grado_ra";
     }
     //echo $query;
     $resultado = $mysqli1->query($query);
@@ -34,7 +34,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Acad¨¦mico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -123,13 +123,13 @@ if (isset($_SESSION['unisuper'])) {
             $("#selgra1").change(function() {
                 $("#resul_bus").hide("");
                 
-                var gra = $("#selgra1").val();
+                let gra = $("#selgra1").val();
         		
         		if(gra == "NA") {
         			$("#submit").hide("");
         		}
         		else {
-        		    var per = $("#selper1").val();
+        		    let per = $("#selper1").val();
             		if(per == "0") {
             			$("#submit").hide("");
             		}
@@ -141,13 +141,13 @@ if (isset($_SESSION['unisuper'])) {
         	$("#selper1").change(function() {
         	    $("#resul_bus").hide("");
         	    
-                var per = $("#selper1").val();
+                let per = $("#selper1").val();
         		
         		if(per == "0") {
         			$("#submit").hide("");
         		}
         		else {
-        		    var gra = $("#selgra1").val();
+        		    let gra = $("#selgra1").val();
             		if(gra == "NA") {
             			$("#submit").hide("");
             		}
@@ -160,7 +160,7 @@ if (isset($_SESSION['unisuper'])) {
         	$(".accordion-titulo1").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content1");
+                let contenido=$(this).next(".accordion-content1");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -179,7 +179,7 @@ if (isset($_SESSION['unisuper'])) {
             $(".accordion-titulo2").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content2");
+                let contenido=$(this).next(".accordion-content2");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -198,7 +198,7 @@ if (isset($_SESSION['unisuper'])) {
             $(".accordion-titulo3").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content3");
+                let contenido=$(this).next(".accordion-content3");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -217,7 +217,7 @@ if (isset($_SESSION['unisuper'])) {
             $(".accordion-titulo4").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content4");
+                let contenido=$(this).next(".accordion-content4");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -236,7 +236,7 @@ if (isset($_SESSION['unisuper'])) {
             $(".accordion-titulo5").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content5");
+                let contenido=$(this).next(".accordion-content5");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -255,7 +255,7 @@ if (isset($_SESSION['unisuper'])) {
             $(".accordion-titulo6").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content6");
+                let contenido=$(this).next(".accordion-content6");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -274,7 +274,7 @@ if (isset($_SESSION['unisuper'])) {
             $(".accordion-titulo7").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content7");
+                let contenido=$(this).next(".accordion-content7");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -293,7 +293,7 @@ if (isset($_SESSION['unisuper'])) {
             $(".accordion-titulo8").click(function(e){
                 e.preventDefault();
             
-                var contenido=$(this).next(".accordion-content8");
+                let contenido=$(this).next(".accordion-content8");
         
                 if(contenido.css("display")=="none"){ //open        
                   contenido.slideDown(250);         
@@ -327,7 +327,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot").html();
+        			let stot = $("#stot").html();
         			if(stot == "0") {
         			    $(".accordion-titulo1").hide();
         			}
@@ -350,7 +350,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla1").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot1").html();
+        			let stot = $("#stot1").html();
         			if(stot == "0") {
         			    $(".accordion-titulo2").hide();
         			}
@@ -372,7 +372,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla2").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot2").html();
+        			let stot = $("#stot2").html();
         			if(stot == "0") {
         			    $(".accordion-titulo3").hide();
         			}
@@ -394,7 +394,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla3").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot3").html();
+        			let stot = $("#stot3").html();
         			if(stot == "0") {
         			    $(".accordion-titulo4").hide();
         			}
@@ -416,7 +416,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla4").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot4").html();
+        			let stot = $("#stot4").html();
         			if(stot == "0") {
         			    $(".accordion-titulo5").hide();
         			}
@@ -438,7 +438,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla5").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot5").html();
+        			let stot = $("#stot5").html();
         			if(stot == "0") {
         			    $(".accordion-titulo6").hide();
         			}
@@ -460,7 +460,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla6").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot6").html();
+        			let stot = $("#stot6").html();
         			if(stot == "0") {
         			    $(".accordion-titulo7").hide();
         			}
@@ -482,7 +482,7 @@ if (isset($_SESSION['unisuper'])) {
         		    //alert(r);
         			$("#divtabla7").html(r);
         			//$("#tbodyact").html(r);
-        			var stot = $("#stot7").html();
+        			let stot = $("#stot7").html();
         			if(stot == "0") {
         			    $(".accordion-titulo8").hide();
         			}
@@ -515,7 +515,7 @@ if (isset($_SESSION['unisuper'])) {
             		url:"consultar_acudiente.php",
             		data:"idest=" + idest,
             		success:function(r) {
-            		    var arrayDatos = r.split("|");
+            		    let arrayDatos = r.split("|");
             		    
             		    $("#txtacu1").val(arrayDatos[0]);
             		    $("#txtcel1").val(arrayDatos[1]);
@@ -569,15 +569,15 @@ if (isset($_SESSION['unisuper'])) {
                         			<!--***********************************************************************************************-->
                         			<div id="div2">
                         			    <fieldset>
-                        				<legend><h3>RESULTADOS DE ESTUDIANTES</h3></legend>
+                        				<legend><h3 style="color: #FC0D8C;">STUDENT RESULTS</h3></legend>
                         				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                         					<ul class="mprincipal">
-                        						<li><h3>LISTADO POR<span style="color: white;">.....</span>
+                        						<li><h3>LIST BY<span style="color: white;">.....</span>
                         						</h3></li>
-                        							<ul class="msecund">
-                        								<li>
+                        							<ul class="msecund" style="background-color: #222a75;">
+                        								<li style="background-color: #222a75;">
 															<select id="selgra1" name="selgra1" required>
-															    <option value="NA" selected>Seleccione grado</option>
+															    <option value="NA" selected>Select grade</option>
 															    <?php 
 															        while($row = $resultado->fetch_assoc()){
 															            echo "<option value='".$row['id_grado_ra']."'>".$row['name']."</option>";
@@ -586,7 +586,7 @@ if (isset($_SESSION['unisuper'])) {
 															</select>
 															<label style="color: white;">...</label>
 															<select id="selper1" name="selper1" required>
-															    <option value="0" selected>Seleccione periodo</option>
+															    <option value="0" selected>Select period</option>
 															    <option value="1">1</option>
 															    <option value="2">2</option>
 															    <option value="3">3</option>
@@ -594,16 +594,16 @@ if (isset($_SESSION['unisuper'])) {
 															</select>
 															<label style="color: white;">...</label>
 															<select id="selgrupo" name="selgrupo" required>
-															    <option value="NA" selected>Grupo</option>
+															    <option value="NA" selected>Group</option>
 															    <option value="A">A</option>
 															    <option value="B">B</option>
 															    <option value="C">C</option>
 															    <option value="D">D</option>
 															</select>
 															<label style="color: white;">...</label>
-															<!--<a href="estudianteg_getdat.php" >Buscar</a>
+															<!--<a href="estudianteg_getdat.php" >Search</a>
 															<input type="submit" id="submitxxx" class="btn btn-primary" value="Buscarxx" style="display: none;">-->
-															<button id="submit" class="btn btn-primary" style="display: none;" onclick="consultar_desemp()">Cargar</button>
+															<button id="submit" class="btn" style="display: none; background-color: #ff9805; color: white;" onclick="consultar_desemp()">Load</button>
 														</li>
                         							</ul>
                         					</ul>
@@ -614,70 +614,70 @@ if (isset($_SESSION['unisuper'])) {
 								<div id="resul_bus" style="display: none;">
 								    <div class="accordion-titulo1" style="background: #088A4B; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon1" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van pasando todos los pensamientos.
+									    List of students passing all subjects.
 									</div>
 									<div class="accordion-content1" style="display: none;"><!--********************-->
         								<div id="divtabla">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo2" style="background: #084B8A; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon2" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 1 pensamiento.
+									    List of students failing 1 subject.
 									</div>
 									<div class="accordion-content2" style="display: none;"><!--********************-->
         								<div id="divtabla1">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo3" style="background: #088A85; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon3" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 2 pensamientos.
+									    List of students failing 2 subjects.
 									</div>
 									<div class="accordion-content3" style="display: none;"><!--********************-->
         								<div id="divtabla2">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo4" style="background: #D7DF01; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon4" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 3 pensamientos.
+									    List of students failing 3 subjects.
 									</div>
 									<div class="accordion-content4" style="display: none;"><!--********************-->
         								<div id="divtabla3">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo5" style="background: #DF7401; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon5" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 4 pensamientos.
+									    List of students failing 4 subjects.
 									</div>
 									<div class="accordion-content5" style="display: none;"><!--********************-->
         								<div id="divtabla4">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo6" style="background: #B43104; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon6" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 5 pensamientos.
+									    List of students failing 5 subjects.
 									</div>
 									<div class="accordion-content6" style="display: none;"><!--********************-->
         								<div id="divtabla5">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo7" style="background: #B40404; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon7" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 6 pensamientos.
+									    List of students failing 6 subjects.
 									</div>
 									<div class="accordion-content7" style="display: none;"><!--********************-->
         								<div id="divtabla6">
-        								    
+
         								</div>
     								</div>
     								<div class="accordion-titulo8" style="background: #8A0829; color: #ffffff; font-size: 24px; font-weight: 300;">
 									    <span class="toggle-icon8" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-									    Listado de estudiantes que van perdiendo 7 pensamientos.
+									    List of students failing 7 subjects.
 									</div>
 									<div class="accordion-content8" style="display: none;"><!--********************-->
         								<div id="divtabla7">
@@ -711,9 +711,9 @@ if (isset($_SESSION['unisuper'])) {
               <div class="modal-body">
                 <label>Id_est</label>
                 <input type="text" id="txtidest" class="form-control" readonly/>
-                <label>Nombres</label>
+                <label>First Names</label>
                 <input type="text" id="txtnom" class="form-control" readonly/>
-                <label>Calificaciones</label>
+                <label>Grades</label>
                 <div>
                     <label>BIO</label>
                     <input type="text" id="txtbio" style="width: 30px;" readonly/>
@@ -731,18 +731,18 @@ if (isset($_SESSION['unisuper'])) {
                     <label>TEC</label>
                     <input type="text" id="txttec" style="width: 30px;" readonly/>
                 </div>
-                <label>Acudiente 1</label>
+                <label>Guardian 1</label>
                 <input type="text" id="txtacu1" class="form-control" readonly/>
-                <label>Cel. Acudiente 1</label>
+                <label>Guardian 1 Phone</label>
                 <input type="text" id="txtcel1" class="form-control" readonly/>
-                <label>Acudiente 2</label>
+                <label>Guardian 2</label>
                 <input type="text" id="txtacu2" class="form-control" readonly/>
-                <label>Cel. Acudiente 2</label>
+                <label>Guardian 2 Phone</label>
                 <input type="text" id="txtcel2" class="form-control" readonly/>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Guardar</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-warning" id="btnupdpor" data-dismiss="modal" onclick="updpor()">Save</button>-->
               </div>
             </div>
           </div>
@@ -751,7 +751,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -797,9 +797,9 @@ if (isset($_SESSION['unisuper'])) {
    		<!-- validar combo periodo -->
 		<script type="text/javascript">
 			function validacion() {
-				var grado=document.getElementById('id_grado').value;
+				let grado=document.getElementById('id_grado').value;
 				if (grado==0) {
-					$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+					$('#alert').html('<center><strong>Warning</strong> You must select a valid grade</center>').slideDown(500);
 					return false;
 				}else{
 					$('#alert').html('').slideUp(300);

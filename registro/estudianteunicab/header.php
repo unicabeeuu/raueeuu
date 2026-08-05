@@ -15,7 +15,7 @@
 								<div class="profile_img">	
 									<span class="prfil-img"><img src="../images/estudiante.png" alt=""> </span> 
 									<div class="user-name">
-										<p>Bienvenido</p>
+										<p>Welcome</p>
 										<span><?php echo $_SESSION['uniestudiante']; ?></span>
 									</div>
 									<i class="fa fa-angle-down lnr"></i>
@@ -25,7 +25,7 @@
 							</a>
 							<ul class="dropdown-menu drp-mnu">
 								<!--<li> <a href="#" data-toggle="modal" data-target="#myModal" title="Editar Datos Personales Usuario"><i class="fa fa-suitcase"></i> Datos Personales</a> </li>--> 
-								<li> <a href="../adminunicab/php/logout.php"  title="Salir del Sistema"><i class="fa fa-sign-out"></i> Cerrar Sesión</a> </li>
+								<li> <a href="../adminunicab/php/logout.php"  title="Log Out"><i class="fa fa-sign-out"></i> Log Out</a> </li>
 							</ul>
 						</li>
 					</ul>

@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -26,17 +26,17 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     ORDER BY g.id, e.nombres";*/
 	$peticion="SELECT DISTINCT e.id, e.nombres, e.apellidos, e.n_documento, e.email_institucional, e.telefono_estudiante, r.id_grado, g.grado, r.estado, 
 		CASE WHEN e.id <= 3482 THEN 'Antiguo' ELSE 'Nuevo' END tipo_estudiante, d.DSA, d.DA, d.DM, d.DB 
-		FROM estudiantes e, tbl_respuestas r, grados g, tbl_desemp_pres d 
+		FROM tbl_estudiantes e, tbl_respuestas r, tbl_grados g, tbl_desemp_pres d 
 		WHERE e.n_documento = r.identificacion AND r.id_grado = g.id AND e.n_documento = d.identificacion AND r.id_grado = d.id_grado 
 		AND r.a >= 2025 AND r.identificacion NOT IN (SELECT DISTINCT identificacion FROM `tbl_respuestas` WHERE estado = 'ABIERTA') 
-		ORDER BY g.id, e.nombres";
-    echo $peticion;
+		ORDER BY r.id_grado, e.nombres";
+    # echo $peticion;
 	$resultado = mysqli_query($conexion, $peticion);
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -99,24 +99,24 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Resultados Evaluación de Admisión:</h4>
+							<h4>Admission Evaluation Results:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Correo</th>
-						                <th>Grado</th>
-										<th>Tipo Est</th>
-						                <!--<th>Estado</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Email</th>
+						                <th>Grade</th>
+										<th>Student Type</th>
+						                <!--<th>Status</th>
 										<th>DSA</th>
 										<th>DA</th>-->
 										<th>DM</th>
 										<th>DB</th>
-						                <th>Acción</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -136,7 +136,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 											<td style='color: red;'>".$fila['DB']."</td>";
 
 							        		echo "<td><center>
-							        		<a href='lista-estudiantes_evalpres1.php?idest=".$fila['id']."&a=".$fila['a']."' class='btn btn-primary'><i class='fa fa-file-text'></i> Ver resultado</a></center></td></tr>";
+							        		<a href='lista-estudiantes_evalpres1.php?idest=".$fila['id']."&a=".$fila['a']."' class='btn btn-primary'><i class='fa fa-file-text'></i> View result</a></center></td></tr>";
 							        	}
 						        	?>
 						        </tbody>
@@ -154,7 +154,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -202,7 +202,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

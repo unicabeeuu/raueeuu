@@ -41,7 +41,7 @@
 	//echo $query1;
 	$resultado=$mysqli1->query($query1);
 	
-	echo "<script languaje='javascript' type='text/javascript'>alert('Observación guardada con éxito');</script>";
+	echo "<script languaje='javascript' type='text/javascript'>alert('Observation saved successfully');</script>";
 	echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
 	
 	/*$cadena = "";
@@ -61,7 +61,7 @@
     							<td class='tdmedia1'>".$rowt['n_documento']."</td>
     							<td class='tdelargo'>".$rowt['observacion']."</td>
     							<td class='tdmedia'><button class='btn btn-warning glyphicon glyphicon-pencil' data-toggle='modal' data-target='#modal_observaciones' title='Editar'
-                                    onclick='enviardat(".$rowt['id_est'].",\"".$rowt['nombres']."\",\"".$rowt['apellidos']."\",\"".$rowt['observacion']."\");'>Editar</button></td>
+                                    onclick='enviardat(".$rowt['id_est'].",\"".$rowt['nombres']."\",\"".$rowt['apellidos']."\",\"".$rowt['observacion']."\");'>Edit</button></td>
     							<td class='tdmedia'>".$rowt['id_est']."</td>
     							<td>...</td>
     						</tr>";

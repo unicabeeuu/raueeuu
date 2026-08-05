@@ -32,21 +32,21 @@ class SMTP
     /**
      * The PHPMailer SMTP version number.
      *
-     * @var string
+     * @let string
      */
     const VERSION = '6.1.7';
 
     /**
      * SMTP line break constant.
      *
-     * @var string
+     * @let string
      */
     const LE = "\r\n";
 
     /**
      * The SMTP port to use if one is not specified.
      *
-     * @var int
+     * @let int
      */
     const DEFAULT_PORT = 25;
 
@@ -56,7 +56,7 @@ class SMTP
      *
      * @see https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6
      *
-     * @var int
+     * @let int
      */
     const MAX_LINE_LENGTH = 998;
 
@@ -66,42 +66,42 @@ class SMTP
      *
      * @see https://tools.ietf.org/html/rfc5321#section-4.5.3.1.5
      *
-     * @var int
+     * @let int
      */
     const MAX_REPLY_LENGTH = 512;
 
     /**
      * Debug level for no output.
      *
-     * @var int
+     * @let int
      */
     const DEBUG_OFF = 0;
 
     /**
      * Debug level to show client -> server messages.
      *
-     * @var int
+     * @let int
      */
     const DEBUG_CLIENT = 1;
 
     /**
      * Debug level to show client -> server and server -> client messages.
      *
-     * @var int
+     * @let int
      */
     const DEBUG_SERVER = 2;
 
     /**
      * Debug level to show connection status, client -> server and server -> client messages.
      *
-     * @var int
+     * @let int
      */
     const DEBUG_CONNECTION = 3;
 
     /**
      * Debug level to show all messages.
      *
-     * @var int
+     * @let int
      */
     const DEBUG_LOWLEVEL = 4;
 
@@ -114,7 +114,7 @@ class SMTP
      * * self::DEBUG_CONNECTION (`3`) As DEBUG_SERVER plus connection status
      * * self::DEBUG_LOWLEVEL (`4`) Low-level data output, all messages.
      *
-     * @var int
+     * @let int
      */
     public $do_debug = self::DEBUG_OFF;
 
@@ -137,7 +137,7 @@ class SMTP
      * $mail->Debugoutput = new myPsr3Logger;
      * ```
      *
-     * @var string|callable|\Psr\Log\LoggerInterface
+     * @let string|callable|\Psr\Log\LoggerInterface
      */
     public $Debugoutput = 'echo';
 
@@ -147,7 +147,7 @@ class SMTP
      * @see http://en.wikipedia.org/wiki/Variable_envelope_return_path
      * @see http://www.postfix.org/VERP_README.html Info on VERP
      *
-     * @var bool
+     * @let bool
      */
     public $do_verp = false;
 
@@ -158,7 +158,7 @@ class SMTP
      *
      * @see http://tools.ietf.org/html/rfc2821#section-4.5.3.2
      *
-     * @var int
+     * @let int
      */
     public $Timeout = 300;
 
@@ -166,7 +166,7 @@ class SMTP
      * How long to wait for commands to complete, in seconds.
      * Default of 5 minutes (300sec) is from RFC2821 section 4.5.3.2.
      *
-     * @var int
+     * @let int
      */
     public $Timelimit = 300;
 
@@ -175,7 +175,7 @@ class SMTP
      * The first capture group in each regex will be used as the ID.
      * MS ESMTP returns the message ID, which may not be correct for internal tracking.
      *
-     * @var string[]
+     * @let string[]
      */
     protected $smtp_transaction_id_patterns = [
         'exim' => '/[\d]{3} OK id=(.*)/',
@@ -191,21 +191,21 @@ class SMTP
      * The last transaction ID issued in response to a DATA command,
      * if one was detected.
      *
-     * @var string|bool|null
+     * @let string|bool|null
      */
     protected $last_smtp_transaction_id;
 
     /**
      * The socket for the server connection.
      *
-     * @var ?resource
+     * @let ?resource
      */
     protected $smtp_conn;
 
     /**
      * Error information, if any, for the last SMTP command.
      *
-     * @var array
+     * @let array
      */
     protected $error = [
         'error' => '',
@@ -218,7 +218,7 @@ class SMTP
      * The reply the server sent to us for HELO.
      * If null, no HELO string has yet been received.
      *
-     * @var string|null
+     * @let string|null
      */
     protected $helo_rply;
 
@@ -230,14 +230,14 @@ class SMTP
      * Other values can be boolean TRUE or an array containing extension options.
      * If null, no HELO/EHLO string has yet been received.
      *
-     * @var array|null
+     * @let array|null
      */
     protected $server_caps;
 
     /**
      * The most recent reply received from the server.
      *
-     * @var string
+     * @let string
      */
     protected $last_reply = '';
 

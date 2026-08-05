@@ -11,7 +11,7 @@
     		$apellidos  = $fila['apellidos'];
     		$nombres = $fila['nombres'];
     		$email_institucional = $fila['email'];
-    		$director=$fila['d_pensamiento'];
+    		# $director=$fila['d_pensamiento'];
     		$n_documento = $fila['n_documento'];
     		$password = $fila['pc'];
     		$perfil = $fila['perfil'];
@@ -26,14 +26,14 @@
     	$res_g=mysqli_query($conexion,$sql_g);
     	
     	//Se cargan los grados
-    	$sql_gra = "SELECT * FROM grados";
+    	$sql_gra = "SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
     	$res_gra=mysqli_query($conexion,$sql_gra);
 	    
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -130,14 +130,14 @@
         }
 		
 		function buscar() {
-			var doc = $("#n_documento").val();
+			let doc = $("#n_documento").val();
 			
 			$.ajax({
         		type:"POST",
         		url:"buscar_estudiante_getdat.php",
         		data:"doc=" + doc,
         		success:function(r) {
-        		    var res = JSON.parse(r);
+        		    let res = JSON.parse(r);
         			//alert(res.idgenero);
 					$("#apellidos").val(res.apellidos);
 					$("#nombres").val(res.nombres);
@@ -196,39 +196,39 @@
 			<div class="forms">
 				<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 					<div class="form-title">
-						<h4>Registro Estudiantes:</h4>
+						<h4>Student Registration:</h4>
 					</div>
 					<div class="form-body">
 						<form class="form-horizontal" action="php/registrarEstudiante.php" method="POST">
 							<div class="form-group">
-								<label for="n_documento" class="col-sm-2 control-label">Identificación:<span class="req">*</span></label>
+								<label for="n_documento" class="col-sm-2 control-label">Identification:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Número Documento" required maxlength="15">
+									<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Document Number" required maxlength="15">
 								</div>
 								<div class="col-sm-2">
 									<button class="btn btn-primary" onclick="buscar();">
-										<span class="fa fa-search"></span> Buscar
+										<span class="fa fa-search"></span> Search
 									</button>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="apellidos" class="col-sm-2 control-label">Apellidos:<span class="req">*</span></label>
+								<label for="apellidos" class="col-sm-2 control-label">Last Names:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Apellidos Estudiante" required maxlength="25" autofocus="">
+									<input type="text" class="form-control1" id="apellidos" name="apellidos" placeholder="Student Last Names" required maxlength="25" autofocus="">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="nombres" class="col-sm-2 control-label">Nombres:<span class="req">*</span></label>
+								<label for="nombres" class="col-sm-2 control-label">First Names:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="nombres" name="nombres"  placeholder="Nombres Estudiante" required maxlength="25">
+									<input type="text" class="form-control1" id="nombres" name="nombres"  placeholder="Student First Names" required maxlength="25">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="tDocumento" class="col-sm-2 control-label">Tipo Documento:<span class="req">*</span></label>
+								<label for="tDocumento" class="col-sm-2 control-label">Document Type:<span class="req">*</span></label>
 								<div class="col-sm-8">
 									<select id="tDocumento" name="tDocumento" class="form-control1" required>
-						                <option value="NA" selected>SELECCIONE TIPO DE DOCUMENTO</option>
+						                <option value="NA" selected>SELECT DOCUMENT TYPE</option>
 						                <?php  
 						                    while ($fila1 = mysqli_fetch_array($res_td)){
 						                ?>
@@ -243,10 +243,10 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="genero" class="col-sm-2 control-label">Genero:<span class="req">*</span></label>
+								<label for="genero" class="col-sm-2 control-label">Gender:<span class="req">*</span></label>
 								<div class="col-sm-8">
 									<select id="genero" name="genero" class="form-control1" required>
-						                <option value="NA" selected>SELECCIONE GENERO</option>
+						                <option value="NA" selected>SELECT GENDER</option>
 						                <?php  
 						                    while ($fila2 = mysqli_fetch_array($res_g)){
 						                ?>
@@ -260,71 +260,71 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="fecha_nacimiento" class="col-sm-2 control-label">Fecha Nacimiento:<span class="req">*</span></label>
+								<label for="fecha_nacimiento" class="col-sm-2 control-label">Date of Birth:<span class="req">*</span></label>
 								<div class="col-sm-8">
 									<input type="date" class="form-control1" id="fecha_nacimiento" name="fecha_nacimiento" required >
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="expedicion" class="col-sm-2 control-label">Expedición:<span class="req">*</span></label>
+								<label for="expedicion" class="col-sm-2 control-label">Expedition:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="expedicion" name="expedicion" placeholder="Lugar Expedición Documento" required maxlength="25">
+									<input type="text" class="form-control1" id="expedicion" name="expedicion" placeholder="Document Expedition Place" required maxlength="25">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="ciudad" class="col-sm-2 control-label">Ciudad:<span class="req">*</span></label>
+								<label for="ciudad" class="col-sm-2 control-label">City:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="ciudad" name="ciudad" placeholder="Ciudad Origen" required maxlength="25">
+									<input type="text" class="form-control1" id="ciudad" name="ciudad" placeholder="City of Origin" required maxlength="25">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="direccion_estudiante" class="col-sm-2 control-label">Dirección de residencia:<span class="req">*</span></label>
+								<label for="direccion_estudiante" class="col-sm-2 control-label">Home Address:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="direccion_estudiante" name="direccion_estudiante" placeholder="Dirección Residencia" required maxlength="100">
+									<input type="text" class="form-control1" id="direccion_estudiante" name="direccion_estudiante" placeholder="Home Address" required maxlength="100">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="telefono_estudiante" class="col-sm-2 control-label">Teléfono:</label>
+								<label for="telefono_estudiante" class="col-sm-2 control-label">Phone:</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="telefono_estudiante" name="telefono_estudiante" placeholder="Teléfono" maxlength="15">
+									<input type="text" class="form-control1" id="telefono_estudiante" name="telefono_estudiante" placeholder="Phone" maxlength="15">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="email_institucional" class="col-sm-2 control-label">Correo Institucional:<span class="req">*</span></label>
+								<label for="email_institucional" class="col-sm-2 control-label">Institutional Email:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="email" class="form-control1" id="email_institucional" name="email_institucional" placeholder="Email Institucional" required maxlength="50">
+									<input type="email" class="form-control1" id="email_institucional" name="email_institucional" placeholder="Institutional Email" required maxlength="50">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="actividad_extra" class="col-sm-2 control-label">Acvidiad Extra:</label>
+								<label for="actividad_extra" class="col-sm-2 control-label">Extra Activity:</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="actividad_extra" name="actividad_extra" placeholder="Deporte que Realiza"  maxlength="50">
+									<input type="text" class="form-control1" id="actividad_extra" name="actividad_extra" placeholder="Sport Practiced"  maxlength="50">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="pass" class="col-sm-2 control-label">Contraseña:<span class="req">*</span></label>
+								<label for="pass" class="col-sm-2 control-label">Password:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="password" class="form-control1" id="pass" name="pass" maxlength="15" placeholder="Password estudiante" required="">
+									<input type="password" class="form-control1" id="pass" name="pass" maxlength="15" placeholder="Student Password" required="">
 								</div>
 							</div>
-							
+
 							<div class='form-group'>
 								<label for='rh' class='col-sm-2 control-label'>RH:</label>
 								<div class='col-sm-8'>
-									<input type='text' class='form-control1' id='rh' name='rh' placeholder='Ingrese RH'  maxlength='15' value="<?php echo $rh;?>">
+									<input type='text' class='form-control1' id='rh' name='rh' placeholder='Enter RH'  maxlength='15' value="<?php echo $rh;?>">
 								</div>
 							</div>
-							
+
 							<div class="form-group">
-								<label for="grado" class="col-sm-2 control-label">Grado:<span class="req">*</span></label>
+								<label for="grado" class="col-sm-2 control-label">Grade:<span class="req">*</span></label>
 								<div class="col-sm-8">
 									<select id="grado" name="grado" class="form-control1" required>
-						                <option value="1" selected>SELECCIONE GRADO</option>
+						                <option value="1" selected>SELECT GRADE</option>
 						                <?php  
 						                    while ($fila3 = mysqli_fetch_array($res_gra)){
 						                ?>
@@ -337,111 +337,111 @@
 							</div>
 
 							<div class="form-title">
-								<h4>Información acuediente principal</h4>
+								<h4>Primary Guardian Information</h4>
 							</div><br>
 
 							<div class="form-group">
-								<label for="email_acudiente_1" class="col-sm-2 control-label">Correo:</label>
+								<label for="email_acudiente_1" class="col-sm-2 control-label">Email:</label>
 								<div class="col-sm-8">
 									<input type="email" class="form-control1" id="email_acudiente_1" name="email_acudiente_1" placeholder="Email" maxlength="50">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="acudiente_1" class="col-sm-2 control-label">Nombre:<span class="req">*</span></label>
+								<label for="acudiente_1" class="col-sm-2 control-label">Name:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="acudiente_1" name="acudiente_1" placeholder="Nombre"  maxlength="50">
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label for="documento_acu" class="col-sm-2 control-label">Documento:<span class="req">*</span></label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="documento_acu" name="documento_acu" placeholder="Documento"  maxlength="50">
+									<input type="text" class="form-control1" id="acudiente_1" name="acudiente_1" placeholder="Name"  maxlength="50">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="telefono_acudiente_1" class="col-sm-2 control-label">Teléfono:<span class="req">*</span></label>
+								<label for="documento_acu" class="col-sm-2 control-label">Document:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="telefono_acudiente_1" name="telefono_acudiente_1" placeholder="Teléfono" maxlength="15">
+									<input type="text" class="form-control1" id="documento_acu" name="documento_acu" placeholder="Document"  maxlength="50">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="direccion" class="col-sm-2 control-label">Dirección de residencia:<span class="req">*</span></label>
+								<label for="telefono_acudiente_1" class="col-sm-2 control-label">Phone:<span class="req">*</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="direccion" name="direccion" placeholder="Dirección Residencia" required maxlength="100">
+									<input type="text" class="form-control1" id="telefono_acudiente_1" name="telefono_acudiente_1" placeholder="Phone" maxlength="15">
 								</div>
 							</div>
-							
+
 							<div class="form-group">
-									<label for="tDocumento" class="col-sm-2 control-label">Parentesco:<span class="req">*</span></label>
+								<label for="direccion" class="col-sm-2 control-label">Home Address:<span class="req">*</span></label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control1" id="direccion" name="direccion" placeholder="Home Address" required maxlength="100">
+								</div>
+							</div>
+
+							<div class="form-group">
+									<label for="tDocumento" class="col-sm-2 control-label">Relationship:<span class="req">*</span></label>
 									<div class="col-sm-8">
 										<select id="parentesco_acudiente_1" name="parentesco_acudiente_1" class="form-control1">
-											<option value="NA">SELECCIONE PARENTESCO</option>
-											<option value="MADRE">MADRE</option>
-							                <option value="PADRE">PADRE</option>
-						                 	<option value="ABUELA">ABUELA</option>
-							                <option value="ABUELO">ABUELO</option>
-							                <option value="HERMANA">HERMANA</option>
-							                <option value="HERMANO">HERMANO</option>
-											<option value="TIA">TIA</option>
-							                <option value="TIO">TIO</option>
-							                <option value="PRIMA">PRIMA</option>
-							                <option value="PRIMO">PRIMO</option>
-							                <option value="OTRO">OTRO</option>
+											<option value="NA">SELECT RELATIONSHIP</option>
+											<option value="MADRE">MOTHER</option>
+							                <option value="PADRE">FATHER</option>
+						                 	<option value="ABUELA">GRANDMOTHER</option>
+							                <option value="ABUELO">GRANDFATHER</option>
+							                <option value="HERMANA">SISTER</option>
+							                <option value="HERMANO">BROTHER</option>
+											<option value="TIA">AUNT</option>
+							                <option value="TIO">UNCLE</option>
+							                <option value="PRIMA">FEMALE COUSIN</option>
+							                <option value="PRIMO">MALE COUSIN</option>
+							                <option value="OTRO">OTHER</option>
 				              			</select>
 									</div>
 								</div>
 
 							<div class="form-title">
-								<h4>Información acuediente secundario (<strong>opcional</strong>)</h4>
+								<h4>Secondary Guardian Information (<strong>optional</strong>)</h4>
 							</div><br>
 
 							<div class="form-group">
-								<label for="email_acudiente_2" class="col-sm-2 control-label">Correo:</label>
+								<label for="email_acudiente_2" class="col-sm-2 control-label">Email:</label>
 								<div class="col-sm-8">
 									<input type="email" class="form-control1" id="email_acudiente_2" name="email_acudiente_2" placeholder="Email" maxlength="50">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="acudiente_2" class="col-sm-2 control-label">Nombre:</label>
+								<label for="acudiente_2" class="col-sm-2 control-label">Name:</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="acudiente_2" name="acudiente_2" placeholder="Nombre"  maxlength="50">
+									<input type="text" class="form-control1" id="acudiente_2" name="acudiente_2" placeholder="Name"  maxlength="50">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="telefono_acudiente_2" class="col-sm-2 control-label">Teléfono:</label>
+								<label for="telefono_acudiente_2" class="col-sm-2 control-label">Phone:</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" id="telefono_acudiente_2" name="telefono_acudiente_2" placeholder="Teléfono" maxlength="15">
+									<input type="text" class="form-control1" id="telefono_acudiente_2" name="telefono_acudiente_2" placeholder="Phone" maxlength="15">
 								</div>
 							</div>
-							
+
 							<div class="form-group">
-									<label for="tDocumento" class="col-sm-2 control-label">Parentesco:</label>
+									<label for="tDocumento" class="col-sm-2 control-label">Relationship:</label>
 									<div class="col-sm-8">
 										<select id="parentesco_acudiente_2" name="parentesco_acudiente_2" class="form-control1">
-											<option value="NA">SELECCIONE PARENTESCO</option>
-											<option value="MADRE">MADRE</option>
-							                <option value="PADRE">PADRE</option>
-						                 	<option value="ABUELA">ABUELA</option>
-							                <option value="ABUELO">ABUELO</option>
-							                <option value="HERMANA">HERMANA</option>
-							                <option value="HERMANO">HERMANO</option>
-											<option value="TIA">TIA</option>
-							                <option value="TIO">TIO</option>
-							                <option value="PRIMA">PRIMA</option>
-							                <option value="PRIMO">PRIMO</option>
-							                <option value="OTRO">OTRO</option>
+											<option value="NA">SELECT RELATIONSHIP</option>
+											<option value="MADRE">MOTHER</option>
+							                <option value="PADRE">FATHER</option>
+						                 	<option value="ABUELA">GRANDMOTHER</option>
+							                <option value="ABUELO">GRANDFATHER</option>
+							                <option value="HERMANA">SISTER</option>
+							                <option value="HERMANO">BROTHER</option>
+											<option value="TIA">AUNT</option>
+							                <option value="TIO">UNCLE</option>
+							                <option value="PRIMA">FEMALE COUSIN</option>
+							                <option value="PRIMO">MALE COUSIN</option>
+							                <option value="OTRO">OTHER</option>
 				              			</select>
 									</div>
 								</div>
 							<hr>
 							<button type="submit" class="btn btn-primary" id="submit" style="display: none;">
-						      	<span class="fa fa-save"></span> Guardar Información
+						      	<span class="fa fa-save"></span> Save Information
 						    </button>
 						</form> 
 					</div>
@@ -455,7 +455,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -494,7 +494,7 @@
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

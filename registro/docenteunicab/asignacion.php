@@ -11,7 +11,7 @@ include "../adminunicab/php/conexion.php";
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 	}
@@ -34,7 +34,7 @@ include "../adminunicab/php/conexion.php";
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -106,15 +106,15 @@ include "../adminunicab/php/conexion.php";
 							<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 							<thead> 
 								<tr>
-									<TH COLSPAN=4><center>CARGA ASIGNADA</center></TH>
+									<TH COLSPAN=4><center>ASSIGNED LOAD</center></TH>
 								</tr>
 								<?php
 								    if($id == 18 || $id == 40) {
 								?>
 								<tr>
 								    <th><center>TUTOR</center></th> 
-									<th><center>GRADO</center></th>
-									<th><center>MATERIA</center></th>
+									<th><center>GRADE</center></th>
+									<th><center>SUBJECT</center></th>
 									<th><center>PENSAMIENTO</center></th>  
 								</tr>
 								<?php
@@ -122,8 +122,8 @@ include "../adminunicab/php/conexion.php";
 								    else {
 								?>
 								<tr>
-									<th><center>GRADO</center></th>
-									<th><center>MATERIA</center></th>
+									<th><center>GRADE</center></th>
+									<th><center>SUBJECT</center></th>
 									<th><center>PENSAMIENTO</center></th>  
 								</tr>
 								<?php
@@ -146,7 +146,7 @@ include "../adminunicab/php/conexion.php";
 									    }
 					        		}
 								}else{
-									echo '<div class="alert alert-danger" role="alert">El profesor <strong>'.$apellidos.' '.$nombres.'</strong> no tiene asignaturas asiganadas</div>';
+									echo '<div class="alert alert-danger" role="alert">The teacher <strong>'.$apellidos.' '.$nombres.'</strong> no tiene asignaturas asiganadas</div>';
 
 								}
 					        	?>
@@ -165,7 +165,7 @@ include "../adminunicab/php/conexion.php";
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -212,7 +212,7 @@ include "../adminunicab/php/conexion.php";
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php';</script>";
 }
 ?>

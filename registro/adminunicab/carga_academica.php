@@ -16,7 +16,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		// $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -31,7 +31,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html lang="es">
 <head><meta http-equiv="Content-Type" content="text/html; charset=big5">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -86,13 +86,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     }
     
     #divtabla {
-        overflow:scroll;
+        overflow-x: auto;
         height:400px;
-        width:800px;
+        width:100%;
     }
-    
+
     #divtabla table {
-        width:800px
+        min-width:800px;
+        width:100%;
     }
     .form-controlxx {
         background-color: lightgray;
@@ -107,7 +108,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                 //$("#search").val("");
                 $("td:nth-child(7)").hide();
                 
-                var oper = $("#seloper").val();
+                let oper = $("#seloper").val();
                 
         		if(oper == "NA") {
         			$("td:nth-child(7)").hide();
@@ -158,7 +159,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         		    $("#search").show();
         		    $("#divtabla").html(r);
         			//$("#tbodyact").html(r);
-        			var oper = $("#seloper").val();
+        			let oper = $("#seloper").val();
         			if(oper == "MODIFICAR") {
         			    $("td:nth-child(7)").show();
         			}
@@ -184,7 +185,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function updcarga() {
-            var tutor = $("#seltutorupd").val();
+            let tutor = $("#seltutorupd").val();
             //alert(datos);
         	
             $.ajax({
@@ -201,8 +202,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function putcarga() {
-            var datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
-            var cargo = $("#txtcargoput").val();
+            let datos = "id=" + $("#txtidput").val() + "&cargo=" + $("#txtcargoput").val();
+            let cargo = $("#txtcargoput").val();
             cargo = cargo.replace(" ","_");
         	//alert(datos);
         	
@@ -237,7 +238,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_campos_upd() {
-            var suma = parseInt($("#seltutorupdv").val());
+            let suma = parseInt($("#seltutorupdv").val());
             //alert (suma);
             if(suma > 0) {
                 $("#btnupdcarga").hide();
@@ -248,7 +249,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         
         function validar_campos_put() {
-            var suma = parseInt($("#seltutorputv").val());
+            let suma = parseInt($("#seltutorputv").val());
             //alert (suma);
             if(suma > 0) {
                 $("#btnputcarga").hide();
@@ -292,7 +293,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                     		<div class="form-group"> 
                     			<div class="form-body">
                     			    <fieldset>
-                    				<legend class="alert alert-info" role="alert"><h3>CARGA ACADEMICA POR TUTOR</h3></legend>
+                    				<legend class="alert alert-info" role="alert"><h3>ACADEMIC LOAD BY TEACHER</h3></legend>
                     				    <!--<form class="form-horizontal" action="act_moodle_getdat1.php"  method="POST" target="_blank" onsubmit="return validacion()">-->
                     					<select id="seloper" name="seloper" class="my-select" style="color: white;">
                     					    <option selected="selected" data-img-src="../docenteunicab/updreg/img/sel.png" value="NA">SO</option>
@@ -302,8 +303,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
                                 		<!--<img src="../docenteunicab/updreg/img/agregar0.png"></img>-->
                     					<!--</form>-->
                     				</fieldset><br/>
-                    				<input type='search' placeholder='Ingrese texto a buscar' id='search' name='search' style="display: none;"><br/><br/>
-                    			    <div id="divtabla">
+                    				<input type='search' placeholder='Enter text to search' id='search' name='search' style="display: none;"><br/><br/>
+                    			    <div id="divtabla" style="width: 100%;">
                     			       
         							</div>
 								</div>
@@ -324,23 +325,23 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">MODIFICAR CARGA ACADEMICA</h5>
+            <h5 class="modal-title" id="exampleModalLabel">MODIFY ACADEMIC LOAD</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <label>ID GRADO</label>
+            <label>GRADE ID</label>
             <input type="text" id="txtidgraupd" class="form-control" readonly/>
-            <label>GRADO</label>
+            <label>GRADE</label>
             <input type="text" id="txtgraupd" class="form-control" readonly/>
-            <label>ID PENSAMIENTO</label>
+            <label>THOUGHT ID</label>
             <input type="text" id="txtidpenupd" class="form-control" readonly/>
-            <label>PENSAMIENTO</label>
+            <label>THOUGHT</label>
             <input type="text" id="txtpenupd" class="form-control" readonly/>
-            <label>TUTOR</label><input type="hidden" id="seltutorupdv" value="1"/>
+            <label>TEACHER</label><input type="hidden" id="seltutorupdv" value="1"/>
             <select id="seltutorupd" class="form-control">
-                <option value="0">Seleccione tutor</option>
+                <option value="0">Select teacher</option>
                 <?php  
                     while ($filad = mysqli_fetch_array($sel_t)){
                 ?>
@@ -351,8 +352,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
             </select>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnupdcarga" data-dismiss="modal" onclick="updcarga()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnupdcarga" data-dismiss="modal" onclick="updcarga()">Save</button>
           </div>
         </div>
       </div>
@@ -362,7 +363,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">NUEVO REGISTRO <?php echo strtoupper($tabla); ?></h5>
+            <h5 class="modal-title" id="exampleModalLabel">NEW RECORD <?php echo strtoupper($tabla); ?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -370,14 +371,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
           <div class="modal-body">
             <label>ID</label>
             <input type="text" id="txtidput" class="form-control" readonly/>
-            <label>CARGO</label>
+            <label>POSITION</label>
             <input type="text" id="txtcargoput" class="form-control" />
             <!--<input type="text" id="txtcomputar" class="form-control" oninput="validacomputar()"/>
             <label id="lblval"></label>-->
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-warning" id="btnputcarga" data-dismiss="modal" onclick="putcarga()">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnputcarga" data-dismiss="modal" onclick="putcarga()">Save</button>
           </div>
         </div>
       </div>
@@ -387,7 +388,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -438,8 +439,9 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 </body>
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>
 </html>
+>

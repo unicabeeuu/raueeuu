@@ -38,10 +38,10 @@
 	<div id="page-wrapper" style="padding: 2em 2em 2.5em;">
 		<div class="main-page login-page ">
 			<h2 class="title1">
-				<img src="assets/img/footer_log_blanco2025.png" width="30%">
+				<img src="assets/img/logo-unicab/logo_thrive_f4.png" width="50%">
 			</h2>
 			<div class="widget-shadow">
-				<div class="login-body">
+				<div class="login-body"> 
 					<form action="admin-unicab/php/login_registro1.php" method="POST" onsubmit="javascript:return Validar(this);" >
 						<input type="email" class="user" id="email" name="email" placeholder="Usuario &#9658; email" autofocus="" oninput="validar_email()" required>
 						<input type="password" class="lock" id="pass" name="pass"  placeholder="Password" required>
@@ -50,7 +50,7 @@
 							<div class="g-recaptcha" data-sitekey="6LdSPVAUAAAAABvNpNPP72W9gxoOlafWF9c17utJ"></div>
 						</div> -->
 						
-						<input type="submit" value="Iniciar Sesión">
+						<input type="submit" value="Login">
 
 						<div class="alert alert-danger" role="alert" id="alert" style="margin-top: 30px;">
 						</div>
@@ -71,6 +71,9 @@
 	<script src="admin-unicab/js/scripts.js"></script>
 	<!--//scrolling js-->
 	<script type="text/javascript">
+		$(function() {
+			$('#alert').hide();
+		});
 		 function Validar(){
 		 	var usuario=document.getElementById('email').value;
 		 	var password=document.getElementById('pass').value;
@@ -104,6 +107,7 @@
 		 }
 		 
 		 function validar_email() {
+			$("#alert").hide();
             var input_email = document.getElementById("email");
             var patron = /^[_-\w.]+@[a-z]+\.[a-z]{2,5}$/;
             //var esCoincidente = patron.test(document.getElementById("email2").value);
@@ -115,6 +119,7 @@
             else {
                 input_email.setCustomValidity("El email no tiene el formato correcto");
                 $("#alert").html("El email no tiene el formato correcto").css("color","red");
+				$("#alert").show();
             }
         }
         

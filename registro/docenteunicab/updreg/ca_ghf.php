@@ -55,21 +55,21 @@ if (isset($_SESSION['uniprofe'])) {
 }
 </style>
 <?php require '../../adminunicab/php/conexion.php';
-$sql="SELECT * FROM grados";
-	$gradoActual="No se encontraron estudiantes matriculados";
-	$peticion='SELECT estudiantes.apellidos,estudiantes.id,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado 
-	    FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado 
-	    WHERE grados.id='.$idgra.' AND matricula.estado="activo" AND estudiantes.id = '.$idest;
+$sql="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
+	$gradoActual="No se encontraron tbl_estudiantes tbl_matriculasdos";
+	$peticion='SELECT tbl_estudiantes.apellidos,tbl_estudiantes.id,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_grados.grado 
+	    FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id= tbl_matriculas.id_grado 
+	    WHERE tbl_grados.id='.$idgra.' AND tbl_matriculas.estado="activo" AND tbl_estudiantes.id = '.$idest;
     //echo $gradoActual;
     //echo "ig_grado: ".$_POST["id_grado"];
 	/*if (!isset($_POST["id_grado"])) {
-	$peticion='SELECT estudiantes.apellidos,estudiantes.id,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado where grados.id='.$idgra.' and matricula.estado="activo" ORDER BY grados.grado';
+	$peticion='SELECT tbl_estudiantes.apellidos,tbl_estudiantes.id,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_grados.grado FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id= tbl_matriculas.id_grado where tbl_grados.id='.$idgra.' and tbl_matriculas.estado="activo" ORDER BY tbl_grados.grado';
 	$gradoActual="Completo";
 	//echo $peticion;
 	//echo $gradoActual;
 	}
  	if (isset($_POST["id_grado"])) {
-	$peticion="SELECT estudiantes.id, estudiantes.apellidos,estudiantes.nombres,estudiantes.genero,estudiantes.n_documento,estudiantes.email_institucional, grados.grado FROM grados INNER JOIN (estudiantes INNER JOIN matricula ON estudiantes.id = matricula.id_estudiante) ON grados.id= matricula.id_grado where grados.id=".$_POST['id_grado']."  and matricula.estado='activo' ORDER BY grados.grado";
+	$peticion="SELECT tbl_estudiantes.id, tbl_estudiantes.apellidos,tbl_estudiantes.nombres,tbl_estudiantes.genero,tbl_estudiantes.n_documento,tbl_estudiantes.email_institucional, tbl_grados.grado FROM tbl_grados INNER JOIN (tbl_estudiantes INNER JOIN tbl_matriculas ON tbl_estudiantes.id = tbl_matriculas.id_estudiante) ON tbl_grados.id= tbl_matriculas.id_grado where tbl_grados.id=".$_POST['id_grado']."  and tbl_matriculas.estado='activo' ORDER BY tbl_grados.grado";
 	//echo $peticion;
 	$res=mysqli_query($conexion,$peticion);
 	

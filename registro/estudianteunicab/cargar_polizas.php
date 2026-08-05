@@ -10,11 +10,11 @@
     $mesLetra=date("M");
     $fanio=date("Y");
     
-		
-	$buscar_poliza = "SELECT * FROM tbl_polizas WHERE n_documento = '".$_SESSION['identifest']."' AND a = '$fanio' AND id_grado = $idgra";
-	$exe_buscar=mysqli_query($conexion,$buscar_poliza);
-	//echo $buscar_poliza;
-	
+
+	//Se eliminó una consulta a tbl_polizas que era código muerto: usaba $idgra, que nunca
+	//se asigna en este archivo, y su resultado ($exe_buscar) no se leía en ninguna parte.
+	//Este script solo recorre el directorio de pólizas y arma los INSERT.
+
 	$polizas = new stdClass();
 	$nombres = array();
 	

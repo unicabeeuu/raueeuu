@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -27,13 +27,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     WHERE e.id = m.id_estudiante 
     AND e.id < 1155 AND date_format(m.fecha_ingreso, '%Y') = 2021) 
     ORDER BY g.id";*/
-    $peticion="SELECT e.nombres, e.apellidos, e.n_documento, g.id, g.grado ultimo_grado, m.estado 
-    FROM (SELECT * FROM estudiantes WHERE id < 1855 AND id NOT IN (1040,1155)) e, matricula m, grados g 
+	$peticion="SELECT e.nombres, e.apellidos, e.n_documento, g.id, g.grado ultimo_grado, m.estado 
+    FROM (SELECT * FROM tbl_estudiantes WHERE id < 1855 AND id NOT IN (1040,1155)) e, tbl_matriculas m, tbl_grados g 
     WHERE e.id = m.id_estudiante AND m.id_grado = g.id 
     AND m.fecha_ingreso > '2020-11-30' AND m.fecha_ingreso < '2021-12-01' AND m.estado IN ('aprobado', 'reprobado') 
     AND e.id NOT IN (
     SELECT e.id 
-    FROM estudiantes e, matricula m 
+    FROM tbl_estudiantes e, tbl_matriculas m 
     WHERE e.id = m.id_estudiante 
     AND e.id < 1855 AND m.fecha_ingreso >= '2021-12-01') 
     ORDER BY g.id";
@@ -42,7 +42,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -111,18 +111,18 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Lista de estudiantes antiguos sin matricular:</h4>
+							<h4>List of old students without enrolment:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Id_grado</th>
-						                <th>Ultimo grado</th>
-						                <th>Estado</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Id_grade</th>
+						                <th>Last Grade</th>
+						                <th>Status</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -152,7 +152,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			

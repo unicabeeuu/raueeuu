@@ -157,29 +157,29 @@
 						echo '<script type="text/javascript">','add_resumen("Limpiando tablas temporales");','</script>';
 						$resultado_r01=$mysqli1->query($queryr2);
 						if($resultado_r01 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_upd limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_upd cleared successfully");','</script>';
 						}
 						$resultado_r02=$mysqli1->query($queryr3);
 						if($resultado_r02 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_ins limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_ins cleared successfully");','</script>';
 						}
 						$resultado_r03=$mysqli1->query($queryr4);
 						if($resultado_r03 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_no_ra limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_no_ra cleared successfully");','</script>';
 						}
 						$resultado_r1=$mysqli1->query($queryr0);
 						if($resultado_r1 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_mood_temp limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_mood_temp cleared successfully");','</script>';
 							$control = 11;
 						}
 						$resultado_r2=$mysqli1->query($queryr1);
 						if($resultado_r2 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp cleared successfully");','</script>';
 							//$control = 1;
 						}
 						$resultado_upd_control=$mysqli1->query($query_upd_control);
 						if($resultado_upd_control > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla control_upd limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table control_upd cleared successfully");','</script>';
 							$control = 1;
 						}
 						
@@ -221,7 +221,7 @@
 							}
 							//echo $query2;
 							echo '<script type="text/javascript">','add_resumen("Registros insertados para '.$pensamiento.' grados '.$grados.': '.$seleccionados_m.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_mood_temp cargada");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_mood_temp cargada");','</script>';
 							$control = 21;
 							$insertados = 0;
 						}
@@ -233,16 +233,16 @@
     						
 						    if($id == 18) {
 						        $query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra, ee.id_registro 
-								FROM ".$tbl_nmt." a, equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
+								FROM ".$tbl_nmt." a, tbl_equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course AND a.id_est = ee.id_moodle";
 						    }
 						    else {
 						        $query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra, ee.id_registro 
-								FROM ".$tbl_nmt." a, equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
+								FROM ".$tbl_nmt." a, tbl_equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course AND a.id_est = ee.id_moodle AND a.id_tutor = ".$id;
 						    }
 							/*$query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra, ee.id_registro 
-								FROM ".$tbl_nmt." a, equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
+								FROM ".$tbl_nmt." a, tbl_equivalence_idgra eg, equivalence_idmat em, equivalence_idest ee 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course AND a.id_est = ee.id_moodle";*/
 							//echo $query1;
 							
@@ -265,7 +265,7 @@
 								}
 							}
 							echo '<script type="text/javascript">','add_resumen("Registros insertados para '.$pensamiento.' grados '.$grados.': '.$insertados.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp cargada");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp cargada");','</script>';
 							$control = 22;
 						}
 						if($control == 22) {
@@ -327,7 +327,7 @@
 								}
 							}
 							//echo $query_tupd1;
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_upd ->sel: '.$sel_tupd.' ->ins: '.$ins_tupd.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_upd ->sel: '.$sel_tupd.' ->ins: '.$ins_tupd.'");','</script>';
 							$control = 23;
 						}
 						if($control == 23) {
@@ -400,7 +400,7 @@
 								}
 							}
 							//echo $query_tins1;
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_ins ->sel: '.$sel_tins.' ->ins: '.$ins_tins.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_ins ->sel: '.$sel_tins.' ->ins: '.$ins_tins.'");','</script>';
 							echo '<script type="text/javascript">','add_resumen("***************************");','</script>';
 							$control = 4;
 						}
@@ -426,14 +426,14 @@
 							    $query_en1 = "INSERT INTO ".$tbl_nt_nr." 
     							SELECT mt.id_est, mt.lastname, mt.firstname, g.name, m.shortname, mt.periodo_ra, m.id_materia_ra, g.id_grado_ra, 
     							0 nota_actual, mt.calificacion 
-    							FROM ".$tbl_nmt." mt, equivalence_idgra g, equivalence_idmat m 
+    							FROM ".$tbl_nmt." mt, tbl_equivalence_idgra g, equivalence_idmat m 
     							WHERE mt.id_grado = g.id_category AND mt.id = m.id_course AND mt.id_est NOT IN (SELECT id_moodle FROM equivalence_idest)";
 							}
 							else {
 							    $query_en1 = "INSERT INTO ".$tbl_nt_nr." 
     							SELECT mt.id_est, mt.lastname, mt.firstname, g.name, m.shortname, mt.periodo_ra, m.id_materia_ra, g.id_grado_ra, 
     							0 nota_actual, mt.calificacion, mt.id_tutor 
-    							FROM ".$tbl_nmt." mt, equivalence_idgra g, equivalence_idmat m 
+    							FROM ".$tbl_nmt." mt, tbl_equivalence_idgra g, equivalence_idmat m 
     							WHERE mt.id_grado = g.id_category AND mt.id = m.id_course AND mt.id_est NOT IN (SELECT id_moodle FROM equivalence_idest) 
     							AND mt.id_tutor = ".$id;
 							}
@@ -450,7 +450,7 @@
     						}
 							
 							
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_no_ra ->ins: '.$en.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_no_ra ->ins: '.$en.'");','</script>';
 						}
 						$seleccionados = 0;
 						$seleccionados_m = 0;

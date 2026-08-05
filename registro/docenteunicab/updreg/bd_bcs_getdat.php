@@ -97,7 +97,7 @@
 	if($pago == "pp") {
 	    $query = "SELECT DISTINCT e.*, m.id_grado, cu.matricula, cu.pension, cu.ocp, cu.poliza, cu.dg, cu.pp, eg.grado_ra, 
         CAST(lpad(e.n_documento, 12, 0) AS CHAR) n_documentolargo, CAST(lpad(cu.pp, 8, 0) AS CHAR) pplargo, CAST(lpad(e.pension_final, 8, 0) AS CHAR) pflargo 
-        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
         AND m.estado IN ('pre_solicitud', 'solicitud') AND cu.a = $fanio AND date_format(m.fecha_ingreso, '%Y') = $fanio 
         ORDER BY e.id";
@@ -105,7 +105,7 @@
 	else {
 	    $query = "SELECT DISTINCT e.*, m.id_grado, cu.matricula, cu.pension, cu.ocp, cu.poliza, cu.dg, cu.pp, eg.grado_ra, 
         CAST(lpad(e.n_documento, 12, 0) AS CHAR) n_documentolargo, CAST(lpad(cu.pp, 8, 0) AS CHAR) pplargo, CAST(lpad(e.pension_final, 8, 0) AS CHAR) pflargo 
-        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
         AND m.estado = 'activo' AND cu.a = $fanio AND date_format(m.fecha_ingreso, '%Y') = $fanio 
         ORDER BY e.id";

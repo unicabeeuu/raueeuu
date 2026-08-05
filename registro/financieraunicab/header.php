@@ -7,7 +7,7 @@
 				<!--toggle button start-->
 				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
 				<!--toggle button end-->
-				<div style="margin-left: 100px;">
+				<div class="header-stats">
 			        <label style="color: blue;"><i class="fa fa-users"></i><?php echo $total_usuarios_m; ?> M</label>
 				    <label style="color: green;"><i class="fa fa-users"></i><?php echo $total_usuarios_r; ?> R</label>
 			    </div>
@@ -32,7 +32,7 @@
 							</a>
 							<ul class="dropdown-menu drp-mnu">
 								<li> <a href="#" data-toggle="modal" data-target="#myModal" title="Editar Datos Personales Usuario"><i class="fa fa-user"></i> Datos Personales</a> </li> 
-								<li> <a href="../docenteunicab/updreg/logout-profesor.php" title="Salir del Sistema"><i class="fa fa-sign-out"></i> Cerrar Sesión</a> </li>
+								<li> <a href="../docenteunicab/updreg/logout-profesor.php" title="Salir del Sistema"><i class="fa fa-sign-out"></i> Log Out</a> </li>
 							</ul>
 						</li>
 					</ul>

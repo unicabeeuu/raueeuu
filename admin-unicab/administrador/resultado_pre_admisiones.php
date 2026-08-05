@@ -81,7 +81,7 @@
             $("#psicologo").change(function() {
                 /*$("#btnsubmit").hide();
                 
-                var psic = $("#psicologo").val();
+                let psic = $("#psicologo").val();
                 //alert(gra);
                 
                 if (psic == "0") {
@@ -124,18 +124,18 @@
             $("#documento").val("0");
             $("#btnsubmit").hide();
             
-            var buscar = $("#buscar").val();
+            let buscar = $("#buscar").val();
             
             $.ajax({
                 type:"POST",
         		url:"informacion_premat_getdat.php",
         		data:"buscar=" + buscar + "&tipo=DOC",
         		success:function(r) {
-        		    var res = JSON.parse(r);
-        		    var r_est = res.estado;
-        		    var grados = res.grados_val;
+        		    let res = JSON.parse(r);
+        		    let r_est = res.estado;
+        		    let grados = res.grados_val;
         		    //alert(r_est);
-        		    //var psic = $("#psicologo").val();
+        		    //let psic = $("#psicologo").val();
         		    //alert(Object.keys(res.grados_val).length);
         		    //alert(Object.keys(res.grados_val));
         		    
@@ -165,11 +165,11 @@
             		    if(res.eval == 1) {
             		        $("#chkeval").prop("checked",true);
             		        $("#divgrados").show();
-            		        var a = 0;
+            		        let a = 0;
             		        
-            		        var ct_eval = Object.keys(res.grados_val_total).length;
+            		        let ct_eval = Object.keys(res.grados_val_total).length;
             		        for(i = 0; i < ct_eval; i++) {
-            		            var id_grav = res.grados_val_total[i].id_grav;
+            		            let id_grav = res.grados_val_total[i].id_grav;
             		            //alert(id_grav);
             		            
             		            (id_grav == 2) ? $("#chkg1").prop("checked",true) : a = 0 ;
@@ -225,13 +225,13 @@
         }
         
         function validar_texto(id, desc) {
-            var control = 0;
-            var id_obj = "#" + id;
-            var ctr_obj = "#ctr_" + id;
-            var v_input = document.getElementById(id);
-            //var v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
-            var v_val = /[_'"\~\$\#\&\|;\(\)\{\}\[\]\\]{1,}/;
-            var val = String($(id_obj).val()).match(v_val);
+            let control = 0;
+            let id_obj = "#" + id;
+            let ctr_obj = "#ctr_" + id;
+            let v_input = document.getElementById(id);
+            //let v_val = /[-_'"\<\>\~\^\*\$\!\¡\#\%\&\¿\?\/\=\+\|,;:\(\)\{\}\[\]\\]{1,}/;
+            let v_val = /[_'"\~\$\#\&\|;\(\)\{\}\[\]\\]{1,}/;
+            let val = String($(id_obj).val()).match(v_val);
             
             if(val == null) {
                 v_input.setCustomValidity("");
@@ -241,7 +241,7 @@
             }
             else {
                 v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-                var texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+                let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
                 texto += " _ \' \" ~ $ # & | ; ( ) { } [ ] \\";
                 //alert(texto);
                 $("#lblmsg").html(texto).css("color","red");
@@ -254,15 +254,15 @@
         
         function mostrar_submit() {
             $("#btnsubmit").hide();
-            var control = 0;
-            var psic = $("#psicologo").val();
+            let control = 0;
+            let psic = $("#psicologo").val();
             if(psic == "0") {
                 $("#btnsubmit").hide();
                 control = 1;
             }
             
             if(control == 0) {
-                var observ = $("#ctr_observ").val();
+                let observ = $("#ctr_observ").val();
                 if(observ == 1) {
                     $("#btnsubmit").hide();
                     control = 1;
@@ -270,7 +270,7 @@
             }
             
             //Se valida si tiene grados por validar
-            var contador = 0;
+            let contador = 0;
             if(control == 0) {
                 if( $("#chkeval").prop("checked") ) {
                     //alert('Seleccionado');
@@ -280,7 +280,7 @@
                     
                     if(contador == 0) {
                         control = 1;
-                        var texto = "Ha indicado que el estudiante requiere evaluación de validación, pero no ha seleccionado ningún grado.";
+                        let texto = "Ha indicado que el estudiante requiere evaluación de validación, pero no ha seleccionado ningún grado.";
                         $("#lblmsg").html(texto).css("color","red");
                     }
                     else {
@@ -374,7 +374,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

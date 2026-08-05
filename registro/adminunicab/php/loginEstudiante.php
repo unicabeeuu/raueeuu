@@ -14,8 +14,8 @@ include "conexion.php";
 if (isset($_POST)) {
 	$usuario=addslashes($_POST["user"]);
 	$password=addslashes($_POST["pass"]);
-	$captcha=$_POST["g-recaptcha-response"];
-	$secret="6Lc6bVYUAAAAAKacD2jtl3-U71hljlBJEou4JdWe";
+	// $captcha=$_POST["g-recaptcha-response"];
+	/**$secret="6Lc6bVYUAAAAAKacD2jtl3-U71hljlBJEou4JdWe";
 		if (!$captcha) {
 			echo "<script>alert('por favor verificar el captcha');</script>";
 			echo "<script>location.href='../../estudianteunicab/login.php';</script>";
@@ -44,6 +44,20 @@ if (isset($_POST)) {
 				echo "<script>alert('error al comprobar el captcha');</script>";
 				echo "<script>location.href='../../estudianteunicab/login.php';</script>";
 			}
+		}**/
+
+		$sql="SELECT * FROM tbl_estudiantes where email_institucional='".$usuario."' and n_documento='".$password."'";
+		//echo $sql;
+		$petecion=mysqli_query($conexion,$sql);
+		if (mysqli_num_rows($petecion)>0) {
+			$_SESSION['uniestudiante']= $usuario;
+			while ($row=mysqli_fetch_array($petecion)) {
+				$_SESSION['identifest']= $row['n_documento'];
+			}
+			echo "<script>location.href='../../estudianteunicab/index.php';</script>";
+		}else{
+			echo "<script>alert('Usuario no encontrado');</script>";
+			echo "<script>location.href='../../estudianteunicab/login.php';</script>";
 		}
 }  
 ?>

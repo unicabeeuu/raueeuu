@@ -124,13 +124,13 @@
     
     if ($documento == 0) {
         $query = "SELECT e.*, m.id_grado, cu.matricula, cu.pension, cu.ocp, cu.poliza, cu.dg, cu.pp, eg.grado_ra 
-        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
         AND m.estado = 'activo' AND cu.a = $fanio AND m.id_grado = $idgra";
     }
     else {
         $query = "SELECT e.*, m.id_grado, cu.matricula, cu.pension, cu.ocp, cu.poliza, cu.dg, cu.pp, eg.grado_ra 
-        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
         AND m.estado = 'activo' AND cu.a = $fanio AND m.id_grado = $idgra AND e.n_documento = $documento";
     }
@@ -215,12 +215,12 @@
                     
                     //Se consultan otros estudiantes con el mismo documento acudiente
                     $sql_otros = "SELECT COUNT(1) ct 
-                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
                         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
                         AND e.documento_responsable = ".$row['documento_responsable']." AND m.estado = 'activo'";
                         
                     $sql_otros1 = "SELECT e.*, m.id_grado, cu.matricula, cu.pension, cu.ocp, cu.poliza, cu.dg, cu.pp, eg.grado_ra 
-                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
                         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
                         AND e.documento_responsable = ".$row['documento_responsable']." AND m.estado = 'activo'";
                     $res_otros=$mysqli1->query($sql_otros);
@@ -496,12 +496,12 @@
                     
                     //Se consultan otros estudiantes con el mismo documento acudiente
                     $sql_otros = "SELECT COUNT(1) ct 
-                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
                         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
                         AND e.documento_responsable = ".$row['documento_responsable']." AND m.estado = 'activo'";
                         
                     $sql_otros1 = "SELECT e.*, m.id_grado, cu.matricula, cu.pension, cu.ocp, cu.poliza, cu.dg, cu.pp, eg.grado_ra 
-                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+                        FROM estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
                         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
                         AND e.documento_responsable = ".$row['documento_responsable']." AND m.estado = 'activo'";
                     $res_otros=$mysqli1->query($sql_otros);

@@ -118,24 +118,24 @@
 						echo '<script type="text/javascript">','add_resumen("Limpiando tablas temporales");','</script>';
 						$resultado_r01=$mysqli1->query($queryr2);
 						if($resultado_r01 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_upd limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_upd cleared successfully");','</script>';
 						}
 						$resultado_r02=$mysqli1->query($queryr3);
 						if($resultado_r02 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_ins limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_ins cleared successfully");','</script>';
 						}
 						$resultado_r03=$mysqli1->query($queryr4);
 						if($resultado_r03 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_no_ra limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_no_ra cleared successfully");','</script>';
 						}
 						$resultado_r1=$mysqli1->query($queryr0);
 						if($resultado_r1 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_mood_temp limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_mood_temp cleared successfully");','</script>';
 							$control = 11;
 						}
 						$resultado_r2=$mysqli1->query($queryr1);
 						if($resultado_r2 > 0) {
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp limpiada con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp cleared successfully");','</script>';
 							$control = 1;
 						}
 						if($control == 1) {
@@ -159,12 +159,12 @@
 							}
 							//echo $query2;
 							echo '<script type="text/javascript">','add_resumen("Registros insertados para '.$pensamiento.' grados '.$grados.': '.$seleccionados_m.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_mood_temp cargada");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_mood_temp cargada");','</script>';
 							$control = 21;
 							$insertados = 0;
 						}
 						if($control == 21) {
-							$query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra FROM notas_mood_temp a, equivalence_idgra eg, equivalence_idmat em 
+							$query1 = "SELECT a.*, eg.id_grado_ra, em.id_materia_ra FROM notas_mood_temp a, tbl_equivalence_idgra eg, equivalence_idmat em 
 								WHERE a.id_grado = eg.id_category AND a.id = em.id_course";
 							//echo $query1;
 							
@@ -181,7 +181,7 @@
 								}
 							}
 							echo '<script type="text/javascript">','add_resumen("Registros insertados para '.$pensamiento.' grados '.$grados.': '.$insertados.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp cargada");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp cargada");','</script>';
 							$control = 22;
 						}
 						if($control == 22) {
@@ -211,7 +211,7 @@
 								}
 							}
 							//echo $query_tupd1;
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_upd ->sel: '.$sel_tupd.' ->ins: '.$ins_tupd.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_upd ->sel: '.$sel_tupd.' ->ins: '.$ins_tupd.'");','</script>';
 							$control = 23;
 						}
 						if($control == 23) {
@@ -241,7 +241,7 @@
 								}
 							}
 							//echo $query_tins1;
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_ins ->sel: '.$sel_tins.' ->ins: '.$ins_tins.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_ins ->sel: '.$sel_tins.' ->ins: '.$ins_tins.'");','</script>';
 							echo '<script type="text/javascript">','add_resumen("***************************");','</script>';
 							$control = 2;
 						}
@@ -255,7 +255,7 @@
 								//echo $query;
 							}
 							echo '<script type="text/javascript">','add_resumen("Registros actualizados para '.$pensamiento.' grados '.$grados.': '.$actualizados.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Calificaciones actualizadas con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Grades updated successfully");','</script>';
 							$control = 3;
 						}
 						if($control == 3) {
@@ -267,7 +267,7 @@
 								//echo $query;
 							}
 							echo '<script type="text/javascript">','add_resumen("Registros ingresados para '.$pensamiento.' grados '.$grados.': '.$insertados_n.'");','</script>';
-							echo '<script type="text/javascript">','add_resumen("Calificaciones nuevas ingresadas con éxito");','</script>';
+							echo '<script type="text/javascript">','add_resumen("New grades entered successfully");','</script>';
 							$control = 4;
 						}
 						if($control == 4) {
@@ -278,13 +278,13 @@
 							$query_en1 = "INSERT INTO notas_temp_no_ra 
 							SELECT mt.id_est, mt.lastname, mt.firstname, g.name, m.shortname, mt.periodo_ra, m.id_materia_ra, g.id_grado_ra, 
 							0 nota_actual, mt.calificacion 
-							FROM notas_mood_temp mt, equivalence_idgra g, equivalence_idmat m 
+							FROM notas_mood_temp mt, tbl_equivalence_idgra g, equivalence_idmat m 
 							WHERE mt.id_grado = g.id_category AND mt.id = m.id_course AND mt.id_est NOT IN (SELECT id_moodle FROM equivalence_idest)";
 							
 							echo '<script type="text/javascript">','add_resumen("Cargando tabla notas_temp_no_ra para '.$pensamiento.' grados '.$grados.'");','</script>';
 							$resultado_en1=$mysqli1->query($query_en1);
 							
-							echo '<script type="text/javascript">','add_resumen("Tabla notas_temp_no_ra ->ins: '.$en.'");','</script>';
+							echo '<script type="text/javascript">','add_resumen("Table notas_temp_no_ra ->ins: '.$en.'");','</script>';
 							
 							$query5 = "UPDATE querys_ra SET actualizado = '"
 							.$fecha2."', seleccionados = ".$seleccionados_m.", insertados_tem = ".$insertados.", actualizados = ".$actualizados.", nuevos = ".$insertados_n

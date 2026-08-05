@@ -61,7 +61,7 @@
     
     //Se busca el id del est
     if($estnuevo == "NO") {
-        $sql_id = "SELECT id FROM estudiantes WHERE n_documento = $documento";
+        $sql_id = "SELECT id FROM tbl_estudiantes WHERE n_documento = $documento";
         $res_id=$mysqli1->query($sql_id);
         while($row_id = $res_id->fetch_assoc()){
             $idest = $row_id['id'];
@@ -256,7 +256,7 @@
         WHERE n_documento = '$documento'";
     }
     else if($estnuevo == "SI") {
-        $sql_updins_est = "INSERT INTO estudiantes 
+        $sql_updins_est = "INSERT INTO tbl_estudiantes 
         (apellidos, nombres, genero, tipo_documento, n_documento, fecha_nacimiento, expedicion, ciudad, direccion, direccion_estudiante, telefono_estudiante, email_institucional, 
         actividad_extra, email_acudiente_1, email_acudiente_2, acudiente_1, acudiente_2, telefono_acudiente_1, telefono_acudiente_2, estado, password, mensaje, fecha_datos, 
         documento_responsable, periodo_ing, descuento, beca, acuerdo_ct_pagos, pension_de, pension_a, pagos_anuales_de, pagos_anuales_a, pagos_anuales_f, tot_anual_de, 
@@ -311,7 +311,7 @@
     //echo "<br>".$n_matricula1;
     
     //Se captura el id del estudiante
-	$sqlid = "SELECT id FROM estudiantes WHERE n_documento = '$documento'";
+	$sqlid = "SELECT id FROM tbl_estudiantes WHERE n_documento = '$documento'";
 	$exe_id = mysqli_query($conexion,$sqlid);
     while ($rowid = mysqli_fetch_array($exe_id)) {
         $idest = $rowid['id'];
@@ -344,7 +344,7 @@
     
     $query = "SELECT DISTINCT e.*, m.id_grado, cu.matricula, cu.pension, cu.ocp, cu.poliza, cu.dg, cu.pp, eg.grado_ra, 
         lpad(e.n_documento, 12, 0) n_documentolargo, lpad(cu.pp, 8, 0) pplargo 
-        FROM estudiantes e, matricula m, tbl_costos_unicab cu, equivalence_idgra eg 
+        FROM tbl_estudiantes e, matricula m, tbl_costos_unicab cu, tbl_equivalence_idgra eg 
         WHERE e.id = m.id_estudiante AND m.id_grado = cu.id_grado AND m.id_grado = eg.id_grado_ra 
         AND m.estado = 'pre_solicitud' AND cu.a = $fanio AND m.id_grado = $idgra AND e.n_documento = $documento";
     //echo $query;

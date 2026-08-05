@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -29,7 +29,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -183,16 +183,16 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Listado de blogs pendientes por publicar:</h4>
+							<h4>List of blogs pending publication:</h4>
 						</div>
 						<div class="form-body">  
 					    	<table id="listaBlogs" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Título</th>
-						                <th>Descripción</th>
-						                <th>Creado por</th>
-						                <th>Comentarios diseño</th>
+						                <th>Title</th>
+						                <th>Description</th>
+						                <th>Created by</th>
+						                <th>Design comments</th>
 	                                    <th>Revisar</th>
 						            </tr>
 						        </thead>
@@ -204,7 +204,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td>".$filab['DescripcionA']."</td>
     						        		<td>".$filab['nombres']." ".$filab['apellidos']."</td>
     						        		<td>".$filab['comentarios_dis']."</td>
-    						        		<td><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-primary' title='Redacción y ortografía' target='_blank'><i class='fa fa-pencil'></i> Redacción y ortografía</a></td>
+    						        		<td><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-primary' title='Redacción y ortografía' target='_blank'><i class='fa fa-pencil'></i> Writing and spelling</a></td>
     						        		</tr>";
 										}
 						        		else if($id == 10 || $id == 12 || $id == 52) {
@@ -212,7 +212,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td>".$filab['DescripcionA']."</td>
     						        		<td>".$filab['nombres']." ".$filab['apellidos']."</td>
     						        		<td>".$filab['comentarios_dis']."</td>
-    						        		<td><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-success' title='Diseño' target='_blank'><i class='fa fa-check-square'></i> Diseño</a></td>
+    						        		<td><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-success' title='Diseño' target='_blank'><i class='fa fa-check-square'></i> Design</a></td>
     						        		</tr>";
 										}
 										else if($id == 18) {
@@ -220,8 +220,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     						        		<td>".$filab['DescripcionA']."</td>
     						        		<td>".$filab['nombres']." ".$filab['apellidos']."</td>
     						        		<td>".$filab['comentarios_dis']."</td>
-    						        		<td><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-primary' title='Redacción y ortografía' target='_blank'><i class='fa fa-check-square'></i> Redacción y ortografía</a>
-    						        		    <br><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-success' title='Diseñor' target='_blank'><i class='fa fa-check-square'></i> Diseño</a>
+    						        		<td><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-primary' title='Redacción y ortografía' target='_blank'><i class='fa fa-check-square'></i> Writing and spelling</a>
+    						        		    <br><a href='../../articulo_getdat.php?idb=".$filab['IdBlog']."&ide=".$id."' class='btn btn-success' title='Diseñor' target='_blank'><i class='fa fa-check-square'></i> Design</a>
     						        		</td>
     						        		</tr>";
 										}
@@ -251,7 +251,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -299,7 +299,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

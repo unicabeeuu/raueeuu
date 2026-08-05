@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -19,7 +19,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
 	$peticion = "SELECT er.*, ep.pregunta, ep.tipo, g.grado, CONCAT(e.nombres, ' ', e.apellidos) nombre,
 	CASE er.resultado WHEN 'A' THEN ep.a WHEN 'B' THEN ep.b WHEN 'C' THEN ep.c WHEN 'D' THEN ep.d WHEN 'E' THEN ep.e ELSE er.resultado END resultado1
-	FROM tbl_encuestas_resultados er, tbl_encuestas_preguntas ep, grados g, estudiantes e  
+	FROM tbl_encuestas_resultados er, tbl_encuestas_preguntas ep, tbl_grados g, tbl_estudiantes e  
 	WHERE er.id_pregunta = ep.id AND er.id_encuesta = ep.id_encuesta AND er.id_grado = g.id AND er.n_documento = e.n_documento
 	AND er.id_encuesta = 1 
 	ORDER BY er.id_grado, er.n_documento, er.id_pregunta";
@@ -28,7 +28,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -116,13 +116,13 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 					    	<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>
 						            <tr>
-						                <th>Grado</th>
-	                                    <th>Documento</th>						                
-						                <th>Nombre</th>
-										<th>Tipo Pregunta</th>
-						                <th>Pregunta</th>
-						                <th>Resultado</th>
-										<th>Año</th>
+						                <th>Grade</th>
+	                                    <th>Document</th>						                
+						                <th>Name</th>
+										<th>Question Type</th>
+						                <th>Question</th>
+						                <th>Result</th>
+										<th>Year</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -153,7 +153,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

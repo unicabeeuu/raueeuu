@@ -33,14 +33,14 @@
 	}
 	
 	/*$query1 = "SELECT c.*, CONCAT(e.nombres,' ',e.apellidos) nombre  
-	FROM certificado c, estudiantes e, matricula m 
+	FROM certificado c, tbl_estudiantes e, matricula m 
 	WHERE c.id_estudiante = e.id AND c.numero1 is not null AND e.id = m.id_estudiante 
 	AND c.id_grado = $idgra AND c.numero1 BETWEEN $a1 AND $b1 AND m.id_grado = $idgra 
 	AND c.numero like '%CF%' 
 	ORDER BY CONCAT(e.nombres,' ',e.apellidos)";*/
 	
 	$query1 = "SELECT c.*, CONCAT(e.nombres,' ',e.apellidos) nombre 
-	FROM certificado c, estudiantes e 
+	FROM tbl_certificados c, tbl_estudiantes e 
 	WHERE c.id_estudiante = e.id AND c.numero1 is not null  
 	AND c.id_grado = $idgra AND c.fecha_expedicion like '%$anio%' 
 	AND substring(c.numero, 1, 2) = 'CF' 

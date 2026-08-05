@@ -127,7 +127,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -159,8 +159,8 @@
    	<script type="text/javascript">
 
    		$(document).ready(function(){
-   			var extensionesValidas = ".pdf";
-     		var pesoPermitido = 1024;
+   			let extensionesValidas = ".pdf";
+     		let pesoPermitido = 1024;
 
      		$("#ImagenB").change(function () {
      			$('#texto').text('');
@@ -176,9 +176,9 @@
 		    // Validacion de extensiones permitidas
 		    function validarExtension(datos) {
 
-				var ruta = datos.value;
-				var extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
-				var extensionValida = extensionesValidas.indexOf(extension);
+				let ruta = datos.value;
+				let extension = ruta.substring(ruta.lastIndexOf('.') + 1).toLowerCase();
+				let extensionValida = extensionesValidas.indexOf(extension);
 
 				if(extensionValida < 0) {
 		            $('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
@@ -193,7 +193,7 @@
 
 		        if (datos.files && datos.files[0]) {
 
-				    var pesoFichero = datos.files[0].size/1024;
+				    let pesoFichero = datos.files[0].size/1024;
 
 				    if(pesoFichero > pesoPermitido) {
 				        $('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: '+ pesoFichero +' KBs');
@@ -207,7 +207,7 @@
 		  	// Vista preliminar de la imagen.
 		  	function verImagen(datos) {
 			    if (datos.files && datos.files[0]) {
-			        var reader = new FileReader();
+			        let reader = new FileReader();
 		         	reader.onload = function (e) {
 		         		$('#img').attr('src', e.target.result);
 		          	};

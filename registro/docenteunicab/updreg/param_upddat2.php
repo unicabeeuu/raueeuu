@@ -16,7 +16,7 @@ if (isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		
@@ -119,7 +119,7 @@ if (isset($_SESSION['uniprofe'])) {
 											else {
 												echo "<label  class='col-sm-8 control-label' style='color: red;'>Error modificando parámetro: ".$op."</label></br></br>";
 											}
-											echo '<a href="param_upddat.php" ><button type="button" class="btn btn-primary">Volver</button></a>';
+											echo '<a href="param_upddat.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 										?>									
 									</div>
     								<!---------------------------------------------->
@@ -184,7 +184,7 @@ if (isset($_SESSION['uniprofe'])) {
     		function validacion() {
     			var grado=document.getElementById('id_grado').value;
     			if (grado==0) {
-    				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un grado valido</center>').slideDown(500);
+    				$('#alert').html('<center><strong>Advertencia</strong> You must select a valid grade</center>').slideDown(500);
     				return false;
     			}else{
     				$('#alert').html('').slideUp(300);

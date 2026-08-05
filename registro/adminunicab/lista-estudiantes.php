@@ -11,7 +11,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		$apellidos  = $fila['apellidos'];
 		$nombres = $fila['nombres'];
 		$email_institucional = $fila['email'];
-		$director=$fila['d_pensamiento'];
+		# $director=$fila['d_pensamiento'];
 		$n_documento = $fila['n_documento'];
 		$password = $fila['pc'];
 		$perfil = $fila['perfil'];
@@ -19,14 +19,14 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
 	//$peticion="SELECT * from estudiantes WHERE estado != 'Retirado'";
 	$peticion="SELECT e.*, m.estado estado_m 
-	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante 
-	AND m.idMatricula IN (SELECT idMatricula FROM (SELECT MAX(idMatricula) idMatricula, id_estudiante FROM matricula GROUP BY id_estudiante) a)";
+	FROM tbl_estudiantes e, tbl_matriculas m WHERE e.id = m.id_estudiante 
+	AND m.n_matricula IN (SELECT n_matricula FROM (SELECT MAX(n_matricula) n_matricula, id_estudiante FROM tbl_matriculas GROUP BY id_estudiante) a)";
 	$resultado = mysqli_query($conexion, $peticion);
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Record</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -92,20 +92,20 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 				<div class="forms">
 					<div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
 						<div class="form-title">
-							<h4>Lista de estudiantes registrados:</h4>
+							<h4>Registered students list:</h4>
 						</div>
 						<div class="form-body">
 							<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
-						                <th>Identificación</th>
-						                <th>Correo</th>
-						                <th>Teléfono</th>
-						                <th>Estado</th>
+						                <th>Last Names</th>
+						                <th>First Names</th>
+						                <th>Identification</th>
+						                <th>Email</th>
+						                <th>Phone</th>
+						                <th>Status</th>
 	                                    <th>RH</th>
-						                <th>Acción</th>
+						                <th>Action</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -119,20 +119,20 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							        		<td>".$fila['telefono_acudiente_1']."</td>";
 
 							        		if ($fila['estado_m']=='activo') {
-							        			echo "<td><span style='color:green'>".$fila['estado_m']."</span></td>";
+							        			echo "<td><span style='color:green'>Active</span></td>";
 							        		}
 							        		else if ($fila['estado_m']=='aprobado') {
-							        			echo "<td><span style='color:blue'>".$fila['estado_m']."</span></td>";
+							        			echo "<td><span style='color:blue'>Approved</span></td>";
 							        		}
 							        		else if ($fila['estado_m']=='reprobado') {
-							        			echo "<td><span style='color:red'>".$fila['estado_m']."</span></td>";
+							        			echo "<td><span style='color:red'>Failed</span></td>";
 							        		}
 							        		else{
 							        			echo "<td><span style='color:orange'>".$fila['estado_m']."</span></td>";
 							        		}
-							        		echo "<td>".$fila['estado']."</td>
+							        		echo "<td>".$fila['estado_m']."</td>
 							        		<td><center>
-							        		<a href='editar-estudiantes.php?id=".$fila['id']."' class='btn btn-primary' title='Editar Estudiante'><i class='fa fa-pencil'></i> Editar</a></center></td></tr>";
+							        		<a href='editar-estudiantes.php?id=".$fila['id']."' class='btn-lst-est' title='Edit Student'><i class='fa fa-pencil'></i> Edit</a></center></td></tr>";
 							        	}
 						        	?>
 						        </tbody>
@@ -150,7 +150,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 	<script src="../js/classie.js"></script>
 	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+		let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 			showLeftPush = document.getElementById( 'showLeftPush' ),
 			body = document.body;
 			
@@ -198,7 +198,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<!--  <script>-->
 <?php 
 }else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

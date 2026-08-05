@@ -7,19 +7,19 @@
 				<!--toggle button start-->
 				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
 				<!--toggle button end-->
-				<div style="margin-left: 100px;">
+				<div class="header-stats">
 			        <label style="color: blue;"><i class="fa fa-users"></i><?php echo $total_usuarios_m; ?> M</label>
 				    <label style="color: green;"><i class="fa fa-users"></i><?php echo $total_usuarios_r; ?> R</label>
 				    <label style="color: #F20F1C;">Pre (</label>
-				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Ant.</label>
-				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> Nuev.</label>
+				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Old</label>
+				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> New</label>
 				    <label style="color: #F20F1C;"> )</label>
 				    <label style="color: orange;"> Sol (</label>
-				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Ant.</label>
-				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> Nue.</label>
+				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Old</label>
+				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> New</label>
 				    <label style="color: orange;"> )</label>
-				    <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Mat. Efec</label>
-					<label style="color: black;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto; ?> Proc. Abierto</label>
+				    <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Effect. Enrol.</label>
+					<label style="color: black;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
 				    <label style="color: green;"><button data-toggle="modal" data-target="#modal_detalle"><i class="fa fa-info-circle"></i></button></label>
 			    </div>
 				<div class="clearfix"> </div>
@@ -33,7 +33,7 @@
 								<div class="profile_img">	
 									<span class="prfil-img"><img src="../images/icon2.png" alt=""> </span> 
 									<div class="user-name">
-										<p>Bienvenido</p>
+										<p>Welcome</p>
 										<span>Administrator</span>
 									</div>
 									<i class="fa fa-angle-down lnr"></i>
@@ -42,8 +42,8 @@
 								</div>	
 							</a>
 							<ul class="dropdown-menu drp-mnu">
-							    <li> <a href="#" data-toggle="modal" data-target="#myModal" title="Editar Datos Personales Usuario"><i class="fa fa-user"></i> Datos Personales</a> </li> 
-								<li> <a href="php/logout-super.php"><i class="fa fa-sign-out"></i> Cerrar Sesión</a> </li>
+							    <li> <a href="#" data-toggle="modal" data-target="#myModal" title="Edit User Personal Data"><i class="fa fa-user"></i> Personal Data</a> </li> 
+								<li> <a href="php/logout-super.php"><i class="fa fa-sign-out"></i> Log Out</a> </li>
 							</ul>
 						</li>
 					</ul>
@@ -59,7 +59,7 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">DETALLE DE LAS ESTADISTICAS</h5>
+                <h5 class="modal-title" id="exampleModalLabel">STATISTICS DETAIL</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -68,38 +68,38 @@
                 <div style="margin-left: 100px;">
                     <div class="row">
 			            <label style="color: blue;"><i class="fa fa-users"></i><?php echo $total_usuarios_m; ?> M</label>
-			            <label style="color: black;">Cantidad de estudiantes en Moodle.</label>
+			            <label style="color: black;">Number of students in Moodle.</label>
 			        </div>
 			        <div class="row">
 				        <label style="color: green;"><i class="fa fa-users"></i><?php echo $total_usuarios_r; ?> R</label>
-				        <label style="color: black;">Cantidad de estudiantes activos en Registro.</label>
+				        <label style="color: black;">Number of active students in Record.</label>
 				    </div>
 				    <div class="row">
     				    <label style="color: #F20F1C;">Pre (</label>
-    				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Ant.</label>
-    				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> Nuev.</label>
+    				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Old</label>
+    				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> New</label>
     				    <label style="color: #F20F1C;"> )</label>
-    				    <label style="color: black;">Cantidad de estudiantes antiguos y nuevos en estado pre_solicitud.</label>
+    				    <label style="color: black;">Number of old and new students in pre-request status.</label>
 				    </div>
 				    <div class="row">
 				        <label style="color: orange;">Sol (</label>
-    				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Ant.</label>
-    				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> Nue.</label>
+    				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Old</label>
+    				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> New</label>
     				    <label style="color: orange;"> )</label>
-    				    <label style="color: black;">Cantidad de estudiantes antiguos y nuevos en estado solicitud.</label>
+    				    <label style="color: black;">Number of old and new students in request status.</label>
 				    </div>
 				    <div class="row">
-				        <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Mat. Efec</label>
-				        <label style="color: black;">Estudiantes activos en Registro más los estudiantes en estado solicitud.</label>
+				        <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Effect. Enrol.</label>
+				        <label style="color: black;">Active students in Record plus students in request status.</label>
 				    </div>
 					<div class="row">
-				        <label style="color: black;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto; ?> Proc. Abierto</label>
-				        <label style="color: black;">Estudiantes que han iniciado proceso a través del asistente virtual y no han presentado la evaluación de admisión.</label>
+				        <label style="color: black;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
+				        <label style="color: black;">Students who have started the process through the virtual assistant and have not presented the admission evaluation.</label>
 				    </div>
 			    </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <!--<button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" style="display: none;" onclick="guardar()">Guardar</button>-->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!--<button type="button" class="btn btn-warning" id="btnguardar" data-dismiss="modal" style="display: none;" onclick="guardar()">Save</button>-->
                 
               </div>
             </div>

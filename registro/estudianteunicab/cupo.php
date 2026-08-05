@@ -2,11 +2,18 @@
 	session_start();
 	Include "../adminunicab/php/conexion.php";
 	if (isset($_SESSION['uniestudiante'])) {
-		$sql="SELECT * FROM estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
+		$sql="SELECT * FROM tbl_estudiantes WHERE email_institucional='".$_SESSION['uniestudiante']."'";
 		$res=mysqli_query($conexion,$sql);
 
+	$id = "";
+	$apellidos = "";
+	$nombres = "";
+	$n_documento = "";
+	$email_institucional = "";
+	$password = "";
+
 	while ($fila = mysqli_fetch_array($res)){
-                      
+
 	  	$id = $fila['id'];
 		$apellidos = $fila['apellidos'];
 		$nombres = $fila['nombres'];
@@ -16,31 +23,32 @@
 	}
 	
 	$query = "SELECT CONCAT(c.nombres, ' ', c.apellidos) estudiante, c.n_documento, c.acudiente, c.telefono_acudiente, c.email_acudiente, c.año, c.id_grado_sistema, g1.grado grado_sistema, 
-        c.id_grado_solicitado, g2.grado grado_solicitado, c.respuesta_pregunta, c.fecha_solicitud, m.estado, m.fecha_ingreso, m.idMatricula, m.id_grado, g3.grado gradoactual  
-        FROM tbl_cupos c, estudiantes e, matricula m, grados g1, grados g2, grados g3, 
-        (SELECT max(idMatricula) idMatricula, id_estudiante FROM `matricula` GROUP BY id_estudiante) m1 
-        WHERE c.n_documento = e.n_documento AND e.id = m.id_estudiante 
-        AND m.idMatricula = m1.idMatricula AND c.id_grado_sistema = g1.id AND c.id_grado_solicitado = g2.id AND m.id_grado = g3.id 
-        AND c.n_documento = '$n_documento' 
-        ORDER BY m.idMatricula";
+        c.id_grado_solicitado, g2.grado grado_solicitado, c.respuesta_pregunta, c.fecha_solicitud, m.estado, m.fecha_ingreso, m.id idMatricula, m.id_grado, g3.grado gradoactual
+        FROM tbl_cupos c, tbl_estudiantes e, tbl_matriculas m, tbl_grados g1, tbl_grados g2, tbl_grados g3,
+        (SELECT max(id) idMatricula, id_estudiante FROM `tbl_matriculas` GROUP BY id_estudiante) m1
+        WHERE c.n_documento = e.n_documento AND e.id = m.id_estudiante
+        AND m.id = m1.idMatricula AND c.id_grado_sistema = g1.id AND c.id_grado_solicitado = g2.id AND m.id_grado = g3.id
+        AND c.n_documento = '$n_documento'
+        ORDER BY m.id";
     //echo $query;
     
+    $cadena = "";
     $cadena = $cadena."<table id='tblact' class='table' border='1px'>
 	                        <thead>
 	                        <tr>
-							    <TH COLSPAN=10><center><strong>CUPO APARTADO</strong></center></TH>
+							    <TH COLSPAN=10><center><strong>RESERVED SPOT</strong></center></TH>
 							</tr>
 	                        <tr>
-	                            <th>Estudiante</th>
-	                            <th>Documento</th>
-	                            <th>Acudiente</th>
-	                            <th>Tel. Acud</th>
-	                            <th>Email Acud</th>
-	                            <th>Respuesta</th>
-	                            <th>Grado Sistema</th>
-	                            <th>Grado Solicitado</th>
-	                            <th>Grado Actual/Ultimo</th>
-	                            <th>Año Cupo</td>
+	                            <th>Student</th>
+	                            <th>Document</th>
+	                            <th>Guardian</th>
+	                            <th>Guardian Phone</th>
+	                            <th>Guardian Email</th>
+	                            <th>Answer</th>
+	                            <th>System Grade</th>
+	                            <th>Requested Grade</th>
+	                            <th>Current/Last Grade</th>
+	                            <th>Spot Year</td>
 	                        </tr></thead><tbody>";
 	                        
     //$resultado1 = $mysqli1->query($query);
@@ -58,7 +66,10 @@
                 <td>".$row['gradoactual']."</td></tr>";
         $i++;
     }*/
+    $id_grado = "";
+
     while ($filar = mysqli_fetch_array($resultado1)){
+        $id_grado = $filar['id_grado'];
         $cadena = $cadena."<tr>
                 <td>".$filar['estudiante']."</td>
                 <td>".$filar['n_documento']."</td>
@@ -77,7 +88,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Unicab Registro Académico</title>
+    <title>Unicab Academic Registry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      <!-- Favicon -->
@@ -170,7 +181,7 @@
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

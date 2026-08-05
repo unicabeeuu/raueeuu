@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- capchat -->
@@ -34,7 +34,7 @@
 					<form action="php/loginSuper.php" method="post" onsubmit="javascript:return Validar();">
 						<!-- <form action="php/loginSuper.php" method="post" name="f"> -->
 						<input type="email" class="user" name="user" id="user" placeholder="Usuario" autofocus onblur="javascript:Validar();">
-						<input type="password" class="lock" name="pass" id="pass" placeholder="Contraseña" onblur="javascript:Validar();">
+						<input type="password" class="lock" name="pass" id="pass" placeholder="Password" onblur="javascript:Validar();">
 
 						<div align='center'>
 							<div class="g-recaptcha" data-sitekey="6Lc6bVYUAAAAALNJxEipjWAkhov1hRFgXOvpFAnB"></div>
@@ -57,8 +57,8 @@
 <!--//scrolling js-->
 <script type="text/javascript">
 	function Validar(){
-	    var usuario=document.getElementById('user').value;
-    	var contrasena=document.getElementById('pass').value;
+	    let usuario=document.getElementById('user').value;
+    	let contrasena=document.getElementById('pass').value;
 
 	    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 

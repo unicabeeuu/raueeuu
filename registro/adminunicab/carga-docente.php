@@ -7,7 +7,7 @@ if (isset($_SESSION['unisuper'])) {
 <!DOCTYPE HTML>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-<title>Unicab Registro Académico</title>
+<title>Unicab Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -76,7 +76,7 @@ if (isset($_SESSION['unisuper'])) {
                     		<div class="panel-group" id="accordion">
 					    <!-- <div class="embed-responsive embed-responsive-16by9"> -->
 					    	<?php 
-					    	$sql_grado="SELECT * FROM grados";
+					    	$sql_grado="SELECT * FROM tbl_grados WHERE id = 0 OR (id BETWEEN 9 AND 12) ORDER BY id";
 							$consulta=mysqli_query($conexion,$sql_grado);	
 					    	while ($fila = mysqli_fetch_array($consulta)){
 					    		echo '  
@@ -91,19 +91,19 @@ if (isset($_SESSION['unisuper'])) {
 								    <div id="collapse'.$fila['id'].'" class="panel-collapse collapse in">
 								      <div class="panel-body">';
 								      			$query="consulta".$fila['id'];
-					      						$query="SELECT carga_profesor.id as id_carga, profesores.id as id_profesores, profesores.apellidos, profesores.nombres, grados.id as id_grado, grados.grado, materias.Id as id_materia, materias.materia, materias.pensamiento FROM materias INNER JOIN (grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia WHERE grados.id=".$fila['id']."";
+					      						$query="SELECT carga_profesor.id as id_carga, profesores.id as id_profesores, profesores.apellidos, profesores.nombres, tbl_grados.id as id_grado, tbl_grados.grado, materias.Id as id_materia, materias.materia, materias.pensamiento FROM materias INNER JOIN (tbl_grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) ON tbl_grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia WHERE tbl_grados.id=".$fila['id']."";
 					      						$exe="exec".$fila['id'];
 					      						$exe=mysqli_query($conexion,$query);	
 					      						echo '<table class="table table-hover" border="1" bordercolor="#e0e0e0">
 												<thead > 
 												<tr>
-												<TH COLSPAN=4><center>CARGA ASIGNADA</center></TH>
+												<TH COLSPAN=4><center>ASSIGNED LOAD</center></TH>
 												</tr>
 												<tr>
-													<th><center>MATERIA</center></th>
+													<th><center>SUBJECT</center></th>
 													<th><center>PENSAMIENTO</center></th>
-													<th><center>PROFESOR</center></th>  
-													<th><center>ACCIÓN</center></th>  
+													<th><center>TEACHER</center></th>  
+													<th><center>ACTION</center></th>  
 												</tr>  
 												</thead> 
 												<tbody>'; 
@@ -111,7 +111,7 @@ if (isset($_SESSION['unisuper'])) {
 													echo"<tr>
 					        						<td scope='row'>".$row['materia']."</td><td>".$row['pensamiento']."</td><td>".$row['apellidos'].' '.$row['nombres']."</td>
 					        						<td>
-					        							<center><a href='php/update-carga.php?id=".$row['id_carga']."' class='btn btn-danger' title='Eliminar Carga'><i class='fa fa-trash'></i> Eliminar</a></center>
+					        							<center><a href='php/update-carga.php?id=".$row['id_carga']."' class='btn btn-danger' title='Eliminar Carga'><i class='fa fa-trash'></i> Delete</a></center>
 					        						</td>";						        		
 					        					}
 												echo '</tr> 
@@ -138,7 +138,7 @@ if (isset($_SESSION['unisuper'])) {
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				
@@ -177,7 +177,7 @@ if (isset($_SESSION['unisuper'])) {
 <?php 
 }
 else{
-	echo "<script>alert('Debes iniciar sesión');</script>";
+	echo "<script>alert('You must log in');</script>";
 	echo "<script>location.href='../../login_registro.php'</script>";
 }
 ?>

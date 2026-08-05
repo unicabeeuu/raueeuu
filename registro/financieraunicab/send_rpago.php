@@ -127,7 +127,7 @@
     //Se consulta el producto o servicio
 	$sql_est = "SELECT e.id, e.n_documento, e.nombres, e.apellidos, e.ciudad, e.email_institucional, e.telefono_estudiante, 
 	m.id_grado, g.grado 
-	FROM admin_unicab.estudiantes e, 
+	FROM admin_unicab.tbl_estudiantes e, 
 	(SELECT * FROM admin_unicab.matricula WHERE idMatricula = 
     (SELECT MAX(idMatricula) maxid FROM admin_unicab.matricula WHERE id_estudiante = 621 AND estado = 'activo')) m, admin_unicab.grados g 
     WHERE e.id = m.id_estudiante AND m.id_grado = g.id AND e.n_documento = ".$documento;

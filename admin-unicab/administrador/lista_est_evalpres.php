@@ -15,10 +15,10 @@
 		//$peticion="SELECT * from estudiantes WHERE estado != 'Retirado'"; // este id estaba 3148
 		$peticion_evalpres = "SELECT DISTINCT e.id, e.nombres, e.apellidos, e.n_documento, e.email_institucional, e.telefono_estudiante, r.id_grado, g.grado, r.estado, 
 		CASE WHEN e.id <= 3482 THEN 'Antiguo' ELSE 'Nuevo' END tipo_estudiante, d.DSA, d.DA, d.DM, d.DB 
-		FROM estudiantes e, tbl_respuestas r, grados g, tbl_desemp_pres d 
+		FROM tbl_estudiantes e, tbl_respuestas r, tbl_grados g, tbl_desemp_pres d 
 		WHERE e.n_documento = r.identificacion AND r.id_grado = g.id AND e.n_documento = d.identificacion AND r.id_grado = d.id_grado 
 		AND r.a >= 2025 AND r.identificacion NOT IN (SELECT DISTINCT identificacion FROM `tbl_respuestas` WHERE estado = 'ABIERTA') 
-		ORDER BY g.id, e.nombres";
+	ORDER BY r.id_grado, e.nombres";
 		$resultado_evalpres = mysqli_query($conexion, $peticion_evalpres);
 ?>
 <?php
@@ -84,7 +84,7 @@ while ($fila = mysqli_fetch_array($resultado))
                 //$("#btnsubmit").hide();
                 //alert("hola");
                 
-                var psi = $("#psicologo").val();
+                let psi = $("#psicologo").val();
                 //alert(psi);
                 if(psi == "0") {
                     $("#btnsubmit").hide();
@@ -194,7 +194,7 @@ while ($fila = mysqli_fetch_array($resultado))
 	<!-- Classie --><!-- for toggle left push menu script -->
 		<script src="../js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+			let menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
 				body = document.body;
 				

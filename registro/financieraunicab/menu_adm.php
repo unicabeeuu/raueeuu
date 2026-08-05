@@ -99,12 +99,12 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="../docenteunicab/updreg/desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Desempeño estudiantes</a></li>
+                  <li><a href="../docenteunicab/updreg/desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Student Performance</a></li>
                   <li><a href="../docenteunicab/updreg/ranking_getdat.php"><i class="fa fa-sort-amount-desc"></i> Ranking</a></li>
                   <li class='treeview'>
                       <a href='#'><i class='fa fa-file-pdf-o'></i>Certificados<i class='fa fa-angle-left pull-right'></i></a>
                       <ul class='treeview-menu'>
-                          <li><a href='../docenteunicab/updreg/certificados_getdat.php'><i class='fa fa-angle-right'></i> Por periodo</a></li>
+                          <li><a href='../docenteunicab/updreg/certificados_getdat.php'><i class='fa fa-angle-right'></i> By period</a></li>
                           <li><a href='../docenteunicab/updreg/certificados_finales_getdat.php'><i class='fa fa-angle-right'></i> Finales</a></li>
                       </ul>
                   </li>
@@ -118,8 +118,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="../docenteunicab/asignacion.php"><i class="fa fa-battery-three-quarters "></i> Asignación</a></li>
-                  <li><a href="ordenes_getdat.php"><i class="fa fa-usd"></i> Ordenes pago</a></li>
+                  <li><a href="../docenteunicab/asignacion.php"><i class="fa fa-battery-three-quarters "></i> Assignment</a></li>
+                  <li><a href="ordenes_getdat.php"><i class="fa fa-usd"></i> Payment Orders</a></li>
                 </ul>
               </li>
               
@@ -130,12 +130,12 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="../docenteunicab/updreg/adm.php"><i class="fa fa-cloud-upload"></i> Actualizar registro</a></li>
-                  <li><a href="../docenteunicab/updreg/cod_entrevista.php"><i class="fa fa-power-off"></i> Código entrevista</a></li>
-                  <li><a href="../docenteunicab/updreg/adm1.php"><i class="fa fa-users"></i> Base de datos</a></li>
+                  <li><a href="../docenteunicab/updreg/adm.php"><i class="fa fa-cloud-upload"></i> Update Record</a></li>
+                  <li><a href="../docenteunicab/updreg/cod_entrevista.php"><i class="fa fa-power-off"></i> Interview Code</a></li>
+                  <li><a href="../docenteunicab/updreg/adm1.php"><i class="fa fa-users"></i> Database</a></li>
                   <li><a href="../docenteunicab/updreg/act_moodle_upddat.php"><i class="fa fa-cogs"></i> Configurar calificaciones</a></li>
                   <li><a href="../docenteunicab/menciones.php"><i class="fa fa-graduation-cap"></i> Reconocimientos</a></li>
-                  <li><a href="../docenteunicab/updreg/preguntas_put_upddat.php"><i class="fa fa-university"></i> Banco de preguntas</a></li>
+                  <li><a href="../docenteunicab/updreg/preguntas_put_upddat.php"><i class="fa fa-university"></i> Question Bank</a></li>
                 </ul>
               </li>
               
