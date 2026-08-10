@@ -28,13 +28,13 @@ if (isset($_SESSION['uniprofe'])) {
     else {
         //$query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id";
         $query = "SELECT DISTINCT a.* FROM 
-            (SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id 
+            (SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id 
 			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
             SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_apoyos_direccion ad WHERE eg.id_grado_ra = ad.id_grado AND ad.id_empleado = $id 
 			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
-            SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direccion_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
+            SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direcciones_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
 			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
             UNION ALL 
             SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_dir_b db WHERE eg.id_grado_ra = db.id_grado AND db.id_empleado = $id 

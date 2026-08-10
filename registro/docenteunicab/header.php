@@ -19,7 +19,7 @@
 				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> New</label>
 				    <label style="color: orange;"> )</label>
 				    <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Effec Tuit</label>
-					<!-- <label style="color: black;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
+					<!-- <label style="color: black;"><i class="fa fa-users"></i><?php //echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
 				    <label style="color: green;"><button data-toggle="modal" data-target="#modal_detalle"><i class="fa fa-info-circle"></i></button></label> -->
 					<label style="color: black;"><i class="fa fa-users"></i>Open Proc. (</label>
 					<label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto_antiguos; ?> Anc</label>

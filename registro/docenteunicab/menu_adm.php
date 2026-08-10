@@ -64,14 +64,14 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Navigation Menu</li>
+              <li class="header">Navigation menu</li>
               <?php  
                     if($id_administrador == 18) {
               ?>
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-database"></i>
-                <span>Cambiar sistema</span>
+                <span>Change system</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -96,11 +96,11 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
-                <span>Informes</span>
+                <span>Academic reports</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="https://unicab.org/registro/docenteunicab/asignacion.php"><i class="fa fa-battery-three-quarters "></i> Assignment</a></li>
+                  <li><a href="asignacion.php"><i class="fa fa-battery-three-quarters "></i> Assignment</a></li>
                   <!--<li class='treeview'>
                       <a href='#'><i class='fa fa-file-pdf-o'></i>Certificados<i class='fa fa-angle-left pull-right'></i></a>
                       <ul class='treeview-menu'>
@@ -108,10 +108,10 @@
                           <li><a href='updreg/certificados_finales_getdat.php'><i class='fa fa-angle-right'></i> Finales</a></li>
                       </ul>
                   </li>-->
-                  <li><a href="updreg/desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Student Performance</a></li>
+                  <li><a href="updreg/desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Student performance</a></li>
                   <li><a href="updreg/ranking_getdat.php"><i class="fa fa-sort-amount-desc"></i> Ranking</a></li>
-                  <li><a href="lista-estudiantes_evalpres.php"><i class="fa fa-file-text "></i> Admission Eval Results</a></li>
-                  <li><a href="lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validation Eval Results</a></li>
+                  <li><a href="lista-estudiantes_evalpres.php"><i class="fa fa-file-text "></i> Admission eval results</a></li>
+                  <li><a href="lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validation eval results</a></li>
                 </ul>
               </li>
               
@@ -121,13 +121,13 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
-                <span>Procesos Financieros</span>
+                <span>Financial processes</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                   <!--<li><a href="../financieraunicab/ordenes_getdat.php"><i class="fa fa-usd"></i> Ordenes pago</a></li>-->
                   
-                  <li><a href="../../admin-unicab/administrador/becas_descuentos.php" target="_blank"><i class="fa fa-usd"></i> Becas y descuentos</a></li>
+                  <li><a href="../../admin-unicab/administrador/becas_descuentos.php" target="_blank"><i class="fa fa-usd"></i> Scholarships and discounts</a></li>
                   
                 </ul>
               </li>
@@ -137,36 +137,36 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
-                <span>Procesos Tutores</span>
+                <span>Tutor processes</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="updreg/adm.php"><i class="fa fa-cloud-upload"></i> Update Record</a></li>
+                  <li><a href="updreg/adm.php"><i class="fa fa-cloud-upload"></i> Update registry</a></li>
                   <!--<li><a href="updreg/cod_entrevista.php"><i class="fa fa-power-off"></i> CÃ³digo entrevista</a></li>-->
                   <li><a href="updreg/adm1.php"><i class="fa fa-users"></i> Database</a></li>
-                  <li><a href="updreg/act_moodle_upddat.php"><i class="fa fa-cogs"></i> Configurar calificaciones</a></li>
+                  <li><a href="updreg/act_moodle_upddat.php"><i class="fa fa-cogs"></i> Configure grades</a></li>
                   <li class='treeview'>
                       <a href='#'><i class='fa fa-bookmark'></i>Blog<i class='fa fa-angle-left pull-right'></i></a>
                       <ul class='treeview-menu'>
-                          <li><a href="post_putdat.php"><i class="fa fa-bookmark-o"></i> Crear</a></li>
-                          <li><a href="post_getdat.php"><i class="fa fa-check"></i> Ver</a></li>
-						  <li><a href="imagen_putdat.php"><i class="fa fa-picture-o"></i> Subir imagen</a></li>
+                          <li><a href="post_putdat.php"><i class="fa fa-bookmark-o"></i> Create</a></li>
+                          <li><a href="post_getdat.php"><i class="fa fa-check"></i> View</a></li>
+						  <li><a href="imagen_putdat.php"><i class="fa fa-picture-o"></i> Upload image</a></li>
                       </ul>
                   </li>
-                  <li><a href="menciones.php"><i class="fa fa-graduation-cap"></i> Reconocimientos</a></li>
+                  <li><a href="menciones.php"><i class="fa fa-graduation-cap"></i> Honors</a></li>
                   <!--<li><a href="updreg/preguntas_put_upddat.php"><i class="fa fa-university"></i> Question Bank</a></li>-->
                   <li class='treeview'>
-                      <a href='#'><i class='fa fa-university'></i>Question Bank<i class='fa fa-angle-left pull-right'></i></a>
+                      <a href='#'><i class='fa fa-university'></i>Question bank<i class='fa fa-angle-left pull-right'></i></a>
                       <ul class='treeview-menu'>
-                          <li><a href='updreg/preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short Answer</a></li>
-                          <li><a href='updreg/preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Sel. sencilla</a></li>
-                          <li><a href='updreg/preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple Choice 2</a></li>
-                          <li><a href='updreg/preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple Choice 3</a></li>
+                          <li><a href='updreg/preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short answer</a></li>
+                          <li><a href='updreg/preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Single choice</a></li>
+                          <li><a href='updreg/preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple choice 2</a></li>
+                          <li><a href='updreg/preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple choice 3</a></li>
                       </ul>
                   </li>
-                  <li><a href="envio_whatsapp_putdat.php"><i class="fa fa-phone-square"></i> WhatsApp Sends</a></li>
-				  <li><a href="observaciones_est_putdat.php"><i class="fa fa-pencil-square-o"></i> Observaciones estudiantes</a></li>
-				  <li><a href="observador.php"><i class="fa fa-folder-open"></i> Student Record</a></li>
+                  <li><a href="envio_whatsapp_putdat.php"><i class="fa fa-phone-square"></i> WhatsApp sends</a></li>
+				  <li><a href="observaciones_est_putdat.php"><i class="fa fa-pencil-square-o"></i> Student observations</a></li>
+				  <li><a href="observador.php"><i class="fa fa-folder-open"></i> Student observer</a></li>
                 </ul>
               </li>
               

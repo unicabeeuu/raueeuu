@@ -50,7 +50,7 @@ legend {
 }
 .msecund {
 	list-style-image: url(../img/bd30.png); 
-	background: lightgreen;
+	background: #222a75;
 	padding: 20px;
 	font-weight: bold;
 	font-size: 18px;
@@ -156,4 +156,8 @@ legend {
 {
     background: #A9F5BC;
     color: blue;
+}
+
+.btn-primary {
+	background: #fd0c8d !Important;
 }

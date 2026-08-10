@@ -5,7 +5,7 @@
   FROM grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
   ON grados.id = carga_profesor.id_grado where profesores.id=".$id." ORDER BY grados.id ASC";*/
   $sql_menu="SELECT distinct e.id, e.apellidos, e.nombres, g.id as id_grado, g.grado 
-      FROM grados g, tbl_empleados e, carga_profesor cp 
+      FROM tbl_grados g, tbl_empleados e, tbl_carga_profesor cp 
       WHERE cp.id_empleado = e.id AND g.id = cp.id_grado AND cp.id_empleado = ".$id." 
       ORDER BY g.id";
       
@@ -51,20 +51,20 @@
     }
     
     //Se valida si el empleado tiene acceso a crear y editar preguntas
-    $sql_val_preg = "SELECT COUNT(1) ct FROM tbl_usu_preguntas WHERE id_empleado = $id";
+    $ct = 0;
+    /*$sql_val_preg = "SELECT COUNT(1) ct FROM tbl_usu_preguntas WHERE id_empleado = $id";
     $exe_val_preg = mysqli_query($conexion,$sql_val_preg);
-
     while ($row_val_preg = mysqli_fetch_array($exe_val_preg)) {
         $ct = $row_val_preg['ct'];
-    }
+    }*/
     
     //Se valida si el empleado tiene acceso a enviar whatsapp masivos
-    $sql_val_what = "SELECT COUNT(1) ct FROM tbl_usu_whatsapp WHERE id_empleado = $id";
+    $ctw = 0;
+    /*$sql_val_what = "SELECT COUNT(1) ct FROM tbl_usu_whatsapp WHERE id_empleado = $id";
     $exe_val_what = mysqli_query($conexion,$sql_val_what);
-
     while ($row_val_what = mysqli_fetch_array($exe_val_what)) {
         $ctw = $row_val_what['ct'];
-    }
+    }*/
   ?>
   <!-- menu -->
   <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
@@ -82,7 +82,7 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Navigation Menu</li>
+              <li class="header">Navigation menu</li>
               <li class="treeview">
                 <a href="index.php">
                 <i class="fa fa-home"></i> <span>Home</span>
@@ -91,7 +91,7 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
-                <span>Informes</span>
+                <span>Academic reports</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -100,19 +100,19 @@
                       if($v_param3 == 999) {
     				    echo "<li class='treeview'>";
         				echo "<a href='updreg/certificados_getdat.php'>";
-        				echo "<i class='fa fa-file-pdf-o'></i> <span>Certificados</span>";
+        				echo "<i class='fa fa-file-pdf-o'></i> <span>Certificates</span>";
         				echo "</a>";
         			    echo "</li>";
     				  }
     				  if($perfil != "PR") {
 				  ?>
-				  <li><a href='updreg/desemp_estud_per_getdat.php'><i class='fa fa-bar-chart '></i> <span>Student Performance</span></a></li>
+				  <li><a href='updreg/desemp_estud_per_getdat.php'><i class='fa fa-bar-chart '></i> <span>Student performance</span></a></li>
 				  <?php
     				  }
 				        if($v_param4 == 1) {
     				        echo "<li class='treeview'>";
         					  echo "<a href='lista-estudiantes_evalpres.php'>";
-        					  echo "<i class='fa fa-file-text'></i> <span>Admission Eval Results</span>";
+        					  echo "<i class='fa fa-file-text'></i> <span>Admission eval results</span>";
         					  echo "</a>";
         				    echo "</li>";
     				    }
@@ -128,19 +128,19 @@
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
-                <span>Procesos Tutores</span>
+                <span>Tutor processes</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                   <?php
                     if($v_param4 == 1 && $ct == 1) {
 				        echo "<li class='treeview'>";
-    					  echo "<a href='#'><i class='fa fa-university'></i>Question Bank<i class='fa fa-angle-left pull-right'></i></a>";
+    					  echo "<a href='#'><i class='fa fa-university'></i>Question bank<i class='fa fa-angle-left pull-right'></i></a>";
     					  echo "<ul class='treeview-menu'>";
-    					    echo "<li><a href='updreg/preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short Answer</a></li>";
-    					    echo "<li><a href='updreg/preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Sel. sencilla</a></li>";
-    					    echo "<li><a href='updreg/preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple Choice 2</a></li>";
-    					    echo "<li><a href='updreg/preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple Choice 3</a></li>";
+    					    echo "<li><a href='updreg/preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short answer</a></li>";
+    					    echo "<li><a href='updreg/preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Single choice</a></li>";
+    					    echo "<li><a href='updreg/preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple choice 2</a></li>";
+    					    echo "<li><a href='updreg/preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple choice 3</a></li>";
     					  echo "</ul>";
     				    echo "</li>";
 				    }
@@ -154,7 +154,7 @@
 				    if($v_param2 == 1 && $perfil != "PR") {
 				        echo "<li class='treeview'>";
     					  echo "<a href='updreg/act_moodle_upddat.php'>";
-    					  echo "<i class='fa fa-cogs'></i> <span>Configurar calificaciones</span>";
+    					  echo "<i class='fa fa-cogs'></i> <span>Configure grades</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -163,9 +163,9 @@
                   <li class='treeview'>
                       <a href='#'><i class='fa fa-bookmark'></i>Blog<i class='fa fa-angle-left pull-right'></i></a>
                       <ul class='treeview-menu'>
-                          <li><a href="post_putdat.php"><i class="fa fa-bookmark-o"></i> Crear</a></li>
-                          <li><a href="post_getdat.php"><i class="fa fa-check"></i> Ver</a></li>
-						  <li><a href="imagen_putdat.php"><i class="fa fa-picture-o"></i> Subir imagen</a></li>
+                          <li><a href="post_putdat.php"><i class="fa fa-bookmark-o"></i> Create</a></li>
+                          <li><a href="post_getdat.php"><i class="fa fa-check"></i> View</a></li>
+						  <li><a href="imagen_putdat.php"><i class="fa fa-picture-o"></i> Upload image</a></li>
                       </ul>
                   </li>
                   <?php
@@ -173,12 +173,12 @@
 				    
 				    if($ctw == 1) {
                   ?>
-					<li><a href="envio_whatsapp_putdat"><i class="fa fa-phone-square"></i> WhatsApp Sends</a></li>
+					<li><a href="envio_whatsapp_putdat"><i class="fa fa-phone-square"></i> WhatsApp sends</a></li>
 					<?php
 						}
 					?>
-				  <li><a href="observaciones_est_putdat.php"><i class="fa fa-pencil-square-o"></i> Observaciones estudiantes</a></li>
-				  <li><a href="observador.php"><i class="fa fa-folder-open"></i> Student Record</a></li>
+				  <li><a href="observaciones_est_putdat.php"><i class="fa fa-pencil-square-o"></i> Student observations</a></li>
+				  <li><a href="observador.php"><i class="fa fa-folder-open"></i> Student observer</a></li>
                 </ul>
               </li>
               

@@ -5,7 +5,7 @@
         FROM grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
         ON grados.id = carga_profesor.id_grado where profesores.id=".$id." ORDER BY grados.id ASC";*/
     $sql_menu="SELECT distinct e.id, e.apellidos, e.nombres, g.id as id_grado, g.grado 
-        FROM grados g, tbl_empleados e, carga_profesor cp 
+        FROM tbl_grados g, tbl_empleados e, tbl_carga_profesor cp 
         WHERE cp.id_empleado = e.id AND g.id = cp.id_grado AND cp.id_empleado = ".$id." 
         ORDER BY g.id";
     //$consulta_menu=mysqli_query($conexion,$sql_menu);
@@ -69,14 +69,14 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">Navigation Menu</li>
+              <li class="header">Navigation menu</li>
               <?php  
                     if($id_administrador == 18) {
               ?>
               <li class="treeview">
                 <a href="#">
                 <i class="fa fa-database"></i>
-                <span>Cambiar sistema</span>
+                <span>Change system</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -146,7 +146,7 @@
 				//if($id == 10) {
 					echo "<li class='treeview'>";
 					  echo "<a href='adm.php'>";
-					  echo "<i class='fa fa-cloud-upload'></i> <span>Update Record</span>";
+					  echo "<i class='fa fa-cloud-upload'></i> <span>Update registry</span>";
 					  echo "</a>";
 				    echo "</li>";
 				}
@@ -154,7 +154,7 @@
 				    if($v_param == 1) {
 				        echo "<li class='treeview'>";
 					      echo "<a href='pen_gra_upddat_tutor.php'>";
-    					  echo "<i class='fa fa-cloud-upload'></i> <span>Update Record</span>";
+    					  echo "<i class='fa fa-cloud-upload'></i> <span>Update registry</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -168,30 +168,30 @@
 				    if($v_param2 == 1) {
 				        echo "<li class='treeview'>";
     					  echo "<a href='act_moodle_upddat.php'>";
-    					  echo "<i class='fa fa-cogs'></i> <span>Configurar calificaciones</span>";
+    					  echo "<i class='fa fa-cogs'></i> <span>Configure grades</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
 				    if($v_param3 == 1) {
 				        echo "<li class='treeview'>";
     					  echo "<a href='certificados_getdat.php'>";
-    					  echo "<i class='fa fa-file-pdf-o'></i> <span>Certificados</span>";
+    					  echo "<i class='fa fa-file-pdf-o'></i> <span>Certificates</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
 				    if($v_param4 == 1) {
 				        echo "<li class='treeview'>";
-    					  echo "<a href='#'><i class='fa fa-university'></i>Question Bank<i class='fa fa-angle-left pull-right'></i></a>";
+    					  echo "<a href='#'><i class='fa fa-university'></i>Question bank<i class='fa fa-angle-left pull-right'></i></a>";
     					  echo "<ul class='treeview-menu'>";
-    					    echo "<li><a href='preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short Answer</a></li>";
-    					    echo "<li><a href='preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Sel. sencilla</a></li>";
-    					    echo "<li><a href='preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple Choice 2</a></li>";
-    					    echo "<li><a href='preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple Choice 3</a></li>";
+    					    echo "<li><a href='preguntas_put_upddat.php'><i class='fa fa-minus'></i> Short answer</a></li>";
+    					    echo "<li><a href='preguntas_putss_upddat.php'><i class='fa fa-check-circle-o'></i> Single choice</a></li>";
+    					    echo "<li><a href='preguntas_putsm2_upddat.php'><i class='fa fa-check-square-o'></i> Multiple choice 2</a></li>";
+    					    echo "<li><a href='preguntas_putsm3_upddat.php'><i class='fa fa-check-square'></i> Multiple choice 3</a></li>";
     					  echo "</ul>";
     				    echo "</li>";
     				    echo "<li class='treeview'>";
     					  echo "<a href='../lista-estudiantes_evalpres.php'>";
-    					  echo "<i class='fa fa-file-text'></i> <span>Resultados Eval Presaberes</span>";
+    					  echo "<i class='fa fa-file-text'></i> <span>Foreknowledges eval results</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -209,7 +209,7 @@
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='act_moodle_upddat.php'>";
-					  echo "<i class='fa fa-cogs'></i> <span>Configurar calificaciones</span>";
+					  echo "<i class='fa fa-cogs'></i> <span>Configure grades</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    /*echo "<li class='treeview'>";
@@ -220,12 +220,12 @@
 				    echo "<li class='treeview'>";
 				      echo "<a href='#'>";
 				      echo "<i class='fa fa-file-pdf-o'></i>";
-				      echo "<span>Certificados</span>";
+				      echo "<span>Certificates</span>";
 				      echo "<i class='fa fa-angle-left pull-right'></i>";
 				      echo "</a>";
 				      echo "<ul class='treeview-menu'>";
 				        echo "<li><a href='certificados_getdat.php'><i class='fa fa-angle-right'></i> By period</a></li>";
-				        echo "<li><a href='certificados_finales_getdat.php'><i class='fa fa-angle-right'></i> Finales</a></li>";
+				        echo "<li><a href='certificados_finales_getdat.php'><i class='fa fa-angle-right'></i> Finals</a></li>";
 				      echo "</ul>";
 				    echo "</li>";
 				    
@@ -236,17 +236,17 @@
 				    echo "</li>";*/
 				    echo "<li class='treeview'>";
 					  echo "<a href='../menciones.php'>";
-					  echo "<i class='fa fa-graduation-cap'></i> <span>Reconocimientos</span>";
+					  echo "<i class='fa fa-graduation-cap'></i> <span>Honors</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='../../financieraunicab/ordenes_getdat.php'>";
-					  echo "<i class='fa fa-usd'></i> <span>Payment Orders</span>";
+					  echo "<i class='fa fa-usd'></i> <span>Payment orders</span>";
 					  echo "</a>";
 				    echo "</li>";
 				    echo "<li class='treeview'>";
 					  echo "<a href='preguntas_put_upddat.php'>";
-					  echo "<i class='fa fa-university'></i> <span>Question Bank</span>";
+					  echo "<i class='fa fa-university'></i> <span>Question bank</span>";
 					  echo "</a>";
 				    echo "</li>";
 				}
@@ -261,7 +261,7 @@
 				    if($v_param2 == 1) {
 				        echo "<li class='treeview'>";
     					  echo "<a href='act_moodle_upddat.php'>";
-    					  echo "<i class='fa fa-cogs'></i> <span>Configurar calificaciones</span>";
+    					  echo "<i class='fa fa-cogs'></i> <span>Configure grades</span>";
     					  echo "</a>";
     				    echo "</li>";
 				    }
@@ -269,7 +269,7 @@
 			  ?>
 			  <li class="treeview">
                 <a href='desemp_estud_per_getdat.php'>
-                <i class='fa fa-bar-chart '></i> <span>Student Performance</span>
+                <i class='fa fa-bar-chart '></i> <span>Student performance</span>
                 </a>
               </li>
             </ul>

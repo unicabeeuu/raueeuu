@@ -87,10 +87,10 @@
 			}
 		}else{
 			echo "<script>alert('User not found');</script>";
-			echo "<script>location.href='../../../login_registro.php'</script>";
+			echo "<script>location.href='../../login_registro.php'</script>";
 		}
 	} catch (Exception $e) {
 			echo "<script>alert('Please try again later');</script>";
-			echo "<script>location.href='../../../login_registro.php'</script>";
+			echo "<script>location.href='../../login_registro.php'</script>";
 	}
 ?>

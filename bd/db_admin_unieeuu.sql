@@ -2925,6 +2925,16 @@ INSERT INTO tbl_dias_festivos (dia, descripcion) VALUES
 
 /*######################################################################################################*/
 
+DROP TABLE IF EXISTS tbl_apoyos_direccion;
+
+CREATE TABLE tbl_apoyos_direccion (
+  id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_profesor int(11) NOT NULL,
+  id_grado int(11) NOT NULL,
+  id_materia int(11) NOT NULL,
+  id_empleado int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 /*######################################################################################################*/
 
 /*######################################################################################################*/

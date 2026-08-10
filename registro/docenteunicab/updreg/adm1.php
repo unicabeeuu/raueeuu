@@ -157,7 +157,7 @@ if (isset($_SESSION['uniprofe'])) {
                             						<li><h3>UPDATE DATABASE</h3></li>
                             							<ul class="msecund">
                             								<li>
-																<input type="submit" class="btn btn-primary" value="Actualizar" >
+																<input type="submit" class="btn btn-primary" value="Update" >
 																<a href="base_datos_upddat1.php" class="btn btn-primary" target="_blank">UPD EQUI IDEST</a>
 															</li>
                             							</ul>
@@ -194,7 +194,7 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             				</fieldset>
                             				<fieldset>
-                            				<legend><h3>INFORMES</h3></legend>
+                            				<legend><h3>REPORTS</h3></legend>
                             				    <form class="form-horizontal" action="informe-estudiante1.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
                             						<li><h3>STUDENT</h3></li>
@@ -210,7 +210,7 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             				</fieldset>
                             				<fieldset>
-                            				<legend><h3>CONFIGURAR ACTIVIDADES</h3></legend>
+                            				<legend><h3>CONFIGURE ACTIVITIES</h3></legend>
                             				    <form class="form-horizontal" action="act_moodle_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
                             						<li><h3>LOAD MOODLE ACTIVITIES</h3></li>
@@ -237,7 +237,7 @@ if (isset($_SESSION['uniprofe'])) {
                             				<legend><h3>BCS DATABASE</h3></legend>
                             				    <form class="form-horizontal" action="bd_bcs_getdat.php"  method="POST" target="_blank">
                             					<ul class="mprincipal">
-                            						<li><h3>EXPORTAR BD BCS</h3></li>
+                            						<li><h3>EXPORT BD BCS</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <select id="pago" name="pago">
@@ -254,7 +254,7 @@ if (isset($_SESSION['uniprofe'])) {
                             								        <option value="dg">dg</option>
                             								        <option value="pm10dg">pm10dg</option>
                             								    </select>
-                            								    <input type="submit" class="btn btn-primary" value="Exportar" >
+                            								    <input type="submit" class="btn btn-primary" value="Export" >
 															</li>
                             							</ul>
                             					</ul>
@@ -341,7 +341,7 @@ if (isset($_SESSION['uniprofe'])) {
 																<input type="text" id="buscar" name="buscar" placeholder="Enter name" required/>
 																<label style="color: white;">...</label>
 																<!--<a href="estudiante_getdat.php" >Search</a>-->
-																<input type="submit" class="btn btn-primary" value="Asignar" >
+																<input type="submit" class="btn btn-primary" value="Assign" >
 															</li>
                             							</ul>
                             					</ul>
@@ -351,17 +351,17 @@ if (isset($_SESSION['uniprofe'])) {
                                 						<li><h3>EXPORT DATABASE</h3></li>
                                 							<ul class="msecund">
                                 								<li>
-    																<input type="submit" class="btn btn-primary" value="Exportar" >
+    																<input type="submit" class="btn btn-primary" value="Export" >
     															</li>
                                 							</ul>
                                 					</ul>
                                 				</form>
                                 				<form class="form-horizontal" action="bd_exportar_ret_getdat.php"  method="POST" target="_blank">
                                 					<ul class="mprincipal">
-                                						<li><h3>EXPORTAR RETIRADOS</h3></li>
+                                						<li><h3>EXPORT RETIRED</h3></li>
                                 							<ul class="msecund">
                                 								<li>
-    																<input type="submit" class="btn btn-primary" value="Exportar" >
+    																<input type="submit" class="btn btn-primary" value="Export" >
     															</li>
                                 							</ul>
                                 					</ul>
@@ -396,10 +396,10 @@ if (isset($_SESSION['uniprofe'])) {
                             					</form>
                             				</fieldset>
                             				<fieldset>
-                            				<legend><h3>CALIFICACIONES MOODLE</h3></legend>
+                            				<legend><h3>MOODLE GRADES</h3></legend>
                             				    <form class="form-horizontal" action="calif_mood_upddat.php"  method="POST" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>ACTUALIZAR CONFIGURACION</h3></li>
+                            						<li><h3>UPDATE SETTINGS</h3></li>
                             							<ul class="msecund">
                             								<li>
                             								    <input type="submit" class="btn btn-primary" value="Load" >

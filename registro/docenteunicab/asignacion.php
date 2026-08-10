@@ -19,13 +19,13 @@ include "../adminunicab/php/conexion.php";
 	    FROM materias INNER JOIN (grados INNER JOIN (profesores INNER JOIN carga_profesor ON profesores.id = carga_profesor.id_profesor) 
 	    ON grados.id = carga_profesor.id_grado) ON materias.Id = carga_profesor.id_materia where profesores.id='".$id."' ORDER BY grados.id ASC";*/
 	if($id == 18 || $id == 40) {
-	    $sqlNotas="SELECT DISTINCT g.grado, m.materia, m.pensamiento, p.nombres, p.apellidos 
-	    FROM materias m, grados g, tbl_empleados p, carga_profesor cp 
+	    $sqlNotas="SELECT DISTINCT g.id, g.grado, m.materia, m.pensamiento, p.nombres, p.apellidos 
+	    FROM tbl_materias m, tbl_grados g, tbl_empleados p, tbl_carga_profesor cp 
 	    WHERE p.id = cp.id_empleado AND g.id = cp.id_grado AND m.id = cp.id_materia ORDER BY g.id";
 	}
 	else {
-	    $sqlNotas="SELECT DISTINCT g.grado, m.materia, m.pensamiento, p.nombres, p.apellidos 
-	    FROM materias m, grados g, tbl_empleados p, carga_profesor cp 
+	    $sqlNotas="SELECT DISTINCT g.id, g.grado, m.materia, m.pensamiento, p.nombres, p.apellidos 
+	    FROM tbl_materias m, tbl_grados g, tbl_empleados p, tbl_carga_profesor cp 
 	    WHERE p.id = cp.id_empleado AND g.id = cp.id_grado AND m.id = cp.id_materia AND cp.id_empleado = ".$id." ORDER BY g.id";
 	}
 	//echo $sqlNotas;
@@ -146,7 +146,7 @@ include "../adminunicab/php/conexion.php";
 									    }
 					        		}
 								}else{
-									echo '<div class="alert alert-danger" role="alert">The teacher <strong>'.$apellidos.' '.$nombres.'</strong> no tiene asignaturas asiganadas</div>';
+									echo '<div class="alert alert-danger" role="alert">The teacher <strong>'.$apellidos.' '.$nombres.'</strong> no academic load assigned</div>';
 
 								}
 					        	?>
