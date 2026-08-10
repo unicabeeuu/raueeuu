@@ -40,7 +40,7 @@
 				$_SESSION['admin_unicab'] = $usuario;
 				$_SESSION['nombre'] = $row['nombres']." ".$row['apellidos'];
 				
-				echo "<script>alert('Bienvenido(a) ".$row['nombres']." ".$row['apellidos']."');</script>";
+				echo "<script>alert('Welcome ".$row['nombres']." ".$row['apellidos']."');</script>";
 				//echo "<script>location.href='../../login_registro.php';</script>";
 				//se direcciona según el perfil
 				if($_SESSION['perfil'] == "PS") {
@@ -86,11 +86,11 @@
 				}
 			}
 		}else{
-			echo "<script>alert('Usuario no encontrado');</script>";
+			echo "<script>alert('User not found');</script>";
 			echo "<script>location.href='../../../login_registro.php'</script>";
 		}
 	} catch (Exception $e) {
-			echo "<script>alert('intentelo más tarde');</script>";
+			echo "<script>alert('Please try again later');</script>";
 			echo "<script>location.href='../../../login_registro.php'</script>";
 	}
 ?>

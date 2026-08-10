@@ -68,10 +68,15 @@
 	//echo "<br>total_usuarios_s".$total_usuarios_s;
     
     // número de estudiantes en pre_solicitud nuevos
-    $sql_solicitud1 = "SELECT COUNT(*) as total_usuarios 
+    /*$sql_solicitud1 = "SELECT COUNT(*) as total_usuarios 
     FROM tbl_matriculas  
     WHERE n_matricula like '%$a1%' AND estado IN ('pre_solicitud', 'nuevo_pre_solicitud') 
-    AND id_estudiante IN (SELECT id FROM tbl_estudiantes WHERE id > 3148)";
+    AND id_estudiante IN (SELECT id FROM tbl_estudiantes WHERE id > 3148)";*/
+    $sql_solicitud1 = "SELECT COUNT(*) as total_usuarios 
+    FROM tbl_matriculas m, tbl_estudiantes e, tbl_pre_matriculas p  
+    WHERE m.id_estudiante = e.id AND e.n_documento = p.documento_est 
+    AND m.n_matricula like '%2026%' AND m.estado IN ('pre_solicitud', 'nuevo_pre_solicitud') 
+    AND m.id_estudiante > 3148 AND p.año = 2026 AND p.entrevista = 'SI' AND p.admitido = 1";
     $exe_solicitud1=mysqli_query($conexion,$sql_solicitud1);
     while ($rowES1 = mysqli_fetch_array($exe_solicitud1)) {
         $total_usuarios_s1=$rowES1['total_usuarios'];
@@ -106,14 +111,70 @@
     
     $mat_efec = $total_usuarios_r + $total_usuarios_sn + $total_usuarios_sn1;
 	
-	// número de estudiantes con proceso abierto en el asistente
-	$sql_solicitud2 = "SELECT COUNT(*) as total_usuarios 
-    FROM tbl_asistente_virtual 
-    WHERE paso IN ('5.2', '5.3')";
+	// número de estudiantes con proceso abierto en el asistente (nuevos)
+	$sql_solicitud2 = "SELECT COUNT(1) total_usuarios FROM 
+	(SELECT av.documento_estudiante, 'antiguo' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 0 ANd 130000 
+	UNION ALL
+	SELECT av.documento_estudiante, 'antiguo deuda' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 210000 ANd 230000
+	UNION ALL
+	SELECT av.documento_estudiante, 'antiguo nuevo deuda' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 310000 ANd 330000
+	UNION ALL
+	SELECT av.documento_estudiante, 'antiguo nuevo' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 410000 ANd 430000
+	UNION ALL
+	SELECT av.documento_estudiante, 'nuevo' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 510000 ANd 530000) a, tbl_estudiantes e 
+	WHERE a.documento_estudiante = e.n_documento AND id > 3148";
     $exe_solicitud2=mysqli_query($conexion,$sql_solicitud2);
     while ($rowES2 = mysqli_fetch_array($exe_solicitud2)) {
-        $total_usuarios_proceso_abierto=$rowES2['total_usuarios'];
+        $total_usuarios_proceso_abierto_nuevos=$rowES2['total_usuarios'];
     }
-	//echo "<br>total_estudiantes_proceso_abierto ".$total_usuarios_proceso_abierto;
+	//echo "<br>total_estudiantes_proceso_abierto_nuevos ".$total_usuarios_proceso_abierto_nuevos;
+	
+	// número de estudiantes con proceso abierto en el asistente (antiguos)
+	$sql_solicitud2 = "SELECT COUNT(1) total_usuarios FROM 
+	(SELECT av.documento_estudiante, 'antiguo' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 0 ANd 130000 
+	UNION ALL
+	SELECT av.documento_estudiante, 'antiguo deuda' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 210000 ANd 230000
+	UNION ALL
+	SELECT av.documento_estudiante, 'antiguo nuevo deuda' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 310000 ANd 330000
+	UNION ALL
+	SELECT av.documento_estudiante, 'antiguo nuevo' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 410000 ANd 430000
+	UNION ALL
+	SELECT av.documento_estudiante, 'nuevo' tipo 
+	FROM tbl_asistente_virtual av, tbl_asistente_virtual_pasos avp
+	WHERE av.paso = avp.paso AND avp.paso_numero BETWEEN 510000 ANd 530000) a, tbl_estudiantes e 
+	WHERE a.documento_estudiante = e.n_documento AND id <= 3148";
+    $exe_solicitud2=mysqli_query($conexion,$sql_solicitud2);
+    while ($rowES2 = mysqli_fetch_array($exe_solicitud2)) {
+        $total_usuarios_proceso_abierto_antiguos=$rowES2['total_usuarios'];
+    }
+	//echo "<br>total_estudiantes_proceso_abierto_antiguos ".$total_usuarios_proceso_abierto_antiguos; 
+	
+	// cantidad de pagos de matrícula
+	$sql_solicitud3 = "SELECT COUNT(*) as total_pagos_matricula 
+    FROM tbl_asistente_virtual_comprobantes_pago 
+    WHERE a = $a AND rechazado = 0 AND tipo = 'matrícula'";
+    $exe_solicitud3=mysqli_query($conexion,$sql_solicitud3);
+    while ($rowES3 = mysqli_fetch_array($exe_solicitud3)) {
+        $total_pagos_matricula=$rowES3['total_pagos_matricula'];
+    }
+	//echo "<br>total_pagos_matricula ".$total_pagos_matricula;
     
 ?>
