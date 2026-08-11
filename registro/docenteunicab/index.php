@@ -108,7 +108,7 @@ if (isset($_SESSION['uniprofe'])) {
                		 <div class="mid-content-top charts-grids">	
                     	<div class="middle-content">                    	
 					    <div class="embed-responsive embed-responsive-16by9">
-                          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GYodXGpqmp8"></iframe>
+                          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/wW2rXAlWWus"></iframe>
                         </div>
                    		</div>
               		 </div>

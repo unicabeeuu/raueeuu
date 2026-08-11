@@ -41,16 +41,16 @@
 	//echo $fecha2;
 	
 	//Se valida la fecha actual con respecto a los cierres de periodo
-	if(date($fecha2) >= date('2025/02/01') && date($fecha2) < date('2025/04/04')) {
+	if(date($fecha2) >= date('2026/02/01') && date($fecha2) < date('2026/03/22')) {
 	    $per = "P1";
 	}
-	else if(date($fecha2) >= date('2025/04/05') && date($fecha2) < date('2025/06/06')) {
+	else if(date($fecha2) >= date('2026/03/22') && date($fecha2) < date('2026/06/01')) {
 	    $per = "P2";
 	}
-	else if(date($fecha2) >= date('2025/06/07') && date($fecha2) < date('2025/08/22')) {
+	else if(date($fecha2) >= date('2026/06/01') && date($fecha2) < date('2026/08/24')) {
 	    $per = "P3";
 	}
-	else if(date($fecha2) >= date('2025/08/23')) {
+	else if(date($fecha2) >= date('2026/08/24')) {
 	    $per = "P4";
 	}
 	else {
@@ -76,7 +76,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota), id_estudiante, id_materia 
-                FROM `tbl_notas` 
+                FROM tbl_notas 
                 WHERE id_grado = ".$idgra." AND id_periodo = 1 
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota) <= 3.5) a";
@@ -85,7 +85,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota)/2, id_estudiante, id_materia 
-                FROM `tbl_notas` 
+                FROM tbl_notas 
                 WHERE id_grado = ".$idgra." AND id_periodo IN (1,2) 
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota)/2 <= 3.5) a";
@@ -94,7 +94,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota)/3, id_estudiante, id_materia 
-                FROM `tbl_notas` 
+                FROM tbl_notas 
                 WHERE id_grado = ".$idgra." AND id_periodo IN (1,2,3) 
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota)/3 <= 3.5) a";
@@ -103,7 +103,7 @@
 	        $query_est_per = "SELECT DISTINCT a.id_estudiante 
                 FROM 
                 (SELECT SUM(nota)/4, id_estudiante, id_materia 
-                FROM `tbl_notas` 
+                FROM tbl_notas 
                 WHERE id_grado = ".$idgra."
                 GROUP BY id_estudiante, id_materia
                 HAVING SUM(nota)/4 <= 3.5) a";
@@ -227,7 +227,13 @@
 
 <html>
 	<head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-		<title></title>
+		<title>Thrive Academic Registry</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../images/favicon.png" />
+        <!-- // Favicon -->
+
 		<link rel="stylesheet" href="css/bootstrap.min.css" >
 		<link href="../../css/font-awesome.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/reg.css" >
@@ -1207,10 +1213,10 @@
 									</legend>
 									<?php
 									    if($perdiendo == true) {
-									        echo '<label>Total Registros &#9658; '.$sel.'<span style="color: red"> (perdiendo)</span></label>';
+									        echo '<label>Total Records &#9658; '.$sel.'<span style="color: red"> (losing)</span></label>';
 									    }
 									    else {
-									        echo '<label>Total Registros &#9658; '.$sel.'</label>';
+									        echo '<label>Total Records &#9658; '.$sel.'</label>';
 									    }
 									    
 									?>

@@ -8,6 +8,7 @@
 	
 	$idest = $_REQUEST['idest'];
 	//echo $idest;
+	$obs = '';
 	
 	$query = "SELECT * FROM tbl_estudiantes_param WHERE id_estudiante = $idest";
 	//echo $query;

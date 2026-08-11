@@ -59,7 +59,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="../index.php"><img src="../../images/logo_horizontal_blanco.png" width="80%" /></a></h1>
+            <h1><a class="navbar-brand" href="../index.php"><img src="../../images/logo_thrive_f2.png" width="70%" /></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
@@ -110,26 +110,23 @@
                   <li><a href="desemp_estud_per_getdat.php"><i class="fa fa-bar-chart"></i> Student performance</a></li>
                   <li><a href="ranking_getdat.php"><i class="fa fa-sort-amount-desc"></i> Ranking</a></li>
                   <li><a href="../lista-estudiantes_evalpres.php"><i class="fa fa-file-text "></i> Admission eval results</a></li>
-                  <li><a href="../lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validation eval results</a></li>
+                  <!-- <li><a href="../lista-estudiantes_evalval.php"><i class="fa fa-file-text "></i> Validation eval results</a></li> -->
                 </ul>
               </li>
               
               <?php  
                     if($id_administrador == 18) {
               ?>
-              <li class="treeview">
+              <!-- <li class="treeview">
                 <a href="#">
                 <i class="fa fa-cogs"></i>
                 <span>Financial processes</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <!--<li><a href="../financieraunicab/ordenes_getdat.php"><i class="fa fa-usd"></i> Ordenes pago</a></li>-->
-                  
-                  <li><a href="../../../admin-unicab/administrador/becas_descuentos.php" target="_blank"><i class="fa fa-usd"></i> Scholarships and discounts</a></li>
-                  
+                  <li><a href="../../../admin-unicab/administrador/becas_descuentos.php" target="_blank"><i class="fa fa-usd"></i> Scholarships and discounts</a></li>                  
                 </ul>
-              </li>
+              </li> -->
               <?php  
                     }
               ?>

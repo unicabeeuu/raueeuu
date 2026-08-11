@@ -36,7 +36,7 @@
                 FROM 
                 (SELECT cast(SUM(n.nota)/4 as decimal(10,2)) nota, COUNT(1) ct, n.id_materia, n.id_grado, n.id_estudiante, 
                 CONCAT(e.nombres,' ',e.apellidos) nombre 
-                FROM notas n, matricula m, estudiantes e  
+                FROM tbl_notas n, tbl_matriculas m, tbl_estudiantes e  
                 WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = e.id 
                 AND m.estado = 'activo' AND n.id_grado = $idgra 
                 GROUP BY n.id_materia, n.id_grado, n.id_estudiante, CONCAT(e.nombres,' ',e.apellidos) 
@@ -49,7 +49,7 @@
                 FROM 
                 (SELECT cast(SUM(n.nota)/2 as decimal(10,2)) nota, COUNT(1) ct, n.id_materia, n.id_grado, n.id_estudiante, 
                 CONCAT(e.nombres,' ',e.apellidos) nombre 
-                FROM notas n, matricula m, estudiantes e  
+                FROM tbl_notas n, tbl_matriculas m, tbl_estudiantes e  
                 WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = e.id 
                 AND m.estado = 'activo' AND n.id_grado = $idgra 
                 GROUP BY n.id_materia, n.id_grado, n.id_estudiante, CONCAT(e.nombres,' ',e.apellidos) 
@@ -62,7 +62,7 @@
                 FROM 
                 (SELECT cast(SUM(n.nota)/4 as decimal(10,2)) nota, COUNT(1) ct, n.id_materia, n.id_grado, n.id_estudiante, 
                 CONCAT(e.nombres,' ',e.apellidos) nombre 
-                FROM notas n, matricula m, estudiantes e  
+                FROM tbl_notas n, tbl_matriculas m, tbl_estudiantes e  
                 WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = e.id 
                 AND m.estado = 'activo' AND n.id_grado = $idgra 
                 GROUP BY n.id_materia, n.id_grado, n.id_estudiante, CONCAT(e.nombres,' ',e.apellidos) 
@@ -77,7 +77,7 @@
                 FROM 
                 (SELECT cast(SUM(n.nota)/4 as decimal(10,2)) nota, COUNT(1) ct, n.id_materia, n.id_grado, n.id_estudiante, 
                 CONCAT(e.nombres,' ',e.apellidos) nombre 
-                FROM notas n, matricula m, estudiantes e  
+                FROM tbl_notas n, tbl_matriculas m, tbl_estudiantes e  
                 WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = e.id 
                 AND m.estado = 'activo' AND n.id_grado = $idgra 
                 GROUP BY n.id_materia, n.id_grado, n.id_estudiante, CONCAT(e.nombres,' ',e.apellidos) 
@@ -90,7 +90,7 @@
                 FROM 
                 (SELECT cast(SUM(n.nota)/2 as decimal(10,2)) nota, COUNT(1) ct, n.id_materia, n.id_grado, n.id_estudiante, 
                 CONCAT(e.nombres,' ',e.apellidos) nombre 
-                FROM notas n, matricula m, estudiantes e  
+                FROM tbl_notas n, tbl_matriculas m, tbl_estudiantes e  
                 WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = e.id 
                 AND m.estado = 'activo' AND n.id_grado = $idgra 
                 GROUP BY n.id_materia, n.id_grado, n.id_estudiante, CONCAT(e.nombres,' ',e.apellidos) 
@@ -103,7 +103,7 @@
                 FROM 
                 (SELECT cast(SUM(n.nota)/4 as decimal(10,2)) nota, COUNT(1) ct, n.id_materia, n.id_grado, n.id_estudiante, 
                 CONCAT(e.nombres,' ',e.apellidos) nombre 
-                FROM notas n, matricula m, estudiantes e  
+                FROM tbl_notas n, tbl_matriculas m, tbl_estudiantes e  
                 WHERE n.id_estudiante = m.id_estudiante AND n.id_estudiante = e.id 
                 AND m.estado = 'activo' AND n.id_grado = $idgra 
                 GROUP BY n.id_materia, n.id_grado, n.id_estudiante, CONCAT(e.nombres,' ',e.apellidos) 
@@ -118,7 +118,7 @@
 	                        <thead>
 	                        <tr class='GridViewScrollHeader'>
 	                            <td>Ranking</td>
-	                            <td>Promedio Total</td>
+	                            <td>Total Average</td>
 	                            <td>Student Id</td>
 	                            <td>Name</td>
 	                        </tr></thead><tbody>";

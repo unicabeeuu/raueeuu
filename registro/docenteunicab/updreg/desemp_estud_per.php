@@ -39,10 +39,10 @@
 	$datos = new stdClass();
 	$configurados = array();
 	if($idgra == 110 || $idgra == 120 || $idgra == 170 || $idgra == 180) {
-	    $keys = ['Nombre','BIO','SOC','NUM','FIS','ESP','ING','TEC'];
+	    $keys = ['Nombre','BIO','SOC','QUA','FIS','ESP','ING','TEC'];
 	}
 	else {
-	    $keys = ['Nombre','BIO','SOC','NUM','ESP','ING','TEC'];
+	    $keys = ['Nombre','BIO','SOC','QUA','SPA','ENG','TEC'];
 	}
 	$i = 0;
 	
@@ -76,7 +76,7 @@
 	    $cadena = "<table class='table' border='1px'><thead><tr><td>Name</td><td>BIO</td><td>SOC</td><td>NUM</td><td>FIS</td><td>ESP</td><td>ING</td><td>TEC</td></tr></thead><tbody>";
 	}
 	else {
-	    $cadena = "<table class='table' border='1px'><thead><tr><td>Name</td><td>BIO</td><td>SOC</td><td>NUM</td><td>ESP</td><td>ING</td><td>TEC</td></tr></thead><tbody>";
+	    $cadena = "<table class='table' border='1px'><thead><tr><td>Name</td><td>BIO</td><td>SOC</td><td>QUA</td><td>SPA</td><td>ENG</td><td>TEC</td></tr></thead><tbody>";
 	}
 	
 	while($row = $resultado->fetch_assoc()){
@@ -85,24 +85,24 @@
 	    
 	    if($per == 1) {
 	        $query2 = "SELECT * 
-                FROM notas 
+                FROM tbl_notas 
                 WHERE id_estudiante = ".$row['id']." AND id_periodo = ".$per;
 	    }
 	    else if($per == 2) {
 	        $query2 = "SELECT cast(SUM(nota)/2 as decimal(10,1)) as nota, id_materia, id_grado 
-                FROM notas 
+                FROM tbl_notas 
                 WHERE id_estudiante = ".$row['id']." AND id_periodo IN (1,2) 
                 GROUP BY id_materia, id_grado";
 	    }
 	    else if($per == 3) {
 	        $query2 = "SELECT cast(SUM(nota)/3 as decimal(10,1)) as nota, id_materia, id_grado 
-                FROM notas 
+                FROM tbl_notas 
                 WHERE id_estudiante = ".$row['id']." AND id_periodo IN (1,2,3) 
                 GROUP BY id_materia, id_grado";
 	    }
 	    else if($per == 4) {
 	        $query2 = "SELECT cast(SUM(nota)/4 as decimal(10,1)) as nota, id_materia, id_grado 
-                FROM notas 
+                FROM tbl_notas 
                 WHERE id_estudiante = ".$row['id']." AND id_periodo IN (1,2,3,4) 
                 GROUP BY id_materia, id_grado";
 	    }
@@ -200,7 +200,7 @@
     	$fis = 0;
     	$control = 0;
 	}
-	$cadena = $cadena."</tbody></table><h3 style='color: #088A4B'>Total estudiantes: <span id='stot'>".$total."</span></h3>";
+	$cadena = $cadena."</tbody></table><h3 style='color: #088A4B'>Total students: <span id='stot'>".$total."</span></h3>";
 	echo $cadena;
 	
 	$datos->configurados = $configurados;

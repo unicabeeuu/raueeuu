@@ -34,7 +34,7 @@ include "../adminunicab/php/conexion.php";
 <!DOCTYPE HTML>
 <html>
 <head><meta charset="gb18030">
-<title>Unicab Academic Registry</title>
+<title>Thrive Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -115,7 +115,7 @@ include "../adminunicab/php/conexion.php";
 								    <th><center>TUTOR</center></th> 
 									<th><center>GRADE</center></th>
 									<th><center>SUBJECT</center></th>
-									<th><center>PENSAMIENTO</center></th>  
+									<th><center>STUDY</center></th>  
 								</tr>
 								<?php
 								    }
@@ -124,7 +124,7 @@ include "../adminunicab/php/conexion.php";
 								<tr>
 									<th><center>GRADE</center></th>
 									<th><center>SUBJECT</center></th>
-									<th><center>PENSAMIENTO</center></th>  
+									<th><center>STUDY</center></th>  
 								</tr>
 								<?php
 								    }

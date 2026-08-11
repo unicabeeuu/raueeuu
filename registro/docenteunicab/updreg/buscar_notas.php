@@ -16,10 +16,10 @@
 	
 	if($idgra == 110 || $idgra == 120 || $idgra == 170 || $idgra == 180) {
 	    //$lbls = array("BIOÉTICO", "HUMANÍSTICO E", "HUMANÍSTICO I", "NUMÉRICO", "BIOÉTICO F", "SOCIAL", "TECNOLÓGICO");
-	    $lbls = array("BIOÉTICO", "BIOÉTICO F", "HUMANÍSTICO E", "HUMANÍSTICO I", "NUMÉRICO", "SOCIAL", "TECNOLÓGICO");
+	    $lbls = array("BIOETHICAL", "BIOETHICAL F", "SPANISH", "ENGLISH", "QUANTITATIVE", "SOCIAL", "TECHNOLOGICAL");
 	}
 	else {
-	    $lbls = array("BIOÉTICO", "HUMANÍSTICO E", "HUMANÍSTICO I", "NUMÉRICO", "SOCIAL", "TECNOLÓGICO");
+	    $lbls = array("BIOETHICAL", "SPANISH", "ENGLISH", "QUANTITATIVE", "SOCIAL", "TECHNOLOGICAL");
 	}
 	$notas = new stdClass();
 	//$lbls = array();
@@ -36,7 +36,7 @@
 		FROM 
 		(SELECT DISTINCT e.id id_est, m.materia, case m.materia when 'FÍSICA' then 'BIOÉTICO' else m.pensamiento end as pensamiento, 
 		g.id id_grado, g.grado, n.nota, n.id_periodo 
-		FROM notas n, estudiantes e, materias m, grados g  
+		FROM tbl_notas n, tbl_estudiantes e, tbl_materias m, tbl_grados g  
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.id AND n.id_grado = g.id AND e.id='$idest' and g.id='$idgra' 
 		AND m.id IN (1,4,5,6,7,9,10,11,12,15) 
 		ORDER BY m.pensamiento, m.materia, n.id_periodo ) a";
@@ -53,7 +53,7 @@
 		FROM 
 		(SELECT DISTINCT e.id id_est, m.materia, case m.materia when 'FÍSICA' then 'BIOÉTICO' else m.pensamiento end as pensamiento, 
 		g.id id_grado, g.grado, n.nota, n.id_periodo 
-		FROM notas n, estudiantes e, materias m, grados g  
+		FROM tbl_notas n, tbl_estudiantes e, tbl_materias m, tbl_grados g  
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.id AND n.id_grado = g.id AND e.id='$idest' and g.id='$idgra' 
 		AND m.id IN (1,4,5,6,7,9,10,11,12,15) 
 		ORDER BY m.pensamiento, m.materia, n.id_periodo ) a 
@@ -122,7 +122,7 @@
 		FROM 
 		(SELECT DISTINCT e.id id_est, m.materia, case m.materia when 'FÍSICA' then 'BIOÉTICO' else m.pensamiento end as pensamiento, 
 		g.id id_grado, g.grado, n.nota, n.id_periodo 
-		FROM notas n, estudiantes e, materias m, grados g  
+		FROM tbl_notas n, tbl_estudiantes e, tbl_materias m, tbl_grados g  
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.id AND n.id_grado = g.id AND e.id='$idest' and g.id='$idgra' 
 		AND m.id IN (1,4,5,6,7,9,10,11,12,15) 
 		ORDER BY m.pensamiento, m.materia, n.id_periodo ) a 
@@ -187,7 +187,7 @@
 		FROM 
 		(SELECT DISTINCT e.id id_est, m.materia, case m.materia when 'FÍSICA' then 'BIOÉTICO' else m.pensamiento end as pensamiento, 
 		g.id id_grado, g.grado, n.nota, n.id_periodo 
-		FROM notas n, estudiantes e, materias m, grados g  
+		FROM tbl_notas n, tbl_estudiantes e, tbl_materias m, tbl_grados g  
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.id AND n.id_grado = g.id AND e.id='$idest' and g.id='$idgra' 
 		AND m.id IN (1,4,5,6,7,9,10,11,12,15) 
 		ORDER BY m.pensamiento, m.materia, n.id_periodo ) a 
@@ -252,7 +252,7 @@
 		FROM 
 		(SELECT DISTINCT e.id id_est, m.materia, case m.materia when 'FÍSICA' then 'BIOÉTICO' else m.pensamiento end as pensamiento, 
 		g.id id_grado, g.grado, n.nota, n.id_periodo 
-		FROM notas n, estudiantes e, materias m, grados g  
+		FROM tbl_notas n, tbl_estudiantes e, tbl_materias m, tbl_grados g  
 		WHERE n.id_estudiante = e.id AND n.id_materia = m.id AND n.id_grado = g.id AND e.id='$idest' and g.id='$idgra' 
 		AND m.id IN (1,4,5,6,7,9,10,11,12,15) 
 		ORDER BY m.pensamiento, m.materia, n.id_periodo ) a 

@@ -23,28 +23,28 @@ if (isset($_SESSION['uniprofe'])) {
     }
     //echo $id;
     if($id == 18 || $id == 3 || $id == 2 || $id == 4) {
-        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 8 AND 12) ORDER BY id_grado_ra";
     }
     else {
         //$query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id";
         $query = "SELECT DISTINCT a.* FROM 
             (SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id 
-			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 8 AND 12) 
             UNION ALL 
             SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_apoyos_direccion ad WHERE eg.id_grado_ra = ad.id_grado AND ad.id_empleado = $id 
-			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 8 AND 12) 
             UNION ALL 
             SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_direcciones_grado dg WHERE eg.id_grado_ra = dg.id_grado AND dg.id_empleado = $id 
-			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 8 AND 12) 
             UNION ALL 
             SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_dir_b db WHERE eg.id_grado_ra = db.id_grado AND db.id_empleado = $id 
-			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 8 AND 12) 
             UNION ALL 
             SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_dir_c dc WHERE eg.id_grado_ra = dc.id_grado AND dc.id_empleado = $id 
-			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) 
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 8 AND 12) 
             UNION ALL 
             SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_dir_d dd WHERE eg.id_grado_ra = dd.id_grado AND dd.id_empleado = $id 
-			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ) a";
+			AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 8 AND 12) ) a";
     }
     //echo $query;
     $resultado = $mysqli1->query($query);
@@ -52,7 +52,7 @@ if (isset($_SESSION['uniprofe'])) {
 
 <html lang="es">
 	<head><meta charset="gb18030">
-		<title></title>
+		<title>Thrive Academic Registry</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Favicon -->
@@ -595,7 +595,7 @@ if (isset($_SESSION['uniprofe'])) {
 									<div id="resul_bus" style="display: none;">
 									    <div class="accordion-titulo1" style="background: #088A4B; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon1" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-    									    Listado de estudiantes que van pasando todos los pensamientos.
+    									    List of students passing all studies.
     									</div>
     									<div class="accordion-content1" style="display: none;"><!--********************-->
             								<div id="divtabla">
@@ -604,7 +604,7 @@ if (isset($_SESSION['uniprofe'])) {
         								</div>
         								<div class="accordion-titulo2" style="background: #084B8A; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon2" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-    									    Listado de estudiantes que van perdiendo 1 pensamiento.
+    									    List of students failing 1 study.
     									</div>
     									<div class="accordion-content2" style="display: none;"><!--********************-->
             								<div id="divtabla1">
@@ -613,7 +613,7 @@ if (isset($_SESSION['uniprofe'])) {
         								</div>
         								<div class="accordion-titulo3" style="background: #088A85; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon3" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-    									    Listado de estudiantes que van perdiendo 2 pensamientos.
+    									    List of students failing 2 studies.
     									</div>
     									<div class="accordion-content3" style="display: none;"><!--********************-->
             								<div id="divtabla2">
@@ -622,7 +622,7 @@ if (isset($_SESSION['uniprofe'])) {
         								</div>
         								<div class="accordion-titulo4" style="background: #D7DF01; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon4" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-    									    Listado de estudiantes que van perdiendo 3 pensamientos.
+    									    List of students failing 3 studies.
     									</div>
     									<div class="accordion-content4" style="display: none;"><!--********************-->
             								<div id="divtabla3">
@@ -631,7 +631,7 @@ if (isset($_SESSION['uniprofe'])) {
         								</div>
         								<div class="accordion-titulo5" style="background: #DF7401; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon5" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-    									    Listado de estudiantes que van perdiendo 4 pensamientos.
+    									    List of students failing 4 studies.
     									</div>
     									<div class="accordion-content5" style="display: none;"><!--********************-->
             								<div id="divtabla4">
@@ -640,7 +640,7 @@ if (isset($_SESSION['uniprofe'])) {
         								</div>
         								<div class="accordion-titulo6" style="background: #B43104; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon6" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-    									    Listado de estudiantes que van perdiendo 5 pensamientos.
+    									    List of students failing 5 studiess.
     									</div>
     									<div class="accordion-content6" style="display: none;"><!--********************-->
             								<div id="divtabla5">
@@ -649,22 +649,22 @@ if (isset($_SESSION['uniprofe'])) {
         								</div>
         								<div class="accordion-titulo7" style="background: #B40404; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon7" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
-    									    Listado de estudiantes que van perdiendo 6 pensamientos.
+    									    List of students failing 6 studies.
     									</div>
     									<div class="accordion-content7" style="display: none;"><!--********************-->
             								<div id="divtabla6">
             								    
             								</div>
         								</div>
-        								<div class="accordion-titulo8" style="background: #8A0829; color: #ffffff; font-size: 24px; font-weight: 300;">
+        								<!-- <div class="accordion-titulo8" style="background: #8A0829; color: #ffffff; font-size: 24px; font-weight: 300;">
     									    <span class="toggle-icon8" style="margin-left: 20px; margin-right: 20px; font-size: 38px; font-weight: bold;">+</span>
     									    Listado de estudiantes que van perdiendo 7 pensamientos.
     									</div>
-    									<div class="accordion-content8" style="display: none;"><!--********************-->
+    									<div class="accordion-content8" style="display: none;">
             								<div id="divtabla7">
             								    
             								</div>
-        								</div>
+        								</div> -->
 									</div>
 									<!---------------------------------------------->
 									

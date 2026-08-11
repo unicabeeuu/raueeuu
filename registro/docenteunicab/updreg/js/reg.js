@@ -41,7 +41,7 @@ $(document).ready(function() {
     		    $("#submit").show("");
     		}
 		}
-		cargarpen_act_mood(gra);
+		//cargarpen_act_mood(gra);
 	});
 	
 	$("#selpen1").change(function() {

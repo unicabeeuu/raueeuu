@@ -131,12 +131,12 @@ if (isset($_SESSION['uniprofe'])) {
                             							<ul class="msecund">
                             								<li><a href="prueba_coneccion.php" target="_blank">Load</a></li>
                             							</ul>
-                            						<li><h3>AREA AND GRADES TO LOAD</h3></li>
+                            						<li><h3>STUDIES AND GRADES TO LOAD</h3></li>
                             							<ul class="msecund">
                             							    <?php
                             							        if($id == 18 || $id == 40) {
                             							    ?>
-                            								<li><a href="pen_gra_upddat.php" target="_blank">En bloque</a></li>
+                            								<li><a href="pen_gra_upddat.php" target="_blank">In Bulk</a></li>
                             								<li><a href="pen_gra_upddat_s.php" target="_blank">Individual</a></li>
                             								<!--<li><a href="pen_gra_upddat_custom.php" target="_blank">Consulta personalizada</a></li>-->
                             								<?php
@@ -153,12 +153,12 @@ if (isset($_SESSION['uniprofe'])) {
                             			</div>
                             			<div id="div2">
                             				<fieldset>
-                            				<legend><h3>PROCESOS</h3></legend>
+                            				<legend><h3>PROCESSES</h3></legend>
                             				    <?php
                             				        if($id == 18 || $id == 40) {
                             				    ?>
                             					<ul class="mprincipal">
-                            						<li><h3>CAMBIAR PARAMETROS</h3></li>
+                            						<li><h3>CHANGE PARAMETERS</h3></li>
                             							<ul class="msecund">
                             								<li><a href="param_upddat.php" >Load</a></li>
                             							</ul>
@@ -168,9 +168,15 @@ if (isset($_SESSION['uniprofe'])) {
                             				        if($id == 18) {
                             					?>
                             					<ul class="mprincipal">
-                            						<li><h3>ACCESO REMOTO A phpMyAdmin MOODLE</h3></li>
+                            						<li><h3>REMOTE ACCESS TO phpMyAdmin MOODLE UNICAB</h3></li>
                             							<ul class="msecund">
                             								<li><a href="https://unicab.org/phpMyAdmin/phpMyAdmin/index.php" target="_blank"><img src="img/phpmyadmin.png" alt="phpmyadmin" width="150" height="101"/></a></li>
+                            							</ul>
+                            					</ul>
+												<ul class="mprincipal">
+                            						<li><h3>REMOTE ACCESS TO phpMyAdmin MOODLE THRIVE</h3></li>
+                            							<ul class="msecund">
+                            								<li><a href="https://thriveusa.org/home/phpMyAdmin_Thrive/phpMyAdmin/index.php" target="_blank"><img src="img/phpmyadmin.png" alt="phpmyadmin" width="150" height="101"/></a></li>
                             							</ul>
                             					</ul>
                             					<?php

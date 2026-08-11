@@ -23,11 +23,11 @@
             <span class="icon-bar"></span>
             </button>
             <!--<h1><a class="navbar-brand" href="index.php"><img src="../../assets/img/footer_logo_blanco2025.png" width="50%"></a></h1>-->
-			<h1><a class="navbar-brand" href="index.php"><img src="../../registro/images/logo_horizontal_blanco.png" width="100%"></a></h1>
+			<h1><a class="navbar-brand" href="index.php"><img src="../../registro/images/logo_thrive_f2.png" width="70%"></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
-              <li class="header">NAVIGATION MENU </li>
+              <li class="header">Navigation menu </li>
               <?php  
                     if($id_administrador == 18) {
               ?>
@@ -313,14 +313,14 @@
     			  <?php  
                     if($id_administrador == 18) {
                   ?>
-    			  <li class='treeview'>
+    			  <!-- <li class='treeview'>
     				<a href='becas_descuentos.php'>
     				<i class='fa fa-usd'></i> <span>Scholarships and discounts</span>
     				</a>
-    			  </li>	
+    			  </li>	 -->
 				  <li class='treeview'>
 					<a href='documento_solicitud.php'>
-					<i class='fa fa-sign-in'></i> <span>Enrollment Requests</span>
+					<i class='fa fa-sign-in'></i> <span>Tuition Requests</span>
 					</a>
 				  </li>
     			  <?php  

@@ -22,18 +22,24 @@
 		<!--toggle button end-->
 		<div style="margin-left: 100px;">
 	        <label style="color: blue;"><i class="fa fa-users"></i><?php echo $total_usuarios_m; ?> M</label>
-		    <label style="color: green;"><i class="fa fa-users"></i><?php echo $total_usuarios_r; ?> R</label>
-		    <label style="color: #F20F1C;">Pre (</label>
-		    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Prev.</label>
-		    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> New</label>
-		    <label style="color: #F20F1C;"> )</label>
-		    <label style="color: orange;"> Sol (</label>
-		    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Prev.</label>
-		    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> New</label>
-		    <label style="color: orange;"> )</label>
-		    <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Enrolled</label>
-			<label style="color: black;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
-		    <label style="color: green;"><button data-toggle="modal" data-target="#modal_detalle"><i class="fa fa-info-circle"></i></button></label>
+				    <label style="color: green;"><i class="fa fa-users"></i><?php echo $total_usuarios_r; ?> R</label>
+				    <label style="color: #F20F1C;">Pre (</label>
+				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Anc</label>
+				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> New</label>
+				    <label style="color: #F20F1C;"> )</label>
+				    <label style="color: orange;"> Sol (</label>
+				    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Anc</label>
+				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> New</label>
+				    <label style="color: orange;"> )</label>
+				    <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Effec Tuit</label>
+					<!-- <label style="color: black;"><i class="fa fa-users"></i><?php //echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
+				    <label style="color: green;"><button data-toggle="modal" data-target="#modal_detalle"><i class="fa fa-info-circle"></i></button></label> -->
+					<label style="color: black;"><i class="fa fa-users"></i>Open Proc. (</label>
+					<label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto_antiguos; ?> Anc</label>
+				    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto_nuevos; ?> New</label>
+				    <label style="color: orange;"> )</label>
+					<label style="color: #31E00D;"><i class="fa fa-users"></i><?php echo $total_pagos_matricula; ?> Tuition payments</label>
+				    <label style="color: green;"><button data-toggle="modal" data-target="#modal_detalle"><i class="fa fa-info-circle"></i></button></label>
 	    </div>
 		<div class="clearfix"> </div>
 	</div>
@@ -54,7 +60,7 @@
 						</div>	
 					</a>
 					<ul class="dropdown-menu drp-mnu">
-						<li> <a href="../../index.php" target="blanck"><i class="fa fa-send"></i> View site</a> </li>
+						<li> <a href="../index.php" target="blanck"><i class="fa fa-send"></i> View site</a> </li>
 						<li> <a href="include/logout.php"><i class="fa fa-sign-out"></i> Log out</a> </li>
 					</ul>
 				</li>
@@ -79,34 +85,45 @@
       <div class="modal-body">
         <div style="margin-left: 100px;">
             <div class="row">
-	            <label style="color: blue;"><i class="fa fa-users"></i><?php echo $total_usuarios_m; ?> M</label>
-	            <label style="color: black;">Number of students in Moodle.</label>
-	        </div>
-	        <div class="row">
-		        <label style="color: green;"><i class="fa fa-users"></i><?php echo $total_usuarios_r; ?> R</label>
-		        <label style="color: black;">Number of active students in the Registry.</label>
-		    </div>
-		    <div class="row">
-			    <label style="color: #F20F1C;">Pre (</label>
-			    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Prev.</label>
-			    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> New</label>
-			    <label style="color: #F20F1C;"> )</label>
-			    <label style="color: black;">Number of returning and new students with pre_solicitud status.</label>
-		    </div>
-		    <div class="row">
-		        <label style="color: orange;">Sol (</label>
-			    <label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Prev.</label>
-			    <label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> New</label>
-			    <label style="color: orange;"> )</label>
-			    <label style="color: black;">Number of returning and new students with solicitud status.</label>
-		    </div>
-		    <div class="row">
-		        <label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Enrolled</label>
-		        <label style="color: black;">Active students in the Registry plus students with solicitud status.</label>
-		    </div>
+				<label style="color: blue;"><i class="fa fa-users"></i><?php echo $total_usuarios_m; ?> M</label>
+				<label style="color: black;">Number of students in Moodle.</label>
+			</div>
 			<div class="row">
-				<label style="color: black;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
-				<label style="color: black;">Students who started the process through the virtual assistant and have not taken the admission test.</label>
+				<label style="color: green;"><i class="fa fa-users"></i><?php echo $total_usuarios_r; ?> R</label>
+				<label style="color: black;">Number of active students in Record.</label>
+			</div>
+			<div class="row">
+				<label style="color: #F20F1C;">Pre (</label>
+				<label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_s; ?> Anc</label>
+				<label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_s1; ?> New</label>
+				<label style="color: #F20F1C;"> )</label>
+				<label style="color: black;">Number of old and new students in pre-request status.</label>
+			</div>
+			<div class="row">
+				<label style="color: orange;">Sol (</label>
+				<label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn; ?> Anc</label>
+				<label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_sn1; ?> New</label>
+				<label style="color: orange;"> )</label>
+				<label style="color: black;">Number of old and new students in request status.</label>
+			</div>
+			<div class="row">
+				<label style="color: #F20FEB;"><i class="fa fa-users"></i><?php echo $mat_efec; ?> Effec Tuit</label>
+				<label style="color: black;">Active students in Record, plus students in request status.</label>
+			</div>
+			<!-- <div class="row">
+				<label style="color: black;"><i class="fa fa-users"></i><?php //echo $total_usuarios_proceso_abierto; ?> Open Proc.</label>
+				<label style="color: black;">Students who have started the process through the virtual assistant and have not presented the admission evaluation.</label>
+			</div> -->
+			<div class="row">
+				<label style="color: black;"><i class="fa fa-users"></i>Open Proc. (</label>
+				<label style="color: brown;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto_antiguos; ?> Anc</label>
+				<label style="color: purple;"><i class="fa fa-users"></i><?php echo $total_usuarios_proceso_abierto_nuevos; ?> New</label>
+				<label style="color: orange;"> )</label>
+				<label style="color: black;">Students who have started the process through the virtual assistant and are at some stage prior to the interview.</label>
+			</div>
+			<div class="row">
+				<label style="color: #31E00D;"><i class="fa fa-users"></i><?php echo $total_pagos_matricula; ?> Tuition payments.</label>
+				<label style="color: black;">Effective tuition payments.</label>
 			</div>
 	    </div>
       <div class="modal-footer">

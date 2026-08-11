@@ -54,7 +54,7 @@ if (isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Academic Registry</title>
+<title>Thrive Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Favicon -->
@@ -80,6 +80,8 @@ if (isset($_SESSION['uniprofe'])) {
 <script src="../../js/jquery-1.11.1.min.js"></script>
 <script src="../../js/modernizr.custom.js"></script>
 
+<script type="text/javascript" src="js/reg.js"></script>
+
 <!--webfonts-->
 <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 <!--//webfonts--> 
@@ -87,6 +89,8 @@ if (isset($_SESSION['uniprofe'])) {
 <!--css tabla -->
 <link href="../../css/jquery.dataTables.min.css" rel="stylesheet"> 
 <!-- // css tabla -->
+
+<link rel="stylesheet" href="css/reg.css" />
 
 <!-- Metis Menu -->
 <script src="../../js/metisMenu.min.js"></script>
@@ -175,7 +179,7 @@ if (isset($_SESSION['uniprofe'])) {
 										//echo $query2;
 										if($insertados > 0) {
 										    //echo $query;
-											echo "<label  class='col-sm-8 control-label'>Cargue exitoso de estudiantes de Moodle. Registros: ".$insertados."</label></br></br>";
+											echo "<label  class='col-sm-8 control-label'>Successful upload of Moodle students. Records: ".$insertados."</label></br></br>";
 											echo '<a href="adm1.php" ><button type="button" class="btn btn-primary">Back</button></a>';
 										}
 										else {

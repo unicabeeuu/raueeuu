@@ -34,16 +34,16 @@
 	//echo $fecha2;
 	
 	//Se valida la fecha actual con respecto a los cierres de periodo
-	if(date($fecha2) >= date('2025/02/01') && date($fecha2) < date('2025/04/04')) {
+	if(date($fecha2) >= date('2026/02/01') && date($fecha2) < date('2026/03/22')) {
 	    $per = "P1";
 	}
-	else if(date($fecha2) >= date('2025/04/05') && date($fecha2) < date('2025/06/06')) {
+	else if(date($fecha2) >= date('2026/03/22') && date($fecha2) < date('2026/06/01')) {
 	    $per = "P2";
 	}
-	else if(date($fecha2) >= date('2025/06/07') && date($fecha2) < date('2025/08/22')) {
+	else if(date($fecha2) >= date('2026/06/01') && date($fecha2) < date('2026/08/24')) {
 	    $per = "P3";
 	}
-	else if(date($fecha2) >= date('2025/08/23')) {
+	else if(date($fecha2) >= date('2026/08/24')) {
 	    $per = "P4";
 	}
 	else {
@@ -68,12 +68,12 @@
 	   e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, m.grupo, td.tipo_documento 
-		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
+		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, tbl_tipos_documento td, 
 		(SELECT em.*, ee.id_registro 
-		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
 		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND a.grado = eg.name AND e.tipo_documento = td.id 
-		AND (e.nombres like '%".$nom."%' OR e.apellidos like '%".$nom."%') AND m.estado = '$estado' AND e.estado != 'Retirado' 
+		AND (e.nombres like '%".$nom."%' OR e.apellidos like '%".$nom."%') AND m.estado = '$estado'  
 		ORDER BY a.grado, nombre"; 
 	}
 	else if($estado == 'inactivo') {
@@ -82,9 +82,9 @@
 	    e.expedicion, e.fecha_nacimiento, e.email_institucional, 
 		e.acudiente_1, e.email_acudiente_1, e.telefono_acudiente_1, e.acudiente_2, e.email_acudiente_2, e.telefono_acudiente_2, e.direccion, e.ciudad, 
 		e.actividad_extra, m.grupo, td.tipo_documento 
-		FROM estudiantes e, matricula m, tbl_equivalence_idgra eg, tbl_tipos_documento td,  
+		FROM tbl_estudiantes e, tbl_matriculas m, tbl_equivalence_idgra eg, tbl_tipos_documento td,  
 		(SELECT em.*, ee.id_registro 
-		FROM tbl_estudiantes_mood em LEFT JOIN equivalence_idest ee
+		FROM tbl_estudiantes_mood em LEFT JOIN tbl_equivalence_idest ee
 		ON em.id = ee.id_moodle ) a 
 		WHERE e.id = m.id_estudiante AND e.id = a.id_registro AND m.id_grado = eg.id_grado_ra AND e.tipo_documento = td.id 
 		AND (e.nombres like '%".$nom."%' OR e.apellidos like '%".$nom."%') AND m.estado = '$estado' 
@@ -97,13 +97,22 @@
 ?>
 
 <html>
-	<head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-		<title></title>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Thrive Academic Registry</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../images/favicon.png" />
+        <!-- // Favicon -->
+
 		<link rel="stylesheet" href="css/bootstrap.min.css" >
 		<link href="../../css/font-awesome.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/reg.css" >
 		
 		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-migrate-3.4.1.min.js"></script> -->
+
 		<script type="text/javascript" src="js/reg.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/gridviewscroll.js"></script>
@@ -559,7 +568,7 @@
                 
                 //La siguiente línea se cambia por las calificaciones de énfasis
                 //ver_desemp(value);
-                ver_cal_enfasis(value, value1);
+                //ver_cal_enfasis(value, value1);
                 
                 $("#divdesemp").show();
             }
@@ -808,13 +817,13 @@
             function ver_cal_mood(id_est, id_gra) {
                 //alert(id_est + id_gra);
                 var cadena = "";
-                cadena = cadena + "<fieldset id='ftm'><legend>MOODLE GRADES</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
+                cadena = cadena + "<fieldset id='ftm'><legend>GRADES ON MOODLE</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
                                     "<tr>" +
                                     "<td><b>STUDENT ID</b></td>" +
-                                    "<td><b>APELLIDOS</b></td>" +
-                                    "<td><b>NOMBRES</b></td>" +
-                                    "<td><b>PENSAMIENTO</b></td>" +
-                                    "<td><b>PENSAMIENTO RA</b></td>" +
+                                    "<td><b>SURNAMES</b></td>" +
+                                    "<td><b>NAMES</b></td>" +
+                                    "<td><b>STUDY</b></td>" +
+                                    "<td><b>STUDY RA</b></td>" +
                                     "<td><b>MOODLE PERIOD ID</b></td>" +
                                     "<td><b>RA PERIOD</b></td>" +
                                     "<td><b>GRADE</b></td></tr></thead><tbody>";
@@ -1208,7 +1217,7 @@
 									<legend>Student Database by First or Last Name: <?php echo $nom; ?>
 									</legend>
 									<?php
-										echo '<label>Total Registros &#9658; '.$sel.'</label>';
+										echo '<label>Total Records &#9658; '.$sel.'</label>';
 									?>
 									<table border="1px" class="table" id="tblest">
 										<thead>
@@ -1271,6 +1280,30 @@
 											$resultado->close();
 											$mysqli1->close();
 										?>
+											<!-- <tr class="GridviewScrollItem">
+												<td class="tdelargo">GREGORY</td>
+												<td class="tdlargo">CC</td>
+												<td class="tdmediol">9397454</td>
+												<td class="tdmediol1">SOGAMOSO</td>
+												<td class="tdcorto">2434</td>
+												<td class="tdmedia">8</td>
+												<td class="tdmedia">A</td>
+												<td class="tdnormal">SEPTIMO</td>
+												<td class="tdmediol">1-2026-8G</td>
+												<td class="tdnormal">6329</td>
+												<td class="tdlargo">gregory.figueredo@unicab.org</td>
+												<td class="tdmediol">1973-01-10</td>
+												<td class="tdlargo">gregory.figueredo@unicab.org</td>
+												<td class="tdlargo">ANA ELVA GUEVARA</td>
+												<td class="tdlargo">gregory.figueredo@unicab.org</td>
+												<td class="tdmediol1">3006510212</td>
+												<td class="tdlargo">NA</td>
+												<td class="tdlargo">NA</td>
+												<td class="tdmediol1">0</td>
+												<td class="tdelargo">CALLE</td>
+												<td class="tdmediol1">SOG</td>
+												<td class="tdmediol">NA</td> -->
+											</tr>
 										</tbody>
 									</table>
 								</fieldset>

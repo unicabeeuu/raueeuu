@@ -22,14 +22,14 @@ if (isset($_SESSION['uniprofe'])) {
 		
     }
     
-    $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
+    $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 8 AND 12) ORDER BY id_grado_ra";
     $resultado=$mysqli1->query($query);
     $resultado1=$mysqli1->query($query);
 ?>
 
 <html>
 	<head><meta charset="shift_jis">
-		<title></title>
+		<title>Thrive Academic Registry</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Favicon -->

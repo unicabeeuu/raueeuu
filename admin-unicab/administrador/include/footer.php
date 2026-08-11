@@ -1,5 +1,5 @@
 <!--footer-->
 <div class="footer">
-   <p>&copy; 2019 <strong>Unicab</strong> Virtual School.</p>
+   <p>&copy; 2026 <strong>Thrive</strong> Virtual School.</p>
 </div>
 <!--//footer-->

@@ -65,35 +65,35 @@
 	//echo $fecha2;
 	
 	//Se valida la fecha actual con respecto a los cierres de periodo
-	if(date($fecha2) >= date('2025/02/01') && date($fecha2) < date('2025/04/04')) {
+	if(date($fecha2) >= date('2026/02/01') && date($fecha2) < date('2026/03/22')) {
 	    $in = "('TP1','TP1I','TP1F','TP19','TP110','TP111')";
 	}
-	else if(date($fecha2) >= date('2025/04/05') && date($fecha2) < date('2025/06/06')) {
+	else if(date($fecha2) >= date('2026/03/22') && date($fecha2) < date('2026/06/01')) {
 	    $in = "('TP1','TP1I','TP1F','TP19','TP110','TP111','TP2','TP2I','TP2F','TP29','TP210','TP211')";
 	}
-	else if(date($fecha2) >= date('2025/06/07') && date($fecha2) < date('2025/08/22')) {
+	else if(date($fecha2) >= date('2026/06/01') && date($fecha2) < date('2026/08/24')) {
 	    $in = "('TP1','TP1I','TP1F','TP19','TP110','TP111','TP2','TP2I','TP2F','TP29','TP210','TP211','TP3','TP3I','TP3F','TP39','TP310','TP311')";
 	}
-	else if(date($fecha2) >= date('2025/08/23')) {
+	else if(date($fecha2) >= date('2026/08/24')) {
 	    $in = "('TP1','TP1I','TP1F','TP19','TP110','TP111','TP2','TP2I','TP2F','TP29','TP210','TP211','TP3','TP3I','TP3F','TP39','TP310','TP311','TP4','TP4I','TP4F','TP49','TP410','TP411')";
 	}
 	//echo $in;
 	
 	//***************************************************************************************************
 	if (isset($_SESSION['uniprofe'])) {
-		$queryr0 = "Delete From notas_mood_temp_est Where email_inst = '".$_SESSION['uniprofe']."'";
+		$queryr0 = "Delete From tbl_notas_mood_temp_est Where email_inst = '".$_SESSION['uniprofe']."'";
 	}
 	else if (isset($_SESSION['unisuper'])) {
-		$queryr0 = "Delete From notas_mood_temp_est Where email_inst = '".$_SESSION['unisuper']."'";
+		$queryr0 = "Delete From tbl_notas_mood_temp_est Where email_inst = '".$_SESSION['unisuper']."'";
 	}
 	else if (isset($_SESSION['admin_unicab'])) {
-		$queryr0 = "Delete From notas_mood_temp_est Where email_inst = '".$_SESSION['admin_unicab']."'";
+		$queryr0 = "Delete From tbl_notas_mood_temp_est Where email_inst = '".$_SESSION['admin_unicab']."'";
 	}
 	//echo $queryr0;
 	$resultado_r0=$mysqli1->query($queryr0);
 	
 	//Se busca el id estudiante de moodle
-	$queryr1 = "SELECT id_moodle FROM equivalence_idest WHERE id_registro = '$idest'";
+	$queryr1 = "SELECT id_moodle FROM tbl_equivalence_idest WHERE id_registro = '$idest'";
 	$resultado_r1=$mysqli1->query($queryr1);
 	while($row1 = $resultado_r1->fetch_assoc()){
 		$idest_m = $row1['id_moodle'];
@@ -178,17 +178,17 @@
 	while($row01 = $resultado_r01->fetch_assoc()){
 	    if (isset($_SESSION['uniprofe'])) {
 	        //echo "control";
-			$queryr02="INSERT INTO notas_mood_temp_est (id_est, lastname, firstname, shortname, id_mat_mood, name, id_grado, idnumber, calificacion, email_inst) 
+			$queryr02="INSERT INTO tbl_notas_mood_temp_est (id_est, lastname, firstname, shortname, id_mat_mood, name, id_grado, idnumber, calificacion, email_inst) 
 			VALUES (".$row01['id_est'].",'".$row01['lastname']."','".$row01['firstname']."','".$row01['shortname']."',".$row01['id_mat_mood']
 			.",'".$row01['name']."',".$row01['id_grado'].",'".$row01['idnumber']."',".$row01['calificacion'].",'".$_SESSION['uniprofe']."')";
 		}
 		else if (isset($_SESSION['unisuper'])) {
-			$queryr02="INSERT INTO notas_mood_temp_est (id_est, lastname, firstname, shortname, id_mat_mood, name, id_grado, idnumber, calificacion, email_inst) 
+			$queryr02="INSERT INTO tbl_notas_mood_temp_est (id_est, lastname, firstname, shortname, id_mat_mood, name, id_grado, idnumber, calificacion, email_inst) 
 			VALUES (".$row01['id_est'].",'".$row01['lastname']."','".$row01['firstname']."','".$row01['shortname']."',".$row01['id_mat_mood']
 			.",'".$row01['name']."',".$row01['id_grado'].",'".$row01['idnumber']."',".$row01['calificacion'].",'".$_SESSION['unisuper']."')";
 		}
 		else if (isset($_SESSION['admin_unicab'])) {
-			$queryr02="INSERT INTO notas_mood_temp_est (id_est, lastname, firstname, shortname, id_mat_mood, name, id_grado, idnumber, calificacion, email_inst) 
+			$queryr02="INSERT INTO tbl_notas_mood_temp_est (id_est, lastname, firstname, shortname, id_mat_mood, name, id_grado, idnumber, calificacion, email_inst) 
 			VALUES (".$row01['id_est'].",'".$row01['lastname']."','".$row01['firstname']."','".$row01['shortname']."',".$row01['id_mat_mood']
 			.",'".$row01['name']."',".$row01['id_grado'].",'".$row01['idnumber']."',".$row01['calificacion'].",'".$_SESSION['admin_unicab']."')";
 		}
@@ -243,7 +243,7 @@
 	//Se genera la consulta para actualizar las calificaciones
 	if (isset($_SESSION['uniprofe'])) {
 	    if($idgra_m == 15 || $idgra_m == 16 || $idgra_m == 17) {
-	        $query_tupd = "UPDATE notas n JOIN 
+	        $query_tupd = "UPDATE tbl_notas n JOIN 
 	        (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, 
 	        case eg.id_grado_ra when 0 then ne.id_grado_ra_enfasis else eg.id_grado_ra end as id_grado_ra, ee.id_registro 
             FROM 
@@ -258,8 +258,8 @@
             	case nte.idnumber when 'TP19' then 10 when 'TP29' then 10 when 'TP39' then 10 when 'TP49' then 10 
             	when 'TP110' then 11 when 'TP210' then 11 when 'TP310' then 11 when 'TP410' then 11 
             	when 'TP111' then 12 when 'TP211' then 12 when 'TP311' then 12 when 'TP411' then 12 else 0 end id_grado_ra_enfasis
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['uniprofe']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -268,7 +268,7 @@
             WHERE n.nota <> a.calificacion ";
 	    }
 	    else {
-	        $query_tupd = "UPDATE notas n JOIN 
+	        $query_tupd = "UPDATE tbl_notas n JOIN 
 	        (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, eg.id_grado_ra, ee.id_registro 
             FROM 
             (SELECT nte.id_est, nte.lastname, nte.firstname, nte.shortname, 
@@ -276,8 +276,8 @@
             	when 'D¨¦cimo 10¡ãTP1F' then 47997 when 'D¨¦cimo 10¡ãTP2F' then 47997 when 'D¨¦cimo 10¡ãTP3F' then 47997 when 'D¨¦cimo 10¡ãTP4F' then 47997 
             	when 'Once 11¡ãTP1F' then 52997 when 'Once 11¡ãTP2F' then 52997 when 'Once 11¡ãTP3F' then 52997 when 'Once 11¡ãTP4F' then 52997 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['uniprofe']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -289,7 +289,7 @@
 	}
 	else if (isset($_SESSION['unisuper'])) {
 	    if($idgra_m == 15 || $idgra_m == 16 || $idgra_m == 17) {
-	        $query_tupd = "UPDATE notas n JOIN 
+	        $query_tupd = "UPDATE tbl_notas n JOIN 
 	        (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, 
 	        case eg.id_grado_ra when 0 then ne.id_grado_ra_enfasis else eg.id_grado_ra end as id_grado_ra, ee.id_registro 
             FROM 
@@ -304,8 +304,8 @@
             	case nte.idnumber when 'TP19' then 10 when 'TP29' then 10 when 'TP39' then 10 when 'TP49' then 10 
             	when 'TP110' then 11 when 'TP210' then 11 when 'TP310' then 11 when 'TP410' then 11 
             	when 'TP111' then 12 when 'TP211' then 12 when 'TP311' then 12 when 'TP411' then 12 else 0 end id_grado_ra_enfasis
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['unisuper']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -314,7 +314,7 @@
             WHERE n.nota <> a.calificacion ";
 	    }
 	    else {
-	       $query_tupd = "UPDATE notas n JOIN 
+	       $query_tupd = "UPDATE tbl_notas n JOIN 
 	        (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, eg.id_grado_ra, ee.id_registro 
             FROM 
             (SELECT nte.id_est, nte.lastname, nte.firstname, nte.shortname, 
@@ -322,8 +322,8 @@
             	when 'D¨¦cimo 10¡ãTP1F' then 47997 when 'D¨¦cimo 10¡ãTP2F' then 47997 when 'D¨¦cimo 10¡ãTP3F' then 47997 when 'D¨¦cimo 10¡ãTP4F' then 47997 
             	when 'Once 11¡ãTP1F' then 52997 when 'Once 11¡ãTP2F' then 52997 when 'Once 11¡ãTP3F' then 52997 when 'Once 11¡ãTP4F' then 52997 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['unisuper']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -335,7 +335,7 @@
 	}
 	else if (isset($_SESSION['admin_unicab'])) {
 	    if($idgra_m == 15 || $idgra_m == 16 || $idgra_m == 17) {
-	        $query_tupd = "UPDATE notas n JOIN 
+	        $query_tupd = "UPDATE tbl_notas n JOIN 
 	        (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, 
 	        case eg.id_grado_ra when 0 then ne.id_grado_ra_enfasis else eg.id_grado_ra end as id_grado_ra, ee.id_registro 
             FROM 
@@ -350,8 +350,8 @@
             	case nte.idnumber when 'TP19' then 10 when 'TP29' then 10 when 'TP39' then 10 when 'TP49' then 10 
             	when 'TP110' then 11 when 'TP210' then 11 when 'TP310' then 11 when 'TP410' then 11 
             	when 'TP111' then 12 when 'TP211' then 12 when 'TP311' then 12 when 'TP411' then 12 else 0 end id_grado_ra_enfasis
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['admin_unicab']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -360,7 +360,7 @@
             WHERE n.nota <> a.calificacion ";
 	    }
 	    else {
-	        $query_tupd = "UPDATE notas n JOIN 
+	        $query_tupd = "UPDATE tbl_notas n JOIN 
 	        (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, eg.id_grado_ra, ee.id_registro 
             FROM 
             (SELECT nte.id_est, nte.lastname, nte.firstname, nte.shortname, 
@@ -368,8 +368,8 @@
             	when 'D¨¦cimo 10¡ãTP1F' then 47997 when 'D¨¦cimo 10¡ãTP2F' then 47997 when 'D¨¦cimo 10¡ãTP3F' then 47997 when 'D¨¦cimo 10¡ãTP4F' then 47997 
             	when 'Once 11¡ãTP1F' then 52997 when 'Once 11¡ãTP2F' then 52997 when 'Once 11¡ãTP3F' then 52997 when 'Once 11¡ãTP4F' then 52997 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['admin_unicab']."' 
             ORDER BY ne.shortname, ep.periodo ) a 
@@ -422,7 +422,7 @@
 	//Se genera la consulta para insertar nuevas calificaciones 
 	if (isset($_SESSION['uniprofe'])) {
 	    if($idgra_m == 15 || $idgra_m == 16 || $idgra_m == 17) {
-	        $query_tins = "INSERT INTO notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
+	        $query_tins = "INSERT INTO tbl_notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
 	        SELECT m.calificacion, m.periodo, m.id_materia_ra, m.id_grado_ra, m.id_registro FROM 
             (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, 
             case eg.id_grado_ra when 0 then ne.id_grado_ra_enfasis else eg.id_grado_ra end as id_grado_ra, ee.id_registro 
@@ -438,17 +438,17 @@
             	case nte.idnumber when 'TP19' then 10 when 'TP29' then 10 when 'TP39' then 10 when 'TP49' then 10 
             	when 'TP110' then 11 when 'TP210' then 11 when 'TP310' then 11 when 'TP410' then 11 
             	when 'TP111' then 12 when 'TP211' then 12 when 'TP311' then 12 when 'TP411' then 12 else 0 end id_grado_ra_enfasis 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['uniprofe']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
-            LEFT JOIN notas n 
+            LEFT JOIN tbl_notas n 
             ON CONCAT(m.periodo,m.id_materia_ra,m.id_grado_ra,m.id_registro) = CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) 
             WHERE CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) IS NULL ";
 	    }
 	    else {
-	        $query_tins = "INSERT INTO notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
+	        $query_tins = "INSERT INTO tbl_notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
 	        SELECT m.calificacion, m.periodo, m.id_materia_ra, m.id_grado_ra, m.id_registro FROM 
             (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, eg.id_grado_ra, ee.id_registro 
             FROM 
@@ -457,12 +457,12 @@
             	when 'D¨¦cimo 10¡ãTP1F' then 47997 when 'D¨¦cimo 10¡ãTP2F' then 47997 when 'D¨¦cimo 10¡ãTP3F' then 47997 when 'D¨¦cimo 10¡ãTP4F' then 47997 
             	when 'Once 11¡ãTP1F' then 52997 when 'Once 11¡ãTP2F' then 52997 when 'Once 11¡ãTP3F' then 52997 when 'Once 11¡ãTP4F' then 52997 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['uniprofe']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
-            LEFT JOIN notas n 
+            LEFT JOIN tbl_notas n 
             ON CONCAT(m.periodo,m.id_materia_ra,m.id_grado_ra,m.id_registro) = CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) 
             WHERE CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) IS NULL ";
 	    }
@@ -470,7 +470,7 @@
 	}
 	else if (isset($_SESSION['unisuper'])) {
 	    if($idgra_m == 15 || $idgra_m == 16 || $idgra_m == 17) {
-	        $query_tins = "INSERT INTO notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
+	        $query_tins = "INSERT INTO tbl_notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
 	        SELECT m.calificacion, m.periodo, m.id_materia_ra, m.id_grado_ra, m.id_registro FROM 
             (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, 
             case eg.id_grado_ra when 0 then ne.id_grado_ra_enfasis else eg.id_grado_ra end as id_grado_ra, ee.id_registro 
@@ -486,17 +486,17 @@
             	case nte.idnumber when 'TP19' then 10 when 'TP29' then 10 when 'TP39' then 10 when 'TP49' then 10 
             	when 'TP110' then 11 when 'TP210' then 11 when 'TP310' then 11 when 'TP410' then 11 
             	when 'TP111' then 12 when 'TP211' then 12 when 'TP311' then 12 when 'TP411' then 12 else 0 end id_grado_ra_enfasis 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['unisuper']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
-            LEFT JOIN notas n 
+            LEFT JOIN tbl_notas n 
             ON CONCAT(m.periodo,m.id_materia_ra,m.id_grado_ra,m.id_registro) = CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) 
             WHERE CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) IS NULL ";
 	    }
 	    else {
-	        $query_tins = "INSERT INTO notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
+	        $query_tins = "INSERT INTO tbl_notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
 	        SELECT m.calificacion, m.periodo, m.id_materia_ra, m.id_grado_ra, m.id_registro FROM 
             (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, eg.id_grado_ra, ee.id_registro 
             FROM 
@@ -505,12 +505,12 @@
             	when 'D¨¦cimo 10¡ãTP1F' then 47997 when 'D¨¦cimo 10¡ãTP2F' then 47997 when 'D¨¦cimo 10¡ãTP3F' then 47997 when 'D¨¦cimo 10¡ãTP4F' then 47997 
             	when 'Once 11¡ãTP1F' then 52997 when 'Once 11¡ãTP2F' then 52997 when 'Once 11¡ãTP3F' then 52997 when 'Once 11¡ãTP4F' then 52997 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['unisuper']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
-            LEFT JOIN notas n 
+            LEFT JOIN tbl_notas n 
             ON CONCAT(m.periodo,m.id_materia_ra,m.id_grado_ra,m.id_registro) = CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) 
             WHERE CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) IS NULL ";
 	    }
@@ -518,7 +518,7 @@
 	}
 	else if (isset($_SESSION['admin_unicab'])) {
 	    if($idgra_m == 15 || $idgra_m == 16 || $idgra_m == 17) {
-	        $query_tins = "INSERT INTO notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
+	        $query_tins = "INSERT INTO tbl_notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
 	        SELECT m.calificacion, m.periodo, m.id_materia_ra, m.id_grado_ra, m.id_registro FROM 
             (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, 
             case eg.id_grado_ra when 0 then ne.id_grado_ra_enfasis else eg.id_grado_ra end as id_grado_ra, ee.id_registro 
@@ -534,17 +534,17 @@
             	case nte.idnumber when 'TP19' then 10 when 'TP29' then 10 when 'TP39' then 10 when 'TP49' then 10 
             	when 'TP110' then 11 when 'TP210' then 11 when 'TP310' then 11 when 'TP410' then 11 
             	when 'TP111' then 12 when 'TP211' then 12 when 'TP311' then 12 when 'TP411' then 12 else 0 end id_grado_ra_enfasis 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['admin_unicab']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
-            LEFT JOIN notas n 
+            LEFT JOIN tbl_notas n 
             ON CONCAT(m.periodo,m.id_materia_ra,m.id_grado_ra,m.id_registro) = CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) 
             WHERE CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) IS NULL ";
 	    }
 	    else {
-	        $query_tins = "INSERT INTO notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
+	        $query_tins = "INSERT INTO tbl_notas (nota, id_periodo, id_materia, id_grado, id_estudiante) 
 	        SELECT m.calificacion, m.periodo, m.id_materia_ra, m.id_grado_ra, m.id_registro FROM 
             (SELECT DISTINCT ne.*, ep.periodo, em.id_materia_ra, eg.id_grado_ra, ee.id_registro 
             FROM 
@@ -553,12 +553,12 @@
             	when 'D¨¦cimo 10¡ãTP1F' then 47997 when 'D¨¦cimo 10¡ãTP2F' then 47997 when 'D¨¦cimo 10¡ãTP3F' then 47997 when 'D¨¦cimo 10¡ãTP4F' then 47997 
             	when 'Once 11¡ãTP1F' then 52997 when 'Once 11¡ãTP2F' then 52997 when 'Once 11¡ãTP3F' then 52997 when 'Once 11¡ãTP4F' then 52997 
             	else nte.id_mat_mood end as id_mat_mood, nte.id_grado, nte.idnumber, nte.email_inst, nte.calificacion 
-            FROM notas_mood_temp_est nte) ne, 
-            equivalence_idmat em, equivalence_per ep, tbl_equivalence_idgra eg, equivalence_idest ee 
+            FROM tbl_notas_mood_temp_est nte) ne, 
+            tbl_equivalence_idmat em, tbl_equivalence_per ep, tbl_equivalence_idgra eg, tbl_equivalence_idest ee 
             WHERE ne.id_mat_mood = em.id_course AND ne.idnumber = ep.idnumber AND ne.id_grado = eg.id_category AND ne.id_est = ee.id_moodle 
             AND ne.email_inst = '".$_SESSION['admin_unicab']."' 
             ORDER BY ne.shortname, ep.periodo ) m 
-            LEFT JOIN notas n 
+            LEFT JOIN tbl_notas n 
             ON CONCAT(m.periodo,m.id_materia_ra,m.id_grado_ra,m.id_registro) = CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) 
             WHERE CONCAT(n.id_periodo,n.id_materia,n.id_grado,n.id_estudiante) IS NULL ";
 	    }
@@ -579,21 +579,21 @@
 	if (isset($_SESSION['uniprofe'])) {
 	    $queryt = "SELECT DISTINCT ne.*, 
 	        m.pensamiento, ep.periodo 
-	        FROM notas_mood_temp_est ne, equivalence_idmat em, materias m, equivalence_per ep 
+	        FROM tbl_notas_mood_temp_est ne, tbl_equivalence_idmat em, tbl_materias m, tbl_equivalence_per ep 
             WHERE ne.id_mat_mood = em.id_course AND em.id_materia_ra = m.id AND ne.idnumber = ep.idnumber 
             AND ne.email_inst = '".$_SESSION['uniprofe']."' 
             ORDER BY ne.shortname, ep.periodo";
 	}
 	else if (isset($_SESSION['unisuper'])) {
 	    $queryt = "SELECT DISTINCT ne.*, m.pensamiento, ep.periodo
-            FROM notas_mood_temp_est ne, equivalence_idmat em, materias m, equivalence_per ep 
+            FROM tbl_notas_mood_temp_est ne, tbl_equivalence_idmat em, tbl_materias m, tbl_equivalence_per ep 
             WHERE ne.id_mat_mood = em.id_course AND em.id_materia_ra = m.id AND ne.idnumber = ep.idnumber 
             AND ne.email_inst = '".$_SESSION['unisuper']."' 
             ORDER BY ne.shortname, ep.periodo";
 	}
 	else if (isset($_SESSION['admin_unicab'])) {
 	    $queryt = "SELECT DISTINCT ne.*, m.pensamiento, ep.periodo
-            FROM notas_mood_temp_est ne, equivalence_idmat em, materias m, equivalence_per ep 
+            FROM tbl_notas_mood_temp_est ne, tbl_equivalence_idmat em, tbl_materias m, tbl_equivalence_per ep 
             WHERE ne.id_mat_mood = em.id_course AND em.id_materia_ra = m.id AND ne.idnumber = ep.idnumber 
             AND ne.email_inst = '".$_SESSION['admin_unicab']."' 
             ORDER BY ne.shortname, ep.periodo";

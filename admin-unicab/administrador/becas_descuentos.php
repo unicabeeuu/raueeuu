@@ -17,12 +17,12 @@ if (isset($_SESSION['admin_unicab'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Administrador - Web Unicab</title>
+<title>Administrator - Web Thrive</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-<link rel="shortcut icon" type="image/x-icon" href="../../images/fave-icon.png"/>
+<link rel="shortcut icon" type="image/x-icon" href="../images/favicon2025.ico"/>
 <!-- Bootstrap Core CSS -->
 <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 
@@ -148,14 +148,14 @@ if (isset($_SESSION['admin_unicab'])) {
                     			<div class="form-body">
                     			<form class="form-horizontal"  method="post">
                     				<div class="form-group">
-										<label for="n_documento" class="col-sm-2 control-label">Número Documento <span class="req">*</span></label>
+										<label for="n_documento" class="col-sm-2 control-label">Document Id <span class="req">*</span></label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Número Documento" required maxlength="15" autofocus="">
+											<input type="text" class="form-control1" id="n_documento" name="n_documento" placeholder="Document Id" required maxlength="15" autofocus="">
 										</div>
 									</div>
 									
 									<div class="form-group">
-										<label for="anio" class="col-sm-2 control-label">Año <span class="req">*</span></label>
+										<label for="anio" class="col-sm-2 control-label">Year <span class="req">*</span></label>
     									<div class="col-sm-8">
     										<!--<input type="text" class="form-control1" id="anio" name="anio" placeholder="Ingrese el año al que aplica el descuento">-->
     						                <select id="anio" name="anio" class="form-control1" required >

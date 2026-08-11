@@ -36,7 +36,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Academic Registry</title>
+<title>Thrive Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -107,12 +107,12 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 							<table id="listEstudiantes" class="display" style="width:100%">
 						        <thead>                    
 						            <tr>
-						                <th>Apellidos</th>
-						                <th>Nombres</th>
+						                <th>Surnames</th>
+						                <th>Names</th>
 						                <th>Identification</th>
 						                <th>Email</th>
 						                <th>Grade</th>
-										<th>Tipo Est</th>
+										<th>Student Type</th>
 						                <!--<th>Status</th>
 										<th>DSA</th>
 										<th>DA</th>-->
