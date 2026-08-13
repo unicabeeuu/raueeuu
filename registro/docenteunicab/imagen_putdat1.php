@@ -104,7 +104,7 @@
 							
 							<br>
 							<div class="form-body">
-								<p>Etiqueta logo conectados.</p><br>
+								<p>Conectados logo tag.</p><br>
 								<img src="../../../assets/img/imgblog/pie_conectados.jpg" width="600" /><br>
 								<span>&lt;img src="../../../assets/img/imgblog/pie_conectados.jpg" width="600" class="img-fluid"/&gt;</span>
 							</div>

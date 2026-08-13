@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Academic Registry</title>
+<title>Thrive Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -104,7 +104,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 		if(extensionValida < 0) {
             //$('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
-            let texto = "La extensión no es válida Su fichero tiene de extensión: ." + extension + ": ";
+            let texto = "The extension is not valid. Your file has the extension: ." + extension + ": ";
             $("#lblmsg").html(texto).css("color","red");
             $("#ctr_ImagenA").val(1);
             mostrar_submit("ImagenA");
@@ -128,7 +128,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 		    if(pesoFichero > pesoPermitido) {
 		        //$('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: ' + pesoFichero +' KBs');
-		        let texto = "El peso maximo permitido del fichero es: " + pesoPermitido + " KBs Su fichero tiene: " + pesoFichero + " KBs";
+		        let texto = "The maximum allowed file size is: " + pesoPermitido + " KBs. Your file contains: " + pesoFichero + " KBs";
                 $("#lblmsg").html(texto).css("color","red");
                 $("#ctr_ImagenA").val(1);
                 mostrar_submit("ImagenA");
@@ -184,7 +184,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         else {
             v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-            let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+            let texto = "You have entered characters that are not allowed for " + desc + ": ";
             texto += "- _ \' \" < > ~ ^ * $ # & = + | { } [ ] \\";
             //alert(texto);
             $("#lblmsg").html(texto).css("color","red");
@@ -195,7 +195,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 		    if($(id_obj).val() == "") {
-		        let texto = "El campo " + desc + " se debe llenar";
+		        let texto = "The " + desc + " field is required";
 				$("#lblmsg").html(texto).css("color","red");
 				//$("#alert").show();
                 $(ctr_obj).val(1);
@@ -380,7 +380,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 								<div class="form-group"> 
 									<label for="TituloA">Title</label> 
-									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Enter event name" autofocus onkeyup="mayus(this, 'TituloA', 'Título');">
+									<input type="text" class="form-control" id="TituloA" name="TituloA" placeholder="Enter event name" autofocus onkeyup="mayus(this, 'TituloA', 'Title');">
 									<input type="hidden" style="width: 20px" id="ctr_TituloA" value="1"/>
 								</div>
 								
@@ -401,8 +401,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 								</div>
 
 								<div class="form-group"> 
-									<label for="DescripcionA">Texto inicial (10000 | <label class="maxl" id="lbldesc">0</label>)</label> 
-									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Event description or information" onkeyup="mayus(this, 'DescripcionA', 'Descripción');"></textarea>
+									<label for="DescripcionA">Initial text (10000 | <label class="maxl" id="lbldesc">0</label>)</label> 
+									<textarea id="DescripcionA" name="DescripcionA" rows="8" class="form-control" placeholder="Event description or information" onkeyup="mayus(this, 'DescripcionA', 'Initial text');"></textarea>
 									<input type="hidden" style="width: 20px" id="ctr_DescripcionA" value="1"/>
 								</div>
 								
@@ -464,7 +464,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						['image', 'video', 'link']
 					]
 				},
-				placeholder: 'Ingrese información complementaria...',
+				placeholder: 'Enter complementary information...',
 				theme: 'snow'
 			});
 		</script>

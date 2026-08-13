@@ -24,10 +24,10 @@ if (isset($_SESSION['uniprofe'])) {
     }
     
     if($id == 18 || $id == 40) {
-        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 9 AND 12) ORDER BY id_grado_ra";
+        $query = "SELECT * FROM tbl_equivalence_idgra WHERE id_grado_ra = 0 OR (id_grado_ra BETWEEN 8 AND 12) ORDER BY id_grado_ra";
     }
     else {
-        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ORDER BY eg.id_grado_ra";
+        $query = "SELECT DISTINCT eg.* FROM tbl_equivalence_idgra eg, tbl_carga_profesor cp WHERE eg.id_grado_ra = cp.id_grado AND cp.id_empleado = $id AND (eg.id_grado_ra = 0 OR eg.id_grado_ra BETWEEN 9 AND 12) ORDER BY eg.id_grado_ra";
     }
     
     $resultado=$mysqli1->query($query);
@@ -39,8 +39,12 @@ if (isset($_SESSION['uniprofe'])) {
 
 <html lang="es">
 	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title></title>
+		<title>Thrive Academic Registry</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../images/favicon.png" />
+        <!-- // Favicon -->
         
         <!-- Favicon -->
         <link rel="shortcut icon" href="../../images/favicon.png" />

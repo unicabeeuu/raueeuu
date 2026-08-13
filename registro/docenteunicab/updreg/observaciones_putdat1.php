@@ -34,7 +34,7 @@
 	$cadena = "";
 	
 	$query_tabla = "SELECT a.*, o.observacion, ifnull(o.id, -1) id_obs FROM 
-	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM estudiantes e 
+	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM tbl_estudiantes e 
 	    WHERE e.nombres like '%$nom%' OR e.apellidos like '%$nom%' OR e.n_documento like '%$nom%') a 
 	    LEFT JOIN tbl_estudiantes_param o 
 	    ON a.id_est = o.id_estudiante";
@@ -47,8 +47,8 @@
     							<td class='tdmediol1'>".$rowt['apellidos']."</td>
     							<td class='tdmedia1'>".$rowt['n_documento']."</td>
     							<td class='tdelargo'>".$rowt['observacion']."</td>
-    							<td class='tdmedia'><button class='btn btn-warning glyphicon glyphicon-pencil' data-toggle='modal' data-target='#modal_observaciones' title='Editar'
-                                    onclick='enviardat(".$rowt['id_est'].",\"".$rowt['nombres']."\",\"".$rowt['apellidos']."\",\"".$rowt['observacion']."\");'>Editar</button></td>
+    							<td class='tdmedia'><button class='btn btn-warning glyphicon glyphicon-pencil' data-toggle='modal' data-target='#modal_observaciones' title='Edit'
+                                    onclick='enviardat(".$rowt['id_est'].",\"".$rowt['nombres']."\",\"".$rowt['apellidos']."\",\"".$rowt['observacion']."\");'>Edit</button></td>
     							<td class='tdmedia'>".$rowt['id_est']."</td>
     							<td>...</td>
     						</tr>";

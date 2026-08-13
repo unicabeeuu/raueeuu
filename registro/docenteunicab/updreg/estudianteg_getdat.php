@@ -1227,25 +1227,25 @@
 												<td class="tdelargo"><b>NAME</b></td>
 												<td class="tdlargo"><b>DOCUMENT TYPE</b></td>
 												<td class="tdmediol"><b>DOCUMENT No.</b></td>
-												<td class="tdmediol1"><b>EXPEDICION</b></td>
+												<td class="tdmediol1"><b>EXPEDITION</b></td>
 												<td class="tdcorto"><b>ID</b></td>
 												<td class="tdmedia"><b>GRADE ID</b></td>
 												<td class="tdmedia"><b>GROUP</b></td>
 												<td class="tdnormal"><b>GRADE</b></td>
-												<td class="tdmediol"><b>ENROLLMENT</b></td>
-												<td class="tdnormal"><b>ID MAT.</b></td>
-												<td class="tdlargo"><b>USUARIO</b></td>
+												<td class="tdmediol"><b>TUITION</b></td>
+												<td class="tdnormal"><b>ID TUITION</b></td>
+												<td class="tdlargo"><b>USER</b></td>
 												<td class="tdmediol"><b>BIRTH DATE</b></td>
 												<td class="tdlargo"><b>EMAIL INST</b></td>
-												<td class="tdlargo"><b>ACUDIENTE 1</b></td>
-												<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-												<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
-												<td class="tdlargo"><b>ACUDIENTE 2</b></td>
-												<td class="tdlargo"><b>EMAIL ACUDIENTE 2</b></td>
-												<td class="tdmediol1"><b>GUARDIAN 2 PHONE</b></td>
+												<td class="tdlargo"><b>GUARDIAN 1</b></td>
+												<td class="tdlargo"><b>EMAIL GUARDIAN 1</b></td>
+												<td class="tdmediol1"><b>PHONE GUARDIAN 1</b></td>
+												<td class="tdlargo"><b>GUARDIAN 2</b></td>
+												<td class="tdlargo"><b>EMAIL GUARDIAN 2</b></td>
+												<td class="tdmediol1"><b>PHONE GUARDIAN 2</b></td>
 												<td class="tdelargo"><b>ADDRESS</b></td>
 												<td class="tdmediol1"><b>CITY</b></td>
-												<td class="tdmediol"><b>ACTIVIDAD EXTRA</b></td>
+												<td class="tdmediol"><b>ADDITIONAL ACTIVITY</b></td>
 											</tr>
 											</thead>
 											<tbody>

@@ -7,13 +7,13 @@
 	set_time_limit(300);
 	
 	header("Content-type:application/xls; charset=iso-8859-1");
-	header("Content-Disposition: attachment; filename=retirados.xls");
+	header("Content-Disposition: attachment; filename=students_retired.xls");
 	
 	$idest = $_REQUEST['idest'];
 	//echo $idest;
 	
 	$query = "SELECT e.*, CONCAT(e.nombres,' ',e.apellidos) nombre 
-	FROM estudiantes e, matricula m WHERE e.id = m.id_estudiante AND m.estado = 'retirado' AND m.n_matricula like '%2023%'";
+	FROM tbl_estudiantes e, tbl_matriculas m WHERE e.id = m.id_estudiante AND m.estado = 'retirado' AND m.n_matricula like '%2026%'";
 	//echo $query;
 	
 	$resultado=$mysqli1->query($query);
@@ -28,10 +28,8 @@
 	<body>
 		<center>
 			<fieldset>
-				<legend>Base de Datos de Estudiantes
-				</legend>
 				<?php
-					echo '<label>Estudiantes Retirados. Total Registros &#9658; '.$sel.'</label>';
+					echo '<label>Students Retired. Total Records &#9658; '.$sel.'</label>';
 				?>
 				<table border="1px" class="table" id="tblest">
 					<thead>
@@ -40,18 +38,18 @@
 						<td class="tdcorto"><b>ID</b></td>
 						<td class="tdmedia"><b>DOCUMENT TYPE</b></td>
 						<td class="tdnormal"><b>DOCUMENT No.</b></td>
-						<td class="tdmediol"><b>EXPEDICION</b></td>
+						<td class="tdmediol"><b>EXPEDITION</b></td>
 						<td class="tdnormal"><b>BIRTH DATE</b></td>
 						<td class="tdlargo"><b>EMAIL INST</b></td>
 						<td class="tdmedia"><b>CITY</b></td>
 						<td class="tdmediol"><b>ADDRESS.</b></td>
-						<td class="tdlargo"><b>ACUDIENTE 1</b></td>
-						<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-						<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
-						<td class="tdlargo"><b>ACUDIENTE 2</b></td>
-						<td class="tdlargo"><b>EMAIL ACUDIENTE 2</b></td>
-						<td class="tdmediol1"><b>GUARDIAN 2 PHONE</b></td>
-						<td class="tdmediol"><b>ACTIVIDAD EXTRA</b></td>
+						<td class="tdlargo"><b>GUARDIAN 1</b></td>
+						<td class="tdlargo"><b>EMAIL GUARDIAN 1</b></td>
+						<td class="tdmediol1"><b>PHONE GUARDIAN 1</b></td>
+						<td class="tdlargo"><b>GUARDIAN 2</b></td>
+						<td class="tdlargo"><b>EMAIL GUARDIAN 2</b></td>
+						<td class="tdmediol1"><b>PHONE GUARDIAN 2</b></td>
+						<td class="tdmediol"><b>ADDITIONAL ACTIVITY</b></td>
 					</tr>
 					</thead>
 					<tbody>

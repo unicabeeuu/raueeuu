@@ -899,11 +899,11 @@ CREATE TABLE tbl_categorias_blog (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 INSERT INTO tbl_categorias_blog (categoria) VALUES
-('CONDECORACIONES'),
-('EXPERIENCIAS EXITOSAS'),
-('INVESTIGACIÓN GIU'),
-('RESULTADOS ESTUDIANTES'),
-('MAESTRO INVESTIGADOR');
+('DISTINCTIONS'),
+('SUCCESSFUL EXPERIENCES'),
+('INVESTIGATION GIU'),
+('STUDENT RESULTS'),
+('RESEARCH EDUCATOR');
 
 /*######################################################################################################*/
 
@@ -1172,6 +1172,20 @@ CREATE TABLE tbl_desemp_pres (
   DB varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   año int(11) NOT NULL,
   id_grado int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+/*######################################################################################################*/
+
+DROP TABLE IF EXISTS tbl_desemp;
+
+CREATE TABLE tbl_desemp (
+  nombre varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  id int(11) NOT NULL,
+  shortname varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  calificacion float DEFAULT NULL,
+  email_inst varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  itemname varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  idnumber varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 /*######################################################################################################*/
@@ -3160,6 +3174,38 @@ CREATE TABLE tbl_apoyos_direccion (
   id_materia int(11) NOT NULL,
   id_empleado int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+/*######################################################################################################*/
+
+DROP TABLE IF EXISTS tbl_tot_act_curso;
+
+CREATE TABLE tbl_tot_act_curso (
+  id int(11) NOT NULL,
+  ct int(11) NOT NULL,
+  shortname varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+/*######################################################################################################*/
+
+DROP TABLE IF EXISTS tbl_blogs;
+
+CREATE TABLE tbl_blogs (
+  IdBlog int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  TituloB varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  DescripcionB mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  ImagenB varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  FechaPublicacionB date DEFAULT NULL,
+  DescripcionA varchar(10000) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  IdAdministrador int(11) NOT NULL,
+  estado_rev_texto int(2) NOT NULL DEFAULT 0,
+  estado_rev_mult int(2) NOT NULL DEFAULT 0,
+  texto_img_vid int(2) NOT NULL DEFAULT 0,
+  comentarios_dis varchar(500) NOT NULL DEFAULT '...',
+  Id_categoria int(11) NOT NULL DEFAULT 2,
+  Autor varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+/*######################################################################################################*/
 
 /*######################################################################################################*/
 

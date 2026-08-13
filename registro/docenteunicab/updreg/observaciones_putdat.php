@@ -15,7 +15,7 @@
 	
 	$query1 = "SELECT a.*, o.observacion, ifnull(o.id, -1) id_obs 
 	    FROM 
-	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM estudiantes e 
+	    (SELECT e.id id_est, e.nombres, e.apellidos, e.n_documento FROM tbl_estudiantes e 
 	    WHERE e.nombres like '%$nom%' OR e.apellidos like '%$nom%' OR e.n_documento like '%$nom%') a 
 	    LEFT JOIN tbl_estudiantes_param o 
 	    ON a.id_est = o.id_estudiante";
@@ -26,7 +26,13 @@
 
 <html>
 	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title></title>
+		<title>Thrive Academic Registry</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../images/favicon.png" />
+        <!-- // Favicon -->
+
 		<link rel="stylesheet" href="css/bootstrap.min.css" >
 		<!--<link href="../../css/bootstrap.css" rel='stylesheet' type='text/css' />-->
 		<link href="../../css/font-awesome.css" rel="stylesheet">
@@ -211,10 +217,10 @@
 						<tr>
 							<td>
 								<fieldset>
-									<legend>Observaciones de Estudiantes
+									<legend>Student Observations
 									</legend>
 									<?php
-										echo '<label>Total Registros &#9658; '.$sel.'</label>';
+										echo '<label>Total Records &#9658; '.$sel.'</label>';
 										/*echo "uniprofe".$_SESSION['uniprofe'];
 										echo "unisuper".$_SESSION['unisuper'];
 										echo "admin".$_SESSION['admin_unicab'];*/
@@ -226,10 +232,10 @@
 											<tr class="GridViewScrollHeader">
 											    <td class="tdcorto">&#9658;</td>
 												<td class="tdmediol1"><b>NAME</b></td>
-												<td class="tdmediol1"><b>APELLIDOS</b></td>
+												<td class="tdmediol1"><b>SURNAMES</b></td>
 												<td class="tdmedia1"><b>DOCUMENT</b></td>
-												<td class="tdelargo"><b>OBSERVACION</b></td>
-												<td class="tdmedia"><b>ACCIONES</b></td>
+												<td class="tdelargo"><b>OBSERVATION</b></td>
+												<td class="tdmedia"><b>ACTIONS</b></td>
 												<td class="tdmedia"><b>ID EST</b></td>
 												<td><b>...</b></td>
 											</tr>
@@ -274,7 +280,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">AGREGAR OBSERVACION</h5>
+                <h5 class="modal-title" id="exampleModalLabel">ADD OBSERVATION</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>

@@ -21,7 +21,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Academic Registry</title>
+<title>Thrive Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -49,6 +49,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!--css tabla -->
 <link href="../css/jquery.dataTables.min.css" rel="stylesheet"> 
 <!-- // css tabla -->
+ <link rel="stylesheet" href="updreg/css/reg.css" />
 <!-- Metis Menu -->
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
@@ -78,7 +79,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 		if(extensionValida < 0) {
             //$('#texto').text('La extensión no es válida Su fichero tiene de extensión: .'+ extension);
-            let texto = "La extensión no es válida Su fichero tiene de extensión: ." + extension + ": ";
+            let texto = "The extension is not valid. Your file has the extension: ." + extension + ": ";
             $("#lblmsg").html(texto).css("color","red");
             $("#ctr_ImagenA").val(1);
             mostrar_submit("ImagenA");
@@ -102,7 +103,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 		    if(pesoFichero > pesoPermitido) {
 		        //$('#texto').text('El peso maximo permitido del fichero es: ' + pesoPermitido + ' KBs Su fichero tiene: ' + pesoFichero +' KBs');
-		        let texto = "El peso maximo permitido del fichero es: " + pesoPermitido + " KBs Su fichero tiene: " + pesoFichero + " KBs";
+		        let texto = "The maximum allowed file size is: " + pesoPermitido + " KBs. Your file contains: " + pesoFichero + " KBs";
                 $("#lblmsg").html(texto).css("color","red");
                 $("#ctr_ImagenA").val(1);
                 mostrar_submit("ImagenA");
@@ -158,7 +159,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
         }
         else {
             v_input.setCustomValidity("Ha ingresado caracteres inválidos");
-            let texto = "Ha ingresado caracteres no permitidos para " + desc + ": ";
+            let texto = "You have entered characters that are not allowed for " + desc + ": ";
             texto += "- _ \' \" < > ~ ^ * $ # & = + | { } [ ] \\";
             //alert(texto);
             $("#lblmsg").html(texto).css("color","red");
@@ -169,7 +170,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 		
 		if(control == 0) {
 		    if($(id_obj).val() == "") {
-		        let texto = "El campo " + desc + " se debe llenar";
+		        let texto = "The " + desc + " field is required";
 				$("#lblmsg").html(texto).css("color","red");
 				//$("#alert").show();
                 $(ctr_obj).val(1);
@@ -314,7 +315,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 
 								<input type="hidden" class="form-control" name="IdEmp" value="<?php echo $id;?>" readonly>
 
-								<button type="submit" id="btnguardar" class="btn btn-primary" >Subir</button> 
+								<button type="submit" id="btnguardar" class="btn btn-primary" >Upload</button> 
 							</form>
 						</div>
 						

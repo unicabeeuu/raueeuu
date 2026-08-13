@@ -369,10 +369,10 @@ if (isset($_SESSION['uniprofe'])) {
                             					
                             					<form class="form-horizontal" action="desemp_getdat.php"  method="POST" target="_blank" onsubmit="return validacion()">
                             					<ul class="mprincipal">
-                            						<li><h3>PERFORMANCE TEST</h3></li>
+                            						<li><h3>PERFORMANCE TEST MOODLE</h3></li>
                             							<ul class="msecund">
                             								<li>
-                            								    <input type="text" id="idest_ra" name="idest_ra"/>
+                            								    <input type="text" id="idest_ra" name="idest_ra" placeholder="id est ra"/>
 																<label style="color: white;">...</label>
 																<!--<a href="estudianteg_getdat.php" >Search</a>-->
 																<input type="submit" class="btn btn-primary" value="Search" >

@@ -20,7 +20,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	$id_blog = $_REQUEST['id'];
 	
 	//Se consulta el título
-	$sql_titulo = "SELECT * FROM blog WHERE IdBlog = $id_blog";
+	$sql_titulo = "SELECT * FROM tbl_blogs WHERE IdBlog = $id_blog";
     $exe_titulo = mysqli_query($conexion,$sql_titulo);
     
 	while ($filat = mysqli_fetch_array($exe_titulo)){
@@ -32,7 +32,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Academic Registry</title>
+<title>Thrive Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->

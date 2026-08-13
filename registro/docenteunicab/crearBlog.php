@@ -55,7 +55,7 @@
 		try {	
 			/*$sql_blog="INSERT INTO blog (TituloB, DescripcionB, ImagenB, FechaPublicacionB, DescripcionA, IdAdministrador, estado_rev_texto, estado_rev_mult, texto_img_vid, id_categoria) 
 			VALUES ('".$titulo."','NA','".$destino1."','".$fechaHoy."','".$descripcion."',".$idAdministrador.",0,0,".$check.",".$idcat.")";*/
-			$sql_blog="INSERT INTO blog (TituloB, DescripcionB, ImagenB, FechaPublicacionB, DescripcionA, IdAdministrador, estado_rev_texto, estado_rev_mult, texto_img_vid, id_categoria) 
+			$sql_blog="INSERT INTO tbl_blogs (TituloB, DescripcionB, ImagenB, FechaPublicacionB, DescripcionA, IdAdministrador, estado_rev_texto, estado_rev_mult, texto_img_vid, id_categoria) 
 			VALUES ('".$titulo."','".$inf_complem."','".$destino1."','".$fechaHoy."','".$descripcion."',".$idAdministrador.",0,0,".$check.",".$idcat.")";
 			$exe_blog=mysqli_query($conexion,$sql_blog);
 			//$exe_blog=mysqli_query($conexion,$sql_blog);
@@ -70,11 +70,11 @@
         	  	$id_post = $fila['IdBlog'];
         	}
 			
-			$sql_upd = "UPDATE blog SET DescripcionB = REPLACE(DescripcionB, '&lt;', '<') WHERE IdBlog = $id_post";
+			$sql_upd = "UPDATE tbl_blogs SET DescripcionB = REPLACE(DescripcionB, '&lt;', '<') WHERE IdBlog = $id_post";
 			echo "<br>".$sql_upd;
 			$exe_upd = mysqli_query($conexion,$sql_upd);
 			
-			$sql_upd1 = "UPDATE blog SET DescripcionB = REPLACE(DescripcionB, '&gt;', '>') WHERE IdBlog = $id_post";
+			$sql_upd1 = "UPDATE tbl_blogs SET DescripcionB = REPLACE(DescripcionB, '&gt;', '>') WHERE IdBlog = $id_post";
 			echo "<br>".$sql_upd1;
 			$exe_upd1 = mysqli_query($conexion,$sql_upd1);
         	
@@ -102,8 +102,8 @@
                 $mail->setFrom('webmasterunicab@unicab.org');
                 //$mail->addAddress('numericopensamientoclei2@gmail.com');     // Add a recipient
                 $mail->addAddress('equipocreativo@unicab.org');     // Add a recipient
-                $mail->addAddress('alejandra.rivera@unicab.org');     // Add a recipient
-                $mail->addAddress('olgastella.bioetico@unicab.org');     // Add a recipient
+                //$mail->addAddress('alejandra.rivera@unicab.org');     // Add a recipient
+                //$mail->addAddress('olgastella.bioetico@unicab.org');     // Add a recipient
                 //$mail->addReplyTo('numericopensamientoclei2@gmail.com', 'FYI');
                 $mail->addCC('gregory.figueredo@unicab.org');
                 //$mail->addCC('admisiones02@unicab.org');
@@ -115,17 +115,17 @@
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->CharSet = 'UTF-8';
-                $mail->Subject = 'CREACIÓN DE NUEVO BLOG PARA REVISIÓN ';
-                $mail->Body    = '<p>Se ha creado un nuevo blog que requiere ser revisado en redacción, ortografía y diseño. </p>
-                    <p>Título: <strong>'.$titulo.'</strong></p>
+                $mail->Subject = 'CREATION OF NEW BLOG FOR REVIEW ';
+                $mail->Body    = '<p>A new blog has been created that requires review in writing, spelling, and design. </p>
+                    <p>Title: <strong>'.$titulo.'</strong></p>
                     <p>Id: <strong>'.$id_post.'</strong></p>
-                    <p style="text-align: justify">Por favor ingresa a registro académico y en el menú <strong>Blog/Ver</strong> podrás hacer la revisión para poder ser publicado en la página web.</p>
+                    <p style="text-align: justify">Please go to Academic Records and, in the menu... <strong>Blog/View</strong> you will be able to review it so it can be published on the website.</p>
                     
-                    <p>NOTA: Este es un sistema de envío automático de correos. Por favor no contestar a este email.</p>
+                    <p>NOTA: This is an automated email system. Please do not reply to this email.</p>
                     <p></p>
-                    <br><p>Atentamente</p>
+                    <br><p>Sincerely</p>
                     <p>--</p>
-                    <p>Equipo de sistemas</p>';
+                    <p>Systems Team</p>';
                 //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             
                 $mail->send();
@@ -144,7 +144,7 @@
 	        header('Location: post_putdat1.php?id='.$id_post);
 	
 		} catch (Exception $e) {
-			echo "<script>alert('Esta acción no se pudo ejecutar');</script>";
+			echo "<script>alert('This action could not be executed.');</script>";
 			echo "<script>location.href='index.php';</script>";
 		}
 	/*}

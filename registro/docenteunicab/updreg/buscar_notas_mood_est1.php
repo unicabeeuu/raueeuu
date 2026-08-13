@@ -17,7 +17,13 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
 
 <html>
 	<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-		<title></title>
+		<title>Thrive Academic Registry</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../images/favicon.png" />
+        <!-- // Favicon -->
+
 		<link rel="stylesheet" href="css/bootstrap.min.css" >
 		<link rel="stylesheet" href="css/reg.css" >
 		<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -103,10 +109,10 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
                 cadena = cadena + "<fieldset id='ftm'><legend>MOODLE GRADES</legend><table border='2' bordercolor='#e0e0e0' class='tr'><thead>" +
                                     "<tr>" +
                                     "<td><b>STUDENT ID</b></td>" +
-                                    "<td><b>APELLIDOS</b></td>" +
-                                    "<td><b>NOMBRES</b></td>" +
-                                    "<td><b>PENSAMIENTO</b></td>" +
-                                    "<td><b>PENSAMIENTO RA</b></td>" +
+                                    "<td><b>SURNAMES</b></td>" +
+                                    "<td><b>NAMES</b></td>" +
+                                    "<td><b>STUDY</b></td>" +
+                                    "<td><b>STUDY RA</b></td>" +
                                     "<td><b>MOODLE PERIOD ID</b></td>" +
                                     "<td><b>RA PERIOD</b></td>" +
                                     "<td><b>GRADE</b></td></tr></thead><tbody>";
@@ -153,7 +159,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
             			$("#ftm").remove();
     			        $("#tablam").append(cadena);
             			$("#tablam").show();
-            			$("#lbl").html("Registros insertados: "+ins+". Registros actualizados: "+upd);
+            			$("#lbl").html("Inserted records: "+ins+". Updated records: "+upd);
             		}
             	});
             }
@@ -176,7 +182,7 @@ if (isset($_SESSION['uniprofe']) || isset($_SESSION['unisuper'])) {
 </html>
 <?php
     }else{
-    	echo "<script>alert('Debes iniciar sesión');</script>";
+    	echo "<script>alert('You must log in');</script>";
     	echo "<script>location.href='../../../login_registro.php'</script>";
     }
 ?>

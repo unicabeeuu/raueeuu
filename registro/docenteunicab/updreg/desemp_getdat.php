@@ -27,14 +27,14 @@
 	$resultado_r0=$mysqli1->query($queryr0);
 	
 	//Se busca el id estudiante de moodle
-	$queryr1 = "SELECT id_moodle FROM equivalence_idest WHERE id_registro = '$idest'";
+	$queryr1 = "SELECT id_moodle FROM tbl_equivalence_idest WHERE id_registro = '$idest'";
 	$resultado_r1=$mysqli1->query($queryr1);
 	while($row1 = $resultado_r1->fetch_assoc()){
 		$idest_m = $row1['id_moodle'];
 	}
 	
 	//echo $idest_m;
-	//AND c.shortname NOT IN ('CapDocente','Infograf¨ªas','Ingraf¨ªas','Pr¨¢cticaDoc','Ajedrz','Inducci¨®n','Inducci¨®n-Unicab') 
+	//AND c.shortname NOT IN ('CapDocente','Infografï¿½ï¿½as','Ingrafï¿½ï¿½as','Prï¿½ï¿½cticaDoc','Ajedrz','Inducciï¿½ï¿½n','Inducciï¿½ï¿½n-Unicab') 
 	$query1 = "SELECT UPPER(CONCAT(u.lastname, ' ', u.firstname)) nombre, u.id, c.shortname, cast(ifnull(gg.finalgrade/10, 0) as decimal(10,1)) as calificacion, 
 	    gi.itemname, gi.idnumber 
 		FROM mood_grade_grades gg, mood_grade_items gi, mood_course c, mood_user u, mood_role_assignments ra, mood_context ct   
@@ -49,7 +49,7 @@
 	//echo $_SESSION['admin_unicab'];
 	$resultado=$mysqli->query($query1);
 	$sel = $mysqli->affected_rows;
-	//echo $sel;
+	//echo "sel ".$sel;
 	
 	while($row = $resultado->fetch_assoc()){
 		if (isset($_SESSION['uniprofe'])) {
@@ -86,8 +86,8 @@
 		ON a.shortname = c.shortname";*/
 		
 		//ta.ct -> cantidad total de actividades por curso
-		//z.cb -> cantidad de actividades con calificaci¨®n entre 3 y 4
-		//z.ca -> cantidad de actividades con calificaci¨®n mayor a 4
+		//z.cb -> cantidad de actividades con calificaciï¿½ï¿½n entre 3 y 4
+		//z.ca -> cantidad de actividades con calificaciï¿½ï¿½n mayor a 4
 		$query3 = "SELECT ta.ct ctt, ta.shortname, z.cb, z.ca, ta.ct-z.cb-z.ca cf 
 		FROM 
 		(SELECT a.ct ctt, a.shortname, ifnull(b.ct,0) cb, ifnull(c.ct,0) ca 
@@ -139,6 +139,7 @@
 		tbl_tot_act_curso ta WHERE z.shortname = ta.shortname";
 	}
 	//echo $query3;
+	//var_dump($desemp);
 	
 	$resultado3=$mysqli1->query($query3);
 	while($row3 = $resultado3->fetch_assoc()){
@@ -150,7 +151,7 @@
 	//https://unicab.org/registro/docenteunicab/updreg/buscar_notas.php
 	
 /*}else{
-	echo "<script>alert('Debes iniciar sesi¨®n');</script>";
+	echo "<script>alert('Debes iniciar sesiï¿½ï¿½n');</script>";
 	echo "<script>location.href='../login.php'</script>";
 }*/
 

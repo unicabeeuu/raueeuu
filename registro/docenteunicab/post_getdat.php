@@ -19,7 +19,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	
 	//Se consulta el título
 	$sql = "SELECT b.* , e.nombres, e.apellidos, e.id 
-	FROM blog b, tbl_empleados e 
+	FROM tbl_blogs b, tbl_empleados e 
 	WHERE b.idAdministrador = e.id AND (b.estado_rev_texto = 0 OR b.estado_rev_mult = 0) 
 	AND date_format(b.FechaPublicacionB, '%Y') = 2022";
     $exe_sql = mysqli_query($conexion,$sql);
@@ -29,7 +29,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Unicab Academic Registry</title>
+<title>Thrive Academic Registry</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
@@ -193,7 +193,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						                <th>Description</th>
 						                <th>Created by</th>
 						                <th>Design comments</th>
-	                                    <th>Revisar</th>
+	                                    <th>Review</th>
 						            </tr>
 						        </thead>
 						        <tbody>

@@ -9,7 +9,7 @@
 	set_time_limit(300);
 	
 	header("Content-type:application/xls; charset=iso-8859-1");
-	header("Content-Disposition: attachment; filename=base_datos.xls");
+	header("Content-Disposition: attachment; filename=student_database.xls");
 	
 if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     //$sql="SELECT * FROM profesores WHERE email_institucional='".$_SESSION['uniprofe']."'";
@@ -170,10 +170,8 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 	<body>
 		<center>
 			<fieldset>
-				<legend>Base de Datos de Estudiantes
-				</legend>
 				<?php
-					echo '<label>Base de Datos de Estudiantes. Total Registros &#9658; '.$sel.'</label>';
+					echo '<label>Student Database. Total Records &#9658; '.$sel.'</label>';
 				?>
 				<table border="1px" class="table" id="tblest">
 					<thead>
@@ -183,25 +181,25 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
 						<td class="tdmedia"><b>GRADE ID</b></td>
 						<td class="tdnormal"><b>GRADE</b></td>
 						<td class="tdnormal"><b>GROUP</b></td>
-						<td class="tdmediol"><b>ENROLLMENT</b></td>
-						<td class="tdnormal"><b>ID MAT.</b></td>
-						<td class="tdmedia"><b>USUARIO</b></td>
+						<td class="tdmediol"><b>TUITION</b></td>
+						<td class="tdnormal"><b>ID TUITION</b></td>
+						<td class="tdmedia"><b>USER</b></td>
 						<td class="tdmediol"><b>DOCUMENT No.</b></td>
 						<td class="tdmediol"><b>DOCUMENT TYPE</b></td>
-						<td class="tdmediol1"><b>EXPEDICION</b></td>
+						<td class="tdmediol1"><b>EXPEDITION</b></td>
 						<td class="tdmediol"><b>BIRTH DATE</b></td>
 						<td class="tdlargo"><b>EMAIL INST</b></td>
-						<td class="tdlargo"><b>ACUDIENTE 1</b></td>
-						<td class="tdlargo"><b>EMAIL ACUDIENTE 1</b></td>
-						<td class="tdmediol1"><b>GUARDIAN 1 PHONE</b></td>
-						<td class="tdlargo"><b>ACUDIENTE 2</b></td>
-						<td class="tdlargo"><b>EMAIL ACUDIENTE 2</b></td>
-						<td class="tdmediol1"><b>GUARDIAN 2 PHONE</b></td>
+						<td class="tdlargo"><b>GUARDIAN 1</b></td>
+						<td class="tdlargo"><b>EMAIL GUARDIAN 1</b></td>
+						<td class="tdmediol1"><b>PHONE GUARDIAN 1</b></td>
+						<td class="tdlargo"><b>GUARDIAN 2</b></td>
+						<td class="tdlargo"><b>EMAIL GUARDIAN 2</b></td>
+						<td class="tdmediol1"><b>PHONE GUARDIAN 2</b></td>
 						<td class="tdelargo"><b>ADDRESS</b></td>
 						<td class="tdmediol1"><b>CITY</b></td>
-						<td class="tdmediol"><b>ACTIVIDAD EXTRA</b></td>
-						<td class="tdmediol"><b>OBSERVACIONES</b></td>
-						<td class="tdmediol"><b>GENERO</b></td>
+						<td class="tdmediol"><b>ADDITIONAL ACTIVITY</b></td>
+						<td class="tdmediol"><b>OBSERVATIONS</b></td>
+						<td class="tdmediol"><b>GENDER</b></td>
 						<td class="tdmediol"><b>STATUS</b></td>
 					</tr>
 					</thead>
