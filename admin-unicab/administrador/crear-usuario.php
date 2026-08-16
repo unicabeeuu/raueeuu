@@ -88,17 +88,19 @@
 									<input type="text" class="form-control" id="ApellidoU" name="ApellidoU" placeholder="Ingrese apellido" onblur="javascript:Validar();">
 								</div>
 
-								<div class="form-group"> 
-                                	<label for="PerfilU">Perfil:</label> 
+								<!-- La tabla `administrador` no tiene la columna `Perfil` en la BD.
+								<div class="form-group">
+                                	<label for="PerfilU">Perfil:</label>
 									<select id="PerfilU" name="PerfilU" width="300px" class="form-control1" onblur="javascript:Validar();">
 										<option value="0">--- SELECCIONE ---</option>
 										<option value="Psicólogo">Psicólogo</option>
                                         <option value="Publicista">Publicista</option>
 									</select>
 								</div>
+								-->
 
-								<div class="form-group"> 
-									<label for="CorreoU">Correo Electrónico</label> 
+								<div class="form-group">
+									<label for="CorreoU">Correo Electrónico</label>
 									<input type="text" class="form-control" id="CorreoU" name="CorreoU" placeholder="Ingrese correo electrónico" onblur="javascript:Validar();">
 								</div>
                                 	
@@ -167,7 +169,8 @@
 			let nombre=document.getElementById('NombreU').value;
 			let apellido=document.getElementById('ApellidoU').value;
 			let correo=document.getElementById('CorreoU').value;
-			let perfil=document.getElementById('PerfilU').value;
+			// La tabla `administrador` no tiene la columna `Perfil` en la BD.
+			// let perfil=document.getElementById('PerfilU').value;
 			let pass=document.getElementById('PassU').value;
 
 			emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
@@ -186,12 +189,14 @@
 		   		$('#alert').html('').slideUp(300);			
 			}
 
+			/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 			if (perfil==0) {
 				$('#alert').html('<center><strong>Advertencia</strong> Debe seleccionar un perfil valido</center>').slideDown(500);
 				return false;
 			}else{
-		   		$('#alert').html('').slideUp(300);			
+		   		$('#alert').html('').slideUp(300);
 			}
+			*/
 
 			if (emailRegex.test(correo)) {
 		 		$('#alert').html('').slideUp(300);	

@@ -18,7 +18,9 @@
 		$apellido=$_POST['ApellidoU'];
 		$correo=$_POST['CorreoU'];
 		$pass=$_POST['PassU'];
+		/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 		$perfil=$_POST['PerfilU'];
+		*/
 
 		try {	
 			$sql_buscar="SELECT * FROM `administrador` WHERE `Email`='".$correo."'";
@@ -26,7 +28,10 @@
 			if (mysqli_num_rows($exe_buscar)>1) {
 				echo "<script>alert('Ya se encuentra un usuario con ese mismo Correo');</script>";
 			}else{
+				/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 				$sql_insert="INSERT INTO `administrador`(`Nombre`, `Apellido`, `Email`, `Password`, `Perfil`) VALUES ('".$nombre."','".$apellido."','".$correo."','".$pass."','".$perfil."')";
+				*/
+				$sql_insert="INSERT INTO `administrador`(`Nombre`, `Apellido`, `Email`, `Password`) VALUES ('".$nombre."','".$apellido."','".$correo."','".$pass."')";
 				$exe_buscar_insert=mysqli_query($conexion,$sql_insert);
 				echo "<script>alert('El usuario fue creado correctamente');</script>";
 			}

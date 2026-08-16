@@ -21,11 +21,13 @@
 
 		// var_dump($_POST['PerfilNuevo']);
 
+		/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 		if ($_POST['PerfilNuevo'] == "") {
 			$perfil=$_POST['PerfilActual'];
 		}else{
 			$perfil=$_POST['PerfilNuevo'];
 		}
+		*/
 
 		if ($_POST['PassU'] !== null) {
 			$pass=$_POST['PassU'];
@@ -35,9 +37,15 @@
 
 		try {
 			if ($pass==NULL) {
+				/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 				$sql_update="UPDATE `administrador` SET `Nombre`='".$nombre."',`Apellido`='".$apellido."',`Email`='".$correo."',`Perfil`='".$perfil."' WHERE IdAdministrador=".$id."";
+				*/
+				$sql_update="UPDATE `administrador` SET `Nombre`='".$nombre."',`Apellido`='".$apellido."',`Email`='".$correo."' WHERE IdAdministrador=".$id."";
 			}else{
+				/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 				$sql_update="UPDATE `administrador` SET `Nombre`='".$nombre."',`Apellido`='".$apellido."',`Email`='".$correo."',`Password`='".$pass."',`Perfil`='".$perfil."' WHERE `IdAdministrador`=".$id."";
+				*/
+				$sql_update="UPDATE `administrador` SET `Nombre`='".$nombre."',`Apellido`='".$apellido."',`Email`='".$correo."',`Password`='".$pass."' WHERE `IdAdministrador`=".$id."";
 			}
 			$exe_update=mysqli_query($conexion,$sql_update);
 			echo "<script>alert('Usuario actualizado correctamente');</script>";	

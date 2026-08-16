@@ -72,20 +72,27 @@
 					            <tr>
 					                <th><center>Usuario</center></th>
 					                <th><center>Correo</center></th>
-					                <th><center>Perfil</center></th>
+					                <!-- <th><center>Perfil</center></th> -->
 					                <th><center>Acciones</center></th>
 					            </tr>
 					        </thead>
 					        <tbody>
 					        	<?php 
+					        		/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 					        		$sql_administrador="SELECT * FROM `administrador` ORDER BY `Perfil` ASC";
+					        		*/
+					        		$sql_administrador="SELECT * FROM `administrador` ORDER BY `Nombre` ASC";
 					        		$exe_administrador=mysqli_query($conexion,$sql_administrador);
 					        		while ($rowAdministrador=mysqli_fetch_array($exe_administrador)) {
 					        			echo "
 					        			<tr>
 					        				<td>".$rowAdministrador['Nombre']." ".$rowAdministrador['Apellido']."</td>		
 					        				<td>".$rowAdministrador['Email']."</td>		
-					        				<td>".$rowAdministrador['Perfil']."</td>		
+					        				";
+					        			/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
+					        			echo "<td>".$rowAdministrador['Perfil']."</td>";
+					        			*/
+					        			echo "		
 					        				<td><center>
 					        				<a href='editar-usuario.php?id=".$rowAdministrador['IdAdministrador']."'><i class='fa fa-pencil' aria-hidden='true'> Editar</i></a> | 
 					        				<a href='php/eliminarUsuario.php?id=".$rowAdministrador['IdAdministrador']."'><i class='fa fa-trash' aria-hidden='true'> Borrar</i></a></center> 
@@ -100,7 +107,7 @@
 					            <tr>
 					                <th><center>Usuario</center></th>
 					                <th><center>Correo</center></th>
-					                <th><center>Perfil</center></th>
+					                <!-- <th><center>Perfil</center></th> -->
 					                <th><center>Acciones</center></th>
 					            </tr>
 					        </tfoot>
@@ -156,6 +163,7 @@
 
 	<script src="../js/jquery-3.3.1.js"> </script>
 	<script src="../js/jquery.dataTables.min.js"> </script>
+	<script src="../js/datatables-lang.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 	    	$('#example').DataTable();

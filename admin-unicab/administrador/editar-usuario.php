@@ -11,7 +11,10 @@
 			$nombreA=$rowAdminstrador['Nombre'];
 			$apellidoA=$rowAdminstrador['Apellido'];
 			$correoA=$rowAdminstrador['Email'];
+			/* La tabla `administrador` no tiene la columna `Perfil` en la BD.
 			$perfilA=$rowAdminstrador['Perfil'];
+			*/
+			$perfilA="";
 		}
 ?>
 <!DOCTYPE HTML>
@@ -89,8 +92,9 @@
 									<input type="text" class="form-control" id="ApellidoU" name="ApellidoU" placeholder="Ingrese apellido" value="<?php echo $apellidoA; ?>" onblur="javascript:Validar();">
 								</div>
 
-								<div class="form-group"> 
-									<label for="PerfilActual">Perfil</label> 
+								<!-- La tabla `administrador` no tiene la columna `Perfil` en la BD.
+								<div class="form-group">
+									<label for="PerfilActual">Perfil</label>
 									<input type="text" class="form-control" value="<?php echo $perfilA; ?>" disabled="">
 								</div>
 
@@ -109,10 +113,11 @@
 	                                        <option value="Publicista">Publicista</option>
 										</select>
 									</div>
-								</div>	
+								</div>
+								-->
 
-								<div class="form-group"> 
-									<label for="CorreoU">Correo Electrónico</label> 
+								<div class="form-group">
+									<label for="CorreoU">Correo Electrónico</label>
 									<input type="text" class="form-control" id="CorreoU" name="CorreoU" placeholder="Ingrese correo electrónico" value="<?php echo $correoA; ?>" onblur="javascript:Validar();">
 								</div>
 
@@ -131,7 +136,9 @@
 
 								<input type="hidden" name="IdAdministrador" value="<?php echo $idAdministrador; 
 								?>">
+								<!-- La tabla `administrador` no tiene la columna `Perfil` en la BD.
 								<input type="hidden" name="PerfilActual" value="<?php echo $perfilA; ?>">
+								-->
 
                              	<button type="submit" class="btn btn-default">Guardar Cambios</button> 
 								<br>
