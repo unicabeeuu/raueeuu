@@ -191,6 +191,7 @@ $peticion="SELECT e.*, m.estado estado_m, m.n_matricula
     
     <!-- js tabla -->
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/datatables-lang.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
     	$('#listEstudiantes').DataTable();	

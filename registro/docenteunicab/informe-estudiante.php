@@ -387,6 +387,7 @@ FROM tbl_matriculas INNER JOIN tbl_grados ON tbl_matriculas.id_grado=tbl_grados.
 
 	<!-- js tabla -->
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/datatables-lang.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
     	    $('#listEstudiantes').DataTable();	

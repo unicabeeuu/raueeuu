@@ -832,6 +832,7 @@ $sql_ant = "SELECT a.id, a.ultimo_grado grado, COUNT(1) ct FROM
     
     <!-- js tabla -->
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/datatables-lang.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
     	$('#listEstudiantes').DataTable();	

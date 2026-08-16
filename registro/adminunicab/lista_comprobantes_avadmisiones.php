@@ -643,9 +643,6 @@ if (isset($_SESSION['unisuper'])) {
 					responsive: false,
 					autoWidth: false,
 					scrollX: true, // agrega scroll horizontal si el contenido es muy ancho
-					language: {
-						url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
-					},
 					columnDefs: [
 						{ targets: "_all", className: "dt-head-center dt-body-center" }
 					]
@@ -655,9 +652,6 @@ if (isset($_SESSION['unisuper'])) {
 					responsive: false,
 					autoWidth: false,
 					scrollX: true, // agrega scroll horizontal si el contenido es muy ancho
-					language: {
-						url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
-					},
 					columnDefs: [
 						{ targets: "_all", className: "dt-head-center dt-body-center" }
 					]
@@ -690,6 +684,7 @@ if (isset($_SESSION['unisuper'])) {
 
 	<!-- js tabla -->
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/datatables-lang.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
     	$('#listEstudiantes').DataTable();	

@@ -394,6 +394,7 @@ $sql_num = "SELECT e.telefono_acudiente_1, e.telefono_acudiente_2, e.nombres, e.
     
     <!-- js tabla -->
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/datatables-lang.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
     	$('#listEstudiantes').DataTable();	

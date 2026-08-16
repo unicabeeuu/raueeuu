@@ -436,6 +436,7 @@
 		
 		<!-- js tabla -->
     	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    	<script src="js/datatables-lang.js"></script>
     	<script type="text/javascript">
     		$(document).ready(function() {
         	//$('#listatran').DataTable();	

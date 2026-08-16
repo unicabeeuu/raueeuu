@@ -285,6 +285,7 @@ if (isset($_SESSION['unisuper']) || isset($_SESSION['uniprofe'])) {
     
     <!-- js tabla -->
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/datatables-lang.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
     	$('#listaBlogs').DataTable();	
